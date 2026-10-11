@@ -23,6 +23,8 @@ Paper 4 is an offline next-evidence planner. Its workflow is:
 
 The implementation contains shared schemas, question loading, hypothesis generation, a typed graph with confidence-weighted supports/contradictions/derivations/observations, gap analysis, configurable action generation, utility estimators, ranking, Bayesian belief updates, and historical evaluation. Utility components are information gain, provenance-based novelty, tractability, and cost, with YAML-configurable weights. The repository reports seven metrics: top-K utility, entropy reduction, average information gain, action diversity, hypothesis coverage, resolution efficiency, and expected utility.
 
+The Paper 4 `configs/default.yaml` sets weights to information gain 10.0, novelty 1.0, tractability 1.0, and cost 1.0. Information gain is measured in bits, while the other components are scores in [0, 1]. The execution pilot now uses those default weights and records utility breakdowns. Its novelty estimator is an explicit adapter based on unseen provenance roots, not an imported copy of Paper 4's estimator.
+
 The explicit boundary is important: Paper 4 does not execute agents, browsers, instruments, or experiments. It plans from static datasets and evaluates against hidden post-cutoff historical outcomes. Paper 5's new contribution must be controlled execution and evidence ingestion under matched budgets, not a claim that the planner itself is new.
 
 ## Revision and limitation

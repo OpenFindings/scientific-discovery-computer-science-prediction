@@ -38,6 +38,7 @@ class Action:
     cost: float
     tractability: float = 1.0
     expected_outcomes: dict[str, dict[str, float]] = field(default_factory=dict)
+    provenance_roots: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)

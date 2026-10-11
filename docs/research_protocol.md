@@ -1,22 +1,28 @@
-# Research protocol (Paper 5 pilot)
+# Research protocol (Paper 5 execution and falsification pilot)
 
 ## Scope
 
 The first campaign targets software-engineering causal diagnosis in controlled, executable failures. This tests infrastructure and measurement validity; it is not evidence that the method solves SWE-bench or performs scientific discovery in the broad sense.
 
-## Pre-specified pilot
+## Pre-specified executable comparison
 
-- Benchmark: `controlled-pilot-v1`, four cases, two competing hypotheses.
-- Primary outcome: exact causal-mechanism resolution.
-- Secondary outcomes: action count, declared action cost, and belief entropy after each observation.
-- Planner: expected entropy reduction plus tractability minus cost.
-- Stopping rule: at most two actions; choose the highest-ranked remaining action.
-- Truth access: only the benchmark harness may access the hidden truth; agents receive observations from executed actions.
-- Repetition: deterministic replay first; stochastic model comparisons require a frozen model/configuration and repeated seeds before claims are made.
+- Study: `P5-EXEC-FALSIFY-PILOT-001`, benchmark `controlled-executable-diagnosis-v1`.
+- Cases: four runnable code fixtures covering a null guard fault, an indexing fault, a third mechanism, and a context-dependent confound.
+- Competing hypotheses: null guard, boundary indexing, and none of the above.
+- Conditions: direct fixed probe; fixed workflow; one-step Paper 4 utility adapter; utility adapter with posterior feedback; and utility adapter followed by an explicit counter-hypothesis probe.
+- Primary outcome: correct resolved diagnoses divided by all four cases.
+- Resolution rule: posterior at least 0.80 after at least two distinct probe families.
+- Secondary outcomes: unsupported provisional conclusions, action count/cost, and counterevidence events.
+- Budget: maximum three actions per case and identical registered probes for every condition.
+- Planner weights: Paper 4 default configuration, IG 10, novelty 1, tractability 1, cost 1. Novelty uses an explicit unseen-provenance-root adapter and is recorded separately.
+- Likelihoods: declared in `execution_study.py`; Bayesian updates assume conditional independence between probe outcomes. All probes operate on the same case artifact, so this assumption is a known limitation and not equivalent to independent source provenance.
+- Truth access: task source and question are passed to the policy; hidden labels are read only by the scoring block after the policy returns.
+- Repetition: one deterministic run per system/question cell. The result is a software plumbing pilot, not a powered comparison.
 
-The protocol intentionally excludes confidence intervals and significance claims for four pilot cases. Those belong to the final evaluation after benchmark validation and pre-registration.
+With four cases, Wilson intervals are shown descriptively and no significance claim is made. The originally separate `controlled-pilot-v1` remains a deterministic unit fixture and is not mixed into this comparison.
 
 ## Safety and validity
 
-Only allow-listed programs may execute, shell interpretation is disabled, timeouts are recorded, and stdout/stderr/exit status are retained. Failed or timed-out experiments are first-class records. The pilot's oracle-backed observation adapter is a test fixture, not a production experiment executor.
+Only Python commands are allow-listed, shell interpretation is disabled, and each action has a temporary workspace, timeout, CPU/memory/file/output limits, a scrubbed environment, and raw stdout/stderr/exit status in the record. macOS `sandbox-exec` denies network and writes outside the per-action scratch directory. In this managed Codex run, nested `sandbox-exec` was denied, so the pilot used the outer managed sandbox with process resource limits; the report records this backend. Standalone runs fail closed unless the caller explicitly enables the managed-sandbox fallback.
 
+Failed and timed-out experiments remain first-class records. Before evaluating a real public benchmark, the executor must be run in a supported OS/container sandbox and the benchmark's license, dependencies, and task-level leakage risks must be audited.

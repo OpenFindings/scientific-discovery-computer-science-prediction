@@ -1,0 +1,1602 @@
+{
+  "benchmark": "controlled-executable-diagnosis-v1",
+  "caveat": "Synthetic controlled pilot validates execution and falsification plumbing only; it is not a benchmark result for real software repositories or an LLM comparison.",
+  "design": {
+    "conditions": [
+      "direct",
+      "fixed-workflow",
+      "paper4-planner",
+      "planner-feedback",
+      "adversarial-falsification"
+    ],
+    "evidence_independence_warning": "All probes exercise one subject artifact per case; posterior updates assume conditional independence and probe families are not independent source roots.",
+    "max_actions": 3,
+    "minimum_distinct_probe_families_for_resolution": 2,
+    "primary_outcome": "correct resolved diagnosis / all questions",
+    "repetitions": "one deterministic run per system-question cell",
+    "resolution_threshold": 0.8,
+    "secondary_outcomes": [
+      "unsupported conclusion rate",
+      "actions",
+      "cost"
+    ],
+    "tasks": [
+      "case-null",
+      "case-boundary",
+      "case-other",
+      "case-confounded"
+    ]
+  },
+  "planner_configuration": {
+    "known_subject_root": "subject-artifact",
+    "novelty_estimator": "fraction of action provenance roots not yet observed",
+    "source": "Paper 4 configs/default.yaml",
+    "source_url": "https://github.com/nonameisready/scientific-evidence-planner/blob/claude/evidence-planner-framework-mh6zwz/configs/default.yaml",
+    "weights": {
+      "cost": 1.0,
+      "information_gain": 10.0,
+      "novelty": 1.0,
+      "tractability": 1.0
+    }
+  },
+  "study_id": "P5-EXEC-FALSIFY-PILOT-001",
+  "summaries": {
+    "adversarial-falsification": {
+      "correct_provisional_predictions": 3,
+      "correct_resolution_rate": 0.75,
+      "correct_resolutions": 3,
+      "counterevidence_events": 1,
+      "mean_actions": 2.25,
+      "mean_cost": 2.25,
+      "n_questions": 4,
+      "provisional_prediction_accuracy": 1.0,
+      "provisional_predictions": 3,
+      "question_level_results": [
+        {
+          "actions": 2,
+          "confidence": 0.9950900163666121,
+          "correct": true,
+          "cost": 2.0,
+          "distinct_probe_families": 2,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.03809523809523809,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9142857142857143
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.061468,
+              "entropy_after": 0.3513908893235963,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "a:x",
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\", \"actual\": \"a:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.002182214948172395,
+                "H-none": 0.002727768685215494,
+                "H-null": 0.9950900163666121
+              },
+              "beliefs_before": {
+                "H-boundary": 0.03809523809523809,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9142857142857143
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060276,
+              "entropy_after": 0.03437473270409632,
+              "exit_code": 0,
+              "falsification_target": "H-null",
+              "observed": {
+                "detail": "'NoneType' object is not subscriptable",
+                "exception": "TypeError",
+                "outcome": "null-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"null-failure\", \"exception\": \"TypeError\", \"detail\": \"'NoneType' object is not subscriptable\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.002182214948172395,
+            "H-none": 0.002727768685215494,
+            "H-null": 0.9950900163666121
+          },
+          "prediction": "H-null",
+          "provisional_prediction": "H-null",
+          "question_id": "case-null",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 2,
+          "confidence": 0.9971783295711061,
+          "correct": true,
+          "cost": 2.0,
+          "distinct_probe_families": 2,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.056822,
+              "entropy_after": 0.23584621244223491,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9971783295711061,
+                "H-none": 0.001693002257336343,
+                "H-null": 0.001128668171557562
+              },
+              "beliefs_before": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.052277,
+              "entropy_after": 0.02128111095282099,
+              "exit_code": 0,
+              "falsification_target": "H-boundary",
+              "observed": {
+                "detail": "list index out of range",
+                "exception": "IndexError",
+                "outcome": "boundary-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-failure\", \"exception\": \"IndexError\", \"detail\": \"list index out of range\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.9971783295711061,
+            "H-none": 0.001693002257336343,
+            "H-null": 0.001128668171557562
+          },
+          "prediction": "H-boundary",
+          "provisional_prediction": "H-boundary",
+          "question_id": "case-boundary",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 2,
+          "confidence": 0.9770821688093907,
+          "correct": true,
+          "cost": 2.0,
+          "distinct_probe_families": 2,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.03092783505154639,
+                "H-none": 0.9484536082474226,
+                "H-null": 0.020618556701030927
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.054624,
+              "entropy_after": 0.2377348927751774,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "x:a",
+                "outcome": "other-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"other-signature\", \"actual\": \"x:a\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.0016769144773616546,
+                "H-none": 0.9770821688093907,
+                "H-null": 0.021240916713247626
+              },
+              "beliefs_before": {
+                "H-boundary": 0.03092783505154639,
+                "H-none": 0.9484536082474226,
+                "H-null": 0.020618556701030927
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060535,
+              "entropy_after": 0.11518632654937465,
+              "exit_code": 0,
+              "falsification_target": "H-none",
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.0016769144773616546,
+            "H-none": 0.9770821688093907,
+            "H-null": 0.021240916713247626
+          },
+          "prediction": "H-none",
+          "provisional_prediction": "H-none",
+          "question_id": "case-other",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 3,
+          "confidence": 0.611842105263158,
+          "correct": null,
+          "cost": 3.0,
+          "distinct_probe_families": 3,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.052805,
+              "entropy_after": 0.23584621244223491,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.49468085106382986,
+                "H-none": 0.3031914893617021,
+                "H-null": 0.20212765957446804
+              },
+              "beliefs_before": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "counterevidence": true,
+              "duration_seconds": 0.051545,
+              "entropy_after": 1.033176275598966,
+              "exit_code": 0,
+              "falsification_target": "H-boundary",
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.611842105263158,
+                "H-none": 0.37499999999999994,
+                "H-null": 0.013157894736842105
+              },
+              "beliefs_before": {
+                "H-boundary": 0.49468085106382986,
+                "H-none": 0.3031914893617021,
+                "H-null": 0.20212765957446804
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.052274,
+              "entropy_after": 0.7253807215637629,
+              "exit_code": 0,
+              "falsification_target": "H-boundary",
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.611842105263158,
+            "H-none": 0.37499999999999994,
+            "H-null": 0.013157894736842105
+          },
+          "prediction": null,
+          "provisional_prediction": null,
+          "question_id": "case-confounded",
+          "resolved": false,
+          "unsupported_conclusion": false
+        }
+      ],
+      "unsupported_conclusion_rate": 0.0,
+      "unsupported_conclusions": 0,
+      "wilson_95_interval": [
+        0.3006360524426366,
+        0.9544139373553637
+      ]
+    },
+    "direct": {
+      "correct_provisional_predictions": 1,
+      "correct_resolution_rate": 0.0,
+      "correct_resolutions": 0,
+      "counterevidence_events": 0,
+      "mean_actions": 1.0,
+      "mean_cost": 1.0,
+      "n_questions": 4,
+      "provisional_prediction_accuracy": 1.0,
+      "provisional_predictions": 1,
+      "question_level_results": [
+        {
+          "actions": 1,
+          "confidence": 0.9047619047619048,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.04761904761904762,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9047619047619048
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060561,
+              "entropy_after": 0.3805062184775959,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "detail": "'NoneType' object is not subscriptable",
+                "exception": "TypeError",
+                "outcome": "null-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"null-failure\", \"exception\": \"TypeError\", \"detail\": \"'NoneType' object is not subscriptable\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.04761904761904762,
+            "H-none": 0.04761904761904762,
+            "H-null": 0.9047619047619048
+          },
+          "prediction": null,
+          "provisional_prediction": "H-null",
+          "question_id": "case-null",
+          "resolved": false,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 1,
+          "confidence": 0.4871794871794871,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.059151,
+              "entropy_after": 0.7946211023264481,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.4871794871794871,
+            "H-none": 0.4871794871794871,
+            "H-null": 0.02564102564102564
+          },
+          "prediction": null,
+          "provisional_prediction": null,
+          "question_id": "case-boundary",
+          "resolved": false,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 1,
+          "confidence": 0.4871794871794871,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.052885,
+              "entropy_after": 0.7946211023264481,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.4871794871794871,
+            "H-none": 0.4871794871794871,
+            "H-null": 0.02564102564102564
+          },
+          "prediction": null,
+          "provisional_prediction": null,
+          "question_id": "case-other",
+          "resolved": false,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 1,
+          "confidence": 0.4871794871794871,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.0597,
+              "entropy_after": 0.7946211023264481,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.4871794871794871,
+            "H-none": 0.4871794871794871,
+            "H-null": 0.02564102564102564
+          },
+          "prediction": null,
+          "provisional_prediction": null,
+          "question_id": "case-confounded",
+          "resolved": false,
+          "unsupported_conclusion": false
+        }
+      ],
+      "unsupported_conclusion_rate": 0.0,
+      "unsupported_conclusions": 0,
+      "wilson_95_interval": [
+        0.0,
+        0.48990002040399916
+      ]
+    },
+    "fixed-workflow": {
+      "correct_provisional_predictions": 3,
+      "correct_resolution_rate": 0.75,
+      "correct_resolutions": 3,
+      "counterevidence_events": 0,
+      "mean_actions": 3.0,
+      "mean_cost": 3.0,
+      "n_questions": 4,
+      "provisional_prediction_accuracy": 1.0,
+      "provisional_predictions": 3,
+      "question_level_results": [
+        {
+          "actions": 3,
+          "confidence": 0.9971514889943893,
+          "correct": true,
+          "cost": 3.0,
+          "distinct_probe_families": 3,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.04761904761904762,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9047619047619048
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.062791,
+              "entropy_after": 0.3805062184775959,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "detail": "'NoneType' object is not subscriptable",
+                "exception": "TypeError",
+                "outcome": "null-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"null-failure\", \"exception\": \"TypeError\", \"detail\": \"'NoneType' object is not subscriptable\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.002624671916010499,
+                "H-none": 0.049868766404199474,
+                "H-null": 0.94750656167979
+              },
+              "beliefs_before": {
+                "H-boundary": 0.04761904761904762,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9047619047619048
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.062428,
+              "entropy_after": 0.21621332903134044,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.00011509135376204865,
+                "H-none": 0.002733419651848655,
+                "H-null": 0.9971514889943893
+              },
+              "beliefs_before": {
+                "H-boundary": 0.002624671916010499,
+                "H-none": 0.049868766404199474,
+                "H-null": 0.94750656167979
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.063225,
+              "entropy_after": 0.020021498383379664,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "a:x",
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\", \"actual\": \"a:x\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.00011509135376204865,
+            "H-none": 0.002733419651848655,
+            "H-null": 0.9971514889943893
+          },
+          "prediction": "H-null",
+          "provisional_prediction": "H-null",
+          "question_id": "case-null",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 3,
+          "confidence": 0.9982457183634634,
+          "correct": true,
+          "cost": 3.0,
+          "distinct_probe_families": 3,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.050845,
+              "entropy_after": 0.7946211023264481,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.94750656167979,
+                "H-none": 0.049868766404199474,
+                "H-null": 0.002624671916010499
+              },
+              "beliefs_before": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.051819,
+              "entropy_after": 0.21621332903134044,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "detail": "list index out of range",
+                "exception": "IndexError",
+                "outcome": "boundary-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-failure\", \"exception\": \"IndexError\", \"detail\": \"list index out of range\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9982457183634634,
+                "H-none": 0.0016948144624167462,
+                "H-null": 5.946717411988584e-05
+              },
+              "beliefs_before": {
+                "H-boundary": 0.94750656167979,
+                "H-none": 0.049868766404199474,
+                "H-null": 0.002624671916010499
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.054143,
+              "entropy_after": 0.013144587444168038,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.9982457183634634,
+            "H-none": 0.0016948144624167462,
+            "H-null": 5.946717411988584e-05
+          },
+          "prediction": "H-boundary",
+          "provisional_prediction": "H-boundary",
+          "question_id": "case-boundary",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 3,
+          "confidence": 0.9971477467199087,
+          "correct": true,
+          "cost": 3.0,
+          "distinct_probe_families": 3,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.051659,
+              "entropy_after": 0.7946211023264481,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.047619047619047616,
+                "H-none": 0.9047619047619047,
+                "H-null": 0.047619047619047616
+              },
+              "beliefs_before": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.051572,
+              "entropy_after": 0.380506218477596,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.0017113519680547631,
+                "H-none": 0.9971477467199087,
+                "H-null": 0.001140901312036509
+              },
+              "beliefs_before": {
+                "H-boundary": 0.047619047619047616,
+                "H-none": 0.9047619047619047,
+                "H-null": 0.047619047619047616
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.05166,
+              "entropy_after": 0.02148097591280065,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "x:a",
+                "outcome": "other-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"other-signature\", \"actual\": \"x:a\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.0017113519680547631,
+            "H-none": 0.9971477467199087,
+            "H-null": 0.001140901312036509
+          },
+          "prediction": "H-none",
+          "provisional_prediction": "H-none",
+          "question_id": "case-other",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 3,
+          "confidence": 0.6118421052631579,
+          "correct": null,
+          "cost": 3.0,
+          "distinct_probe_families": 3,
+          "history": [
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.050497,
+              "entropy_after": 0.7946211023264481,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.047619047619047616,
+                "H-none": 0.9047619047619047,
+                "H-null": 0.047619047619047616
+              },
+              "beliefs_before": {
+                "H-boundary": 0.4871794871794871,
+                "H-none": 0.4871794871794871,
+                "H-null": 0.02564102564102564
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.05176,
+              "entropy_after": 0.380506218477596,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": null
+            },
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.6118421052631579,
+                "H-none": 0.37499999999999994,
+                "H-null": 0.013157894736842106
+              },
+              "beliefs_before": {
+                "H-boundary": 0.047619047619047616,
+                "H-none": 0.9047619047619047,
+                "H-null": 0.047619047619047616
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.051547,
+              "entropy_after": 0.7253807215637629,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": null
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.6118421052631579,
+            "H-none": 0.37499999999999994,
+            "H-null": 0.013157894736842106
+          },
+          "prediction": null,
+          "provisional_prediction": null,
+          "question_id": "case-confounded",
+          "resolved": false,
+          "unsupported_conclusion": false
+        }
+      ],
+      "unsupported_conclusion_rate": 0.0,
+      "unsupported_conclusions": 0,
+      "wilson_95_interval": [
+        0.3006360524426366,
+        0.9544139373553637
+      ]
+    },
+    "paper4-planner": {
+      "correct_provisional_predictions": 3,
+      "correct_resolution_rate": 0.0,
+      "correct_resolutions": 0,
+      "counterevidence_events": 0,
+      "mean_actions": 1.0,
+      "mean_cost": 1.0,
+      "n_questions": 4,
+      "provisional_prediction_accuracy": 0.75,
+      "provisional_predictions": 4,
+      "question_level_results": [
+        {
+          "actions": 1,
+          "confidence": 0.9142857142857143,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.03809523809523809,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9142857142857143
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060369,
+              "entropy_after": 0.3513908893235963,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "a:x",
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\", \"actual\": \"a:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.03809523809523809,
+            "H-none": 0.04761904761904762,
+            "H-null": 0.9142857142857143
+          },
+          "prediction": null,
+          "provisional_prediction": "H-null",
+          "question_id": "case-null",
+          "resolved": false,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 1,
+          "confidence": 0.9489795918367347,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.059969,
+              "entropy_after": 0.23584621244223491,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.9489795918367347,
+            "H-none": 0.03061224489795918,
+            "H-null": 0.02040816326530612
+          },
+          "prediction": null,
+          "provisional_prediction": "H-boundary",
+          "question_id": "case-boundary",
+          "resolved": false,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 1,
+          "confidence": 0.9484536082474226,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.03092783505154639,
+                "H-none": 0.9484536082474226,
+                "H-null": 0.020618556701030927
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.051751,
+              "entropy_after": 0.2377348927751774,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "x:a",
+                "outcome": "other-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"other-signature\", \"actual\": \"x:a\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.03092783505154639,
+            "H-none": 0.9484536082474226,
+            "H-null": 0.020618556701030927
+          },
+          "prediction": null,
+          "provisional_prediction": "H-none",
+          "question_id": "case-other",
+          "resolved": false,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 1,
+          "confidence": 0.9489795918367347,
+          "correct": null,
+          "cost": 1.0,
+          "distinct_probe_families": 1,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.054506,
+              "entropy_after": 0.23584621244223491,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.9489795918367347,
+            "H-none": 0.03061224489795918,
+            "H-null": 0.02040816326530612
+          },
+          "prediction": null,
+          "provisional_prediction": "H-boundary",
+          "question_id": "case-confounded",
+          "resolved": false,
+          "unsupported_conclusion": true
+        }
+      ],
+      "unsupported_conclusion_rate": 0.25,
+      "unsupported_conclusions": 1,
+      "wilson_95_interval": [
+        0.0,
+        0.48990002040399916
+      ]
+    },
+    "planner-feedback": {
+      "correct_provisional_predictions": 3,
+      "correct_resolution_rate": 0.75,
+      "correct_resolutions": 3,
+      "counterevidence_events": 0,
+      "mean_actions": 2.25,
+      "mean_cost": 2.25,
+      "n_questions": 4,
+      "provisional_prediction_accuracy": 1.0,
+      "provisional_predictions": 3,
+      "question_level_results": [
+        {
+          "actions": 2,
+          "confidence": 0.9950900163666121,
+          "correct": true,
+          "cost": 2.0,
+          "distinct_probe_families": 2,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.03809523809523809,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9142857142857143
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.061239,
+              "entropy_after": 0.3513908893235963,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "a:x",
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\", \"actual\": \"a:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.002182214948172395,
+                "H-none": 0.002727768685215494,
+                "H-null": 0.9950900163666121
+              },
+              "beliefs_before": {
+                "H-boundary": 0.03809523809523809,
+                "H-none": 0.04761904761904762,
+                "H-null": 0.9142857142857143
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.061911,
+              "entropy_after": 0.03437473270409632,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "detail": "'NoneType' object is not subscriptable",
+                "exception": "TypeError",
+                "outcome": "null-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"null-failure\", \"exception\": \"TypeError\", \"detail\": \"'NoneType' object is not subscriptable\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.18240383604038185,
+                "novelty": 0.0,
+                "tractability": 0.95,
+                "utility": 1.7740383604038188
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.002182214948172395,
+            "H-none": 0.002727768685215494,
+            "H-null": 0.9950900163666121
+          },
+          "prediction": "H-null",
+          "provisional_prediction": "H-null",
+          "question_id": "case-null",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 2,
+          "confidence": 0.9971783295711061,
+          "correct": true,
+          "cost": 2.0,
+          "distinct_probe_families": 2,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060314,
+              "entropy_after": 0.23584621244223491,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9971783295711061,
+                "H-none": 0.001693002257336343,
+                "H-null": 0.001128668171557562
+              },
+              "beliefs_before": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060611,
+              "entropy_after": 0.02128111095282099,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "detail": "list index out of range",
+                "exception": "IndexError",
+                "outcome": "boundary-failure"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-failure\", \"exception\": \"IndexError\", \"detail\": \"list index out of range\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.1175057693702939,
+                "novelty": 0.0,
+                "tractability": 0.95,
+                "utility": 1.125057693702939
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.9971783295711061,
+            "H-none": 0.001693002257336343,
+            "H-null": 0.001128668171557562
+          },
+          "prediction": "H-boundary",
+          "provisional_prediction": "H-boundary",
+          "question_id": "case-boundary",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 2,
+          "confidence": 0.9770821688093907,
+          "correct": true,
+          "cost": 2.0,
+          "distinct_probe_families": 2,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.03092783505154639,
+                "H-none": 0.9484536082474226,
+                "H-null": 0.020618556701030927
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.051475,
+              "entropy_after": 0.2377348927751774,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "x:a",
+                "outcome": "other-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"other-signature\", \"actual\": \"x:a\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.0016769144773616546,
+                "H-none": 0.9770821688093907,
+                "H-null": 0.021240916713247626
+              },
+              "beliefs_before": {
+                "H-boundary": 0.03092783505154639,
+                "H-none": 0.9484536082474226,
+                "H-null": 0.020618556701030927
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.053267,
+              "entropy_after": 0.11518632654937465,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.07493446605369086,
+                "novelty": 0.0,
+                "tractability": 0.95,
+                "utility": 0.6993446605369087
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.0016769144773616546,
+            "H-none": 0.9770821688093907,
+            "H-null": 0.021240916713247626
+          },
+          "prediction": "H-none",
+          "provisional_prediction": "H-none",
+          "question_id": "case-other",
+          "resolved": true,
+          "unsupported_conclusion": false
+        },
+        {
+          "actions": 3,
+          "confidence": 0.611842105263158,
+          "correct": null,
+          "cost": 3.0,
+          "distinct_probe_families": 3,
+          "history": [
+            {
+              "action_id": "alternative-probe",
+              "beliefs_after": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "beliefs_before": {
+                "H-boundary": 0.3333333333333333,
+                "H-none": 0.3333333333333333,
+                "H-null": 0.3333333333333333
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.060593,
+              "entropy_after": 0.23584621244223491,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "actual": "b:x",
+                "outcome": "boundary-signature"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"boundary-signature\", \"actual\": \"b:x\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.8217147660097468,
+                "novelty": 1.0,
+                "tractability": 0.8,
+                "utility": 9.017147660097468
+              }
+            },
+            {
+              "action_id": "boundary-probe",
+              "beliefs_after": {
+                "H-boundary": 0.49468085106382986,
+                "H-none": 0.3031914893617021,
+                "H-null": 0.20212765957446804
+              },
+              "beliefs_before": {
+                "H-boundary": 0.9489795918367347,
+                "H-none": 0.03061224489795918,
+                "H-null": 0.02040816326530612
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.061776,
+              "entropy_after": 1.033176275598966,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.1175057693702939,
+                "novelty": 0.0,
+                "tractability": 0.95,
+                "utility": 1.125057693702939
+              }
+            },
+            {
+              "action_id": "null-probe",
+              "beliefs_after": {
+                "H-boundary": 0.611842105263158,
+                "H-none": 0.37499999999999994,
+                "H-null": 0.013157894736842105
+              },
+              "beliefs_before": {
+                "H-boundary": 0.49468085106382986,
+                "H-none": 0.3031914893617021,
+                "H-null": 0.20212765957446804
+              },
+              "counterevidence": false,
+              "duration_seconds": 0.057643,
+              "entropy_after": 0.7253807215637629,
+              "exit_code": 0,
+              "falsification_target": null,
+              "observed": {
+                "outcome": "pass"
+              },
+              "sandbox": "managed-outer-sandbox-fallback",
+              "stderr": "",
+              "stdout": "{\"outcome\": \"pass\"}\n",
+              "utility_breakdown": {
+                "cost": 1.0,
+                "information_gain": 0.34306455322813223,
+                "novelty": 0.0,
+                "tractability": 0.95,
+                "utility": 3.3806455322813225
+              }
+            }
+          ],
+          "posterior": {
+            "H-boundary": 0.611842105263158,
+            "H-none": 0.37499999999999994,
+            "H-null": 0.013157894736842105
+          },
+          "prediction": null,
+          "provisional_prediction": null,
+          "question_id": "case-confounded",
+          "resolved": false,
+          "unsupported_conclusion": false
+        }
+      ],
+      "unsupported_conclusion_rate": 0.0,
+      "unsupported_conclusions": 0,
+      "wilson_95_interval": [
+        0.3006360524426366,
+        0.9544139373553637
+      ]
+    }
+  }
+}

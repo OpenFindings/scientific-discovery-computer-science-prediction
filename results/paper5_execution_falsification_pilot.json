@@ -72,7 +72,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.061468,
+              "duration_seconds": 0.047531,
               "entropy_after": 0.3513908893235963,
               "exit_code": 0,
               "falsification_target": null,
@@ -104,7 +104,7 @@
                 "H-null": 0.9142857142857143
               },
               "counterevidence": false,
-              "duration_seconds": 0.060276,
+              "duration_seconds": 0.046539,
               "entropy_after": 0.03437473270409632,
               "exit_code": 0,
               "falsification_target": "H-null",
@@ -150,7 +150,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.056822,
+              "duration_seconds": 0.047361,
               "entropy_after": 0.23584621244223491,
               "exit_code": 0,
               "falsification_target": null,
@@ -182,7 +182,7 @@
                 "H-null": 0.02040816326530612
               },
               "counterevidence": false,
-              "duration_seconds": 0.052277,
+              "duration_seconds": 0.045969,
               "entropy_after": 0.02128111095282099,
               "exit_code": 0,
               "falsification_target": "H-boundary",
@@ -228,7 +228,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.054624,
+              "duration_seconds": 0.046307,
               "entropy_after": 0.2377348927751774,
               "exit_code": 0,
               "falsification_target": null,
@@ -260,7 +260,7 @@
                 "H-null": 0.020618556701030927
               },
               "counterevidence": false,
-              "duration_seconds": 0.060535,
+              "duration_seconds": 0.046309,
               "entropy_after": 0.11518632654937465,
               "exit_code": 0,
               "falsification_target": "H-none",
@@ -304,7 +304,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.052805,
+              "duration_seconds": 0.045886,
               "entropy_after": 0.23584621244223491,
               "exit_code": 0,
               "falsification_target": null,
@@ -336,7 +336,7 @@
                 "H-null": 0.02040816326530612
               },
               "counterevidence": true,
-              "duration_seconds": 0.051545,
+              "duration_seconds": 0.046901,
               "entropy_after": 1.033176275598966,
               "exit_code": 0,
               "falsification_target": "H-boundary",
@@ -361,7 +361,7 @@
                 "H-null": 0.20212765957446804
               },
               "counterevidence": false,
-              "duration_seconds": 0.052274,
+              "duration_seconds": 0.047703,
               "entropy_after": 0.7253807215637629,
               "exit_code": 0,
               "falsification_target": "H-boundary",
@@ -424,7 +424,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.060561,
+              "duration_seconds": 0.042466,
               "entropy_after": 0.3805062184775959,
               "exit_code": 0,
               "falsification_target": null,
@@ -470,7 +470,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.059151,
+              "duration_seconds": 0.047645,
               "entropy_after": 0.7946211023264481,
               "exit_code": 0,
               "falsification_target": null,
@@ -514,7 +514,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.052885,
+              "duration_seconds": 0.04702,
               "entropy_after": 0.7946211023264481,
               "exit_code": 0,
               "falsification_target": null,
@@ -558,7 +558,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.0597,
+              "duration_seconds": 0.047453,
               "entropy_after": 0.7946211023264481,
               "exit_code": 0,
               "falsification_target": null,
@@ -621,7 +621,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.062791,
+              "duration_seconds": 0.043681,
               "entropy_after": 0.3805062184775959,
               "exit_code": 0,
               "falsification_target": null,
@@ -648,7 +648,7 @@
                 "H-null": 0.9047619047619048
               },
               "counterevidence": false,
-              "duration_seconds": 0.062428,
+              "duration_seconds": 0.045632,
               "entropy_after": 0.21621332903134044,
               "exit_code": 0,
               "falsification_target": null,
@@ -673,7 +673,7 @@
                 "H-null": 0.94750656167979
               },
               "counterevidence": false,
-              "duration_seconds": 0.063225,
+              "duration_seconds": 0.046157,
               "entropy_after": 0.020021498383379664,
               "exit_code": 0,
               "falsification_target": null,
@@ -718,7 +718,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.050845,
+              "duration_seconds": 0.046575,
               "entropy_after": 0.7946211023264481,
               "exit_code": 0,
               "falsification_target": null,
@@ -743,7 +743,7 @@
                 "H-null": 0.02564102564102564
               },
               "counterevidence": false,
-              "duration_seconds": 0.051819,
+              "duration_seconds": 0.046402,
               "entropy_after": 0.21621332903134044,
               "exit_code": 0,
               "falsification_target": null,
@@ -770,7 +770,7 @@
                 "H-null": 0.002624671916010499
               },
               "counterevidence": false,
-              "duration_seconds": 0.054143,
+              "duration_seconds": 0.047649,
               "entropy_after": 0.013144587444168038,
               "exit_code": 0,
               "falsification_target": null,
@@ -815,7 +815,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.051659,
+              "duration_seconds": 0.046354,
               "entropy_after": 0.7946211023264481,
               "exit_code": 0,
               "falsification_target": null,
@@ -840,7 +840,7 @@
                 "H-null": 0.02564102564102564
               },
               "counterevidence": false,
-              "duration_seconds": 0.051572,
+              "duration_seconds": 0.046961,
               "entropy_after": 0.380506218477596,
               "exit_code": 0,
               "falsification_target": null,
@@ -865,7 +865,7 @@
                 "H-null": 0.047619047619047616
               },
               "counterevidence": false,
-              "duration_seconds": 0.05166,
+              "duration_seconds": 0.042965,
               "entropy_after": 0.02148097591280065,
               "exit_code": 0,
               "falsification_target": null,
@@ -910,7 +910,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.050497,
+              "duration_seconds": 0.047587,
               "entropy_after": 0.7946211023264481,
               "exit_code": 0,
               "falsification_target": null,
@@ -935,7 +935,7 @@
                 "H-null": 0.02564102564102564
               },
               "counterevidence": false,
-              "duration_seconds": 0.05176,
+              "duration_seconds": 0.046143,
               "entropy_after": 0.380506218477596,
               "exit_code": 0,
               "falsification_target": null,
@@ -960,7 +960,7 @@
                 "H-null": 0.047619047619047616
               },
               "counterevidence": false,
-              "duration_seconds": 0.051547,
+              "duration_seconds": 0.046883,
               "entropy_after": 0.7253807215637629,
               "exit_code": 0,
               "falsification_target": null,
@@ -1024,7 +1024,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.060369,
+              "duration_seconds": 0.045929,
               "entropy_after": 0.3513908893235963,
               "exit_code": 0,
               "falsification_target": null,
@@ -1075,7 +1075,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.059969,
+              "duration_seconds": 0.046445,
               "entropy_after": 0.23584621244223491,
               "exit_code": 0,
               "falsification_target": null,
@@ -1126,7 +1126,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.051751,
+              "duration_seconds": 0.042521,
               "entropy_after": 0.2377348927751774,
               "exit_code": 0,
               "falsification_target": null,
@@ -1177,7 +1177,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.054506,
+              "duration_seconds": 0.04578,
               "entropy_after": 0.23584621244223491,
               "exit_code": 0,
               "falsification_target": null,
@@ -1247,7 +1247,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.061239,
+              "duration_seconds": 0.046663,
               "entropy_after": 0.3513908893235963,
               "exit_code": 0,
               "falsification_target": null,
@@ -1279,7 +1279,7 @@
                 "H-null": 0.9142857142857143
               },
               "counterevidence": false,
-              "duration_seconds": 0.061911,
+              "duration_seconds": 0.046054,
               "entropy_after": 0.03437473270409632,
               "exit_code": 0,
               "falsification_target": null,
@@ -1331,7 +1331,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.060314,
+              "duration_seconds": 0.04719,
               "entropy_after": 0.23584621244223491,
               "exit_code": 0,
               "falsification_target": null,
@@ -1363,7 +1363,7 @@
                 "H-null": 0.02040816326530612
               },
               "counterevidence": false,
-              "duration_seconds": 0.060611,
+              "duration_seconds": 0.047061,
               "entropy_after": 0.02128111095282099,
               "exit_code": 0,
               "falsification_target": null,
@@ -1415,7 +1415,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.051475,
+              "duration_seconds": 0.043703,
               "entropy_after": 0.2377348927751774,
               "exit_code": 0,
               "falsification_target": null,
@@ -1447,7 +1447,7 @@
                 "H-null": 0.020618556701030927
               },
               "counterevidence": false,
-              "duration_seconds": 0.053267,
+              "duration_seconds": 0.04578,
               "entropy_after": 0.11518632654937465,
               "exit_code": 0,
               "falsification_target": null,
@@ -1497,7 +1497,7 @@
                 "H-null": 0.3333333333333333
               },
               "counterevidence": false,
-              "duration_seconds": 0.060593,
+              "duration_seconds": 0.046338,
               "entropy_after": 0.23584621244223491,
               "exit_code": 0,
               "falsification_target": null,
@@ -1529,7 +1529,7 @@
                 "H-null": 0.02040816326530612
               },
               "counterevidence": false,
-              "duration_seconds": 0.061776,
+              "duration_seconds": 0.045038,
               "entropy_after": 1.033176275598966,
               "exit_code": 0,
               "falsification_target": null,
@@ -1560,7 +1560,7 @@
                 "H-null": 0.20212765957446804
               },
               "counterevidence": false,
-              "duration_seconds": 0.057643,
+              "duration_seconds": 0.047134,
               "entropy_after": 0.7253807215637629,
               "exit_code": 0,
               "falsification_target": null,

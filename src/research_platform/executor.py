@@ -43,19 +43,29 @@ class SafeExecutor:
         self.allow_managed_outer_sandbox = allow_managed_outer_sandbox
 
     @staticmethod
-    def _sandbox_command(command: list[str], scratch: Path) -> tuple[list[str], str]:
+    def _sandbox_command(command: list[str], scratch: Path, root: Path) -> tuple[list[str], str]:
         if sys.platform != "darwin":
             raise RuntimeError("no supported OS sandbox backend is available on this platform")
         python = str(Path(command[0]).resolve())
-        scratch_path = str(scratch.resolve()).replace("\\", "\\\\").replace('"', '\\"')
-        python_path = python.replace("\\", "\\\\").replace('"', '\\"')
+        def quote(path: str) -> str:
+            return path.replace("\\", "\\\\").replace('"', '\\"')
+
+        scratch_path = quote(str(scratch.resolve()))
+        root_path = quote(str(root.resolve()))
+        python_path = quote(python)
+        runtime_paths = sorted({str(Path(sys.prefix).resolve()), str(Path(sys.base_prefix).resolve())})
+        read_rules = ["(subpath \"/System\")", "(subpath \"/usr/lib\")",
+                      "(subpath \"/usr/share/locale\")", "(subpath \"/Library/Developer/CommandLineTools\")",
+                      f'(subpath "{root_path}")']
+        read_rules.extend(f'(subpath "{quote(path)}")' for path in runtime_paths)
         profile = " ".join((
             "(version 1)", "(deny default)", "(allow process-fork)",
             f'(allow process-exec (literal "{python_path}"))',
-            "(allow file-read*)", f'(allow file-write* (subpath "{scratch_path}"))',
+            f'(allow file-read* {" ".join(read_rules)})',
+            f'(allow file-write* (subpath "{scratch_path}"))',
             "(deny network*)", "(allow sysctl-read)", "(allow mach-lookup)",
         ))
-        return ["/usr/bin/sandbox-exec", "-p", profile, "--", *command], "macos-sandbox-exec"
+        return ["/usr/bin/sandbox-exec", "-p", profile, "--", command[0], *command[1:]], "macos-sandbox-exec"
 
     @staticmethod
     def _resource_limits(cpu_seconds: int, memory_bytes: int):
@@ -90,7 +100,7 @@ class SafeExecutor:
         if executable is None:
             raise FileNotFoundError(f"allow-listed executable was not found: {command[0]}")
         normalized_command = [executable, *command[1:]]
-        wrapped, backend = self._sandbox_command(normalized_command, scratch)
+        wrapped, backend = self._sandbox_command(normalized_command, scratch, root)
         environment = {"PATH": os.environ.get("PATH", "/usr/bin:/bin"), "LANG": "C.UTF-8",
                        "HOME": str(scratch), "TMPDIR": str(scratch), "PYTHONDONTWRITEBYTECODE": "1"}
         started = time.monotonic()

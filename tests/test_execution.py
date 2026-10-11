@@ -40,6 +40,21 @@ class ExecutionTests(unittest.TestCase):
                 executor.run("escape", ["python3", "-c", "print('no')"],
                              directory, str(root))
 
+    def test_macos_profile_limits_reads_writes_and_network(self):
+        import sys
+        if sys.platform != "darwin":
+            self.skipTest("macOS sandbox profile test")
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            command, backend = SafeExecutor._sandbox_command(
+                [sys.executable, "-c", "pass"], root / ".action-scratch", root)
+            profile = command[2]
+            self.assertEqual(backend, "macos-sandbox-exec")
+            self.assertIn("(deny network*)", profile)
+            self.assertIn("(allow file-write* (subpath", profile)
+            self.assertIn("(allow file-read*", profile)
+            self.assertNotIn("(allow file-read*)", profile)
+
     def test_paper4_default_utility_and_provenance_novelty(self):
         weights = PlannerWeights()
         beliefs = {hypothesis.id: hypothesis.prior for hypothesis in HYPOTHESES}

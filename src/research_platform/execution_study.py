@@ -218,13 +218,12 @@ def _run_condition(task_id: str, source: str, condition: str, executor: SafeExec
             "actions": len(history), "cost": float(len(history)), "history": history}
 
 
-def run_execution_study(output: str | Path) -> dict[str, Any]:
+def run_execution_study(output: str | Path, *, allow_managed_outer_sandbox: bool = False) -> dict[str, Any]:
     """Run all predeclared systems on identical executable cases and save complete traces."""
     conditions = ("direct", "fixed-workflow", "paper4-planner", "planner-feedback",
                   "adversarial-falsification")
-    # This runner is invoked by Codex inside its managed filesystem/network sandbox.
     executor = SafeExecutor(timeout_seconds=5.0, cpu_seconds=3,
-                            allow_managed_outer_sandbox=True)
+                            allow_managed_outer_sandbox=allow_managed_outer_sandbox)
     cells = []
     for task in TASKS:
         for condition in conditions:

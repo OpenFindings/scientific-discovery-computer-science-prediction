@@ -12,8 +12,8 @@ Updated 2026-10-11.
 
 ## Source audit status
 
-The supplied Paper 3 URL returned an HTTP success to a metadata request, but the complete page could not be retrieved in this environment. Search returned no indexed copies. No Paper 4 publication URL or repository was supplied and no source implementation was present in this worktree. Paper-specific methods, results, weights, and metrics are therefore not asserted here.
+The user supplied the Paper 3 and Paper 4 repositories. Their public GitHub pages were audited; verified methodology, implementation boundaries, benchmark metrics, and Paper 4 revision caveats are recorded in `docs/foundational_audit.md`. The repositories are not vendored into this worktree, so their code has not yet been imported directly.
 
 ## Blockers and next steps
 
-The final Paper 5 study requires verified Paper 3/4 artifacts, a licensed benchmark subset, a frozen model/tool budget, and independent evaluation. Papers 6 and 7 have not been run and must not receive results claims.
+The final Paper 5 study requires pinned local checkouts of the Paper 3/4 repositories, a licensed benchmark subset, a frozen model/tool budget, and independent evaluation. Papers 6 and 7 have not been run and must not receive results claims.

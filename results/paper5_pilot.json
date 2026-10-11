@@ -1,0 +1,103 @@
+{
+  "benchmark": "controlled-pilot-v1",
+  "resolved_rate": 1.0,
+  "results": [
+    {
+      "history": [
+        {
+          "action": "test-index",
+          "beliefs": {
+            "H-index": 0.1,
+            "H-null": 0.9
+          },
+          "outcome": "pass"
+        },
+        {
+          "action": "test-null",
+          "beliefs": {
+            "H-index": 0.012195121951219514,
+            "H-null": 0.9878048780487805
+          },
+          "outcome": "fail"
+        }
+      ],
+      "prediction": "null_guard",
+      "question_id": "pilot-1",
+      "resolved": true,
+      "truth": "null_guard"
+    },
+    {
+      "history": [
+        {
+          "action": "test-index",
+          "beliefs": {
+            "H-index": 0.9,
+            "H-null": 0.1
+          },
+          "outcome": "fail"
+        },
+        {
+          "action": "test-null",
+          "beliefs": {
+            "H-index": 0.9878048780487805,
+            "H-null": 0.012195121951219514
+          },
+          "outcome": "pass"
+        }
+      ],
+      "prediction": "off_by_one",
+      "question_id": "pilot-2",
+      "resolved": true,
+      "truth": "off_by_one"
+    },
+    {
+      "history": [
+        {
+          "action": "test-index",
+          "beliefs": {
+            "H-index": 0.1,
+            "H-null": 0.9
+          },
+          "outcome": "pass"
+        },
+        {
+          "action": "test-null",
+          "beliefs": {
+            "H-index": 0.012195121951219514,
+            "H-null": 0.9878048780487805
+          },
+          "outcome": "fail"
+        }
+      ],
+      "prediction": "null_guard",
+      "question_id": "pilot-3",
+      "resolved": true,
+      "truth": "null_guard"
+    },
+    {
+      "history": [
+        {
+          "action": "test-index",
+          "beliefs": {
+            "H-index": 0.9,
+            "H-null": 0.1
+          },
+          "outcome": "fail"
+        },
+        {
+          "action": "test-null",
+          "beliefs": {
+            "H-index": 0.9878048780487805,
+            "H-null": 0.012195121951219514
+          },
+          "outcome": "pass"
+        }
+      ],
+      "prediction": "off_by_one",
+      "question_id": "pilot-4",
+      "resolved": true,
+      "truth": "off_by_one"
+    }
+  ],
+  "variant": "planner"
+}

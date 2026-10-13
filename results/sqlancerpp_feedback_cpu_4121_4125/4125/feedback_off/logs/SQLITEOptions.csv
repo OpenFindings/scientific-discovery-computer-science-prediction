@@ -1,0 +1,13 @@
+Type;Key;Name;Value;Success;Count;Example
+NODE;;"CREATE_DATABASE";true;null;null;"null"
+NODE;;"UNTYPE_EXPR";false;0;2;"null"
+COMPOSITE;;"FUNCTION-RPAD";false;null;null;"null"
+COMPOSITE;;"FUNCTION-RANGE";false;null;null;"null"
+COMPOSITE;;"FUNCTION-GEN_RANDOM_UUID";false;null;null;"null"
+COMPOSITE;;"FUNCTION-LPAD";false;null;null;"null"
+COMPOSITE;;"FUNCTION-RANDOM";false;null;null;"null"
+COMPOSITE;;"FUNCTION-UUID";false;null;null;"null"
+COMPOSITE;;"FUNCTION-REPEAT";false;null;null;"null"
+COMPOSITE;;"FUNCTION-ROUND";false;null;null;"null"
+COMPOSITE;;"FUNCTION-GENERATE_SERIES";false;null;null;"null"
+COMPOSITE;;"FUNCTION-REGEXP_MATCHES";false;null;null;"null"

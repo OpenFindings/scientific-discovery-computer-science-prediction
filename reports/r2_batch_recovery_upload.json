@@ -1,0 +1,105 @@
+{
+  "bucket": "ai4cs",
+  "source_papers": 24,
+  "new_or_exact_verified_objects": 24,
+  "failures": [],
+  "receipts_manifest": "data/r2_recovered_batches_2026-10-13.jsonl",
+  "outcomes": [
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2503.09217.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2506.02718.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2512.23480.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2602.12670.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2602.20867.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2604.21579.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2606.10546.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/1006.1449.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/1605.02277.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/2006.15827.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/2502.17698.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/1806.05768.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/1811.06012.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2203.04406.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2308.06850.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2602.14572.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2608.26831.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/1109.2697.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2201.05286.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2406.04535.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2503.02097.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2506.20828.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/source-line-8.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/source-line-9.pdf",
+      "status": "uploaded_and_source_checksum_verified"
+    }
+  ]
+}

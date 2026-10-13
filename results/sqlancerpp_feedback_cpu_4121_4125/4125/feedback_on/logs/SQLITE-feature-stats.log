@@ -1,0 +1,1086 @@
+================================================================================
+Feature Statistics Report — SQLITE (Iteration #20)
+================================================================================
+
+--- Summary ---
+  Total executions tracked:    19663
+  Total successful:            13493
+  Generator nodes enabled:     59 / 67
+  Composite features enabled:  12 / 23
+  Fragment features enabled:   0 / 0
+
+--- Generator Node Features ---
+  Feature                    Success    Count      Rate   Status
+  -----------------------------------------------------------------
+  UNTYPE_EXPR                      0        1      0.0%      OFF
+  CREATE_INDEX                    48       56     85.7%       ON
+  INSERT                         169      278     60.8%       ON
+  ANALYZE                         11       11    100.0%       ON
+  VACUUM                           9        9    100.0%       ON
+  UNIQUE_INDEX                    24       29     82.8%       ON
+  UPDATE_WHERE                    28       59     47.5%       ON
+  PRIMARY_KEY                     27       27    100.0%       ON
+  COLUMN_NUM                      78       32    243.8%       ON
+  INNER_JOIN                      13       33     39.4%       ON
+  LEFT_JOIN                       16       35     45.7%       ON
+  RIGHT_JOIN                      18       36     50.0%       ON
+  NATURAL_JOIN                    25       32     78.1%       ON
+  LEFT_NATURAL_JOIN                6        9     66.7%       ON
+  RIGHT_NATURAL_JOIN               8        9     88.9%       ON
+  FULL_NATURAL_JOIN               11       14     78.6%       ON
+  UNARY_POSTFIX                  230      329     69.9%       ON
+  UNARY_PREFIX                   834      997     83.7%       ON
+  BINARY_COMPARISON             1493     1766     84.5%       ON
+  BINARY_LOGICAL                 229      331     69.2%       ON
+  BINARY_ARITHMETIC                3        9     33.3%       ON
+  CAST                          1180     1459     80.9%       ON
+  FUNC                           752     1544     48.7%       ON
+  BETWEEN                        115      194     59.3%       ON
+  CASE                           900     1190     75.6%       ON
+  IN                              92      166     55.4%       ON
+  CAST_FUNC                     1180     1452     81.3%       ON
+  CAST_COLON                       0        9      0.0%       ON
+  IS_NULL                        122      177     68.9%       ON
+  IS_NOT_NULL                    108      153     70.6%       ON
+  BINARY_OPERATOR               1688     1998     84.5%       ON
+  UNOT                           314      468     67.1%       ON
+  UPLUS                          283      429     66.0%       ON
+  UMINUS                         294      444     66.2%       ON
+  USQT_ROOT                        0      123      0.0%      OFF
+  UABS_VAL                         0      105      0.0%      OFF
+  UBIT_NOT                       307      446     68.8%       ON
+  UCUBE_ROOT                       0      138      0.0%      OFF
+  EQUALS                         127      185     68.6%       ON
+  GREATER                        103      181     56.9%       ON
+  GREATER_EQUALS                 122      186     65.6%       ON
+  SMALLER                        110      182     60.4%       ON
+  SMALLER_EQUALS                 125      191     65.4%       ON
+  NOT_EQUALS                     120      181     66.3%       ON
+  NOT_EQUALS2                    119      184     64.7%       ON
+  LIKE                           116      188     61.7%       ON
+  NOT_LIKE                       103      172     59.9%       ON
+  DISTINCT                       105      171     61.4%       ON
+  NOT_DISTINCT                   114      190     60.0%       ON
+  IS                             105      174     60.3%       ON
+  IS_NOT                         124      169     73.4%       ON
+  EQUALS2                          0      113      0.0%      OFF
+  OPADD                          106      190     55.8%       ON
+  OPSUB                          114      175     65.1%       ON
+  OPMULT                          95      174     54.6%       ON
+  OPDIV                          126      209     60.3%       ON
+  OPMOD                          122      186     65.6%       ON
+  OPCONCAT                       100      177     56.5%       ON
+  OPAND                          111      197     56.3%       ON
+  OPOR                            97      179     54.2%       ON
+  OPLSHIFT                       108      190     56.8%       ON
+  OPRSHIFT                       110      197     55.8%       ON
+  OPDIV_STR                        0      115      0.0%      OFF
+  OPMOD_STR                        0      104      0.0%      OFF
+  OPBITWISE_XOR                    0      101      0.0%      OFF
+  LOPAND                         152      211     72.0%       ON
+  LOPOR                          144      194     74.2%       ON
+
+--- Generator Node Examples (success) ---
+  [EQUALS]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3)=(t0.c3))
+  [SMALLER]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3)<(t0.c3))
+  [BINARY_OPERATOR]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3)<(t0.c3))
+  [OPADD]
+    SELECT t0.c0, t0.c1 FROM t0 WHERE ((ATAN(t0.c1))AND(((t0.c0)+(t0.c1))))
+  [NOT_EQUALS]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c2)!=('c)l5/B'))
+  [FULL_NATURAL_JOIN]
+    SELECT t0.c0, t0.c1, t1.c0, t1.c1 FROM t0 NATURAL FULL JOIN t1 WHERE (NOT t1.c1)
+  [SMALLER_EQUALS]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3)<=(t0.c3))
+  [IS_NOT]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c0)IS NOT(t0.c0))
+  [INSERT]
+    INSERT INTO t1(c0) VALUES (-1469784215)
+  [OPAND]
+    SELECT t0.c0, t0.c1, v90.c0, t1.c0, t1.c1 FROM t0, v90, t1 WHERE ((CAST(t1.c0 AS INT))<>(((-2146694068)&(t0.c1))))
+  [OPSUB]
+    SELECT t0.c0, t0.c1, v90.c0, t1.c0, t1.c1 FROM t0, v90, t1 WHERE (((+ t0.c0))>(((t0.c0)-(t0.c1))))
+  [GREATER_EQUALS]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c1)>=(t0.c1))
+  [OPDIV]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1, v90.c0 FROM t1, t0, v90 WHERE ((((t0.c0)<<(t0.c1)))<(((t0.c0)/(t1.c0))))
+  [CREATE_INDEX]
+    CREATE INDEX t0i0 ON t0 (c3 , c2 ) 
+  [FUNC]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE PRINTF(t0.c1)
+  [LOPOR]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c0)OR(t0.c0))
+  [LEFT_JOIN]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1 FROM t1 LEFT  JOIN t0 ON (((NOT ((t0.c0)<>(t0.c1))))=(((PI())AND(((t0.c0)AND(t1.c1)))))) WHERE ((((((t0.c0)||('N')))||(((t0.c1)||(t0.c1)))))<>(((((t0.c1)||(t0.c0)))||(((t0.c1)||(t0.c0))))))
+  [INNER_JOIN]
+    SELECT t0.c0, t0.c1, t0.c2, t1.c0, t1.c1, t1.c2 FROM t0 INNER  JOIN t1 ON CAST((NOT ((t1.c0)OR(t1.c2))) AS BOOLEAN) WHERE (((- (NOT 1762997783)))IS(((LN(t1.c2))|(CAST(t1.c2 AS INT)))))
+  [IS]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3)IS(t0.c3))
+  [UNOT]
+    SELECT v90.c0, t0.c0, t0.c1 FROM v90 NATURAL RIGHT JOIN t0 WHERE ((t0.c0)IS((NOT t0.c0)))
+  [RIGHT_NATURAL_JOIN]
+    SELECT v90.c0, t0.c0, t0.c1 FROM v90 NATURAL RIGHT JOIN t0 WHERE ((t0.c0)IS((NOT t0.c0)))
+  [PRIMARY_KEY]
+    CREATE  TABLE  t0(c0 INT , c1 INT , PRIMARY KEY(c0))
+  [BINARY_COMPARISON]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c1)IS NOT DISTINCT FROM('j蔩|G뵰膦61'))
+  [OPMOD]
+    SELECT v90.c0, t1.c0, t1.c1, t0.c0, t0.c1 FROM v90, t1, t0 WHERE ((((t0.c0)%(t0.c1)))>=(t0.c0))
+  [OPRSHIFT]
+    SELECT v90.c0, t0.c0, t0.c1 FROM v90, t0 WHERE ((((t0.c0)>>(t0.c0)))OR(((v90.c0)||(''))))
+  [UNARY_PREFIX]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE (NOT t0.c0)
+  [OPLSHIFT]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1, v90.c0 FROM t1, t0, v90 WHERE ((((t0.c0)<<(t0.c1)))<(((t0.c0)/(t1.c0))))
+  [BINARY_LOGICAL]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c0)OR(t0.c0))
+  [LEFT_NATURAL_JOIN]
+    SELECT v90.c0, t1.c0, t1.c1 FROM v90 NATURAL LEFT JOIN t1 WHERE CEIL(((v90.c0)=(t1.c1)))
+  [NOT_DISTINCT]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c1)IS NOT DISTINCT FROM('j蔩|G뵰膦61'))
+  [UNIQUE_INDEX]
+    CREATE UNIQUE INDEX t0i0 ON t0 (c0 , c1 ) 
+  [BINARY_ARITHMETIC]
+    CREATE INDEX t0i1 ON t0 (c0 , c4 , c2 , c1 , c3 )  WHERE ((((t0.c3)&((+ false))))!=(SQRT((+ -8339454))))
+  [NOT_LIKE]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3)NOT LIKE(t0.c3))
+  [BETWEEN]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE (t0.c3 BETWEEN t0.c3 AND -711490263)
+  [VACUUM]
+    VACUUM
+  [OPCONCAT]
+    SELECT t1.c0, t1.c1 FROM t1 WHERE ((t1.c0)LIKE(((t1.c0)||(t1.c0))))
+  [NOT_EQUALS2]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c2)<>(t0.c2))
+  [UMINUS]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1 FROM t1, t0 WHERE ((((t0.c1)%(t1.c0)))<((- t0.c1)))
+  [CASE]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE (CASE t0.c3 WHEN t0.c3 THEN false END )
+  [ANALYZE]
+    ANALYZE
+  [UPDATE_WHERE]
+    UPDATE t0 SET c0='', c1='jephw' WHERE (((CASE ((t0.c1)||(t0.c1)) WHEN ((t0.c0)||(t0.c1)) THEN ((t0.c1)||(t0.c0)) ELSE ((t0.c1)||(t0.c1)) END ))IS NOT DISTINCT FROM(t0.c0))
+  [UNARY_POSTFIX]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c1) IS NOT NULL)
+  [GREATER]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c2)>(t0.c1))
+  [LOPAND]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((((t0.c0)OR(t0.c0)))AND(NULL))
+  [UBIT_NOT]
+    SELECT t0.c0, t0.c1, v90.c0 FROM t0, v90 WHERE ((((v90.c0)||(v90.c0)))<=((~ t0.c0)))
+  [LIKE]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c1)LIKE(t0.c1))
+  [COLUMN_NUM]
+    CREATE  TABLE  t0(c0 BOOLEAN , c1 VARCHAR , c2 VARCHAR , c3 INT )
+  [IN]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE (t0.c3 IN (1926988198))
+  [CAST]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE CAST(t0.c3 AS BOOLEAN)
+  [IS_NULL]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c3) IS NULL)
+  [CAST_FUNC]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE CAST(t0.c3 AS BOOLEAN)
+  [UPLUS]
+    SELECT t1.c0, t1.c1 FROM t1 WHERE CAST((+ t1.c0) AS BOOLEAN)
+  [DISTINCT]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c0)IS DISTINCT FROM(t0.c0))
+  [RIGHT_JOIN]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1, v90.c0 FROM v90, t1 RIGHT  JOIN t0 ON ((((t1.c1)||(t1.c1))) IS NOT NULL) WHERE CAST((CASE t0.c1 WHEN t0.c0 THEN -1627041273 WHEN t0.c1 THEN t1.c0 END ) AS BOOLEAN)
+  [IS_NOT_NULL]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3 FROM t0 WHERE ((t0.c1) IS NOT NULL)
+  [OPOR]
+    SELECT t1.c0, t1.c1, v90.c0 FROM t1, v90 WHERE ((t1.c1)>=(((t1.c0)|(t1.c0))))
+  [NATURAL_JOIN]
+    SELECT v90.c0, t0.c0, t0.c1 FROM v90 NATURAL RIGHT JOIN t0 WHERE ((t0.c0)IS((NOT t0.c0)))
+  [OPMULT]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1 FROM t1, t0 WHERE ((((((634859462)/(256607953)))*(((1478341490)||(1392025657)))))>((CASE ((true)<(t1.c1)) WHEN PI() THEN (- NULL) WHEN (t0.c1 NOT IN (t0.c1)) THEN (CASE t0.c0 WHEN t0.c1 THEN 1064909790 WHEN t0.c1 THEN 1739552697 END ) ELSE (CASE t0.c0 WHEN t0.c0 THEN -1693864337 END ) END )))
+
+--- Generator Node Examples (error) ---
+  [EQUALS]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0, t1 WHERE (((NOT CAST(t0.c0 AS INT)))=((NOT WEEKDAY(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [SMALLER]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((((((((- t1.c1))<=((NOT t1.c2))))AND((((NOT t1.c0))$$$(CAST(t1.c1 AS INT))))))AND(true)))AND(((((t1.c1)+(XOR(NULL, NULL))))<(((t1.c1)/(t1.c1))))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$(CAST(t1.c1")
+  [BINARY_OPERATOR]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((- ATAN2(t0.c0)))NOT LIKE((+ FLOOR(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function ATAN2())
+  [OPADD]
+    SELECT t0.c0 FROM t0 WHERE (((- XOR(t0.c0, -1375818140)))IS(TAN(((t0.c0)+(t0.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: XOR)
+  [CAST_COLON]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0, t1 WHERE LENGTH(SUBSTRING(((t0.c0)||(-1949986745)), (t1.c2)::INT, ((t0.c0)>=(t1.c0))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: ":")
+  [NOT_EQUALS]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE CAST(DAYOFMONTH(((t1.c0)!=(t1.c0))) AS BOOLEAN)
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: DAYOFMONTH)
+  [FULL_NATURAL_JOIN]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1, t0.c2, v0.c0 FROM v0, t1 NATURAL FULL JOIN t0 WHERE ((CAST(((t1.c1)||(t1.c1)) AS BOOLEAN))<=>(CAST(CAST(t0.c2 AS BOOLEAN) AS BOOLEAN)))
+    >> [SQLITE_ERROR] SQL error or missing database (near ">": syntax error)
+  [USQT_ROOT]
+    SELECT t0.c0 FROM t0 WHERE (((|/ (+ t0.c0)))<>((((||/ t0.c0))*((|/ t0.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "|": syntax error)
+  [UCUBE_ROOT]
+    SELECT t0.c0 FROM t0 WHERE (((|/ (+ t0.c0)))<>((((||/ t0.c0))*((|/ t0.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "|": syntax error)
+  [UABS_VAL]
+    SELECT t0.c0, t0.c1, t0.c2 FROM t0 WHERE BIT_COUNT((- (@ t0.c1)))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "@")
+  [OPAND]
+    SELECT t0.c0 FROM t0 WHERE ((XOR(((t0.c0)&(t0.c0)), ((t0.c0)-(t0.c0))))<>((~ (CASE t0.c0 WHEN t0.c0 THEN t0.c0 WHEN t0.c0 THEN t0.c0 WHEN t0.c0 THEN t0.c0 ELSE t0.c0 END ))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: XOR)
+  [SMALLER_EQUALS]
+    UPDATE t0 SET c1=((((((t0.c1)<(t0.c1)))>(((t0.c1)=(t0.c1)))))!=(((((t0.c1)>(t0.c1)))<=(((t0.c1)IS(t0.c1)))))) WHERE ((t0.c1)$$$((((CASE NULL WHEN 'e5' THEN -1858325905 END ))IS NOT DISTINCT FROM(((-1292905638)/(-189283135))))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$((((CASE")
+  [IS_NOT]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE WEEKDAY((CASE ((t1.c2)IS NOT(t1.c2)) WHEN ((t1.c2)NOT LIKE(t0.c0)) THEN NULL ELSE ((t0.c0)IS DISTINCT FROM(t1.c1)) END ))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [INSERT]
+    INSERT INTO t0(c0, c1) VALUES (true, true), (true, false), (false, true)
+    >> [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: t0.c0, t0.c1)
+  [OPSUB]
+    SELECT t0.c0 FROM t0 WHERE ((XOR(((t0.c0)&(t0.c0)), ((t0.c0)-(t0.c0))))<>((~ (CASE t0.c0 WHEN t0.c0 THEN t0.c0 WHEN t0.c0 THEN t0.c0 WHEN t0.c0 THEN t0.c0 ELSE t0.c0 END ))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: XOR)
+  [GREATER_EQUALS]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 LEFT  JOIN t1 ON CAST((((+ t0.c0))LIKE(SIN(t0.c0))) AS BOOLEAN) WHERE (CASE WEEKDAY((- t0.c0)) WHEN ((CAST(579681049 AS INT))||(((2038971741)|(t1.c1)))) THEN t1.c0 WHEN (CASE (('')||('w2Pn\IOo9')) WHEN (('iuJqOmM')||('Bf')) THEN ((t1.c1)<<(t1.c1)) END ) THEN ((CAST(t1.c0 AS INT))>=((NOT t0.c0))) END )
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [OPDIV]
+    SELECT t0.c0 FROM t0 WHERE (CASE t0.c0 WHEN -1265588376 THEN (((NOT t0.c0))$$$((+ t0.c0))) ELSE ((CASE t0.c0 WHEN t0.c0 THEN t0.c0 ELSE t0.c0 END ) IN (((t0.c0)/(t0.c0)), ((t0.c0)*(t0.c0)), (+ -1201875790), t0.c0, (CASE t0.c0 WHEN t0.c0 THEN t0.c0 ELSE t0.c0 END ))) END )
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$((+")
+  [CREATE_INDEX]
+    CREATE INDEX t0i2 ON t0 (c1 )  WHERE (((CASE (+ 'l ') WHEN ((t0.c1)MOD('')) THEN (('-2102723829')!=(2145080560)) ELSE CAST(false AS VARCHAR) END ))AND(DEGREES(CAST(t0.c1 AS INT))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "MOD": syntax error)
+  [FUNC]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((- ATAN2(t0.c0)))NOT LIKE((+ FLOOR(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function ATAN2())
+  [LOPOR]
+    SELECT t1.c0, t1.c1, t1.c2 FROM t1 WHERE (((+ ((t1.c1)/(t1.c1))))!=(CONTAINS(((t1.c0)OR(t1.c0)), (('')>=('')))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: CONTAINS)
+  [LEFT_JOIN]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 LEFT  JOIN t1 ON CAST((((+ t0.c0))LIKE(SIN(t0.c0))) AS BOOLEAN) WHERE (CASE WEEKDAY((- t0.c0)) WHEN ((CAST(579681049 AS INT))||(((2038971741)|(t1.c1)))) THEN t1.c0 WHEN (CASE (('')||('w2Pn\IOo9')) WHEN (('iuJqOmM')||('Bf')) THEN ((t1.c1)<<(t1.c1)) END ) THEN ((CAST(t1.c0 AS INT))>=((NOT t0.c0))) END )
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [EQUALS2]
+    SELECT v0.c0 FROM v0 WHERE ((((((((-1693864337)>>(v0.c0)))>=((- v0.c0))))OR((((+ v0.c0))<=>((NOT 694251513))))))OR((NOT ((v0.c0)!=(v0.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (near ">": syntax error)
+  [INNER_JOIN]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0, t0.c1, t0.c69 FROM t1 INNER  JOIN t0 ON (((+ ((t1.c2)-(t0.c69))))>=((NOT RADIANS(t1.c1)))) WHERE (CASE (CASE ABS(t1.c2) WHEN ((t0.c69)*(t1.c2)) THEN ((t0.c0)||(t0.c1)) ELSE ((t0.c0)||(t0.c0)) END ) WHEN (CASE (+ t0.c69) WHEN (CASE t0.c0 WHEN t0.c1 THEN t0.c69 END ) THEN ((t0.c0)||(t0.c1)) END ) THEN (CASE IF(t0.c69, t1.c1, t0.c0) WHEN ((NULL)-(t1.c2)) THEN (CASE t1.c2 WHEN t0.c69 THEN t1.c0 ELSE t1.c1 END ) ELSE ((t1.c1)!=(false)) END ) END )
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: IF)
+  [UNTYPE_EXPR]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3, t1.c0, t1.c1 FROM t0 LEFT  JOIN t1 ON (- ((((NULL)<=(t0.c1)))$$$(((t0.c3)<(-1492284207))))) WHERE (((- t0.c1))<=>(CEILING((NOT t1.c0))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "$$$(((t0.c3)": syntax error)
+  [IS]
+    SELECT t0.c0 FROM t0 WHERE (((- XOR(t0.c0, -1375818140)))IS(TAN(((t0.c0)+(t0.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: XOR)
+  [UNOT]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0, t1 WHERE (((NOT CAST(t0.c0 AS INT)))=((NOT WEEKDAY(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [RIGHT_NATURAL_JOIN]
+    SELECT t0.c0, t0.c1, t1.c0, t1.c1 FROM t0 NATURAL RIGHT JOIN t1 WHERE (((@ t0.c0))<(((t0.c1)+(2090949709))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "@")
+  [OPMOD_STR]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1, t0.c2, v0.c0 FROM v0, t1 INNER  JOIN t0 ON (NOT ((((t0.c1)<>(t0.c2)))OR(true))) WHERE ((((((t0.c0)DIV(t0.c0)))<<((~ t0.c0))))>=(((t0.c0)MOD(t0.c0))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "DIV": syntax error)
+  [BINARY_COMPARISON]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((- ATAN2(t0.c0)))NOT LIKE((+ FLOOR(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function ATAN2())
+  [OPMOD]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (NOT DAYNAME(((t1.c1)%(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: DAYNAME)
+  [OPRSHIFT]
+    SELECT t0.c0 FROM t0 WHERE ((t0.c0)=((((~ t0.c0))>>(WEEKOFYEAR(t0.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKOFYEAR)
+  [UNARY_PREFIX]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (NOT DAYNAME(((t1.c1)%(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: DAYNAME)
+  [OPLSHIFT]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 RIGHT  JOIN t1 ON ((CAST(MONTHNAME(t1.c2) AS BOOLEAN))>((CASE ((t1.c2)*(t1.c2)) WHEN (~ t1.c1) THEN ((t1.c2)<<(t1.c2)) ELSE (NOT t1.c2) END ))) WHERE (NOT CAST((NOT -1996297349) AS BOOLEAN))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: MONTHNAME)
+  [BINARY_LOGICAL]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((((((((- t1.c1))<=((NOT t1.c2))))AND((((NOT t1.c0))$$$(CAST(t1.c1 AS INT))))))AND(true)))AND(((((t1.c1)+(XOR(NULL, NULL))))<(((t1.c1)/(t1.c1))))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$(CAST(t1.c1")
+  [LEFT_NATURAL_JOIN]
+    SELECT t0.c0, t0.c1, t0.c2, t0.c3, t1.c0, t1.c1 FROM t0 NATURAL LEFT JOIN t1 WHERE (NOT ((((t0.c2)$$$(t0.c0)))>=(((t1.c0) IS NULL))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "$$$(t0.c0)": syntax error)
+  [NOT_DISTINCT]
+    SELECT t1.c0, t1.c1, t1.c2 FROM t1 WHERE ((((- 1755884461))IS NOT DISTINCT FROM(((t1.c1)+(t1.c1)))) NOT IN ((NOT POWER(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function POWER())
+  [UNIQUE_INDEX]
+    CREATE UNIQUE INDEX t0i0 ON t0 (c1 , c0 , c3 , c2 )  WHERE (CASE (~ ((t0.c2)AND(false))) WHEN COT((('-2146694068')DIV(t0.c1))) THEN ((((634859462)<(t0.c1))) IS NULL) ELSE (('p虠O*.MO')>(t0.c4)) END )
+    >> [SQLITE_ERROR] SQL error or missing database (near "DIV": syntax error)
+  [OPBITWISE_XOR]
+    SELECT t1.c1, t1.c2, t0.c0, t0.c1 FROM t1, t0 WHERE ((MONTHNAME(t0.c0))=(CAST(((NULL)#(t1.c1)) AS INT)))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "#")
+  [BINARY_ARITHMETIC]
+    CREATE INDEX t0i2 ON t0 (c1 )  WHERE (((CASE (+ 'l ') WHEN ((t0.c1)MOD('')) THEN (('-2102723829')!=(2145080560)) ELSE CAST(false AS VARCHAR) END ))AND(DEGREES(CAST(t0.c1 AS INT))))
+    >> [SQLITE_ERROR] SQL error or missing database (near "MOD": syntax error)
+  [NOT_LIKE]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((- ATAN2(t0.c0)))NOT LIKE((+ FLOOR(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function ATAN2())
+  [BETWEEN]
+    SELECT t1.c0, t1.c1 FROM t1 WHERE (NOT (PREFIX(t1.c0, t1.c1) NOT BETWEEN STRIP_ACCENTS(t1.c0) AND (CASE t1.c0 WHEN 'J配m8%cw#0' THEN t1.c1 WHEN t1.c0 THEN t1.c1 END )))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: STRIP_ACCENTS)
+  [OPCONCAT]
+    SELECT t0.c0 FROM t0 WHERE CONTAINS((~ RADIANS(634859462)), (((~ t0.c0))||((- t0.c0))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: CONTAINS)
+  [NOT_EQUALS2]
+    SELECT t1.c0, t1.c1, t1.c2 FROM t1 WHERE CONTAINS(((((t1.c2)%(t1.c2)))-(((t1.c2)*(t1.c2)))), ((((t1.c0)<>(t1.c0)))>(((t1.c1)<>(t1.c1)))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: CONTAINS)
+  [UMINUS]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((- ATAN2(t0.c0)))NOT LIKE((+ FLOOR(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function ATAN2())
+  [CASE]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 RIGHT  JOIN t1 ON ((CAST(MONTHNAME(t1.c2) AS BOOLEAN))>((CASE ((t1.c2)*(t1.c2)) WHEN (~ t1.c1) THEN ((t1.c2)<<(t1.c2)) ELSE (NOT t1.c2) END ))) WHERE (NOT CAST((NOT -1996297349) AS BOOLEAN))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: MONTHNAME)
+  [UPDATE_WHERE]
+    UPDATE t0 SET c1=((((((t0.c1)<(t0.c1)))>(((t0.c1)=(t0.c1)))))!=(((((t0.c1)>(t0.c1)))<=(((t0.c1)IS(t0.c1)))))) WHERE ((t0.c1)$$$((((CASE NULL WHEN 'e5' THEN -1858325905 END ))IS NOT DISTINCT FROM(((-1292905638)/(-189283135))))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$((((CASE")
+  [UNARY_POSTFIX]
+    SELECT t1.c0, t1.c1, t1.c2 FROM t1 WHERE ((CEILING(CONCAT(t1.c0))) IS NULL)
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: CONCAT)
+  [GREATER]
+    UPDATE t1 SET c0=false, c1=-1570959827 WHERE ((t1.c0)AND((((+ t1.c1))>(DAYOFMONTH(t1.c0)))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: DAYOFMONTH)
+  [OPDIV_STR]
+    SELECT t0.c0, t0.c1 FROM t0 WHERE ((((((t0.c1)DIV(1810867458)))/(CAST(t0.c0 AS INT)))) IS NOT NULL)
+    >> [SQLITE_ERROR] SQL error or missing database (near "DIV": syntax error)
+  [LOPAND]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((((((((- t1.c1))<=((NOT t1.c2))))AND((((NOT t1.c0))$$$(CAST(t1.c1 AS INT))))))AND(true)))AND(((((t1.c1)+(XOR(NULL, NULL))))<(((t1.c1)/(t1.c1))))))
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$(CAST(t1.c1")
+  [UBIT_NOT]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 RIGHT  JOIN t1 ON ((CAST(MONTHNAME(t1.c2) AS BOOLEAN))>((CASE ((t1.c2)*(t1.c2)) WHEN (~ t1.c1) THEN ((t1.c2)<<(t1.c2)) ELSE (NOT t1.c2) END ))) WHERE (NOT CAST((NOT -1996297349) AS BOOLEAN))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: MONTHNAME)
+  [LIKE]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 RIGHT  JOIN t1 ON ((t1.c0)>=(BIT_LENGTH(((t1.c0)LIKE(t1.c0))))) WHERE CAST(t0.c0 AS BOOLEAN)
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: BIT_LENGTH)
+  [IN]
+    SELECT t0.c0 FROM t0 WHERE (CASE t0.c0 WHEN -1265588376 THEN (((NOT t0.c0))$$$((+ t0.c0))) ELSE ((CASE t0.c0 WHEN t0.c0 THEN t0.c0 ELSE t0.c0 END ) IN (((t0.c0)/(t0.c0)), ((t0.c0)*(t0.c0)), (+ -1201875790), t0.c0, (CASE t0.c0 WHEN t0.c0 THEN t0.c0 ELSE t0.c0 END ))) END )
+    >> [SQLITE_ERROR] SQL error or missing database (unrecognized token: "$$$((+")
+  [CAST]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0, t1 WHERE (((NOT CAST(t0.c0 AS INT)))=((NOT WEEKDAY(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [IS_NULL]
+    SELECT t1.c0, t1.c1, t1.c2 FROM t1 WHERE ((CEILING(CONCAT(t1.c0))) IS NULL)
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: CONCAT)
+  [CAST_FUNC]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0, t1 WHERE (((NOT CAST(t0.c0 AS INT)))=((NOT WEEKDAY(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [UPLUS]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE (((- ATAN2(t0.c0)))NOT LIKE((+ FLOOR(t1.c1))))
+    >> [SQLITE_ERROR] SQL error or missing database (wrong number of arguments to function ATAN2())
+  [RIGHT_JOIN]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 RIGHT  JOIN t1 ON ((CAST(MONTHNAME(t1.c2) AS BOOLEAN))>((CASE ((t1.c2)*(t1.c2)) WHEN (~ t1.c1) THEN ((t1.c2)<<(t1.c2)) ELSE (NOT t1.c2) END ))) WHERE (NOT CAST((NOT -1996297349) AS BOOLEAN))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: MONTHNAME)
+  [DISTINCT]
+    SELECT t1.c0, t1.c1, t1.c2, t0.c0 FROM t1, t0 WHERE WEEKDAY((CASE ((t1.c2)IS NOT(t1.c2)) WHEN ((t1.c2)NOT LIKE(t0.c0)) THEN NULL ELSE ((t0.c0)IS DISTINCT FROM(t1.c1)) END ))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [OPOR]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 LEFT  JOIN t1 ON CAST((((+ t0.c0))LIKE(SIN(t0.c0))) AS BOOLEAN) WHERE (CASE WEEKDAY((- t0.c0)) WHEN ((CAST(579681049 AS INT))||(((2038971741)|(t1.c1)))) THEN t1.c0 WHEN (CASE (('')||('w2Pn\IOo9')) WHEN (('iuJqOmM')||('Bf')) THEN ((t1.c1)<<(t1.c1)) END ) THEN ((CAST(t1.c0 AS INT))>=((NOT t0.c0))) END )
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: WEEKDAY)
+  [IS_NOT_NULL]
+    SELECT t0.c0, t0.c1, t1.c0, t1.c1 FROM t0 RIGHT  JOIN t1 ON (NOT IF(CAST(t0.c0 AS BOOLEAN), (CASE t0.c0 WHEN t0.c1 THEN t1.c0 END ), ((t1.c1)/(t1.c1)))) WHERE ((t0.c1)IS((NOT ((t1.c1) IS NOT NULL))))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: IF)
+  [NATURAL_JOIN]
+    SELECT t1.c0, t1.c1, t0.c0, t0.c1, t0.c2, v0.c0 FROM v0, t1 NATURAL FULL JOIN t0 WHERE ((CAST(((t1.c1)||(t1.c1)) AS BOOLEAN))<=>(CAST(CAST(t0.c2 AS BOOLEAN) AS BOOLEAN)))
+    >> [SQLITE_ERROR] SQL error or missing database (near ">": syntax error)
+  [OPMULT]
+    SELECT t0.c0, t1.c0, t1.c1, t1.c2 FROM t0 RIGHT  JOIN t1 ON ((CAST(MONTHNAME(t1.c2) AS BOOLEAN))>((CASE ((t1.c2)*(t1.c2)) WHEN (~ t1.c1) THEN ((t1.c2)<<(t1.c2)) ELSE (NOT t1.c2) END ))) WHERE (NOT CAST((NOT -1996297349) AS BOOLEAN))
+    >> [SQLITE_ERROR] SQL error or missing database (no such function: MONTHNAME)
+
+--- Composite Features (Functions/Casts/Operators) ---
+  Feature                                   Success    Count      Rate   Status
+  ---------------------------------------------------------------------------
+  ABS-0BOOLEAN                                    5       10     50.0%       ON
+  ABS-0INT                                       13       17     76.5%       ON
+  ABS-0VARCHAR                                    4        7     57.1%       ON
+  ABS-0VARCHAR(500)                               5        7     71.4%       ON
+  ACOS-0BOOLEAN                                   7       11     63.6%       ON
+  ACOS-0INT                                       4        8     50.0%       ON
+  ACOS-0VARCHAR                                   5        7     71.4%       ON
+  ACOS-0VARCHAR(500)                              1        3     33.3%       ON
+  AGE-0BOOLEAN                                    0       10      0.0%       ON
+  AGE-0INT                                        0       11      0.0%       ON
+  AGE-0VARCHAR                                    0        4      0.0%       ON
+  AGE-0VARCHAR(500)                               0        3      0.0%       ON
+  AGE-1BOOLEAN                                    0        9      0.0%       ON
+  AGE-1INT                                        0        9      0.0%       ON
+  AGE-1VARCHAR                                    0        6      0.0%       ON
+  AGE-1VARCHAR(500)                               0        4      0.0%       ON
+  ASIN-0BOOLEAN                                   8       10     80.0%       ON
+  ASIN-0INT                                       4       13     30.8%       ON
+  ASIN-0VARCHAR                                   1        3     33.3%       ON
+  ASIN-0VARCHAR(500)                              1        2     50.0%       ON
+  ATAN-0BOOLEAN                                   6        9     66.7%       ON
+  ATAN-0INT                                       7       12     58.3%       ON
+  ATAN-0VARCHAR                                   8        8    100.0%       ON
+  ATAN-0VARCHAR(500)                              6        7     85.7%       ON
+  ATAN2-0BOOLEAN                                  0       12      0.0%       ON
+  ATAN2-0INT                                      0       18      0.0%       ON
+  ATAN2-0VARCHAR                                  0        6      0.0%       ON
+  ATAN2-0VARCHAR(500)                             0        2      0.0%       ON
+  BINOP!=                                       122      206     59.2%       ON
+  BINOP!=-BOOLEAN                                12       18     66.7%       ON
+  BINOP!=-INT                                     7       16     43.8%       ON
+  BINOP!=-VARCHAR                                 4        6     66.7%       ON
+  BINOP!=-VARCHAR(500)                            3        5     60.0%       ON
+  BINOP$$$                                        0      205      0.0%      OFF
+  BINOP$$$-BOOLEAN                                0       20      0.0%       ON
+  BINOP$$$-INT                                    0       15      0.0%       ON
+  BINOP$$$-VARCHAR                                0       13      0.0%       ON
+  BINOP$$$-VARCHAR(500)                           0        7      0.0%       ON
+  BINOP<                                        134      218     61.5%       ON
+  BINOP<-BOOLEAN                                 16       26     61.5%       ON
+  BINOP<-INT                                      8       20     40.0%       ON
+  BINOP<-VARCHAR                                  5        6     83.3%       ON
+  BINOP<-VARCHAR(500)                             3        3    100.0%       ON
+  BINOP<=                                       142      217     65.4%       ON
+  BINOP<=-BOOLEAN                                12       15     80.0%       ON
+  BINOP<=-INT                                    16       22     72.7%       ON
+  BINOP<=-VARCHAR                                 4        6     66.7%       ON
+  BINOP<=-VARCHAR(500)                            5        8     62.5%       ON
+  BINOP<>                                       167      243     68.7%       ON
+  BINOP<>-BOOLEAN                                11       17     64.7%       ON
+  BINOP<>-INT                                    14       20     70.0%       ON
+  BINOP<>-VARCHAR                                 4        5     80.0%       ON
+  BINOP<>-VARCHAR(500)                            5        7     71.4%       ON
+  BINOP>                                        148      238     62.2%       ON
+  BINOP>-BOOLEAN                                 15       21     71.4%       ON
+  BINOP>-INT                                      9       17     52.9%       ON
+  BINOP>-VARCHAR                                  4        4    100.0%       ON
+  BINOP>-VARCHAR(500)                             5        9     55.6%       ON
+  BINOP>=                                       154      232     66.4%       ON
+  BINOP>=-BOOLEAN                                 9       15     60.0%       ON
+  BINOP>=-INT                                    11       23     47.8%       ON
+  BINOP>=-VARCHAR                                 6        9     66.7%       ON
+  BINOP>=-VARCHAR(500)                            7       11     63.6%       ON
+  BINOPAND                                      143      227     63.0%       ON
+  BINOPAND-BOOLEAN                               16       23     69.6%       ON
+  BINOPAND-INT                                   12       25     48.0%       ON
+  BINOPAND-VARCHAR                                7        8     87.5%       ON
+  BINOPAND-VARCHAR(500)                           6        7     85.7%       ON
+  BINOPOR                                       158      242     65.3%       ON
+  BINOPOR-BOOLEAN                                18       28     64.3%       ON
+  BINOPOR-INT                                    15       27     55.6%       ON
+  BINOPOR-VARCHAR                                 5        7     71.4%       ON
+  BINOPOR-VARCHAR(500)                            5        7     71.4%       ON
+  BIT_COUNT-0BOOLEAN                              0       10      0.0%       ON
+  BIT_COUNT-0INT                                  0       22      0.0%       ON
+  BIT_COUNT-0VARCHAR                              0        4      0.0%       ON
+  BIT_COUNT-0VARCHAR(500)                         0        2      0.0%       ON
+  BIT_LENGTH-0BOOLEAN                             0       10      0.0%       ON
+  BIT_LENGTH-0INT                                 0       12      0.0%       ON
+  BIT_LENGTH-0VARCHAR                             0        4      0.0%       ON
+  BIT_LENGTH-0VARCHAR(500)                        0        3      0.0%       ON
+  BOOLEAN-ABS                                    10       15     66.7%       ON
+  BOOLEAN-ACOS                                   12       17     70.6%       ON
+  BOOLEAN-AGE                                     0       14      0.0%       ON
+  BOOLEAN-ASIN                                    9       13     69.2%       ON
+  BOOLEAN-ATAN                                   15       18     83.3%       ON
+  BOOLEAN-ATAN2                                   0       22      0.0%       ON
+  BOOLEAN-BIT_COUNT                               0       15      0.0%       ON
+  BOOLEAN-BIT_LENGTH                              0       18      0.0%       ON
+  BOOLEAN-CBRT                                    0       16      0.0%       ON
+  BOOLEAN-CEIL                                   10       16     62.5%       ON
+  BOOLEAN-CEILING                                 8       15     53.3%       ON
+  BOOLEAN-COALESCE                                5       16     31.3%       ON
+  BOOLEAN-CONCAT                                  0       18      0.0%       ON
+  BOOLEAN-CONCAT_WS                               0        8      0.0%       ON
+  BOOLEAN-CONTAINS                                0       17      0.0%       ON
+  BOOLEAN-COS                                    14       18     77.8%       ON
+  BOOLEAN-COT                                    14       17     82.4%       ON
+  BOOLEAN-DATE_PART                               0       14      0.0%       ON
+  BOOLEAN-DAYNAME                                 0       21      0.0%       ON
+  BOOLEAN-DAYOFMONTH                              0       17      0.0%       ON
+  BOOLEAN-DEGREES                                12       16     75.0%       ON
+  BOOLEAN-FLOOR                                  12       17     70.6%       ON
+  BOOLEAN-IF                                      0       14      0.0%       ON
+  BOOLEAN-IFNULL                                  9       13     69.2%       ON
+  BOOLEAN-INSTR                                   9       16     56.3%       ON
+  BOOLEAN-LAST_DAY                                0       18      0.0%       ON
+  BOOLEAN-LENGTH                                 13       21     61.9%       ON
+  BOOLEAN-LN                                      8       13     61.5%       ON
+  BOOLEAN-LOG                                    12       17     70.6%       ON
+  BOOLEAN-LOG10                                  14       14    100.0%       ON
+  BOOLEAN-LOG2                                   13       18     72.2%       ON
+  BOOLEAN-LOWER                                   4        7     57.1%       ON
+  BOOLEAN-LTRIM                                   9       16     56.3%       ON
+  BOOLEAN-MOD                                     7       14     50.0%       ON
+  BOOLEAN-MONTHNAME                               0       13      0.0%       ON
+  BOOLEAN-NULLIF                                 16       28     57.1%       ON
+  BOOLEAN-PI                                     12       16     75.0%       ON
+  BOOLEAN-POWER                                   0       19      0.0%       ON
+  BOOLEAN-PREFIX                                  0       14      0.0%       ON
+  BOOLEAN-PRINTF                                 10       16     62.5%       ON
+  BOOLEAN-RADIANS                                 8       14     57.1%       ON
+  BOOLEAN-REPLACE                                11       15     73.3%       ON
+  BOOLEAN-REVERSE                                 7       10     70.0%       ON
+  BOOLEAN-RTRIM                                  13       18     72.2%       ON
+  BOOLEAN-SIGN                                    9       13     69.2%       ON
+  BOOLEAN-SIN                                    11       16     68.8%       ON
+  BOOLEAN-SQRT                                   16       19     84.2%       ON
+  BOOLEAN-STRIP_ACCENTS                           0       16      0.0%       ON
+  BOOLEAN-SUBSTRING                               8       14     57.1%       ON
+  BOOLEAN-SUFFIX                                  0       25      0.0%       ON
+  BOOLEAN-TAN                                    13       24     54.2%       ON
+  BOOLEAN-UNICODE                                12       20     60.0%       ON
+  BOOLEAN-UPPER                                  10       15     66.7%       ON
+  BOOLEAN-WEEKDAY                                 0       13      0.0%       ON
+  BOOLEAN-WEEKOFYEAR                              0       15      0.0%       ON
+  BOOLEAN-XOR                                     0        9      0.0%       ON
+  BOOLEAN-YEARWEEK                                0       21      0.0%       ON
+  CBRT-0BOOLEAN                                   0        9      0.0%       ON
+  CBRT-0INT                                       0       17      0.0%       ON
+  CBRT-0VARCHAR                                   0        2      0.0%       ON
+  CBRT-0VARCHAR(500)                              0        3      0.0%       ON
+  CEIL-0BOOLEAN                                  10       15     66.7%       ON
+  CEIL-0INT                                       5        8     62.5%       ON
+  CEIL-0VARCHAR                                   6        8     75.0%       ON
+  CEIL-0VARCHAR(500)                              4        4    100.0%       ON
+  CEILING-0BOOLEAN                                9       17     52.9%       ON
+  CEILING-0INT                                    4       12     33.3%       ON
+  CEILING-0VARCHAR                                1        1    100.0%       ON
+  CEILING-0VARCHAR(500)                           7        7    100.0%       ON
+  COALESCE-0BOOLEAN                               7       16     43.8%       ON
+  COALESCE-0INT                                   6       11     54.5%       ON
+  COALESCE-0VARCHAR                               3        4     75.0%       ON
+  COALESCE-0VARCHAR(500)                          1        3     33.3%       ON
+  COALESCE-1BOOLEAN                               3        9     33.3%       ON
+  COALESCE-1INT                                   6       14     42.9%       ON
+  COALESCE-1VARCHAR                               4        4    100.0%       ON
+  COALESCE-1VARCHAR(500)                          3        6     50.0%       ON
+  COALESCE-2BOOLEAN                               6       12     50.0%       ON
+  COALESCE-2INT                                   4       11     36.4%       ON
+  COALESCE-2VARCHAR                               1        5     20.0%       ON
+  COALESCE-2VARCHAR(500)                          5        6     83.3%       ON
+  COLUMN-BOOLEAN                                 25       20    125.0%       ON
+  COLUMN-INT                                     30       21    142.9%       ON
+  COLUMN-VARCHAR                                 13       11    118.2%       ON
+  COLUMN-VARCHAR(500)                            10        8    125.0%       ON
+  CONCAT-0BOOLEAN                                 0       12      0.0%       ON
+  CONCAT-0INT                                     0       13      0.0%       ON
+  CONCAT-0VARCHAR                                 0        5      0.0%       ON
+  CONCAT-0VARCHAR(500)                            0        6      0.0%       ON
+  CONCAT-1BOOLEAN                                 0        3      0.0%       ON
+  CONCAT-1INT                                     0        3      0.0%       ON
+  CONCAT-1VARCHAR                                 0        1      0.0%       ON
+  CONCAT-1VARCHAR(500)                            0        1      0.0%       ON
+  CONCAT-2BOOLEAN                                 0        1      0.0%       ON
+  CONCAT_WS-0BOOLEAN                              0        9      0.0%       ON
+  CONCAT_WS-0INT                                  0        7      0.0%       ON
+  CONCAT_WS-0VARCHAR                              0        4      0.0%       ON
+  CONCAT_WS-0VARCHAR(500)                         0        4      0.0%       ON
+  CONCAT_WS-1BOOLEAN                              0        3      0.0%       ON
+  CONCAT_WS-1INT                                  0        2      0.0%       ON
+  CONCAT_WS-1VARCHAR                              0        1      0.0%       ON
+  CONCAT_WS-1VARCHAR(500)                         0        2      0.0%       ON
+  CONCAT_WS-2BOOLEAN                              0        1      0.0%       ON
+  CONCAT_WS-2INT                                  0        1      0.0%       ON
+  CONTAINS-0BOOLEAN                               0        9      0.0%       ON
+  CONTAINS-0INT                                   0       18      0.0%       ON
+  CONTAINS-0VARCHAR                               0        5      0.0%       ON
+  CONTAINS-0VARCHAR(500)                          0        1      0.0%       ON
+  CONTAINS-1BOOLEAN                               0       14      0.0%       ON
+  CONTAINS-1INT                                   0       15      0.0%       ON
+  CONTAINS-1VARCHAR                               0        1      0.0%       ON
+  CONTAINS-1VARCHAR(500)                          0        3      0.0%       ON
+  COS-0BOOLEAN                                   10       13     76.9%       ON
+  COS-0INT                                        8       13     61.5%       ON
+  COS-0VARCHAR                                    3        6     50.0%       ON
+  COS-0VARCHAR(500)                               4        6     66.7%       ON
+  COT-0BOOLEAN                                   10       18     55.6%       ON
+  COT-0INT                                        9       14     64.3%       ON
+  COT-0VARCHAR                                    4        5     80.0%       ON
+  COT-0VARCHAR(500)                               3        5     60.0%       ON
+  DATE_PART-0BOOLEAN                              0        7      0.0%       ON
+  DATE_PART-0INT                                  0       12      0.0%       ON
+  DATE_PART-0VARCHAR                              0        7      0.0%       ON
+  DATE_PART-0VARCHAR(500)                         0        2      0.0%       ON
+  DATE_PART-1BOOLEAN                              0       12      0.0%       ON
+  DATE_PART-1INT                                  0        9      0.0%       ON
+  DATE_PART-1VARCHAR                              0        4      0.0%       ON
+  DATE_PART-1VARCHAR(500)                         0        1      0.0%       ON
+  DAYNAME-0BOOLEAN                                0       12      0.0%       ON
+  DAYNAME-0INT                                    0       14      0.0%       ON
+  DAYNAME-0VARCHAR                                0        6      0.0%       ON
+  DAYNAME-0VARCHAR(500)                           0        5      0.0%       ON
+  DAYOFMONTH-0BOOLEAN                             0       14      0.0%       ON
+  DAYOFMONTH-0INT                                 0       13      0.0%       ON
+  DAYOFMONTH-0VARCHAR                             0        4      0.0%       ON
+  DAYOFMONTH-0VARCHAR(500)                        0        4      0.0%       ON
+  DEGREES-0BOOLEAN                               11       15     73.3%       ON
+  DEGREES-0INT                                    6       12     50.0%       ON
+  DEGREES-0VARCHAR                                2        3     66.7%       ON
+  DEGREES-0VARCHAR(500)                           2        3     66.7%       ON
+  DISTINCT-BOOLEAN                               44       80     55.0%       ON
+  DISTINCT-INT                                   28       50     56.0%       ON
+  DISTINCT-STRING                                32       44     72.7%       ON
+  EQUALS-BOOLEAN                                 34       56     60.7%       ON
+  EQUALS-INT                                     49       78     62.8%       ON
+  EQUALS-STRING                                  44       52     84.6%       ON
+  EQUALS2-BOOLEAN                                 0       50      0.0%       ON
+  EQUALS2-INT                                     0       43      0.0%       ON
+  EQUALS2-STRING                                  0       23      0.0%       ON
+  FLOOR-0BOOLEAN                                  6       10     60.0%       ON
+  FLOOR-0INT                                      6       14     42.9%       ON
+  FLOOR-0VARCHAR                                  4        5     80.0%       ON
+  FLOOR-0VARCHAR(500)                             5        5    100.0%       ON
+  FUNCTION-ABS                                   28       42     66.7%       ON
+  FUNCTION-ACOS                                  17       30     56.7%       ON
+  FUNCTION-AGE                                    0       29      0.0%       ON
+  FUNCTION-ASIN                                  15       30     50.0%       ON
+  FUNCTION-ATAN                                  27       36     75.0%       ON
+  FUNCTION-ATAN2                                  0       38      0.0%       ON
+  FUNCTION-BIT_COUNT                              0       40      0.0%       ON
+  FUNCTION-BIT_LENGTH                             0       30      0.0%       ON
+  FUNCTION-CBRT                                   0       33      0.0%       ON
+  FUNCTION-CEIL                                  26       36     72.2%       ON
+  FUNCTION-CEILING                               21       37     56.8%       ON
+  FUNCTION-COALESCE                              18       35     51.4%       ON
+  FUNCTION-CONCAT                                 0       37      0.0%       ON
+  FUNCTION-CONCAT_WS                              0       24      0.0%       ON
+  FUNCTION-CONTAINS                               0       35      0.0%       ON
+  FUNCTION-COS                                   26       40     65.0%       ON
+  FUNCTION-COT                                   26       44     59.1%       ON
+  FUNCTION-DATE_PART                              0       28      0.0%       ON
+  FUNCTION-DAYNAME                                0       39      0.0%       ON
+  FUNCTION-DAYOFMONTH                             0       35      0.0%       ON
+  FUNCTION-DEGREES                               21       34     61.8%       ON
+  FUNCTION-FLOOR                                 22       36     61.1%       ON
+  FUNCTION-IF                                     0       39      0.0%       ON
+  FUNCTION-IFNULL                                22       34     64.7%       ON
+  FUNCTION-INSTR                                 17       28     60.7%       ON
+  FUNCTION-LAST_DAY                               0       37      0.0%       ON
+  FUNCTION-LENGTH                                25       43     58.1%       ON
+  FUNCTION-LN                                    22       34     64.7%       ON
+  FUNCTION-LOG                                   23       34     67.6%       ON
+  FUNCTION-LOG10                                 24       34     70.6%       ON
+  FUNCTION-LOG2                                  22       34     64.7%       ON
+  FUNCTION-LOWER                                 10       24     41.7%       ON
+  FUNCTION-LTRIM                                 24       36     66.7%       ON
+  FUNCTION-MOD                                   17       37     45.9%       ON
+  FUNCTION-MONTHNAME                              0       35      0.0%       ON
+  FUNCTION-NULLIF                                25       46     54.3%       ON
+  FUNCTION-PI                                    22       35     62.9%       ON
+  FUNCTION-POWER                                  0       34      0.0%       ON
+  FUNCTION-PREFIX                                 0       23      0.0%       ON
+  FUNCTION-PRINTF                                18       32     56.3%       ON
+  FUNCTION-RADIANS                               17       30     56.7%       ON
+  FUNCTION-REPLACE                               19       29     65.5%       ON
+  FUNCTION-REVERSE                               18       27     66.7%       ON
+  FUNCTION-RTRIM                                 21       34     61.8%       ON
+  FUNCTION-SIGN                                  14       27     51.9%       ON
+  FUNCTION-SIN                                   19       34     55.9%       ON
+  FUNCTION-SQRT                                  26       36     72.2%       ON
+  FUNCTION-STRIP_ACCENTS                          0       36      0.0%       ON
+  FUNCTION-SUBSTRING                             21       37     56.8%       ON
+  FUNCTION-SUFFIX                                 0       44      0.0%       ON
+  FUNCTION-TAN                                   24       41     58.5%       ON
+  FUNCTION-UNICODE                               22       38     57.9%       ON
+  FUNCTION-UPPER                                 21       33     63.6%       ON
+  FUNCTION-WEEKDAY                                0       30      0.0%       ON
+  FUNCTION-WEEKOFYEAR                             0       31      0.0%       ON
+  FUNCTION-XOR                                    0       30      0.0%       ON
+  FUNCTION-YEARWEEK                               0       41      0.0%       ON
+  GREATER-BOOLEAN                                49       85     57.6%       ON
+  GREATER-INT                                    28       60     46.7%       ON
+  GREATER-STRING                                 25       39     64.1%       ON
+  GREATER_EQUALS-BOOLEAN                         52       76     68.4%       ON
+  GREATER_EQUALS-INT                             35       59     59.3%       ON
+  GREATER_EQUALS-STRING                          34       49     69.4%       ON
+  IF-0BOOLEAN                                     0        9      0.0%       ON
+  IF-0INT                                         0       18      0.0%       ON
+  IF-0VARCHAR                                     0        4      0.0%       ON
+  IF-0VARCHAR(500)                                0        6      0.0%       ON
+  IF-1BOOLEAN                                     0       11      0.0%       ON
+  IF-1INT                                         0       16      0.0%       ON
+  IF-1VARCHAR                                     0        6      0.0%       ON
+  IF-1VARCHAR(500)                                0        4      0.0%       ON
+  IF-2BOOLEAN                                     0       12      0.0%       ON
+  IF-2INT                                         0       17      0.0%       ON
+  IF-2VARCHAR                                     0        3      0.0%       ON
+  IF-2VARCHAR(500)                                0        4      0.0%       ON
+  IFNULL-0BOOLEAN                                 8       12     66.7%       ON
+  IFNULL-0INT                                     7       12     58.3%       ON
+  IFNULL-0VARCHAR                                 4        7     57.1%       ON
+  IFNULL-0VARCHAR(500)                            3        3    100.0%       ON
+  IFNULL-1BOOLEAN                                10       15     66.7%       ON
+  IFNULL-1INT                                     6       10     60.0%       ON
+  IFNULL-1VARCHAR                                 2        3     66.7%       ON
+  IFNULL-1VARCHAR(500)                            3        5     60.0%       ON
+  INSTR-0BOOLEAN                                  7       11     63.6%       ON
+  INSTR-0INT                                      6        9     66.7%       ON
+  INSTR-0VARCHAR                                  2        4     50.0%       ON
+  INSTR-0VARCHAR(500)                             1        2     50.0%       ON
+  INSTR-1BOOLEAN                                  5        8     62.5%       ON
+  INSTR-1INT                                      6       10     60.0%       ON
+  INSTR-1VARCHAR                                  4        6     66.7%       ON
+  INSTR-1VARCHAR(500)                             0        1      0.0%       ON
+  INT-ABS                                         9       13     69.2%       ON
+  INT-ACOS                                        1        4     25.0%       ON
+  INT-AGE                                         0        6      0.0%       ON
+  INT-ASIN                                        3       11     27.3%       ON
+  INT-ATAN                                        4        9     44.4%       ON
+  INT-ATAN2                                       0       10      0.0%       ON
+  INT-BIT_COUNT                                   0       16      0.0%       ON
+  INT-BIT_LENGTH                                  0        9      0.0%       ON
+  INT-CBRT                                        0        7      0.0%       ON
+  INT-CEIL                                        4        7     57.1%       ON
+  INT-CEILING                                     6       15     40.0%       ON
+  INT-COALESCE                                    3        8     37.5%       ON
+  INT-CONCAT                                      0       12      0.0%       ON
+  INT-CONCAT_WS                                   0        9      0.0%       ON
+  INT-CONTAINS                                    0       12      0.0%       ON
+  INT-COS                                         6       12     50.0%       ON
+  INT-COT                                         5       13     38.5%       ON
+  INT-DATE_PART                                   0        6      0.0%       ON
+  INT-DAYNAME                                     0        9      0.0%       ON
+  INT-DAYOFMONTH                                  0       13      0.0%       ON
+  INT-DEGREES                                     3        9     33.3%       ON
+  INT-FLOOR                                       5       11     45.5%       ON
+  INT-IF                                          0       12      0.0%       ON
+  INT-IFNULL                                      8       11     72.7%       ON
+  INT-INSTR                                       3        4     75.0%       ON
+  INT-LAST_DAY                                    0        7      0.0%       ON
+  INT-LENGTH                                      8       14     57.1%       ON
+  INT-LN                                         10       14     71.4%       ON
+  INT-LOG                                         7       10     70.0%       ON
+  INT-LOG10                                       5       14     35.7%       ON
+  INT-LOG2                                        5       10     50.0%       ON
+  INT-LOWER                                       2       10     20.0%       ON
+  INT-LTRIM                                       7       12     58.3%       ON
+  INT-MOD                                         6       12     50.0%       ON
+  INT-MONTHNAME                                   0       14      0.0%       ON
+  INT-NULLIF                                      5       12     41.7%       ON
+  INT-PI                                          3       10     30.0%       ON
+  INT-POWER                                       0        9      0.0%       ON
+  INT-PREFIX                                      0        6      0.0%       ON
+  INT-PRINTF                                      4        9     44.4%       ON
+  INT-RADIANS                                     5       12     41.7%       ON
+  INT-REPLACE                                     2        5     40.0%       ON
+  INT-REVERSE                                     6        7     85.7%       ON
+  INT-RTRIM                                       4       10     40.0%       ON
+  INT-SIGN                                        3        7     42.9%       ON
+  INT-SIN                                         3        9     33.3%       ON
+  INT-SQRT                                        6        8     75.0%       ON
+  INT-STRIP_ACCENTS                               0       16      0.0%       ON
+  INT-SUBSTRING                                   9       16     56.3%       ON
+  INT-SUFFIX                                      0       12      0.0%       ON
+  INT-TAN                                         5        9     55.6%       ON
+  INT-UNICODE                                     5       10     50.0%       ON
+  INT-UPPER                                       7       12     58.3%       ON
+  INT-WEEKDAY                                     0        8      0.0%       ON
+  INT-WEEKOFYEAR                                  0       10      0.0%       ON
+  INT-XOR                                         0       12      0.0%       ON
+  INT-YEARWEEK                                    0       13      0.0%       ON
+  IS-BOOLEAN                                     37       70     52.9%       ON
+  IS-INT                                         37       63     58.7%       ON
+  IS-STRING                                      31       40     77.5%       ON
+  IS_NOT-BOOLEAN                                 59       73     80.8%       ON
+  IS_NOT-INT                                     38       60     63.3%       ON
+  IS_NOT-STRING                                  27       34     79.4%       ON
+  LAST_DAY-0BOOLEAN                               0       12      0.0%       ON
+  LAST_DAY-0INT                                   0       12      0.0%       ON
+  LAST_DAY-0VARCHAR                               0        5      0.0%       ON
+  LAST_DAY-0VARCHAR(500)                          0        6      0.0%       ON
+  LENGTH-0BOOLEAN                                 6       11     54.5%       ON
+  LENGTH-0INT                                    11       19     57.9%       ON
+  LENGTH-0VARCHAR                                 2        5     40.0%       ON
+  LENGTH-0VARCHAR(500)                            6        7     85.7%       ON
+  LIKE-BOOLEAN                                   55       83     66.3%       ON
+  LIKE-INT                                       31       56     55.4%       ON
+  LIKE-STRING                                    29       49     59.2%       ON
+  LN-0BOOLEAN                                     8       12     66.7%       ON
+  LN-0INT                                         7       14     50.0%       ON
+  LN-0VARCHAR                                     3        3    100.0%       ON
+  LN-0VARCHAR(500)                                4        5     80.0%       ON
+  LOG-0BOOLEAN                                    9       14     64.3%       ON
+  LOG-0INT                                        7       12     58.3%       ON
+  LOG-0VARCHAR                                    2        3     66.7%       ON
+  LOG-0VARCHAR(500)                               5        5    100.0%       ON
+  LOG10-0BOOLEAN                                  9       12     75.0%       ON
+  LOG10-0INT                                     11       17     64.7%       ON
+  LOG10-0VARCHAR                                  3        3    100.0%       ON
+  LOG10-0VARCHAR(500)                             1        2     50.0%       ON
+  LOG2-0BOOLEAN                                  10       13     76.9%       ON
+  LOG2-0INT                                       5       12     41.7%       ON
+  LOG2-0VARCHAR                                   5        6     83.3%       ON
+  LOG2-0VARCHAR(500)                              2        2    100.0%       ON
+  LOWER-0BOOLEAN                                  2        7     28.6%       ON
+  LOWER-0INT                                      4       12     33.3%       ON
+  LOWER-0VARCHAR                                  2        2    100.0%       ON
+  LOWER-0VARCHAR(500)                             1        1    100.0%       ON
+  LTRIM-0BOOLEAN                                  7       12     58.3%       ON
+  LTRIM-0INT                                      6       12     50.0%       ON
+  LTRIM-0VARCHAR                                  7        8     87.5%       ON
+  LTRIM-0VARCHAR(500)                             4        4    100.0%       ON
+  MOD-0BOOLEAN                                    5       12     41.7%       ON
+  MOD-0INT                                        9       18     50.0%       ON
+  MOD-0VARCHAR                                    1        4     25.0%       ON
+  MOD-0VARCHAR(500)                               2        3     66.7%       ON
+  MOD-1BOOLEAN                                    6       12     50.0%       ON
+  MOD-1INT                                        8       17     47.1%       ON
+  MOD-1VARCHAR                                    2        3     66.7%       ON
+  MOD-1VARCHAR(500)                               0        3      0.0%       ON
+  MONTHNAME-0BOOLEAN                              0       13      0.0%       ON
+  MONTHNAME-0INT                                  0       16      0.0%       ON
+  MONTHNAME-0VARCHAR                              0        1      0.0%       ON
+  MONTHNAME-0VARCHAR(500)                         0        3      0.0%       ON
+  NOT_DISTINCT-BOOLEAN                           46       82     56.1%       ON
+  NOT_DISTINCT-INT                               29       62     46.8%       ON
+  NOT_DISTINCT-STRING                            39       47     83.0%       ON
+  NOT_EQUALS-BOOLEAN                             45       73     61.6%       ON
+  NOT_EQUALS-INT                                 37       63     58.7%       ON
+  NOT_EQUALS-STRING                              35       43     81.4%       ON
+  NOT_EQUALS2-BOOLEAN                            42       74     56.8%       ON
+  NOT_EQUALS2-INT                                32       58     55.2%       ON
+  NOT_EQUALS2-STRING                             44       54     81.5%       ON
+  NOT_LIKE-BOOLEAN                               39       72     54.2%       ON
+  NOT_LIKE-INT                                   30       57     52.6%       ON
+  NOT_LIKE-STRING                                34       45     75.6%       ON
+  NULLIF-0BOOLEAN                                 7       14     50.0%       ON
+  NULLIF-0INT                                    13       21     61.9%       ON
+  NULLIF-0VARCHAR                                 0        2      0.0%       ON
+  NULLIF-0VARCHAR(500)                            3        7     42.9%       ON
+  NULLIF-1BOOLEAN                                 5       12     41.7%       ON
+  NULLIF-1INT                                    11       18     61.1%       ON
+  NULLIF-1VARCHAR                                 3        8     37.5%       ON
+  NULLIF-1VARCHAR(500)                            4        6     66.7%       ON
+  POWER-0BOOLEAN                                  0       12      0.0%       ON
+  POWER-0INT                                      0       15      0.0%       ON
+  POWER-0VARCHAR                                  0        5      0.0%       ON
+  POWER-0VARCHAR(500)                             0        2      0.0%       ON
+  PREFIX-0BOOLEAN                                 0        9      0.0%       ON
+  PREFIX-0INT                                     0        5      0.0%       ON
+  PREFIX-0VARCHAR                                 0        7      0.0%       ON
+  PREFIX-0VARCHAR(500)                            0        2      0.0%       ON
+  PREFIX-1BOOLEAN                                 0        8      0.0%       ON
+  PREFIX-1INT                                     0       10      0.0%       ON
+  PREFIX-1VARCHAR                                 0        3      0.0%       ON
+  PREFIX-1VARCHAR(500)                            0        2      0.0%       ON
+  PRINTF-0BOOLEAN                                 4        8     50.0%       ON
+  PRINTF-0INT                                     7       15     46.7%       ON
+  PRINTF-0VARCHAR                                 5        5    100.0%       ON
+  PRINTF-0VARCHAR(500)                            1        2     50.0%       ON
+  PRINTF-1BOOLEAN                                 2        3     66.7%       ON
+  PRINTF-1INT                                     3        6     50.0%       ON
+  PRINTF-1VARCHAR                                 3        4     75.0%       ON
+  PRINTF-1VARCHAR(500)                            1        1    100.0%       ON
+  PRINTF-2INT                                     1        2     50.0%       ON
+  RADIANS-0BOOLEAN                                9       12     75.0%       ON
+  RADIANS-0INT                                    4       14     28.6%       ON
+  RADIANS-0VARCHAR                                1        1    100.0%       ON
+  RADIANS-0VARCHAR(500)                           3        3    100.0%       ON
+  REPLACE-0BOOLEAN                                7       10     70.0%       ON
+  REPLACE-0INT                                    5        9     55.6%       ON
+  REPLACE-0VARCHAR                                3        4     75.0%       ON
+  REPLACE-0VARCHAR(500)                           4        5     80.0%       ON
+  REPLACE-1BOOLEAN                                4        5     80.0%       ON
+  REPLACE-1INT                                   10       16     62.5%       ON
+  REPLACE-1VARCHAR                                3        3    100.0%       ON
+  REPLACE-1VARCHAR(500)                           2        4     50.0%       ON
+  REPLACE-2BOOLEAN                                4        8     50.0%       ON
+  REPLACE-2INT                                    9       12     75.0%       ON
+  REPLACE-2VARCHAR                                2        2    100.0%       ON
+  REPLACE-2VARCHAR(500)                           3        4     75.0%       ON
+  REVERSE-0BOOLEAN                                6        6    100.0%       ON
+  REVERSE-0INT                                    6        9     66.7%       ON
+  REVERSE-0VARCHAR                                3        6     50.0%       ON
+  REVERSE-0VARCHAR(500)                           3        6     50.0%       ON
+  RTRIM-0BOOLEAN                                 10       16     62.5%       ON
+  RTRIM-0INT                                      5       10     50.0%       ON
+  RTRIM-0VARCHAR                                  2        4     50.0%       ON
+  RTRIM-0VARCHAR(500)                             4        4    100.0%       ON
+  SIGN-0BOOLEAN                                   7        7    100.0%       ON
+  SIGN-0INT                                       2        8     25.0%       ON
+  SIGN-0VARCHAR                                   2        7     28.6%       ON
+  SIGN-0VARCHAR(500)                              3        5     60.0%       ON
+  SIN-0BOOLEAN                                    5        7     71.4%       ON
+  SIN-0INT                                        7       15     46.7%       ON
+  SIN-0VARCHAR                                    4        6     66.7%       ON
+  SIN-0VARCHAR(500)                               3        5     60.0%       ON
+  SMALLER-BOOLEAN                                55       79     69.6%       ON
+  SMALLER-INT                                    33       67     49.3%       ON
+  SMALLER-STRING                                 22       30     73.3%       ON
+  SMALLER_EQUALS-BOOLEAN                         51       81     63.0%       ON
+  SMALLER_EQUALS-INT                             47       75     62.7%       ON
+  SMALLER_EQUALS-STRING                          26       34     76.5%       ON
+  SQRT-0BOOLEAN                                   9       10     90.0%       ON
+  SQRT-0INT                                       8       15     53.3%       ON
+  SQRT-0VARCHAR                                   5        5    100.0%       ON
+  SQRT-0VARCHAR(500)                              2        4     50.0%       ON
+  STRIP_ACCENTS-0BOOLEAN                          0        6      0.0%       ON
+  STRIP_ACCENTS-0INT                              0       18      0.0%       ON
+  STRIP_ACCENTS-0VARCHAR                          0       10      0.0%       ON
+  STRIP_ACCENTS-0VARCHAR(500)                     0        2      0.0%       ON
+  SUBSTRING-0BOOLEAN                              7        8     87.5%       ON
+  SUBSTRING-0INT                                  9       20     45.0%       ON
+  SUBSTRING-0VARCHAR                              2        4     50.0%       ON
+  SUBSTRING-0VARCHAR(500)                         2        4     50.0%       ON
+  SUBSTRING-1BOOLEAN                              9       13     69.2%       ON
+  SUBSTRING-1INT                                  7       18     38.9%       ON
+  SUBSTRING-1VARCHAR                              2        2    100.0%       ON
+  SUBSTRING-1VARCHAR(500)                         2        3     66.7%       ON
+  SUBSTRING-2BOOLEAN                              7       11     63.6%       ON
+  SUBSTRING-2INT                                 11       21     52.4%       ON
+  SUBSTRING-2VARCHAR                              1        1    100.0%       ON
+  SUBSTRING-2VARCHAR(500)                         1        3     33.3%       ON
+  SUFFIX-0BOOLEAN                                 0       16      0.0%       ON
+  SUFFIX-0INT                                     0       20      0.0%       ON
+  SUFFIX-0VARCHAR                                 0        4      0.0%       ON
+  SUFFIX-0VARCHAR(500)                            0        3      0.0%       ON
+  SUFFIX-1BOOLEAN                                 0       14      0.0%       ON
+  SUFFIX-1INT                                     0       16      0.0%       ON
+  SUFFIX-1VARCHAR                                 0        8      0.0%       ON
+  SUFFIX-1VARCHAR(500)                            0        5      0.0%       ON
+  TAN-0BOOLEAN                                    9       14     64.3%       ON
+  TAN-0INT                                        7       15     46.7%       ON
+  TAN-0VARCHAR                                    3        4     75.0%       ON
+  TAN-0VARCHAR(500)                               4        7     57.1%       ON
+  UABS_VAL-INT                                    0      101      0.0%       ON
+  UBIT_NOT-INT                                  306      435     70.3%       ON
+  UCUBE_ROOT-INT                                  0      133      0.0%       ON
+  UMINUS-INT                                    287      437     65.7%       ON
+  UNICODE-0BOOLEAN                               10       13     76.9%       ON
+  UNICODE-0INT                                   10       18     55.6%       ON
+  UNICODE-0VARCHAR                                1        5     20.0%       ON
+  UNOT-INT                                      310      460     67.4%       ON
+  UPLUS-INT                                     280      422     66.4%       ON
+  UPPER-0BOOLEAN                                  9       15     60.0%       ON
+  UPPER-0INT                                      7       11     63.6%       ON
+  UPPER-0VARCHAR                                  2        3     66.7%       ON
+  UPPER-0VARCHAR(500)                             2        2    100.0%       ON
+  USQT_ROOT-INT                                   0      120      0.0%       ON
+  VARCHAR(500)-ABS                                2        2    100.0%       ON
+  VARCHAR(500)-ACOS                               0        3      0.0%       ON
+  VARCHAR(500)-AGE                                0        2      0.0%       ON
+  VARCHAR(500)-ASIN                               0        1      0.0%       ON
+  VARCHAR(500)-ATAN                               2        2    100.0%       ON
+  VARCHAR(500)-ATAN2                              0        2      0.0%       ON
+  VARCHAR(500)-CBRT                               0        3      0.0%       ON
+  VARCHAR(500)-CEIL                               2        2    100.0%       ON
+  VARCHAR(500)-CEILING                            3        3    100.0%       ON
+  VARCHAR(500)-COALESCE                           0        1      0.0%       ON
+  VARCHAR(500)-CONCAT                             0        2      0.0%       ON
+  VARCHAR(500)-CONCAT_WS                          0        1      0.0%       ON
+  VARCHAR(500)-CONTAINS                           0        3      0.0%       ON
+  VARCHAR(500)-COS                                2        2    100.0%       ON
+  VARCHAR(500)-COT                                4        6     66.7%       ON
+  VARCHAR(500)-DATE_PART                          0        1      0.0%       ON
+  VARCHAR(500)-DAYNAME                            0        3      0.0%       ON
+  VARCHAR(500)-DAYOFMONTH                         0        2      0.0%       ON
+  VARCHAR(500)-DEGREES                            2        3     66.7%       ON
+  VARCHAR(500)-FLOOR                              0        1      0.0%       ON
+  VARCHAR(500)-IF                                 0        5      0.0%       ON
+  VARCHAR(500)-IFNULL                             2        3     66.7%       ON
+  VARCHAR(500)-INSTR                              2        2    100.0%       ON
+  VARCHAR(500)-LAST_DAY                           0        3      0.0%       ON
+  VARCHAR(500)-LENGTH                             2        2    100.0%       ON
+  VARCHAR(500)-LN                                 2        3     66.7%       ON
+  VARCHAR(500)-LOG                                1        1    100.0%       ON
+  VARCHAR(500)-LOG10                              2        3     66.7%       ON
+  VARCHAR(500)-LOG2                               2        3     66.7%       ON
+  VARCHAR(500)-LOWER                              1        2     50.0%       ON
+  VARCHAR(500)-LTRIM                              2        2    100.0%       ON
+  VARCHAR(500)-MOD                                2        4     50.0%       ON
+  VARCHAR(500)-MONTHNAME                          0        2      0.0%       ON
+  VARCHAR(500)-NULLIF                             1        2     50.0%       ON
+  VARCHAR(500)-POWER                              0        2      0.0%       ON
+  VARCHAR(500)-PRINTF                             0        2      0.0%       ON
+  VARCHAR(500)-RADIANS                            1        1    100.0%       ON
+  VARCHAR(500)-REVERSE                            0        2      0.0%       ON
+  VARCHAR(500)-RTRIM                              3        4     75.0%       ON
+  VARCHAR(500)-SIGN                               1        2     50.0%       ON
+  VARCHAR(500)-SIN                                1        1    100.0%       ON
+  VARCHAR(500)-SQRT                               1        4     25.0%       ON
+  VARCHAR(500)-STRIP_ACCENTS                      0        1      0.0%       ON
+  VARCHAR(500)-SUBSTRING                          2        3     66.7%       ON
+  VARCHAR(500)-SUFFIX                             0        2      0.0%       ON
+  VARCHAR(500)-TAN                                2        2    100.0%       ON
+  VARCHAR(500)-UNICODE                            0        1      0.0%       ON
+  VARCHAR(500)-UPPER                              1        2     50.0%       ON
+  VARCHAR(500)-WEEKDAY                            0        1      0.0%       ON
+  VARCHAR(500)-WEEKOFYEAR                         0        4      0.0%       ON
+  VARCHAR(500)-XOR                                0        3      0.0%       ON
+  VARCHAR(500)-YEARWEEK                           0        1      0.0%       ON
+  VARCHAR-ABS                                     6       11     54.5%       ON
+  VARCHAR-ACOS                                    4        5     80.0%       ON
+  VARCHAR-AGE                                     0        6      0.0%       ON
+  VARCHAR-ASIN                                    2        3     66.7%       ON
+  VARCHAR-ATAN                                    6        7     85.7%       ON
+  VARCHAR-ATAN2                                   0        4      0.0%       ON
+  VARCHAR-BIT_COUNT                               0        7      0.0%       ON
+  VARCHAR-BIT_LENGTH                              0        2      0.0%       ON
+  VARCHAR-CBRT                                    0        5      0.0%       ON
+  VARCHAR-CEIL                                    9       10     90.0%       ON
+  VARCHAR-CEILING                                 4        4    100.0%       ON
+  VARCHAR-COALESCE                                8        9     88.9%       ON
+  VARCHAR-CONCAT                                  0        4      0.0%       ON
+  VARCHAR-CONCAT_WS                               0        6      0.0%       ON
+  VARCHAR-CONTAINS                                0        1      0.0%       ON
+  VARCHAR-COS                                     3        6     50.0%       ON
+  VARCHAR-COT                                     3        6     50.0%       ON
+  VARCHAR-DATE_PART                               0        5      0.0%       ON
+  VARCHAR-DAYNAME                                 0        4      0.0%       ON
+  VARCHAR-DAYOFMONTH                              0        3      0.0%       ON
+  VARCHAR-DEGREES                                 4        5     80.0%       ON
+  VARCHAR-FLOOR                                   4        5     80.0%       ON
+  VARCHAR-IF                                      0        5      0.0%       ON
+  VARCHAR-IFNULL                                  2        6     33.3%       ON
+  VARCHAR-INSTR                                   1        3     33.3%       ON
+  VARCHAR-LAST_DAY                                0        7      0.0%       ON
+  VARCHAR-LENGTH                                  2        5     40.0%       ON
+  VARCHAR-LN                                      2        4     50.0%       ON
+  VARCHAR-LOG                                     3        6     50.0%       ON
+  VARCHAR-LOG10                                   3        3    100.0%       ON
+  VARCHAR-LOG2                                    2        2    100.0%       ON
+  VARCHAR-LOWER                                   2        3     66.7%       ON
+  VARCHAR-LTRIM                                   6        6    100.0%       ON
+  VARCHAR-MOD                                     1        5     20.0%       ON
+  VARCHAR-MONTHNAME                               0        4      0.0%       ON
+  VARCHAR-NULLIF                                  1        2     50.0%       ON
+  VARCHAR-PI                                      7        9     77.8%       ON
+  VARCHAR-POWER                                   0        4      0.0%       ON
+  VARCHAR-PREFIX                                  0        3      0.0%       ON
+  VARCHAR-PRINTF                                  2        3     66.7%       ON
+  VARCHAR-RADIANS                                 3        3    100.0%       ON
+  VARCHAR-REPLACE                                 5        6     83.3%       ON
+  VARCHAR-REVERSE                                 5        8     62.5%       ON
+  VARCHAR-RTRIM                                   1        2     50.0%       ON
+  VARCHAR-SIGN                                    1        5     20.0%       ON
+  VARCHAR-SIN                                     4        7     57.1%       ON
+  VARCHAR-SQRT                                    1        3     33.3%       ON
+  VARCHAR-STRIP_ACCENTS                           0        3      0.0%       ON
+  VARCHAR-SUBSTRING                               1        3     33.3%       ON
+  VARCHAR-SUFFIX                                  0        4      0.0%       ON
+  VARCHAR-TAN                                     3        5     60.0%       ON
+  VARCHAR-UNICODE                                 4        5     80.0%       ON
+  VARCHAR-UPPER                                   2        2    100.0%       ON
+  VARCHAR-WEEKDAY                                 0        5      0.0%       ON
+  VARCHAR-WEEKOFYEAR                              0        3      0.0%       ON
+  VARCHAR-XOR                                     0        5      0.0%       ON
+  VARCHAR-YEARWEEK                                0        6      0.0%       ON
+  WEEKDAY-0BOOLEAN                                0       13      0.0%       ON
+  WEEKDAY-0INT                                    0       11      0.0%       ON
+  WEEKDAY-0VARCHAR(500)                           0        3      0.0%       ON
+  WEEKOFYEAR-0BOOLEAN                             0       14      0.0%       ON
+  WEEKOFYEAR-0INT                                 0        7      0.0%       ON
+  WEEKOFYEAR-0VARCHAR                             0        5      0.0%       ON
+  WEEKOFYEAR-0VARCHAR(500)                        0        5      0.0%       ON
+  XOR-0BOOLEAN                                    0        9      0.0%       ON
+  XOR-0INT                                        0       13      0.0%       ON
+  XOR-0VARCHAR                                    0        3      0.0%       ON
+  XOR-0VARCHAR(500)                               0        4      0.0%       ON
+  XOR-1BOOLEAN                                    0       10      0.0%       ON
+  XOR-1INT                                        0        9      0.0%       ON
+  XOR-1VARCHAR                                    0        7      0.0%       ON
+  XOR-1VARCHAR(500)                               0        3      0.0%       ON
+  YEARWEEK-0BOOLEAN                               0       15      0.0%       ON
+  YEARWEEK-0INT                                   0       19      0.0%       ON
+  YEARWEEK-0VARCHAR                               0        3      0.0%       ON
+  YEARWEEK-0VARCHAR(500)                          0        4      0.0%       ON
+
+  (Full composite examples with SQL: see SQLITE-composite-examples.log)
+
+================================================================================

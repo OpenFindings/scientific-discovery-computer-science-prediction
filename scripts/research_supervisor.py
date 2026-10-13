@@ -1,0 +1,263 @@
+#!/usr/bin/env python3
+"""Bounded, resumable launcher for explicit Codex research-worker runs."""
+from __future__ import annotations
+import argparse, datetime as dt, fcntl, hashlib, json, os, shutil, signal, subprocess, sys, tempfile, time
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[1]
+STATE, QUEUE = Path("research/state.json"), Path("research/task_queue.json")
+EVENTS = Path("research/supervisor_events.jsonl")
+
+def now() -> str:
+    return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+def read_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+def atomic_json(path: Path, value: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(value, f, ensure_ascii=False, indent=2, sort_keys=True)
+            f.write("\n"); f.flush(); os.fsync(f.fileno())
+        os.replace(name, path)
+        dfd = os.open(path.parent, os.O_RDONLY)
+        try: os.fsync(dfd)
+        finally: os.close(dfd)
+    finally:
+        if os.path.exists(name): os.unlink(name)
+
+def append_jsonl(path: Path, row: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+        f.flush(); os.fsync(f.fileno())
+
+def eligible_tasks(queue: dict[str, Any], completed: set[str], at: float | None = None) -> list[dict[str, Any]]:
+    at = time.time() if at is None else at
+    out = []
+    for task in queue["tasks"]:
+        if task.get("status") not in {"pending", "failed"} or task.get("attempts", 0) >= task.get("max_attempts", 1): continue
+        if not set(task.get("dependencies", [])).issubset(completed): continue
+        if task.get("retry_after") and dt.datetime.fromisoformat(task["retry_after"].replace("Z", "+00:00")).timestamp() > at: continue
+        out.append(task)
+    return sorted(out, key=lambda t: (-(t.get("priority", 0) * t.get("expected_information_gain", 0) /
+                                        max(t.get("cost_estimate", 1), 0.01)), t["task_id"]))
+
+def git_snapshot(root: Path) -> dict[str, str]:
+    p = subprocess.run(["git", "status", "--porcelain", "-z", "--untracked-files=all"], cwd=root,
+                       stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False)
+    if p.returncode: return {}
+    snapshot = {}
+    for item in p.stdout.decode("utf-8", "replace").split("\0"):
+        if not item: continue
+        name = item[3:] if len(item) > 3 else item
+        path = root / name
+        try:
+            if path.is_file(): snapshot[name] = hashlib.sha256(path.read_bytes()).hexdigest()
+            elif path.is_symlink(): snapshot[name] = "symlink:" + os.readlink(path)
+            else: snapshot[name] = "non-file"
+        except OSError: snapshot[name] = "unreadable"
+    return snapshot
+
+def parse_session_id(path: Path) -> str | None:
+    try:
+        for line in path.read_text(errors="replace").splitlines():
+            obj = json.loads(line)
+            sid = obj.get("session_id") or obj.get("thread_id")
+            if sid: return str(sid)
+    except (OSError, json.JSONDecodeError): pass
+    return None
+
+def worker_prompt(task: dict[str, Any], output_rel: str, attempt: int) -> str:
+    return ("You are a bounded scientific research worker. Read AGENTS.md and the current state. Perform only this task; do not publish, commit, change production OpenFindings, modify unrelated files, or claim evidence you did not inspect. Preserve null/negative results. Write one machine-readable JSON artifact at the declared output path, including evidence tier, sources/data, method, observed result or blocker, uncertainty, and next falsifiable action. Do not edit state, queue, ledger, status, or other artifacts; the supervisor owns checkpoints.\n\n"
+            f"Task {task['task_id']} (attempt {attempt}/{task.get('max_attempts', 1)}):\nObjective: {task['objective']}\n"
+            f"Dependencies: {json.dumps(task.get('dependencies', []))}\n"
+            f"Planning-only information-gain estimate: {task.get('expected_information_gain')}\n"
+            f"Requirements: {json.dumps(task.get('execution_requirements', []), ensure_ascii=False)}\n"
+            f"Success criteria: {json.dumps(task.get('success_criteria', []), ensure_ascii=False)}\nWrite only: {output_rel}\n")
+
+def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, artifact_limit: int, worker_dir: Path, on_start=None) -> dict[str, Any]:
+    codex = os.environ.get("RESEARCH_SUPERVISOR_CODEX_BIN") or shutil.which("codex")
+    if not codex: return {"exit_code": 127, "error": "codex executable not found", "timed_out": False}
+    output_rel = task["artifact"]
+    artifact = (root / output_rel).resolve()
+    if root.resolve() not in artifact.parents: return {"exit_code": 2, "error": "artifact outside repository", "timed_out": False}
+    artifact.parent.mkdir(parents=True, exist_ok=True)
+    raw, stderr, final = worker_dir / "events.jsonl", worker_dir / "stderr.txt", worker_dir / "final.txt"
+    command = [codex, "exec", "--json", "--sandbox", "workspace-write", "--ask-for-approval", "never", "-C", str(root), "-o", str(final), "-"]
+    before = git_snapshot(root); started = time.monotonic(); timed_out = False
+    child_env = os.environ.copy()
+    secret_markers = ("TOKEN", "SECRET", "PASSWORD", "CREDENTIAL", "API_KEY", "ACCESS_KEY", "PRIVATE_KEY")
+    for name in list(child_env):
+        if any(marker in name.upper() for marker in secret_markers): child_env.pop(name, None)
+    with raw.open("wb") as out, stderr.open("wb") as err:
+        proc = subprocess.Popen(command, cwd=root, stdin=subprocess.PIPE, stdout=out, stderr=err, start_new_session=True, env=child_env)
+        if on_start: on_start(proc.pid)
+        try: proc.communicate(worker_prompt(task, output_rel, attempt).encode(), timeout=timeout)
+        except subprocess.TimeoutExpired:
+            timed_out = True; os.killpg(proc.pid, signal.SIGTERM)
+            try: proc.wait(timeout=5)
+            except subprocess.TimeoutExpired: os.killpg(proc.pid, signal.SIGKILL); proc.wait()
+    elapsed = round(time.monotonic() - started, 3)
+    sizes = {p.name: p.stat().st_size for p in (raw, stderr, final) if p.exists()}
+    after = git_snapshot(root)
+    changed = {name for name in set(before) | set(after) if before.get(name) != after.get(name)}
+    supervisor_paths = {str(p.relative_to(root)) for p in worker_dir.iterdir()}
+    unexpected = sorted(changed - {output_rel} - supervisor_paths)
+    artifact_ok = artifact.is_file() and artifact.stat().st_size <= artifact_limit
+    if artifact_ok:
+        try:
+            json.loads(artifact.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+            artifact_ok = False
+    if unexpected: error = "worker changed paths outside declared artifact: " + ", ".join(unexpected[:20])
+    elif sum(sizes.values()) > artifact_limit: error = "worker logs exceeded size limit"
+    elif not artifact_ok and proc.returncode == 0: error = "worker exited zero but did not produce bounded artifact"
+    else: error = None
+    combined = raw.read_text(errors="replace") + stderr.read_text(errors="replace")[-2000:] + (final.read_text(errors="replace") if final.exists() else "")
+    signal_text = combined.lower()
+    limited = any(s in signal_text for s in ("usage limit", "rate limit", "too many requests", "quota exceeded"))
+    return {"exit_code": proc.returncode, "timed_out": timed_out, "elapsed_seconds": elapsed, "artifact_valid": artifact_ok,
+            "artifact_bytes": artifact.stat().st_size if artifact_ok else None, "log_bytes": sizes,
+            "session_id": parse_session_id(raw), "error": error, "rate_limited": limited,
+            "command": [Path(codex).name, "exec", "--json", "--sandbox", "workspace-write", "--ask-for-approval", "never"],
+            "raw_output_sha256": hashlib.sha256(raw.read_bytes()).hexdigest()}
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    mode = ap.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--dry-run", action="store_true", help="schedule only; never invoke Codex")
+    mode.add_argument("--start", action="store_true", help="explicitly authorize bounded workers")
+    ap.add_argument("--repo-root", type=Path, default=ROOT)
+    ap.add_argument("--max-rounds", type=int)
+    ap.add_argument("--timeout-seconds", type=int)
+    args = ap.parse_args(); root = args.repo_root.resolve()
+    sp, qp = root / STATE, root / QUEUE
+    state, queue = read_json(sp), read_json(qp)
+    done = set(state.get("completed_tasks", [])) | {t["task_id"] for t in queue["tasks"] if t.get("status") == "completed"}
+    ready = eligible_tasks(queue, done)
+    if args.dry_run:
+        print(json.dumps({"mode": "dry-run", "campaign_status": state.get("campaign_status"), "next_task": ready[0] if ready else None,
+                          "scheduled_count": len(ready), "worker_invocations": 0}, ensure_ascii=False, indent=2)); return 0
+    limits = state.get("budget_consumption", {})
+    rounds = args.max_rounds or limits.get("configured_max_rounds", 1)
+    max_workers = limits.get("configured_max_worker_invocations", 1)
+    timeout = args.timeout_seconds or min(1800, limits.get("configured_max_wall_seconds", 1800))
+    max_bytes = int(limits.get("configured_max_artifact_mib", 50) * 1024 * 1024)
+    min_free = int(limits.get("minimum_disk_free_mib", 2048) * 1024 * 1024)
+    if not 1 <= rounds <= min(100, limits.get("configured_max_rounds", 1)):
+        ap.error("round count exceeds configured campaign limit")
+    if not 1 <= timeout <= min(7200, limits.get("configured_max_wall_seconds", 7200)):
+        ap.error("timeout exceeds configured campaign limit")
+    rdir = root / "research"
+    with (rdir / ".supervisor.lock").open("a+") as lock:
+        try: fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError: print("another supervisor holds the campaign lock", file=sys.stderr); return 3
+        # Recover an interrupted manager without discarding its partial artifact.
+        state, queue = read_json(sp), read_json(qp)
+        recovered = False
+        for task in queue["tasks"]:
+            if task.get("status") != "running": continue
+            pid = task.pop("worker_pid", None)
+            if isinstance(pid, int) and pid > 1:
+                try:
+                    probe = subprocess.run(["ps", "-p", str(pid), "-o", "command="], stdout=subprocess.PIPE,
+                                           stderr=subprocess.DEVNULL, text=True, check=False)
+                except OSError:
+                    probe = None
+                if probe and "codex" in probe.stdout.lower():
+                    try: os.killpg(pid, signal.SIGTERM)
+                    except ProcessLookupError: pass
+            task["status"] = "failed" if task.get("attempts", 0) < task.get("max_attempts", 1) else "blocked"
+            task["interrupted_at"] = now()
+            task["failure_note"] = "supervisor restarted during worker; prior artifact/output preserved for inspection"
+            task["retry_after"] = now()
+            append_jsonl(root / EVENTS, {"task_id": task["task_id"], "attempt": task.get("attempts"),
+                                         "timestamp": now(), "event": "recovered_interrupted_worker", "worker_pid": pid})
+            recovered = True
+        if recovered:
+            state["campaign_status"] = "active"
+            state["checkpoint_time"] = now()
+            atomic_json(qp, queue); atomic_json(sp, state)
+        started, invocations = time.monotonic(), 0
+        for _ in range(rounds):
+            state, queue = read_json(sp), read_json(qp)
+            done = set(state.get("completed_tasks", [])) | {t["task_id"] for t in queue["tasks"] if t.get("status") == "completed"}
+            ready = eligible_tasks(queue, done)
+            if not ready:
+                state["campaign_status"] = "waiting_for_eligible_task"
+                state["next_action"] = "Add or unblock a scientifically justified task; do not invent outcomes."
+                state["checkpoint_time"] = now(); atomic_json(sp, state); break
+            task = ready[0]
+            budget = state.setdefault("budget_consumption", {})
+            if budget.get("worker_invocations_started", 0) >= max_workers:
+                state["campaign_status"] = "paused_worker_budget"
+                state["checkpoint_time"] = now(); atomic_json(sp, state); break
+            if task.get("counts_as_experiment") and budget.get("experiments_started", 0) >= limits.get("configured_max_experiments", 0):
+                state["campaign_status"] = "paused_experiment_budget"
+                state["checkpoint_time"] = now(); atomic_json(sp, state); break
+            if invocations >= max_workers or time.monotonic()-started+limits.get("final_reporting_reserve_seconds", 300) >= limits.get("configured_max_wall_seconds", 7200): break
+            if shutil.disk_usage(root).free < min_free:
+                state["campaign_status"] = "paused_disk_reserve"; state["checkpoint_time"] = now(); atomic_json(sp, state); break
+            task["status"] = "running"; task["attempts"] = task.get("attempts", 0)+1; task["started_at"] = now()
+            if task.get("counts_as_experiment"):
+                state["budget_consumption"]["experiments_started"] = state["budget_consumption"].get("experiments_started", 0)+1
+            state["budget_consumption"]["worker_invocations_started"] = state["budget_consumption"].get("worker_invocations_started", 0)+1
+            state["campaign_status"] = "running"; state["current_phase"] = task["task_id"].lower()
+            state["next_action"] = task["objective"]; state["checkpoint_time"] = now()
+            atomic_json(qp, queue); atomic_json(sp, state)
+            wdir = rdir / "worker_runs" / task["task_id"] / f"attempt-{task['attempts']}"; wdir.mkdir(parents=True, exist_ok=True)
+            def record_pid(pid: int) -> None:
+                task["worker_pid"] = pid
+                atomic_json(qp, queue)
+            result = run_worker(root, task, task["attempts"], timeout, max_bytes, wdir, record_pid); invocations += 1
+            task.pop("worker_pid", None)
+            task["finished_at"] = now()
+            fields = ("exit_code", "timed_out", "elapsed_seconds", "artifact_valid", "artifact_bytes", "session_id", "error", "rate_limited", "raw_output_sha256")
+            task["last_result"] = {k: result.get(k) for k in fields}
+            append_jsonl(root / EVENTS, {"task_id": task["task_id"], "attempt": task["attempts"], "timestamp": now(), **task["last_result"]})
+            success = result.get("exit_code") == 0 and result.get("artifact_valid") and not result.get("error")
+            experiment_id = task.get("experiment_id")
+            if success and experiment_id:
+                ledger_path = root / "research/experiment_ledger.jsonl"
+                prior = [json.loads(line) for line in ledger_path.read_text().splitlines() if line.strip()]
+                if any(row.get("experiment_id") == experiment_id for row in prior):
+                    success = False
+                    task["failure_note"] = f"duplicate experiment_id {experiment_id}; ledger left unchanged"
+                    task["last_result"]["error"] = task["failure_note"]
+            if success:
+                if experiment_id:
+                    artifact_value = read_json(root / task["artifact"])
+                    ledger_path = root / "research/experiment_ledger.jsonl"
+                    append_jsonl(ledger_path, {"experiment_id": experiment_id, "hypothesis_id": task.get("hypothesis_id"),
+                                                   "domain": task.get("domain"), "question": task["objective"],
+                                                   "prior_evidence": task.get("prior_evidence"), "methodology": task.get("methodology"),
+                                                   "dataset_version": task.get("dataset_version"), "execution_command": task.get("execution_command"),
+                                                   "configuration": task.get("configuration"), "actual_result": artifact_value,
+                                                   "uncertainty": artifact_value.get("uncertainty"), "falsification_outcome": artifact_value.get("falsification_outcome"),
+                                                   "decision": artifact_value.get("decision"), "timestamp": now(),
+                                                   "reproducibility_artifact": task["artifact"], "exit_code": result.get("exit_code")})
+                task["status"] = "completed"
+                if task["task_id"] not in state.setdefault("completed_tasks", []): state["completed_tasks"].append(task["task_id"])
+                state["current_research_round"] = state.get("current_research_round", 0)+1
+            elif result.get("rate_limited"):
+                task["status"] = "pending"; state["campaign_status"] = "paused_quota_or_rate_limit"
+            elif task["attempts"] >= task.get("max_attempts", 1):
+                task["status"] = "blocked"; task["failure_note"] = result.get("error") or f"worker exit {result.get('exit_code')}"
+                if task["task_id"] not in state.setdefault("blocked_tasks", []): state["blocked_tasks"].append(task["task_id"])
+            else:
+                task["status"] = "failed"; delay = min(3600, 30 * (2 ** (task["attempts"]-1)))
+                task["retry_after"] = (dt.datetime.now(dt.timezone.utc)+dt.timedelta(seconds=delay)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+            state["checkpoint_time"] = now(); atomic_json(qp, queue); atomic_json(sp, state)
+            if state.get("campaign_status", "").startswith("paused"): break
+        state = read_json(sp)
+        if state.get("campaign_status") == "running": state["campaign_status"] = "active"
+        state["checkpoint_time"] = now(); atomic_json(sp, state)
+    print(json.dumps({"campaign_status": state.get("campaign_status"), "completed_tasks": state.get("completed_tasks", []),
+                      "blocked_tasks": state.get("blocked_tasks", []), "worker_invocations_this_run": invocations,
+                      "next_action": state.get("next_action")}, ensure_ascii=False, indent=2)); return 0
+
+if __name__ == "__main__": raise SystemExit(main())

@@ -1,0 +1,210 @@
+{
+  "confirmed_distinct_bugs": null,
+  "database_cap": 20,
+  "incomplete_seeds": [],
+  "n_complete_pairs": 5,
+  "n_seeds": 5,
+  "paired_query_difference_on_minus_off": {
+    "mean": 316.4,
+    "median": 299,
+    "negative_pairs": 0,
+    "positive_pairs": 5,
+    "values": [
+      265,
+      346,
+      407,
+      265,
+      299
+    ],
+    "zero_pairs": 0
+  },
+  "query_cap_per_database": 200,
+  "rows": [
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.462,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2462,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.023,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2727,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4111,
+      "successful_query_pair_difference": 265
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 4.757,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2387,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.052,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2733,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4112,
+      "successful_query_pair_difference": 346
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.354,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2300,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.179,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2707,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4113,
+      "successful_query_pair_difference": 407
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.037,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2475,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.139,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2740,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4114,
+      "successful_query_pair_difference": 265
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 4.952,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2432,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.004,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2731,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4115,
+      "successful_query_pair_difference": 299
+    }
+  ],
+  "study_status": "operational_proxy_only_not_bug_effectiveness"
+}

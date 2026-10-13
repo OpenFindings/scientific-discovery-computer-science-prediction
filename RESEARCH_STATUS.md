@@ -1,0 +1,19 @@
+# Research status
+
+**Current focus:** Validate whether the SQLancer++ throughput proxy survives randomized-order, equal-CPU testing, then independently triage any differential-test failures. The current evidence remains an operational result, not a breakthrough or bug-finding claim.
+
+**What is actually established:** 146/146 R2 object keys across the original and recovered manifests were remotely read and SHA-256/byte-count verified (122 original + 24 newly recovered). The local arXiv metadata corpus has 937,531 records; lexical screening selected 198,690 candidates; 407 distinct papers entered the stratified frame; 120 original PDFs were downloaded/extracted. For audit batches 8/15/30/34, 25/26 rows now have hash-verified full texts; the 2013 arXiv item is author-withdrawn and unavailable, and 24 new PDFs are now in R2. See [recovery audit](docs/RESEARCH_RECOVERY_AUDIT.md).
+
+**Executed fresh-seed replication:** 5/5 paired seeds (4111–4115) completed under the same pinned source, jar, container digest, SQLite 3.40.0/NoREC and per-arm caps. Feedback-on minus feedback-off query-pair counts were **+265, +346, +407, +265, +299** (mean +316.4 / 4,000-attempt cap, 7.91 percentage points). The pinned logger prints the direct ratio; raw per-database rates and exact reconstructed numerators are retained. Exact sign test: two-sided *p*=0.0625, directional one-sided *p*=0.03125, n=5. **No bug-yield measurement; no distinct bug confirmed.** See [independent raw-log analysis](results/sqlancerpp_feedback_replication_4111_4115/independent_analysis.json) and [preregistration](research/experiment_preregistration_sqlancerpp_feedback_replication.md).
+
+**Executed CPU-normalized follow-up:** Five additional preregistered pairs (4121–4125) completed with cgroup-v2 CPU counters. Feedback-on had higher successful-query-pair throughput in all five pairs: differences **+93.15, +43.99, +86.75, +73.08, +57.34 pairs per CPU-second** (mean +70.86; two-sided exact sign test *p*=0.0625). Run order was fixed (off then on); therefore this does not exclude order/time effects and is not a randomized, equal-CPU budget comparison. It still says nothing about distinct bug yield. Full raw counters and independent analysis: [CPU experiment](results/sqlancerpp_feedback_cpu_4121_4125/independent_analysis.json).
+
+**Best research leads:** Findings 155–158 are literature-backed leads, not validated discoveries. 155 needs instrumented consenting code-review teams; 156 needs longitudinal verified security outcomes; 157 needs formal privacy accounting and multi-attribute data; 158 needs proof-regime and implementation audit. Broader ranking is in [the breakthrough radar](reports/CS_BREAKTHROUGH_RADAR.md).
+
+**Unverified:** Paper 3 has no validated historical CS outcome forecast yet. Paper 4 utility has not been empirically validated against action outcomes. The leads' novelty is bounded, not established.
+
+**Data gaps:** One withdrawn arXiv paper cannot be retrieved; this is explicitly recorded rather than bypassed. Batch 34's two previously unidentified rows were resolved using official PMLR sources. Recovered raw PDFs stay outside Git; hashes, provenance and R2 readback receipts are retained. A number of research audit ledgers are still untracked and should be selectively versioned, not bulk-added.
+
+**Next:** Preregister a randomized-order, equal-CPU follow-up; then deduplicate and independently reproduce NoREC discrepancies before claiming improved bug finding. Keep Paper 3/4 validation separate: no historical CS forecasting or action-outcome utility has been validated. A null/failure remains a valid result and must down-rank the lead.
+
+Last checkpoint: 2026-10-13 UTC. No paid model worker or persistent service has been started. See `research/state.json` for task/budget state and `python3 scripts/research_status.py` for the terminal view.

@@ -1,0 +1,36 @@
+{
+  "papers": 2,
+  "records": [
+    {
+      "batch": 34,
+      "ledger_line": 8,
+      "arxiv_id": null,
+      "title": "Gradient Disaggregation: Breaking Privacy in Federated Learning by Reconstructing the User Participant Matrix",
+      "source_url": "https://proceedings.mlr.press/v139/lam21b.html",
+      "pdf_url": "https://proceedings.mlr.press/v139/lam21b/lam21b.pdf",
+      "resolved_url": "https://proceedings.mlr.press/v139/lam21b/lam21b.pdf",
+      "retrieved_at_utc": "2026-10-13T21:21:38Z",
+      "status": "downloaded",
+      "path": "data/fulltexts/recovered_batches/34/source-line-8.pdf",
+      "bytes": 5185281,
+      "sha256": "773cc64e6f039b30cfd97765b593f812892f982e23c64d103f4980bc5e489ef1",
+      "content_type": "application/pdf"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 9,
+      "arxiv_id": null,
+      "title": "Active Membership Inference Attack under Local Differential Privacy in Federated Learning",
+      "source_url": "https://proceedings.mlr.press/v206/nguyen23e/nguyen23e.pdf",
+      "pdf_url": "https://proceedings.mlr.press/v206/nguyen23e/nguyen23e.pdf",
+      "resolved_url": "https://proceedings.mlr.press/v206/nguyen23e/nguyen23e.pdf",
+      "retrieved_at_utc": "2026-10-13T21:21:38Z",
+      "status": "downloaded",
+      "path": "data/fulltexts/recovered_batches/34/source-line-9.pdf",
+      "bytes": 9388135,
+      "sha256": "a7ee67b7b0c535e516ec5fe58c693befb03e2481d96875d115ec7660fa5c4a73",
+      "content_type": "application/pdf"
+    }
+  ],
+  "scope": "source-linked PMLR full text; does not independently validate the existing audit"
+}

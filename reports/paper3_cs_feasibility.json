@@ -1,0 +1,10 @@
+{
+  "status": "not_yet_evaluable_as_a_historical_forecast",
+  "audited_at": "2026-10-13",
+  "available_questions": {"file": "data/research_questions.jsonl", "records": 26, "source_arxiv_records": 29, "cutoff_dates": ["2026-10-11"], "evidence_status": "source-linked candidate questions; full text checked; not independently replicated"},
+  "available_literature_metadata": {"file": "data/arxiv_cs_corpus.jsonl", "records": 937531, "source": "arXiv export API", "available_fields_scope": "metadata/abstract and dates; not historical observation snapshots or matured question outcome adjudications"},
+  "missing_for_paper3": ["multiple authentic historical cutoffs with information-availability freeze", "separate future attention/resolution/premise-revision labels with follow-up windows", "blinded and auditable outcome adjudication", "group identifiers for related questions and repeated snapshots", "citation/publication histories frozen as-of each cutoff"],
+  "valid_next_protocol": {"unit": "question × historical cutoff", "features": "only papers/citations/text available at cutoff", "outcomes": ["attention", "scientific resolution", "premise revision"], "validation": "forward temporal split; group repeated/related questions; preserve a final untouched time block", "baselines": ["random ranking", "publication/citation momentum", "semantic retrieval", "trend", "simple statistical model"], "metrics": ["AUROC", "AUPRC", "Brier/calibration", "ranking quality", "temporal and cross-domain generalization"], "decision_gate": "do not fit or report transfer performance until historical labels and cutoff-specific feature snapshots are independently audited"},
+  "forecast_claim": null,
+  "conclusion": "Paper 3 transfer is not currently measured. The candidate corpus cannot substitute for an outcome-labeled, temporally frozen question dataset."
+}

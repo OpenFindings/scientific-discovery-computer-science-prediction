@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
+  "campaign_id": "cs-discovery-long-horizon-2026-10",
+  "campaign_status": "active",
+  "current_phase": "matched_cpu_order_falsification",
+  "current_research_round": 2,
+  "active_hypothesis_id": "H1_DBMS_FEEDBACK_PROXY",
+  "active_experiment_id": "EXP-DBMS-FEEDBACK-CPU-THROUGHPUT-4121-4125",
+  "next_action": "Preregister randomized arm order and equal-CPU budget; then blindly deduplicate/reproduce any differential-testing discrepancies before claiming bug-yield benefit. Keep Paper 3/4 validation separate.",
+  "pending_tasks": ["MATCHED-CPU-001", "DP158-ACCOUNTANT-001"],
+  "blocked_tasks": [],
+  "completed_tasks": ["RECOVERY-001", "LEADS-001", "FORECAST-001", "PLANNER-001", "EXPERIMENT-001", "RECOVER-BATCH-PDFS-001", "CPU-THROUGHPUT-001"],
+  "rejected_hypotheses": [],
+  "current_best_opportunities": [
+    {"finding_id": "DBMS-feedback-proxy", "status": "two fresh five-seed blocks positive; CPU-normalized operational throughput replicated, randomized equal-CPU and distinct-bug yield untested", "confidence": "low-to-moderate for this pinned proxy only", "reason": "Both blocks have 5/5 positive pairs, but the CPU block always ran off before on. Neither block measures confirmed distinct bug yield or validates Paper 3/4."},
+    {"finding_id": 158, "status": "bounded lead; novelty unverified", "confidence": "low", "reason": "Potentially executable algorithm audit, but proof-regime validity and prior implementations need exact independent verification."},
+    {"finding_id": 157, "status": "bounded integration lead; broad novelty rejected; active-server LDP attack counterevidence audited in full text", "confidence": "low", "reason": "The ICML 2023 malicious-server membership-inference paper makes threat-model alignment central. Need real multi-attribute data, explicit composition, and attack/utility evaluation; no universal LDP claim."},
+    {"finding_id": 155, "status": "collaboration-dependent study design", "confidence": "low", "reason": "Causal field measurement needs consenting review teams and instrumentation."},
+    {"finding_id": 156, "status": "external-outcome data lead", "confidence": "low", "reason": "Adoption proxies are not verified security outcomes; suitable longitudinal incident data are not yet available."}
+  ],
+  "actual_experiment_results": [
+    {"experiment_id": "EXP-DBMS-FEEDBACK-REP-4111-4115", "result": "5/5 complete fresh paired seeds positive; differences +265,+346,+407,+265,+299; mean +316.4 successful-query-pair proxy per 4,000-attempt arm", "evidence_level": 4, "limitation": "Operational query-generation proxy only; no distinct bug yield or Paper 3/4 validation", "artifact": "results/sqlancerpp_feedback_replication_4111_4115/independent_analysis.json"},
+    {"experiment_id": "EXP-DBMS-FEEDBACK-CPU-THROUGHPUT-4121-4125", "result": "5/5 complete; feedback-on minus off successful-query-pair throughput per CPU-second +93.15,+43.99,+86.75,+73.08,+57.34; mean +70.86; two-sided exact sign p=0.0625", "evidence_level": 4, "limitation": "Operational proxy only; arm order fixed off-then-on, no distinct bug yield, not randomized equal-CPU effectiveness or Paper 3/4 validation", "artifact": "results/sqlancerpp_feedback_cpu_4121_4125/independent_analysis.json"}
+  ],
+  "historical_validation_status": "Paper 3 methodology documented; no validated historical CS outcome forecast is currently recorded.",
+  "data_coverage": {"arxiv_cs_metadata_records": 937531, "lexically_matched_candidate_records": 198690, "stratified_unique_papers": 407, "download_manifest_records": 139, "download_successes": 120, "download_failures": 19, "extracted_full_text_records": 120, "recovered_batch_ledger_rows": 26, "recovered_batch_fulltexts_verified": 25, "recovered_batch_pdfs_new": 24, "recovered_batch_withdrawn_unavailable": 1, "r2_original_object_records": 122, "r2_recovered_object_records": 24, "r2_combined_remote_checksum_audit": "146/146 objects across manifests matched bytes and SHA-256 on 2026-10-13 UTC", "note": "Pipeline counts have different units; raw PDFs remain out of Git; one withdrawn version is unavailable by design."},
+  "budget_consumption": {"supervisor_can_query_service_quota": false, "token_or_cost_spend_measurable": false, "configured_max_rounds": 8, "configured_max_worker_invocations": 8, "configured_max_experiments": 8, "configured_max_wall_seconds": 7200, "configured_max_artifact_mib": 50, "minimum_disk_free_mib": 2048, "final_reporting_reserve_seconds": 300, "worker_invocations_started": 0, "experiments_started": 2, "completed_experiments": 2, "note": "No remaining quota is inferred; Codex's external service limit is not exposed to this supervisor. Both experiments ran locally without a paid Codex worker."},
+  "checkpoint_time": "2026-10-13T21:28:34Z",
+  "last_successful_commit": "e3cd133",
+  "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets."
+}

@@ -1,0 +1,23 @@
+{
+  "status": "offline_planning_feasibility_only",
+  "question": "Does SQLancer++ feedback increase successful query generation on previously unused paired seeds under a fixed database/query cap?",
+  "evidence_nodes": [
+    {"id": "E1", "type": "experiment", "source": "results/dbms_guidance_campaign_v3/summary.json", "claim": "Short feedback on/off proxy counts/traces matched in all 10 seed pairs; one operational failure in SQLancer, outside SQLancer++."},
+    {"id": "E2", "type": "experiment", "source": "results/sqlancerpp_feedback_long_campaign/summary.json", "claim": "Five complete 20-database SQLancer++ seed pairs; derived successful-query-pair differences were all positive; no bug outcome was measured."},
+    {"id": "E3", "type": "source_code_audit", "source": "docs/sqlancerpp_compatibility_audit.md", "claim": "Cross-tool factorial comparison is invalid because generators/dependencies/builds differ; SQLancer++ source/build must stay pinned."},
+    {"id": "E4", "type": "measurement_limit", "source": "research/experiment_preregistration_sqlancerpp_feedback_replication.md", "claim": "Per-database reported success rates are used to derive counts; matched caps are not matched CPU time and query yield is not defect yield."}
+  ],
+  "competing_hypotheses": [
+    {"id": "H1", "claim": "Feedback-on consistently improves successful query-pair yield in the pinned long-horizon setup."},
+    {"id": "H0", "claim": "The prior positive result is seed-specific, measurement-sensitive, or not consistently present in fresh pairs."}
+  ],
+  "gaps": ["fresh unused seeds", "exact raw pair numerator rather than derived rate", "matched CPU-hour budget", "distinct independently reproduced logic bugs", "agent-level action selection and replanning outcomes"],
+  "candidate_actions": [
+    {"id": "A1", "action": "Run preregistered seeds 4111-4115 paired feedback off/on at pinned SQLancer++ commit, SQLite 3.40.0/NoREC, 20 databases × 200 attempts; retain all raw outputs.", "expected_information_gain": 0.85, "independence_estimate": 0.6, "feasibility": 0.9, "cost": 0.25, "assumptions": "Planning scores are unvalidated ordinal estimates, not probabilities."},
+    {"id": "A2", "action": "Instrument exact successful-pair numerators and repeat under matched CPU-hours with randomized order.", "expected_information_gain": 0.9, "independence_estimate": 0.75, "feasibility": 0.6, "cost": 0.65, "assumptions": "Do only if A1 is directionally robust."},
+    {"id": "A3", "action": "Minimize, deduplicate, and independently reproduce any NoREC discrepancy; request external/maintainer confirmation separately.", "expected_information_gain": 0.95, "independence_estimate": 0.9, "feasibility": 0.4, "cost": 0.8, "assumptions": "No candidate discrepancy is confirmed at present."}
+  ],
+  "selected_action": "A1",
+  "simple_baseline_comparison": {"lowest_cost": "A1", "maximum_planned_information_gain": "A2/A3", "paper4_interpretation": "A1 is selected for information gained per cost and immediate feasibility; these ordinal scores are planning assumptions only. There are no action-level ground-truth outcomes, so no planner performance score or expected-utility validation is claimed."},
+  "falsification_gate": "If any complete fresh seed is zero/negative, or derived-rate measurement is not exact enough to support the direction, down-rank consistency. Regardless of A1, no bug-yield or agent-effectiveness claim is permitted."
+}

@@ -1,0 +1,71 @@
+{
+  "conditions": [
+    {
+      "condition": "feedback_off",
+      "container_cpu_stats": {
+        "burst_usec": 0,
+        "nice_usec": 0,
+        "nr_bursts": 0,
+        "nr_periods": 51,
+        "nr_throttled": 51,
+        "system_usec": 289251,
+        "throttled_usec": 4499032,
+        "usage_usec": 5133227,
+        "user_usec": 4843976
+      },
+      "container_cpu_usage_seconds": 5.133227,
+      "database_versions_logged": [
+        "3.40.0"
+      ],
+      "databases": 20,
+      "elapsed_seconds": 5.298,
+      "exit_code": 0,
+      "feedback_enabled": false,
+      "queries": null,
+      "stderr_file": "feedback_off/stderr.log",
+      "stdout_file": "feedback_off/stdout.log",
+      "successful_query_pairs_from_rates": 2561,
+      "successful_statements": null,
+      "unsuccessful_statements": null
+    },
+    {
+      "condition": "feedback_on",
+      "container_cpu_stats": {
+        "burst_usec": 0,
+        "nice_usec": 0,
+        "nr_bursts": 0,
+        "nr_periods": 48,
+        "nr_throttled": 48,
+        "system_usec": 263336,
+        "throttled_usec": 4092094,
+        "usage_usec": 4867253,
+        "user_usec": 4603917
+      },
+      "container_cpu_usage_seconds": 4.867253,
+      "database_versions_logged": [
+        "3.40.0"
+      ],
+      "databases": 20,
+      "elapsed_seconds": 5.034,
+      "exit_code": 0,
+      "feedback_enabled": true,
+      "queries": null,
+      "stderr_file": "feedback_on/stderr.log",
+      "stdout_file": "feedback_on/stdout.log",
+      "successful_query_pairs_from_rates": 2784,
+      "successful_statements": null,
+      "unsuccessful_statements": null
+    }
+  ],
+  "confirmed_distinct_bugs": null,
+  "container_image_digest": "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+  "database_cap": 20,
+  "database_engine": "SQLITE",
+  "jar_sha256": "d5d342e99d9088eebadac1f13c9ffe86d7b886b75c585a8271034cedc51410be",
+  "learning_enabled": false,
+  "oracle": "NoREC",
+  "query_cap_per_database": 200,
+  "seed": 4124,
+  "source_commit": "1405d4eb5b7af7a639717a47147bd89362558830",
+  "study_status": "operational_feasibility_only"
+}

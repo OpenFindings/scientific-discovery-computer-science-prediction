@@ -1,0 +1,330 @@
+{
+  "confirmed_distinct_bugs": null,
+  "database_cap": 20,
+  "incomplete_seeds": [],
+  "n_complete_pairs": 5,
+  "n_seeds": 5,
+  "paired_query_difference_on_minus_off": {
+    "mean": 312.2,
+    "median": 340,
+    "negative_pairs": 0,
+    "positive_pairs": 5,
+    "values": [
+      369,
+      243,
+      386,
+      223,
+      340
+    ],
+    "zero_pairs": 0
+  },
+  "query_cap_per_database": 200,
+  "rows": [
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 50,
+          "nr_throttled": 49,
+          "system_usec": 287680,
+          "throttled_usec": 4308627,
+          "usage_usec": 4953278,
+          "user_usec": 4665598
+        },
+        "container_cpu_usage_seconds": 4.953278,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.138,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2363,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 47,
+          "nr_throttled": 46,
+          "system_usec": 266124,
+          "throttled_usec": 3869323,
+          "usage_usec": 4791228,
+          "user_usec": 4525103
+        },
+        "container_cpu_usage_seconds": 4.791228,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 4.937,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2732,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4121,
+      "successful_query_pair_difference": 369
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 50,
+          "nr_throttled": 49,
+          "system_usec": 296814,
+          "throttled_usec": 4087376,
+          "usage_usec": 4935658,
+          "user_usec": 4638844
+        },
+        "container_cpu_usage_seconds": 4.935658,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.113,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2495,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 49,
+          "nr_throttled": 48,
+          "system_usec": 260249,
+          "throttled_usec": 4311234,
+          "usage_usec": 4982783,
+          "user_usec": 4722534
+        },
+        "container_cpu_usage_seconds": 4.982783,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.124,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2738,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4122,
+      "successful_query_pair_difference": 243
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 50,
+          "nr_throttled": 50,
+          "system_usec": 263458,
+          "throttled_usec": 4165900,
+          "usage_usec": 5004729,
+          "user_usec": 4741270
+        },
+        "container_cpu_usage_seconds": 5.004729,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.141,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2402,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 49,
+          "nr_throttled": 48,
+          "system_usec": 241775,
+          "throttled_usec": 3977194,
+          "usage_usec": 4919733,
+          "user_usec": 4677958
+        },
+        "container_cpu_usage_seconds": 4.919733,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.091,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2788,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4123,
+      "successful_query_pair_difference": 386
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 51,
+          "nr_throttled": 51,
+          "system_usec": 289251,
+          "throttled_usec": 4499032,
+          "usage_usec": 5133227,
+          "user_usec": 4843976
+        },
+        "container_cpu_usage_seconds": 5.133227,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.298,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2561,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 48,
+          "nr_throttled": 48,
+          "system_usec": 263336,
+          "throttled_usec": 4092094,
+          "usage_usec": 4867253,
+          "user_usec": 4603917
+        },
+        "container_cpu_usage_seconds": 4.867253,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.034,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2784,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4124,
+      "successful_query_pair_difference": 223
+    },
+    {
+      "complete_pair": true,
+      "off": {
+        "condition": "feedback_off",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 47,
+          "nr_throttled": 46,
+          "system_usec": 249615,
+          "throttled_usec": 3917410,
+          "usage_usec": 4758544,
+          "user_usec": 4508929
+        },
+        "container_cpu_usage_seconds": 4.758544,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 4.922,
+        "exit_code": 0,
+        "feedback_enabled": false,
+        "queries": null,
+        "stderr_file": "feedback_off/stderr.log",
+        "stdout_file": "feedback_off/stdout.log",
+        "successful_query_pairs_from_rates": 2376,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "on": {
+        "condition": "feedback_on",
+        "container_cpu_stats": {
+          "burst_usec": 0,
+          "nice_usec": 0,
+          "nr_bursts": 0,
+          "nr_periods": 49,
+          "nr_throttled": 48,
+          "system_usec": 250415,
+          "throttled_usec": 4112345,
+          "usage_usec": 4879156,
+          "user_usec": 4628740
+        },
+        "container_cpu_usage_seconds": 4.879156,
+        "database_versions_logged": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "elapsed_seconds": 5.057,
+        "exit_code": 0,
+        "feedback_enabled": true,
+        "queries": null,
+        "stderr_file": "feedback_on/stderr.log",
+        "stdout_file": "feedback_on/stdout.log",
+        "successful_query_pairs_from_rates": 2716,
+        "successful_statements": null,
+        "unsuccessful_statements": null
+      },
+      "seed": 4125,
+      "successful_query_pair_difference": 340
+    }
+  ],
+  "study_status": "operational_proxy_only_not_bug_effectiveness"
+}

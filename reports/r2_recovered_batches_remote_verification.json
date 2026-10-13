@@ -1,0 +1,202 @@
+{
+  "checked_at_utc": "2026-10-13T21:24:17Z",
+  "bucket": "ai4cs",
+  "mode": "remote_only",
+  "objects_checked": 24,
+  "verified": 24,
+  "failures": [],
+  "results": [
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/1006.1449.pdf",
+      "expected_bytes": 899853,
+      "actual_bytes": 899853,
+      "expected_sha256": "4ed9c235425691eb399d01a26ba566da69d12c1257dcbb606fc2b6aa3850c08f",
+      "actual_sha256": "4ed9c235425691eb399d01a26ba566da69d12c1257dcbb606fc2b6aa3850c08f",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/1605.02277.pdf",
+      "expected_bytes": 479824,
+      "actual_bytes": 479824,
+      "expected_sha256": "fad584948e04d836bc48f817059df3026d8a9ebc004895c9a5a0bb1f22ba4c75",
+      "actual_sha256": "fad584948e04d836bc48f817059df3026d8a9ebc004895c9a5a0bb1f22ba4c75",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/2006.15827.pdf",
+      "expected_bytes": 2428209,
+      "actual_bytes": 2428209,
+      "expected_sha256": "7656305b2fe1502d72bba41148abf77b2548243d08348dbbe8da27800123958f",
+      "actual_sha256": "7656305b2fe1502d72bba41148abf77b2548243d08348dbbe8da27800123958f",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch15/2502.17698.pdf",
+      "expected_bytes": 719036,
+      "actual_bytes": 719036,
+      "expected_sha256": "e88a07efee2c4e5560b42aca9fcebe8e321dd673e9b01bb2fe26e13f45932646",
+      "actual_sha256": "e88a07efee2c4e5560b42aca9fcebe8e321dd673e9b01bb2fe26e13f45932646",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/1806.05768.pdf",
+      "expected_bytes": 810493,
+      "actual_bytes": 810493,
+      "expected_sha256": "bdae43c85f152e56de1de91af23da58c52d9e225d83202528434b609c6ddf573",
+      "actual_sha256": "bdae43c85f152e56de1de91af23da58c52d9e225d83202528434b609c6ddf573",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/1811.06012.pdf",
+      "expected_bytes": 3880444,
+      "actual_bytes": 3880444,
+      "expected_sha256": "48119acb3e4c92184e069f312bc2e41f64336babc95f1fa51868d669d7f648da",
+      "actual_sha256": "48119acb3e4c92184e069f312bc2e41f64336babc95f1fa51868d669d7f648da",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2203.04406.pdf",
+      "expected_bytes": 2610432,
+      "actual_bytes": 2610432,
+      "expected_sha256": "84df744f56c2809b4df73019cb9fbcd8d239ff48ed5e8e011e4e280835acf7f1",
+      "actual_sha256": "84df744f56c2809b4df73019cb9fbcd8d239ff48ed5e8e011e4e280835acf7f1",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2308.06850.pdf",
+      "expected_bytes": 412202,
+      "actual_bytes": 412202,
+      "expected_sha256": "24de006ed33779d37ca3e2fd16200448a4f318404330d5262753b59ca0b2fbff",
+      "actual_sha256": "24de006ed33779d37ca3e2fd16200448a4f318404330d5262753b59ca0b2fbff",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2602.14572.pdf",
+      "expected_bytes": 802690,
+      "actual_bytes": 802690,
+      "expected_sha256": "9075862b2d2e6cd75983ae4aa71e87b9ce8949f5a7271577e3baace9b0a7757a",
+      "actual_sha256": "9075862b2d2e6cd75983ae4aa71e87b9ce8949f5a7271577e3baace9b0a7757a",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch30/2608.26831.pdf",
+      "expected_bytes": 3101584,
+      "actual_bytes": 3101584,
+      "expected_sha256": "9656762b571b0d81b1a6a25da5553e92837b29dec59661b8d7ba0070ef7355d4",
+      "actual_sha256": "9656762b571b0d81b1a6a25da5553e92837b29dec59661b8d7ba0070ef7355d4",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/1109.2697.pdf",
+      "expected_bytes": 789250,
+      "actual_bytes": 789250,
+      "expected_sha256": "885ecd842e6be4c6bf15761e38ca032ec5b3d2ea38ebdd31d2e141536cb0fbb5",
+      "actual_sha256": "885ecd842e6be4c6bf15761e38ca032ec5b3d2ea38ebdd31d2e141536cb0fbb5",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2201.05286.pdf",
+      "expected_bytes": 1521913,
+      "actual_bytes": 1521913,
+      "expected_sha256": "423a5d9b08e8fd54c962d07d349448076d15f9eb5922da0503a7ec20c6e2888a",
+      "actual_sha256": "423a5d9b08e8fd54c962d07d349448076d15f9eb5922da0503a7ec20c6e2888a",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2406.04535.pdf",
+      "expected_bytes": 133312,
+      "actual_bytes": 133312,
+      "expected_sha256": "d56352b54b216153c4c7acdbca61a4bb3873935ecc51b8c4d496a1a53f97b014",
+      "actual_sha256": "d56352b54b216153c4c7acdbca61a4bb3873935ecc51b8c4d496a1a53f97b014",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2503.02097.pdf",
+      "expected_bytes": 97658,
+      "actual_bytes": 97658,
+      "expected_sha256": "f3d3251f63fb181d24f3f8aafddef3178e3d4d643850dbea22238b8566cb4985",
+      "actual_sha256": "f3d3251f63fb181d24f3f8aafddef3178e3d4d643850dbea22238b8566cb4985",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/2506.20828.pdf",
+      "expected_bytes": 3723162,
+      "actual_bytes": 3723162,
+      "expected_sha256": "025e96b144ce7e0375ba39c996297b56bc034cdb30cdfe68418d68ff30de5527",
+      "actual_sha256": "025e96b144ce7e0375ba39c996297b56bc034cdb30cdfe68418d68ff30de5527",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/source-line-8.pdf",
+      "expected_bytes": 5185281,
+      "actual_bytes": 5185281,
+      "expected_sha256": "773cc64e6f039b30cfd97765b593f812892f982e23c64d103f4980bc5e489ef1",
+      "actual_sha256": "773cc64e6f039b30cfd97765b593f812892f982e23c64d103f4980bc5e489ef1",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch34/source-line-9.pdf",
+      "expected_bytes": 9388135,
+      "actual_bytes": 9388135,
+      "expected_sha256": "a7ee67b7b0c535e516ec5fe58c693befb03e2481d96875d115ec7660fa5c4a73",
+      "actual_sha256": "a7ee67b7b0c535e516ec5fe58c693befb03e2481d96875d115ec7660fa5c4a73",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2503.09217.pdf",
+      "expected_bytes": 314127,
+      "actual_bytes": 314127,
+      "expected_sha256": "8a1bb769d4a268ce8407e9273d41a5ade4e10c850115d194312393eef8a5bfc9",
+      "actual_sha256": "8a1bb769d4a268ce8407e9273d41a5ade4e10c850115d194312393eef8a5bfc9",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2506.02718.pdf",
+      "expected_bytes": 1454004,
+      "actual_bytes": 1454004,
+      "expected_sha256": "5283122b1e23bfe5fc49f8ea45db1eab50d8e2cc76826a21a653a7364a805fb9",
+      "actual_sha256": "5283122b1e23bfe5fc49f8ea45db1eab50d8e2cc76826a21a653a7364a805fb9",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2512.23480.pdf",
+      "expected_bytes": 2018257,
+      "actual_bytes": 2018257,
+      "expected_sha256": "729da9a56b835b9c0514753c312a32c05f368a3b1998f3e56f830bf696efe061",
+      "actual_sha256": "729da9a56b835b9c0514753c312a32c05f368a3b1998f3e56f830bf696efe061",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2602.12670.pdf",
+      "expected_bytes": 1769852,
+      "actual_bytes": 1769852,
+      "expected_sha256": "e987ebc3f0084a1ffc8acbca58259e33120b95fcef3876abfad060e169cf210b",
+      "actual_sha256": "e987ebc3f0084a1ffc8acbca58259e33120b95fcef3876abfad060e169cf210b",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2602.20867.pdf",
+      "expected_bytes": 5450171,
+      "actual_bytes": 5450171,
+      "expected_sha256": "cb786adbdf3abdf7bd22066c1984b47de3ef787d732dd6594e51d74a3d8db9b5",
+      "actual_sha256": "cb786adbdf3abdf7bd22066c1984b47de3ef787d732dd6594e51d74a3d8db9b5",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2604.21579.pdf",
+      "expected_bytes": 632293,
+      "actual_bytes": 632293,
+      "expected_sha256": "ddc4fb5f849c7423895138ac5ca3da9bcb3ee34a19010a064225ae2d96f699c8",
+      "actual_sha256": "ddc4fb5f849c7423895138ac5ca3da9bcb3ee34a19010a064225ae2d96f699c8",
+      "status": "verified"
+    },
+    {
+      "key": "scientific-discovery/fulltexts/recovered-batches-2026-10-13/batch8/2606.10546.pdf",
+      "expected_bytes": 2049412,
+      "actual_bytes": 2049412,
+      "expected_sha256": "3487c51fd8be9236ef86fe68c3542c364a85f647a0fdb39694279516f61bf71e",
+      "actual_sha256": "3487c51fd8be9236ef86fe68c3542c364a85f647a0fdb39694279516f61bf71e",
+      "status": "verified"
+    }
+  ]
+}

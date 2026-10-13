@@ -1,0 +1,29 @@
+{
+  "status": "protocol_for_next_experiment_not_yet_executed",
+  "updated_at_utc": "2026-10-13",
+  "motivation": "The fixed-cap CPU-normalized study on seeds 4121-4125 is directionally positive but always ran feedback_off before feedback_on and used post-hoc throughput normalization rather than equal CPU stopping budgets.",
+  "question": "At a predeclared equal cgroup CPU-time budget, does feedback-on produce more independently confirmed distinct NoREC bugs than feedback-off on paired fresh seeds?",
+  "primary_outcome": "Number of distinct SQLancer++ NoREC discrepancies per paired seed under identical cgroup-v2 usage_usec stopping budgets, after blinded deduplication and independent reproduction.",
+  "design": {
+    "source_commit": "1405d4eb5b7af7a639717a47147bd89362558830",
+    "database": "SQLite 3.40.0",
+    "oracle": "NoREC",
+    "conditions": ["feedback_off", "feedback_on"],
+    "randomization": "Within each seed pair, randomize arm order from a recorded seed; use balanced AB/BA blocks across pairs.",
+    "cpu_budget": "Choose a fixed per-arm CPU-second budget using only the completed pilot's resource distribution, then freeze it before any new outcomes. Stop each arm at the same cgroup-v2 usage_usec target; log the final counter and any overshoot.",
+    "attempt_limits": "Keep the existing per-database query cap and maximum databases as safety caps; do not treat hitting a cap before the CPU target as a complete equal-budget run.",
+    "bug_triage": "Export all candidate mismatches without condition/seed labels; canonicalize SQL and database state; have an independent rerun verify each discrepancy and cluster duplicates before unblinding.",
+    "retained_data": ["source/build/image hashes", "arm order", "raw stdout/stderr", "per-query and per-database counters", "cpu.stat snapshots", "all mismatch artifacts", "triage decisions and reproduction logs"]
+  },
+  "hypotheses": {
+    "null": "Feedback-on does not increase distinct independently reproducible bug yield per equal CPU budget.",
+    "alternative": "Feedback-on increases distinct independently reproducible bug yield per equal CPU budget."
+  },
+  "stop_and_interpretation_rules": [
+    "No optional stopping or seed replacement after outcomes are visible.",
+    "A query-pair throughput gain without distinct bug gain is not an effectiveness win.",
+    "Report nulls, duplicate reports, unreproducible mismatches, and incomplete CPU-budget runs.",
+    "Do not make Paper 3 forecast or Paper 4 utility claims from this experiment."
+  ],
+  "current_blocker": "Implement and validate reliable in-container CPU-budget stopping and blinded mismatch export before preregistering the next seed block."
+}

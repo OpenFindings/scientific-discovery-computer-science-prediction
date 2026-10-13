@@ -1,0 +1,305 @@
+{
+  "audited_at_utc": "2026-10-13",
+  "batches": {
+    "8": {
+      "review_rows": 7,
+      "full_texts_verified": 7,
+      "unavailable_or_withdrawn": []
+    },
+    "15": {
+      "review_rows": 4,
+      "full_texts_verified": 4,
+      "unavailable_or_withdrawn": []
+    },
+    "30": {
+      "review_rows": 6,
+      "full_texts_verified": 6,
+      "unavailable_or_withdrawn": []
+    },
+    "34": {
+      "review_rows": 9,
+      "full_texts_verified": 8,
+      "unavailable_or_withdrawn": [
+        2
+      ]
+    }
+  },
+  "ledger_records": 26,
+  "full_texts_verified": 25,
+  "new_pdfs_recovered": 24,
+  "already_present_before_recovery": 1,
+  "withdrawn_without_pdf": [
+    {
+      "arxiv_id": "1311.5417",
+      "url": "https://arxiv.org/abs/1311.5417",
+      "reason": "arXiv marks the paper withdrawn, provides no PDF, and says there is no license for the withdrawn version."
+    }
+  ],
+  "r2_recovery_upload": {
+    "new_objects": 24,
+    "remote_readback": "24/24 byte+SHA-256 checks passed",
+    "manifest": "data/r2_recovered_batches_2026-10-13.jsonl"
+  },
+  "records": [
+    {
+      "batch": 8,
+      "ledger_line": 1,
+      "arxiv_id": "2512.23480",
+      "title": "Agentic AI for Autonomous Defense in Software Supply Chain Security: Beyond Provenance to Vulnerability Mitigation",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2512.23480.pdf",
+      "sha256": "729da9a56b835b9c0514753c312a32c05f368a3b1998f3e56f830bf696efe061",
+      "source_url": "https://arxiv.org/pdf/2512.23480"
+    },
+    {
+      "batch": 8,
+      "ledger_line": 2,
+      "arxiv_id": "2503.09217",
+      "title": "Evaluating the Generalizability of LLMs in Automated Program Repair",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2503.09217.pdf",
+      "sha256": "8a1bb769d4a268ce8407e9273d41a5ade4e10c850115d194312393eef8a5bfc9",
+      "source_url": "https://arxiv.org/pdf/2503.09217"
+    },
+    {
+      "batch": 8,
+      "ledger_line": 3,
+      "arxiv_id": "2602.20867",
+      "title": "SoK: Agentic Skills -- Beyond Tool Use in LLM Agents",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2602.20867.pdf",
+      "sha256": "cb786adbdf3abdf7bd22066c1984b47de3ef787d732dd6594e51d74a3d8db9b5",
+      "source_url": "https://arxiv.org/pdf/2602.20867"
+    },
+    {
+      "batch": 8,
+      "ledger_line": 4,
+      "arxiv_id": "2602.12670",
+      "title": "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2602.12670.pdf",
+      "sha256": "e987ebc3f0084a1ffc8acbca58259e33120b95fcef3876abfad060e169cf210b",
+      "source_url": "https://arxiv.org/pdf/2602.12670"
+    },
+    {
+      "batch": 8,
+      "ledger_line": 5,
+      "arxiv_id": "2606.10546",
+      "title": "SkillAxe: Sharpening LLM-Authored Agent Skills Through Evaluation-Guided Self-Refinement",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2606.10546.pdf",
+      "sha256": "3487c51fd8be9236ef86fe68c3542c364a85f647a0fdb39694279516f61bf71e",
+      "source_url": "https://arxiv.org/pdf/2606.10546"
+    },
+    {
+      "batch": 8,
+      "ledger_line": 6,
+      "arxiv_id": "2604.21579",
+      "title": "A Metamorphic Testing Approach to Diagnosing Memorization in LLM-Based Program Repair",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2604.21579.pdf",
+      "sha256": "ddc4fb5f849c7423895138ac5ca3da9bcb3ee34a19010a064225ae2d96f699c8",
+      "source_url": "https://arxiv.org/pdf/2604.21579"
+    },
+    {
+      "batch": 8,
+      "ledger_line": 7,
+      "arxiv_id": "2506.02718",
+      "title": "End-to-End Optimization of LLM-Driven Multi-Agent Search Systems via Heterogeneous-Group-Based Reinforcement Learning",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/8/2506.02718.pdf",
+      "sha256": "5283122b1e23bfe5fc49f8ea45db1eab50d8e2cc76826a21a653a7364a805fb9",
+      "source_url": "https://arxiv.org/pdf/2506.02718"
+    },
+    {
+      "batch": 15,
+      "ledger_line": 1,
+      "arxiv_id": "1006.1449",
+      "title": "On Secure Workflow Decentralisation on the Internet",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/15/1006.1449.pdf",
+      "sha256": "4ed9c235425691eb399d01a26ba566da69d12c1257dcbb606fc2b6aa3850c08f",
+      "source_url": "https://arxiv.org/pdf/1006.1449"
+    },
+    {
+      "batch": 15,
+      "ledger_line": 2,
+      "arxiv_id": "1605.02277",
+      "title": "On-Average KL-Privacy and its equivalence to Generalization for Max-Entropy Mechanisms",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/15/1605.02277.pdf",
+      "sha256": "fad584948e04d836bc48f817059df3026d8a9ebc004895c9a5a0bb1f22ba4c75",
+      "source_url": "https://arxiv.org/pdf/1605.02277"
+    },
+    {
+      "batch": 15,
+      "ledger_line": 3,
+      "arxiv_id": "2006.15827",
+      "title": "IoTGaze: IoT Security Enforcement via Wireless Context Analysis",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/15/2006.15827.pdf",
+      "sha256": "7656305b2fe1502d72bba41148abf77b2548243d08348dbbe8da27800123958f",
+      "source_url": "https://arxiv.org/pdf/2006.15827"
+    },
+    {
+      "batch": 15,
+      "ledger_line": 4,
+      "arxiv_id": "2502.17698",
+      "title": "The Cyber Immune System: Harnessing Adversarial Forces for Security Resilience",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/15/2502.17698.pdf",
+      "sha256": "e88a07efee2c4e5560b42aca9fcebe8e321dd673e9b01bb2fe26e13f45932646",
+      "source_url": "https://arxiv.org/pdf/2502.17698"
+    },
+    {
+      "batch": 30,
+      "ledger_line": 1,
+      "arxiv_id": "1806.05768",
+      "title": "Hardware Trojan Attacks on Neural Networks",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/30/1806.05768.pdf",
+      "sha256": "bdae43c85f152e56de1de91af23da58c52d9e225d83202528434b609c6ddf573",
+      "source_url": "https://arxiv.org/pdf/1806.05768"
+    },
+    {
+      "batch": 30,
+      "ledger_line": 2,
+      "arxiv_id": "1811.06012",
+      "title": "Opening the Doors to Dynamic Camouflaging: Harnessing the Power of Polymorphic Devices",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/30/1811.06012.pdf",
+      "sha256": "48119acb3e4c92184e069f312bc2e41f64336babc95f1fa51868d669d7f648da",
+      "source_url": "https://arxiv.org/pdf/1811.06012"
+    },
+    {
+      "batch": 30,
+      "ledger_line": 3,
+      "arxiv_id": "2203.04406",
+      "title": "Routing with Privacy for Drone Package Delivery Systems",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/30/2203.04406.pdf",
+      "sha256": "84df744f56c2809b4df73019cb9fbcd8d239ff48ed5e8e011e4e280835acf7f1",
+      "source_url": "https://arxiv.org/pdf/2203.04406"
+    },
+    {
+      "batch": 30,
+      "ledger_line": 4,
+      "arxiv_id": "2308.06850",
+      "title": "S3C2 Summit 2023-06: Government Secure Supply Chain Summit",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/30/2308.06850.pdf",
+      "sha256": "24de006ed33779d37ca3e2fd16200448a4f318404330d5262753b59ca0b2fbff",
+      "source_url": "https://arxiv.org/pdf/2308.06850"
+    },
+    {
+      "batch": 30,
+      "ledger_line": 5,
+      "arxiv_id": "2602.14572",
+      "title": "An Empirical Study of the Evolution of GitHub Actions Workflows",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/30/2602.14572.pdf",
+      "sha256": "9075862b2d2e6cd75983ae4aa71e87b9ce8949f5a7271577e3baace9b0a7757a",
+      "source_url": "https://arxiv.org/pdf/2602.14572"
+    },
+    {
+      "batch": 30,
+      "ledger_line": 6,
+      "arxiv_id": "2608.26831",
+      "title": "When Relationships Break: Interpreting Network Traffic Anomalies via Dependency Violations",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/30/2608.26831.pdf",
+      "sha256": "9656762b571b0d81b1a6a25da5553e92837b29dec59661b8d7ba0070ef7355d4",
+      "source_url": "https://arxiv.org/pdf/2608.26831"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 1,
+      "arxiv_id": "1109.2697",
+      "title": "Selection of Model in Developing Information Security Criteria for Smart Grid Security System",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/1109.2697.pdf",
+      "sha256": "885ecd842e6be4c6bf15761e38ca032ec5b3d2ea38ebdd31d2e141536cb0fbb5",
+      "source_url": "https://arxiv.org/pdf/1109.2697"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 2,
+      "arxiv_id": "1311.5417",
+      "title": "General Privacy-Preserving Verifiable Incentive Mechanism for Crowdsourcing Markets",
+      "status": "withdrawn_no_pdf",
+      "path": null,
+      "sha256": null,
+      "source_url": "https://arxiv.org/pdf/1311.5417"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 3,
+      "arxiv_id": "1810.11655",
+      "title": "A privacy-preserving system for data ownership using blockchain and distributed databases",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/arxiv/1810.11655v1.pdf",
+      "sha256": "b6c1f423043f7125e93d3cb73def3761b8351516d3d9b1f656b0b2cd253a18c4",
+      "source_url": "https://arxiv.org/pdf/1810.11655"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 4,
+      "arxiv_id": "2201.05286",
+      "title": "Demystifying Swarm Learning: A New Paradigm of Blockchain-based Decentralized Federated Learning",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/2201.05286.pdf",
+      "sha256": "423a5d9b08e8fd54c962d07d349448076d15f9eb5922da0503a7ec20c6e2888a",
+      "source_url": "https://arxiv.org/pdf/2201.05286"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 5,
+      "arxiv_id": "2406.04535",
+      "title": "Tangent differential privacy",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/2406.04535.pdf",
+      "sha256": "d56352b54b216153c4c7acdbca61a4bb3873935ecc51b8c4d496a1a53f97b014",
+      "source_url": "https://arxiv.org/pdf/2406.04535"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 6,
+      "arxiv_id": "2503.02097",
+      "title": "Bomfather: An eBPF-based Kernel-level Monitoring Framework for Accurate Identification of Unknown, Unused, and Dynamically Loaded Dependencies in Modern Software Supply Chains",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/2503.02097.pdf",
+      "sha256": "f3d3251f63fb181d24f3f8aafddef3178e3d4d643850dbea22238b8566cb4985",
+      "source_url": "https://arxiv.org/pdf/2503.02097"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 7,
+      "arxiv_id": "2506.20828",
+      "title": "Practical and Accurate Local Edge Differentially Private Graph Algorithms",
+      "status": "full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/2506.20828.pdf",
+      "sha256": "025e96b144ce7e0375ba39c996297b56bc034cdb30cdfe68418d68ff30de5527",
+      "source_url": "https://arxiv.org/pdf/2506.20828"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 8,
+      "arxiv_id": null,
+      "title": "Gradient Disaggregation: Breaking Privacy in Federated Learning by Reconstructing the User Participant Matrix",
+      "status": "source_linked_full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/source-line-8.pdf",
+      "sha256": "773cc64e6f039b30cfd97765b593f812892f982e23c64d103f4980bc5e489ef1",
+      "source_url": "https://proceedings.mlr.press/v139/lam21b.html"
+    },
+    {
+      "batch": 34,
+      "ledger_line": 9,
+      "arxiv_id": null,
+      "title": "Active Membership Inference Attack under Local Differential Privacy in Federated Learning",
+      "status": "source_linked_full_text_present_and_sha256_verified",
+      "path": "data/fulltexts/recovered_batches/34/source-line-9.pdf",
+      "sha256": "a7ee67b7b0c535e516ec5fe58c693befb03e2481d96875d115ec7660fa5c4a73",
+      "source_url": "https://proceedings.mlr.press/v206/nguyen23e/nguyen23e.pdf"
+    }
+  ]
+}

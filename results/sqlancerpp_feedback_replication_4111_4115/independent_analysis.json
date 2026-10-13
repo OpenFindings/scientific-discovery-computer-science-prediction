@@ -1,0 +1,392 @@
+{
+  "complete_pairs": 5,
+  "confirmed_distinct_bugs": null,
+  "differences_on_minus_off": [
+    265,
+    346,
+    407,
+    265,
+    299
+  ],
+  "errors": [],
+  "evidence_level": 4,
+  "experiment_id": "EXP-DBMS-FEEDBACK-REP-4111-4115",
+  "inputs": {
+    "campaign_summary": "results/sqlancerpp_feedback_replication_4111_4115/summary.json",
+    "database_cap_per_arm": 20,
+    "pinned_sqlancerpp_commit": "1405d4eb5b7af7a639717a47147bd89362558830",
+    "query_attempt_cap_per_database": 200,
+    "raw_logs": "each seed/{feedback_off,feedback_on}/stdout.log",
+    "seeds": [
+      4111,
+      4112,
+      4113,
+      4114,
+      4115
+    ]
+  },
+  "interpretation": "Executed reproducible operational proxy replication; not bug-yield, Paper 3 forecast, Paper 4 planner validation, or an agent-effectiveness finding.",
+  "measurement": "For each retained per-database success rate, multiply by 200; all rates were exactly integral at the declared denominator. Sums are query-generation proxy counts, not distinct bugs.",
+  "preregistered_decision": "All five complete pairs are positive, meeting the directional consistency criterion. The two-sided exact sign-test p is 0.0625 (one-sided directional p 0.03125); small n and use of a query-generation proxy preclude a broad effectiveness claim. Proceed only to matched-CPU instrumentation before testing bug yield.",
+  "rate_source_audit": {
+    "configured_query_attempts": 200,
+    "expression": "(double) qsuccess / queryNum",
+    "file": "src/sqlancer/general/GeneralErrorHandler.java",
+    "interpretation": "The source prints a direct floating-point ratio rather than a formatted percentage; multiplying the retained rates by the declared denominator reconstructs the per-database numerator in this pinned build.",
+    "line": 183,
+    "source_commit": "1405d4eb5b7af7a639717a47147bd89362558830"
+  },
+  "seed_results": [
+    {
+      "complete_pair": true,
+      "difference_on_minus_off": 265,
+      "feedback_off": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2462,
+        "elapsed_seconds": 5.462,
+        "exit_code": 0,
+        "rates": [
+          "0.945",
+          "0.74",
+          "0.705",
+          "0.615",
+          "0.465",
+          "0.565",
+          "0.465",
+          "0.74",
+          "0.545",
+          "0.6",
+          "0.575",
+          "0.5",
+          "0.585",
+          "0.765",
+          "0.595",
+          "0.66",
+          "0.435",
+          "0.54",
+          "0.67",
+          "0.6"
+        ]
+      },
+      "feedback_on": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2727,
+        "elapsed_seconds": 5.023,
+        "exit_code": 0,
+        "rates": [
+          "0.945",
+          "0.74",
+          "0.705",
+          "0.62",
+          "0.495",
+          "0.375",
+          "0.49",
+          "0.505",
+          "0.66",
+          "0.56",
+          "0.635",
+          "0.715",
+          "0.745",
+          "0.775",
+          "0.67",
+          "0.715",
+          "0.765",
+          "0.815",
+          "0.835",
+          "0.87"
+        ]
+      },
+      "seed": 4111
+    },
+    {
+      "complete_pair": true,
+      "difference_on_minus_off": 346,
+      "feedback_off": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2387,
+        "elapsed_seconds": 4.757,
+        "exit_code": 0,
+        "rates": [
+          "0.93",
+          "0.75",
+          "0.615",
+          "0.575",
+          "0.675",
+          "0.55",
+          "0.515",
+          "0.505",
+          "0.65",
+          "0.595",
+          "0.615",
+          "0.475",
+          "0.64",
+          "0.61",
+          "0.62",
+          "0.575",
+          "0.465",
+          "0.485",
+          "0.44",
+          "0.65"
+        ]
+      },
+      "feedback_on": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2733,
+        "elapsed_seconds": 5.052,
+        "exit_code": 0,
+        "rates": [
+          "0.93",
+          "0.75",
+          "0.615",
+          "0.575",
+          "0.675",
+          "0.55",
+          "0.515",
+          "0.505",
+          "0.635",
+          "0.71",
+          "0.68",
+          "0.64",
+          "0.75",
+          "0.675",
+          "0.685",
+          "0.645",
+          "0.75",
+          "0.77",
+          "0.79",
+          "0.82"
+        ]
+      },
+      "seed": 4112
+    },
+    {
+      "complete_pair": true,
+      "difference_on_minus_off": 407,
+      "feedback_off": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2300,
+        "elapsed_seconds": 5.354,
+        "exit_code": 0,
+        "rates": [
+          "0.925",
+          "0.85",
+          "0.595",
+          "0.665",
+          "0.465",
+          "0.59",
+          "0.57",
+          "0.585",
+          "0.5",
+          "0.46",
+          "0.5",
+          "0.55",
+          "0.56",
+          "0.485",
+          "0.47",
+          "0.54",
+          "0.485",
+          "0.74",
+          "0.475",
+          "0.49"
+        ]
+      },
+      "feedback_on": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2707,
+        "elapsed_seconds": 5.179,
+        "exit_code": 0,
+        "rates": [
+          "0.925",
+          "0.85",
+          "0.595",
+          "0.665",
+          "0.465",
+          "0.59",
+          "0.57",
+          "0.585",
+          "0.5",
+          "0.61",
+          "0.74",
+          "0.64",
+          "0.615",
+          "0.685",
+          "0.62",
+          "0.725",
+          "0.76",
+          "0.815",
+          "0.785",
+          "0.795"
+        ]
+      },
+      "seed": 4113
+    },
+    {
+      "complete_pair": true,
+      "difference_on_minus_off": 265,
+      "feedback_off": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2475,
+        "elapsed_seconds": 5.037,
+        "exit_code": 0,
+        "rates": [
+          "0.93",
+          "0.81",
+          "0.505",
+          "0.575",
+          "0.62",
+          "0.7",
+          "0.655",
+          "0.53",
+          "0.625",
+          "0.605",
+          "0.605",
+          "0.72",
+          "0.495",
+          "0.53",
+          "0.44",
+          "0.69",
+          "0.59",
+          "0.61",
+          "0.455",
+          "0.685"
+        ]
+      },
+      "feedback_on": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2740,
+        "elapsed_seconds": 5.139,
+        "exit_code": 0,
+        "rates": [
+          "0.93",
+          "0.81",
+          "0.505",
+          "0.575",
+          "0.62",
+          "0.7",
+          "0.655",
+          "0.53",
+          "0.625",
+          "0.605",
+          "0.58",
+          "0.675",
+          "0.65",
+          "0.695",
+          "0.73",
+          "0.8",
+          "0.745",
+          "0.745",
+          "0.7",
+          "0.825"
+        ]
+      },
+      "seed": 4114
+    },
+    {
+      "complete_pair": true,
+      "difference_on_minus_off": 299,
+      "feedback_off": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2432,
+        "elapsed_seconds": 4.952,
+        "exit_code": 0,
+        "rates": [
+          "0.915",
+          "0.82",
+          "0.605",
+          "0.735",
+          "0.425",
+          "0.58",
+          "0.68",
+          "0.525",
+          "0.52",
+          "0.665",
+          "0.5",
+          "0.4",
+          "0.65",
+          "0.64",
+          "0.485",
+          "0.695",
+          "0.685",
+          "0.57",
+          "0.645",
+          "0.42"
+        ]
+      },
+      "feedback_on": {
+        "database_versions": [
+          "3.40.0"
+        ],
+        "databases": 20,
+        "derived_successful_query_pairs": 2731,
+        "elapsed_seconds": 5.004,
+        "exit_code": 0,
+        "rates": [
+          "0.915",
+          "0.82",
+          "0.605",
+          "0.735",
+          "0.425",
+          "0.58",
+          "0.68",
+          "0.525",
+          "0.55",
+          "0.71",
+          "0.57",
+          "0.55",
+          "0.69",
+          "0.72",
+          "0.7",
+          "0.79",
+          "0.825",
+          "0.74",
+          "0.755",
+          "0.77"
+        ]
+      },
+      "seed": 4115
+    }
+  ],
+  "summary": {
+    "exact_sign_test": {
+      "n_nonzero": 5,
+      "one_sided_positive_exact_p": 0.03125,
+      "two_sided_exact_p": 0.0625
+    },
+    "max": 407,
+    "mean": 316.4,
+    "mean_percentage_points_of_4000_attempt_cap": 7.909999999999999,
+    "median": 299,
+    "min": 265,
+    "negative": 0,
+    "positive": 5,
+    "sample_sd": 60.562364550932124,
+    "zero": 0
+  }
+}

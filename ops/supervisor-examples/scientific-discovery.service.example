@@ -1,0 +1,8 @@
+[Unit]
+Description=One bounded scientific discovery supervisor run
+
+[Service]
+Type=oneshot
+WorkingDirectory=/PATH/TO/REPOSITORY
+ExecStart=/bin/sh /PATH/TO/REPOSITORY/scripts/research_resume.sh
+Nice=10

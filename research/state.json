@@ -26,7 +26,7 @@
   "historical_validation_status": "Paper 3 methodology documented; no validated historical CS outcome forecast is currently recorded.",
   "data_coverage": {"arxiv_cs_metadata_records": 937531, "lexically_matched_candidate_records": 198690, "stratified_unique_papers": 407, "download_manifest_records": 139, "download_successes": 120, "download_failures": 19, "extracted_full_text_records": 120, "recovered_batch_ledger_rows": 26, "recovered_batch_fulltexts_verified": 25, "recovered_batch_pdfs_new": 24, "recovered_batch_withdrawn_unavailable": 1, "r2_original_object_records": 122, "r2_recovered_object_records": 24, "r2_combined_remote_checksum_audit": "146/146 objects across manifests matched bytes and SHA-256 on 2026-10-13 UTC", "note": "Pipeline counts have different units; raw PDFs remain out of Git; one withdrawn version is unavailable by design."},
   "budget_consumption": {"supervisor_can_query_service_quota": false, "token_or_cost_spend_measurable": false, "configured_max_rounds": 8, "configured_max_worker_invocations": 8, "configured_max_experiments": 8, "configured_max_wall_seconds": 7200, "configured_max_artifact_mib": 50, "minimum_disk_free_mib": 2048, "final_reporting_reserve_seconds": 300, "worker_invocations_started": 0, "experiments_started": 2, "completed_experiments": 2, "note": "No remaining quota is inferred; Codex's external service limit is not exposed to this supervisor. Both experiments ran locally without a paid Codex worker."},
-  "checkpoint_time": "2026-10-13T21:28:34Z",
-  "last_successful_commit": "e3cd133",
+  "checkpoint_time": "2026-10-13T21:30:00Z",
+  "last_successful_commit": "9490799",
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets."
 }

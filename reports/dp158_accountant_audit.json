@@ -1,6 +1,6 @@
 {
   "finding_id": 158,
-  "audit_status": "partial_source_and_reference_simulation_audit; production_accountant_unchecked",
+  "audit_status": "source_theorem_reference_filter_and_boundary_diagnostic_complete; production_accountant_unchecked",
   "primary_source": {
     "paper": "Tran et al., f-Differential Privacy Filters: Validity and Approximate Solutions",
     "version": "arXiv:2602.06756v2",
@@ -32,7 +32,7 @@
       "name": "Feldman and Zrnic fixed-order RDP filter",
       "source": "https://papers.nips.cc/paper/2021/file/ec7f346604f518906d35ef0492709f78-Paper.pdf",
       "basis": "Theorem 4.3: continue iff sum of conditionally valid per-step RDP costs at fixed order alpha stays within B; otherwise halt before release.",
-      "implementation_status": "theorem/pseudocode audited; no production library or local implementation yet pinned"
+      "implementation_status": "local conservative reference wrapper implemented in src/research_platform/rdp_filter_reference.py and unit-tested; no production library validated; revealed-coin per-step charge may be much looser than an optimal subsampled-Gaussian RDP bound"
     },
     {
       "name": "Whitehouse et al. fully adaptive (epsilon,delta)-DP / approximate zCDP filters",
@@ -46,10 +46,26 @@
     "Ordinary fixed-schedule PLD/RDP composition code must not be presented as a valid fully adaptive filter without a theorem and matching stopping rule.",
     "No linked author simulation code or deployed production accountant has been verified in this audit."
   ],
+  "local_valid_baseline_reference": {
+    "code": "src/research_platform/rdp_filter_reference.py",
+    "tests": "tests/test_rdp_filter_reference.py",
+    "theorem": "Feldman and Zrnic 2021 Theorem 4.3",
+    "one_step_bound": "For alpha>1 and r=mu/sigma, both RDP directions are at most log(1-q+q*exp((alpha-1)*alpha*r^2/2))/(alpha-1), by revealing the Bernoulli subsampling coin and postprocessing.",
+    "stop_rule": "Before releasing the next mechanism, halt if pathwise sum of frozen-order upper charges would exceed its RDP budget.",
+    "limitation": "The math bound is valid, but the ordinary floating-point implementation is not a certified numerical accountant. No production or matched-(epsilon,delta) privacy comparison is claimed."
+  },
+  "boundary_diagnostic": {
+    "protocol": "research/protocol_dp158_regime_boundary_next.md",
+    "raw_results_directory": "results/dp158_regime_boundary",
+    "independent_analysis": "results/dp158_regime_boundary/summary.json",
+    "q_values": [0.1, 0.19, 0.3, 0.5],
+    "max_empirical_cdf_discrepancy": [0.014629985063168982, 0.028148644973437276, 0.04812964711096093, 0.09218049250698013],
+    "decision": "All three higher-q contrasts meet the preregistered >0.01 discrepancy-increase rule after simultaneous DKW uncertainty; q=0.19 narrowly. The stop probability remains near 0.99 across the sweep, so stopping frequency is not an accuracy diagnostic in this model.",
+    "limitation": "This confirms a known finite-q approximation limitation in an independent one-dimensional implementation. No theorem counterexample, formal guard cutoff, or production undercount is established."
+  },
   "remaining_work": [
-    "Pin an executable implementation or independently verify source pseudocode of a valid fully adaptive RDP baseline.",
-    "Specify a matched budget and privacy guarantee for an operational comparison without confusing asymptotic GDP approximation with exact DP.",
-    "Preregister a regime-boundary falsification test with exact pairwise privacy metrics, finite-sample uncertainty, and a defined decision threshold before running it."
+    "Pin or implement a tighter proven subsampled-Gaussian per-step RDP upper bound if comparing utility; the revealed-coin bound is deliberately conservative.",
+    "Specify a matched adjacency and (epsilon,delta) guarantee with certified finite-q errors before an operational filter comparison or safety claim."
   ],
   "research_decision": "Do not claim an accountant undercount, theorem counterexample, novelty, or production vulnerability. Keep finding 158 as a bounded implementation-audit lead."
 }

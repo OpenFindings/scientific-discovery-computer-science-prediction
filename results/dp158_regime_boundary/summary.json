@@ -1,0 +1,129 @@
+{
+  "decision": "The q=0.19, q=0.3 and q=0.5 one-dimensional empirical Gaussian-CDF discrepancy increases exceed the predeclared 0.01 materiality threshold after simultaneous Monte Carlo uncertainty (q=0.19 narrowly). This is a finite-q numerical limitation already anticipated by the paper, not a theorem counterexample, formal q cutoff, production vulnerability, or matched-privacy accountant comparison.",
+  "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026",
+  "limitations": [
+    "The published theorem is asymptotic near q=0 or q=1 and makes no exact finite-q=0.3/0.5 guarantee.",
+    "Only one frozen Monte Carlo seed per arm/q; DKW controls empirical-CDF sampling noise, not model or code uncertainty.",
+    "The zero-history clipping and scalar-versus-vector conventions remain unverified against author code.",
+    "The RDP reference filter was unit-tested separately but not compared here at a matched (epsilon,delta) guarantee."
+  ],
+  "protocol": "research/protocol_dp158_regime_boundary_next.md",
+  "rows": [
+    {
+      "arms": {
+        "P": {
+          "halt_probability": 0.988714,
+          "max_empirical_cdf_difference": 0.012091481894236367,
+          "mean_active_steps": 113.138346,
+          "plrv_mean": 0.15292552677519358,
+          "plrv_variance": 0.3142013926404038
+        },
+        "Q": {
+          "halt_probability": 0.988202,
+          "max_empirical_cdf_difference": 0.014629985063168982,
+          "mean_active_steps": 113.143699,
+          "plrv_mean": -0.14858648405136518,
+          "plrv_variance": 0.2914450988859577
+        }
+      },
+      "budget": 0.15747708586685752,
+      "contrast_vs_q010": {
+        "material_under_predeclared_rule": false,
+        "observed_difference": 0.0,
+        "simultaneous_95pct_lower": 0.0,
+        "simultaneous_95pct_upper": 0.0
+      },
+      "max_cdf_discrepancy": 0.014629985063168982,
+      "q": 0.1
+    },
+    {
+      "arms": {
+        "P": {
+          "halt_probability": 0.989194,
+          "max_empirical_cdf_difference": 0.017707472635584143,
+          "mean_active_steps": 113.125119,
+          "plrv_mean": 0.5415838965181049,
+          "plrv_variance": 1.1275081060169696
+        },
+        "Q": {
+          "halt_probability": 0.987934,
+          "max_empirical_cdf_difference": 0.028148644973437276,
+          "mean_active_steps": 113.147629,
+          "plrv_mean": -0.5204499829016855,
+          "plrv_variance": 0.9959046602990893
+        }
+      },
+      "budget": 0.5684922799793556,
+      "contrast_vs_q010": {
+        "material_under_predeclared_rule": true,
+        "observed_difference": 0.013518659910268294,
+        "simultaneous_95pct_lower": 0.010122096648442078,
+        "simultaneous_95pct_upper": 0.01691522317209451
+      },
+      "max_cdf_discrepancy": 0.028148644973437276,
+      "q": 0.19
+    },
+    {
+      "arms": {
+        "P": {
+          "halt_probability": 0.990055,
+          "max_empirical_cdf_difference": 0.029144261555952178,
+          "mean_active_steps": 113.114569,
+          "plrv_mean": 1.323332413547435,
+          "plrv_variance": 2.7955945307582657
+        },
+        "Q": {
+          "halt_probability": 0.988048,
+          "max_empirical_cdf_difference": 0.04812964711096093,
+          "mean_active_steps": 113.147298,
+          "plrv_mean": -1.257578913234695,
+          "plrv_variance": 2.385492054386464
+        }
+      },
+      "budget": 1.4172937728017172,
+      "contrast_vs_q010": {
+        "material_under_predeclared_rule": true,
+        "observed_difference": 0.03349966204779195,
+        "simultaneous_95pct_lower": 0.030103098785965735,
+        "simultaneous_95pct_upper": 0.03689622530961817
+      },
+      "max_cdf_discrepancy": 0.04812964711096093,
+      "q": 0.3
+    },
+    {
+      "arms": {
+        "P": {
+          "halt_probability": 0.99109,
+          "max_empirical_cdf_difference": 0.05685136640223476,
+          "mean_active_steps": 113.090642,
+          "plrv_mean": 3.5732635731312725,
+          "plrv_variance": 7.581467889449286
+        },
+        "Q": {
+          "halt_probability": 0.988001,
+          "max_empirical_cdf_difference": 0.09218049250698013,
+          "mean_active_steps": 113.145353,
+          "plrv_mean": -3.364897395921671,
+          "plrv_variance": 6.330129721140055
+        }
+      },
+      "budget": 3.936927146671437,
+      "contrast_vs_q010": {
+        "material_under_predeclared_rule": true,
+        "observed_difference": 0.07755050744381115,
+        "simultaneous_95pct_lower": 0.07415394418198493,
+        "simultaneous_95pct_upper": 0.08094707070563736
+      },
+      "max_cdf_discrepancy": 0.09218049250698013,
+      "q": 0.5
+    }
+  ],
+  "sample_size_per_arm_q": 1000000,
+  "simultaneous_dkw": {
+    "contrast_radius": 0.003396563261826216,
+    "familywise_alpha": 0.05,
+    "number_of_ecdfs": 8,
+    "per_ecdf_radius": 0.001698281630913108
+  },
+  "source": "https://arxiv.org/html/2602.06756v2"
+}

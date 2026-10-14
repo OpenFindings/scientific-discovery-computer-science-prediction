@@ -1,0 +1,1129 @@
+{
+  "source": "data/research_candidates_uncapped.jsonl.gz",
+  "scope": {
+    "first_publication_year": 2010,
+    "last_publication_year": 2022,
+    "followup_years_possible": 3,
+    "year_end_cutoff": true
+  },
+  "records_scanned": 198690,
+  "historical_lexical_candidates": 52362,
+  "year_end_eligible_latest_metadata": 39855,
+  "later_revised_latest_metadata_excluded": 12507,
+  "later_revision_fraction": 0.23885642259653947,
+  "topic_year_cells_with_any_candidate": 221,
+  "topic_year_cells_excluded_entirely_due_to_later_revision": [
+    "2012|model_efficiency"
+  ],
+  "sampling": {
+    "method": "SHA-256 hash-priority within publication-year x lexical-topic cells after year-end revision filter",
+    "seed": "cs-history-year-topic-2026-10-14-v1",
+    "per_cell_target": 5,
+    "selected_topic_year_rows": 1018,
+    "unique_arxiv_ids_selected": 1006,
+    "cells_with_eligible_candidates": 220
+  },
+  "cell_profile": {
+    "2010|agent_memory_coordination": {
+      "eligible_pool": 5,
+      "all_latest_record_pool": 5,
+      "selected": 5
+    },
+    "2010|agent_reliability_security": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 3,
+      "selected": 3
+    },
+    "2010|ai_generated_code": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 3,
+      "selected": 2
+    },
+    "2010|algorithms_complexity": {
+      "eligible_pool": 425,
+      "all_latest_record_pool": 576,
+      "selected": 5
+    },
+    "2010|compilers_programming_languages": {
+      "eligible_pool": 65,
+      "all_latest_record_pool": 79,
+      "selected": 5
+    },
+    "2010|databases": {
+      "eligible_pool": 82,
+      "all_latest_record_pool": 85,
+      "selected": 5
+    },
+    "2010|distributed_cloud_systems": {
+      "eligible_pool": 83,
+      "all_latest_record_pool": 96,
+      "selected": 5
+    },
+    "2010|energy_efficient_computing": {
+      "eligible_pool": 8,
+      "all_latest_record_pool": 9,
+      "selected": 5
+    },
+    "2010|model_efficiency": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2010|optimization_causal_science": {
+      "eligible_pool": 9,
+      "all_latest_record_pool": 16,
+      "selected": 5
+    },
+    "2010|program_repair_verification": {
+      "eligible_pool": 8,
+      "all_latest_record_pool": 9,
+      "selected": 5
+    },
+    "2010|reasoning_and_agents": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2010|robotics_embodied_ai": {
+      "eligible_pool": 33,
+      "all_latest_record_pool": 37,
+      "selected": 5
+    },
+    "2010|security_privacy": {
+      "eligible_pool": 46,
+      "all_latest_record_pool": 57,
+      "selected": 5
+    },
+    "2010|software_testing": {
+      "eligible_pool": 34,
+      "all_latest_record_pool": 35,
+      "selected": 5
+    },
+    "2011|agent_memory_coordination": {
+      "eligible_pool": 11,
+      "all_latest_record_pool": 12,
+      "selected": 5
+    },
+    "2011|agent_reliability_security": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 4,
+      "selected": 3
+    },
+    "2011|ai_generated_code": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 4,
+      "selected": 3
+    },
+    "2011|algorithms_complexity": {
+      "eligible_pool": 508,
+      "all_latest_record_pool": 688,
+      "selected": 5
+    },
+    "2011|compilers_programming_languages": {
+      "eligible_pool": 70,
+      "all_latest_record_pool": 79,
+      "selected": 5
+    },
+    "2011|databases": {
+      "eligible_pool": 116,
+      "all_latest_record_pool": 123,
+      "selected": 5
+    },
+    "2011|distributed_cloud_systems": {
+      "eligible_pool": 99,
+      "all_latest_record_pool": 116,
+      "selected": 5
+    },
+    "2011|energy_efficient_computing": {
+      "eligible_pool": 13,
+      "all_latest_record_pool": 14,
+      "selected": 5
+    },
+    "2011|optimization_causal_science": {
+      "eligible_pool": 17,
+      "all_latest_record_pool": 21,
+      "selected": 5
+    },
+    "2011|program_repair_verification": {
+      "eligible_pool": 10,
+      "all_latest_record_pool": 10,
+      "selected": 5
+    },
+    "2011|reasoning_and_agents": {
+      "eligible_pool": 4,
+      "all_latest_record_pool": 4,
+      "selected": 4
+    },
+    "2011|robotics_embodied_ai": {
+      "eligible_pool": 66,
+      "all_latest_record_pool": 71,
+      "selected": 5
+    },
+    "2011|security_privacy": {
+      "eligible_pool": 45,
+      "all_latest_record_pool": 49,
+      "selected": 5
+    },
+    "2011|software_testing": {
+      "eligible_pool": 15,
+      "all_latest_record_pool": 16,
+      "selected": 5
+    },
+    "2012|agent_memory_coordination": {
+      "eligible_pool": 15,
+      "all_latest_record_pool": 15,
+      "selected": 5
+    },
+    "2012|agent_reliability_security": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 3,
+      "selected": 3
+    },
+    "2012|ai_generated_code": {
+      "eligible_pool": 8,
+      "all_latest_record_pool": 8,
+      "selected": 5
+    },
+    "2012|algorithms_complexity": {
+      "eligible_pool": 589,
+      "all_latest_record_pool": 816,
+      "selected": 5
+    },
+    "2012|compilers_programming_languages": {
+      "eligible_pool": 72,
+      "all_latest_record_pool": 84,
+      "selected": 5
+    },
+    "2012|databases": {
+      "eligible_pool": 143,
+      "all_latest_record_pool": 162,
+      "selected": 5
+    },
+    "2012|distributed_cloud_systems": {
+      "eligible_pool": 136,
+      "all_latest_record_pool": 161,
+      "selected": 5
+    },
+    "2012|energy_efficient_computing": {
+      "eligible_pool": 23,
+      "all_latest_record_pool": 24,
+      "selected": 5
+    },
+    "2012|foundation_models": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2012|optimization_causal_science": {
+      "eligible_pool": 38,
+      "all_latest_record_pool": 49,
+      "selected": 5
+    },
+    "2012|program_repair_verification": {
+      "eligible_pool": 20,
+      "all_latest_record_pool": 22,
+      "selected": 5
+    },
+    "2012|reasoning_and_agents": {
+      "eligible_pool": 7,
+      "all_latest_record_pool": 7,
+      "selected": 5
+    },
+    "2012|robotics_embodied_ai": {
+      "eligible_pool": 78,
+      "all_latest_record_pool": 85,
+      "selected": 5
+    },
+    "2012|security_privacy": {
+      "eligible_pool": 62,
+      "all_latest_record_pool": 82,
+      "selected": 5
+    },
+    "2012|software_supply_chain": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2012|software_testing": {
+      "eligible_pool": 50,
+      "all_latest_record_pool": 52,
+      "selected": 5
+    },
+    "2013|agent_memory_coordination": {
+      "eligible_pool": 11,
+      "all_latest_record_pool": 11,
+      "selected": 5
+    },
+    "2013|agent_reliability_security": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 2,
+      "selected": 2
+    },
+    "2013|ai_generated_code": {
+      "eligible_pool": 6,
+      "all_latest_record_pool": 6,
+      "selected": 5
+    },
+    "2013|algorithms_complexity": {
+      "eligible_pool": 729,
+      "all_latest_record_pool": 974,
+      "selected": 5
+    },
+    "2013|compilers_programming_languages": {
+      "eligible_pool": 101,
+      "all_latest_record_pool": 112,
+      "selected": 5
+    },
+    "2013|continual_multimodal_learning": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 2,
+      "selected": 1
+    },
+    "2013|databases": {
+      "eligible_pool": 131,
+      "all_latest_record_pool": 144,
+      "selected": 5
+    },
+    "2013|distributed_cloud_systems": {
+      "eligible_pool": 159,
+      "all_latest_record_pool": 181,
+      "selected": 5
+    },
+    "2013|energy_efficient_computing": {
+      "eligible_pool": 34,
+      "all_latest_record_pool": 41,
+      "selected": 5
+    },
+    "2013|model_efficiency": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 2,
+      "selected": 2
+    },
+    "2013|optimization_causal_science": {
+      "eligible_pool": 32,
+      "all_latest_record_pool": 42,
+      "selected": 5
+    },
+    "2013|program_repair_verification": {
+      "eligible_pool": 20,
+      "all_latest_record_pool": 21,
+      "selected": 5
+    },
+    "2013|reasoning_and_agents": {
+      "eligible_pool": 11,
+      "all_latest_record_pool": 11,
+      "selected": 5
+    },
+    "2013|robotics_embodied_ai": {
+      "eligible_pool": 126,
+      "all_latest_record_pool": 146,
+      "selected": 5
+    },
+    "2013|security_privacy": {
+      "eligible_pool": 54,
+      "all_latest_record_pool": 65,
+      "selected": 5
+    },
+    "2013|software_supply_chain": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2013|software_testing": {
+      "eligible_pool": 45,
+      "all_latest_record_pool": 50,
+      "selected": 5
+    },
+    "2014|agent_memory_coordination": {
+      "eligible_pool": 21,
+      "all_latest_record_pool": 23,
+      "selected": 5
+    },
+    "2014|agent_reliability_security": {
+      "eligible_pool": 5,
+      "all_latest_record_pool": 5,
+      "selected": 5
+    },
+    "2014|ai_generated_code": {
+      "eligible_pool": 17,
+      "all_latest_record_pool": 17,
+      "selected": 5
+    },
+    "2014|algorithms_complexity": {
+      "eligible_pool": 706,
+      "all_latest_record_pool": 1030,
+      "selected": 5
+    },
+    "2014|compilers_programming_languages": {
+      "eligible_pool": 100,
+      "all_latest_record_pool": 117,
+      "selected": 5
+    },
+    "2014|continual_multimodal_learning": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2014|databases": {
+      "eligible_pool": 124,
+      "all_latest_record_pool": 143,
+      "selected": 5
+    },
+    "2014|distributed_cloud_systems": {
+      "eligible_pool": 166,
+      "all_latest_record_pool": 192,
+      "selected": 5
+    },
+    "2014|energy_efficient_computing": {
+      "eligible_pool": 45,
+      "all_latest_record_pool": 51,
+      "selected": 5
+    },
+    "2014|model_efficiency": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2014|optimization_causal_science": {
+      "eligible_pool": 31,
+      "all_latest_record_pool": 36,
+      "selected": 5
+    },
+    "2014|program_repair_verification": {
+      "eligible_pool": 33,
+      "all_latest_record_pool": 35,
+      "selected": 5
+    },
+    "2014|reasoning_and_agents": {
+      "eligible_pool": 12,
+      "all_latest_record_pool": 12,
+      "selected": 5
+    },
+    "2014|robotics_embodied_ai": {
+      "eligible_pool": 147,
+      "all_latest_record_pool": 170,
+      "selected": 5
+    },
+    "2014|security_privacy": {
+      "eligible_pool": 96,
+      "all_latest_record_pool": 108,
+      "selected": 5
+    },
+    "2014|software_supply_chain": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2014|software_testing": {
+      "eligible_pool": 56,
+      "all_latest_record_pool": 61,
+      "selected": 5
+    },
+    "2015|agent_memory_coordination": {
+      "eligible_pool": 7,
+      "all_latest_record_pool": 9,
+      "selected": 5
+    },
+    "2015|agent_reliability_security": {
+      "eligible_pool": 4,
+      "all_latest_record_pool": 5,
+      "selected": 4
+    },
+    "2015|ai_generated_code": {
+      "eligible_pool": 12,
+      "all_latest_record_pool": 12,
+      "selected": 5
+    },
+    "2015|algorithms_complexity": {
+      "eligible_pool": 799,
+      "all_latest_record_pool": 1138,
+      "selected": 5
+    },
+    "2015|compilers_programming_languages": {
+      "eligible_pool": 100,
+      "all_latest_record_pool": 111,
+      "selected": 5
+    },
+    "2015|continual_multimodal_learning": {
+      "eligible_pool": 4,
+      "all_latest_record_pool": 5,
+      "selected": 4
+    },
+    "2015|databases": {
+      "eligible_pool": 127,
+      "all_latest_record_pool": 159,
+      "selected": 5
+    },
+    "2015|distributed_cloud_systems": {
+      "eligible_pool": 175,
+      "all_latest_record_pool": 220,
+      "selected": 5
+    },
+    "2015|energy_efficient_computing": {
+      "eligible_pool": 38,
+      "all_latest_record_pool": 43,
+      "selected": 5
+    },
+    "2015|model_efficiency": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 5,
+      "selected": 3
+    },
+    "2015|optimization_causal_science": {
+      "eligible_pool": 47,
+      "all_latest_record_pool": 57,
+      "selected": 5
+    },
+    "2015|program_repair_verification": {
+      "eligible_pool": 30,
+      "all_latest_record_pool": 36,
+      "selected": 5
+    },
+    "2015|reasoning_and_agents": {
+      "eligible_pool": 10,
+      "all_latest_record_pool": 10,
+      "selected": 5
+    },
+    "2015|robotics_embodied_ai": {
+      "eligible_pool": 165,
+      "all_latest_record_pool": 204,
+      "selected": 5
+    },
+    "2015|security_privacy": {
+      "eligible_pool": 116,
+      "all_latest_record_pool": 136,
+      "selected": 5
+    },
+    "2015|software_supply_chain": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 2,
+      "selected": 2
+    },
+    "2015|software_testing": {
+      "eligible_pool": 41,
+      "all_latest_record_pool": 45,
+      "selected": 5
+    },
+    "2016|agent_memory_coordination": {
+      "eligible_pool": 17,
+      "all_latest_record_pool": 20,
+      "selected": 5
+    },
+    "2016|agent_reliability_security": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 5,
+      "selected": 3
+    },
+    "2016|ai_generated_code": {
+      "eligible_pool": 9,
+      "all_latest_record_pool": 9,
+      "selected": 5
+    },
+    "2016|algorithms_complexity": {
+      "eligible_pool": 899,
+      "all_latest_record_pool": 1280,
+      "selected": 5
+    },
+    "2016|compilers_programming_languages": {
+      "eligible_pool": 139,
+      "all_latest_record_pool": 169,
+      "selected": 5
+    },
+    "2016|continual_multimodal_learning": {
+      "eligible_pool": 5,
+      "all_latest_record_pool": 9,
+      "selected": 5
+    },
+    "2016|databases": {
+      "eligible_pool": 159,
+      "all_latest_record_pool": 196,
+      "selected": 5
+    },
+    "2016|distributed_cloud_systems": {
+      "eligible_pool": 233,
+      "all_latest_record_pool": 281,
+      "selected": 5
+    },
+    "2016|energy_efficient_computing": {
+      "eligible_pool": 59,
+      "all_latest_record_pool": 64,
+      "selected": 5
+    },
+    "2016|model_efficiency": {
+      "eligible_pool": 8,
+      "all_latest_record_pool": 12,
+      "selected": 5
+    },
+    "2016|optimization_causal_science": {
+      "eligible_pool": 63,
+      "all_latest_record_pool": 91,
+      "selected": 5
+    },
+    "2016|program_repair_verification": {
+      "eligible_pool": 24,
+      "all_latest_record_pool": 30,
+      "selected": 5
+    },
+    "2016|reasoning_and_agents": {
+      "eligible_pool": 3,
+      "all_latest_record_pool": 4,
+      "selected": 3
+    },
+    "2016|robotics_embodied_ai": {
+      "eligible_pool": 324,
+      "all_latest_record_pool": 417,
+      "selected": 5
+    },
+    "2016|security_privacy": {
+      "eligible_pool": 118,
+      "all_latest_record_pool": 147,
+      "selected": 5
+    },
+    "2016|software_supply_chain": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 1,
+      "selected": 1
+    },
+    "2016|software_testing": {
+      "eligible_pool": 59,
+      "all_latest_record_pool": 74,
+      "selected": 5
+    },
+    "2017|agent_memory_coordination": {
+      "eligible_pool": 23,
+      "all_latest_record_pool": 34,
+      "selected": 5
+    },
+    "2017|agent_reliability_security": {
+      "eligible_pool": 10,
+      "all_latest_record_pool": 11,
+      "selected": 5
+    },
+    "2017|ai_generated_code": {
+      "eligible_pool": 13,
+      "all_latest_record_pool": 17,
+      "selected": 5
+    },
+    "2017|algorithms_complexity": {
+      "eligible_pool": 953,
+      "all_latest_record_pool": 1379,
+      "selected": 5
+    },
+    "2017|compilers_programming_languages": {
+      "eligible_pool": 179,
+      "all_latest_record_pool": 217,
+      "selected": 5
+    },
+    "2017|continual_multimodal_learning": {
+      "eligible_pool": 25,
+      "all_latest_record_pool": 37,
+      "selected": 5
+    },
+    "2017|databases": {
+      "eligible_pool": 151,
+      "all_latest_record_pool": 175,
+      "selected": 5
+    },
+    "2017|distributed_cloud_systems": {
+      "eligible_pool": 285,
+      "all_latest_record_pool": 342,
+      "selected": 5
+    },
+    "2017|energy_efficient_computing": {
+      "eligible_pool": 65,
+      "all_latest_record_pool": 68,
+      "selected": 5
+    },
+    "2017|model_efficiency": {
+      "eligible_pool": 19,
+      "all_latest_record_pool": 24,
+      "selected": 5
+    },
+    "2017|optimization_causal_science": {
+      "eligible_pool": 72,
+      "all_latest_record_pool": 101,
+      "selected": 5
+    },
+    "2017|program_repair_verification": {
+      "eligible_pool": 47,
+      "all_latest_record_pool": 61,
+      "selected": 5
+    },
+    "2017|reasoning_and_agents": {
+      "eligible_pool": 6,
+      "all_latest_record_pool": 9,
+      "selected": 5
+    },
+    "2017|robotics_embodied_ai": {
+      "eligible_pool": 542,
+      "all_latest_record_pool": 726,
+      "selected": 5
+    },
+    "2017|security_privacy": {
+      "eligible_pool": 207,
+      "all_latest_record_pool": 249,
+      "selected": 5
+    },
+    "2017|software_supply_chain": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 2,
+      "selected": 2
+    },
+    "2017|software_testing": {
+      "eligible_pool": 84,
+      "all_latest_record_pool": 94,
+      "selected": 5
+    },
+    "2018|agent_memory_coordination": {
+      "eligible_pool": 32,
+      "all_latest_record_pool": 51,
+      "selected": 5
+    },
+    "2018|agent_reliability_security": {
+      "eligible_pool": 10,
+      "all_latest_record_pool": 11,
+      "selected": 5
+    },
+    "2018|ai_generated_code": {
+      "eligible_pool": 13,
+      "all_latest_record_pool": 14,
+      "selected": 5
+    },
+    "2018|algorithms_complexity": {
+      "eligible_pool": 1065,
+      "all_latest_record_pool": 1551,
+      "selected": 5
+    },
+    "2018|compilers_programming_languages": {
+      "eligible_pool": 217,
+      "all_latest_record_pool": 273,
+      "selected": 5
+    },
+    "2018|continual_multimodal_learning": {
+      "eligible_pool": 69,
+      "all_latest_record_pool": 104,
+      "selected": 5
+    },
+    "2018|databases": {
+      "eligible_pool": 170,
+      "all_latest_record_pool": 208,
+      "selected": 5
+    },
+    "2018|distributed_cloud_systems": {
+      "eligible_pool": 359,
+      "all_latest_record_pool": 444,
+      "selected": 5
+    },
+    "2018|energy_efficient_computing": {
+      "eligible_pool": 78,
+      "all_latest_record_pool": 91,
+      "selected": 5
+    },
+    "2018|foundation_models": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 5,
+      "selected": 2
+    },
+    "2018|model_efficiency": {
+      "eligible_pool": 39,
+      "all_latest_record_pool": 61,
+      "selected": 5
+    },
+    "2018|optimization_causal_science": {
+      "eligible_pool": 159,
+      "all_latest_record_pool": 231,
+      "selected": 5
+    },
+    "2018|program_repair_verification": {
+      "eligible_pool": 58,
+      "all_latest_record_pool": 79,
+      "selected": 5
+    },
+    "2018|reasoning_and_agents": {
+      "eligible_pool": 21,
+      "all_latest_record_pool": 32,
+      "selected": 5
+    },
+    "2018|robotics_embodied_ai": {
+      "eligible_pool": 792,
+      "all_latest_record_pool": 1010,
+      "selected": 5
+    },
+    "2018|security_privacy": {
+      "eligible_pool": 258,
+      "all_latest_record_pool": 326,
+      "selected": 5
+    },
+    "2018|software_supply_chain": {
+      "eligible_pool": 2,
+      "all_latest_record_pool": 3,
+      "selected": 2
+    },
+    "2018|software_testing": {
+      "eligible_pool": 151,
+      "all_latest_record_pool": 179,
+      "selected": 5
+    },
+    "2019|agent_memory_coordination": {
+      "eligible_pool": 69,
+      "all_latest_record_pool": 92,
+      "selected": 5
+    },
+    "2019|agent_reliability_security": {
+      "eligible_pool": 18,
+      "all_latest_record_pool": 23,
+      "selected": 5
+    },
+    "2019|ai_generated_code": {
+      "eligible_pool": 21,
+      "all_latest_record_pool": 25,
+      "selected": 5
+    },
+    "2019|algorithms_complexity": {
+      "eligible_pool": 1203,
+      "all_latest_record_pool": 1765,
+      "selected": 5
+    },
+    "2019|compilers_programming_languages": {
+      "eligible_pool": 245,
+      "all_latest_record_pool": 311,
+      "selected": 5
+    },
+    "2019|continual_multimodal_learning": {
+      "eligible_pool": 127,
+      "all_latest_record_pool": 187,
+      "selected": 5
+    },
+    "2019|databases": {
+      "eligible_pool": 210,
+      "all_latest_record_pool": 264,
+      "selected": 5
+    },
+    "2019|distributed_cloud_systems": {
+      "eligible_pool": 469,
+      "all_latest_record_pool": 581,
+      "selected": 5
+    },
+    "2019|energy_efficient_computing": {
+      "eligible_pool": 90,
+      "all_latest_record_pool": 104,
+      "selected": 5
+    },
+    "2019|foundation_models": {
+      "eligible_pool": 38,
+      "all_latest_record_pool": 55,
+      "selected": 5
+    },
+    "2019|model_efficiency": {
+      "eligible_pool": 94,
+      "all_latest_record_pool": 147,
+      "selected": 5
+    },
+    "2019|optimization_causal_science": {
+      "eligible_pool": 241,
+      "all_latest_record_pool": 334,
+      "selected": 5
+    },
+    "2019|program_repair_verification": {
+      "eligible_pool": 73,
+      "all_latest_record_pool": 91,
+      "selected": 5
+    },
+    "2019|reasoning_and_agents": {
+      "eligible_pool": 30,
+      "all_latest_record_pool": 34,
+      "selected": 5
+    },
+    "2019|robotics_embodied_ai": {
+      "eligible_pool": 1133,
+      "all_latest_record_pool": 1503,
+      "selected": 5
+    },
+    "2019|security_privacy": {
+      "eligible_pool": 373,
+      "all_latest_record_pool": 497,
+      "selected": 5
+    },
+    "2019|software_supply_chain": {
+      "eligible_pool": 1,
+      "all_latest_record_pool": 2,
+      "selected": 1
+    },
+    "2019|software_testing": {
+      "eligible_pool": 167,
+      "all_latest_record_pool": 194,
+      "selected": 5
+    },
+    "2020|agent_memory_coordination": {
+      "eligible_pool": 82,
+      "all_latest_record_pool": 121,
+      "selected": 5
+    },
+    "2020|agent_reliability_security": {
+      "eligible_pool": 36,
+      "all_latest_record_pool": 45,
+      "selected": 5
+    },
+    "2020|ai_generated_code": {
+      "eligible_pool": 18,
+      "all_latest_record_pool": 23,
+      "selected": 5
+    },
+    "2020|algorithms_complexity": {
+      "eligible_pool": 1366,
+      "all_latest_record_pool": 1985,
+      "selected": 5
+    },
+    "2020|compilers_programming_languages": {
+      "eligible_pool": 297,
+      "all_latest_record_pool": 375,
+      "selected": 5
+    },
+    "2020|continual_multimodal_learning": {
+      "eligible_pool": 219,
+      "all_latest_record_pool": 311,
+      "selected": 5
+    },
+    "2020|databases": {
+      "eligible_pool": 244,
+      "all_latest_record_pool": 309,
+      "selected": 5
+    },
+    "2020|distributed_cloud_systems": {
+      "eligible_pool": 580,
+      "all_latest_record_pool": 694,
+      "selected": 5
+    },
+    "2020|energy_efficient_computing": {
+      "eligible_pool": 131,
+      "all_latest_record_pool": 149,
+      "selected": 5
+    },
+    "2020|foundation_models": {
+      "eligible_pool": 87,
+      "all_latest_record_pool": 123,
+      "selected": 5
+    },
+    "2020|model_efficiency": {
+      "eligible_pool": 175,
+      "all_latest_record_pool": 237,
+      "selected": 5
+    },
+    "2020|optimization_causal_science": {
+      "eligible_pool": 368,
+      "all_latest_record_pool": 509,
+      "selected": 5
+    },
+    "2020|program_repair_verification": {
+      "eligible_pool": 71,
+      "all_latest_record_pool": 89,
+      "selected": 5
+    },
+    "2020|reasoning_and_agents": {
+      "eligible_pool": 28,
+      "all_latest_record_pool": 39,
+      "selected": 5
+    },
+    "2020|robotics_embodied_ai": {
+      "eligible_pool": 1550,
+      "all_latest_record_pool": 2013,
+      "selected": 5
+    },
+    "2020|security_privacy": {
+      "eligible_pool": 591,
+      "all_latest_record_pool": 765,
+      "selected": 5
+    },
+    "2020|software_supply_chain": {
+      "eligible_pool": 6,
+      "all_latest_record_pool": 8,
+      "selected": 5
+    },
+    "2020|software_testing": {
+      "eligible_pool": 197,
+      "all_latest_record_pool": 229,
+      "selected": 5
+    },
+    "2021|agent_memory_coordination": {
+      "eligible_pool": 114,
+      "all_latest_record_pool": 164,
+      "selected": 5
+    },
+    "2021|agent_reliability_security": {
+      "eligible_pool": 29,
+      "all_latest_record_pool": 41,
+      "selected": 5
+    },
+    "2021|ai_generated_code": {
+      "eligible_pool": 39,
+      "all_latest_record_pool": 47,
+      "selected": 5
+    },
+    "2021|algorithms_complexity": {
+      "eligible_pool": 1249,
+      "all_latest_record_pool": 1768,
+      "selected": 5
+    },
+    "2021|compilers_programming_languages": {
+      "eligible_pool": 359,
+      "all_latest_record_pool": 427,
+      "selected": 5
+    },
+    "2021|continual_multimodal_learning": {
+      "eligible_pool": 350,
+      "all_latest_record_pool": 471,
+      "selected": 5
+    },
+    "2021|databases": {
+      "eligible_pool": 226,
+      "all_latest_record_pool": 272,
+      "selected": 5
+    },
+    "2021|distributed_cloud_systems": {
+      "eligible_pool": 562,
+      "all_latest_record_pool": 674,
+      "selected": 5
+    },
+    "2021|energy_efficient_computing": {
+      "eligible_pool": 175,
+      "all_latest_record_pool": 198,
+      "selected": 5
+    },
+    "2021|foundation_models": {
+      "eligible_pool": 212,
+      "all_latest_record_pool": 299,
+      "selected": 5
+    },
+    "2021|model_efficiency": {
+      "eligible_pool": 192,
+      "all_latest_record_pool": 253,
+      "selected": 5
+    },
+    "2021|optimization_causal_science": {
+      "eligible_pool": 383,
+      "all_latest_record_pool": 562,
+      "selected": 5
+    },
+    "2021|program_repair_verification": {
+      "eligible_pool": 101,
+      "all_latest_record_pool": 123,
+      "selected": 5
+    },
+    "2021|reasoning_and_agents": {
+      "eligible_pool": 38,
+      "all_latest_record_pool": 44,
+      "selected": 5
+    },
+    "2021|robotics_embodied_ai": {
+      "eligible_pool": 1846,
+      "all_latest_record_pool": 2341,
+      "selected": 5
+    },
+    "2021|security_privacy": {
+      "eligible_pool": 628,
+      "all_latest_record_pool": 797,
+      "selected": 5
+    },
+    "2021|software_supply_chain": {
+      "eligible_pool": 8,
+      "all_latest_record_pool": 10,
+      "selected": 5
+    },
+    "2021|software_testing": {
+      "eligible_pool": 287,
+      "all_latest_record_pool": 348,
+      "selected": 5
+    },
+    "2022|agent_memory_coordination": {
+      "eligible_pool": 147,
+      "all_latest_record_pool": 194,
+      "selected": 5
+    },
+    "2022|agent_reliability_security": {
+      "eligible_pool": 47,
+      "all_latest_record_pool": 58,
+      "selected": 5
+    },
+    "2022|ai_generated_code": {
+      "eligible_pool": 62,
+      "all_latest_record_pool": 92,
+      "selected": 5
+    },
+    "2022|algorithms_complexity": {
+      "eligible_pool": 1207,
+      "all_latest_record_pool": 1731,
+      "selected": 5
+    },
+    "2022|compilers_programming_languages": {
+      "eligible_pool": 351,
+      "all_latest_record_pool": 442,
+      "selected": 5
+    },
+    "2022|continual_multimodal_learning": {
+      "eligible_pool": 463,
+      "all_latest_record_pool": 616,
+      "selected": 5
+    },
+    "2022|databases": {
+      "eligible_pool": 231,
+      "all_latest_record_pool": 280,
+      "selected": 5
+    },
+    "2022|distributed_cloud_systems": {
+      "eligible_pool": 547,
+      "all_latest_record_pool": 649,
+      "selected": 5
+    },
+    "2022|energy_efficient_computing": {
+      "eligible_pool": 161,
+      "all_latest_record_pool": 188,
+      "selected": 5
+    },
+    "2022|foundation_models": {
+      "eligible_pool": 555,
+      "all_latest_record_pool": 869,
+      "selected": 5
+    },
+    "2022|model_efficiency": {
+      "eligible_pool": 264,
+      "all_latest_record_pool": 339,
+      "selected": 5
+    },
+    "2022|optimization_causal_science": {
+      "eligible_pool": 482,
+      "all_latest_record_pool": 645,
+      "selected": 5
+    },
+    "2022|program_repair_verification": {
+      "eligible_pool": 97,
+      "all_latest_record_pool": 126,
+      "selected": 5
+    },
+    "2022|reasoning_and_agents": {
+      "eligible_pool": 41,
+      "all_latest_record_pool": 71,
+      "selected": 5
+    },
+    "2022|robotics_embodied_ai": {
+      "eligible_pool": 2129,
+      "all_latest_record_pool": 2716,
+      "selected": 5
+    },
+    "2022|security_privacy": {
+      "eligible_pool": 708,
+      "all_latest_record_pool": 943,
+      "selected": 5
+    },
+    "2022|software_supply_chain": {
+      "eligible_pool": 9,
+      "all_latest_record_pool": 12,
+      "selected": 5
+    },
+    "2022|software_testing": {
+      "eligible_pool": 293,
+      "all_latest_record_pool": 350,
+      "selected": 5
+    }
+  },
+  "interpretation": "Metadata-only frame, not a full-text review or historical forecast. Current latest-version abstracts revised after the simulated cutoff are excluded, not reconstructed. A year-end eligible latest record is a necessary but not sufficient point-in-time validity condition; titles, citations, later publications, and actual question outcomes require independent as-of verification."
+}

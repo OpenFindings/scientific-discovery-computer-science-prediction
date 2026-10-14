@@ -27,6 +27,7 @@ class Dp158FormulaTests(unittest.TestCase):
     def test_paper_budget_inverse(self):
         r = np.array([0.0, 0.125, 0.25, 0.5])
         np.testing.assert_allclose(inverse_paper_small_q_budget(paper_small_q_budget(r)), r, atol=1e-14)
+        np.testing.assert_allclose(inverse_paper_small_q_budget(paper_small_q_budget(r, 0.5), 0.5), r, atol=1e-14)
 
     def test_mixture_likelihood_at_zero_signal(self):
         z = np.array([-3.0, 0.0, 2.0])
@@ -38,6 +39,8 @@ class Dp158FormulaTests(unittest.TestCase):
         paper_cost = float(paper_small_q_budget(0.5))
         self.assertGreater(paper_cost, exact_cost)
         self.assertGreater(exact_cost, 0)
+        grid_r_05, grid_kl_05, _ = build_kl_lookup(0.5)
+        self.assertGreater(float(np.interp(0.5, grid_r_05, grid_kl_05)), exact_cost)
 
     def test_scalar_short_run_is_deterministic(self):
         grid_r, grid_kl, _ = build_kl_lookup()

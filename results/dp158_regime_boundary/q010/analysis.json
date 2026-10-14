@@ -1,0 +1,62 @@
+{
+  "arms": {
+    "P": {
+      "arm": "P",
+      "censored_at_T_probability": 0.011286,
+      "halt_probability": 0.988714,
+      "max_empirical_cdf_difference": 0.012091481894236367,
+      "mean_active_steps": 113.138346,
+      "output_dimension": 1,
+      "plrv_mean": 0.15292552677519358,
+      "plrv_variance": 0.3142013926404038,
+      "seed": 260500,
+      "target_gaussian_mean": 0.15747708586685752,
+      "target_gaussian_variance": 0.31495417173371504,
+      "trajectories": 1000000
+    },
+    "Q": {
+      "arm": "Q",
+      "censored_at_T_probability": 0.011798,
+      "halt_probability": 0.988202,
+      "max_empirical_cdf_difference": 0.014629985063168982,
+      "mean_active_steps": 113.143699,
+      "output_dimension": 1,
+      "plrv_mean": -0.14858648405136518,
+      "plrv_variance": 0.2914450988859577,
+      "seed": 260501,
+      "target_gaussian_mean": -0.15747708586685752,
+      "target_gaussian_variance": 0.31495417173371504,
+      "trajectories": 1000000
+    }
+  },
+  "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026",
+  "implementation_status": "independent_reference_implementation_not_author_code",
+  "interpretation": "Independent one-dimensional instantiation, not author code. Appendix G.2 writes y_i^2 but does not clarify scalar output versus vector shorthand or fully specify the zero-history clipping convention. Not a production-accountant audit or proof of a DP failure.",
+  "parameters": {
+    "C_0": 1.0,
+    "T": 120,
+    "budget_model": "paper_small_q",
+    "exact_kl_one_step_at_sigma_0_for_diagnostics": 7.862056487647095e-05,
+    "gauss_hermite_nodes": 48,
+    "initial_budget": 0.15747708586685752,
+    "inverse_kl": "linear interpolation of the frozen monotone lookup table",
+    "kl_grid_signal_to_noise_max": 0.5,
+    "kl_grid_size": 32769,
+    "numpy_version": "2.5.3",
+    "one_step_budget_cost_at_sigma_0": 7.873854293342876e-05,
+    "output_dimension_used_for_adaptive_norm": 1,
+    "q": 0.1,
+    "quadrature": "Gauss-Hermite for standard normal expectation",
+    "rng": "NumPy PCG64",
+    "rng_seeds": {
+      "P": 260500,
+      "Q": 260501
+    },
+    "sigma_0": 8.0,
+    "sigma_min": 2.0,
+    "trajectories_per_arm": 1000000
+  },
+  "protocol": "research/protocol_dp158_regime_boundary_next.md",
+  "published_reference": null,
+  "source": "arXiv:2602.06756v2 Section 4 / Appendix G.2"
+}

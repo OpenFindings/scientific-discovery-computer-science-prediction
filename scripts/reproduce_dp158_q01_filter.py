@@ -23,30 +23,30 @@ KL_GRID_SIZE = 32_769
 KL_GRID_MAX = 0.5
 
 
-def log_likelihood_ratio(z: np.ndarray, signal_to_noise: np.ndarray) -> np.ndarray:
+def log_likelihood_ratio(z: np.ndarray, signal_to_noise: np.ndarray, q: float = Q) -> np.ndarray:
     """Log dP/dQ for Q=N(0,1), P=(1-q)N(0,1)+qN(r,1)."""
     return np.logaddexp(
-        math.log1p(-Q),
-        math.log(Q) + signal_to_noise * z - 0.5 * signal_to_noise**2,
+        math.log1p(-q),
+        math.log(q) + signal_to_noise * z - 0.5 * signal_to_noise**2,
     )
 
 
-def build_kl_lookup() -> tuple[np.ndarray, np.ndarray, dict[str, object]]:
+def build_kl_lookup(q: float = Q) -> tuple[np.ndarray, np.ndarray, dict[str, object]]:
     """Tabulate exact mixture KL by Gauss-Hermite integration over N(0,1)."""
     nodes, weights = np.polynomial.hermite.hermgauss(GH_NODES)
     standard_normal_nodes = math.sqrt(2.0) * nodes
     standard_normal_weights = weights / math.sqrt(math.pi)
     r_grid = np.linspace(0.0, KL_GRID_MAX, KL_GRID_SIZE, dtype=np.float64)
     kl_grid = np.empty_like(r_grid)
-    log_q = math.log(Q)
-    log_not_q = math.log1p(-Q)
+    log_q = math.log(q)
+    log_not_q = math.log1p(-q)
 
     for start in range(0, len(r_grid), 2048):
         r = r_grid[start : start + 2048, None]
         base_z = np.broadcast_to(standard_normal_nodes, (len(r), GH_NODES))
         under_q = np.logaddexp(log_not_q, log_q + r * base_z - 0.5 * r**2)
         under_p = np.logaddexp(log_not_q, log_q + r * (base_z + r) - 0.5 * r**2)
-        kl_grid[start : start + len(r)] = (1.0 - Q) * (under_q @ standard_normal_weights) + Q * (
+        kl_grid[start : start + len(r)] = (1.0 - q) * (under_q @ standard_normal_weights) + q * (
             under_p @ standard_normal_weights
         )
     kl_grid[0] = 0.0
@@ -62,13 +62,13 @@ def build_kl_lookup() -> tuple[np.ndarray, np.ndarray, dict[str, object]]:
     return r_grid, kl_grid, metadata
 
 
-def paper_small_q_budget(r: np.ndarray | float) -> np.ndarray | float:
+def paper_small_q_budget(r: np.ndarray | float, q: float = Q) -> np.ndarray | float:
     """Budg(0,q,sigma,mu) = q²/2 * (exp((mu/sigma)²)-1)."""
-    return 0.5 * Q**2 * np.expm1(np.asarray(r) ** 2)
+    return 0.5 * q**2 * np.expm1(np.asarray(r) ** 2)
 
 
-def inverse_paper_small_q_budget(cost: np.ndarray) -> np.ndarray:
-    return np.sqrt(np.log1p(2.0 * cost / Q**2))
+def inverse_paper_small_q_budget(cost: np.ndarray, q: float = Q) -> np.ndarray:
+    return np.sqrt(np.log1p(2.0 * cost / q**2))
 
 
 def gaussian_cdf(values: np.ndarray, mean: float, variance: float) -> np.ndarray:
@@ -89,6 +89,7 @@ def run_arm(
     r_grid: np.ndarray,
     kl_grid: np.ndarray,
     budget_model: str,
+    q: float = Q,
 ) -> dict[str, object]:
     rng = np.random.default_rng(seed)
     history_sq = np.zeros(n, dtype=np.float64)
@@ -111,24 +112,24 @@ def run_arm(
             clip = C_0 / root_hist
         full_r = 1.0 / sigma
         if budget_model == "paper_small_q":
-            full_cost = paper_small_q_budget(full_r)
+            full_cost = paper_small_q_budget(full_r, q)
         else:
             full_cost = np.interp(full_r, r_grid, kl_grid)
         budget_left = remaining[indices]
         partial = budget_left < full_cost
         if budget_model == "paper_small_q":
-            capped_r = np.minimum(full_r, inverse_paper_small_q_budget(np.maximum(budget_left, 0.0)))
+            capped_r = np.minimum(full_r, inverse_paper_small_q_budget(np.maximum(budget_left, 0.0), q))
         else:
             capped_r = np.minimum(full_r, np.interp(np.maximum(budget_left, 0.0), kl_grid, r_grid))
 
         noise = rng.standard_normal(len(indices))
         if arm == "P":
-            included = rng.random(len(indices)) < Q
+            included = rng.random(len(indices)) < q
             observed_standardized = noise + included * capped_r
         else:
             observed_standardized = noise
 
-        step_plrv = log_likelihood_ratio(observed_standardized, capped_r)
+        step_plrv = log_likelihood_ratio(observed_standardized, capped_r, q)
         cumulative_plrv[indices] += step_plrv
         squared_standard_normal_norm = observed_standardized**2
         if dimension > 1:
@@ -177,28 +178,34 @@ def main() -> None:
     parser.add_argument("--seed-p", type=int, default=SEEDS["P"])
     parser.add_argument("--seed-q", type=int, default=SEEDS["Q"])
     parser.add_argument("--budget-model", choices=("paper_small_q", "exact_kl"), default="paper_small_q")
+    parser.add_argument("--q", type=float, default=Q)
+    parser.add_argument("--study", choices=("figure12", "boundary"), default="figure12")
     args = parser.parse_args()
     if args.trajectories < 1000:
         raise SystemExit("--trajectories must be at least 1000")
     if args.dimension < 1 or args.dimension > 1024:
         raise SystemExit("--dimension must be in [1, 1024]")
+    if not 0 < args.q < 1:
+        raise SystemExit("--q must be in (0,1)")
+    if args.study == "boundary" and args.budget_model != "paper_small_q":
+        raise SystemExit("boundary study requires paper_small_q budget")
 
-    r_grid, kl_grid, numerical = build_kl_lookup()
+    r_grid, kl_grid, numerical = build_kl_lookup(args.q)
     one_step_cost = float(np.interp(1.0 / SIGMA_0, r_grid, kl_grid))
-    paper_one_step_cost = float(paper_small_q_budget(1.0 / SIGMA_0))
+    paper_one_step_cost = float(paper_small_q_budget(1.0 / SIGMA_0, args.q))
     budget = 2000.0 * (paper_one_step_cost if args.budget_model == "paper_small_q" else one_step_cost)
     seeds = {"P": args.seed_p, "Q": args.seed_q}
     arms = {
-        arm: run_arm(arm, seeds[arm], args.trajectories, args.dimension, budget, r_grid, kl_grid, args.budget_model)
+        arm: run_arm(arm, seeds[arm], args.trajectories, args.dimension, budget, r_grid, kl_grid, args.budget_model, args.q)
         for arm in ("P", "Q")
     }
     result = {
-        "experiment_id": "EXP-DP158-SOURCE-MATCHED-EXPLORATORY-2026" if args.budget_model == "paper_small_q" else "EXP-DP158-EXACT-KL-VARIANT-2026",
-        "protocol": "research/protocol_dp158_source_matched_exploratory.md" if args.budget_model == "paper_small_q" else "research/experiment_preregistration_dp158_dimension_sensitivity.md",
-        "source": "arXiv:2602.06756v2 Appendix G.2 / Figure 12 / Table 3",
+        "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026" if args.study == "boundary" else ("EXP-DP158-SOURCE-MATCHED-EXPLORATORY-2026" if args.budget_model == "paper_small_q" else "EXP-DP158-EXACT-KL-VARIANT-2026"),
+        "protocol": "research/protocol_dp158_regime_boundary_next.md" if args.study == "boundary" else ("research/protocol_dp158_source_matched_exploratory.md" if args.budget_model == "paper_small_q" else "research/experiment_preregistration_dp158_dimension_sensitivity.md"),
+        "source": "arXiv:2602.06756v2 Section 4 / Appendix G.2" if args.study == "boundary" else "arXiv:2602.06756v2 Appendix G.2 / Figure 12 / Table 3",
         "implementation_status": "independent_reference_implementation_not_author_code",
         "parameters": {
-            "q": Q,
+            "q": args.q,
             "T": T,
             "sigma_0": SIGMA_0,
             "sigma_min": SIGMA_MIN,
@@ -225,7 +232,7 @@ def main() -> None:
             "Q_plrv_variance": 0.2912,
             "P_max_cdf_difference": 0.01247,
             "Q_max_cdf_difference": 0.01464,
-        },
+        } if args.q == 0.1 and args.study == "figure12" else None,
         "arms": arms,
         "interpretation": "Independent one-dimensional instantiation, not author code. Appendix G.2 writes y_i^2 but does not clarify scalar output versus vector shorthand or fully specify the zero-history clipping convention. Not a production-accountant audit or proof of a DP failure.",
     }

@@ -3,7 +3,8 @@
 
 Every response is cached under data/cs_forecast/cache/ (git-ignored) keyed by URL, so reruns do
 not hit the network. Output: data/cs_forecast/snapshot_v1.jsonl, topic_years.json,
-topic_pairs.json and fetch_manifest.json. No contact e-mail is sent.
+topic_pairs.json and fetch_manifest.json. No contact e-mail is sent. An optional free key in
+OPENALEX_API_KEY is sent as a Bearer header (never in URLs, cache keys or outputs).
 
     python3 scripts/fetch_openalex_frame.py [--limit N]
 """
@@ -14,6 +15,7 @@ import argparse
 import hashlib
 import itertools
 import json
+import os
 import re
 import sys
 import time
@@ -29,6 +31,7 @@ CACHE = OUT / "cache"
 API = "https://api.openalex.org/works"
 STATS = {"requests": 0, "cache_hits": 0, "errors": 0}
 MAX_REQUESTS = 15000
+API_KEY = os.environ.get("OPENALEX_API_KEY", "").strip()
 
 
 def get(params: dict) -> dict:
@@ -40,16 +43,24 @@ def get(params: dict) -> dict:
         return json.loads(path.read_text())
     if STATS["requests"] >= MAX_REQUESTS:
         raise RuntimeError("request budget exhausted")
+    req = urllib.request.Request(url)
+    if API_KEY:  # header, not URL, so the key never enters the cache or manifest
+        req.add_header("Authorization", f"Bearer {API_KEY}")
     for attempt in range(5):
         try:
             STATS["requests"] += 1
-            with urllib.request.urlopen(url, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=60) as r:
                 data = json.loads(r.read())
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps({"url": url, "data": data}))
             time.sleep(0.11)
             return {"url": url, "data": data}
         except urllib.error.HTTPError as e:
+            if e.code == 429 and int(e.headers.get("Retry-After") or 0) > 60:
+                raise RuntimeError(
+                    f"OpenAlex budget exhausted (Retry-After {e.headers.get('Retry-After')}s); "
+                    "set OPENALEX_API_KEY or rerun after reset; cached responses are kept"
+                ) from e
             if e.code in (429, 500, 502, 503) and attempt < 4:
                 time.sleep(2 ** (attempt + 1))
                 continue

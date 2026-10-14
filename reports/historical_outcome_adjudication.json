@@ -1,0 +1,35 @@
+{
+  "status": "exploratory_pilot_only_not_forecast_validation",
+  "frame": "data/historical_cs_year_topic_frame.jsonl",
+  "selection_warning": "This pair was chosen after a targeted search for a later controlled study. Its outcome must not enter training, validation, or test scoring for Paper 3. A forecast benchmark needs questions frozen before follow-up retrieval and independently labeled under a predeclared rubric.",
+  "question_id": "HCS-IDE-CODE-PRODUCTIVITY-2021",
+  "domain": "ai_generated_code",
+  "cutoff": "2021-12-31T23:59:59Z",
+  "source": {
+    "versioned_id": "2101.11149v3",
+    "url": "https://arxiv.org/pdf/2101.11149v3",
+    "version_date": "2021-09-22",
+    "source_question": "Whether natural-language code generation/retrieval in an IDE improves developer productivity or accuracy in realistic developer tasks.",
+    "source_observation": "The authors' multi-task plugin study reports positive qualitative experience but inconclusive quantitative productivity, quality, and correctness effects.",
+    "locator": "PDF page 1, abstract; treatment is a hybrid code generation/retrieval PyCharm plugin across 14 Python tasks."
+  },
+  "later_primary_evidence": {
+    "versioned_id": "2302.06590v1",
+    "url": "https://arxiv.org/pdf/2302.06590v1",
+    "first_publication": "2023-02-13",
+    "within_three_year_window": true,
+    "design": "95 recruited professional programmers randomly assigned to Copilot access (45) or control (50), tasked with building a JavaScript HTTP server; reported main time comparison conditions on the 70 participants who completed task and survey.",
+    "reported_time_difference": "Mean 71.17 versus 160.89 minutes among completers, a 55.8% shorter completion time for the treatment; reported 95% CI for reduction 21%-89%, t-test p=0.0017.",
+    "reported_success_rate": "Treatment success-rate difference of 7 percentage points was not statistically significant (reported 95% CI -11 to +25 percentage points).",
+    "locator": "PDF pages 2-7, Study Design, Results, Discussion"
+  },
+  "adjudication": {
+    "evidence_growth_for_productivity_construct": "yes_exploratory",
+    "question_resolution": "not_established",
+    "premise_revision": "not_established",
+    "code_quality_or_correctness_benefit": "not_established",
+    "reason": "Different assistant (hybrid PyCharm retrieval/generation versus Copilot), different language/tasks and participant pools; the 2023 time result is conditional on completion, with an imprecise success-rate effect. The study itself does not assess code quality or general professional-project productivity.",
+    "evidence_level": "dated_primary_source_pair_not_independent_replication"
+  },
+  "next_required_step": "Freeze a larger question cohort and label rubric before searching for follow-ups; keep this hand-selected pilot out of Paper 3 benchmark scoring."
+}

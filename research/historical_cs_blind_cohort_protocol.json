@@ -1,0 +1,50 @@
+{
+  "cohort_id": "HCS-BLIND-20-2026-10-14",
+  "seed": "cs-historical-blind-cohort-2026-10-14-v1",
+  "source": "data/historical_cs_year_topic_frame.jsonl",
+  "topics": [
+    "ai_generated_code",
+    "algorithms_complexity",
+    "databases",
+    "security_privacy",
+    "software_testing"
+  ],
+  "years": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "excluded_pilot_ids": [
+    "2006.15074",
+    "2012.08387",
+    "2101.11149",
+    "2112.15485"
+  ],
+  "sampling": "one hash-priority-selected, non-overlapping paper from each topic x year cell; frozen before inspecting these papers' post-cutoff outcomes",
+  "cell_pool_sizes": {
+    "ai_generated_code|2018": 5,
+    "ai_generated_code|2019": 5,
+    "ai_generated_code|2020": 5,
+    "ai_generated_code|2021": 4,
+    "algorithms_complexity|2018": 5,
+    "algorithms_complexity|2019": 5,
+    "algorithms_complexity|2020": 5,
+    "algorithms_complexity|2021": 5,
+    "databases|2018": 5,
+    "databases|2019": 5,
+    "databases|2020": 5,
+    "databases|2021": 5,
+    "security_privacy|2018": 5,
+    "security_privacy|2019": 5,
+    "security_privacy|2020": 4,
+    "security_privacy|2021": 5,
+    "software_testing|2018": 5,
+    "software_testing|2019": 5,
+    "software_testing|2020": 4,
+    "software_testing|2021": 4
+  },
+  "selected_rows": 20,
+  "unique_arxiv_ids": 20,
+  "purpose": "Measure question-screening yield and build a defensible historical-label pilot; not a full CS census or a held-out Paper 3 test until source screening and a label rubric are frozen."
+}

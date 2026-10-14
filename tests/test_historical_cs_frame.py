@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from scripts.audit_historical_cs_frame import audit
+from scripts.select_historical_blind_cohort import EXCLUDED_PILOTS, select
 
 
 class HistoricalFrameTests(unittest.TestCase):
@@ -31,6 +32,21 @@ class HistoricalFrameTests(unittest.TestCase):
                          {row["question_id"] for row in candidates})
         self.assertEqual(adjudication["counts"]["source_fulltexts_reviewed"], 3)
         self.assertEqual(adjudication["counts"]["direct_three_year_followup_resolutions_adjudicated"], 0)
+        pilot = json.loads((root / "reports/historical_outcome_adjudication.json").read_text())
+        self.assertIn(pilot["source"]["versioned_id"], selected_ids)
+        self.assertLess(pilot["source"]["version_date"], pilot["cutoff"][:10])
+        self.assertGreater(pilot["later_primary_evidence"]["first_publication"], pilot["cutoff"][:10])
+        self.assertLessEqual(pilot["later_primary_evidence"]["first_publication"], "2024-12-31")
+        self.assertEqual(pilot["adjudication"]["question_resolution"], "not_established")
+        self.assertIn("not_forecast_validation", pilot["status"])
+        blind = [json.loads(line) for line in (root / "data/historical_cs_blind_cohort_20.jsonl").read_text().splitlines()]
+        selected_again, protocol = select(frame)
+        self.assertEqual(blind, selected_again)
+        self.assertEqual(len(blind), 20)
+        self.assertEqual(len({row["arxiv_id"] for row in blind}), 20)
+        self.assertTrue(all(row["arxiv_id"] not in EXCLUDED_PILOTS for row in blind))
+        self.assertTrue(all(row["future_outcome_status"] == "sealed_not_searched" for row in blind))
+        self.assertEqual(protocol["selected_rows"], 20)
 
     def test_excludes_future_revisions_and_preserves_three_year_window(self):
         rows = [

@@ -26,6 +26,11 @@ class HistoricalFrameTests(unittest.TestCase):
         self.assertEqual(len(candidates), 3)
         self.assertTrue(all(row["source_paper_id"] in selected_ids for row in candidates))
         self.assertTrue(all(row["outcome_label"] == "unadjudicated" for row in candidates))
+        adjudication = json.loads((root / "reports/historical_source_adjudication.json").read_text())
+        self.assertEqual({row["question_id"] for row in adjudication["rows"]},
+                         {row["question_id"] for row in candidates})
+        self.assertEqual(adjudication["counts"]["source_fulltexts_reviewed"], 3)
+        self.assertEqual(adjudication["counts"]["direct_three_year_followup_resolutions_adjudicated"], 0)
 
     def test_excludes_future_revisions_and_preserves_three_year_window(self):
         rows = [

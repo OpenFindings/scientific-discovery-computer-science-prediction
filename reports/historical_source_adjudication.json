@@ -1,0 +1,66 @@
+{
+  "audit_type": "original_version_full_text_and_followup_directness_screen",
+  "historical_frame": "reports/broad_cs_historical_audit.json",
+  "selection": "Three questions selected before this full-text screen; these are not a representative estimate of the entire 1,006-paper frame.",
+  "label_rubric": {
+    "ineligible_at_cutoff": "The original cutoff-version paper itself directly tests the broad proposed question; retain only a scientifically distinct, narrower unresolved extension.",
+    "eligible_unresolved_at_cutoff": "The original cutoff-version source describes a question for which it does not itself report the specified direct outcome measure.",
+    "followup_direct_resolution": "A dated later primary source within the frozen three-year window evaluates the same intervention/control, outcome, and target population sufficiently to test the stated question.",
+    "no_direct_followup_adjudicated": "The inspected follow-ups do not meet the direct-resolution criterion; this does not prove that no such study exists elsewhere. Do not code as a negative scientific result."
+  },
+  "rows": [
+    {
+      "question_id": "HCS-REST-FEEDBACK-2021",
+      "source": "https://arxiv.org/html/2112.15485v1",
+      "cutoff_fulltext_status": "reviewed_original_version_html",
+      "cutoff_evidence": [
+        {"section": "IV Experimental Environment and RQ1", "finding": "Authors directly compare HsuanFuzz with and without TCL feedback, plus RESTler; on RealWorld after 200 wall-clock seconds their table reports 610 versus 576 covered lines for the two HsuanFuzz arms.", "source_locator": "IV, Table V"},
+        {"section": "IV RQ2", "finding": "Authors run 24-hour Spree/Magento comparisons and state the two HsuanFuzz arms yield similar eventual error sets on Magento; the reported benefit is largely earlier discovery in their time curve, not a shown long-run unique-bug advantage.", "source_locator": "IV-3 Analysis, Fig. 8"},
+        {"section": "IV RQ3 and abstract", "finding": "The abstract calls 351 remote findings bugs, but IV-3 defines them as HTTP 500 responses in 47 remote services, with 465 greater-than-500 responses in 64; independent defect confirmation is not shown there.", "source_locator": "IV-3 Analysis, Table IX"},
+        {"section": "IV RQ2", "finding": "The paper reports 14 Spree plus 75 Magento errors confirmed as bugs in linked project issues. These are authors' grouped claims, not 89 independently re-executed distinct defects in this audit.", "source_locator": "IV-1, IV-2; https://github.com/magento/magento2/issues/31551; https://github.com/magento/magento2/issues/32784"}
+      ],
+      "cutoff_eligibility": "ineligible_at_cutoff_for_broad_feedback_claim; narrow_matched_cpu_verified_bug_yield_extension_remains_unadjudicated",
+      "later_sources_reviewed": [
+        {"url": "https://arxiv.org/html/2309.08360v1", "first_publication": "2023-09-15", "directness": "indirect_white_box_heuristics_and_different_APIs"},
+        {"url": "https://arxiv.org/abs/2407.14361v1", "first_publication": "2024-07-19", "directness": "indirect_black_box_RL_single_API_no_matched_head_to_head"}
+      ],
+      "historical_future_outcome_label": "unadjudicated_for_narrow_extension",
+      "research_decision": "Down-rank the broad novelty claim; a balanced, equal-CPU/requests, verified distinct-bug replication is a narrower experiment, subject to feasibility and further prior-art review."
+    },
+    {
+      "question_id": "HCS-NVD-CORRECTION-2020",
+      "source": "https://arxiv.org/html/2006.15074v1",
+      "cutoff_fulltext_status": "reviewed_original_version_html",
+      "cutoff_evidence": [
+        {"section": "Introduction and Section 5", "finding": "The paper measures NVD field inconsistencies and compares retrospective analyses with a rectified NVD. It proposes practical applications, but does not evaluate whether deploying the corrections prospectively improves vulnerability triage against later independently verified outcomes.", "source_locator": "Introduction; Section 5 Case Studies"}
+      ],
+      "cutoff_eligibility": "eligible_unresolved_at_cutoff_for_prospective_decision_outcome_only",
+      "later_sources_reviewed": [
+        {"url": "https://arxiv.org/html/2408.10695v1", "first_publication": "2024-08-20", "directness": "NVD_user_interviews_and_survey_not_correction_intervention; outside_2021_2023_followup_window"}
+      ],
+      "historical_future_outcome_label": "no_direct_followup_adjudicated",
+      "research_decision": "Retain as a Level-1 candidate requiring versioned NVD snapshots, fixed alert budget, and verified later security outcomes; do not infer benefit from retrospective analysis changes or user reports."
+    },
+    {
+      "question_id": "HCS-SE-SEED-ROBUSTNESS-2020",
+      "source": "https://arxiv.org/pdf/2012.08387v1",
+      "cutoff_fulltext_status": "reviewed_original_version_pdf_text",
+      "cutoff_evidence": [
+        {"section": "Abstract and Introduction", "finding": "The authors already evaluate resampling, random seeds and alternative ML-library implementations using 26 SE datasets and eight classifiers; they report variable performance. A general claim that these factors had not yet been tested was therefore invalid at the 2020 cutoff.", "source_locator": "PDF pages 1-2, abstract and introduction"}
+      ],
+      "cutoff_eligibility": "ineligible_at_cutoff_for_general_seed_and_library_effect; new_cohorts_and_framework_versions_are_a_narrow_extension",
+      "later_sources_reviewed": [
+        {"url": "https://arxiv.org/html/2402.05645v1", "first_publication": "2024-02-08", "directness": "reproducibility_artifact_review_not_rank_stability_experiment; outside_2021_2023_followup_window"}
+      ],
+      "historical_future_outcome_label": "unadjudicated_for_narrow_extension",
+      "research_decision": "Down-rank the original broad lead as already studied; a new framework-version or distribution-shift claim needs a distinct preregistered test."
+    }
+  ],
+  "counts": {"source_fulltexts_reviewed": 3, "broad_questions_ineligible_at_cutoff": 2, "narrow_candidate_eligible_at_cutoff": 1, "direct_three_year_followup_resolutions_adjudicated": 0},
+  "limitations": [
+    "This is a purposive three-paper screen, not a prevalence estimate across CS.",
+    "Original full texts were read through arXiv HTML/PDF views; no local PDF checksum was recorded for these three in this checkpoint.",
+    "Follow-up review was targeted, not exhaustive; no absence-of-evidence label is an unresolved-science outcome.",
+    "Project issues corroborate grouped confirmation labels for some original claims but were not independently replayed or de-duplicated here."
+  ]
+}

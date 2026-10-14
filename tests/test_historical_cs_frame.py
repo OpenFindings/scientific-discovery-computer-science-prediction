@@ -9,6 +9,64 @@ from scripts.select_historical_blind_cohort import EXCLUDED_PILOTS, select
 
 
 class HistoricalFrameTests(unittest.TestCase):
+    def test_blind_cohort_source_screen_complete_without_future_leakage(self):
+        root = Path(__file__).resolve().parents[1]
+        cohort = {
+            row["versioned_id"]: row
+            for row in map(json.loads, (root / "data/historical_cs_blind_cohort_20.jsonl").read_text().splitlines())
+        }
+        first = json.loads((root / "reports/historical_source_screen_round1.json").read_text())
+        second = json.loads((root / "reports/historical_source_screen_round2.json").read_text())
+        self.assertFalse(first["future_outcomes_searched"])
+        self.assertFalse(second["future_outcomes_searched"])
+        self.assertEqual(second["summary"]["rows_screened"], len(second["rows"]))
+        self.assertEqual(second["summary"]["eligible_source_questions"],
+                         sum(r["question_status"] == "eligible_source_open" for r in second["rows"]))
+        self.assertEqual(second["summary"]["ineligible_no_explicit_unresolved_question"],
+                         sum(r["question_status"] == "ineligible_no_explicit_unresolved_question" for r in second["rows"]))
+        self.assertEqual(second["summary"]["direct_future_outcome_labels"], 0)
+        first_rows = {r["versioned_id"]: r for r in first["rows"]}
+        second_rows = {r["versioned_id"]: r for r in second["rows"]}
+        self.assertEqual(set(first_rows) & set(second_rows), {"1811.10861v1"})
+        self.assertEqual(first_rows["1811.10861v1"]["source_status"], "fulltext_unavailable_on_attempt")
+        self.assertEqual(second_rows["1811.10861v1"]["source_status"], "section_screened")
+        merged = first_rows | second_rows
+        self.assertEqual(set(merged), set(cohort))
+        self.assertEqual(sum(r["question_status"] == "eligible_source_open" for r in merged.values()), 13)
+        for versioned_id, row in merged.items():
+            frozen = cohort[versioned_id]
+            self.assertEqual(row["source_pdf_url"], frozen["source_pdf_url"])
+            self.assertEqual(row["as_of"], frozen["as_of"])
+            self.assertEqual(row["future_outcome_status"], "sealed_not_searched")
+            self.assertEqual(row["source_status"], "section_screened")
+            if versioned_id in second_rows:
+                self.assertRegex(row["source_pdf_sha256"], r"^[0-9a-f]{64}$")
+                self.assertTrue(row["source_locator"])
+                self.assertTrue(row["source_basis"])
+            if row["question_status"] == "eligible_source_open":
+                self.assertTrue(row["candidate_question"])
+                self.assertTrue(row["candidate_falsification"])
+            else:
+                self.assertIsNone(row["candidate_question"])
+
+    def test_followup_triage_keeps_near_misses_unadjudicated(self):
+        root = Path(__file__).resolve().parents[1]
+        triage = json.loads((root / "reports/historical_blind_followup_triage_round1.json").read_text())
+        screens = [json.loads((root / f"reports/historical_source_screen_round{n}.json").read_text())
+                   for n in (1, 2)]
+        eligible = {row["versioned_id"] for screen in screens for row in screen["rows"]
+                    if row["question_status"] == "eligible_source_open"}
+        ids = [row["versioned_id"] for row in triage["rows"]]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(set(ids) <= eligible, True)
+        self.assertEqual(len(ids), triage["summary"]["questions_with_followup_search_attempted"])
+        self.assertEqual(len(eligible), triage["summary"]["eligible_questions_total"])
+        self.assertEqual(len(eligible) - len(ids), triage["summary"]["questions_not_yet_searched"])
+        self.assertEqual(triage["summary"]["direct_resolution_labels_authenticated"], 0)
+        self.assertEqual(triage["summary"]["explicitly_unresolved_labels_authenticated"], 0)
+        self.assertTrue(all(row["resolution_label"] == "unadjudicated" for row in triage["rows"]))
+        self.assertTrue(all(row["search_terms"] and row["match_audit"] for row in triage["rows"]))
+
     def test_blind_source_screen_is_cohort_bound_and_future_sealed(self):
         root = Path(__file__).resolve().parents[1]
         cohort = {

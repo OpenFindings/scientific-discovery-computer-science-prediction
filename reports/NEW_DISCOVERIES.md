@@ -2,6 +2,10 @@
 
 No new breakthrough has been established by this campaign checkpoint.
 
+The blind historical cohort now has 20/20 original-version source-section screens and 13 source-grounded candidate questions (seven excluded); see `reports/historical_source_screen_round1.json` and `reports/historical_source_screen_round2.json`. This is a screening-yield observation, not a direct future outcome, verified novel result, or Paper 3 forecast validation.
+
+The first bounded future-evidence triage searched all 13 questions but authenticated no direct resolution or explicit-unresolved label. Its near-matches are deliberately excluded, particularly the 2024 unmarked cycle-packing result versus the marked-vertex question. See `reports/historical_blind_followup_triage_round1.json`. Missing search hits are not negative scientific outcomes.
+
 ## Literature-supported observations
 
 - **Finding 155:** Controlled review evidence is defect-class-specific; a separate field study's post-review-fix proxy is observational and does not establish review causality. The transport/measurement gap is a study design lead. Sources and caveats are in `data/research_findings_batch76.jsonl` and `docs/fulltext_audit_batch76.md`.

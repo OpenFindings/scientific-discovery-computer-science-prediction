@@ -2,6 +2,10 @@
 
 This is a ranked research-work queue, not a list of proven breakthroughs. The order prioritizes testability and information gained per unit effort. Paper 3 scores are unavailable until leakage-free historical CS outcomes are built; Paper 4 scores remain explicit planning estimates, not validated success probabilities.
 
+The separate frozen 20-paper historical cohort has 13 source-grounded questions after exact-version section screening, but none yet has a verified direct follow-up label. Its formal-algorithm, security, database and software-testing questions are candidates for the next evidence search, not a re-ranking of the 155–158 opportunity list or a validated breakthrough.
+
+Initial post-lock triage of 13 questions found a useful boundary: a 2024 polynomial algorithm for *unmarked* fixed-k minimum-sum cycle packing does not settle the 2021 *marked-vertex* three-cycle problem or its RNC/randomized-time target. This is a novelty-bounded formal-algorithm lead only. The 13 unadjudicated questions require deeper direct-source verification; zero direct labels exist.
+
 | Rank | Lead | What the evidence says | Smallest informative next test | Confidence / boundary |
 |---|---|---|---|---|
 | 1 | Finding 158: regime-aware adaptive DP accounting | A one-dimensional q=0.1 Figure 12 simulation using the paper's approximate budget closely matches its numerical results. The earlier vector-dimension reporting-gap hypothesis was withdrawn after source audit. No mathematical failure, production undercount, or novelty has been established. | Pin a valid fully adaptive RDP baseline implementation and exact theorem domains; preregister a regime-boundary test with matched budgets and exact pairwise privacy metrics. | Low for novelty; numerical matching increases confidence only in the published example. A guarded fallback may be engineering, not a new theorem. |

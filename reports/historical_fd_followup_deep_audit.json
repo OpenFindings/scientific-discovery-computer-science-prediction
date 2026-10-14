@@ -1,0 +1,27 @@
+{
+  "audit_date_utc": "2026-10-14",
+  "evidence_level": "primary-literature follow-up audit, not a forecast outcome or executed experiment",
+  "frozen_source_id": "2005.07992v1",
+  "frozen_source_cutoff": "2020-12-31T23:59:59Z",
+  "frozen_question": "Can an in-database functional-dependency table be kept correct under base-table updates with lower update-plus-query cost than re-mining the dependencies after every update?",
+  "frozen_question_artifact": "reports/historical_source_screen_round1.json",
+  "pre_cutoff_prior_art": {
+    "title": "DynFD: Functional Dependency Discovery in Dynamic Datasets",
+    "url": "https://openproceedings.org/2019/conf/edbt/EDBT19_paper_32.pdf",
+    "date": "2019-03-26 to 2019-03-29 (EDBT conference; PDF p. 1)",
+    "locator": "PDF pp. 1-2, abstract and section 1; section 6 for evaluation",
+    "verified_scope": "Exact minimal FDs are maintained across inserts, updates and deletes. The paper compares incremental maintenance with repeated static discovery and reports an order-of-magnitude advantage in its evaluated setting.",
+    "limit": "This predates the frozen cutoff and therefore cannot be a future outcome. It does not by itself establish the source vision's in-database, user-queryable FD table with a matched update-plus-query workload. Re-mining alone is a weak novelty baseline because DynFD already existed."
+  },
+  "in_window_near_match": {
+    "title": "Workload-driven, Lazy Discovery of Data Dependencies for Query Optimization",
+    "url": "https://www.vldb.org/cidrdb/papers/2022/p70-kossmann.pdf",
+    "date": "2022-01-09 to 2022-01-12 (CIDR conference; PDF p. 5 footer)",
+    "locator": "PDF pp. 1-2 introduction/contributions; p. 4 section 3.2; pp. 5-6 sections 4.1-4.3 and Table 1",
+    "verified_scope": "A Hyrise prototype discovers UCC, FD and OD metadata for query optimization. Section 3.2 proposes reuse of prior incremental FD maintenance approaches. The reported JOB improvement is 27% in query execution time after discovery.",
+    "mismatch": "Section 4.1 measures query workload before and after invoking discovery separately, not a matched base-table-update plus FD-table-query trace versus repeated re-mining. It does not authenticate a user-queryable FD table with correct answers through updates under the frozen test. A design discussion of incremental maintenance is not a measured joint-cost result."
+  },
+  "resolution_label": "unadjudicated",
+  "premise_revision_note": "The generic premise that incremental FD maintenance remained unsolved in 2020 is contradicted by pre-cutoff DynFD. This narrows plausible novelty but is not a direct future refutation label under the frozen protocol.",
+  "next_check": "Search for dated in-window primary implementations of a queryable in-database FD table with correctness under insert/update/delete and measured joint update-plus-query costs; compare any candidate with both static re-mining and the pre-cutoff DynFD baseline. Keep the frozen question unchanged."
+}

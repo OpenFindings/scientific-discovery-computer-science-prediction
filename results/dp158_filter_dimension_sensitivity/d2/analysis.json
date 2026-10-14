@@ -1,0 +1,71 @@
+{
+  "arms": {
+    "P": {
+      "arm": "P",
+      "censored_at_T_probability": 0.00038,
+      "halt_probability": 0.99962,
+      "max_empirical_cdf_difference": 0.010966012350239418,
+      "mean_active_steps": 115.20079,
+      "output_dimension": 2,
+      "plrv_mean": 0.15786075111719755,
+      "plrv_variance": 0.3244835748223181,
+      "seed": 261004,
+      "target_gaussian_mean": 0.15724112975294188,
+      "target_gaussian_variance": 0.31448225950588377,
+      "trajectories": 100000
+    },
+    "Q": {
+      "arm": "Q",
+      "censored_at_T_probability": 0.00048,
+      "halt_probability": 0.99952,
+      "max_empirical_cdf_difference": 0.010094624228463508,
+      "mean_active_steps": 115.19952,
+      "output_dimension": 2,
+      "plrv_mean": -0.15431060155240894,
+      "plrv_variance": 0.2981936440753169,
+      "seed": 261005,
+      "target_gaussian_mean": -0.15724112975294188,
+      "target_gaussian_variance": 0.31448225950588377,
+      "trajectories": 100000
+    }
+  },
+  "experiment_id": "EXP-DP158-GDP-FILTER-Q01-REPRO-2026",
+  "implementation_status": "independent_reference_implementation_not_author_code",
+  "interpretation": "Numerical reproduction of one published Monte Carlo setting only; not a production-accountant audit, general DP failure, or novel result.",
+  "parameters": {
+    "C_0": 1.0,
+    "T": 120,
+    "gauss_hermite_nodes": 48,
+    "initial_budget": 0.15724112975294188,
+    "inverse_kl": "linear interpolation of the frozen monotone lookup table",
+    "kl_grid_signal_to_noise_max": 0.5,
+    "kl_grid_size": 32769,
+    "numpy_version": "2.5.3",
+    "one_step_budget_cost_at_sigma_0": 7.862056487647095e-05,
+    "output_dimension_used_for_adaptive_norm": 2,
+    "q": 0.1,
+    "quadrature": "Gauss-Hermite for standard normal expectation",
+    "rng": "NumPy PCG64",
+    "rng_seeds": {
+      "P": 261004,
+      "Q": 261005
+    },
+    "sigma_0": 8.0,
+    "sigma_min": 2.0,
+    "trajectories_per_arm": 100000
+  },
+  "preregistration": "research/experiment_preregistration_dp158_q01_replication.md",
+  "published_reference": {
+    "P_halt_probability": 0.9886,
+    "P_max_cdf_difference": 0.01247,
+    "P_plrv_mean": 0.1526,
+    "P_plrv_variance": 0.314,
+    "Q_halt_probability": 0.988,
+    "Q_max_cdf_difference": 0.01464,
+    "Q_plrv_mean": -0.1494,
+    "Q_plrv_variance": 0.2912,
+    "initial_budget_approx": 0.1575,
+    "mean_active_steps": 113.1
+  },
+  "source": "arXiv:2602.06756v2 Appendix G.2 / Figure 12 / Table 3"
+}

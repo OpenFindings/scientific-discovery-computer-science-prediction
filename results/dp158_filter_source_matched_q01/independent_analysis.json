@@ -1,0 +1,53 @@
+{
+  "assessment": "Independent exploratory scalar simulation closely matches the reported Figure 12 stopping rates, steps, and PLRV moments. This is not author-code reproduction, a theorem verification, a production-accountant audit, or a general safety claim.",
+  "budget": 0.15747708586685752,
+  "budget_formula": "q^2/2 * expm1(1/sigma_0^2)",
+  "comparisons": {
+    "P": {
+      "halt_probability": 0.988712,
+      "halt_probability_95pct_wilson": [
+        0.9885030567754798,
+        0.9889171885048975
+      ],
+      "halt_probability_difference": 0.00011200000000000099,
+      "halted": 988712,
+      "max_empirical_cdf_difference": 0.012041525053566371,
+      "mean_active_steps": 113.135758,
+      "mean_active_steps_difference": 0.03575800000000129,
+      "plrv_mean": 0.15386075459712475,
+      "plrv_variance": 0.3150503795526251,
+      "published_halt_probability": 0.9886,
+      "published_max_cdf_difference": 0.01247,
+      "published_mean_active_steps": 113.1,
+      "published_plrv_mean": 0.1526,
+      "published_plrv_variance": 0.314
+    },
+    "Q": {
+      "halt_probability": 0.987891,
+      "halt_probability_95pct_wilson": [
+        0.9876747515977701,
+        0.9881034999902584
+      ],
+      "halt_probability_difference": -0.00010900000000002574,
+      "halted": 987891,
+      "max_empirical_cdf_difference": 0.014447739528418907,
+      "mean_active_steps": 113.149366,
+      "mean_active_steps_difference": 0.04936600000000624,
+      "plrv_mean": -0.14929612593698577,
+      "plrv_variance": 0.29126120221870033,
+      "published_halt_probability": 0.988,
+      "published_max_cdf_difference": 0.01464,
+      "published_mean_active_steps": 113.1,
+      "published_plrv_mean": -0.1494,
+      "published_plrv_variance": 0.2912
+    }
+  },
+  "experiment_id": "EXP-DP158-SOURCE-MATCHED-EXPLORATORY-2026",
+  "protocol": "research/protocol_dp158_source_matched_exploratory.md",
+  "source": "https://arxiv.org/html/2602.06756v2",
+  "unresolved": [
+    "Appendix G.2 does not explicitly specify the zero-history C_1 convention; this implementation uses C_1=C_0. It also does not clarify scalar y_i^2 versus vector shorthand; this run uses one dimension.",
+    "Single frozen Monte Carlo seed per arm; Wilson intervals quantify only halt-rate sampling noise.",
+    "The result is post-source-audit exploratory because a prior incorrect exact-KL preregistration was withdrawn."
+  ]
+}

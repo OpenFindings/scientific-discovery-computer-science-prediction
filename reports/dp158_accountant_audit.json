@@ -1,0 +1,55 @@
+{
+  "finding_id": 158,
+  "audit_status": "partial_source_and_reference_simulation_audit; production_accountant_unchecked",
+  "primary_source": {
+    "paper": "Tran et al., f-Differential Privacy Filters: Validity and Approximate Solutions",
+    "version": "arXiv:2602.06756v2",
+    "url": "https://arxiv.org/html/2602.06756v2",
+    "relevant_sections": ["Section 4.2 / Theorem 4.2", "Algorithm 2", "Appendix G.2 / Figure 12"],
+    "exact_small_q_budget": "Budg(0,q,sigma,mu) = q^2/2 * (exp(mu^2/sigma^2)-1)",
+    "main_validity_scope": "Approximate GDP guarantee with asymptotic error under the paper's q-to-zero or q-to-one scaling assumptions; finite q=0.1 Figure 12 is numerical validation, not an exact GDP certificate.",
+    "source_clarification": "Appendix G.2 writes y_i^2 without clarifying scalar output versus vector shorthand, while the main algorithm permits vector outputs. The independent vector sweep cannot establish an omitted-parameter gap because it also used the wrong budget formula; author code/output convention remain unverified."
+  },
+  "independent_simulation": {
+    "classification": "exploratory independent source-matched scalar simulation; not author code",
+    "protocol": "research/protocol_dp158_source_matched_exploratory.md",
+    "raw_artifact": "results/dp158_filter_source_matched_q01/analysis.json",
+    "independent_analysis": "results/dp158_filter_source_matched_q01/independent_analysis.json",
+    "trajectories_per_arm": 1000000,
+    "P_halt_probability": 0.988712,
+    "Q_halt_probability": 0.987891,
+    "P_mean_active_steps": 113.135758,
+    "Q_mean_active_steps": 113.149366,
+    "interpretation": "Close to the paper's Figure 12 reported halt rates 0.9886/0.9880 and mean 113.1 steps. This supports reproduction of the numerical example, not a novel privacy result."
+  },
+  "superseded_sweep": {
+    "artifact": "results/dp158_filter_dimension_sensitivity/summary.json",
+    "status": "hypothetical vector-output exact-KL extension; not a paper reproduction or reporting-gap finding",
+    "why": "The paper's y_i^2 notation does not settle output dimension, and it explicitly uses a different approximate budget."
+  },
+  "valid_fully_adaptive_baselines": [
+    {
+      "name": "Feldman and Zrnic fixed-order RDP filter",
+      "source": "https://papers.nips.cc/paper/2021/file/ec7f346604f518906d35ef0492709f78-Paper.pdf",
+      "basis": "Theorem 4.3: continue iff sum of conditionally valid per-step RDP costs at fixed order alpha stays within B; otherwise halt before release.",
+      "implementation_status": "theorem/pseudocode audited; no production library or local implementation yet pinned"
+    },
+    {
+      "name": "Whitehouse et al. fully adaptive (epsilon,delta)-DP / approximate zCDP filters",
+      "source": "https://arxiv.org/abs/2203.05481",
+      "basis": "Explicit fully adaptive filter constructions rather than fixed-schedule accountant composition.",
+      "implementation_status": "literature baseline only; no local implementation yet pinned"
+    }
+  ],
+  "comparison_cautions": [
+    "The source paper's Figure 12 compares with an order-one RDP-to-(epsilon,delta) conversion at the same B; a multi-order RDP filter is a different information-budget comparison and must be labeled as such.",
+    "Ordinary fixed-schedule PLD/RDP composition code must not be presented as a valid fully adaptive filter without a theorem and matching stopping rule.",
+    "No linked author simulation code or deployed production accountant has been verified in this audit."
+  ],
+  "remaining_work": [
+    "Pin an executable implementation or independently verify source pseudocode of a valid fully adaptive RDP baseline.",
+    "Specify a matched budget and privacy guarantee for an operational comparison without confusing asymptotic GDP approximation with exact DP.",
+    "Preregister a regime-boundary falsification test with exact pairwise privacy metrics, finite-sample uncertainty, and a defined decision threshold before running it."
+  ],
+  "research_decision": "Do not claim an accountant undercount, theorem counterexample, novelty, or production vulnerability. Keep finding 158 as a bounded implementation-audit lead."
+}

@@ -1,0 +1,190 @@
+{
+  "budget_model": "legacy_independent_exact_one_step_mixture_KL_not_paper_Budg",
+  "dimension_results": [
+    {
+      "P": {
+        "censored_at_T_probability": 0.06246,
+        "halt_probability": 0.93754,
+        "halt_probability_95pct_wilson": [
+          0.9360232906367671,
+          0.9390230948166738
+        ],
+        "halted": 93754,
+        "max_empirical_cdf_difference": 0.010906297488302907,
+        "mean_active_steps": 116.00256,
+        "plrv_mean": 0.15669530803496323,
+        "plrv_variance": 0.32088921919116425,
+        "trajectories": 100000
+      },
+      "Q": {
+        "censored_at_T_probability": 0.06347,
+        "halt_probability": 0.93653,
+        "halt_probability_95pct_wilson": [
+          0.9350020675740208,
+          0.9380243954739075
+        ],
+        "halted": 93653,
+        "max_empirical_cdf_difference": 0.010740609194597475,
+        "mean_active_steps": 116.00265,
+        "plrv_mean": -0.1544897913498064,
+        "plrv_variance": 0.29793793143337777,
+        "trajectories": 100000
+      },
+      "dimension": 1
+    },
+    {
+      "P": {
+        "censored_at_T_probability": 0.00038,
+        "halt_probability": 0.99962,
+        "halt_probability_95pct_wilson": [
+          0.9994784979134319,
+          0.9997231181679507
+        ],
+        "halted": 99962,
+        "max_empirical_cdf_difference": 0.010966012350239418,
+        "mean_active_steps": 115.20079,
+        "plrv_mean": 0.15786075111719755,
+        "plrv_variance": 0.3244835748223181,
+        "trajectories": 100000
+      },
+      "Q": {
+        "censored_at_T_probability": 0.00048,
+        "halt_probability": 0.99952,
+        "halt_probability_95pct_wilson": [
+          0.9993637074417717,
+          0.9996379163222334
+        ],
+        "halted": 99952,
+        "max_empirical_cdf_difference": 0.010094624228463508,
+        "mean_active_steps": 115.19952,
+        "plrv_mean": -0.15431060155240894,
+        "plrv_variance": 0.2981936440753169,
+        "trajectories": 100000
+      },
+      "dimension": 2
+    },
+    {
+      "P": {
+        "censored_at_T_probability": 0.0,
+        "halt_probability": 1.0,
+        "halt_probability_95pct_wilson": [
+          0.999961586887417,
+          1.0
+        ],
+        "halted": 100000,
+        "max_empirical_cdf_difference": 0.00933557738309404,
+        "mean_active_steps": 115.00692,
+        "plrv_mean": 0.159069744841191,
+        "plrv_variance": 0.3227688200850718,
+        "trajectories": 100000
+      },
+      "Q": {
+        "censored_at_T_probability": 0.0,
+        "halt_probability": 1.0,
+        "halt_probability_95pct_wilson": [
+          0.999961586887417,
+          1.0
+        ],
+        "halted": 100000,
+        "max_empirical_cdf_difference": 0.009790999033613253,
+        "mean_active_steps": 115.00673,
+        "plrv_mean": -0.15395261737825233,
+        "plrv_variance": 0.2980502062295208,
+        "trajectories": 100000
+      },
+      "dimension": 4
+    },
+    {
+      "P": {
+        "censored_at_T_probability": 0.0,
+        "halt_probability": 1.0,
+        "halt_probability_95pct_wilson": [
+          0.999961586887417,
+          1.0
+        ],
+        "halted": 100000,
+        "max_empirical_cdf_difference": 0.013736627943458146,
+        "mean_active_steps": 115.0,
+        "plrv_mean": 0.15269209565569125,
+        "plrv_variance": 0.3225756964457631,
+        "trajectories": 100000
+      },
+      "Q": {
+        "censored_at_T_probability": 0.0,
+        "halt_probability": 1.0,
+        "halt_probability_95pct_wilson": [
+          0.999961586887417,
+          1.0
+        ],
+        "halted": 100000,
+        "max_empirical_cdf_difference": 0.010265441199594952,
+        "mean_active_steps": 115.0,
+        "plrv_mean": -0.15155186899745277,
+        "plrv_variance": 0.30030079072155597,
+        "trajectories": 100000
+      },
+      "dimension": 8
+    },
+    {
+      "P": {
+        "censored_at_T_probability": 0.0,
+        "halt_probability": 1.0,
+        "halt_probability_95pct_wilson": [
+          0.999961586887417,
+          1.0
+        ],
+        "halted": 100000,
+        "max_empirical_cdf_difference": 0.010380356056569395,
+        "mean_active_steps": 115.0,
+        "plrv_mean": 0.15646357903495817,
+        "plrv_variance": 0.32461675435970166,
+        "trajectories": 100000
+      },
+      "Q": {
+        "censored_at_T_probability": 0.0,
+        "halt_probability": 1.0,
+        "halt_probability_95pct_wilson": [
+          0.999961586887417,
+          1.0
+        ],
+        "halted": 100000,
+        "max_empirical_cdf_difference": 0.010587871431839549,
+        "mean_active_steps": 115.0,
+        "plrv_mean": -0.15538169502389224,
+        "plrv_variance": 0.2994663100795435,
+        "trajectories": 100000
+      },
+      "dimension": 16
+    }
+  ],
+  "dimensions": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "experiment_id": "EXP-DP158-DIMENSION-SENSITIVITY-2026",
+  "implementation_limitations": [
+    "Correction after source audit: Appendix G.2 writes y_i^2 but does not clarify scalar output versus vector shorthand; the main algorithm permits vector output. This exact-KL vector sweep cannot establish that the paper omitted a needed parameter, and is not a paper reproduction.",
+    "The legacy implementation uses exact one-step subsampled-Gaussian KL instead of the paper's explicit Budg(0,q,sigma,mu)=q^2/2*(exp(mu^2/sigma^2)-1). Its numerical comparison to Figure 12 is not source matched.",
+    "Each arm/dimension uses one frozen Monte Carlo seed; Wilson intervals quantify only binomial halt-rate noise, not all implementation or model uncertainty.",
+    "This is a simulation reproducibility/sensitivity observation, not a production accountant audit or a general DP failure."
+  ],
+  "preregistration": "research/experiment_preregistration_dp158_dimension_sensitivity.md",
+  "primary_predeclared_decision": {
+    "dimension_is_material_under_rule": true,
+    "halt_probability_range": 0.06347000000000003,
+    "halt_probability_range_threshold": 0.01,
+    "mean_active_step_range": 1.0026500000000027,
+    "mean_active_step_range_threshold": 1.0
+  },
+  "published_reference": {
+    "P_halt_probability": 0.9886,
+    "P_max_cdf_difference": 0.01247,
+    "Q_halt_probability": 0.988,
+    "Q_max_cdf_difference": 0.01464,
+    "mean_active_steps": 113.1
+  },
+  "trajectories_per_arm_dimension": 100000
+}

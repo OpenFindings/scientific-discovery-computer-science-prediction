@@ -1,0 +1,13 @@
+Type;Key;Name;Value;Success;Count;Example
+NODE;;"CREATE_DATABASE";true;null;null;"null"
+NODE;;"UNTYPE_EXPR";false;1;1;"SELECT t0.c0, t0.c1, t1.c0, t1.c1, t1.c2, t1.c3 FROM t0 NATURAL FULL JOIN t1 WHERE SIGN((CASE t1.c0 WHEN (NOT t1.c0) THEN SUBSTRING(t1.c3, t1.c3, t1.c1) WHEN LOG10(t1.c3) THEN CAST(-442414945 AS BOOLEAN) ELSE (NOT t0.c1) END ))"
+COMPOSITE;;"FUNCTION-RPAD";false;null;null;"null"
+COMPOSITE;;"FUNCTION-RANGE";false;null;null;"null"
+COMPOSITE;;"FUNCTION-GEN_RANDOM_UUID";false;null;null;"null"
+COMPOSITE;;"FUNCTION-LPAD";false;null;null;"null"
+COMPOSITE;;"FUNCTION-RANDOM";false;null;null;"null"
+COMPOSITE;;"FUNCTION-UUID";false;null;null;"null"
+COMPOSITE;;"FUNCTION-REPEAT";false;null;null;"null"
+COMPOSITE;;"FUNCTION-ROUND";false;null;null;"null"
+COMPOSITE;;"FUNCTION-GENERATE_SERIES";false;null;null;"null"
+COMPOSITE;;"FUNCTION-REGEXP_MATCHES";false;null;null;"null"

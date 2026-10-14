@@ -1,0 +1,6 @@
+start_cpu_usec=26319
+end_cpu_usec=4572152
+used_cpu_usec=4545833
+budget_usec=4500000
+stop_reason=cpu_budget
+child_status=143

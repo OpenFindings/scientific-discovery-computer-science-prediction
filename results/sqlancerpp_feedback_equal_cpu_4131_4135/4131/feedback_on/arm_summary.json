@@ -1,0 +1,40 @@
+{
+  "candidate_error_logs": [],
+  "complete_database_count": 16,
+  "complete_database_rates": [
+    "0.92",
+    "0.745",
+    "0.65",
+    "0.66",
+    "0.74",
+    "0.765",
+    "0.725",
+    "0.415",
+    "0.75",
+    "0.54",
+    "0.52",
+    "0.615",
+    "0.5",
+    "0.705",
+    "0.6",
+    "0.695"
+  ],
+  "condition": "feedback_on",
+  "counter_complete": true,
+  "cpu_overshoot_fraction": 0.0063917777777777775,
+  "database_versions_logged": [
+    "3.40.0"
+  ],
+  "docker_returncode": 0,
+  "receipt": {
+    "budget_usec": "4500000",
+    "child_status": "143",
+    "end_cpu_usec": "4556715",
+    "start_cpu_usec": "27952",
+    "stop_reason": "cpu_budget",
+    "used_cpu_usec": "4528763"
+  },
+  "stderr_nonempty": false,
+  "successful_query_pairs_in_complete_databases": 2109,
+  "wall_seconds": 4.711083666887134
+}

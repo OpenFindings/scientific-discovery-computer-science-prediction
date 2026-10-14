@@ -1,0 +1,36 @@
+Success rate for query pairs: 0.95
+Success rate for statements: 0.8888888888888888
+Success rate for query pairs: 0.73
+Success rate for statements: 0.68
+Success rate for query pairs: 0.68
+Success rate for statements: 0.5517241379310345
+Success rate for query pairs: 0.505
+Success rate for statements: 0.9545454545454546
+Success rate for query pairs: 0.705
+Success rate for statements: 0.5510204081632653
+Success rate for query pairs: 0.545
+Success rate for statements: 0.88
+Success rate for query pairs: 0.615
+Success rate for statements: 0.9473684210526315
+Success rate for query pairs: 0.55
+Success rate for statements: 0.65
+Success rate for query pairs: 0.605
+Success rate for statements: 0.5961538461538461
+Success rate for query pairs: 0.545
+Success rate for statements: 0.625
+Success rate for query pairs: 0.53
+Success rate for statements: 0.8571428571428571
+Success rate for query pairs: 0.695
+Success rate for statements: 0.43478260869565216
+Success rate for query pairs: 0.545
+Success rate for statements: 1.0
+Success rate for query pairs: 0.655
+Success rate for statements: 0.3230769230769231
+Success rate for query pairs: 0.64
+Success rate for statements: 0.7777777777777778
+Overall execution statistics
+============================
+        1k queries
+        16 databases
+        3k successfully-executed statements
+        1k unsuccessfuly-executed statements

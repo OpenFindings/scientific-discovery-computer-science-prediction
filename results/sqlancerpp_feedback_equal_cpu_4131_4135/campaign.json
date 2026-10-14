@@ -1,0 +1,463 @@
+{
+  "budget_usec_per_arm": 4500000,
+  "database_safety_cap": 100,
+  "experiment_id": "EXP-DBMS-FEEDBACK-EQUAL-CPU-4131-4135",
+  "orders": {
+    "4131": [
+      "feedback_off",
+      "feedback_on"
+    ],
+    "4132": [
+      "feedback_off",
+      "feedback_on"
+    ],
+    "4133": [
+      "feedback_on",
+      "feedback_off"
+    ],
+    "4134": [
+      "feedback_off",
+      "feedback_on"
+    ],
+    "4135": [
+      "feedback_on",
+      "feedback_off"
+    ]
+  },
+  "pins": {
+    "container_image_digest": "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+    "jar_sha256": "d5d342e99d9088eebadac1f13c9ffe86d7b886b75c585a8271034cedc51410be",
+    "source_commit": "1405d4eb5b7af7a639717a47147bd89362558830"
+  },
+  "preregistration": "research/experiment_preregistration_sqlancerpp_equal_cpu_4131_4135.md",
+  "query_cap_per_database": 200,
+  "seed_results": [
+    {
+      "arms": [
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 16,
+          "complete_database_rates": [
+            "0.92",
+            "0.745",
+            "0.65",
+            "0.66",
+            "0.74",
+            "0.765",
+            "0.725",
+            "0.415",
+            "0.75",
+            "0.54",
+            "0.52",
+            "0.615",
+            "0.48",
+            "0.8",
+            "0.555",
+            "0.54"
+          ],
+          "condition": "feedback_off",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.007483555555555556,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4564355",
+            "start_cpu_usec": "30679",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4533676"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 2084,
+          "wall_seconds": 4.734609709121287
+        },
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 16,
+          "complete_database_rates": [
+            "0.92",
+            "0.745",
+            "0.65",
+            "0.66",
+            "0.74",
+            "0.765",
+            "0.725",
+            "0.415",
+            "0.75",
+            "0.54",
+            "0.52",
+            "0.615",
+            "0.5",
+            "0.705",
+            "0.6",
+            "0.695"
+          ],
+          "condition": "feedback_on",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.0063917777777777775,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4556715",
+            "start_cpu_usec": "27952",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4528763"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 2109,
+          "wall_seconds": 4.711083666887134
+        }
+      ],
+      "order": [
+        "feedback_off",
+        "feedback_on"
+      ],
+      "seed": 4131
+    },
+    {
+      "arms": [
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 15,
+          "complete_database_rates": [
+            "0.95",
+            "0.73",
+            "0.68",
+            "0.505",
+            "0.705",
+            "0.545",
+            "0.615",
+            "0.55",
+            "0.605",
+            "0.545",
+            "0.53",
+            "0.695",
+            "0.545",
+            "0.655",
+            "0.64"
+          ],
+          "condition": "feedback_off",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.010185111111111112,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4572152",
+            "start_cpu_usec": "26319",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4545833"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1899,
+          "wall_seconds": 4.762778625357896
+        },
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 15,
+          "complete_database_rates": [
+            "0.95",
+            "0.73",
+            "0.68",
+            "0.505",
+            "0.705",
+            "0.545",
+            "0.615",
+            "0.55",
+            "0.605",
+            "0.545",
+            "0.595",
+            "0.625",
+            "0.69",
+            "0.65",
+            "0.76"
+          ],
+          "condition": "feedback_on",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.012191111111111111,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4586737",
+            "start_cpu_usec": "31877",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4554860"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1950,
+          "wall_seconds": 4.779120292048901
+        }
+      ],
+      "order": [
+        "feedback_off",
+        "feedback_on"
+      ],
+      "seed": 4132
+    },
+    {
+      "arms": [
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 14,
+          "complete_database_rates": [
+            "0.905",
+            "0.805",
+            "0.51",
+            "0.585",
+            "0.41",
+            "0.67",
+            "0.49",
+            "0.62",
+            "0.68",
+            "0.695",
+            "0.69",
+            "0.7",
+            "0.7",
+            "0.65"
+          ],
+          "condition": "feedback_on",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.010806444444444445,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4579190",
+            "start_cpu_usec": "30561",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4548629"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1822,
+          "wall_seconds": 4.801687832921743
+        },
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 13,
+          "complete_database_rates": [
+            "0.905",
+            "0.805",
+            "0.51",
+            "0.585",
+            "0.41",
+            "0.67",
+            "0.49",
+            "0.535",
+            "0.63",
+            "0.64",
+            "0.585",
+            "0.61",
+            "0.595"
+          ],
+          "condition": "feedback_off",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.013492222222222221,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4591120",
+            "start_cpu_usec": "30405",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4560715"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1594,
+          "wall_seconds": 4.782349000219256
+        }
+      ],
+      "order": [
+        "feedback_on",
+        "feedback_off"
+      ],
+      "seed": 4133
+    },
+    {
+      "arms": [
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 11,
+          "complete_database_rates": [
+            "0.89",
+            "0.63",
+            "0.695",
+            "0.67",
+            "0.645",
+            "0.61",
+            "0.64",
+            "0.6",
+            "0.515",
+            "0.59",
+            "0.445"
+          ],
+          "condition": "feedback_off",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.007639111111111111,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4566844",
+            "start_cpu_usec": "32468",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4534376"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1386,
+          "wall_seconds": 4.751435250043869
+        },
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 14,
+          "complete_database_rates": [
+            "0.89",
+            "0.585",
+            "0.485",
+            "0.76",
+            "0.545",
+            "0.385",
+            "0.49",
+            "0.75",
+            "0.705",
+            "0.69",
+            "0.65",
+            "0.625",
+            "0.7",
+            "0.635"
+          ],
+          "condition": "feedback_on",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.009679555555555556,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4575924",
+            "start_cpu_usec": "32366",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4543558"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1779,
+          "wall_seconds": 4.7721442501060665
+        }
+      ],
+      "order": [
+        "feedback_off",
+        "feedback_on"
+      ],
+      "seed": 4134
+    },
+    {
+      "arms": [
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 14,
+          "complete_database_rates": [
+            "0.91",
+            "0.805",
+            "0.73",
+            "0.59",
+            "0.7",
+            "0.755",
+            "0.615",
+            "0.715",
+            "0.675",
+            "0.595",
+            "0.5",
+            "0.565",
+            "0.615",
+            "0.425"
+          ],
+          "condition": "feedback_on",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.006756666666666667,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4562151",
+            "start_cpu_usec": "31746",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4530405"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1839,
+          "wall_seconds": 4.756780791096389
+        },
+        {
+          "candidate_error_logs": [],
+          "complete_database_count": 14,
+          "complete_database_rates": [
+            "0.91",
+            "0.805",
+            "0.73",
+            "0.59",
+            "0.7",
+            "0.755",
+            "0.75",
+            "0.455",
+            "0.78",
+            "0.705",
+            "0.37",
+            "0.555",
+            "0.49",
+            "0.675"
+          ],
+          "condition": "feedback_off",
+          "counter_complete": true,
+          "cpu_overshoot_fraction": 0.0037233333333333333,
+          "database_versions_logged": [
+            "3.40.0"
+          ],
+          "docker_returncode": 0,
+          "receipt": {
+            "budget_usec": "4500000",
+            "child_status": "143",
+            "end_cpu_usec": "4550115",
+            "start_cpu_usec": "33360",
+            "stop_reason": "cpu_budget",
+            "used_cpu_usec": "4516755"
+          },
+          "stderr_nonempty": false,
+          "successful_query_pairs_in_complete_databases": 1854,
+          "wall_seconds": 4.7310416251420975
+        }
+      ],
+      "order": [
+        "feedback_on",
+        "feedback_off"
+      ],
+      "seed": 4135
+    }
+  ]
+}

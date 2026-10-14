@@ -1,0 +1,37 @@
+{
+  "experiment_id": "EXP-DBMS-FEEDBACK-EQUAL-CPU-4131-4135",
+  "status": "completed_bounded_study_no_confirmed_bugs",
+  "preregistration": "research/experiment_preregistration_sqlancerpp_equal_cpu_4131_4135.md",
+  "raw_campaign": "results/sqlancerpp_feedback_equal_cpu_4131_4135/campaign.json",
+  "independent_analysis": "results/sqlancerpp_feedback_equal_cpu_4131_4135/independent_analysis.json",
+  "pinned_source_commit": "1405d4eb5b7af7a639717a47147bd89362558830",
+  "engine_and_oracle": "SQLite 3.40.0 / NoREC",
+  "cgroup_cpu_target_usec_per_arm": 4500000,
+  "pairs_complete": 5,
+  "arm_order": {
+    "off_first_seeds": [4131, 4132, 4134],
+    "on_first_seeds": [4133, 4135]
+  },
+  "primary": {
+    "candidate_mismatch_logs": 0,
+    "confirmed_distinct_norec_bugs": 0,
+    "interpretation": "No evidence of a bug-yield benefit in this short run; five pairs and approximately 4.5 CPU seconds per arm are much too small to infer equal long-run effectiveness."
+  },
+  "secondary": {
+    "measure": "successful query pairs from fully completed 200-attempt databases before CPU stop",
+    "on_minus_off_by_seed": [25, 51, 228, 393, -15],
+    "positive_pairs": 4,
+    "negative_pairs": 1,
+    "mean_difference": 136.4,
+    "two_sided_exact_sign_p": 0.375,
+    "interpretation": "Suggestive operational proxy only; mixed signs and weak paired evidence after balancing arm order. Not a bug-finding result."
+  },
+  "integrity": {
+    "counter_gate_passed_all_arms": true,
+    "raw_logs_and_cpu_receipts_preserved": true,
+    "source_logger_failure_log_pattern": "logs/general/<database>.log; rolling *-cur.log is not a bug candidate",
+    "candidate_logs_and_stderr_independently_checked": true,
+    "partial_interrupted_database_excluded": true
+  },
+  "research_decision": "Down-rank feedback guidance as a scientific-discovery lead. Retain only the previously observed narrow query-throughput proxy; do not claim distinct bug yield or a research breakthrough. A substantially longer, preregistered bug-yield campaign is required if this direction is revisited."
+}

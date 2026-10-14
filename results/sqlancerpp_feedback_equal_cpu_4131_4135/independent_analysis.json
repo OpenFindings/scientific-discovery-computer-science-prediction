@@ -1,0 +1,373 @@
+{
+  "bug_candidate_signals": [],
+  "complete_pairs": 5,
+  "experiment_id": "EXP-DBMS-FEEDBACK-EQUAL-CPU-4131-4135",
+  "interpretation": "No NoREC mismatch candidate was logged in ten bounded arms; zero observed confirmed distinct bugs gives no evidence of bug-yield benefit. Four of five secondary complete-database query-pair differences were positive; this proxy is not bug yield, and the pairwise sign evidence is weak.",
+  "limitations": [
+    "Each arm stopped just after the 4.5-second cgroup CPU threshold; observed overshoot is retained, not silently normalized away.",
+    "The interrupted database's partial query attempts have no rate-derived success count and are excluded. Complete database counts differ between arms.",
+    "Only five fresh paired seeds; low power for rare reproducible bugs and for a two-sided sign test.",
+    "No mismatch candidates means no blinded candidate reruns were possible; the primary zero is observed within this bounded run only."
+  ],
+  "preregistration": "research/experiment_preregistration_sqlancerpp_equal_cpu_4131_4135.md",
+  "primary_confirmed_distinct_norec_bugs": 0,
+  "rows": [
+    {
+      "feedback_off": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 16,
+        "condition": "feedback_off",
+        "cpu_overshoot_fraction": 0.007483555555555556,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.92",
+          "0.745",
+          "0.65",
+          "0.66",
+          "0.74",
+          "0.765",
+          "0.725",
+          "0.415",
+          "0.75",
+          "0.54",
+          "0.52",
+          "0.615",
+          "0.48",
+          "0.8",
+          "0.555",
+          "0.54"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 2084,
+        "used_cpu_usec": 4533676,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "feedback_on": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 16,
+        "condition": "feedback_on",
+        "cpu_overshoot_fraction": 0.0063917777777777775,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.92",
+          "0.745",
+          "0.65",
+          "0.66",
+          "0.74",
+          "0.765",
+          "0.725",
+          "0.415",
+          "0.75",
+          "0.54",
+          "0.52",
+          "0.615",
+          "0.5",
+          "0.705",
+          "0.6",
+          "0.695"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 2109,
+        "used_cpu_usec": 4528763,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "first_arm": "feedback_off",
+      "pair_complete": true,
+      "secondary_difference_on_minus_off": 25,
+      "seed": 4131
+    },
+    {
+      "feedback_off": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 15,
+        "condition": "feedback_off",
+        "cpu_overshoot_fraction": 0.010185111111111112,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.95",
+          "0.73",
+          "0.68",
+          "0.505",
+          "0.705",
+          "0.545",
+          "0.615",
+          "0.55",
+          "0.605",
+          "0.545",
+          "0.53",
+          "0.695",
+          "0.545",
+          "0.655",
+          "0.64"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1899,
+        "used_cpu_usec": 4545833,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "feedback_on": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 15,
+        "condition": "feedback_on",
+        "cpu_overshoot_fraction": 0.012191111111111111,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.95",
+          "0.73",
+          "0.68",
+          "0.505",
+          "0.705",
+          "0.545",
+          "0.615",
+          "0.55",
+          "0.605",
+          "0.545",
+          "0.595",
+          "0.625",
+          "0.69",
+          "0.65",
+          "0.76"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1950,
+        "used_cpu_usec": 4554860,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "first_arm": "feedback_off",
+      "pair_complete": true,
+      "secondary_difference_on_minus_off": 51,
+      "seed": 4132
+    },
+    {
+      "feedback_off": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 13,
+        "condition": "feedback_off",
+        "cpu_overshoot_fraction": 0.013492222222222221,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.905",
+          "0.805",
+          "0.51",
+          "0.585",
+          "0.41",
+          "0.67",
+          "0.49",
+          "0.535",
+          "0.63",
+          "0.64",
+          "0.585",
+          "0.61",
+          "0.595"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1594,
+        "used_cpu_usec": 4560715,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "feedback_on": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 14,
+        "condition": "feedback_on",
+        "cpu_overshoot_fraction": 0.010806444444444445,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.905",
+          "0.805",
+          "0.51",
+          "0.585",
+          "0.41",
+          "0.67",
+          "0.49",
+          "0.62",
+          "0.68",
+          "0.695",
+          "0.69",
+          "0.7",
+          "0.7",
+          "0.65"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1822,
+        "used_cpu_usec": 4548629,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "first_arm": "feedback_on",
+      "pair_complete": true,
+      "secondary_difference_on_minus_off": 228,
+      "seed": 4133
+    },
+    {
+      "feedback_off": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 11,
+        "condition": "feedback_off",
+        "cpu_overshoot_fraction": 0.007639111111111111,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.89",
+          "0.63",
+          "0.695",
+          "0.67",
+          "0.645",
+          "0.61",
+          "0.64",
+          "0.6",
+          "0.515",
+          "0.59",
+          "0.445"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1386,
+        "used_cpu_usec": 4534376,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "feedback_on": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 14,
+        "condition": "feedback_on",
+        "cpu_overshoot_fraction": 0.009679555555555556,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.89",
+          "0.585",
+          "0.485",
+          "0.76",
+          "0.545",
+          "0.385",
+          "0.49",
+          "0.75",
+          "0.705",
+          "0.69",
+          "0.65",
+          "0.625",
+          "0.7",
+          "0.635"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1779,
+        "used_cpu_usec": 4543558,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "first_arm": "feedback_off",
+      "pair_complete": true,
+      "secondary_difference_on_minus_off": 393,
+      "seed": 4134
+    },
+    {
+      "feedback_off": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 14,
+        "condition": "feedback_off",
+        "cpu_overshoot_fraction": 0.0037233333333333333,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.91",
+          "0.805",
+          "0.73",
+          "0.59",
+          "0.7",
+          "0.755",
+          "0.75",
+          "0.455",
+          "0.78",
+          "0.705",
+          "0.37",
+          "0.555",
+          "0.49",
+          "0.675"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1854,
+        "used_cpu_usec": 4516755,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "feedback_on": {
+        "candidate_error_logs": [],
+        "complete": true,
+        "complete_databases": 14,
+        "condition": "feedback_on",
+        "cpu_overshoot_fraction": 0.006756666666666667,
+        "discarded_partial_database": "possible; no partial success count in pinned rate logger",
+        "mismatch_marker_in_stdout_or_stderr": false,
+        "raw_success_rates": [
+          "0.91",
+          "0.805",
+          "0.73",
+          "0.59",
+          "0.7",
+          "0.755",
+          "0.615",
+          "0.715",
+          "0.675",
+          "0.595",
+          "0.5",
+          "0.565",
+          "0.615",
+          "0.425"
+        ],
+        "stderr_nonempty": false,
+        "successful_pairs_in_complete_databases": 1839,
+        "used_cpu_usec": 4530405,
+        "version_logs": [
+          "3.40.0"
+        ]
+      },
+      "first_arm": "feedback_on",
+      "pair_complete": true,
+      "secondary_difference_on_minus_off": -15,
+      "seed": 4135
+    }
+  ],
+  "secondary_mean_difference": 136.4,
+  "secondary_median_difference": 51,
+  "secondary_negative_pairs": 1,
+  "secondary_positive_pairs": 4,
+  "secondary_sign_test": {
+    "n_nonzero": 5,
+    "two_sided_p": 0.375
+  },
+  "secondary_successful_pair_differences_on_minus_off": [
+    25,
+    51,
+    228,
+    393,
+    -15
+  ]
+}

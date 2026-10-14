@@ -1,5 +1,5 @@
 {
-  "status": "protocol_for_next_experiment_not_yet_executed",
+  "status": "first_bounded_equal_cpu_study_completed; longer_bug_yield_study_unresolved",
   "updated_at_utc": "2026-10-13",
   "motivation": "The fixed-cap CPU-normalized study on seeds 4121-4125 is directionally positive but always ran feedback_off before feedback_on and used post-hoc throughput normalization rather than equal CPU stopping budgets.",
   "question": "At a predeclared equal cgroup CPU-time budget, does feedback-on produce more independently confirmed distinct NoREC bugs than feedback-off on paired fresh seeds?",
@@ -25,5 +25,6 @@
     "Report nulls, duplicate reports, unreproducible mismatches, and incomplete CPU-budget runs.",
     "Do not make Paper 3 forecast or Paper 4 utility claims from this experiment."
   ],
-  "current_blocker": "Implement and validate reliable in-container CPU-budget stopping and blinded mismatch export before preregistering the next seed block."
+  "first_study": "reports/dbms_equal_cpu_result.json",
+  "current_blocker": "No NoREC mismatch candidates appeared under the short 4.5-CPU-second-per-arm run, so blinded candidate reproduction could not be exercised on a real bug. A longer, adequately powered bug-yield study remains untested."
 }

@@ -1,0 +1,55 @@
+{
+  "screen_id": "HCS-OBSERVABLE-16-SOURCE-ROUND2-2026-10-14",
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "future_evidence_searched_for_these_questions": false,
+  "method": "Targeted exact-version primary PDF reading before any post-cutoff search for these rows. Physical PDF pages are one-indexed. Two official PDF endpoints returned internal retrieval errors; these papers remain unscreened rather than replaced.",
+  "rows": [
+    {
+      "versioned_id": "1708.03786v1",
+      "as_of": "2017-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1708.03786v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 1-2 introduction/initial 17-student evaluation; p. 8 limitations and future work",
+      "source_basis": "TraceDiff reports a small controlled study against Python Tutor, with no statistically significant difference in quantitative task measures. The authors explicitly propose deployment in an actual programming course, where iterative debugging is possible, to evaluate effectiveness under realistic conditions. This field/generalization test is not in the paper.",
+      "candidate_question": "In an actual introductory programming course with repeated debugging attempts, does TraceDiff improve independently verified bug-fix completion or time relative to a matched Python Tutor workflow?",
+      "comparison_and_metric": "TraceDiff versus Python Tutor on matched course tasks; verified bug-fix completion and time per independent student/task cluster",
+      "falsification_gate": "No improvement in prespecified verified fixes or time across independent students/tasks, or loss of benefit under iterative attempts, fails the proposed generalization; preference ratings alone are not a fix outcome.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1712.09136v1",
+      "as_of": "2017-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1712.09136v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 13-14, sections 10 Open Questions and 11 Conclusions",
+      "source_basis": "The paper measures DTP/PDTP against existing direct membership attacks and warns that low single-query PDTP does not guarantee safety. It explicitly leaves multi-query attacks and selecting queries that reveal membership as open; it does not execute this exact multi-query versus single-query test.",
+      "candidate_question": "For records with low single-query PDTP, can multiple selected queries to the same classifier raise membership-inference accuracy over a single direct-query baseline at a fixed query budget?",
+      "comparison_and_metric": "same model/record population, multiple selected queries versus a single direct target query; record-level membership attack accuracy or advantage under fixed query budgets",
+      "falsification_gate": "No reproducible attack-advantage increase across independent model/data units at a prespecified query budget fails the empirical multiple-query concern; a proof of a matching upper bound under explicit assumptions could refute it in that regime.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1703.00768v1",
+      "as_of": "2017-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1703.00768v1",
+      "source_status": "official_pdf_internal_retrieval_error_on_attempt",
+      "question_status": "unadjudicated_source_unavailable_on_attempt",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1706.02214v1",
+      "as_of": "2017-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1706.02214v1",
+      "source_status": "official_pdf_internal_retrieval_error_on_attempt",
+      "question_status": "unadjudicated_source_unavailable_on_attempt",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ],
+  "counts": {"new_attempted": 4, "new_source_section_screened": 2, "new_eligible_questions": 2, "new_unavailable_on_attempt": 2, "combined_source_section_screened": 4, "combined_eligible_questions": 3, "combined_ineligible": 1, "remaining_not_screened_or_unavailable": 12, "future_outcomes_adjudicated_for_new_rows": 0},
+  "limitation": "Source sections, not every PDF page, were examined. Retrieval failures may be transient and are not replacements or evidence of scientific failure."
+}

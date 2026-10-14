@@ -1,0 +1,426 @@
+{
+  "planner_repo": "https://github.com/OpenFindings/scientific-evidence-planner",
+  "planner_commit": "d3b61480a390a224bff9d688322f26270734c0a4",
+  "utility_weights": "configs/default.yaml of the planner repo",
+  "question": {
+    "question_id": "CS-BREAKTHROUGH-FORECAST-V1",
+    "question": "Do cutoff-time Paper 3 features forecast top-decile future attention of CS papers beyond simple baselines?",
+    "domain": "computer_science",
+    "metadata": {}
+  },
+  "hypotheses": [
+    {
+      "hypothesis_id": "H1",
+      "description": "Paper 3 structure features forecast top-decile CS attention beyond baselines",
+      "prior": 0.3,
+      "supporting_evidence": [],
+      "contradicting_evidence": [],
+      "metadata": {}
+    },
+    {
+      "hypothesis_id": "H2",
+      "description": "Any signal is reducible to early-citation / topic momentum",
+      "prior": 0.3,
+      "supporting_evidence": [],
+      "contradicting_evidence": [],
+      "metadata": {}
+    },
+    {
+      "hypothesis_id": "H3",
+      "description": "Top-decile citation attention is a visibility artifact, not breakthrough",
+      "prior": 0.2,
+      "supporting_evidence": [],
+      "contradicting_evidence": [],
+      "metadata": {}
+    },
+    {
+      "hypothesis_id": "H4",
+      "description": "No out-of-time signal at all",
+      "prior": 0.2,
+      "supporting_evidence": [],
+      "contradicting_evidence": [],
+      "metadata": {}
+    }
+  ],
+  "evidence_graph": {
+    "nodes": [
+      {
+        "node_id": "H1",
+        "node_type": "hypothesis",
+        "label": "Paper 3 structure features forecast top-decile CS attention beyond baselines",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "H2",
+        "node_type": "hypothesis",
+        "label": "Any signal is reducible to early-citation / topic momentum",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "H3",
+        "node_type": "hypothesis",
+        "label": "Top-decile citation attention is a visibility artifact, not breakthrough",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "H4",
+        "node_type": "hypothesis",
+        "label": "No out-of-time signal at all",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "paper3_astro",
+        "node_type": "paper",
+        "label": "Paper 3 astronomy study (980 questions, 5 cutoffs)",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "claim_p3_temporal_auc",
+        "node_type": "claim",
+        "label": "Astronomy temporal-split AUC 0.71 from structured features",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "claim_p3_robust_predictors",
+        "node_type": "claim",
+        "label": "Robust astronomy predictors: review recognition, related-evidence density",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "paper4_planner",
+        "node_type": "paper",
+        "label": "Paper 4 evidence planner study",
+        "timestamp": null,
+        "metadata": {}
+      },
+      {
+        "node_id": "claim_p4_neglect_artifact",
+        "node_type": "claim",
+        "label": "Paper 4 neglect finding withdrawn: retrieval label under-counted engagement",
+        "timestamp": null,
+        "metadata": {}
+      }
+    ],
+    "edges": [
+      {
+        "source": "claim_p3_temporal_auc",
+        "target": "paper3_astro",
+        "edge_type": "derived_from",
+        "confidence": 1.0,
+        "metadata": {}
+      },
+      {
+        "source": "claim_p3_robust_predictors",
+        "target": "paper3_astro",
+        "edge_type": "derived_from",
+        "confidence": 1.0,
+        "metadata": {}
+      },
+      {
+        "source": "claim_p4_neglect_artifact",
+        "target": "paper4_planner",
+        "edge_type": "derived_from",
+        "confidence": 1.0,
+        "metadata": {}
+      },
+      {
+        "source": "claim_p3_temporal_auc",
+        "target": "H1",
+        "edge_type": "supports",
+        "confidence": 0.4,
+        "metadata": {}
+      },
+      {
+        "source": "claim_p3_robust_predictors",
+        "target": "H2",
+        "edge_type": "supports",
+        "confidence": 0.4,
+        "metadata": {}
+      },
+      {
+        "source": "claim_p4_neglect_artifact",
+        "target": "H3",
+        "edge_type": "supports",
+        "confidence": 0.5,
+        "metadata": {}
+      }
+    ]
+  },
+  "gap_report": {
+    "question_id": "CS-BREAKTHROUGH-FORECAST-V1",
+    "gaps": [
+      {
+        "hypothesis_id": "H4",
+        "missing_evidence": "any evidence (supporting or contradicting)",
+        "confidence": 1.0,
+        "reason": "No evidence in the graph touches this hypothesis."
+      },
+      {
+        "hypothesis_id": "H1",
+        "missing_evidence": "additional supporting or contradicting evidence",
+        "confidence": 0.75,
+        "reason": "Only 1 evidence edge(s); at least 2 required."
+      },
+      {
+        "hypothesis_id": "H2",
+        "missing_evidence": "additional supporting or contradicting evidence",
+        "confidence": 0.75,
+        "reason": "Only 1 evidence edge(s); at least 2 required."
+      },
+      {
+        "hypothesis_id": "H3",
+        "missing_evidence": "additional supporting or contradicting evidence",
+        "confidence": 0.75,
+        "reason": "Only 1 evidence edge(s); at least 2 required."
+      }
+    ]
+  },
+  "rankings": {
+    "openalex_available": [
+      {
+        "rank": 1,
+        "action_id": "A9_title_only_text",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.15967246999553564,
+          "novelty": 0.8,
+          "tractability": 0.9,
+          "cost": 0.1,
+          "total": 3.1967246999553565
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.160 bits, novelty 0.80, tractability 0.90, cost 0.10. Primary driver: tractability."
+      },
+      {
+        "rank": 2,
+        "action_id": "A7_group_ablation",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.15967246999553564,
+          "novelty": 0.8,
+          "tractability": 0.8,
+          "cost": 0.2,
+          "total": 2.9967246999553563
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.160 bits, novelty 0.80, tractability 0.80, cost 0.20. Primary driver: novelty."
+      },
+      {
+        "rank": 3,
+        "action_id": "A6_survey_exclusion",
+        "target": "H3",
+        "utility": {
+          "information_gain": 0.12278993091635804,
+          "novelty": 0.8,
+          "tractability": 0.9,
+          "cost": 0.1,
+          "total": 2.8278993091635805
+        },
+        "reasoning": "Targets hypothesis H3 (Top-decile citation attention is a visibility artifact, not breakthrough). Expected information gain 0.123 bits, novelty 0.80, tractability 0.90, cost 0.10. Primary driver: tractability."
+      },
+      {
+        "rank": 4,
+        "action_id": "A2_rolling_backtest",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.15967246999553564,
+          "novelty": 0.8,
+          "tractability": 0.7,
+          "cost": 0.3,
+          "total": 2.796724699955357
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.160 bits, novelty 0.80, tractability 0.70, cost 0.30. Primary driver: novelty."
+      },
+      {
+        "rank": 5,
+        "action_id": "A3_momentum_head_to_head",
+        "target": "H2",
+        "utility": {
+          "information_gain": 0.1155755762634636,
+          "novelty": 1.0,
+          "tractability": 0.8,
+          "cost": 0.2,
+          "total": 2.755755762634636
+        },
+        "reasoning": "Targets hypothesis H2 (Any signal is reducible to early-citation / topic momentum). Expected information gain 0.116 bits, novelty 1.00, tractability 0.80, cost 0.20. Primary driver: novelty."
+      },
+      {
+        "rank": 6,
+        "action_id": "A8_leave_topic_out",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.1155755762634636,
+          "novelty": 1.0,
+          "tractability": 0.8,
+          "cost": 0.2,
+          "total": 2.755755762634636
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.116 bits, novelty 1.00, tractability 0.80, cost 0.20. Primary driver: novelty."
+      },
+      {
+        "rank": 7,
+        "action_id": "A4_permutation_null",
+        "target": "H4",
+        "utility": {
+          "information_gain": 0.08864210706819997,
+          "novelty": 1.0,
+          "tractability": 0.9,
+          "cost": 0.1,
+          "total": 2.6864210706819995
+        },
+        "reasoning": "Targets hypothesis H4 (No out-of-time signal at all). Expected information gain 0.089 bits, novelty 1.00, tractability 0.90, cost 0.10. Primary driver: novelty."
+      },
+      {
+        "rank": 8,
+        "action_id": "A5_blind_human_labels",
+        "target": "H3",
+        "utility": {
+          "information_gain": 0.18245336283713143,
+          "novelty": 1.0,
+          "tractability": 0.30000000000000004,
+          "cost": 0.6,
+          "total": 2.5245336283713145
+        },
+        "reasoning": "Targets hypothesis H3 (Top-decile citation attention is a visibility artifact, not breakthrough). Expected information gain 0.182 bits, novelty 1.00, tractability 0.30, cost 0.60. Primary driver: novelty."
+      },
+      {
+        "rank": 9,
+        "action_id": "A1_openalex_snapshot",
+        "target": "H4",
+        "utility": {
+          "information_gain": 0.01863692676738693,
+          "novelty": 1.0,
+          "tractability": 0.8,
+          "cost": 0.15,
+          "total": 1.8363692676738694
+        },
+        "reasoning": "Targets hypothesis H4 (No out-of-time signal at all). Expected information gain 0.019 bits, novelty 1.00, tractability 0.80, cost 0.15. Primary driver: novelty."
+      }
+    ],
+    "openalex_blocked": [
+      {
+        "rank": 1,
+        "action_id": "A9_title_only_text",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.15967246999553564,
+          "novelty": 0.8,
+          "tractability": 0.45,
+          "cost": 0.1,
+          "total": 2.7467246999553567
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.160 bits, novelty 0.80, tractability 0.45, cost 0.10. Primary driver: novelty."
+      },
+      {
+        "rank": 2,
+        "action_id": "A7_group_ablation",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.15967246999553564,
+          "novelty": 0.8,
+          "tractability": 0.4,
+          "cost": 0.2,
+          "total": 2.5967246999553564
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.160 bits, novelty 0.80, tractability 0.40, cost 0.20. Primary driver: novelty."
+      },
+      {
+        "rank": 3,
+        "action_id": "A5_blind_human_labels",
+        "target": "H3",
+        "utility": {
+          "information_gain": 0.18245336283713143,
+          "novelty": 1.0,
+          "tractability": 0.30000000000000004,
+          "cost": 0.6,
+          "total": 2.5245336283713145
+        },
+        "reasoning": "Targets hypothesis H3 (Top-decile citation attention is a visibility artifact, not breakthrough). Expected information gain 0.182 bits, novelty 1.00, tractability 0.30, cost 0.60. Primary driver: novelty."
+      },
+      {
+        "rank": 4,
+        "action_id": "A2_rolling_backtest",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.15967246999553564,
+          "novelty": 0.8,
+          "tractability": 0.35,
+          "cost": 0.3,
+          "total": 2.446724699955357
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.160 bits, novelty 0.80, tractability 0.35, cost 0.30. Primary driver: novelty."
+      },
+      {
+        "rank": 5,
+        "action_id": "A6_survey_exclusion",
+        "target": "H3",
+        "utility": {
+          "information_gain": 0.12278993091635804,
+          "novelty": 0.8,
+          "tractability": 0.45,
+          "cost": 0.1,
+          "total": 2.3778993091635807
+        },
+        "reasoning": "Targets hypothesis H3 (Top-decile citation attention is a visibility artifact, not breakthrough). Expected information gain 0.123 bits, novelty 0.80, tractability 0.45, cost 0.10. Primary driver: novelty."
+      },
+      {
+        "rank": 6,
+        "action_id": "A3_momentum_head_to_head",
+        "target": "H2",
+        "utility": {
+          "information_gain": 0.1155755762634636,
+          "novelty": 1.0,
+          "tractability": 0.4,
+          "cost": 0.2,
+          "total": 2.3557557626346357
+        },
+        "reasoning": "Targets hypothesis H2 (Any signal is reducible to early-citation / topic momentum). Expected information gain 0.116 bits, novelty 1.00, tractability 0.40, cost 0.20. Primary driver: novelty."
+      },
+      {
+        "rank": 7,
+        "action_id": "A8_leave_topic_out",
+        "target": "H1",
+        "utility": {
+          "information_gain": 0.1155755762634636,
+          "novelty": 1.0,
+          "tractability": 0.4,
+          "cost": 0.2,
+          "total": 2.3557557626346357
+        },
+        "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.116 bits, novelty 1.00, tractability 0.40, cost 0.20. Primary driver: novelty."
+      },
+      {
+        "rank": 8,
+        "action_id": "A4_permutation_null",
+        "target": "H4",
+        "utility": {
+          "information_gain": 0.08864210706819997,
+          "novelty": 1.0,
+          "tractability": 0.45,
+          "cost": 0.1,
+          "total": 2.236421070682
+        },
+        "reasoning": "Targets hypothesis H4 (No out-of-time signal at all). Expected information gain 0.089 bits, novelty 1.00, tractability 0.45, cost 0.10. Primary driver: novelty."
+      },
+      {
+        "rank": 9,
+        "action_id": "A1_openalex_snapshot",
+        "target": "H4",
+        "utility": {
+          "information_gain": 0.01863692676738693,
+          "novelty": 1.0,
+          "tractability": 0.4,
+          "cost": 0.15,
+          "total": 1.4363692676738693
+        },
+        "reasoning": "Targets hypothesis H4 (No out-of-time signal at all). Expected information gain 0.019 bits, novelty 1.00, tractability 0.40, cost 0.15. Primary driver: novelty."
+      }
+    ]
+  },
+  "status": "planning estimate; costs, times, priors and edge confidences are declared assumptions, not measurements"
+}

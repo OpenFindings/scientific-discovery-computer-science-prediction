@@ -1,0 +1,24 @@
+{
+  "screen_id": "HCS-OBSERVABLE-16-SOURCE-ROUND4-2026-10-14",
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "future_evidence_searched_for_these_questions": false,
+  "method": "Read cutoff-version primary PDF abstract, theorem statements, and conclusion before any future search for this question; physical PDF pages are one-indexed.",
+  "rows": [
+    {
+      "versioned_id": "1802.06026v1",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1802.06026v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 1-3 abstract and Theorems 1.1-1.5; p. 24 section 6 Conclusions, explicit sparsifier-size lower-bound question",
+      "source_basis": "The 2018 source proves a polynomial metric sparsifier for Zero Extension with a size upper bound of order k^(s+1), then explicitly asks whether a lower bound exists and notes the related open issue of degree independent of s. The source does not prove a matching lower bound or a uniform-degree upper bound.",
+      "candidate_question": "For exact metric sparsifiers of Zero Extension with s labels and crossing-number parameter k, is an exponent growing with s necessary in worst-case sparsifier size, or can an exponent independent of s suffice?",
+      "comparison_and_metric": "formal worst-case sparsifier size as a function of k and s under the same exact-mimicking definition; lower bound versus uniform-in-s exponent upper bound",
+      "falsification_gate": "A valid k^Omega(s) worst-case lower bound under the source definition refutes an exponent uniform in s; a valid k^O(1) upper bound with exponent independent of s refutes necessity of growth. A bound for only s-Multiway Cut or a different sparsifier definition does not settle this question.",
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ],
+  "counts": {"new_source_section_screened": 1, "new_eligible_questions": 1, "combined_source_section_screened": 7, "combined_eligible_questions": 6, "combined_ineligible": 1, "remaining_unscreened": 9, "future_outcomes_adjudicated_for_new_rows": 0},
+  "limitation": "Targeted sections, not exhaustive page-by-page annotation. The author-defined exact metric sparsifier and parameter k must be matched in future results."
+}

@@ -1,0 +1,35 @@
+{
+  "screen_id": "HCS-OBSERVABLE-16-SOURCE-ROUND1-2026-10-14",
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "future_evidence_searched_for_these_questions": false,
+  "method": "Targeted reading of exact-version primary PDF abstract, evaluated results, threats and conclusion; physical PDF page numbers are one-indexed. Remaining 14 selected rows are not yet source-screened.",
+  "rows": [
+    {
+      "versioned_id": "1806.03283v1",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1806.03283v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF p. 9, section 4.9 Threats to Validity; p. 10, section 6 Conclusions and Future Work",
+      "source_basis": "Badger reports better generated worst-case resource-cost inputs than standalone components, but acknowledges that the hybrid ran one fuzzing plus one symbolic-execution process while each individual baseline ran on one core. Authors explicitly propose parallelizing symbolic execution for a fairer comparison. The source does not report that matched-resource comparison.",
+      "candidate_question": "At matched total CPU resources, does parallelized Badger generate higher worst-case resource-cost inputs than a standalone cost-guided fuzzer on held-out Java subjects within the same wall-clock budget?",
+      "comparison_and_metric": "parallelized hybrid versus cost-guided standalone fuzzing; maximum measured resource-cost input per independent Java program at matched CPU budget and wall-clock horizon",
+      "falsification_gate": "No consistent held-out cost advantage at matched total CPU, or disappearance of the apparent gain when both arms have comparable parallelism, fails the resource-fair benefit claim; a significant advantage in the source's unequal-core setup alone does not count.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "2010.07431v2",
+      "as_of": "2020-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/2010.07431v2",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "ineligible_no_explicit_unresolved_question_in_inspected_sections",
+      "source_locator": "PDF pp. 1-2 abstract/introduction, pp. 7-8 section 6.5 and section 7 Conclusion",
+      "source_basis": "The inspected paper states and evaluates its fair streaming submodular-maximization algorithms and hardness results. Its conclusion summarizes completed claims rather than an explicit next open proposition. A stronger ratio or different fairness regime would be reviewer-invented and is not added as a source question.",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ],
+  "counts": {"selected_cohort": 16, "source_screened": 2, "eligible_questions": 1, "ineligible_in_inspected_sections": 1, "future_outcomes_adjudicated": 0},
+  "limitation": "Two-paper targeted section screen is not an eligibility prevalence estimate for all 16; the title-only selection is imperfect by design."
+}

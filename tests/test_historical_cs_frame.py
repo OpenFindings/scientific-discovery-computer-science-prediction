@@ -9,6 +9,45 @@ from scripts.select_historical_blind_cohort import EXCLUDED_PILOTS, select
 
 
 class HistoricalFrameTests(unittest.TestCase):
+    def test_blind_source_screen_is_cohort_bound_and_future_sealed(self):
+        root = Path(__file__).resolve().parents[1]
+        cohort = {
+            row["versioned_id"]: row
+            for row in (
+                json.loads(line)
+                for line in (root / "data/historical_cs_blind_cohort_20.jsonl").read_text().splitlines()
+            )
+        }
+        screen = json.loads((root / "reports/historical_source_screen_round1.json").read_text())
+        protocol = json.loads((root / "research/historical_outcome_label_protocol_v1.json").read_text())
+        rows = screen["rows"]
+        counts = screen["summary"]
+        self.assertTrue(protocol["frozen_before_cohort_followup_search"])
+        self.assertFalse(screen["future_outcomes_searched"])
+        self.assertEqual(len(cohort), counts["cohort_total"])
+        self.assertEqual(len(rows), counts["rows_screened_or_attempted"])
+        self.assertEqual(len({row["versioned_id"] for row in rows}), len(rows))
+        self.assertEqual(counts["remaining_untouched"], len(cohort) - len(rows))
+        self.assertEqual(counts["original_fulltexts_section_screened"],
+                         sum(row["source_status"] == "section_screened" for row in rows))
+        self.assertEqual(counts["eligible_source_questions"],
+                         sum(row["question_status"] == "eligible_source_open" for row in rows))
+        self.assertEqual(counts["ineligible_completed_or_no_open_question"],
+                         sum(row["question_status"] == "ineligible_no_explicit_unresolved_question" for row in rows))
+        self.assertEqual(counts["original_fulltext_unavailable_on_this_attempt"],
+                         sum(row["source_status"] == "fulltext_unavailable_on_attempt" for row in rows))
+        self.assertEqual(counts["direct_future_outcome_labels"], 0)
+        for row in rows:
+            frozen = cohort[row["versioned_id"]]
+            self.assertEqual(row["source_pdf_url"], frozen["source_pdf_url"])
+            self.assertEqual(row["as_of"], frozen["as_of"])
+            self.assertEqual(row["future_outcome_status"], "sealed_not_searched")
+            if row["question_status"] == "eligible_source_open":
+                self.assertEqual(row["source_status"], "section_screened")
+                self.assertTrue(row["candidate_question"])
+                self.assertTrue(row["candidate_falsification"])
+                self.assertTrue(row["source_locator"])
+
     def test_repository_frame_is_year_end_safe(self):
         root = Path(__file__).resolve().parents[1]
         report = json.loads((root / "reports/broad_cs_historical_audit.json").read_text())

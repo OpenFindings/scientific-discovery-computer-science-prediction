@@ -1,0 +1,28 @@
+{
+  "protocol_id": "HCS-OUTCOME-LABEL-V1-2026-10-14",
+  "cohort_id": "HCS-BLIND-20-2026-10-14",
+  "frozen_before_cohort_followup_search": true,
+  "screening_unit": "one frozen arXiv version in the 20-paper cohort",
+  "question_unit": "one specific source-grounded question per eligible paper in this pilot",
+  "source_screening": {
+    "eligible": "The cutoff-version paper explicitly identifies an open problem, limitation, or future experiment that can be restated with an object, comparison or property, and an observable falsification condition. The source must not already answer this exact formulation.",
+    "ineligible": "Only a completed claim, broad aspiration, topic label, or a question already answered by the source itself is available.",
+    "unavailable": "The exact cutoff-version full text cannot be inspected; an abstract alone cannot establish eligibility.",
+    "citation_requirement": "Record exact version URL, page/section, and a concise paraphrase of the source passage. Do not infer novelty from the screen."
+  },
+  "outcome_window": "strictly after each paper's as_of timestamp through its frozen three_year_followup_end, inclusive",
+  "followup_retrieval": "Only after a source-grounded question is locked, search dated primary papers, datasets, code or formal results. Record search terms, retrieval date, publication/version date, full-text section, and all exclusion reasons. Later revisions of pre-cutoff papers are future evidence, never historical features.",
+  "resolution_labels": {
+    "direct_supported": "An independently dated in-window primary source directly tests the same question, object and metric or proves the same formal claim with explicit assumptions and enough evidence to support the prespecified success criterion.",
+    "direct_refuted_or_premise_revised": "An independently dated in-window primary source directly falsifies the specified claim or shows that a central premise fails under the stated conditions; premise revision is recorded separately from resolution.",
+    "explicitly_unresolved": "An in-window primary source explicitly states that this same question remains open or reports a direct inconclusive/negative test under relevant conditions. This is not inferred from a failed search.",
+    "unadjudicated": "No directly matching, date-verified evidence has been authenticated, or the match/conditions are ambiguous. Absence of a found paper is not a negative outcome."
+  },
+  "separate_attention_outcome": "Count only dated in-window studies directly engaging the question, not all topical papers or present-day citation totals; do not substitute attention for resolution.",
+  "adjudication_safeguards": [
+    "Never expose follow-up content to historical question wording or Paper 3 features.",
+    "Use source-paper IDs as clustering units; no random split across snapshots or related formulations.",
+    "Keep provenance and conflicting follow-ups; a single different-task result does not settle a broad question.",
+    "Do not score Paper 3 or claim predictive validity until there are enough independently adjudicated labels and a temporal held-out split."
+  ]
+}

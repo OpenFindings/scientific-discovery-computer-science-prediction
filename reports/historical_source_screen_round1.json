@@ -1,0 +1,96 @@
+{
+  "screen_id": "HCS-BLIND-20-SOURCE-ROUND1-2026-10-14",
+  "cohort_id": "HCS-BLIND-20-2026-10-14",
+  "protocol": "research/historical_outcome_label_protocol_v1.json",
+  "selection": "All five 2018 topic cells were attempted first; after the 2018 database exact-version endpoint failed, the already-frozen 2020 database cell was additionally screened. No paper was replaced in the 20-paper cohort.",
+  "method": "Targeted inspection of the original version's introduction, claims/results and limitation/future-work sections; not a claim that every page was independently annotated.",
+  "future_outcomes_searched": false,
+  "summary": {
+    "cohort_total": 20,
+    "rows_screened_or_attempted": 6,
+    "original_fulltexts_section_screened": 5,
+    "eligible_source_questions": 4,
+    "ineligible_completed_or_no_open_question": 1,
+    "original_fulltext_unavailable_on_this_attempt": 1,
+    "remaining_untouched": 14,
+    "direct_future_outcome_labels": 0
+  },
+  "rows": [
+    {
+      "versioned_id": "1810.02720v1",
+      "topic": "ai_generated_code",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1810.02720v1",
+      "source_status": "section_screened",
+      "question_status": "ineligible_no_explicit_unresolved_question",
+      "source_locator": "pp. 1, 5; introduction and conclusion",
+      "source_basis": "The paper reports TRANX results on four tasks and concludes that it is generalizable, extensible and effective. This screen found no specific untested, falsifiable future question in those sections; generalizing its tested claim would be a new question, not a source-stated one.",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1807.07619v1",
+      "topic": "algorithms_complexity",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1807.07619v1",
+      "source_status": "section_screened",
+      "question_status": "eligible_source_open",
+      "source_locator": "pp. 2, 10-11; contributions and section 5, Future Work",
+      "source_basis": "The paper proves fixed-parameter tractability for chordal graphs, but explicitly proposes a Set Cover FPT-reduction showing general graph metric repair is at least W[2]-hard; it presents this as future work, not a theorem already proved here.",
+      "candidate_question": "Is general graph metric repair W[2]-hard when parameterized by the number of modified edges, under the paper's graph and allowed-weight-change definitions?",
+      "candidate_falsification": "A valid FPT algorithm for the general problem under the same parameter/definitions would oppose the hardness conjecture, subject to standard complexity assumptions; a correct parameter-preserving W[2]-hardness reduction would directly support it.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1811.10861v1",
+      "topic": "databases",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1811.10861v1",
+      "source_status": "fulltext_unavailable_on_attempt",
+      "question_status": "unadjudicated_source_unavailable",
+      "source_locator": null,
+      "source_basis": "The exact-version arXiv PDF and abstract endpoints returned an internal retrieval error on this attempt. Search-result metadata alone is not a full-text source screen.",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "2005.07992v1",
+      "topic": "databases",
+      "as_of": "2020-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/2005.07992v1",
+      "source_status": "section_screened",
+      "question_status": "eligible_source_open",
+      "source_locator": "pp. 1, 9; introduction and section 6, Problems and Challenges",
+      "source_basis": "This is explicitly a vision paper, not an implementation evaluation. It identifies maintaining the FD table under data updates and dynamic FD discovery as an open challenge.",
+      "candidate_question": "Can an in-database functional-dependency table be kept correct under base-table updates with lower update-plus-query cost than re-mining the dependencies after every update?",
+      "candidate_falsification": "On frozen update/query traces, an incremental implementation with incorrect FD answers or no measured cost advantage over a matched full re-mining baseline would not support the claim.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1801.07379v1",
+      "topic": "security_privacy",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1801.07379v1",
+      "source_status": "section_screened",
+      "question_status": "eligible_source_open",
+      "source_locator": "p. 6; Conclusion & Future Work, Accurate evaluation of utility",
+      "source_basis": "The review says utility estimates can be inaccurate for stealthy or insider attackers and explicitly calls for deep-learning-based mobile-crowdsensing security robust to those errors.",
+      "candidate_question": "Under stealthy or insider attacks, can a mobile-crowdsensing protection policy retain security utility when its online utility estimates are perturbed, versus a policy without robustness treatment?",
+      "candidate_falsification": "On a specified attack and estimation-error distribution, no improvement in measured security utility at matched protection cost would fail the proposed robustness benefit.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1802.07361v1",
+      "topic": "software_testing",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1802.07361v1",
+      "source_status": "section_screened",
+      "question_status": "eligible_source_open",
+      "source_locator": "pp. 1, 6-7; abstract, threats to validity, conclusions and future work",
+      "source_basis": "The paper already compares weak-mutation, line, branch and random source-test generation and reports an advantage in its study. It explicitly leaves larger codebases and additional strategies for future work; the broad comparison is not an open question at cutoff.",
+      "candidate_question": "Does the weak-mutation source-test advantage in metamorphic testing persist on larger codebases at equal source-test budget, compared with line, branch and random generation?",
+      "candidate_falsification": "Across independent larger-codebase units at equal test budget, no replicated advantage in independently verified distinct fault detection would fail this narrower generalization; mutant kills alone are a proxy.",
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ]
+}

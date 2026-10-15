@@ -50,6 +50,8 @@
 
 **Control loop:** A worker-produced Paper 3 artifact was rejected at first because it touched supervisor-owned `research/state.json`; an independent supervisor reconciliation accepted the artifact's scientific content while preserving the integrity failure. Local activation renewal now resets only the per-activation allowance; lifetime worker count remains append-only. The frozen Paper 4 plan hash is `5159e50f876ec29547b0225b1177e468330bbdd3817e2e466c201d2c4972ce5d`.
 
+**Automatic continuation check (2026-10-15 04:40 UTC):** The loaded launchd supervisor completed six additional bounded activations. Each found no eligible task, started zero workers, and left the exhausted experiment cap unchanged. This confirms queue/ budget restraint, not scientific progress; the campaign remains waiting for a changed Paper 3 endpoint protocol or renewed experiment budget.
+
 **Paper 3 bottleneck diagnosis:** Across 9 unique eligible questions in Rounds 3 and 5, direct labels remain 0/9. Round 4 had follow-up records for all 3 rows but 0 exact endpoint matches; Round 5 had follow-up records for 4/6 rows but 0 exact matches. Retrieval is incomplete, but endpoint/comparator mismatch is the strongest supported explanation. This is descriptive evidence, not causal attribution or prevalence.
 
 **Paper 4 sensitivity:** The independently recomputed A1 strict conditional delta is +0.3435 on 16/20 graphs; a declared structural-missing-zero sensitivity summary is +0.2748 on 20 retained rows. The 4 missing rows are not zero observations. No general QAOA or planning-utility claim follows.

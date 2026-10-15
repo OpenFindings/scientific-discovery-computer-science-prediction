@@ -38,6 +38,42 @@ The [CAM artifact-ablation audit](cam_artifact_ablation_feasibility.json) is a c
 
 ## Control-loop and action-outcome checkpoint (2026-10-15)
 
+## 2026-10-15: Paper 4 prospective pilot produced a setup no-go, not a breakthrough
+
+- **Frozen decision:** The prospective plan selected A2 (3-independent-set postselection) before observing new results. The plan hash and source version were checked independently.
+- **Actual experiment:** An exact NumPy state-vector pilot used 20 seeded simple 3-regular graphs at n=8 and the frozen source parameters. No graph admitted the proposed distance-4 pair, so A2 was **setup-infeasible (0/20)**. The same run had 16 valid source-style distance-3 pairs; their conditional mean delta was **+0.3435 expected satisfied edges** over the unconditioned baseline, with 16/16 positive deltas among the admitted graphs.
+- **Interpretation:** The A1 number is conditional on an admitted subset and has no population-level uncertainty estimate. It is not evidence that postselection generally improves QAOA, and it does not validate Paper 4 planning utility. The independent validation is [`paper4_qaoa_postselection_validation_20261015.json`](paper4_qaoa_postselection_validation_20261015.json).
+- **Next gate:** Either freeze a larger-graph, source-consistent A2 feasibility study or retain the A2 no-go. Independently re-review the raw observations before any extension.
+
+## 2026-10-15: Paper 3 Round 3 is an authenticated no-score increment
+
+- **Actual result:** Four rows were selected source-only from a frozen frame; three were eligible. Bounded follow-up auditing found zero directly adjudicated positive or negative resolution labels, while preserving partial progress and missingness dimensions separately.
+- **Scientific consequence:** No Paper 3 AUC, calibration, probability or breakthrough forecast is estimable. The round changes the observability audit and schedules citation-tracing retrieval Round 4; it does not relabel the original 20-paper cohort.
+
+## 2026-10-15: cross-round diagnosis changes the Paper 3 direction
+
+- **Evidence:** Across 9 unique eligible questions in Rounds 3 and 5 (Round 4 is a re-audit, not new questions), direct labels remain **0/9**. Round 4 had source records for all 3 rows but 0/3 exact endpoint matches; Round 5 had source records for 4/6 rows but 0/4 exact matches.
+- **Diagnosis:** Retrieval coverage is a real limitation, but the strongest supported explanation is scarcity of an exact object + comparator/intervention + metric + falsification-condition tuple in later primary work. Source eligibility and a five-year window are not sufficient explanations; missingness remains distinct from negative outcomes.
+- **Decision:** Freeze a new source-only selection rule requiring a public artifact/comparator and independently checkable endpoint before follow-up search. If the next ≥6-row cohort has ≥5 authenticated follow-ups and still zero exact matches, stop expanding retrieval-focused cohorts under this rubric and move to a separately preregistered experiment.
+
+## 2026-10-15: Avocado feasibility is a bounded no-go for the real endpoint
+
+- **Actual feasibility work:** Avocado 100.0 and its CIT plugin were pinned and both constrained/empty-constraint generator smoke paths ran locally. This did not substitute the source's QEMU model.
+- **Blocker:** qemu/qemu-img, the pinned 192-script qemu-iotests oracle, the industrial five-parameter model, and a distinct held-out configuration model are unavailable. No invalid-configuration recall, invalid-test rate, or matched-cost comparison was computed.
+- **Decision:** This is a real Paper 4 feasibility result and a conditional no-go, not a constrained-testing performance result. Reopen only with an authorized, version-pinned QEMU validation bundle.
+
+## 2026-10-15: Paper 3 stop gate fired; retrieval expansion is no longer the best action
+
+- **New cohort:** Six eligible artifact/comparator-gated questions survived source-only selection. Five of six had authenticated primary follow-up coverage, but exact direct matches remained **0/6**.
+- **Predeclared decision:** The stop gate fired. Paper 3 remains unscored; missingness is not negative resolution. Further cohort expansion under the same rubric is stopped unless the outcome-observation protocol changes.
+- **Next direction:** one endpoint-matched experiment with a pinned oracle and equal-budget comparator arms. The first feasibility audit (null-type mutation) found the package but no usable legacy Java/Python-2 toolchain, so it remains a conditional no-go.
+
+## 2026-10-15: larger-n QAOA A1 robustness result
+
+- **Experiment:** n=10, 20 seeded simple 3-regular graphs, exact NumPy state vectors, frozen source parameters and a no-filter all-graph feasibility gate.
+- **Result:** 20/20 graphs were feasible; 19/20 paired deltas were positive; mean conditioned-minus-unconditioned expected cut was **+0.1972** edges (sample SD 0.0911; descriptive SE 0.0204).
+- **Boundary:** This is evidence for a bounded local effect under one convention, not a general QAOA result, hardware claim, asymptotic result, or Paper 4 utility validation. A second seed would be needed for robustness, but the configured experiment budget is exhausted.
+
 The supervisor audit is now explicit in [`research_control_loop_audit.json`](research_control_loop_audit.json). A historical CAM queue-write conflict had been misclassified as quota because provider-policy text was mixed with the failure signal. Structured quota errors are now required; policy prose is not enough. Canonical state and queue writes remain rejected from workers, while expected derived-lane and launchd-log concurrency is excluded from false conflict reports.
 
 The Paper 4 action-outcome audit is a genuine descriptive increment: five prior actions were provenance-reconciled, with **0 efficacy outcomes, 4 feasibility blockers and 1 conditional future test**. One Badger gate was directionally consistent with its own plan, but the sample has no common immutable pre-action ranking. Therefore planning utility, expected-utility calibration and causal action advantage remain **unvalidated**. The ranking is not promoted to a breakthrough claim.

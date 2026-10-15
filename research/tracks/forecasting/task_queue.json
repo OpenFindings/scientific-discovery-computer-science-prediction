@@ -196,6 +196,7 @@
     },
     {
       "artifact": "reports/historical_observable_cohort_round3.json",
+      "attempts": 2,
       "cost_estimate": 0.55,
       "dependencies": [
         "HISTORICAL-TRAJECTORY-002"
@@ -208,18 +209,260 @@
       ],
       "expected_information_gain": 0.65,
       "failure_handling": "If direct labels remain sparse, preserve missingness and produce a valid no-score decision; do not reinterpret partial progress as resolution.",
-      "max_attempts": 1,
+      "finished_at": "2026-10-15T02:43:17Z",
+      "last_result": {
+        "artifact_bytes": 17850,
+        "artifact_valid": true,
+        "elapsed_seconds": 134.78,
+        "error": "worker changed paths outside declared artifact: research/state.json",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "14e8c66530e00cc203ef5e34d23f6e85f99246a5d4c641e803b6b2705cd27afd",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "scientific_validation_reconciled": true,
+        "session_id": "01a13d6f-3cf9-7770-b779-bc1c131e3955",
+        "timed_out": false
+      },
+      "max_attempts": 2,
       "objective": "Create a new source-only, cutoff-frozen historical CS question mini-cohort from the existing year/topic frame, then audit dated follow-ups under the frozen trajectory rubric; report direct-label yield and missingness without scoring Paper 3 unless valid labels exist.",
       "priority": 78,
       "research_key": "paper3_outcome_observability_round3",
       "scientific_completion": "trajectory_audit",
-      "status": "pending",
+      "scientific_status": "scientifically_completed_after_independent_reconciliation",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:41:02Z",
+      "status": "completed",
       "success_criteria": [
         "new source-only rows and cutoff provenance",
         "dated follow-up audit",
         "direct-label prevalence and Paper 3 gate reported"
       ],
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+      "track": "forecasting",
+      "worker_failure_note": "worker changed a supervisor-owned path",
+      "worker_status": "write_conflict_rejected"
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round4.json",
+      "attempts": 1,
+      "cost_estimate": 0.6,
+      "dependencies": [
+        "PAPER3-OBSERVABILITY-ROUND3-001"
+      ],
+      "execution_requirements": [
+        "Round 3 artifact and independent validation",
+        "citation-tracing sources",
+        "authenticated primary full text where available",
+        "frozen source/outcome cutoff separation"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "Retain missingness when exact intervention, comparator, endpoint or date cannot be authenticated; never turn a failed search into a negative resolution label.",
+      "finished_at": "2026-10-15T02:52:07Z",
+      "last_result": {
+        "artifact_bytes": 15086,
+        "artifact_valid": true,
+        "elapsed_seconds": 143.631,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "7b76f7d95e96111e5e85164be0447da9129770f22d27395486f0f44e54b5b489",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d77-2f98-7403-bb12-e1a9a1c64e09",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "For the three eligible rows in the independently validated Round 3 cohort, run a second frozen retrieval protocol using citation tracing plus authenticated primary full-text access; classify direct resolution, premise revision, partial progress and missingness without changing the original cohort or manufacturing labels.",
+      "priority": 86,
+      "research_key": "paper3_independent_citation_tracing_round4",
+      "scientific_completion": "trajectory_audit",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:49:43Z",
+      "status": "completed",
+      "success_criteria": [
+        "second protocol frozen before follow-up adjudication",
+        "all three rows receive provenance-coded dimension outcomes",
+        "Paper 3 score remains gated unless direct labels exist"
+      ],
+      "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/historical_objective_cohort_round5.json",
+      "attempts": 1,
+      "cost_estimate": 0.7,
+      "dependencies": [
+        "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001"
+      ],
+      "execution_requirements": [
+        "historical metadata frame",
+        "original-version primary full text",
+        "objective endpoint rubric frozen before follow-up",
+        "no hindsight selection"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "If an endpoint is not objectively defined in the source, exclude it from the outcome-observable cohort and retain the exclusion; do not create labels from publication or citation counts.",
+      "finished_at": "2026-10-15T02:55:26Z",
+      "last_result": {
+        "artifact_bytes": 23767,
+        "artifact_valid": true,
+        "elapsed_seconds": 72.282,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "5a782ac2f79967f0147df0d4aa026fdd49239a5bc8f5f98e4a3de9dbbf329697",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d7b-5294-73c1-b622-7776c0081efc",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Construct a fresh source-only historical CS cohort centered on explicit formal conjectures, complexity bounds, program properties or public benchmark targets with objectively checkable endpoints; freeze source definitions before any future-outcome search and report whether outcome observability improves over the prior retrieval-focused cohort.",
+      "priority": 91,
+      "research_key": "paper3_objective_outcome_observable_cohort_round5",
+      "scientific_completion": "trajectory_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:54:14Z",
+      "status": "completed",
+      "success_criteria": [
+        "source-only selection and cutoff provenance",
+        "objective endpoint and falsification rule per retained question",
+        "direct-label yield and missingness reported without Paper 3 scoring when sparse"
+      ],
+      "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/paper3_observability_cause_diagnosis.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001"
+      ],
+      "execution_requirements": [
+        "Round 3/4/5 reports and validation receipts",
+        "original frozen-cohort boundaries",
+        "no hindsight relabeling",
+        "separate direct labels from trajectory dimensions"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "If a cause cannot be distinguished from bounded-search missingness, mark it unidentified; do not choose a cause from intuition or infer a prevalence estimate.",
+      "finished_at": "2026-10-15T02:57:52Z",
+      "last_result": {
+        "artifact_bytes": 14349,
+        "artifact_valid": true,
+        "elapsed_seconds": 84.888,
+        "error": "worker changed paths outside declared artifact: research/state.json",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "7ea2fa9cccd94d00ea64eb7578b70574886452194bce11410dce16171adc1784",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "scientific_validation_reconciled": true,
+        "session_id": "01a13d7d-5bee-7431-9708-391cec71195b",
+        "timed_out": false,
+        "worker_integrity_failure": "worker changed paths outside declared artifact: research/state.json"
+      },
+      "max_attempts": 1,
+      "objective": "Diagnose the direct-label bottleneck across the independently validated Paper 3 rounds without repeating keyword search: compare retrieval coverage, source eligibility, question-definition specificity, outcome-window structure, and trajectory missingness; identify which explanations are empirically supported and freeze the next cohort-selection rule.",
+      "priority": 90,
+      "research_key": "paper3_observability_cause_diagnosis_rounds3_to5",
+      "scientific_completion": "diagnostic_audit",
+      "scientific_status": "scientifically_completed_after_independent_reconciliation",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "diagnostic_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:56:27Z",
+      "status": "completed",
+      "success_criteria": [
+        "cause comparison has explicit denominators and exclusions",
+        "retrieval versus formulation/window explanations are separated",
+        "a changed next-selection rule or explicit stop decision is recorded"
+      ],
+      "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+      "track": "forecasting",
+      "worker_failure_note": "artifact retained; supervisor-owned state write rejected and diagnosis independently reconciled",
+      "worker_status": "write_conflict_rejected"
+    },
+    {
+      "artifact": "reports/paper3_direct_endpoint_cohort_round6.json",
+      "attempts": 1,
+      "cost_estimate": 0.8,
+      "dependencies": [
+        "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001"
+      ],
+      "execution_requirements": [
+        "diagnosis report and frozen selection rule",
+        "year-end-safe frame",
+        "original-version full text",
+        "artifact/comparator/endpoint audit before follow-up"
+      ],
+      "expected_information_gain": 0.85,
+      "failure_handling": "If fewer than six eligible artifact-gated questions survive, report selection attrition and do not use later outcomes to replace them; if the stop gate fires, move to experiment rather than repeating retrieval.",
+      "finished_at": "2026-10-15T03:02:53Z",
+      "last_result": {
+        "artifact_bytes": 18189,
+        "artifact_valid": true,
+        "elapsed_seconds": 114.95,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "c31ec334f0f42062867fe4077e0bd8737228c606ae8635371756e7e01806f065",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d81-7d8e-77c0-a0f0-0a0dbd6fd079",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Apply the frozen PAPER3-DIRECT-ENDPOINT-COHORT-V1 rule to a new source-only cohort: require a public artifact or benchmark, source-pinned comparator, independently checkable endpoint and falsification condition before any future search; then audit dated primary follow-ups and stop expansion if high-coverage exact matching remains zero.",
+      "priority": 92,
+      "research_key": "paper3_direct_endpoint_artifact_gated_cohort_round6",
+      "scientific_completion": "trajectory_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T03:00:58Z",
+      "status": "completed",
+      "success_criteria": [
+        "new source-only rule applied without hindsight",
+        "artifact/comparator/endpoint eligibility recorded",
+        "direct yield and the predeclared stop gate reported"
+      ],
+      "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
       "track": "forecasting"
     }
   ],

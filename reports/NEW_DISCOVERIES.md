@@ -1,5 +1,45 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: frozen Paper 4 action produced an explicit setup infeasibility
+
+- **Experiment:** The pre-frozen A2 action tested a 3-independent-set postselection condition in an exact n=8 state-vector simulation on 20 seeded simple 3-regular graphs.
+- **Result:** The condition had **0/20 feasible graph instances** under the preregistered distance-4 definition. This is a feasibility no-go, not a negative effect estimate. The same run's source-style A1 comparator was available on 16 graphs and had conditional mean delta **+0.3435 expected satisfied edges**, but the admitted-subset denominator and small design prevent a population claim.
+- **What changed:** A candidate Paper 4 action was executed and independently validated; its assumptions were not updated after seeing the result. The result weakens the immediate A2 direction and does not validate Paper 4 planning utility.
+- **Reproducibility:** [`result.json`](../results/qaoa_postselection_pilot_20261015/result.json), [`independent validation`](paper4_qaoa_postselection_validation_20261015.json), and the frozen plan hash in [`paper4_prospective_plan_v1.json`](paper4_prospective_plan_v1.json).
+
+## 2026-10-15: Paper 3 observability expanded without creating labels
+
+- Round 3 independently validated four source-only rows, three eligible, with zero direct resolution labels. Partial progress and missingness remain separate dimensions.
+- This is a changed eligibility/observability decision and a valid no-score result. It is not evidence that the questions were unresolved, and it does not support a Paper 3 forecast metric.
+
+## 2026-10-15: Paper 3 bottleneck is endpoint matching, not just retrieval
+
+- Across nine unique eligible questions in the new rounds, direct labels are **0/9**. In Round 4, all three questions had authenticated or cross-checked follow-up records, yet none matched the frozen object/intervention/comparator/metric/gate tuple. In Round 5, four of six had follow-up source records, yet none matched.
+- **Changed decision:** retrieval remains incomplete and must not be ignored, but the strongest supported bottleneck is that later papers usually change the intervention, comparator, endpoint, or success condition. Eligibility screening and a five-year window did not explain the zero once eligible questions were screened.
+- The next cohort rule now requires source-pinned artifacts/comparators and an independently checkable endpoint before future searching. If that stronger cohort still yields zero exact matches with high authenticated coverage, the direct-label transfer is treated as infeasible under the current Paper 3 rubric.
+- See [`paper3_observability_cause_diagnosis.json`](paper3_observability_cause_diagnosis.json).
+
+## 2026-10-15: QAOA A1 sensitivity shows denominator fragility
+
+- The independent recomputation retained all 20 graphs and verified every raw state-vector field. The strict valid-set A1 estimate is **+0.3435** expected satisfied edges on 16/20 graphs; a predeclared sensitivity coding that retains the four structural-missing rows as zero contributions is **+0.2748**, a 20% reduction.
+- The four rows are structural missingness, not observed zero effects. Therefore the result is a robustness warning about the estimand, not evidence of a general postselection advantage. See [`qaoa_source_baseline_sensitivity_20261015/result.json`](../results/qaoa_source_baseline_sensitivity_20261015/result.json).
+
+## 2026-10-15: Avocado matched endpoint is currently infeasible
+
+- Avocado 100.0 and the public CIT plugin were pinned; constrained and empty-constraint generator smoke paths ran locally. The source-matched QEMU validation oracle, its 192 qemu-iotests scripts, the industrial five-parameter model, and an independent held-out configuration model were not available.
+- **Changed decision:** no real constrained-versus-unconstrained comparison ran. Generator smoke row counts are not a scientific null result. The lead is a bounded conditional no-go until a version-pinned QEMU/model bundle exists.
+
+## 2026-10-15: Paper 3 artifact-gated stop rule fired
+
+- A fresh six-question cohort required source-pinned artifacts, comparators, independently checkable endpoints and falsification rules before follow-up search. Five of six had authenticated primary follow-up coverage; exact object/comparator/metric/gate matches were still **0/6**.
+- **Changed decision:** stop expanding retrieval-focused Paper 3 cohorts under this rubric. No Paper 3 score or negative resolution rate is claimed. The program now requires a separately preregistered endpoint-matched experiment.
+- The subsequent null-type feasibility audit authenticated the paper/package endpoint but found no usable Java 1.5-era build stack or Python-2 driver, so no mutation efficacy run was performed.
+
+## 2026-10-15: larger-n QAOA source-style baseline remains positive in a bounded pilot
+
+- On 20 seeded n=10 simple 3-regular graphs, all predeclared distance-3 conditioning events were feasible. The paired conditioned-minus-unconditioned expected-cut mean was **+0.1972**, with 19 positive and 1 negative graph-level differences.
+- This is a local robustness observation under fixed parameters and graph generation. It does not establish a general advantage or planner utility, and the configured experiment-start budget is now exhausted.
+
 ## 2026-10-15: SERENIoT cross-device test is feasible only with new matched-device evidence
 
 - **Changed scientific decision:** The source and follow-up audit reconciles SERENIoT's native packet-signature majority whitelist with a different follow-up host/domain policy. The follow-up supports device-disjoint evaluation as a design idea, but it does not report SERENIoT false-allow or false-block rates.

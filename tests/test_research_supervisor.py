@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.research_supervisor import classify_failure, scientific_validation
+from scripts.research_supervisor import classify_failure, scientific_validation, proposed_continuations
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPERVISOR = ROOT / "scripts/research_supervisor.py"
@@ -115,6 +115,27 @@ class ResearchSupervisorTests(unittest.TestCase):
         self.assertEqual(self.queue()["tasks"][0]["status"], "completed")
         self.assertEqual(json.loads((self.root / "research/supervisor_state.json").read_text())["status"], "ACTIVE")
 
+    def test_new_activation_renews_allowance_without_resetting_lifetime_count(self):
+        queue = self.queue()
+        queue["tasks"].append({"task_id": "T2", "objective": "second task", "dependencies": ["T1"],
+                                "expected_information_gain": 1, "cost_estimate": 1, "priority": 1,
+                                "status": "pending", "max_attempts": 1,
+                                "success_criteria": ["artifact exists"], "artifact": "results/T2.json"})
+        (self.root / "research/task_queue.json").write_text(json.dumps(queue))
+        first = self.invoke("success")
+        self.assertEqual(first.returncode, 0, first.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["status"], "completed")
+        self.assertEqual(self.queue()["tasks"][1]["status"], "pending")
+        second = self.invoke("success")
+        self.assertEqual(second.returncode, 0, second.stderr)
+        self.assertEqual(self.queue()["tasks"][1]["status"], "completed")
+        state = self.state()
+        self.assertEqual(state["budget_consumption"]["worker_invocations_started"], 2)
+        self.assertEqual(state["budget_consumption"]["activations_started"], 2)
+        supervisor = json.loads((self.root / "research/supervisor_state.json").read_text())
+        self.assertEqual(supervisor["activation"]["worker_invocations"], 1)
+        self.assertGreaterEqual(supervisor["activation"]["renewal_count"], 2)
+
     def test_authentication_failure_is_not_quota(self):
         result = self.invoke("auth")
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -175,6 +196,9 @@ class ResearchSupervisorTests(unittest.TestCase):
         self.assertEqual(len(self.queue()["tasks"]), 1)
         run = self.invoke(args=("--start", "--max-rounds", "2"))
         self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual([t["status"] for t in self.queue()["tasks"]], ["completed", "pending"])
+        resumed = self.invoke(args=("--start", "--max-rounds", "1"))
+        self.assertEqual(resumed.returncode, 0, resumed.stderr)
         self.assertEqual([t["status"] for t in self.queue()["tasks"]], ["completed", "completed"])
         self.assertEqual(self.state()["completed_tasks"], ["T1", "T2"])
         events = [json.loads(x) for x in (self.root / "research/supervisor_events.jsonl").read_text().splitlines()]
@@ -235,6 +259,62 @@ class ResearchSupervisorTests(unittest.TestCase):
         ok, validation = scientific_validation(task, artifact)
         self.assertTrue(ok)
         self.assertTrue(validation["scientific_success"])
+
+    def test_experiment_result_requires_objective_fields(self):
+        task = {"task_id": "EXP-LOCAL", "scientific_completion": "experiment_result"}
+        artifact = {
+            "evidence_tier": "tier_4_local_pilot",
+            "sources_and_data": ["source"],
+            "method": "exact simulation",
+            "uncertainty": ["small sample"],
+            "next_falsifiable_action": "rerun with larger n",
+            "experiment_id": "EXP-LOCAL",
+            "hypothesis": "testable hypothesis",
+            "configuration": {"seed": 1},
+            "metrics": {"outcome": "delta"},
+            "summary": {"delta": 0.1},
+            "falsification_gate": {"status": "falsified_in_pilot"},
+            "limitations": ["bounded"],
+            "observed_result_or_blocker": "bounded result",
+        }
+        ok, validation = scientific_validation(task, artifact)
+        self.assertTrue(ok)
+        self.assertTrue(validation["scientific_success"])
+
+    def test_experiment_reanalysis_requires_all_verification_checks(self):
+        task = {"task_id": "EXP-REVIEW", "scientific_completion": "experiment_reanalysis"}
+        artifact = {
+            "evidence_tier": "tier_4_reanalysis",
+            "sources_and_data": ["raw"],
+            "method": {"verification": {"raw_rows": True, "recomputed_rows": True,
+                                           "all_graph_indices_retained": True,
+                                           "raw_recomputation_matches": True,
+                                           "parameter_tuning_after_pilot": False}},
+            "uncertainty": ["bounded"],
+            "next_falsifiable_action": "larger independent graph sample",
+            "experiment_id": "EXP-REVIEW",
+            "hypothesis": "denominator sensitivity",
+            "observed_result_or_blocker": {"strict": 0.3, "sensitivity": 0.2},
+        }
+        ok, validation = scientific_validation(task, artifact)
+        self.assertTrue(ok)
+        self.assertTrue(validation["scientific_success"])
+
+    def test_candidate_gate_supports_nested_json_field(self):
+        evidence = self.root / "reports/evidence.json"
+        evidence.parent.mkdir()
+        evidence.write_text(json.dumps({"paper3_gate": {"status": "gated_no_score"}}))
+        task = {"task_id": "T2", "research_key": "nested_gate", "objective": "new nested gate task",
+                "dependencies": ["T1"], "expected_information_gain": 0.8, "cost_estimate": 0.4,
+                "priority": 1, "status": "pending", "max_attempts": 1,
+                "artifact": "results/T2.json"}
+        candidates = {"candidates": [{"evidence_artifacts": ["reports/evidence.json"],
+                                       "gate_json_equals": {"path": "reports/evidence.json", "field": "paper3_gate.status", "value": "gated_no_score"},
+                                       "task": task}]}
+        (self.root / "research/task_candidates.json").write_text(json.dumps(candidates))
+        queue = self.queue()
+        queue["tasks"][0]["status"] = "completed"
+        self.assertEqual([t["task_id"] for t in proposed_continuations(self.root, queue)], ["T2"])
 
     def test_lock_blocks_second_supervisor(self):
         with (self.root / "research/.supervisor.lock").open("a+") as lock:

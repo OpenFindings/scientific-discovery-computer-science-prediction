@@ -1,0 +1,1390 @@
+{
+  "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+  "attempt": 1,
+  "experiment_id": "EXP-PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-20261015",
+  "evidence_tier": "tier_4_local_exact_state_vector_pilot_sensitivity_recomputation",
+  "sources_and_data": [
+    {
+      "path": "results/qaoa_postselection_pilot_20261015/result.json",
+      "role": "raw 20-graph pilot observations"
+    },
+    {
+      "path": "reports/paper4_qaoa_pilot_independent_review.json",
+      "role": "independent review and dependency"
+    },
+    {
+      "path": "reports/paper4_prospective_plan_v1.json",
+      "role": "frozen parameters and plan hash"
+    },
+    {
+      "source": "https://arxiv.org/html/2011.05425v1",
+      "role": "source-style QAOA convention"
+    }
+  ],
+  "hypothesis": "The reported A1 gain is sensitive to the predeclared valid-set denominator; under an explicitly defined all-20 structural-missing coding, the paired delta should be lower than the strict 16-row conditional estimate.",
+  "competing_explanations": [
+    "The apparent denominator sensitivity is entirely induced by four graphs lacking an admissible distance-3 pair, rather than by a change in the QAOA computation.",
+    "Zero-coding structural-missing rows is not a scientifically identified all-20 effect and could understate any unobserved conditional outcome."
+  ],
+  "method": {
+    "description": "Independent exact NumPy state-vector recomputation from the retained edges of the same 20 graphs using the same seed-defined graph sample and frozen parameters; recomputed values were checked against every available raw pilot field.",
+    "configuration": {
+      "vertices": 8,
+      "graphs": 20,
+      "seed": 20261015,
+      "beta": -0.7853981633974483,
+      "gamma": 0.7853981633974483,
+      "assignment": "alternating +1,-1",
+      "graph_generator": "rejection-sampled simple 3-regular configuration model"
+    },
+    "valid_set_rule_frozen_before_recomputation": {
+      "name": "strict_complete_case_A1",
+      "definition": "valid iff the same greedy distance-at-least-3 pair exists and exact conditioned expectation is finite with probability > 0",
+      "invalid_rows": "excluded from the conditional A1 estimand but retained in the all-20 sensitivity record"
+    },
+    "sensitivity_rule_frozen_before_recomputation": {
+      "name": "all_20_structural_missing_zero_coding",
+      "definition": "retain all 20 graph rows; valid-row paired deltas enter unchanged; an invalid row has no postselection outcome and contributes an explicit structural-missing code of 0 to the sensitivity sum",
+      "interpretation": "conservative coding sensitivity only, not an all-20 observed-effect estimate"
+    },
+    "metrics": {
+      "primary": "paired expected satisfied-edge delta",
+      "uncertainty_unit": "independent generated graph",
+      "uncertainty_summary": "sample SD and descriptive standard error; no population confidence claim"
+    },
+    "verification": {
+      "raw_rows": 20,
+      "recomputed_rows": 20,
+      "all_graph_indices_retained": true,
+      "raw_recomputation_matches": true,
+      "parameter_tuning_after_pilot": false
+    }
+  },
+  "observed_result_or_blocker": {
+    "strict_valid_set": {
+      "valid_graphs": 16,
+      "denominator": "16/20",
+      "paired_delta": {
+        "n": 16,
+        "mean": 0.3435041777311078,
+        "sample_sd": 0.09348118309114006,
+        "standard_error": 0.023370295772785016
+      },
+      "paired_delta_sum": 5.496066843697725,
+      "positive_deltas": 16
+    },
+    "all_20_sensitivity": {
+      "valid_graphs": 16,
+      "denominator": "20/20 rows retained; 16 observed valid outcomes + 4 structural-missing codes",
+      "paired_delta": {
+        "n": 20,
+        "mean": 0.2748033421848862,
+        "sample_sd": 0.16362108959771193,
+        "standard_error": 0.036586787889306756
+      },
+      "paired_delta_sum": 5.496066843697725,
+      "change_vs_strict_mean": -0.06870083554622158,
+      "relative_to_strict_mean": 0.7999999999999999,
+      "positive_observed_deltas": 16,
+      "structural_missing_rows": 4
+    },
+    "interpretation": "The strict conditional A1 mean remains +0.3435041777311078 on 16/20 graphs. Under the frozen all-20 structural-missing-zero sensitivity coding, the paired-delta mean is lower at +0.2748033421848862; the denominator changes from 16 to 20 rows, a reduction of 0.0687008355462216 expected satisfied edges (20.0% relative reduction). The four invalid rows remain missing structural outcomes, not observed zero-effect graphs."
+  },
+  "uncertainty": [
+    "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
+    "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
+    "The same 20 hash-seeded n=8 simple 3-regular graphs, fixed alternating assignment, beta/gamma, and greedy pair rule were retained; no parameter or graph selection was tuned after observing the pilot.",
+    "This is a local exact state-vector sensitivity result, not source-implementation equivalence, hardware evidence, an asymptotic claim, or Paper 4 planning-utility validation."
+  ],
+  "next_falsifiable_action": "Predeclare a larger graph-family protocol in which the A1 conditioning event is feasible on every sampled graph, then rerun paired exact state-vector outcomes with an independent graph sample and retain graph-level uncertainty; do not treat the four current structural-missing rows as zero outcomes in the primary estimand.",
+  "all_20_graph_outcomes": [
+    {
+      "graph_index": 0,
+      "edges": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.866094447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": null,
+      "postselection_2_expected_cut_recomputed": null,
+      "postselection_2_probability_recomputed": 0.0,
+      "valid_under_strict_rule": false,
+      "paired_delta_recomputed": null,
+      "all_20_sensitivity_contribution": 0.0,
+      "invalid_outcome_code": "structural_missing_no_admissible_A1_pair"
+    },
+    {
+      "graph_index": 1,
+      "edges": [
+        [
+          4,
+          6
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        7
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565843,
+      "postselection_2_probability_recomputed": 0.24999999999999994,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525127847,
+      "all_20_sensitivity_contribution": 0.33703738525127847,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 2,
+      "edges": [
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        1,
+        7
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565843,
+      "postselection_2_probability_recomputed": 0.24999999999999994,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128024,
+      "all_20_sensitivity_contribution": 0.33703738525128024,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 3,
+      "edges": [
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        4
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.24999999999999992,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.337037385251282,
+      "all_20_sensitivity_contribution": 0.337037385251282,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 4,
+      "edges": [
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314565,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        1,
+        4
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.25,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525127935,
+      "all_20_sensitivity_contribution": 0.33703738525127935,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 5,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        5
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.24999999999999997,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128024,
+      "all_20_sensitivity_contribution": 0.33703738525128024,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 6,
+      "edges": [
+        [
+          1,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.866094447314562,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": null,
+      "postselection_2_expected_cut_recomputed": null,
+      "postselection_2_probability_recomputed": 0.0,
+      "valid_under_strict_rule": false,
+      "paired_delta_recomputed": null,
+      "all_20_sensitivity_contribution": 0.0,
+      "invalid_outcome_code": "structural_missing_no_admissible_A1_pair"
+    },
+    {
+      "graph_index": 7,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        3,
+        5
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565843,
+      "postselection_2_probability_recomputed": 0.24999999999999994,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128024,
+      "all_20_sensitivity_contribution": 0.33703738525128024,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 8,
+      "edges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        2
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.24999999999999992,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.337037385251282,
+      "all_20_sensitivity_contribution": 0.337037385251282,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 9,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        2,
+        4
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.24999999999999994,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128024,
+      "all_20_sensitivity_contribution": 0.33703738525128024,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 10,
+      "edges": [
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        2
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.24999999999999992,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128024,
+      "all_20_sensitivity_contribution": 0.33703738525128024,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 11,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.866094447314565,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": null,
+      "postselection_2_expected_cut_recomputed": null,
+      "postselection_2_probability_recomputed": 0.0,
+      "valid_under_strict_rule": false,
+      "paired_delta_recomputed": null,
+      "all_20_sensitivity_contribution": 0.0,
+      "invalid_outcome_code": "structural_missing_no_admissible_A1_pair"
+    },
+    {
+      "graph_index": 12,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.584844447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        1
+      ],
+      "postselection_2_expected_cut_recomputed": 7.722222854549406,
+      "postselection_2_probability_recomputed": 0.2499999999999999,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.13737840723484318,
+      "all_20_sensitivity_contribution": 0.13737840723484318,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 13,
+      "edges": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.7723444473145635,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        3
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565843,
+      "postselection_2_probability_recomputed": 0.24999999999999997,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525127935,
+      "all_20_sensitivity_contribution": 0.33703738525127935,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 14,
+      "edges": [
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.866094447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": null,
+      "postselection_2_expected_cut_recomputed": null,
+      "postselection_2_probability_recomputed": 0.0,
+      "valid_under_strict_rule": false,
+      "paired_delta_recomputed": null,
+      "all_20_sensitivity_contribution": 0.0,
+      "invalid_outcome_code": "structural_missing_no_admissible_A1_pair"
+    },
+    {
+      "graph_index": 15,
+      "edges": [
+        [
+          5,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        3,
+        4
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.2499999999999999,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.337037385251282,
+      "all_20_sensitivity_contribution": 0.337037385251282,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 16,
+      "edges": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.959844447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        3
+      ],
+      "postselection_2_expected_cut_recomputed": 8.600009490259522,
+      "postselection_2_probability_recomputed": 0.24999999999999997,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.6401650429449575,
+      "all_20_sensitivity_contribution": 0.6401650429449575,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 17,
+      "edges": [
+        [
+          4,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314564,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        0,
+        4
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565843,
+      "postselection_2_probability_recomputed": 0.25,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525127847,
+      "all_20_sensitivity_contribution": 0.33703738525127847,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 18,
+      "edges": [
+        [
+          4,
+          7
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.772344447314563,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        1,
+        6
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565843,
+      "postselection_2_probability_recomputed": 0.25,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128024,
+      "all_20_sensitivity_contribution": 0.33703738525128024,
+      "invalid_outcome_code": null
+    },
+    {
+      "graph_index": 19,
+      "edges": [
+        [
+          1,
+          5
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "baseline_expected_cut_recomputed": 7.7723444473145635,
+      "a1_pair_distance_rule": "greedy pair with graph distance >= 3",
+      "a1_pair": [
+        1,
+        2
+      ],
+      "postselection_2_expected_cut_recomputed": 8.109381832565845,
+      "postselection_2_probability_recomputed": 0.24999999999999997,
+      "valid_under_strict_rule": true,
+      "paired_delta_recomputed": 0.33703738525128113,
+      "all_20_sensitivity_contribution": 0.33703738525128113,
+      "invalid_outcome_code": null
+    }
+  ]
+}

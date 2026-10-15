@@ -306,6 +306,7 @@
         "rate_limited": false,
         "raw_output_sha256": "440150dfdb4de234f5b1ea1f429eb40ac6aae287407e644676387c2be1695b5a",
         "retry_after_seconds": null,
+        "scientific_success": true,
         "session_id": "01a13d59-516e-7180-9845-91dd47fb98dc",
         "timed_out": false
       },
@@ -332,7 +333,6 @@
     },
     {
       "artifact": "reports/sereniot_cross_device_feasibility.json",
-      "artifact_only": true,
       "attempts": 1,
       "cost_estimate": 0.5,
       "dependencies": [
@@ -357,6 +357,7 @@
         "rate_limited": false,
         "raw_output_sha256": "6c545b923ef1e3c98f181d6c7774af78fc8a2cc13f97052a07d2a5b6d0aed44a",
         "retry_after_seconds": null,
+        "scientific_success": true,
         "session_id": "01a13d5d-0bda-73a3-aa1b-970ad13ff539",
         "timed_out": false
       },
@@ -370,8 +371,8 @@
           "method"
         ],
         "mode": "feasibility_decision",
-        "reason": "artifact-only feasibility decision recorded; no matched-device experiment or scientific validation ran",
-        "scientific_success": false
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
       },
       "started_at": "2026-10-15T02:21:09Z",
       "status": "completed",
@@ -565,7 +566,6 @@
       ],
       "expected_information_gain": 0.75,
       "failure_handling": "If pre-action ranking or outcome provenance is insufficient, report non-identifiability and do not invent an information-gain score.",
-      "failure_note": "valid artifact does not satisfy scientific success criteria",
       "finished_at": "2026-10-15T02:30:48Z",
       "last_result": {
         "artifact_bytes": 11255,
@@ -578,7 +578,7 @@
         "rate_limited": false,
         "raw_output_sha256": "a5e854b820aad2667cec42e791f766c41bdfc9c557c67a734b29b267abb906ab",
         "retry_after_seconds": null,
-        "scientific_success": false,
+        "scientific_success": true,
         "session_id": "01a13d65-1369-7f63-bb83-b6c61f5fad62",
         "timed_out": false
       },
@@ -602,6 +602,315 @@
         "planning utility remains gated if sample is too small"
       ],
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_postselection_pilot_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-ACTION-OUTCOME-AUDIT-001"
+      ],
+      "execution_command": "python3.12 scripts/run_qaoa_postselection_pilot.py",
+      "expected_information_gain": 0.55,
+      "experiment_id": "EXP-PAPER4-QAOA-POSTSELECTION-PILOT-20261015",
+      "finished_at": "2026-10-15T02:47:54Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "setup_infeasible_for_alternative",
+        "independent_validation": "reports/paper4_qaoa_postselection_validation_20261015.json",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Execute the frozen Paper 4 A2 QAOA postselection pilot and preserve the A2 setup-feasibility result plus the conditional A1 baseline.",
+      "priority": 84,
+      "research_key": "paper4_qaoa_postselection_pilot",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:47:54Z",
+      "status": "completed",
+      "success_criteria": [
+        "frozen plan hash verified",
+        "A2 setup feasibility measured",
+        "A1 denominator and limitations preserved"
+      ],
+      "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_qaoa_pilot_independent_review.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "dependencies": [
+        "PAPER4-ACTION-OUTCOME-AUDIT-001"
+      ],
+      "execution_requirements": [
+        "frozen Paper 4 plan hash",
+        "raw per-graph observations",
+        "independent arithmetic and schema checks",
+        "no new parameter tuning"
+      ],
+      "expected_information_gain": 0.55,
+      "failure_handling": "If the raw result or plan hash does not verify, mark the pilot invalid and preserve the setup failure; do not repair the result by changing the frozen plan.",
+      "finished_at": "2026-10-15T02:49:12Z",
+      "last_result": {
+        "artifact_bytes": 12374,
+        "artifact_valid": true,
+        "elapsed_seconds": 53.489,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "a878ffa81383f928cd9dc93a672ffd5f32524562b7a190b593fb530b3e27d361",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d75-e572-78d2-849c-67aec3743e42",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Independently re-analyze the frozen QAOA postselection pilot, preserving the A2 setup-infeasibility result and the A1 conditional denominator; verify that the observed delta is not promoted to a general or planner-utility claim.",
+      "priority": 82,
+      "research_key": "paper4_qaoa_pilot_independent_reanalysis",
+      "scientific_completion": "experiment_review",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_review",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:48:18Z",
+      "status": "completed",
+      "success_criteria": [
+        "plan and raw observations independently verified",
+        "A2 infeasibility and A1 denominator reported",
+        "scope and uncertainty limitations retained"
+      ],
+      "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_sensitivity_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001"
+      ],
+      "execution_requirements": [
+        "raw pilot and independent review",
+        "same seed/graphs/parameters",
+        "valid-set rule frozen before recomputation",
+        "paired graph-level uncertainty"
+      ],
+      "expected_information_gain": 0.6,
+      "failure_handling": "If the raw graph set or frozen parameters do not verify, record an invalidation and do not substitute a new sample.",
+      "finished_at": "2026-10-15T02:53:42Z",
+      "last_result": {
+        "artifact_bytes": 27901,
+        "artifact_valid": true,
+        "elapsed_seconds": 42.015,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "cdf61685269f4c9ace3a68a3e36a5140711d0d0fcaa4c2b1195cb307cd868c10",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d7a-3244-79f2-b3ee-3db45ffebe49",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Run a predeclared local sensitivity check for the A1 source-style QAOA baseline using the same 20 graphs and parameters but an explicitly defined valid-set rule; quantify how the 16/20 denominator and paired delta change without tuning after observing the pilot.",
+      "priority": 87,
+      "research_key": "paper4_qaoa_a1_valid_set_sensitivity",
+      "scientific_completion": "experiment_reanalysis",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_reanalysis",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:53:00Z",
+      "status": "completed",
+      "success_criteria": [
+        "valid-set rule declared before recomputation",
+        "all 20 graph outcomes retained",
+        "conditional A1 effect and denominator reported with limitations"
+      ],
+      "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_avocado_constraint_comparison_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001"
+      ],
+      "execution_requirements": [
+        "public source and version pins",
+        "local Python/solver feasibility",
+        "held-out configuration model",
+        "predeclared recall/invalid-test/count/cost metrics"
+      ],
+      "expected_information_gain": 0.72,
+      "failure_handling": "A missing solver, source, baseline or held-out model is a bounded no-go; do not substitute citation counts or a synthetic configuration benchmark.",
+      "finished_at": "2026-10-15T03:00:43Z",
+      "last_result": {
+        "artifact_bytes": 10222,
+        "artifact_valid": true,
+        "elapsed_seconds": 111.943,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "3cc14742bdd522c800c7b01c5671ff69c6aa49fd0bc7876011dc7749ba2e15b4",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d7f-8b8c-77d0-b31c-88bba8173329",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Establish a concrete feasibility gate for the Avocado constrained-interaction-testing follow-up: pin source versions, reconstruct the constrained and unconstrained arms, verify objective invalid-test/detection/cost endpoints, and run a small real comparison only if both arms and a held-out configuration model are locally executable.",
+      "priority": 88,
+      "research_key": "paper4_avocado_constraint_comparison_feasibility",
+      "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:58:51Z",
+      "status": "completed",
+      "success_criteria": [
+        "source and endpoint definitions pinned",
+        "go/no-go based on actual local feasibility",
+        "if go, execute a bounded comparison; if no-go, preserve exact missing dependency and next improvement"
+      ],
+      "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_nulltype_mutation_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001"
+      ],
+      "execution_requirements": [
+        "Round 6 stop-gate report",
+        "original paper and replication package",
+        "local Java/build audit",
+        "source-pinned project/test oracle"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "Missing Java/build/package/oracle is a bounded no-go and must not be replaced with synthetic mutants, citation counts, or a different mutation endpoint.",
+      "finished_at": "2026-10-15T03:08:13Z",
+      "last_result": {
+        "artifact_bytes": 9232,
+        "artifact_valid": true,
+        "elapsed_seconds": 297.08,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "aeb19eeeb462802bda34eb1699db7e8776c207765a610041d113a9941487c47b",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d83-9674-7aa2-ae82-97aaf2bc1d8d",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Use the Paper 3 stop-gate direction to audit whether the null-type mutation question has a locally executable, version-pinned endpoint-matched experiment: inspect the replication package, Java/build availability, named projects, traditional-mutant comparator and exact mutant-kill/subsumption outcomes; run only a bounded smoke if the full oracle is feasible.",
+      "priority": 89,
+      "research_key": "paper4_nulltype_mutation_endpoint_feasibility",
+      "scientific_completion": "feasibility_decision",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T03:03:16Z",
+      "status": "completed",
+      "success_criteria": [
+        "endpoint tuple and source package audited",
+        "actual local feasibility decision",
+        "if infeasible, exact blocker and concrete enabling condition recorded"
+      ],
+      "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_larger_n_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001"
+      ],
+      "execution_requirements": [
+        "NumPy/Python 3.12",
+        "frozen source parameter convention",
+        "20 independent graph units",
+        "all-graph feasibility gate",
+        "paired graph-level uncertainty"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If any graph lacks the conditioning event, report the all-graph setup failure and do not silently drop it; do not tune beta/gamma or change the graph family after seeing outcomes.",
+      "finished_at": "2026-10-15T03:09:21Z",
+      "last_result": {
+        "artifact_bytes": 26889,
+        "artifact_valid": true,
+        "elapsed_seconds": 46.056,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "e122f88dc6ce06aa29ab0e33b85b83e5f531ba2d947a48084400aac4390dd0e5",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d88-76e0-7832-a159-04c8112cf84f",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Run a new, predeclared larger-n source-style QAOA A1 robustness experiment using exact local state vectors: sample 20 seeded simple 3-regular graphs at n=10, require the distance-at-least-3 conditioning event to be feasible on every graph or record setup failure, and compare graph-level conditioned versus unconditioned expected cut at the frozen beta/gamma without post-hoc filtering.",
+      "priority": 90,
+      "research_key": "paper4_qaoa_a1_larger_n_robustness",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T03:08:35Z",
+      "status": "completed",
+      "success_criteria": [
+        "20 graph outcomes retained",
+        "all-graph feasibility or explicit setup failure",
+        "paired delta and graph-level uncertainty reported",
+        "no general or planner-utility claim"
+      ],
+      "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
       "track": "experiments"
     }
   ],

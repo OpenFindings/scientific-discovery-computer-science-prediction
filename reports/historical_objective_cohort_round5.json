@@ -1,0 +1,300 @@
+{
+  "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
+  "attempt": "1/1",
+  "evidence_tier": "tier_3_source_only_selection_plus_bounded_primary_followup; no_direct_outcome_labels",
+  "cohort_id": "HCS-OBJECTIVE-ROUND5-6-2026-10-15",
+  "objective": "Construct a fresh historical CS cohort whose frozen questions have objectively checkable formal, program-property, security-policy, or benchmark endpoints, then test whether direct outcome observability improves over the prior retrieval-focused cohort.",
+  "selection_provenance": {
+    "source_frame": "data/historical_cs_year_topic_frame.jsonl",
+    "source_frame_audit": "reports/broad_cs_historical_audit.json",
+    "source_frame_scope": "arXiv-derived year/topic frame with year-end-safe metadata; latest metadata records revised after the year end were excluded from the frame.",
+    "sampling_seed": "cs-history-year-topic-2026-10-14-v1",
+    "selection_rule": "The fixed source frame was sampled before source-section eligibility screening. No later citation, outcome, benchmark result, or present-day popularity feature was used for selection; ineligible source-screen rows were retained in the denominator of the source-screen audit.",
+    "source_screen_inputs": [
+      "reports/historical_observable_source_screen_round5.json",
+      "reports/historical_observable_source_screen_round6.json"
+    ],
+    "followup_input": "reports/historical_evidence_trajectory_round2.json",
+    "followup_cutoff_rule": "For each row, only primary evidence first public strictly after the row cutoff and no later than the fixed five-year followup end was admissible. Search was bounded; non-detection is missingness, never a negative label.",
+    "prior_comparison": "reports/historical_observable_cohort_round4.json"
+  },
+  "frozen_protocol": {
+    "protocol_id": "HCS-OBJECTIVE-OUTCOME-ROUND5-V1-2026-10-15",
+    "freeze_order": [
+      "select source-frame rows",
+      "inspect cutoff-version primary full text",
+      "retain only a source-grounded open direction with a fixed object/property, comparator or baseline, measurable endpoint, and falsification gate",
+      "seal the question and endpoint",
+      "search the fixed future window",
+      "verify dated primary full text and classify dimensions independently"
+    ],
+    "source_definition": "An eligible question must be explicitly grounded in the inspected cutoff-version primary paper's open problem, formal property, complexity branch, security policy/property, program property, or public benchmark target. Reviewer-created generalizations are ineligible.",
+    "direct_outcome_rule": "Direct support or refutation requires a dated primary source matching the frozen object, intervention or comparator, endpoint, and success/falsification condition. A different task, proxy metric, implementation-only follow-up, same-team case study, or adjacent benchmark is not direct resolution.",
+    "dimension_labels": [
+      "direct_scientific_resolution",
+      "premise_refutation_or_revision",
+      "partial_progress",
+      "independent_evidence_strengthening",
+      "contradictory_evidence",
+      "scope_narrowing_or_reformulation",
+      "continued_explicit_uncertainty"
+    ],
+    "falsification_rule": "Each row's claim fails when the prespecified endpoint shows no benefit/non-inferiority or violates its fixed safety, correctness, generalization, or complexity condition. Absence of an admissible result is not falsification.",
+    "paper3_gate": "Do not fit or score Paper 3 because the direct outcome class has zero positive and zero negative labels and all six direct outcomes remain unadjudicated."
+  },
+  "rows": [
+    {
+      "versioned_id": "1905.02597v1",
+      "title": "Explainable Software Bot Contributions: Case Study of Automated Bug Fixes",
+      "topic": "program_repair_verification",
+      "as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "source": {
+        "primary_full_text": "https://arxiv.org/pdf/1905.02597v1",
+        "first_public_date": "2019-05-07",
+        "locator": "PDF pp. 1-2; pp. 6-8; conclusion",
+        "source_basis": "The source explicitly proposes an explainable repair package containing a patch, explanation, and behavioral-difference example, and identifies explanation clarity/patch essence as an open evaluation direction."
+      },
+      "frozen_question": "For automated repair proposals from the same repair bot, does attaching a natural-language explanation plus a concrete behavioral-difference example improve blinded reviewer acceptance or time-to-decision compared with a patch-only proposal, at matched patch correctness and review workload?",
+      "objective_endpoint": "Blinded reviewer acceptance, understanding, and time-to-decision on identical patch units with patch correctness held constant.",
+      "falsification_gate": "No prespecified improvement, or a penalty after controlling for patch correctness, fails the proposed communication benefit; explanation preference without an acceptance, understanding, or time endpoint is insufficient.",
+      "followup_observed": "A 2023 primary study rated LLM-generated explanations for 30 Defects4J patches, reporting explanation correctness/completeness, but had no patch-only control and no reviewer acceptance or decision-time endpoint.",
+      "followup_sources": [
+        {
+          "title": "Evaluating Explanations for Software Patches Generated by Large Language Models",
+          "first_public_date": "2023-12-08",
+          "url": "https://solar.cs.ucl.ac.uk/pdf/SSBSE_23_Challenge_Track__Explanations_for_GI_Final.pdf",
+          "locator": "PDF pp. 1-5",
+          "classification": "partial_progress_on_explanation_quality_only"
+        }
+      ],
+      "dimensions": {
+        "direct_scientific_resolution": "not_observed_after_bounded_search",
+        "premise_refutation_or_revision": "not_observed_after_bounded_search",
+        "partial_progress": "supported",
+        "independent_evidence_strengthening": "not_observed_after_bounded_search",
+        "contradictory_evidence": "not_observed_after_bounded_search",
+        "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+        "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+      },
+      "direct_outcome_status": "unadjudicated",
+      "uncertainty": "The follow-up assessed explanation content on a small patch set, not the frozen causal presentation comparison.",
+      "next_falsifiable_action": "Run a preregistered patch-only versus explainable-package reviewer experiment with identical patches, blinded randomization, acceptance/understanding/time endpoints, and independent reviewers."
+    },
+    {
+      "versioned_id": "2005.00972v1",
+      "title": "Repairing Deep Neural Networks: Fix Patterns and Challenges",
+      "topic": "program_repair_verification",
+      "as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "source": {
+        "primary_full_text": "https://arxiv.org/pdf/2005.00972v1",
+        "first_public_date": "2020-05-03",
+        "locator": "PDF p. 1; pp. 10-11, conclusion/future work",
+        "source_basis": "The source identifies DNN-aware repair/localization, dimension-mismatch regressions, and vulnerability-introducing fixes as unresolved directions."
+      },
+      "frozen_question": "On held-out DNN bug-fix instances, does a DNN-aware repair/localization intervention reduce incorrect or vulnerability-introducing patches relative to a code-only repair baseline while preserving verified bug-fix success?",
+      "objective_endpoint": "Project-disjoint verified fix success, regression rate, and security-relevant regression rate.",
+      "falsification_gate": "No reduction in independently verified regressions at non-inferior fix success, or a reduction that disappears under project-disjoint evaluation, fails the DNN-aware value claim.",
+      "followup_observed": "DeepDiagnosis studied diagnosis and recommendations without automated fixes; a 2023 DNN architecture-repair benchmark compared repair methods on performance repair and found random baselines competitive in some settings. Neither tested the frozen DNN-aware versus code-only regression/security comparison.",
+      "followup_sources": [
+        {
+          "title": "DeepDiagnosis: Automatically Diagnosing Faults and Recommending Actionable Fixes in Deep Learning Programs",
+          "first_public_date": "2021-12-07",
+          "url": "https://wardat.github.io/files/DeepDiagnosis.pdf",
+          "locator": "PDF p. 1; pp. 9-10",
+          "classification": "partial_progress_and_scope_narrowing_to_diagnosis"
+        },
+        {
+          "title": "Repairing DNN Architecture: Are We There Yet?",
+          "first_public_date": "2023-01-27",
+          "url": "https://jinhan.me/assets/files/papers/Kim2022ak.pdf",
+          "locator": "PDF pp. 3-5 and conclusion",
+          "classification": "partial_progress_on_performance_repair_not_security_regression"
+        }
+      ],
+      "dimensions": {
+        "direct_scientific_resolution": "not_observed_after_bounded_search",
+        "premise_refutation_or_revision": "not_observed_after_bounded_search",
+        "partial_progress": "supported",
+        "independent_evidence_strengthening": "not_observed_after_bounded_search",
+        "contradictory_evidence": "not_observed_after_bounded_search",
+        "scope_narrowing_or_reformulation": "supported",
+        "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+      },
+      "direct_outcome_status": "unadjudicated",
+      "uncertainty": "The follow-ups use different intervention boundaries and endpoints; their method comparisons cannot be interpreted as causal evidence about vulnerability-introducing patches.",
+      "next_falsifiable_action": "Evaluate project-disjoint DNN repair units with code-only and DNN-aware arms, verified fix/regression/security checks, and independent model/data units."
+    },
+    {
+      "versioned_id": "1805.02751v2",
+      "title": "Security and Privacy Analyses of Internet of Things Children's Toys",
+      "topic": "security_privacy",
+      "as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "source": {
+        "primary_full_text": "https://arxiv.org/pdf/1805.02751v2",
+        "first_public_date": "2018-05-07",
+        "cutoff_version": "v2, public before the 2018 year-end cutoff",
+        "locator": "PDF pp. 1-3 and future-work discussion",
+        "source_basis": "The source analyzes three connected toys and explicitly motivates auditing more toys and mapping vague privacy policies to verifiable technical properties."
+      },
+      "frozen_question": "Across a preregistered sample of connected children's toys, can an automated policy-to-property audit recover the same objectively verifiable privacy and network-security violations as independent manual analysis while reducing analyst effort without increasing false negatives?",
+      "objective_endpoint": "Violation recall, false-positive rate, and analyst time against an independently blinded manual audit on the same firmware/network traces.",
+      "falsification_gate": "The automation fails if recall is materially lower, false positives exceed the predeclared margin, or analyst-time savings disappear after ambiguous policy language is reviewed.",
+      "followup_observed": "The bounded search found no primary follow-up matching the automated policy-to-property versus manual audit with the frozen recall, false-positive, and effort endpoints.",
+      "followup_sources": [],
+      "dimensions": {
+        "direct_scientific_resolution": "not_observed_after_bounded_search",
+        "premise_refutation_or_revision": "not_observed_after_bounded_search",
+        "partial_progress": "not_observed_after_bounded_search",
+        "independent_evidence_strengthening": "not_observed_after_bounded_search",
+        "contradictory_evidence": "not_observed_after_bounded_search",
+        "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+        "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+      },
+      "direct_outcome_status": "unadjudicated",
+      "uncertainty": "Later toy-risk syntheses and regulatory guidance were not primary controlled tests of the frozen audit comparison; search non-detection is not evidence of openness or failure.",
+      "next_falsifiable_action": "Freeze a larger toy sample, policy-to-property ontology, blinded manual adjudication, and recall/false-positive/effort margins before running the audit."
+    },
+    {
+      "versioned_id": "2003.02892v1",
+      "title": "SERENIoT: Collaborative Network Security Policy Management and Enforcement for Smart Homes",
+      "topic": "security_privacy",
+      "as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "source": {
+        "primary_full_text": "https://arxiv.org/pdf/2003.02892v1",
+        "first_public_date": "2020-03-05",
+        "locator": "PDF pp. 2-3 and pp. 21-22",
+        "source_basis": "The source explicitly leaves collaborative whitelist convergence under richer behavior and adversarial observations open, with observable policy and security/performance tradeoffs."
+      },
+      "frozen_question": "For heterogeneous smart-home devices with software-update and adversarial-traffic regimes, can collaborative whitelist learning converge to a stable permitted-connection set while keeping false blocking and attacker-injected allowance below predeclared thresholds?",
+      "objective_endpoint": "Convergence time, false-block rate, attacker-allowance rate, and policy size against a fixed manufacturer/local-observation baseline.",
+      "falsification_gate": "Failure to converge within the fixed horizon, or either false blocking or attacker allowance exceeding the fixed safety margin relative to baseline, falsifies the claim.",
+      "followup_observed": "A 2022 public dissertation explicitly narrowed the unresolved issue to cross-device traffic/policy generalization and field robustness, but did not provide a matched collaborative-whitelist test with the frozen metrics.",
+      "followup_sources": [
+        {
+          "title": "Making Interactions With Home IoT Devices More Secure, Private, and Usable",
+          "first_public_date": "2022-07-07",
+          "url": "https://mailman.cs.uchicago.edu/mailman/public/cs/attachments/20220707/a4ebadef/attachment-0001.pdf",
+          "locator": "discussion of allowlist generalization and SERENIoT",
+          "classification": "scope_narrowing_not_direct_resolution"
+        }
+      ],
+      "dimensions": {
+        "direct_scientific_resolution": "not_observed_after_bounded_search",
+        "premise_refutation_or_revision": "not_observed_after_bounded_search",
+        "partial_progress": "not_observed_after_bounded_search",
+        "independent_evidence_strengthening": "not_observed_after_bounded_search",
+        "contradictory_evidence": "not_observed_after_bounded_search",
+        "scope_narrowing_or_reformulation": "supported",
+        "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+      },
+      "direct_outcome_status": "unadjudicated",
+      "uncertainty": "The dissertation date is a public mailing-list date bound rather than an independently authenticated deposit date, and it cannot supply a direct efficacy label.",
+      "next_falsifiable_action": "Run device-disjoint benign/update/adversarial traces with frozen convergence and safety thresholds, comparing collaborative and local/manufacturer policies."
+    },
+    {
+      "versioned_id": "1903.05387v1",
+      "title": "Towards an Automated Unified Framework to Run Applications for Combinatorial Interaction Testing",
+      "topic": "software_testing",
+      "as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "source": {
+        "primary_full_text": "https://arxiv.org/pdf/1903.05387v1",
+        "first_public_date": "2019-03-13",
+        "locator": "PDF pp. 1-3; p. 10 conclusion and solver plan",
+        "source_basis": "The source explicitly plans constraint handling through a solver and evaluates a public combinatorial interaction-testing framework on configuration spaces."
+      },
+      "frozen_question": "On constrained virtual-machine configuration spaces, does adding solver-backed constraint handling to Avocado reduce invalid or redundant test executions while preserving or improving detection of invalid configurations relative to unconstrained t-way generation?",
+      "objective_endpoint": "Invalid-configuration detection recall, executed-test count, invalid-test rate, and wall-clock cost on the same configuration models.",
+      "falsification_gate": "No reduction in invalid/redundant executions at non-inferior detection recall, or a benefit that disappears on held-out configuration models, falsifies practical value.",
+      "followup_observed": "A 2020 Avocado follow-up reports solver-backed constrained interaction testing and an industrial-scale application, but the bounded primary record does not authenticate a matched unconstrained baseline with the frozen detection and cost endpoints.",
+      "followup_sources": [
+        {
+          "title": "Avocado: Open-Source Flexible Constrained Interaction Testing for Practical Application",
+          "first_public_date": "2020-02-02",
+          "url": "https://arxiv.org/pdf/2002.00390",
+          "locator": "abstract and implementation/evaluation sections",
+          "classification": "partial_progress_on_constraint_handling; same-project lineage"
+        }
+      ],
+      "dimensions": {
+        "direct_scientific_resolution": "not_observed_after_bounded_search",
+        "premise_refutation_or_revision": "not_observed_after_bounded_search",
+        "partial_progress": "supported",
+        "independent_evidence_strengthening": "not_observed_after_bounded_search",
+        "contradictory_evidence": "not_observed_after_bounded_search",
+        "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+        "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+      },
+      "direct_outcome_status": "unadjudicated",
+      "uncertainty": "The follow-up is same-project lineage and implementation/case-study evidence; exact configuration models and matched baseline denominators were not authenticated for the direct endpoint.",
+      "next_falsifiable_action": "Pin both Avocado versions and run a held-out configuration-model comparison of solver-constrained and unconstrained generation with exact recall, invalid-test, count, and cost denominators."
+    },
+    {
+      "versioned_id": "2007.03275v1",
+      "title": "An Advanced Approach for Choosing Security Patterns and Checking their Implementation",
+      "topic": "software_testing",
+      "as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "source": {
+        "primary_full_text": "https://arxiv.org/pdf/2007.03275v1",
+        "first_public_date": "2020-07-07",
+        "locator": "PDF pp. 1-3; pp. 16-17 conclusion/future work",
+        "source_basis": "The source checks LTL behavioral properties for Web applications and explicitly identifies applications/patterns lacking UML sequence diagrams as an unresolved generalization boundary."
+      },
+      "frozen_question": "Can the security-pattern checking approach generalize from UML-sequence-diagram-supported Web applications to applications or patterns lacking those diagrams by using code annotations, while preserving independently verified behavioral-property detection precision and recall?",
+      "objective_endpoint": "Project-disjoint behavioral-property detection precision and recall, annotation effort, and runtime.",
+      "falsification_gate": "Generalization fails if precision or recall falls beyond the predeclared margin, annotations cannot be independently checked, or the result depends on the design projects.",
+      "followup_observed": "The bounded search found adjacent security-pattern detection and conceptual pattern work, but no primary result matching the proposed annotation representation against the UML-sequence-diagram pipeline on independently checked properties.",
+      "followup_sources": [],
+      "dimensions": {
+        "direct_scientific_resolution": "not_observed_after_bounded_search",
+        "premise_refutation_or_revision": "not_observed_after_bounded_search",
+        "partial_progress": "not_observed_after_bounded_search",
+        "independent_evidence_strengthening": "not_observed_after_bounded_search",
+        "contradictory_evidence": "not_observed_after_bounded_search",
+        "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+        "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+      },
+      "direct_outcome_status": "unadjudicated",
+      "uncertainty": "Adjacent detection frameworks differ in input representation, intervention, and endpoints; they are not direct evidence for or against the frozen question.",
+      "next_falsifiable_action": "Implement and preregister an annotation-versus-UML representation comparison on project-disjoint applications/patterns with independent property labels and fixed precision/recall margins."
+    }
+  ],
+  "observed_result": {
+    "selected_source_rows": 6,
+    "source_eligible_questions": 6,
+    "source_ineligible_rows_in_combined_16_row_frame": 4,
+    "direct_resolution_positive": 0,
+    "direct_resolution_negative": 0,
+    "direct_label_yield": "0/6",
+    "direct_label_missingness": "6/6 direct outcomes unadjudicated; no search failure was converted into a negative label",
+    "partial_progress_supported": 3,
+    "scope_narrowing_supported": 2,
+    "independent_evidence_strengthening_supported": 0,
+    "contradictory_evidence_supported": 0,
+    "continued_explicit_uncertainty_supported": 0,
+    "descriptive_zero_yield_two_sided_95_percent_cp_upper_bound": 0.459,
+    "comparison_with_prior_retrieval_focused_cohort": {
+      "prior_artifact": "reports/historical_observable_cohort_round4.json",
+      "prior_selected_eligible_questions": 3,
+      "prior_direct_label_yield": "0/3",
+      "fresh_direct_label_yield": "0/6",
+      "direct_outcome_observability_improved": false,
+      "interpretation": "Doubling the eligible-question count and using more explicitly objective source endpoints did not produce an observed direct positive or negative label. The fresh cohort improves endpoint specification and records structured partial/scope trajectories, but not direct outcome observability."
+    }
+  },
+  "uncertainty": [
+    "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
+    "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
+    "Follow-up retrieval was bounded and cannot distinguish true absence from inaccessible or undiscovered evidence.",
+    "Partial progress and scope narrowing are not direct resolution, refutation, or Paper 3 labels.",
+    "The descriptive binomial interval is not a population prevalence estimate and no Paper 3 scoring, calibration, or forecast accuracy is claimed."
+  ],
+  "next_falsifiable_action": "Run one or more preregistered, endpoint-matched follow-ups beginning with solver-constrained Avocado testing or SERENIoT cross-device policy evaluation; retain direct missingness unless a dated primary result matches the frozen object, comparator, metric, and falsification gate.",
+  "negative_or_null_preserved": true,
+  "state_queue_ledger_status": "not edited; supervisor-owned checkpoints untouched"
+}

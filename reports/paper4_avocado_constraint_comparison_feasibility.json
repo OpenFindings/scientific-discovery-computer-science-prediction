@@ -1,0 +1,134 @@
+{
+  "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
+  "attempt": 1,
+  "evidence_tier": "tier_3_public_source_and_local_feasibility_audit; no_comparison_outcome",
+  "objective": "Establish whether a matched solver-constrained versus unconstrained Avocado CIT comparison is locally executable with a held-out configuration model and predeclared invalid-configuration endpoints.",
+  "decision": {
+    "go_no_go": "no_go_for_real_comparison",
+    "basis": "Both generator arms are locally runnable from a public version pin, but the source-matched QEMU configuration oracle, its pinned validation corpus, and a held-out configuration model are not locally available. The available Avocado example files are demonstrations, not the source's industrial QEMU model, and were not substituted as a scientific benchmark."
+  },
+  "sources_and_data": [
+    {
+      "role": "original_primary_source",
+      "title": "Towards an Automated Unified Framework to Run Applications for Combinatorial Interaction Testing",
+      "version": "arXiv:1903.05387v1",
+      "date": "2019-03-13",
+      "url": "https://arxiv.org/abs/1903.05387v1",
+      "pdf_sha256": "7171ceebcb4f1afd37d86ad03508d1517cff9b0809a2040c397ad4663866bba7",
+      "locators": ["§5.1–§5.3", "Table 1", "Table 2"],
+      "inspected": true,
+      "observations": [
+        "The SUT is QEMU block-layer configuration checking with five parameters and 200 full configurations (5^2 × 2^3).",
+        "A configuration is valid only if all 192 validation scripts pass; otherwise it is invalid.",
+        "The reported endpoints are generated/ executed suite size, total execution time, and detected invalid configurations across t-way strengths; no constrained-versus-unconstrained comparison is reported.",
+        "The paper identifies qemu-iotests as the validation-script source but does not pin a repository commit or release in the inspected version."
+      ]
+    },
+    {
+      "role": "constrained_follow_up_primary_source",
+      "title": "Avocado: Open-Source Flexible Constrained Interaction Testing for Practical Application",
+      "version": "arXiv:2002.00390v1",
+      "date": "2020-02-02",
+      "url": "https://arxiv.org/abs/2002.00390v1",
+      "pdf_sha256": "af45ac2530917d42346f8522bc251fc05d8428ccfd0a25d92d64ec660954712e",
+      "locators": ["§III", "§IV.A–§IV.B", "Fig. 2"],
+      "inspected": true,
+      "observations": [
+        "The follow-up implements constrained CIT in Avocado using forbidden tuples derived from CNF constraints and a randomized covering-suite search.",
+        "The follow-up defines a valid generated test case as one containing no forbidden tuple; it does not report the frozen matched detection/cost comparison against unconstrained generation on the original QEMU oracle."
+      ]
+    },
+    {
+      "role": "public_implementation_pin",
+      "repository": "https://github.com/avocado-framework/avocado",
+      "version": "tag 100.0",
+      "tag_object_sha": "5b38de9206785e6827084ba4c2fc8c056643c859",
+      "commit_sha": "ba4ed0d5a117aee5bf094b49425667518ae220f9",
+      "plugin_version": "avocado-framework-plugin-varianter-cit==100.0",
+      "plugin_source": "optional_plugins/varianter_cit",
+      "docs_url": "https://avocado-framework.readthedocs.io/en/100.0/plugins/optional/varianter_cit.html",
+      "inspected": true,
+      "observations": [
+        "The plugin's setup pins the plugin to the same Avocado version.",
+        "Solver.py is local Python code using itertools; no external SMT solver is required by this plugin implementation."
+      ]
+    },
+    {
+      "role": "public_example_models_used_only_for_smoke",
+      "source_urls": [
+        "https://raw.githubusercontent.com/avocado-framework/avocado/100.0/examples/varianter_cit/params.cit",
+        "https://raw.githubusercontent.com/avocado-framework/avocado/100.0/examples/varianter_cit/test_params.cit"
+      ],
+      "sha256": {
+        "params.cit": "5bcf2c5bb0ab4cbf436ac3013c0cbd080e4554d56767eab608799b1bc55e9b58",
+        "test_params.cit": "256c7bf76b58bc6a7dbcae53466da20496d5874246d69e9ef6e2e8e7f3df655a"
+      },
+      "inspected": true,
+      "use": "generator feasibility smoke only; not treated as the QEMU industrial model or held-out scientific data"
+    }
+  ],
+  "frozen_question_and_endpoints": {
+    "question": "On constrained virtual-machine configuration spaces, does solver-backed constraint handling reduce invalid or redundant test executions while preserving or improving detection of invalid configurations relative to unconstrained t-way generation?",
+    "arms": [
+      "constrained: Avocado 100.0 CIT varianter with the frozen CNF constraints",
+      "unconstrained: the same Avocado 100.0 CIT generator and t-way strength with an empty constraint set"
+    ],
+    "primary_metrics": {
+      "invalid_configuration_detection_recall": "detected invalid configurations / all invalid configurations in the frozen QEMU validation universe; invalid means at least one of the 192 pinned validation scripts fails",
+      "executed_test_count": "number of generated configuration variants sent to the runner, with the same t-way strength and test-runner accounting in both arms",
+      "invalid_test_rate": "invalid executed variants / executed variants",
+      "wall_clock_cost": "generation plus execution plus oracle-validation wall time under the same machine and run protocol"
+    },
+    "falsification_gate": "No reduction in invalid or redundant executions at non-inferior detection recall, or a benefit that disappears on a held-out configuration model, falsifies practical value."
+  },
+  "method": {
+    "predeclared_protocol": [
+      "Pin Avocado/plugin at 100.0 and retain the original source version and follow-up version as provenance, not as executable outcomes.",
+      "Use identical parameter domains, t-way strength, runner, oracle, seed policy, and cost accounting in both arms.",
+      "Freeze a public source-matched training model and a distinct held-out configuration model before generation; do not infer invalidity from the generator's constraint file alone.",
+      "Report recall, executed count, invalid-test rate, and wall-clock cost with exact denominators; preserve zero and missing outcomes."
+    ],
+    "local_commands_and_checks": [
+      "Created disposable /tmp/avocado-feas-venv-100 with Python 3.12.15.",
+      "Installed avocado-framework==100.0 and avocado-framework-plugin-varianter-cit==100.0; Avocado reported 100.0.",
+      "Ran constrained and empty-constraint generator smoke paths at t=2 on the two public example .cit files; no QEMU execution or endpoint result was claimed."
+    ],
+    "held_out_requirement": "A second, source-authenticated configuration model with its own pinned domains/constraints and independently runnable oracle is required; the two example .cit files are not accepted as that model because they are demonstration inputs and do not contain the QEMU validation corpus."
+  },
+  "observed_result_or_blocker": {
+    "generator_smoke": {
+      "status": "completed_feasibility_smoke_only",
+      "models": {
+        "params.cit": {
+          "parameter_sizes": [4, 3, 3, 3, 2, 5, 5, 5, 5],
+          "constraint_count": 4,
+          "constrained": {"rows": 29, "invalid_rows_under_source_constraints": 0, "wall_seconds": 3.305083208717406},
+          "unconstrained_empty_constraint": {"rows": 28, "invalid_rows_under_source_constraints": 0, "wall_seconds": 3.0264937090687454}
+        },
+        "test_params.cit": {
+          "parameter_sizes": [4, 3, 3, 3, 2],
+          "constraint_count": 3,
+          "constrained": {"rows": 9, "invalid_rows_under_source_constraints": 0, "wall_seconds": 0.2185939997434616},
+          "unconstrained_empty_constraint": {"rows": 12, "invalid_rows_under_source_constraints": 0, "wall_seconds": 0.15825737500563264}
+        }
+      },
+      "interpretation": "Both arms execute locally, but this smoke does not measure invalid-configuration detection recall, invalid-test rate under the QEMU oracle, or a valid held-out comparison. The zero invalid rows in the smoke is not a scientific null result."
+    },
+    "blockers": [
+      "qemu-img and qemu are absent from the local environment.",
+      "The 192 qemu-iotests validation scripts and their exact source revision are absent locally and are not pinned by the inspected 1903.05387v1 source.",
+      "The industrial QEMU parameter/constraint model needed to reproduce the constrained arm is not released as a version-pinned .cit artifact in the inspected public Avocado 100.0 source tree.",
+      "No independently authenticated held-out configuration model plus executable oracle is available locally.",
+      "Therefore invalid-test rate and detection recall cannot be computed without inventing an oracle or substituting a synthetic benchmark."
+    ],
+    "comparison_executed": false,
+    "negative_or_null_preserved": "No efficacy result, recall estimate, invalid-test-rate estimate, or constrained-versus-unconstrained scientific comparison was observed. This is a bounded feasibility no-go, not evidence that constrained Avocado is ineffective."
+  },
+  "uncertainty": [
+    "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
+    "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
+    "A future QEMU/qemu-iotests checkout could make the experiment feasible if the exact model, constraints, oracle, held-out model, and compatible runtime are pinned together.",
+    "The Paper 4 planning information-gain estimate (0.72) was not treated as observed scientific value."
+  ],
+  "next_falsifiable_action": "Acquire or construct an authorized, version-pinned QEMU model and validation bundle: pin the qemu-iotests commit, qemu-img/QEMU build, five parameter domains, industrial constraints, and a distinct held-out configuration model. Then preregister equal-seed constrained/empty-constraint arms at fixed t, run the same 192-script oracle, and compute recall, executed count, invalid-test rate, and wall-clock cost. Stop without a comparison if any artifact or held-out oracle remains missing."
+}

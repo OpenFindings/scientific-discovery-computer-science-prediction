@@ -2,8 +2,8 @@
   "audit_id": "research_control_loop_2026-10-15",
   "scope": "supervisor_events, scientific completion gates, bounded worker continuation, quota recovery, launchd",
   "historical_event_audit": {
-    "event_rows_at_audit": 13,
-    "worker_result_rows": 10,
+    "event_rows_at_audit": 62,
+    "worker_result_rows": 19,
     "historical_false_quota_rows": [
       {
         "task_id": "CAM-TRANSFER-FEAS-001",
@@ -46,8 +46,8 @@
     }
   },
   "mock_provider_recovery": {
-    "focused_supervisor_tests": 18,
-    "full_unittest_suite": 59,
+    "focused_supervisor_tests": 22,
+    "full_unittest_suite": 64,
     "passed": true,
     "covered": [
       "structured rate_limit_exceeded pauses without completing the task",
@@ -72,14 +72,21 @@
       "last_exit_code": 0,
       "state_after_bounded_exit": "not running",
       "interpretation": "the job is loaded and restart-capable; not running after a bounded successful run is expected, not a failed persistent-service assertion"
-    }
+      }
+    },
+    "latest_kickstart_observation": {
+      "runs_before": 6,
+      "runs_after": 7,
+      "last_exit_code": 0,
+      "state_after_bounded_exit": "not running",
+      "lock_conflict_observation": "Earlier exit code 3 events correspond to a concurrent manual activation holding the campaign lock; a kickstart after the worker queue was idle exited 0."
   },
   "autonomous_continuation": {
-    "forecasting_successor": "PAPER3-OBSERVABILITY-ROUND3-001",
-    "forecasting_successor_status": "pending",
-    "experiments_successor_generation": "Paper 4 action-outcome audit was evidence-gated and completed; its next falsifiable prospective plan is stored in the artifact",
-    "current_worker_budget": "exhausted without bypass",
-    "next_state": "paused_worker_budget",
-    "scientific_claim": "control loop now distinguishes scheduling and artifact completion from validated scientific completion; no breakthrough or Paper 3 predictive score is claimed"
+    "forecasting_successor": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+    "forecasting_successor_status": "completed_stop_gate_fired",
+    "experiments_successor_generation": "QAOA A1 larger-n robustness completed; Avocado and null-type endpoint audits recorded conditional no-go results",
+    "current_worker_budget": "per-activation allowance renewed 12 times; lifetime worker count 19 remains append-only; configured experiment-start cap exhausted at 8",
+    "next_state": "waiting_for_eligible_task",
+    "scientific_claim": "control loop distinguishes scheduling, artifact completion, independent reconciliation, and validated scientific completion; no Paper 3 predictive score or general breakthrough claim is made"
   }
 }

@@ -1,0 +1,212 @@
+{
+  "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+  "attempt": "2/2",
+  "evidence_tier": "tier_3_source_only_selection_and_dated_follow_up_audit; no_direct_outcome_labels",
+  "artifact_scope": "Fresh additive mini-cohort only. Existing blind and 16-paper observable cohorts were excluded and not modified.",
+  "cohort": {
+    "cohort_id": "HCS-OBSERVABLE-ROUND3-4-2026-10-15",
+    "selection_frame": "data/historical_cs_year_topic_frame.jsonl",
+    "selection_seed": "hcs-observable-round3-2026-10-15-v1",
+    "selection_rule": "One hash-priority title-eligible, year-end-valid frame row per topic, after excluding all rows in data/historical_cs_blind_cohort_20.jsonl, data/historical_cs_observable_cohort_16.jsonl, and the four prior pilot IDs. Selection used only frame metadata, title regex, topic, year, version/update dates, and deterministic hash priority; no follow-up search or outcome feature was used.",
+    "topics": ["algorithms_complexity", "program_repair_verification", "security_privacy", "software_testing"],
+    "years_selected": [2020, 2017, 2020, 2019],
+    "cutoff_rule": "Publication-year end recorded in the frame; requested arXiv version had updated <= cutoff. Follow-up window is strictly after cutoff through cutoff year plus five years inclusive.",
+    "selected_rows": [
+      {
+        "versioned_id": "2011.05425v1",
+        "arxiv_id": "2011.05425",
+        "title": "Improving the Quantum Approximate Optimization Algorithm with postselection",
+        "sampling_topic": "algorithms_complexity",
+        "as_of": "2020-12-31T23:59:59Z",
+        "followup_end": "2025-12-31T23:59:59Z",
+        "frame_published": "2020-11-10T22:17:50Z",
+        "frame_updated": "2020-11-10T22:17:50Z",
+        "source_url": "https://arxiv.org/html/2011.05425v1",
+        "source_screen": {
+          "status": "eligible_source_open",
+          "locator": "arXiv v1, abstract and Sections 5-8; conclusion at HTML lines 614-618 / PDF conclusion section",
+          "question": "For depth-1 QAOA MaxCut on typical random 3-regular graphs, do postselection schemes using configurations beyond the paper's 2-independent-set construction produce a reproducible improvement in satisfied-edge fraction over unconditioned depth-1 QAOA at comparable sampling/state-preparation cost?",
+          "object_comparator_metric": "Postselected depth-1 QAOA with an alternative classically tractable configuration versus unconditioned depth-1 QAOA; satisfied-edge fraction, improvement, and conditioning/simulation cost.",
+          "falsification_gate": "The proposed extension fails if the alternative configuration does not improve the satisfied-edge fraction beyond the prespecified margin at matched graph family and cost, or if improvement is only an artifact of changed graph/depth/conditioning assumptions.",
+          "source_basis": "The source states that 2-independent-set postselection is the simplest analyzable case, that other configurations may provide more insight, and that other initial-state changes should be explored; it does not settle those alternatives."
+        },
+        "followup_audit": {
+          "status": "partial_progress_only; direct_outcome_unadjudicated",
+          "search_date_utc": "2026-10-15",
+          "queries": ["Improving the Quantum Approximate Optimization Algorithm with postselection follow-up", "QAOA postselection alternative initial state 2021 2022 2023"],
+          "dimensions": {
+            "direct_scientific_resolution": "not_observed_after_bounded_search",
+            "premise_refutation_or_revision": "not_observed_after_bounded_search",
+            "partial_progress": "supported",
+            "independent_evidence_strengthening": "not_observed_after_bounded_search",
+            "contradictory_evidence": "not_observed_after_bounded_search",
+            "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+            "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+          },
+          "evidence": [
+            {
+              "title": "Recursive greedy initialization of the quantum approximate optimization algorithm with guaranteed improvement",
+              "url": "https://arxiv.org/abs/2209.01159",
+              "first_public_date": "2022-09-02",
+              "locator": "arXiv abstract and stated theorem/result summary",
+              "observed_scope": "A distinct team studies a different QAOA initialization strategy and reports a guarantee that energy decreases with increasing depth. It is relevant broader evidence that changing QAOA initialization can improve performance, but it does not test postselection, the 2-independent-set comparator, the frozen random-3-regular-graph endpoint, or matched conditioning cost.",
+              "classification": "partial_progress_on_broader_initial_state_modification_only",
+              "independence": "Distinct author team from the cutoff source."
+            }
+          ],
+          "excluded_near_matches": [
+            "The 2022 recursive-greedy result was not counted as direct resolution or contradiction because intervention and endpoint differ.",
+            "Search-visible later QAOA initialization and hardware papers were not upgraded without an authenticated definition-matched primary full-text result."
+          ],
+          "unadjudicated_direct_outcome": true
+        }
+      },
+      {
+        "versioned_id": "1710.11054v1",
+        "arxiv_id": "1710.11054",
+        "title": "Semantic Code Repair using Neuro-Symbolic Transformation Networks",
+        "sampling_topic": "program_repair_verification",
+        "as_of": "2017-12-31T23:59:59Z",
+        "followup_end": "2022-12-31T23:59:59Z",
+        "frame_published": "2017-10-30T16:32:45Z",
+        "frame_updated": "2017-10-30T16:32:45Z",
+        "source_url": "https://arxiv.org/html/1710.11054v1",
+        "source_screen": {
+          "status": "eligible_source_open",
+          "locator": "arXiv v1, Sections 6-8; future-work statements at HTML lines 181-203 / PDF conclusion section",
+          "question": "On held-out real-world semantic bug-fix instances, does an iterative decoder or broader learned bug-type coverage improve exact repair accuracy and multi-bug exact accuracy over the cutoff paper's one-pass Share-Specialize-Compete decoder at matched data and evaluation protocol?",
+          "object_comparator_metric": "The cutoff SSC semantic-repair model versus an iterative-decoder or expanded-bug-type successor; exact repair accuracy, multi-bug F-score/exact accuracy, and held-out real-bug performance.",
+          "falsification_gate": "The extension fails if it does not improve the prespecified exact-repair endpoint at matched data/protocol, or if gains occur only on synthetic injected bugs and not held-out real bugs.",
+          "source_basis": "The source explicitly says the reported decoder is single-pass and lists an iterative decoder and broader bug-type coverage as future work; it reports separate synthetic multi-bug and real-bug limitations."
+        },
+        "followup_audit": {
+          "status": "no_authenticated_definition_matched_followup; direct_outcome_unadjudicated",
+          "search_date_utc": "2026-10-15",
+          "queries": ["Semantic Code Repair using Neuro-Symbolic Transformation Networks iterative decoder", "neuro-symbolic code repair broader bug types 2018 2019 2020 2021 2022"],
+          "dimensions": {
+            "direct_scientific_resolution": "not_observed_after_bounded_search",
+            "premise_refutation_or_revision": "not_observed_after_bounded_search",
+            "partial_progress": "not_observed_after_bounded_search",
+            "independent_evidence_strengthening": "not_observed_after_bounded_search",
+            "contradictory_evidence": "not_observed_after_bounded_search",
+            "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+            "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+          },
+          "evidence": [],
+          "excluded_near_matches": [
+            "Neurosymbolic Repair for Low-Code Formula Languages (arXiv:2207.11765, 2022-07-24) is a different repair domain, language, comparator, and endpoint; it was not counted as a direct result.",
+            "Search-visible later neural/code-repair papers did not provide an authenticated same-model iterative-decoder or broader-bug-type comparison within the fixed window."
+          ],
+          "unadjudicated_direct_outcome": true
+        }
+      },
+      {
+        "versioned_id": "2003.07630v2",
+        "arxiv_id": "2003.07630",
+        "title": "Privacy-preserving Weighted Federated Learning within Oracle-Aided MPC Framework",
+        "sampling_topic": "security_privacy",
+        "as_of": "2020-12-31T23:59:59Z",
+        "followup_end": "2025-12-31T23:59:59Z",
+        "frame_published": "2020-03-17T14:39:51Z",
+        "frame_updated": "2020-04-08T07:04:39Z",
+        "source_url": "https://arxiv.org/html/2003.07630v2",
+        "source_screen": {
+          "status": "ineligible_no_single_source_grounded_open_question",
+          "locator": "arXiv v2, abstract and Sections 3-4 / PDF pp. 1-10",
+          "question": null,
+          "source_basis": "The inspected version presents a three-server oracle-aided MPC construction and a composition-style security argument, but does not leave one uniquely defined unresolved question with a fixed comparator, measurable endpoint, and falsification condition. Creating a later benchmark question would be reviewer-created rather than source-only.",
+          "future_outcome_status": "sealed_not_searched"
+        },
+        "followup_audit": {
+          "status": "not_searched_by_protocol_because_ineligible",
+          "unadjudicated_direct_outcome": null,
+          "note": "This row remains in the selected denominator and documents source-screen attrition; no hindsight label is assigned."
+        }
+      },
+      {
+        "versioned_id": "1909.04368v1",
+        "arxiv_id": "1909.04368",
+        "title": "Automatic difficulty management and testing in games using a framework based on behavior trees and genetic algorithms",
+        "sampling_topic": "software_testing",
+        "as_of": "2019-12-31T23:59:59Z",
+        "followup_end": "2024-12-31T23:59:59Z",
+        "frame_published": "2019-09-10T13:36:00Z",
+        "frame_updated": "2019-09-10T13:36:00Z",
+        "source_url": "https://arxiv.org/html/1909.04368v1",
+        "source_screen": {
+          "status": "eligible_source_open",
+          "locator": "arXiv v1, Section V-B and Section VI; HTML lines 316-326 / PDF pp. 8-9",
+          "question": "In game behavior-tree testing, does a formal exploit-reporting mechanism reduce human effort while preserving or improving independently verified detection of logic exploits over the cutoff paper's tree-width/height heuristic and manual review?",
+          "object_comparator_metric": "Formal exploit-reporting mechanism versus the cutoff heuristic/manual review; exploit-detection recall, false-positive rate, and analyst effort on held-out behavior trees.",
+          "falsification_gate": "The formal mechanism fails if it does not preserve detection recall at a prespecified margin, increases false positives beyond the margin, or does not reduce analyst effort on held-out behavior trees.",
+          "source_basis": "The source reports 19 defects found by automated testing, states that formal reporting of exploit-like behaviors is future work, and says the current width/height formula can be fooled by exploit-like behavior."
+        },
+        "followup_audit": {
+          "status": "no_authenticated_definition_matched_followup; direct_outcome_unadjudicated",
+          "search_date_utc": "2026-10-15",
+          "queries": ["Automatic difficulty management testing games behavior trees formal exploit reporting", "behavior tree genetic algorithm game testing exploit reporting 2020 2021 2022 2023"],
+          "dimensions": {
+            "direct_scientific_resolution": "not_observed_after_bounded_search",
+            "premise_refutation_or_revision": "not_observed_after_bounded_search",
+            "partial_progress": "not_observed_after_bounded_search",
+            "independent_evidence_strengthening": "not_observed_after_bounded_search",
+            "contradictory_evidence": "not_observed_after_bounded_search",
+            "scope_narrowing_or_reformulation": "not_observed_after_bounded_search",
+            "continued_explicit_uncertainty": "not_observed_after_bounded_search"
+          },
+          "evidence": [],
+          "excluded_near_matches": [
+            "RiverGame (Paduraru et al., ICST 2022, DOI 10.1109/ICST53961.2022.00048) is a dated same-team game-testing follow-up lead, but the inspected search-visible material did not authenticate a full-text result for the frozen formal-exploit-reporting comparator and endpoint.",
+            "Game-testing surveys and later computer-vision/agent-testing papers use different interventions and endpoints; they are not direct resolution or contradiction."
+          ],
+          "unadjudicated_direct_outcome": true
+        }
+      }
+    ]
+  },
+  "method": {
+    "source_only_order": ["select from frame", "verify cutoff/version provenance", "inspect cutoff primary source", "lock question/object/comparator/metric/gate", "search dated follow-ups", "verify directness and date", "assign dimensions independently"],
+    "trajectory_rubric": "research/historical_evidence_trajectory_protocol_v1.json",
+    "hindsight_control": "No source row was replaced after follow-up searching; ineligible and unadjudicated rows remain in the denominator; absence of a hit is not a negative label.",
+    "followup_search": "Bounded title/question searches on 2026-10-15 through each row's fixed five-year endpoint; only the QAOA partial-progress primary result was sufficiently authenticated for a positive non-direct dimension. No direct resolution/refutation was inferred from topical similarity."
+  },
+  "observed_result": {
+    "selected_rows": 4,
+    "source_eligible_questions": 3,
+    "source_ineligible_rows": 1,
+    "followup_audited_eligible_questions": 3,
+    "direct_resolution_positive": 0,
+    "direct_resolution_negative": 0,
+    "direct_label_yield": "0/3 eligible questions; 0/4 selected rows if counting source-ineligible rows in the denominator",
+    "direct_label_prevalence": {"positive": 0.0, "negative": 0.0, "two_sided_95_percent_clopper_pearson_interval_for_each_zero_yield": [0.0, 0.707598], "interval_note": "Descriptive exact binomial interval only; this hash-priority mini-cohort is not a random sample of CS and the two direct classes are unobserved, not balanced labels."},
+    "trajectory_dimension_counts_over_3_eligible_rows": {
+      "direct_scientific_resolution_supported": 0,
+      "premise_refutation_or_revision_supported": 0,
+      "partial_progress_supported": 1,
+      "independent_evidence_strengthening_supported": 0,
+      "contradictory_evidence_supported": 0,
+      "scope_narrowing_or_reformulation_supported": 0,
+      "continued_explicit_uncertainty_supported": 0,
+      "direct_outcome_unadjudicated": 3
+    },
+    "missingness": {
+      "source_screen_missing_or_ineligible": "1/4 selected rows is source-ineligible; no follow-up search was permitted for that row.",
+      "direct_outcome_missing_among_eligible": "3/3 eligible rows have no authenticated direct positive or negative outcome.",
+      "by_topic": {"algorithms_complexity": {"eligible": 1, "direct_labels": 0, "unadjudicated": 1}, "program_repair_verification": {"eligible": 1, "direct_labels": 0, "unadjudicated": 1}, "security_privacy": {"eligible": 0, "direct_labels": 0, "source_ineligible": 1}, "software_testing": {"eligible": 1, "direct_labels": 0, "unadjudicated": 1}},
+      "by_cutoff_year": {"2017": {"eligible": 1, "direct_labels": 0, "unadjudicated": 1}, "2019": {"eligible": 1, "direct_labels": 0, "unadjudicated": 1}, "2020": {"eligible": 1, "direct_labels": 0, "unadjudicated": 1, "source_ineligible_additional": 1}}
+    }
+  },
+  "paper3_gate": {
+    "status": "gated_no_score",
+    "reason": "There are zero directly adjudicated positive outcomes and zero directly adjudicated negative outcomes. No temporally grouped holdout has a valid class contrast, so Paper 3 forecast metrics, calibration, or transfer claims are not estimable.",
+    "not_claimed": ["No prevalence for CS research questions", "No negative resolution rate", "No Paper 3 forecast score", "No evidence that missing follow-ups imply unresolved science"]
+  },
+  "uncertainty": [
+    "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
+    "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
+    "The QAOA partial-progress record concerns a broader initial-state strategy, not the frozen postselection comparator; it must not be promoted to direct resolution.",
+    "The exact binomial interval describes the observed eligible-row yield only and is not a scientific prevalence estimate."
+  ],
+  "next_falsifiable_action": "For the three eligible questions, freeze a second independent retrieval protocol with citation tracing and authenticated primary full-text access; for QAOA test alternative postselection configurations on the same random 3-regular graph family at matched state-preparation/sampling cost, for semantic repair compare a pinned iterative decoder against the v1 SSC baseline on held-out real multi-bug instances, and for game testing compare formal exploit reports against the width/height heuristic and blinded manual review. Stop or retain missingness if exact comparators, endpoints, or dated primary artifacts cannot be verified.",
+  "negative_or_null_preserved": true
+}

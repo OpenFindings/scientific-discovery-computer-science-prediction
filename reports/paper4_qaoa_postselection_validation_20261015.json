@@ -1,0 +1,24 @@
+{
+  "validation_id": "VALIDATE-EXP-PAPER4-QAOA-POSTSELECTION-PILOT-20261015",
+  "input": "results/qaoa_postselection_pilot_20261015/result.json",
+  "checks": {
+    "experiment_id": true,
+    "frozen_plan_id": true,
+    "frozen_plan_hash": true,
+    "plan_hash_recomputes": true,
+    "observation_count": true,
+    "independent_unit_is_graph": true,
+    "a2_setup_no_go_is_explicit": true,
+    "a2_has_no_valid_rows": true,
+    "a1_denominator_is_preserved": true,
+    "no_nan_payload": true,
+    "uncertainty_and_next_action_present": true,
+    "limitations_present": true
+  },
+  "all_checks_pass": true,
+  "scientific_interpretation": "A2 is a setup-feasibility no-go at the preregistered n=8 graph family; A1 is a conditional source-style baseline observation. Neither establishes a breakthrough or Paper 4 planning utility.",
+  "unresolved": [
+    "A2 feasibility at larger n or under a source-consistent conditioning definition was not tested.",
+    "The A1 positive delta is conditional on 16 admitted graphs and has no population-level uncertainty estimate."
+  ]
+}

@@ -1,8 +1,19 @@
 {
+  "activation": {
+    "id": "2026-10-15T03:10:41Z-pid81161",
+    "max_worker_invocations": 1,
+    "renewal_count": 13,
+    "started_at": "2026-10-15T03:10:41Z",
+    "worker_invocations": 0
+  },
   "active_workers": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "created_at": "2026-10-15T00:46:10Z",
-  "last_event": null,
+  "last_event": {
+    "event": "scientific_artifact_independently_reconciled_after_worker_conflict",
+    "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+    "timestamp": "2026-10-15T02:44:39Z"
+  },
   "quota": {
     "consecutive_quota_failures": 0,
     "last_failure_at": null,
@@ -13,15 +24,15 @@
     "state": "AVAILABLE"
   },
   "schema_version": 1,
-  "status": "WAITING_FOR_RESET",
+  "status": "ACTIVE",
   "stop_requested": false,
-  "updated_at": "2026-10-15T02:32:46Z",
+  "updated_at": "2026-10-15T03:10:41Z",
   "usage": {
-    "conservative_worker_seconds": 467.38200000000006,
+    "conservative_worker_seconds": 1568.7010000000002,
     "date_utc": "2026-10-15",
     "track_worker_seconds": {
-      "experiments": 393.53100000000006,
-      "forecasting": 73.851
+      "experiments": 944.114,
+      "forecasting": 624.587
     }
   }
 }

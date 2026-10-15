@@ -73,11 +73,88 @@
       "result": "{'observed': ['The source and follow-up endpoint definitions are reconciled and materially differ in policy construction.', 'The follow-up supplies a device-disjoint split concept and demonstrates that cross-device transfer is measurable, but its reported results do not provide SERENIoT false-allow/false-block estimates.', 'A low-cost matched-device test is conceptually feasible with packet capture and a small lab, provided legitimate and attack labels are frozen independently.'], 'blockers': ['The IoT Inspector historical corpus is not publicly downloadable from the inspected sources and requires permission/IRB access.', \"The follow-up's anonymized analysis/firewall repository was not resolvable from the cited dissertation text, and a verified SERENIoT runnable artifact was not found in the inspected original paper.\", 'No matched physical-device traces, ground-truth attack traces, or current endpoint labels were available in this workspace, so no experiment was executed.'], 'negative_"
     },
     {
+      "artifact": "reports/historical_observable_cohort_round3.json",
+      "evidence_level": "tier_3_source_only_selection_and_dated_follow_up_audit; no_direct_outcome_labels",
+      "experiment_id": "AUDIT-PAPER3-OBSERVABILITY-ROUND3-001",
+      "limitation": "['The frame is a bounded hash-priority title-filtered selection, not a population-random sample.', 'Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.', 'The QAOA partial-progress record concerns a broader initial-state strategy, not the frozen postselection comparator; it must not be promoted to direct resolution.', 'The exact binomial interval describes the observed eligible-row yield only",
+      "result": "{'selected_rows': 4, 'source_eligible_questions': 3, 'source_ineligible_rows': 1, 'followup_audited_eligible_questions': 3, 'direct_resolution_positive': 0, 'direct_resolution_negative': 0, 'direct_label_yield': '0/3 eligible questions; 0/4 selected rows if counting source-ineligible rows in the denominator', 'direct_label_prevalence': {'positive': 0.0, 'negative': 0.0, 'two_sided_95_percent_clopper_pearson_interval_for_each_zero_yield': [0.0, 0.707598], 'interval_note': 'Descriptive exact binomial interval only; this hash-priority mini-cohort is not a random sample of CS and the two direct classes are unobserved, not balanced labels.'}, 'trajectory_dimension_counts_over_3_eligible_rows': {'direct_scientific_resolution_supported': 0, 'premise_refutation_or_revision_supported': 0, 'partial_progress_supported': 1, 'independent_evidence_strengthening_supported': 0, 'contradictory_evidence_supported': 0, 'scope_narrowing_or_reformulation_supported': 0, 'continued_explicit_uncertainty_suppo"
+    },
+    {
       "artifact": "reports/paper4_action_outcome_audit.json",
       "evidence_level": "tier_3_provenance_reconciled_descriptive_planning_audit",
       "experiment_id": "AUDIT-PAPER4-ACTION-OUTCOME-AUDIT-001",
       "limitation": "['Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.', 'A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.', 'The five actions are heterogeneous and were not randomized against a common action set or baseline.', 'Small n, missing pre-action ranks, and zero completed efficacy outcomes preclude causal utility, expected-utility, calibration, or rankin",
       "result": "{'provenance_reconciled': True, 'observed_go_no_go_outcomes_coded': True, 'efficacy_outcomes_observed': 0, 'feasibility_blockers_observed': 4, 'conditional_future_test_only': 1, 'planning_utility_status': 'GATED_UNVALIDATED', 'summary': \"The audited actions produced feasibility and certification decisions, not action-level scientific outcomes. Badger's prerequisite gate was directionally consistent with its own pre-action plan, but the five-lead sample has no unified timestamped ranking and no completed efficacy outcomes. Paper 4 planning utility remains unvalidated.\"}"
+    },
+    {
+      "artifact": "results/qaoa_postselection_pilot_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_pilot",
+      "experiment_id": "EXP-PAPER4-QAOA-POSTSELECTION-PILOT-20261015",
+      "limitation": "['Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.', 'No confidence interval or population claim is warranted for this small, hash-seeded pilot.', 'The A1 positive paired mean is conditional on the 16 valid graphs and is not a comparison against an optimized source implementation.']",
+      "result": "The selected A2 alternative was setup-infeasible at n=8: no graph in the 20-graph frozen sample had a pair at graph distance at least 4. The same run produced a conditional A1 baseline on 16 valid graphs."
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round4.json",
+      "evidence_level": "tier_3_independent_citation_trace_and_authenticated_primary_full_text_audit; no_direct_outcome_labels",
+      "experiment_id": "AUDIT-PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
+      "limitation": "['Bounded citation-tracing/full-text audit, not exhaustive review.', 'Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.', 'The hash-priority Round 3 cohort is not population-random; counts are descriptive.', 'Partial progress remains separate from direct resolution, refutation and Paper 3 labels.']",
+      "result": "{'rows_audited': 3, 'direct_resolution_positive': 0, 'direct_resolution_negative': 0, 'premise_revision_supported': 0, 'partial_progress_supported': 3, 'independent_evidence_strengthening_supported': 0, 'contradictory_evidence_supported': 0, 'scope_narrowing_or_reformulation_supported': 0, 'continued_explicit_uncertainty_supported': 0, 'direct_outcome_unadjudicated': 3, 'direct_label_yield': '0/3', 'interpretation': 'All three rows received provenance-coded dimension outcomes; partial progress is not a direct scientific outcome.'}"
+    },
+    {
+      "artifact": "reports/paper4_qaoa_pilot_independent_review.json",
+      "evidence_level": "tier_4_local_exact_state_vector_pilot_independent_review",
+      "experiment_id": "AUDIT-PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
+      "limitation": "",
+      "result": "{'a2': 'Setup-infeasible at the frozen n=8 graph family: 0/20 graphs admitted the proposed distance-at-least-4 pair, so no A2 effect estimate or paired A2 denominator exists.', 'a1': 'Conditional source-style baseline observation: 16/20 graphs admitted the distance-3 pair; on those 16 only, the paired mean delta was +0.3435041777311078 expected satisfied edges.', 'interpretation': 'The positive A1 delta is a conditional finite-pilot observation. It is not a general QAOA claim, an asymptotic claim, a source-implementation equivalence claim, or a planner-utility outcome.'}"
+    },
+    {
+      "artifact": "reports/historical_objective_cohort_round5.json",
+      "evidence_level": "tier_3_source_only_selection_plus_bounded_primary_followup; no_direct_outcome_labels",
+      "experiment_id": "AUDIT-PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
+      "limitation": "['The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.', 'Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.', 'Follow-up retrieval was bounded and cannot distinguish true absence from inaccessible or undiscovered evidence.', 'Partial progress and scope narrowing are not direct resolution, refutation, or Paper 3 labels.', 'The",
+      "result": "{'selected_source_rows': 6, 'source_eligible_questions': 6, 'source_ineligible_rows_in_combined_16_row_frame': 4, 'direct_resolution_positive': 0, 'direct_resolution_negative': 0, 'direct_label_yield': '0/6', 'direct_label_missingness': '6/6 direct outcomes unadjudicated; no search failure was converted into a negative label', 'partial_progress_supported': 3, 'scope_narrowing_supported': 2, 'independent_evidence_strengthening_supported': 0, 'contradictory_evidence_supported': 0, 'continued_explicit_uncertainty_supported': 0, 'descriptive_zero_yield_two_sided_95_percent_cp_upper_bound': 0.459, 'comparison_with_prior_retrieval_focused_cohort': {'prior_artifact': 'reports/historical_observable_cohort_round4.json', 'prior_selected_eligible_questions': 3, 'prior_direct_label_yield': '0/3', 'fresh_direct_label_yield': '0/6', 'direct_outcome_observability_improved': False, 'interpretation': 'Doubling the eligible-question count and using more explicitly objective source endpoints did not prod"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_sensitivity_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_pilot_sensitivity_recomputation",
+      "experiment_id": "AUDIT-PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+      "limitation": "['The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.', 'The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.', 'The same 20 hash-seeded n=8 simple 3-regular graphs, fixed alternating assignment, beta/gamma, and greedy pair rule were retained; ",
+      "result": "{'strict_valid_set': {'valid_graphs': 16, 'denominator': '16/20', 'paired_delta': {'n': 16, 'mean': 0.3435041777311078, 'sample_sd': 0.09348118309114006, 'standard_error': 0.023370295772785016}, 'paired_delta_sum': 5.496066843697725, 'positive_deltas': 16}, 'all_20_sensitivity': {'valid_graphs': 16, 'denominator': '20/20 rows retained; 16 observed valid outcomes + 4 structural-missing codes', 'paired_delta': {'n': 20, 'mean': 0.2748033421848862, 'sample_sd': 0.16362108959771193, 'standard_error': 0.036586787889306756}, 'paired_delta_sum': 5.496066843697725, 'change_vs_strict_mean': -0.06870083554622158, 'relative_to_strict_mean': 0.7999999999999999, 'positive_observed_deltas': 16, 'structural_missing_rows': 4}, 'interpretation': 'The strict conditional A1 mean remains +0.3435041777311078 on 16/20 graphs. Under the frozen all-20 structural-missing-zero sensitivity coding, the paired-delta mean is lower at +0.2748033421848862; the denominator changes from 16 to 20 rows, a reduction of 0."
+    },
+    {
+      "artifact": "reports/paper3_observability_cause_diagnosis.json",
+      "evidence_level": "tier_3_cross_round_provenance_and_observability_diagnosis; no_direct_outcome_labels",
+      "experiment_id": "AUDIT-PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+      "limitation": "['These are deterministic, bounded cohorts rather than representative CS population samples.', 'Round 4 is an independent retrieval audit but not an independent question cohort.', 'Authenticated source availability and candidate counts are receipts of the bounded protocols, not estimates of all published evidence.', 'The cause comparison is descriptive and cannot establish causal attribution among correlated retrieval and formulation mechanisms.', 'No direct outcome prevalence or Paper 3 predict",
+      "result": "{'diagnosis': 'The direct-label bottleneck is primarily endpoint-definition/matching scarcity, amplified by incomplete retrieval. Source eligibility is a useful gate but not the limiting step after screening. A five-year window has not been shown inadequate. Trajectory evidence is observable, but direct outcome labels are missing by design-preserving adjudication.', 'blockers': ['No positive or negative direct label exists in the 9 unique eligible questions.', 'No temporal Paper 3 score, calibration, ranking metric, or forecast accuracy is identifiable.', 'Search non-detection and adjacent outcomes cannot be used as negative labels.'], 'null_and_negative_preserved': True}"
+    },
+    {
+      "artifact": "reports/paper4_avocado_constraint_comparison_feasibility.json",
+      "evidence_level": "tier_3_public_source_and_local_feasibility_audit; no_comparison_outcome",
+      "experiment_id": "AUDIT-PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
+      "limitation": "['The public follow-up establishes implementation partial progress, but not the frozen matched outcome.', \"Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.\", 'A future QEMU/qemu-iotests checkout could make the experiment feasible if the exact model, constraints, oracle, held-out model, and compatible runtime are pinned together.', 'The Paper 4 planning information-gain estimate (0.72) was not treated as ob",
+      "result": "{'generator_smoke': {'status': 'completed_feasibility_smoke_only', 'models': {'params.cit': {'parameter_sizes': [4, 3, 3, 3, 2, 5, 5, 5, 5], 'constraint_count': 4, 'constrained': {'rows': 29, 'invalid_rows_under_source_constraints': 0, 'wall_seconds': 3.305083208717406}, 'unconstrained_empty_constraint': {'rows': 28, 'invalid_rows_under_source_constraints': 0, 'wall_seconds': 3.0264937090687454}}, 'test_params.cit': {'parameter_sizes': [4, 3, 3, 3, 2], 'constraint_count': 3, 'constrained': {'rows': 9, 'invalid_rows_under_source_constraints': 0, 'wall_seconds': 0.2185939997434616}, 'unconstrained_empty_constraint': {'rows': 12, 'invalid_rows_under_source_constraints': 0, 'wall_seconds': 0.15825737500563264}}}, 'interpretation': 'Both arms execute locally, but this smoke does not measure invalid-configuration detection recall, invalid-test rate under the QEMU oracle, or a valid held-out comparison. The zero invalid rows in the smoke is not a scientific null result.'}, 'blockers': ['qemu-"
+    },
+    {
+      "artifact": "reports/paper3_direct_endpoint_cohort_round6.json",
+      "evidence_level": "tier_3_source_only_artifact_gated_cohort_and_dated_primary_followup_audit; no_exact_direct_outcome_matches",
+      "experiment_id": "AUDIT-PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+      "limitation": "['The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.', 'Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.', 'Several coverage-positive records were same-line, adjacent, or continuation studies and were explicitly excluded from direct labels.', 'The Clopper–Pearson interval is descriptive for six eligible rows and is ",
+      "result": "{'selected_rows': 16, 'source_eligible_questions': 6, 'source_ineligible_rows': 10, 'direct_resolution_positive': 0, 'direct_resolution_negative': 0, 'direct_label_yield': '0/6 eligible questions', 'direct_label_missingness': '6/6 eligible questions remain unadjudicated because no dated primary follow-up matched the complete frozen object/comparator/endpoint/falsification tuple.', 'trajectory_observations': {'partial_progress_or_adjacent': 5, 'scope_narrowing_or_reformulation': 0, 'independent_evidence_strengthening': 0, 'contradictory_evidence': 0}, 'descriptive_zero_yield_two_sided_95_percent_clopper_pearson_upper_bound': 0.459, 'interpretation': 'Artifact/comparator gating increased source specificity and produced six eligible questions, but did not produce an exact direct outcome label. This is descriptive evidence of continued endpoint mismatch, not evidence that the underlying questions were unresolved or false.'}"
+    },
+    {
+      "artifact": "reports/paper4_nulltype_mutation_feasibility.json",
+      "evidence_level": "tier_3_source_and_replication_package_feasibility_audit; no_new_experiment",
+      "experiment_id": "AUDIT-PAPER4-NULLTYPE-MUTATION-FEAS-001",
+      "limitation": "['The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.', 'The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.', 'The exact original environment versions, dependency-cache state, and run order are not fully specified by the inspected materials.', 'The aggregate source reports include generated artifacts; their presenc",
+      "result": "{'decision': 'The endpoint and source package are authenticated enough for a future reproduction plan, but the full endpoint-matched experiment is not locally executable in this session.', 'blockers': ['No usable Java runtime: both java and javac fail before execution.', 'No Maven, Ant, or Gradle executable is available for the heterogeneous project builds.', 'The bundled LittleDarwin driver is Python-2 syntax, while the available python command is Python 3; no Python-2 interpreter is available.', 'The projects use legacy build/dependency contracts, including Java source/target 1.5 in inspected POM/build files, so a current unpinned toolchain would not be an endpoint-preserving substitute.', 'A package containing precomputed reports is not a substitute for rerunning the source-pinned mutation/test oracle.'], 'negative_or_null_preserved': True, 'not_claimed': 'No claim is made that null-type operators are ineffective, effective, or independently reproduced; the reported counts remain so"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_larger_n_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_robustness_experiment",
+      "experiment_id": "AUDIT-PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
+      "limitation": "['The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.', 'The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.', 'This local exact-state-vector computation does not establish source implementation equivalence, hardware performance, general QAOA behavi",
+      "result": "{'status': 'completed', 'result': 'All 20 graphs admitted the predeclared conditioning event; graph-level paired conditioned-minus-unconditioned expected cuts were computed.'}"
     }
   ],
   "artifact_only_tasks": [
@@ -85,23 +162,25 @@
   ],
   "blocked_tasks": [],
   "budget_consumption": {
+    "activations_started": 13,
     "completed_experiments": 6,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
     "configured_max_rounds": 8,
     "configured_max_wall_seconds": 7200,
     "configured_max_worker_invocations": 8,
-    "experiments_started": 6,
+    "configured_max_worker_invocations_per_activation": 1,
+    "experiments_started": 8,
     "final_reporting_reserve_seconds": 300,
     "minimum_disk_free_mib": 2048,
     "note": "Configured rounds are a per-start local supervisor cap, not a Codex service quota or remaining lifetime scientific-round budget. No paid worker or background service started.",
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 8
+    "worker_invocations_started": 19
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "paused_worker_budget",
-  "checkpoint_time": "2026-10-15T02:32:46Z",
+  "campaign_status": "waiting_for_eligible_task",
+  "checkpoint_time": "2026-10-15T03:10:41Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -124,7 +203,18 @@
     "DP158-MATCHED-GUARANTEE-001",
     "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
     "SERENIOT-CROSS-DEVICE-FEAS-001",
-    "PAPER4-ACTION-OUTCOME-AUDIT-001"
+    "PAPER4-ACTION-OUTCOME-AUDIT-001",
+    "PAPER3-OBSERVABILITY-ROUND3-001",
+    "PAPER4-QAOA-POSTSELECTION-PILOT-001",
+    "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
+    "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
+    "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
+    "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+    "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+    "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
+    "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+    "PAPER4-NULLTYPE-MUTATION-FEAS-001",
+    "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
   ],
   "current_best_opportunities": [
     {
@@ -194,8 +284,8 @@
       "status": "external-outcome data lead"
     }
   ],
-  "current_phase": "paper3-observability-round3-001",
-  "current_research_round": 12,
+  "current_phase": "paper4-qaoa-a1-larger-n-robustness-001",
+  "current_research_round": 23,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -250,37 +340,18 @@
     "old_future_primary_fulltexts_checked": 4
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
+  "last_activation_id": "2026-10-15T03:10:41Z-pid81161",
   "last_successful_commit": "5cebeeb",
   "latest_scientific_increment": {
     "decision": null,
-    "evidence_level": "tier_3_provenance_reconciled_descriptive_planning_audit",
+    "evidence_level": "tier_4_local_exact_state_vector_robustness_experiment",
     "kind": "supervisor_validated_worker_checkpoint",
-    "next_falsifiable_action": {
-      "action": "Freeze a single timestamped Paper 4 plan covering the same candidate leads with explicit rank, cost, feasibility assumptions, outcome definitions, and falsification gates before any further action; then prospectively code whether each gate outcome matches the predeclared feasibility prediction.",
-      "falsification_gate": "If future gate outcomes cannot be linked to immutable pre-action ranks and declared likelihood assumptions, retain planning utility as non-identifiable rather than scoring it.",
-      "minimum_evidence": [
-        "one immutable pre-action plan with creation hash and timestamp",
-        "common candidate-action table and simple baseline",
-        "independent post-action coder and exact outcome rubric",
-        "at least several completed, endpoint-matched actions before any descriptive calibration summary",
-        "separate efficacy outcomes from setup/access/certification blockers"
-      ]
-    },
+    "next_falsifiable_action": "If the all-graph gate passes, independently rerun the same frozen protocol with a second predeclared n=10 graph seed and test whether the paired delta remains positive; if the gate fails, predeclare a graph-family/size feasibility revision before any further effect comparison.",
     "scientific_success": true,
-    "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001"
+    "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": {
-    "action": "Freeze a single timestamped Paper 4 plan covering the same candidate leads with explicit rank, cost, feasibility assumptions, outcome definitions, and falsification gates before any further action; then prospectively code whether each gate outcome matches the predeclared feasibility prediction.",
-    "falsification_gate": "If future gate outcomes cannot be linked to immutable pre-action ranks and declared likelihood assumptions, retain planning utility as non-identifiable rather than scoring it.",
-    "minimum_evidence": [
-      "one immutable pre-action plan with creation hash and timestamp",
-      "common candidate-action table and simple baseline",
-      "independent post-action coder and exact outcome rubric",
-      "at least several completed, endpoint-matched actions before any descriptive calibration summary",
-      "separate efficacy outcomes from setup/access/certification blockers"
-    ]
-  },
+  "next_action": "Add or unblock a scientifically justified task; do not invent outcomes.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -290,17 +361,8 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
-  "opportunity_ranking": [
-    {
-      "scientific_completion": "trajectory_audit",
-      "score": 92.1818,
-      "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "track": "forecasting"
-    }
-  ],
-  "pending_tasks": [
-    "PAPER3-OBSERVABILITY-ROUND3-001"
-  ],
+  "opportunity_ranking": [],
+  "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
@@ -337,7 +399,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T02:34:21Z",
+      "timestamp": "2026-10-15T03:10:41Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -372,12 +434,104 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T02:34:21Z",
+      "timestamp": "2026-10-15T03:10:41Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
         "The exact source implementation, chain state, reverse-DNS behavior and majority timing may affect reproducibility beyond the paper's policy description.",
         "A small lab sample can test the frozen endpoint mechanics but cannot establish deployment-wide security or prevalence."
+      ]
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round3.json",
+      "evidence_level": "tier_3_source_only_selection_and_dated_follow_up_audit; no_direct_outcome_labels",
+      "next_falsifiable_action": "For the three eligible questions, freeze a second independent retrieval protocol with citation tracing and authenticated primary full-text access; for QAOA test alternative postselection configurations on the same random 3-regular graph family at matched state-preparation/sampling cost, for semantic repair compare a pinned iterative decoder against the v1 SSC baseline on held-out real multi-bug instances, and for game testing compare formal exploit reports against the width/height heuristic and blinded manual review. Stop or retain missingness if exact comparators, endpoints, or dated primary artifacts cannot be verified.",
+      "observed_result_or_blocker": {
+        "direct_label_prevalence": {
+          "interval_note": "Descriptive exact binomial interval only; this hash-priority mini-cohort is not a random sample of CS and the two direct classes are unobserved, not balanced labels.",
+          "negative": 0.0,
+          "positive": 0.0,
+          "two_sided_95_percent_clopper_pearson_interval_for_each_zero_yield": [
+            0.0,
+            0.707598
+          ]
+        },
+        "direct_label_yield": "0/3 eligible questions; 0/4 selected rows if counting source-ineligible rows in the denominator",
+        "direct_resolution_negative": 0,
+        "direct_resolution_positive": 0,
+        "followup_audited_eligible_questions": 3,
+        "missingness": {
+          "by_cutoff_year": {
+            "2017": {
+              "direct_labels": 0,
+              "eligible": 1,
+              "unadjudicated": 1
+            },
+            "2019": {
+              "direct_labels": 0,
+              "eligible": 1,
+              "unadjudicated": 1
+            },
+            "2020": {
+              "direct_labels": 0,
+              "eligible": 1,
+              "source_ineligible_additional": 1,
+              "unadjudicated": 1
+            }
+          },
+          "by_topic": {
+            "algorithms_complexity": {
+              "direct_labels": 0,
+              "eligible": 1,
+              "unadjudicated": 1
+            },
+            "program_repair_verification": {
+              "direct_labels": 0,
+              "eligible": 1,
+              "unadjudicated": 1
+            },
+            "security_privacy": {
+              "direct_labels": 0,
+              "eligible": 0,
+              "source_ineligible": 1
+            },
+            "software_testing": {
+              "direct_labels": 0,
+              "eligible": 1,
+              "unadjudicated": 1
+            }
+          },
+          "direct_outcome_missing_among_eligible": "3/3 eligible rows have no authenticated direct positive or negative outcome.",
+          "source_screen_missing_or_ineligible": "1/4 selected rows is source-ineligible; no follow-up search was permitted for that row."
+        },
+        "selected_rows": 4,
+        "source_eligible_questions": 3,
+        "source_ineligible_rows": 1,
+        "trajectory_dimension_counts_over_3_eligible_rows": {
+          "continued_explicit_uncertainty_supported": 0,
+          "contradictory_evidence_supported": 0,
+          "direct_outcome_unadjudicated": 3,
+          "direct_scientific_resolution_supported": 0,
+          "independent_evidence_strengthening_supported": 0,
+          "partial_progress_supported": 1,
+          "premise_refutation_or_revision_supported": 0,
+          "scope_narrowing_or_reformulation_supported": 0
+        }
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
+        "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
+        "The QAOA partial-progress record concerns a broader initial-state strategy, not the frozen postselection comparator; it must not be promoted to direct resolution.",
+        "The exact binomial interval describes the observed eligible-row yield only and is not a scientific prevalence estimate."
       ]
     },
     {
@@ -411,7 +565,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T02:34:21Z",
+      "timestamp": "2026-10-15T03:10:41Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -419,6 +573,400 @@
         "Small n, missing pre-action ranks, and zero completed efficacy outcomes preclude causal utility, expected-utility, calibration, or ranking-performance claims.",
         "Proxy observations and near-matches were excluded from direct success/failure coding when their endpoint, comparator, or provenance did not match."
       ]
+    },
+    {
+      "artifact": "results/qaoa_postselection_pilot_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_pilot",
+      "next_falsifiable_action": "Before any A2 effect claim, enumerate larger graph sizes and define a source-consistent conditioning event; otherwise retain A2 as a feasibility no-go. Independently rerun A1 with an explicitly defined valid-set sampling rule and paired uncertainty.",
+      "observed_result_or_blocker": "The selected A2 alternative was setup-infeasible at n=8: no graph in the 20-graph frozen sample had a pair at graph distance at least 4. The same run produced a conditional A1 baseline on 16 valid graphs.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
+        "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
+        "The A1 positive paired mean is conditional on the 16 valid graphs and is not a comparison against an optimized source implementation."
+      ]
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round4.json",
+      "evidence_level": "tier_3_independent_citation_trace_and_authenticated_primary_full_text_audit; no_direct_outcome_labels",
+      "next_falsifiable_action": "Require a date-verified primary source matching each frozen intervention/object/comparator/metric/gate before assigning a direct label, then obtain independent adjudication and a temporally grouped holdout; keep Paper 3 gated until that occurs.",
+      "observed_result_or_blocker": {
+        "continued_explicit_uncertainty_supported": 0,
+        "contradictory_evidence_supported": 0,
+        "direct_label_yield": "0/3",
+        "direct_outcome_unadjudicated": 3,
+        "direct_resolution_negative": 0,
+        "direct_resolution_positive": 0,
+        "independent_evidence_strengthening_supported": 0,
+        "interpretation": "All three rows received provenance-coded dimension outcomes; partial progress is not a direct scientific outcome.",
+        "partial_progress_supported": 3,
+        "premise_revision_supported": 0,
+        "rows_audited": 3,
+        "scope_narrowing_or_reformulation_supported": 0
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "Bounded citation-tracing/full-text audit, not exhaustive review.",
+        "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
+        "The hash-priority Round 3 cohort is not population-random; counts are descriptive.",
+        "Partial progress remains separate from direct resolution, refutation and Paper 3 labels."
+      ]
+    },
+    {
+      "artifact": "reports/paper4_qaoa_pilot_independent_review.json",
+      "evidence_level": "tier_4_local_exact_state_vector_pilot_independent_review",
+      "next_falsifiable_action": "If A2 is pursued, first enumerate larger graph sizes and freeze a source-consistent conditioning event; otherwise retain A2 as a setup-feasibility no-go. Separately rerun A1 with an explicitly defined valid-set sampling rule and predeclared paired uncertainty, without changing parameters after seeing these results.",
+      "observed_result_or_blocker": {
+        "a1": "Conditional source-style baseline observation: 16/20 graphs admitted the distance-3 pair; on those 16 only, the paired mean delta was +0.3435041777311078 expected satisfied edges.",
+        "a2": "Setup-infeasible at the frozen n=8 graph family: 0/20 graphs admitted the proposed distance-at-least-4 pair, so no A2 effect estimate or paired A2 denominator exists.",
+        "interpretation": "The positive A1 delta is a conditional finite-pilot observation. It is not a general QAOA claim, an asymptotic claim, a source-implementation equivalence claim, or a planner-utility outcome."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_review",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": null
+    },
+    {
+      "artifact": "reports/historical_objective_cohort_round5.json",
+      "evidence_level": "tier_3_source_only_selection_plus_bounded_primary_followup; no_direct_outcome_labels",
+      "next_falsifiable_action": "Run one or more preregistered, endpoint-matched follow-ups beginning with solver-constrained Avocado testing or SERENIoT cross-device policy evaluation; retain direct missingness unless a dated primary result matches the frozen object, comparator, metric, and falsification gate.",
+      "observed_result_or_blocker": {
+        "comparison_with_prior_retrieval_focused_cohort": {
+          "direct_outcome_observability_improved": false,
+          "fresh_direct_label_yield": "0/6",
+          "interpretation": "Doubling the eligible-question count and using more explicitly objective source endpoints did not produce an observed direct positive or negative label. The fresh cohort improves endpoint specification and records structured partial/scope trajectories, but not direct outcome observability.",
+          "prior_artifact": "reports/historical_observable_cohort_round4.json",
+          "prior_direct_label_yield": "0/3",
+          "prior_selected_eligible_questions": 3
+        },
+        "continued_explicit_uncertainty_supported": 0,
+        "contradictory_evidence_supported": 0,
+        "descriptive_zero_yield_two_sided_95_percent_cp_upper_bound": 0.459,
+        "direct_label_missingness": "6/6 direct outcomes unadjudicated; no search failure was converted into a negative label",
+        "direct_label_yield": "0/6",
+        "direct_resolution_negative": 0,
+        "direct_resolution_positive": 0,
+        "independent_evidence_strengthening_supported": 0,
+        "partial_progress_supported": 3,
+        "scope_narrowing_supported": 2,
+        "selected_source_rows": 6,
+        "source_eligible_questions": 6,
+        "source_ineligible_rows_in_combined_16_row_frame": 4
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
+        "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
+        "Follow-up retrieval was bounded and cannot distinguish true absence from inaccessible or undiscovered evidence.",
+        "Partial progress and scope narrowing are not direct resolution, refutation, or Paper 3 labels.",
+        "The descriptive binomial interval is not a population prevalence estimate and no Paper 3 scoring, calibration, or forecast accuracy is claimed."
+      ]
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_sensitivity_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_pilot_sensitivity_recomputation",
+      "next_falsifiable_action": "Predeclare a larger graph-family protocol in which the A1 conditioning event is feasible on every sampled graph, then rerun paired exact state-vector outcomes with an independent graph sample and retain graph-level uncertainty; do not treat the four current structural-missing rows as zero outcomes in the primary estimand.",
+      "observed_result_or_blocker": {
+        "all_20_sensitivity": {
+          "change_vs_strict_mean": -0.06870083554622158,
+          "denominator": "20/20 rows retained; 16 observed valid outcomes + 4 structural-missing codes",
+          "paired_delta": {
+            "mean": 0.2748033421848862,
+            "n": 20,
+            "sample_sd": 0.16362108959771193,
+            "standard_error": 0.036586787889306756
+          },
+          "paired_delta_sum": 5.496066843697725,
+          "positive_observed_deltas": 16,
+          "relative_to_strict_mean": 0.7999999999999999,
+          "structural_missing_rows": 4,
+          "valid_graphs": 16
+        },
+        "interpretation": "The strict conditional A1 mean remains +0.3435041777311078 on 16/20 graphs. Under the frozen all-20 structural-missing-zero sensitivity coding, the paired-delta mean is lower at +0.2748033421848862; the denominator changes from 16 to 20 rows, a reduction of 0.0687008355462216 expected satisfied edges (20.0% relative reduction). The four invalid rows remain missing structural outcomes, not observed zero-effect graphs.",
+        "strict_valid_set": {
+          "denominator": "16/20",
+          "paired_delta": {
+            "mean": 0.3435041777311078,
+            "n": 16,
+            "sample_sd": 0.09348118309114006,
+            "standard_error": 0.023370295772785016
+          },
+          "paired_delta_sum": 5.496066843697725,
+          "positive_deltas": 16,
+          "valid_graphs": 16
+        }
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_reanalysis",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
+        "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
+        "The same 20 hash-seeded n=8 simple 3-regular graphs, fixed alternating assignment, beta/gamma, and greedy pair rule were retained; no parameter or graph selection was tuned after observing the pilot.",
+        "This is a local exact state-vector sensitivity result, not source-implementation equivalence, hardware evidence, an asymptotic claim, or Paper 4 planning-utility validation."
+      ]
+    },
+    {
+      "artifact": "reports/paper3_observability_cause_diagnosis.json",
+      "evidence_level": "tier_3_cross_round_provenance_and_observability_diagnosis; no_direct_outcome_labels",
+      "next_falsifiable_action": "Apply PAPER3-DIRECT-ENDPOINT-COHORT-V1 to a new deterministic source-only cohort, then independently audit dated primary artifacts against the exact endpoint tuple and split evidence by window phase. The claim that formulation/matching is the main bottleneck is falsified if this artifact/comparator-gated cohort yields materially higher exact-match coverage than 0/9; the claim that retrieval is sufficient is falsified if authenticated coverage remains high while exact matches remain zero.",
+      "observed_result_or_blocker": {
+        "blockers": [
+          "No positive or negative direct label exists in the 9 unique eligible questions.",
+          "No temporal Paper 3 score, calibration, ranking metric, or forecast accuracy is identifiable.",
+          "Search non-detection and adjacent outcomes cannot be used as negative labels."
+        ],
+        "diagnosis": "The direct-label bottleneck is primarily endpoint-definition/matching scarcity, amplified by incomplete retrieval. Source eligibility is a useful gate but not the limiting step after screening. A five-year window has not been shown inadequate. Trajectory evidence is observable, but direct outcome labels are missing by design-preserving adjudication.",
+        "null_and_negative_preserved": true
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "diagnostic_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "These are deterministic, bounded cohorts rather than representative CS population samples.",
+        "Round 4 is an independent retrieval audit but not an independent question cohort.",
+        "Authenticated source availability and candidate counts are receipts of the bounded protocols, not estimates of all published evidence.",
+        "The cause comparison is descriptive and cannot establish causal attribution among correlated retrieval and formulation mechanisms.",
+        "No direct outcome prevalence or Paper 3 predictive performance is claimed."
+      ]
+    },
+    {
+      "artifact": "reports/paper4_avocado_constraint_comparison_feasibility.json",
+      "evidence_level": "tier_3_public_source_and_local_feasibility_audit; no_comparison_outcome",
+      "next_falsifiable_action": "Acquire or construct an authorized, version-pinned QEMU model and validation bundle: pin the qemu-iotests commit, qemu-img/QEMU build, five parameter domains, industrial constraints, and a distinct held-out configuration model. Then preregister equal-seed constrained/empty-constraint arms at fixed t, run the same 192-script oracle, and compute recall, executed count, invalid-test rate, and wall-clock cost. Stop without a comparison if any artifact or held-out oracle remains missing.",
+      "observed_result_or_blocker": {
+        "blockers": [
+          "qemu-img and qemu are absent from the local environment.",
+          "The 192 qemu-iotests validation scripts and their exact source revision are absent locally and are not pinned by the inspected 1903.05387v1 source.",
+          "The industrial QEMU parameter/constraint model needed to reproduce the constrained arm is not released as a version-pinned .cit artifact in the inspected public Avocado 100.0 source tree.",
+          "No independently authenticated held-out configuration model plus executable oracle is available locally.",
+          "Therefore invalid-test rate and detection recall cannot be computed without inventing an oracle or substituting a synthetic benchmark."
+        ],
+        "comparison_executed": false,
+        "generator_smoke": {
+          "interpretation": "Both arms execute locally, but this smoke does not measure invalid-configuration detection recall, invalid-test rate under the QEMU oracle, or a valid held-out comparison. The zero invalid rows in the smoke is not a scientific null result.",
+          "models": {
+            "params.cit": {
+              "constrained": {
+                "invalid_rows_under_source_constraints": 0,
+                "rows": 29,
+                "wall_seconds": 3.305083208717406
+              },
+              "constraint_count": 4,
+              "parameter_sizes": [
+                4,
+                3,
+                3,
+                3,
+                2,
+                5,
+                5,
+                5,
+                5
+              ],
+              "unconstrained_empty_constraint": {
+                "invalid_rows_under_source_constraints": 0,
+                "rows": 28,
+                "wall_seconds": 3.0264937090687454
+              }
+            },
+            "test_params.cit": {
+              "constrained": {
+                "invalid_rows_under_source_constraints": 0,
+                "rows": 9,
+                "wall_seconds": 0.2185939997434616
+              },
+              "constraint_count": 3,
+              "parameter_sizes": [
+                4,
+                3,
+                3,
+                3,
+                2
+              ],
+              "unconstrained_empty_constraint": {
+                "invalid_rows_under_source_constraints": 0,
+                "rows": 12,
+                "wall_seconds": 0.15825737500563264
+              }
+            }
+          },
+          "status": "completed_feasibility_smoke_only"
+        },
+        "negative_or_null_preserved": "No efficacy result, recall estimate, invalid-test-rate estimate, or constrained-versus-unconstrained scientific comparison was observed. This is a bounded feasibility no-go, not evidence that constrained Avocado is ineffective."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
+        "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
+        "A future QEMU/qemu-iotests checkout could make the experiment feasible if the exact model, constraints, oracle, held-out model, and compatible runtime are pinned together.",
+        "The Paper 4 planning information-gain estimate (0.72) was not treated as observed scientific value."
+      ]
+    },
+    {
+      "artifact": "reports/paper3_direct_endpoint_cohort_round6.json",
+      "evidence_level": "tier_3_source_only_artifact_gated_cohort_and_dated_primary_followup_audit; no_exact_direct_outcome_matches",
+      "next_falsifiable_action": "Run one preregistered, independently executable experiment on a single sealed endpoint tuple (for example Badger or null-type mutation testing) with version-pinned artifacts, equal-budget comparator arms, independent units, exact denominators, uncertainty, and a falsification threshold; stop if the public artifact, comparator, or endpoint oracle cannot be authenticated.",
+      "observed_result_or_blocker": {
+        "descriptive_zero_yield_two_sided_95_percent_clopper_pearson_upper_bound": 0.459,
+        "direct_label_missingness": "6/6 eligible questions remain unadjudicated because no dated primary follow-up matched the complete frozen object/comparator/endpoint/falsification tuple.",
+        "direct_label_yield": "0/6 eligible questions",
+        "direct_resolution_negative": 0,
+        "direct_resolution_positive": 0,
+        "interpretation": "Artifact/comparator gating increased source specificity and produced six eligible questions, but did not produce an exact direct outcome label. This is descriptive evidence of continued endpoint mismatch, not evidence that the underlying questions were unresolved or false.",
+        "selected_rows": 16,
+        "source_eligible_questions": 6,
+        "source_ineligible_rows": 10,
+        "trajectory_observations": {
+          "contradictory_evidence": 0,
+          "independent_evidence_strengthening": 0,
+          "partial_progress_or_adjacent": 5,
+          "scope_narrowing_or_reformulation": 0
+        }
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
+        "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
+        "Several coverage-positive records were same-line, adjacent, or continuation studies and were explicitly excluded from direct labels.",
+        "The Clopper–Pearson interval is descriptive for six eligible rows and is not a prevalence estimate.",
+        "No temporal Paper 3 forecast score, calibration, ranking metric, causal effect, resolution prevalence, or premise-revision prevalence is estimable from this null direct-label cohort."
+      ]
+    },
+    {
+      "artifact": "reports/paper4_nulltype_mutation_feasibility.json",
+      "evidence_level": "tier_3_source_and_replication_package_feasibility_audit; no_new_experiment",
+      "next_falsifiable_action": {
+        "action": "Provision an isolated, version-recorded legacy toolchain containing a usable JDK compatible with the projects' Java 1.5-era builds, Maven/Ant as required by each project, and Python 2.7 or a separately validated port of LittleDarwin; then run one fixed project (JSQLParser 0.9.4) from clean Traditional and NullType trees before expanding to all 15.",
+        "enabling_condition": "Do not proceed until java -version, javac -version, the project build/test command, and LittleDarwin-Null produce successful, independently inspectable outputs on that single project with exact surviving/killed denominators and a reproducible report hash.",
+        "falsification": "If the clean single-project smoke cannot compile, run the source test suite, generate both operator groups, and emit the package-compatible kill/subsumption records under the pinned environment, terminate the reproduction attempt and retain the no-go."
+      },
+      "observed_result_or_blocker": {
+        "blockers": [
+          "No usable Java runtime: both java and javac fail before execution.",
+          "No Maven, Ant, or Gradle executable is available for the heterogeneous project builds.",
+          "The bundled LittleDarwin driver is Python-2 syntax, while the available python command is Python 3; no Python-2 interpreter is available.",
+          "The projects use legacy build/dependency contracts, including Java source/target 1.5 in inspected POM/build files, so a current unpinned toolchain would not be an endpoint-preserving substitute.",
+          "A package containing precomputed reports is not a substitute for rerunning the source-pinned mutation/test oracle."
+        ],
+        "decision": "The endpoint and source package are authenticated enough for a future reproduction plan, but the full endpoint-matched experiment is not locally executable in this session.",
+        "negative_or_null_preserved": true,
+        "not_claimed": "No claim is made that null-type operators are ineffective, effective, or independently reproduced; the reported counts remain source-package observations only."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
+        "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
+        "The exact original environment versions, dependency-cache state, and run order are not fully specified by the inspected materials.",
+        "The aggregate source reports include generated artifacts; their presence does not establish that the bundled source can still reproduce them.",
+        "The local no-go is an environment/toolchain feasibility result, not a scientific null result."
+      ]
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_larger_n_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_robustness_experiment",
+      "next_falsifiable_action": "If the all-graph gate passes, independently rerun the same frozen protocol with a second predeclared n=10 graph seed and test whether the paired delta remains positive; if the gate fails, predeclare a graph-family/size feasibility revision before any further effect comparison.",
+      "observed_result_or_blocker": {
+        "result": "All 20 graphs admitted the predeclared conditioning event; graph-level paired conditioned-minus-unconditioned expected cuts were computed.",
+        "status": "completed"
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
+      "timestamp": "2026-10-15T03:10:41Z",
+      "uncertainty": [
+        "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
+        "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
+        "This local exact-state-vector computation does not establish source implementation equivalence, hardware performance, general QAOA behavior, or Paper 4 planning utility.",
+        "If setup failure occurs, the unconditioned values and every graph row remain retained, but no post-hoc filtered conditioned estimate is reported."
+      ]
+    }
+  ],
+  "worker_integrity_failures": [
+    {
+      "attempt": 2,
+      "interpretation": "artifact retained, worker execution rejected, scientific objective independently reconciled",
+      "path": "research/state.json",
+      "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+      "timestamp": "2026-10-15T02:44:33Z"
+    },
+    {
+      "attempt": 1,
+      "interpretation": "artifact retained, worker execution rejected, diagnosis independently reconciled",
+      "path": "research/state.json",
+      "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+      "timestamp": "2026-10-15T02:58:20Z"
     }
   ]
 }

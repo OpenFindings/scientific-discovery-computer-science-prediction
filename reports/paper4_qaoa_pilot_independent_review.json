@@ -1,0 +1,112 @@
+{
+  "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
+  "attempt": 1,
+  "objective": "Independently re-analyze the frozen QAOA postselection pilot, preserving the A2 setup-infeasibility result and the A1 conditional denominator.",
+  "dependency": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+  "evidence_tier": "tier_4_local_exact_state_vector_pilot_independent_review",
+  "sources_and_data": [
+    {
+      "path": "reports/paper4_prospective_plan_v1.json",
+      "role": "frozen Paper 4 plan",
+      "plan_id": "PAPER4-PROSPECTIVE-2026-10-15-v1",
+      "plan_sha256_recorded": "5159e50f876ec29547b0225b1177e468330bbdd3817e2e466c201d2c4972ce5d",
+      "plan_sha256_recomputed_canonical_without_hash_field": "5159e50f876ec29547b0225b1177e468330bbdd3817e2e466c201d2c4972ce5d"
+    },
+    {
+      "path": "results/qaoa_postselection_pilot_20261015/result.json",
+      "role": "raw per-graph pilot observations",
+      "experiment_id": "EXP-PAPER4-QAOA-POSTSELECTION-PILOT-20261015",
+      "source": "https://arxiv.org/html/2011.05425v1"
+    },
+    {
+      "path": "reports/paper4_qaoa_postselection_validation_20261015.json",
+      "role": "prior machine validation receipt; independently rechecked here"
+    },
+    {
+      "path": "reports/paper4_action_outcome_audit.json",
+      "role": "dependency audit; planning utility remains gated and unvalidated"
+    }
+  ],
+  "frozen_configuration": {
+    "vertices": 8,
+    "graphs": 20,
+    "seed": 20261015,
+    "beta": -0.7853981633974483,
+    "gamma": 0.7853981633974483,
+    "assignment": "alternating +1,-1",
+    "graph_generator": "rejection-sampled simple 3-regular configuration model",
+    "no_new_parameter_tuning": true
+  },
+  "method": {
+    "description": "Read-only independent JSON/schema/arithmetic review of the frozen exact NumPy state-vector output; no rerun, parameter tuning, or outcome redefinition.",
+    "independent_unit": "generated graph",
+    "checks": {
+      "canonical_plan_hash_matches_record": true,
+      "observation_count_is_20": true,
+      "graph_indices_are_exactly_0_through_19": true,
+      "per_row_schema_is_consistent": true,
+      "each_graph_has_8_vertices_and_12_edges": true,
+      "each_graph_is_simple_3_regular": true,
+      "all_graph_edge_sets_are_unique": true,
+      "a2_three_independent_set_rows_are_all_null": true,
+      "a2_probability_is_zero_on_all_20_rows": true,
+      "reported_summary_arithmetic_recomputes": true,
+      "no_nonfinite_numeric_payload": true
+    },
+    "arithmetic": {
+      "a2_valid_graphs": 0,
+      "a2_total_graphs": 20,
+      "a2_valid_denominator_statement": "0/20 graphs admitted the proposed distance-at-least-4 pair",
+      "a1_valid_graphs": 16,
+      "a1_total_graphs": 20,
+      "a1_denominator_statement": "16/20 graphs admitted the source-style distance-3 pair; all A1 means below use denominator 16",
+      "a1_valid_baseline_mean": 7.7723444473145635,
+      "a1_postselection_2_mean": 8.115848625045672,
+      "a1_paired_delta_mean": 0.3435041777311078,
+      "a1_paired_delta_sum": 5.496066843697725,
+      "a1_positive_paired_deltas": 16,
+      "a1_paired_delta_min": 0.13737840723484318,
+      "a1_paired_delta_max": 0.6401650429449575,
+      "a1_paired_delta_sample_sd": 0.09348118309114008,
+      "a1_paired_delta_descriptive_se": 0.02337029577278502,
+      "a1_mean_conditioning_probability": 0.24999999999999994,
+      "all_graph_baseline_mean_including_invalid_a1_rows": 7.791094447314563
+    }
+  },
+  "raw_per_graph_observations": [
+    {"graph_index": 0, "baseline_expected_cut": 7.866094447314563, "two_independent_set": null, "three_independent_set": null, "postselection_2_expected_cut": null, "postselection_2_probability": 0.0, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": null},
+    {"graph_index": 1, "baseline_expected_cut": 7.772344447314564, "two_independent_set": [0, 7], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565843, "postselection_2_probability": 0.24999999999999994, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525127847},
+    {"graph_index": 2, "baseline_expected_cut": 7.772344447314563, "two_independent_set": [1, 7], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565843, "postselection_2_probability": 0.24999999999999994, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128024},
+    {"graph_index": 3, "baseline_expected_cut": 7.772344447314563, "two_independent_set": [0, 4], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.24999999999999992, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.337037385251282},
+    {"graph_index": 4, "baseline_expected_cut": 7.772344447314565, "two_independent_set": [1, 4], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.25, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525127935},
+    {"graph_index": 5, "baseline_expected_cut": 7.772344447314564, "two_independent_set": [0, 5], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.24999999999999997, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128024},
+    {"graph_index": 6, "baseline_expected_cut": 7.866094447314562, "two_independent_set": null, "three_independent_set": null, "postselection_2_expected_cut": null, "postselection_2_probability": 0.0, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": null},
+    {"graph_index": 7, "baseline_expected_cut": 7.772344447314563, "two_independent_set": [3, 5], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565843, "postselection_2_probability": 0.24999999999999994, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128024},
+    {"graph_index": 8, "baseline_expected_cut": 7.772344447314563, "two_independent_set": [0, 2], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.24999999999999992, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.337037385251282},
+    {"graph_index": 9, "baseline_expected_cut": 7.772344447314564, "two_independent_set": [2, 4], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.24999999999999994, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128024},
+    {"graph_index": 10, "baseline_expected_cut": 7.772344447314564, "two_independent_set": [0, 2], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.24999999999999992, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128024},
+    {"graph_index": 11, "baseline_expected_cut": 7.866094447314565, "two_independent_set": null, "three_independent_set": null, "postselection_2_expected_cut": null, "postselection_2_probability": 0.0, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": null},
+    {"graph_index": 12, "baseline_expected_cut": 7.584844447314563, "two_independent_set": [0, 1], "three_independent_set": null, "postselection_2_expected_cut": 7.722222854549406, "postselection_2_probability": 0.2499999999999999, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.13737840723484318},
+    {"graph_index": 13, "baseline_expected_cut": 7.7723444473145635, "two_independent_set": [0, 3], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565843, "postselection_2_probability": 0.24999999999999997, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525127935},
+    {"graph_index": 14, "baseline_expected_cut": 7.866094447314564, "two_independent_set": null, "three_independent_set": null, "postselection_2_expected_cut": null, "postselection_2_probability": 0.0, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": null},
+    {"graph_index": 15, "baseline_expected_cut": 7.772344447314563, "two_independent_set": [3, 4], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.2499999999999999, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.337037385251282},
+    {"graph_index": 16, "baseline_expected_cut": 7.959844447314564, "two_independent_set": [0, 3], "three_independent_set": null, "postselection_2_expected_cut": 8.600009490259522, "postselection_2_probability": 0.24999999999999997, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.6401650429449575},
+    {"graph_index": 17, "baseline_expected_cut": 7.772344447314564, "two_independent_set": [0, 4], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565843, "postselection_2_probability": 0.25, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525127847},
+    {"graph_index": 18, "baseline_expected_cut": 7.772344447314563, "two_independent_set": [1, 6], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565843, "postselection_2_probability": 0.25, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128024},
+    {"graph_index": 19, "baseline_expected_cut": 7.7723444473145635, "two_independent_set": [1, 2], "three_independent_set": null, "postselection_2_expected_cut": 8.109381832565845, "postselection_2_probability": 0.24999999999999997, "postselection_3_expected_cut": null, "postselection_3_probability": 0.0, "paired_delta_2": 0.33703738525128113}
+  ],
+  "observed_result_or_blocker": {
+    "a2": "Setup-infeasible at the frozen n=8 graph family: 0/20 graphs admitted the proposed distance-at-least-4 pair, so no A2 effect estimate or paired A2 denominator exists.",
+    "a1": "Conditional source-style baseline observation: 16/20 graphs admitted the distance-3 pair; on those 16 only, the paired mean delta was +0.3435041777311078 expected satisfied edges.",
+    "interpretation": "The positive A1 delta is a conditional finite-pilot observation. It is not a general QAOA claim, an asymptotic claim, a source-implementation equivalence claim, or a planner-utility outcome."
+  },
+  "uncertainty_and_scope": [
+    "The independent unit is the generated graph, not a broad graph population; n=8 and 20 hash-seeded graphs do not support a population or confidence-interval claim.",
+    "A1 uses a selected valid-set denominator of 16/20; excluding the four invalid rows can induce conditioning/selection effects, so the positive delta is not an all-20-graph estimate.",
+    "A2 has no valid rows, so its null is a setup-feasibility result, not evidence that the alternative is ineffective at larger n or under another source-consistent conditioning definition.",
+    "Fixed alternating assignments were used and are not the source's optimized Ising assignment; the pilot did not compare against an optimized source implementation or quantum hardware.",
+    "The Paper 4 dependency audit reports planning utility as GATED_UNVALIDATED; these experiment observations do not validate expected information gain, ranking, or planner utility."
+  ],
+  "next_falsifiable_action": "If A2 is pursued, first enumerate larger graph sizes and freeze a source-consistent conditioning event; otherwise retain A2 as a setup-feasibility no-go. Separately rerun A1 with an explicitly defined valid-set sampling rule and predeclared paired uncertainty, without changing parameters after seeing these results.",
+  "review_conclusion": "Independent arithmetic and schema checks passed. Preserve A2 as 0/20 setup-infeasible and A1 as a 16-graph conditional baseline with positive descriptive delta; do not promote the delta to a general scientific or planner-utility claim."
+}

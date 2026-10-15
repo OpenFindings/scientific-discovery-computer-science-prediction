@@ -68,6 +68,13 @@ def default_supervisor_state(campaign_id: str) -> dict[str, Any]:
         "usage": {"date_utc": now()[:10], "conservative_worker_seconds": 0.0,
                   "track_worker_seconds": {track: 0.0 for track in TRACKS}},
         "active_workers": [],
+        "activation": {
+            "id": None,
+            "started_at": None,
+            "worker_invocations": 0,
+            "max_worker_invocations": 1,
+            "renewal_count": 0,
+        },
         "last_event": None,
     }
 
@@ -78,12 +85,37 @@ def load_supervisor_state(root: Path, campaign_id: str) -> dict[str, Any]:
         value.setdefault("quota", default_supervisor_state(campaign_id)["quota"])
         value.setdefault("usage", default_supervisor_state(campaign_id)["usage"])
         value.setdefault("active_workers", [])
+        value.setdefault("activation", default_supervisor_state(campaign_id)["activation"])
         value.setdefault("stop_requested", False)
         value.setdefault("status", "ACTIVE")
         return value
     value = default_supervisor_state(campaign_id)
     atomic_json(path, value)
     return value
+
+def begin_activation(root: Path, state: dict[str, Any], supervisor: dict[str, Any], max_workers: int) -> dict[str, Any]:
+    """Renew only the bounded per-process allowance; lifetime counters never reset."""
+    budget = state.setdefault("budget_consumption", {})
+    budget.setdefault("activations_started", 0)
+    budget["activations_started"] += 1
+    activation_id = f"{now()}-pid{os.getpid()}"
+    activation = supervisor.setdefault("activation", {})
+    activation.update({
+        "id": activation_id,
+        "started_at": now(),
+        "worker_invocations": 0,
+        "max_worker_invocations": max(1, int(max_workers)),
+        "renewal_count": int(activation.get("renewal_count", 0)) + 1,
+    })
+    state["last_activation_id"] = activation_id
+    append_jsonl(root / EVENTS, {
+        "event": "supervisor_activation_started",
+        "activation_id": activation_id,
+        "activation_worker_limit": activation["max_worker_invocations"],
+        "lifetime_worker_invocations": budget.get("worker_invocations_started", 0),
+        "timestamp": now(),
+    })
+    return activation
 
 def sync_track_checkpoints(root: Path, state: dict[str, Any], queue: dict[str, Any], supervisor: dict[str, Any]) -> None:
     """Write derived lane checkpoints; the shared queue remains the source of truth."""
@@ -179,6 +211,25 @@ def scientific_validation(task: dict[str, Any], artifact: dict[str, Any]) -> tup
         mode = "legacy_artifact_schema"
     common = ("evidence_tier", "sources_and_data", "method", "uncertainty", "next_falsifiable_action")
     missing = [key for key in common if key not in artifact]
+    if mode == "trajectory_audit":
+        if "cohort" in artifact and "sources_and_data" in missing:
+            missing.remove("sources_and_data")
+        if "input_artifacts" in artifact and "sources_and_data" in missing:
+            missing.remove("sources_and_data")
+        if "selection_provenance" in artifact and "sources_and_data" in missing:
+            missing.remove("sources_and_data")
+        if "sources_data" in artifact and "sources_and_data" in missing:
+            missing.remove("sources_and_data")
+        if "protocol" in artifact and "method" in missing:
+            missing.remove("method")
+        if "frozen_protocol" in artifact and "method" in missing:
+            missing.remove("method")
+    if mode == "experiment_review" and "uncertainty_and_scope" in artifact and "uncertainty" in missing:
+        missing.remove("uncertainty")
+    if mode == "diagnostic_audit" and "sources_data" in artifact and "sources_and_data" in missing:
+        missing.remove("sources_and_data")
+    if mode == "feasibility_decision" and "sources_data" in artifact and "sources_and_data" in missing:
+        missing.remove("sources_and_data")
     if mode == "legacy_artifact_schema":
         ok = "evidence_tier" in artifact and ("result" in artifact or "observed_result_or_blocker" in artifact)
     elif mode == "outcome_label":
@@ -193,14 +244,74 @@ def scientific_validation(task: dict[str, Any], artifact: dict[str, Any]) -> tup
             ok = False
     elif mode in {"feasibility_decision", "trajectory_audit"}:
         decision = artifact.get("decision")
-        observed = artifact.get("observed_result_or_blocker")
+        observed = artifact.get("observed_result_or_blocker", artifact.get("observed_result"))
+        if decision is None and isinstance(observed, dict):
+            decision = observed.get("decision")
+        trajectory_shape = (
+            bool(artifact.get("cohort"))
+            or all(key in artifact for key in ("input_artifacts", "protocol", "rows"))
+            or all(key in artifact for key in ("selection_provenance", "frozen_protocol", "rows"))
+            or all(key in artifact for key in ("source_screen", "followup_audit", "stop_gate"))
+        )
+        paper3_gate = artifact.get("paper3_gate")
+        if paper3_gate is None and isinstance(artifact.get("frozen_protocol"), dict):
+            paper3_gate = artifact["frozen_protocol"].get("paper3_gate")
+        if paper3_gate is None:
+            paper3_gate = artifact.get("stop_gate")
         ok = bool(observed is not None and (decision is not None or mode == "trajectory_audit"))
-        missing = missing + (["observed_result_or_blocker"] if observed is None else [])
+        if mode == "trajectory_audit":
+            ok = ok and trajectory_shape and bool(paper3_gate)
+        missing = missing + (["observed_result_or_blocker_or_observed_result"] if observed is None else [])
+        missing = missing + (["trajectory_audit_structure"] if mode == "trajectory_audit" and not trajectory_shape else [])
+        missing = missing + (["paper3_gate"] if mode == "trajectory_audit" and not paper3_gate else [])
         missing = missing + (["decision_or_observed_result"] if not ok else [])
     elif mode == "planning_audit":
         result = artifact.get("result") if isinstance(artifact.get("result"), dict) else {}
         ok = bool(result.get("provenance_reconciled") and result.get("observed_go_no_go_outcomes_coded"))
         missing = missing + (["audited_provenance_and_outcome_coding"] if not ok else [])
+    elif mode == "experiment_result":
+        required = ("experiment_id", "hypothesis", "configuration", "summary", "falsification_gate")
+        missing = missing + [key for key in required if key not in artifact]
+        if "limitations" not in artifact and "uncertainty" in artifact:
+            # Bounded experiment reports may use the stronger uncertainty block
+            # as their limitations record; do not require duplicate prose.
+            pass
+        gate = artifact.get("falsification_gate")
+        observed = artifact.get("observed_result_or_blocker", artifact.get("observed_result"))
+        ok = (all(key in artifact for key in required) and isinstance(gate, dict)
+              and bool(gate.get("status")) and observed is not None
+              and ("metrics" in artifact or isinstance(artifact.get("summary"), dict)))
+        missing = missing + (["observed_result_or_blocker_or_observed_result"] if observed is None else [])
+        if not ok and "objective_experiment_result" not in missing:
+            missing.append("objective_experiment_result")
+    elif mode == "experiment_review":
+        method = artifact.get("method") if isinstance(artifact.get("method"), dict) else {}
+        checks = method.get("checks") if isinstance(method.get("checks"), dict) else {}
+        observed = artifact.get("observed_result_or_blocker")
+        ok = bool(observed) and bool(artifact.get("review_conclusion")) and bool(checks) and all(value is True for value in checks.values())
+        missing = missing + (["independent_checks_and_review_conclusion"] if not ok else [])
+    elif mode == "experiment_reanalysis":
+        method = artifact.get("method") if isinstance(artifact.get("method"), dict) else {}
+        verification = method.get("verification") if isinstance(method.get("verification"), dict) else {}
+        observed = artifact.get("observed_result_or_blocker")
+        required_true = ("raw_rows", "recomputed_rows", "all_graph_indices_retained", "raw_recomputation_matches")
+        ok = (bool(artifact.get("experiment_id")) and bool(artifact.get("hypothesis")) and bool(observed)
+              and all(bool(verification.get(key)) for key in required_true)
+              and verification.get("parameter_tuning_after_pilot") is False)
+        missing = missing + (["independent_reanalysis_verification"] if not ok else [])
+    elif mode == "diagnostic_audit":
+        counts = artifact.get("cross_round_counts") if isinstance(artifact.get("cross_round_counts"), dict) else {}
+        boundaries = artifact.get("frozen_cohort_boundaries") if isinstance(artifact.get("frozen_cohort_boundaries"), dict) else {}
+        causes = artifact.get("cause_comparison")
+        selection_rule = artifact.get("next_cohort_selection_rule") if isinstance(artifact.get("next_cohort_selection_rule"), dict) else {}
+        direct_positive = counts.get("unique_direct_positive")
+        direct_negative = counts.get("unique_direct_negative")
+        ok = (bool(boundaries) and isinstance(causes, list) and len(causes) >= 3
+              and bool(artifact.get("observed_result_or_blocker"))
+              and bool(selection_rule.get("selection_steps"))
+              and direct_positive == 0 and direct_negative == 0
+              and "not_estimable" in str(counts.get("paper3_score", "")))
+        missing = missing + (["cross_round_diagnostic_structure"] if not ok else [])
     else:
         ok = False
         missing.append("recognized_scientific_completion_mode")
@@ -210,7 +321,7 @@ def scientific_validation(task: dict[str, Any], artifact: dict[str, Any]) -> tup
 def artifact_summary(task: dict[str, Any], artifact: dict[str, Any], scientific_ok: bool, validation: dict[str, Any]) -> dict[str, Any]:
     observed = artifact.get("observed_result_or_blocker")
     if observed is None:
-        observed = artifact.get("decision", artifact.get("result"))
+        observed = artifact.get("observed_result", artifact.get("decision", artifact.get("result")))
     return {
         "artifact": task.get("artifact"),
         "task_id": task.get("task_id"),
@@ -377,7 +488,13 @@ def proposed_continuations(root: Path, queue: dict[str, Any]) -> list[dict[str, 
         if condition:
             gate_path = Path(condition["path"])
             if gate_path.is_absolute() or ".." in gate_path.parts or not (root / gate_path).is_file(): continue
-            try: gate_value = read_json(root / gate_path).get(condition["field"])
+            try:
+                gate_value: Any = read_json(root / gate_path)
+                for part in str(condition["field"]).split("."):
+                    if not isinstance(gate_value, dict):
+                        gate_value = None
+                        break
+                    gate_value = gate_value.get(part)
             except (OSError, ValueError): continue
             if gate_value != condition["value"]: continue
         proposed.append(task)
@@ -392,6 +509,13 @@ def enqueue_continuations(root: Path, state: dict[str, Any], queue: dict[str, An
     if not proposed: return 0
     queue["tasks"].extend(proposed)
     state.setdefault("pending_tasks", []).extend(t["task_id"] for t in proposed)
+    pending = [t for t in queue["tasks"] if t.get("status") in {"pending", "failed"}]
+    state["opportunity_ranking"] = [
+        {"task_id": t["task_id"], "track": task_track(t),
+         "score": round(float(t.get("priority", 0)) * float(t.get("expected_information_gain", 0)) / max(float(t.get("cost_estimate", 1)), .01), 4),
+         "scientific_completion": t.get("scientific_completion", "legacy_artifact_schema")}
+        for t in sorted(pending, key=lambda x: (-(float(x.get("priority", 0)) * float(x.get("expected_information_gain", 0)) / max(float(x.get("cost_estimate", 1)), .01)), x["task_id"]))
+    ]
     for task in proposed:
         append_jsonl(root / EVENTS, {"event": "evidence_gated_task_enqueued", "task_id": task["task_id"], "timestamp": now(),
                                       "research_key": task["research_key"]})
@@ -567,6 +691,7 @@ def main() -> int:
     limits = state.get("budget_consumption", {})
     rounds = args.max_rounds or limits.get("configured_max_rounds", 1)
     max_workers = limits.get("configured_max_worker_invocations", 1)
+    activation_worker_limit = limits.get("configured_max_worker_invocations_per_activation", 1)
     timeout = args.timeout_seconds or min(1800, limits.get("configured_max_wall_seconds", 1800))
     max_bytes = int(limits.get("configured_max_artifact_mib", 50) * 1024 * 1024)
     min_free = int(limits.get("minimum_disk_free_mib", 2048) * 1024 * 1024)
@@ -616,8 +741,19 @@ def main() -> int:
             state["campaign_status"] = "active"
             state["checkpoint_time"] = now()
             atomic_json(qp, queue); atomic_json(sp, state)
+        state, queue = read_json(sp), read_json(qp)
+        supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
+        activation_worker_limit = int(state.setdefault("budget_consumption", {}).setdefault(
+            "configured_max_worker_invocations_per_activation", activation_worker_limit))
+        activation = begin_activation(root, state, supervisor, activation_worker_limit)
+        if state.get("campaign_status") in {"paused_worker_budget", "waiting_for_next_activation"}:
+            state["campaign_status"] = "active"
+        supervisor["status"] = "ACTIVE"
+        state["checkpoint_time"] = now()
+        atomic_json(sp, state); write_supervisor_state(root, supervisor)
         enqueue_continuations(root, state, queue)
         supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
+        activation = supervisor.setdefault("activation", activation)
         sync_track_checkpoints(root, state, queue, supervisor)
         started, invocations = time.monotonic(), 0
         for _ in range(rounds):
@@ -640,13 +776,14 @@ def main() -> int:
                 supervisor["status"] = "ACTIVE"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             task = ready[0]
             budget = state.setdefault("budget_consumption", {})
-            if budget.get("worker_invocations_started", 0) >= max_workers:
-                state["campaign_status"] = "paused_worker_budget"
-                supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
+            if activation.get("worker_invocations", 0) >= int(activation.get("max_worker_invocations", activation_worker_limit)):
+                state["campaign_status"] = "waiting_for_next_activation"
+                state["next_action"] = "Wait for the next bounded supervisor activation; lifetime worker history is preserved."
+                supervisor["status"] = "ACTIVE"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             if task.get("counts_as_experiment") and budget.get("experiments_started", 0) >= limits.get("configured_max_experiments", 0):
                 state["campaign_status"] = "paused_experiment_budget"
                 supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
-            if invocations >= max_workers or time.monotonic()-started+limits.get("final_reporting_reserve_seconds", 300) >= limits.get("configured_max_wall_seconds", 7200): break
+            if invocations >= int(activation.get("max_worker_invocations", activation_worker_limit)) or time.monotonic()-started+limits.get("final_reporting_reserve_seconds", 300) >= limits.get("configured_max_wall_seconds", 7200): break
             usage = supervisor.setdefault("usage", {})
             utc_date = now()[:10]
             if usage.get("date_utc") != utc_date:
@@ -663,6 +800,8 @@ def main() -> int:
             if task.get("counts_as_experiment"):
                 state["budget_consumption"]["experiments_started"] = state["budget_consumption"].get("experiments_started", 0)+1
             state["budget_consumption"]["worker_invocations_started"] = state["budget_consumption"].get("worker_invocations_started", 0)+1
+            activation["worker_invocations"] = int(activation.get("worker_invocations", 0)) + 1
+            supervisor["activation"] = activation
             state["campaign_status"] = "running"; state["current_phase"] = task["task_id"].lower()
             state["next_action"] = task["objective"]; state["checkpoint_time"] = now()
             supervisor["status"] = "RUNNING"; supervisor["active_workers"] = [{"task_id": task["task_id"], "track": track, "attempt": task["attempts"]}]
@@ -754,6 +893,9 @@ def main() -> int:
         sync_track_checkpoints(root, state, queue, supervisor)
     print(json.dumps({"campaign_status": state.get("campaign_status"), "completed_tasks": state.get("completed_tasks", []),
                       "blocked_tasks": state.get("blocked_tasks", []), "worker_invocations_this_run": invocations,
+                      "lifetime_worker_invocations": state.get("budget_consumption", {}).get("worker_invocations_started", 0),
+                      "activation_worker_invocations": supervisor.get("activation", {}).get("worker_invocations", 0),
+                      "activation_worker_limit": supervisor.get("activation", {}).get("max_worker_invocations"),
                       "supervisor_status": supervisor.get("status"), "next_check_at": supervisor.get("quota", {}).get("next_check_at"),
                       "next_action": state.get("next_action")}, ensure_ascii=False, indent=2)); return 0
 

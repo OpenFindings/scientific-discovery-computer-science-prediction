@@ -279,7 +279,7 @@
   ],
   "blocked_tasks": [],
   "budget_consumption": {
-    "activations_started": 70,
+    "activations_started": 71,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -304,11 +304,11 @@
     },
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 19
+    "worker_invocations_started": 20
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "active_nonexperimental_proof_task",
-  "checkpoint_time": "2026-10-15T17:26:03Z",
+  "checkpoint_time": "2026-10-15T17:42:22Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -349,13 +349,15 @@
     "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
     "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
     "PAPER4-QAOA-CLOSURE-001",
-    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
+    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+    "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001"
   ],
   "current_best_opportunities": [
     {
       "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
-      "reason": "The source-matched forward audit confirms the 2018 fixed-s O(k^(s+1)) upper bound and explicit open question; a later apparent 0-Extension extension was retracted, while flow/cut/Steiner-node results are definition-mismatched. The first admitted proof obligation is a label-independent boundary signature on trees/cacti, with a contraction-only lower-bound obstruction as fallback.",
-      "status": "theorem_audit_complete_open_proof_gap"
+      "reason": "A complete two-sided terminal-core proof now establishes an exact O(|S|) k^0 construction for finite connected unweighted trees. The result does not settle cacti, weighted trees or general graphs; the next proof obligation is a single-cycle cactus signature, with O7 retained as fallback.",
+      "status": "restricted_tree_lemma_proved_cactus_obligation_open",
+      "next_task": "THEORY-ZEROEXT-CACTUS-CYCLE-001"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
@@ -368,8 +370,8 @@
       "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "zero_extension_theorem_and_novelty_audit",
-  "current_research_round": 31,
+  "current_phase": "zero_extension_tree_boundary_signature_completed",
+  "current_research_round": 32,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -425,18 +427,19 @@
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
-  "last_activation_id": "2026-10-15T17:26:17Z-pid67221",
+  "last_activation_id": "2026-10-15T17:41:17Z-pid73160",
   "last_successful_commit": "ebeb990",
   "latest_scientific_increment": {
-    "decision": "The exact Zero Extension metric-sparsifier question remains unresolved in the audited forward chain; the 2018 exponent arises at an s+1 representative-set certificate, and the next proof obligation is a label-independent boundary signature on trees/cacti.",
-    "evidence_level": "tier_2_source_verified_theorem_and_novelty_audit",
-    "kind": "nonexperimental_theorem_audit_checkpoint",
-    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001; prove the narrowest two-sided restricted lemma or document a source-matched obstruction. Do not start a new experiment.",
+    "decision": "On finite connected unweighted trees, deleting terminal-free leaves and suppressing nonterminal degree-two paths preserves the exact k-bounded metric-labeling optimum for every finite metric and injective terminal labeling. The construction has O(|S|) edges and universal k-exponent 0; the unrestricted graph and cactus questions remain open.",
+    "evidence_level": "tier_3_fully_proved_restricted_mathematical_result",
+    "kind": "independently_reconciled_tree_boundary_signature_proof",
+    "next_falsifiable_action": "Attempt THEORY-ZEROEXT-CACTUS-CYCLE-001 on a single-cycle cactus; do not execute an experiment or renew an experiment budget.",
     "scientific_success": true,
-    "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001"
+    "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
+    "workflow_note": "The real theory-worker attempt produced valid JSON/Markdown but was rejected for modifying scripts/research_supervisor.py; the scientific artifact was independently reconciled after that write conflict."
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Execute THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001 as a mathematical/source audit: attempt a label-independent exact boundary signature on trees/cacti, record the first proof gap or counterexample, and do not start an experiment.",
+  "next_action": "Attempt THEORY-ZEROEXT-CACTUS-CYCLE-001: analyze a single-cycle cactus boundary signature with exact two-sided cost/crossing preservation. If it fails, preserve the precise obstruction and reassess O7; do not execute an experiment or renew the experiment budget.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -447,11 +450,30 @@
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
   "opportunity_ranking": [
-    {"rank": 1, "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005", "status": "theorem_audit_complete_open_proof_gap", "next_task": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001", "reason": "Direct source definitions and the s+1 proof bottleneck are now reconstructed; the restricted tree/cactus signature lemma is the first nontrivial proof obligation."},
-    {"rank": 2, "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH", "status": "frozen_no_score_until_labels", "reason": "Target A and B remain separate, with no valid direct historical forecast labels."},
-    {"rank": 3, "id": "EDCS-LAZY-REPAIR-INVARIANT-001", "status": "closed_educational_engineering_no_publishable_novelty", "reason": "Closed after adversarial proof review; do not revisit."}
+    {
+      "rank": 1,
+      "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+      "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+      "status": "restricted_tree_lemma_proved_cactus_obligation_open",
+      "next_task": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+      "reason": "A complete two-sided proof establishes an exact O(|S|) tree core with k-exponent 0. This is meaningful restricted progress, not a solution for general graphs; the next highest-value proof obligation is the single-cycle cactus case."
+    },
+    {
+      "rank": 2,
+      "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
+      "status": "frozen_no_score_until_labels",
+      "reason": "Target A and Target B remain separate, with no valid direct historical forecast labels."
+    },
+    {
+      "rank": 3,
+      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+      "status": "closed_educational_engineering_no_publishable_novelty",
+      "reason": "Closed after adversarial proof review; do not revisit."
+    }
   ],
-  "pending_tasks": ["THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001"],
+  "pending_tasks": [
+    "THEORY-ZEROEXT-CACTUS-CYCLE-001"
+  ],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
@@ -488,7 +510,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -523,7 +545,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -615,7 +637,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -654,7 +676,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -676,7 +698,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -709,7 +731,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -734,7 +756,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": null
     },
     {
@@ -772,7 +794,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -823,7 +845,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -852,7 +874,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -934,7 +956,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -971,7 +993,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -1008,7 +1030,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1033,7 +1055,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
@@ -1054,7 +1076,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
         "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
@@ -1076,7 +1098,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
@@ -1096,7 +1118,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T17:26:17Z",
+      "timestamp": "2026-10-15T17:41:17Z",
       "uncertainty": [
         "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
         "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",

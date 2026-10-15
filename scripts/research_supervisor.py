@@ -11,7 +11,7 @@ EVENTS = Path("research/supervisor_events.jsonl")
 TASK_CANDIDATES = Path("research/task_candidates.json")
 SUPERVISOR_STATE = Path("research/supervisor_state.json")
 TRACK_ROOT = Path("research/tracks")
-TRACKS = ("forecasting", "experiments")
+TRACKS = ("forecasting", "experiments", "theory")
 
 def now() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -83,7 +83,11 @@ def load_supervisor_state(root: Path, campaign_id: str) -> dict[str, Any]:
     if path.is_file():
         value = read_json(path)
         value.setdefault("quota", default_supervisor_state(campaign_id)["quota"])
-        value.setdefault("usage", default_supervisor_state(campaign_id)["usage"])
+        default_usage = default_supervisor_state(campaign_id)["usage"]
+        usage = value.setdefault("usage", default_usage)
+        usage.setdefault("track_worker_seconds", {})
+        for track in TRACKS:
+            usage["track_worker_seconds"].setdefault(track, 0.0)
         value.setdefault("active_workers", [])
         value.setdefault("activation", default_supervisor_state(campaign_id)["activation"])
         value.setdefault("stop_requested", False)
@@ -326,6 +330,50 @@ def scientific_validation(task: dict[str, Any], artifact: dict[str, Any]) -> tup
               and direct_positive == 0 and direct_negative == 0
               and "not_estimable" in str(counts.get("paper3_score", "")))
         missing = missing + (["cross_round_diagnostic_structure"] if not ok else [])
+    elif mode == "proof_obligation_audit":
+        required = ("mathematical_claim", "assumptions", "verified_steps", "gaps",
+                    "counterexamples", "proof_status", "independent_review")
+        missing = missing + [key for key in required if key not in artifact]
+        status = artifact.get("proof_status") if isinstance(artifact.get("proof_status"), dict) else {}
+        overall = status.get("overall")
+        allowed = {"fully_proved", "counterexample_found", "disproved",
+                   "partially_proved", "unresolved", "not_proved"}
+        if overall not in allowed:
+            missing.append("proof_status.overall")
+        assumptions = artifact.get("assumptions")
+        verified_steps = artifact.get("verified_steps")
+        gaps = artifact.get("gaps")
+        counterexamples = artifact.get("counterexamples")
+        review = artifact.get("independent_review") if isinstance(artifact.get("independent_review"), dict) else {}
+        if not isinstance(assumptions, list) or not assumptions:
+            missing.append("nonempty_assumptions")
+        if not isinstance(verified_steps, list) or not verified_steps:
+            missing.append("nonempty_verified_steps")
+        if not isinstance(gaps, list):
+            missing.append("gaps_list")
+        if not isinstance(counterexamples, list):
+            missing.append("counterexamples_list")
+        if review.get("status") not in {"passed", "passed_with_scope"}:
+            missing.append("independent_review.status")
+        exposition = task.get("exposition_artifact")
+        # The worker-side path/size/content check is performed in run_worker;
+        # scientific_validation is also used by reconciliation and therefore
+        # must not resolve relative paths against the caller's cwd.
+        exposition_ok = bool(exposition and isinstance(exposition, str))
+        if not exposition_ok:
+            missing.append("exposition_artifact")
+        # A proof is complete only when its declared scope is closed. A
+        # counterexample/disproof is also a valid scientific increment, but
+        # incomplete or unresolved reasoning must remain artifact-only.
+        complete_proof = (overall == "fully_proved" and isinstance(gaps, list)
+                          and not gaps and review.get("status") == "passed")
+        complete_obstruction = (overall in {"counterexample_found", "disproved"}
+                                and isinstance(counterexamples, list)
+                                and bool(counterexamples)
+                                and review.get("status") in {"passed", "passed_with_scope"})
+        ok = bool(complete_proof or complete_obstruction) and exposition_ok
+        if not ok and "proof_scope_not_closed" not in missing:
+            missing.append("proof_scope_not_closed")
     else:
         ok = False
         missing.append("recognized_scientific_completion_mode")
@@ -575,12 +623,17 @@ def parse_session_id(path: Path) -> str | None:
     return None
 
 def worker_prompt(task: dict[str, Any], output_rel: str, attempt: int) -> str:
-    return ("You are a bounded scientific research worker. Read AGENTS.md and the current state. Perform only this task; do not publish, commit, change production OpenFindings, modify unrelated files, or claim evidence you did not inspect. Preserve null/negative results. Write one machine-readable JSON artifact at the declared output path, including evidence tier, sources/data, method, observed result or blocker, uncertainty, and next falsifiable action. Do not edit state, queue, ledger, status, or other artifacts; the supervisor owns checkpoints.\n\n"
+    exposition = task.get("exposition_artifact")
+    extra = (f" Also write the complete mathematical exposition to {exposition}; the JSON must remain a concise structured result."
+             if exposition else "")
+    return ("You are a bounded scientific research worker. Read AGENTS.md and the current state. Perform only this task; do not publish, commit, change production OpenFindings, modify unrelated files, or claim evidence you did not inspect. Preserve null/negative results. Write one machine-readable JSON artifact at the declared output path, including evidence tier, sources/data, method, observed result or blocker, uncertainty, and next falsifiable action. Do not edit state, queue, ledger, status, or other artifacts; the supervisor owns checkpoints."
+            + extra + "\n\n"
             f"Task {task['task_id']} (attempt {attempt}/{task.get('max_attempts', 1)}):\nObjective: {task['objective']}\n"
             f"Dependencies: {json.dumps(task.get('dependencies', []))}\n"
             f"Planning-only information-gain estimate: {task.get('expected_information_gain')}\n"
             f"Requirements: {json.dumps(task.get('execution_requirements', []), ensure_ascii=False)}\n"
-            f"Success criteria: {json.dumps(task.get('success_criteria', []), ensure_ascii=False)}\nWrite only: {output_rel}\n")
+            f"Success criteria: {json.dumps(task.get('success_criteria', []), ensure_ascii=False)}\nWrite only: {output_rel}\n"
+            + (f"Write Markdown: {exposition}\n" if exposition else ""))
 
 def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, artifact_limit: int, worker_dir: Path, on_start=None) -> dict[str, Any]:
     codex = os.environ.get("RESEARCH_SUPERVISOR_CODEX_BIN") or shutil.which("codex")
@@ -612,6 +665,10 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     elapsed = round(time.monotonic() - started, 3)
     sizes = {p.name: p.stat().st_size for p in (raw, stderr, final) if p.exists()}
     after = git_snapshot(root)
+    output_paths = {output_rel}
+    exposition_rel = task.get("exposition_artifact")
+    if isinstance(exposition_rel, str):
+        output_paths.add(exposition_rel)
     changed = {name for name in set(before) | set(after) if before.get(name) != after.get(name)}
     supervisor_paths = {str(p.relative_to(root)) for p in worker_dir.iterdir()}
     # Lane checkpoints are derived supervisor artifacts. Workers may run the
@@ -623,7 +680,7 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     # concurrent bounded activation must not turn that expected append into a
     # worker-write conflict; canonical state and queue paths remain protected.
     supervisor_paths.update({"research/logs/launchd.out.log", "research/logs/launchd.err.log"})
-    unexpected = sorted(changed - {output_rel} - supervisor_paths)
+    unexpected = sorted(changed - output_paths - supervisor_paths)
     artifact_ok = artifact.is_file() and artifact.stat().st_size <= artifact_limit
     if artifact_ok and prior_artifact_hash == hashlib.sha256(artifact.read_bytes()).hexdigest():
         artifact_ok = False
@@ -632,9 +689,16 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
             json.loads(artifact.read_text(encoding="utf-8"))
         except (OSError, UnicodeDecodeError, json.JSONDecodeError):
             artifact_ok = False
+    exposition_ok = True
+    if isinstance(exposition_rel, str):
+        exposition = (root / exposition_rel).resolve()
+        exposition_ok = (root.resolve() in exposition.parents and exposition.is_file()
+                         and exposition.stat().st_size <= artifact_limit
+                         and bool(exposition.read_text(encoding="utf-8").strip()))
     if unexpected: error = "worker changed paths outside declared artifact: " + ", ".join(unexpected[:20])
     elif sum(sizes.values()) > artifact_limit: error = "worker logs exceeded size limit"
     elif not artifact_ok and proc.returncode == 0: error = "worker exited zero but did not produce a new or changed bounded artifact"
+    elif not exposition_ok and proc.returncode == 0: error = "worker did not produce the declared exposition artifact"
     else: error = None
     # Command-execution aggregates can echo AGENTS.md policy text containing
     # words such as "rate limits". Only structured error events, stderr and

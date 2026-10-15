@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "artifact": "reports/zero_extension_boundary_signature_result_20261015.json",
+      "attempts": 1,
+      "cost_estimate": 0.1,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001"
+      ],
+      "execution_requirements": [
+        "mathematical and source audit only",
+        "no new experiment, network-dependent search, or supervisor start",
+        "preserve exact definitions, proof gaps, counterexamples and negative findings",
+        "Paper 3 Target A and Target B remain unchanged"
+      ],
+      "expected_information_gain": 0.9,
+      "exposition_artifact": "reports/zero_extension_boundary_signature_proof_20261015.md",
+      "failure_handling": "If the tree/cactus signature lemma fails or is already implied by prior art, preserve the obstruction and down-rank the candidate; do not replace the target with a mismatched cut/flow theorem.",
+      "failure_note": "worker changed paths outside declared artifact: scripts/research_supervisor.py",
+      "finished_at": "2026-10-15T17:42:22Z",
+      "last_result": {
+        "artifact_bytes": 4177,
+        "artifact_valid": true,
+        "elapsed_seconds": 65.227,
+        "error": "worker changed paths outside declared artifact: scripts/research_supervisor.py",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "independent_validation": "reports/zero_extension_boundary_signature_result_20261015.json",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "3246bbe87a4349647fc5c034ae32016cbfb700adbfbf5a03b4ee7eba50cc2f75",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "scientific_validation_reconciled": true,
+        "session_id": "01a140a7-7310-7a62-b86c-15a37a62ef3e",
+        "timed_out": false,
+        "worker_write_conflict_rejected": true
+      },
+      "max_attempts": 1,
+      "objective": "Attempt the first nontrivial proof obligation for ZERO-EXTENSION-EXACT-SPARSIFIER-005: define and adversarially check a label-independent boundary signature for exact k-bounded metric-sparsifier preservation on trees and cacti. Prove the narrowest valid two-sided lemma or record a concrete source-matched obstruction, then use the contraction-only lower-bound obstruction as fallback.",
+      "priority": 98,
+      "research_key": "zero_extension_boundary_signature_proof_obligation",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "mathematical_proof_audit",
+        "reason": "No result may be called a theorem until exact preservation and hidden label dependence are checked.",
+        "reason_after_reconciliation": "The worker execution was rejected for a protected-path write conflict; an independently reviewed structured result and complete exposition satisfy the restricted-tree proof criteria.",
+        "scientific_success": true,
+        "validation_mode": "proof_obligation_audit"
+      },
+      "started_at": "2026-10-15T17:41:17Z",
+      "status": "completed",
+      "success_criteria": [
+        "source definitions and quantifiers are restated",
+        "at least one two-sided proof obligation is discharged or a concrete counterexample is documented",
+        "hidden s-dependence is audited",
+        "finite evidence is not promoted to an asymptotic theorem",
+        "Paper 3 state is unchanged"
+      ],
+      "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
+      "track": "theory"
+    },
+    {
+      "artifact": "reports/zero_extension_cactus_signature_result_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.1,
+      "counts_as_experiment": false,
+      "dependencies": [
+        "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001"
+      ],
+      "execution_requirements": [
+        "mathematical proof audit only",
+        "no experiment, network-dependent search, or supervisor start",
+        "no experiment authorization renewal",
+        "preserve unresolved and negative results"
+      ],
+      "expected_information_gain": 0.75,
+      "exposition_artifact": "reports/zero_extension_cactus_signature_proof_20261015.md",
+      "failure_handling": "If the single-cycle signature fails, preserve the exact obstruction and reassess O7; do not infer an asymptotic lower bound or substitute a mismatched cut/flow theorem.",
+      "max_attempts": 1,
+      "objective": "Attempt the next narrow O6 subproblem on a single-cycle cactus: define a label-independent boundary signature and either prove exact two-sided preservation of cost and crossing budget or record the first precise obstruction; do not claim an unrestricted theorem.",
+      "priority": 96,
+      "research_key": "zero_extension_cactus_cycle_signature",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "scientific_validation": {
+        "mode": "proof_obligation_audit",
+        "reason": "A cactus result must close the cycle-specific two-sided proof obligation; an unresolved signature remains a lead, not a theorem.",
+        "scientific_success": false
+      },
+      "status": "pending",
+      "success_criteria": [
+        "tree lemma remains separate and unchanged",
+        "single-cycle assumptions and quantifiers are explicit",
+        "a complete two-sided proof is discharged or a precise obstruction is independently checked",
+        "hidden s-dependence and cycle boundary cases are audited",
+        "Paper 3 Target A/B state is unchanged"
+      ],
+      "task_id": "THEORY-ZEROEXT-CACTUS-CYCLE-001",
+      "track": "theory"
+    }
+  ],
+  "track": "theory"
+}

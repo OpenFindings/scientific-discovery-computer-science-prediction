@@ -29,7 +29,7 @@ print(f"Quota: {quota.get('state', 'unknown')} (next_check={quota.get('next_chec
 usage = supervisor.get("usage", {})
 limits = state.get("operational_limits", {})
 print(f"Local budget: {usage.get('conservative_worker_seconds', 0):.1f}s/{limits.get('max_daily_worker_seconds', 'unknown')}s daily; tracks={usage.get('track_worker_seconds', {})}")
-for track in ("forecasting", "experiments"):
+for track in ("forecasting", "experiments", "theory"):
     path = ROOT / "research/tracks" / track / "state.json"
     if path.is_file():
         lane = json.loads(path.read_text())

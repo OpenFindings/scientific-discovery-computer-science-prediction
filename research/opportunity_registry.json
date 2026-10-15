@@ -1,6 +1,6 @@
 {
   "registry_id": "CS-OPPORTUNITY-REGISTRY-20261015",
-  "updated_at": "2026-10-15T17:26:03Z",
+  "updated_at": "2026-10-15T17:42:22Z",
   "directions": [
     {"id": "QAOA-POSTSELECTION", "status": "temporarily_closed", "reason": "conditional state-quality effect replicated but complete fixed-shot procedure underperformed standard sampling; no new run without a new hypothesis and authorization"},
     {"id": "BADGER", "status": "conditional_no_go", "reason": "missing compatible Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack and fair metric"},
@@ -8,7 +8,7 @@
     {"id": "SERENIOT", "status": "conditional_no_go", "reason": "no matched device-disjoint traces and false-allow/false-block labels"},
     {"id": "DP158", "status": "audit_complete_no_new_claim", "reason": "source-matched numerical reproduction and boundary limitation; no certified privacy comparison"},
     {"id": "EDCS-LAZY-REPAIR-INVARIANT-001", "status": "closed_educational_engineering_no_publishable_novelty", "reason": "the four-update witness and beta_minus=beta-1 family survive adversarial review only as a restricted one-toggle variant result; the broad repair lemma was corrected, alternating repairs are known prior art, and no general dynamic-EDCS lower bound was established"},
-    {"id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005", "status": "theorem_audit_complete_open_proof_gap", "reason": "the source-matched forward audit confirms the 2018 fixed-s O(k^(s+1)) upper bound and explicit open question; a later apparent 0-Extension extension was retracted, while flow/cut/Steiner-node results are definition-mismatched. The first admitted proof obligation is a label-independent boundary signature on trees/cacti, with a contraction-only lower-bound obstruction as fallback."},
+    {"id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005", "status": "restricted_tree_lemma_proved_cactus_obligation_open", "reason": "A complete two-sided terminal-core proof establishes an exact O(|S|) k^0 construction for finite connected unweighted trees. This does not settle cacti, weighted trees or general graphs; the next proof obligation is a single-cycle cactus signature, with O7 retained as fallback. The 2018 unrestricted O(k^(s+1)) question and source-matched novelty boundary remain unchanged."},
     {"id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "fallback_waiting_authorization", "reason": "only consider after a separately authorized parameter/repair-budget comparison; no experiment is currently authorized"},
     {"id": "CERT-SQLITE-TRANSFER-003", "status": "rejected_endpoint_gate", "reason": "CERT is known prior art and local SQLite lacks a comparable estimated-row endpoint"},
     {"id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "rejected_dependency_gate", "reason": "pinned semantics/checker/toolchain unavailable"}

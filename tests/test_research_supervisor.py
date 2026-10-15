@@ -43,6 +43,11 @@ class ResearchSupervisorTests(unittest.TestCase):
                         "if mode=='fail': raise SystemExit(9)\n"
                         "if mode=='unchanged': raise SystemExit(0)\n"
                         "prompt=sys.stdin.read(); rel=[x.removeprefix('Write only: ') for x in prompt.splitlines() if x.startswith('Write only: ')][0]\n"
+                        "if mode=='theory':\n"
+                        "    md=[x.removeprefix('Write Markdown: ') for x in prompt.splitlines() if x.startswith('Write Markdown: ')][0]\n"
+                        "    Path(rel).parent.mkdir(parents=True,exist_ok=True); Path(rel).write_text(json.dumps({'evidence_tier':'tier_3_mathematical_proof_audit','sources_and_data':['source definition'],'method':'tree path compression proof','uncertainty':['restricted to unweighted trees'],'next_falsifiable_action':'audit cactus extension','mathematical_claim':'tree core preserves exact k-bounded cost','assumptions':['finite unweighted tree'],'verified_steps':['path triangle inequality','crossing-count equivalence'],'gaps':[],'counterexamples':[],'proof_status':{'overall':'fully_proved','claim_scope':'unweighted trees only'},'independent_review':{'status':'passed','reviewer':'independent checker'}}))\n"
+                        "    Path(md).parent.mkdir(parents=True,exist_ok=True); Path(md).write_text('# Tree proof\\n\\nComplete proof.\\n')\n"
+                        "    raise SystemExit(0)\n"
                         "p=Path(rel); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps({'result':'negative','evidence_tier':4}))\n"
                         "if mode=='tamper': Path('research/task_queue.json').write_text('tampered by worker')\n"
                         "raise SystemExit(0)\n")
@@ -330,6 +335,50 @@ class ResearchSupervisorTests(unittest.TestCase):
         ok, validation = scientific_validation(task, artifact)
         self.assertTrue(ok)
         self.assertTrue(validation["scientific_success"])
+
+    def test_proof_obligation_requires_closed_proof_or_verified_obstruction(self):
+        task = {"task_id": "THEORY-1", "scientific_completion": "proof_obligation_audit",
+                "exposition_artifact": str(self.root / "proof.md")}
+        (self.root / "proof.md").write_text("complete exposition")
+        artifact = {
+            "evidence_tier": "tier_3_mathematical_proof_audit",
+            "sources_and_data": ["source definition"],
+            "method": "path compression",
+            "uncertainty": ["trees only"],
+            "next_falsifiable_action": "audit cactus",
+            "mathematical_claim": "tree core preserves the exact objective",
+            "assumptions": ["finite unweighted tree"],
+            "verified_steps": ["triangle inequality", "crossing count"],
+            "gaps": [], "counterexamples": [],
+            "proof_status": {"overall": "fully_proved", "claim_scope": "trees only"},
+            "independent_review": {"status": "passed"},
+        }
+        ok, validation = scientific_validation(task, artifact)
+        self.assertTrue(ok)
+        self.assertTrue(validation["scientific_success"])
+        artifact["proof_status"]["overall"] = "partially_proved"
+        ok, validation = scientific_validation(task, artifact)
+        self.assertFalse(ok)
+        self.assertIn("proof_scope_not_closed", validation["missing_or_failed"])
+
+    def test_theory_track_real_execution_requires_json_and_markdown(self):
+        queue = self.queue()
+        queue["tasks"][0].update({
+            "task_id": "THEORY-1", "track": "theory",
+            "scientific_completion": "proof_obligation_audit",
+            "artifact": "results/THEORY-1.json",
+            "exposition_artifact": "reports/THEORY-1.md",
+            "objective": "prove a bounded tree lemma",
+            "success_criteria": ["closed proof or verified obstruction"],
+        })
+        (self.root / "research/task_queue.json").write_text(json.dumps(queue))
+        result = self.invoke("theory")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["status"], "completed")
+        self.assertEqual(self.state()["completed_tasks"], ["THEORY-1"])
+        self.assertTrue((self.root / "reports/THEORY-1.md").is_file())
+        lane = json.loads((self.root / "research/tracks/theory/task_queue.json").read_text())
+        self.assertEqual(lane["tasks"][0]["task_id"], "THEORY-1")
 
     def test_candidate_gate_supports_nested_json_field(self):
         evidence = self.root / "reports/evidence.json"

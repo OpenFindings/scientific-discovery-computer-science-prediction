@@ -28,7 +28,7 @@ if supervisor_path.is_file():
             errors.append("invalid supervisor quota state")
         global_ids = set(ids)
         seen_track_ids = set()
-        for track in ("forecasting", "experiments"):
+        for track in ("forecasting", "experiments", "theory"):
             lane_path = ROOT / "research/tracks" / track / "task_queue.json"
             if not lane_path.is_file():
                 errors.append(f"missing track queue: {track}")

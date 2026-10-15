@@ -1,5 +1,13 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: exact boundary-signature lemma proved on unweighted trees
+
+- **Mathematical result:** For every finite connected unweighted tree, terminal set $S$, finite metric and injective terminal labeling, deleting terminal-free leaves and suppressing nonterminal degree-two paths preserves both the minimum metric-labeling cost and the crossing budget of every $k$-bounded extension. The proof is two-sided: triangle inequality maps a tree labeling to the core, and constant-on-path extension maps a core labeling back.
+- **Size/exponent:** The resulting core has at most $2|S|-3$ edges for $|S|\ge2$, i.e. an explicit $O(|S|)k^0$ restricted construction. The exponent is independent of the label bound $s$; the terminal factor is not hidden. This does not settle weighted trees, cacti, or general graphs.
+- **Workflow evidence:** The real theory-worker attempt created a valid structured JSON result and Markdown exposition, but it also changed the protected Supervisor script and was therefore rejected as a worker-write conflict. Independent reconciliation validated the restricted proof; the conflict is retained as a negative control for the execution path.
+- **Classification:** Fully proved restricted tree lemma; no asymptotic lower bound, unrestricted theorem, or novelty claim. No experiment ran and no experiment authorization changed.
+- **Next decision:** Admit a separate single-cycle cactus proof/obstruction task. If cycle composition fails, preserve the exact gap and reassess O7 without promoting it to a lower bound.
+
 ## 2026-10-15: Zero Extension theorem audit isolates a real proof gap, not a result
 
 - **Source-matched finding:** Reidl--Wahlström's exact \(k\)-bounded metric-sparsifier theorem is \(O(k^{s+1})\) for fixed constant \(s\). The exponent arises because each edge receives an \(s+1\)-element certificate (one per gammoid layer plus the uniform layer) before representative-set compression.

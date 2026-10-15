@@ -1,0 +1,172 @@
+{
+  "task_id": "BADGER-FAIR-CPU-FEAS-001",
+  "attempt": 1,
+  "evidence_tier": "tier_2_feasibility_audit",
+  "status": "completed_bounded_no_go_for_preregistered_experiment",
+  "decision": {
+    "go": false,
+    "scope": "Do not claim a Badger-versus-KelinciWCA outcome or start the matched-CPU experiment on this machine.",
+    "reason": "The source repositories are pinned and the native Kelinci interface builds, but the Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack and a common cost-counter implementation are not reproducibly assembled. The available container exposes CPU counters but lacks the required build tools and network access was disabled.",
+    "exact_cost": {
+      "paid_compute_usd": 0,
+      "persistent_services_started": 0,
+      "source_build_probe_wall_seconds": {
+        "badger_ant_command": 0.00,
+        "kelinci_gradle_command": 0.00,
+        "kelinci_native_make": 0.14
+      },
+      "container_cpu_probe_usage_usec_delta": 262400,
+      "interpretation": "These are bounded local feasibility costs only; they are not experiment outcomes and do not include an unperformed dependency installation."
+    }
+  },
+  "research_question": "Can the 2018 Badger hybrid claim be tested against standalone KelinciWCA using held-out Java subjects, a matched worst-case cost metric, equal CPU, and equal wall-clock budget?",
+  "hypothesis_and_competing_explanations": {
+    "H1": "At matched resources, Badger generates a larger maximum resource-cost input than standalone KelinciWCA on held-out Java subjects.",
+    "H0_resource": "The published advantage is partly or wholly caused by one KelinciWCA process plus one SymExe process versus single-core component baselines.",
+    "H0_construct": "Badger and KelinciWCA optimize different or differently instrumented cost constructs, so an apparent advantage is not a matched estimand.",
+    "H0_subject": "The result depends on the selected subjects and is not independently testable with a held-out, non-overlapping Java suite from the available checkout."
+  },
+  "sources_and_data": [
+    {
+      "kind": "primary_2018_source",
+      "url": "https://arxiv.org/pdf/1806.03283v1",
+      "observed": "The paper defines KelinciWCA cost as executed conditions/branches, wall-clock timing, or user-defined costs; its threat-to-validity section states that Badger used one KelinciWCA process and one SymExe process while individual tools used one core, and calls this a possible advantage.",
+      "locators": ["PDF pp. 2-3", "PDF p. 9, Section 4.9"]
+    },
+    {
+      "kind": "pinned_source_code",
+      "repository": "https://github.com/isstac/badger",
+      "commit": "82b946c3ef3761b61864aa898f2c6711c5bb2396",
+      "pre_2019_reference_commit_observed": "c1c94ff20964615750751f72945bab54bd36c7f2",
+      "build_contract": "badger/badger/build.xml via Ant; requires JPF core, SPF, solver libraries, and a local .jpf/site.properties"
+    },
+    {
+      "kind": "pinned_source_code",
+      "repository": "https://github.com/isstac/kelinci",
+      "branch": "kelinciwca",
+      "commit": "2c72f97733b36710d8f5845faa928e9589053e61",
+      "pre_2019_reference_commit_observed": "ba003cd15bc877f774348a5c5335ec5266dc3a0e",
+      "build_contract": "fuzzerside/make plus instrumentor/build.gradle; requires AFL and Java dependencies args4j 2.32, ASM 5.2, and commons-io 2.4"
+    },
+    {
+      "kind": "local_checkout",
+      "path": "/private/tmp/badger-feas-XDqnXq",
+      "integrity": "both repositories were clean at the recorded commits; no source files were modified"
+    },
+    {
+      "kind": "container",
+      "image": "maven:3.9-eclipse-temurin-21",
+      "digest": "sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+      "network": "none"
+    }
+  ],
+  "method": {
+    "steps": [
+      "Read the prior Badger feasibility and Paper 4 action-plan artifacts, then inspected the pinned repository heads, build files, dependency declarations, metric implementations, evaluation directories, and example subjects.",
+      "Ran the documented Badger Ant build, KelinciWCA Gradle build, and Kelinci native-interface Make build in disposable checkouts.",
+      "Probed host and disposable-container Java, compiler, Ant, Gradle, AFL, and Docker availability without installing packages or enabling services.",
+      "Probed cgroup-v2 cpu.stat in the pinned container and measured usage_usec before and after a bounded 0.25-second busy loop.",
+      "Separated source observations and feasibility measurements from any claim about comparative performance."
+    ],
+    "commands": [
+      "cd /private/tmp/badger-feas-XDqnXq/badger/badger && ant build",
+      "cd /private/tmp/badger-feas-XDqnXq/kelinci/instrumentor && gradle build",
+      "cd /private/tmp/badger-feas-XDqnXq/kelinci/fuzzerside && make",
+      "docker run --rm --network none maven:3.9-eclipse-temurin-21 ..."
+    ],
+    "frozen_exclusions": [
+      "No paid compute, package download, persistent service, full-text PDF download, or production OpenFindings change.",
+      "No Java benchmark execution, cost-counter calibration, paired randomization, or outcome measurement was attempted after the build gate failed.",
+      "The existing repository worktree changes were not touched."
+    ]
+  },
+  "observed_results": {
+    "repository_pinning": "pass",
+    "badger_build": {
+      "result": "blocked",
+      "command_exit": 127,
+      "observed_error": "ant: command not found"
+    },
+    "kelinciwca_native_interface_build": {
+      "result": "pass",
+      "command_exit": 0,
+      "observed_command": "gcc -std=gnu99 -o interface interface.c"
+    },
+    "kelinciwca_instrumentor_build": {
+      "result": "blocked",
+      "command_exit": 127,
+      "observed_error": "gradle: command not found"
+    },
+    "host_environment": {
+      "java": "unavailable; /usr/bin/java reports no Java Runtime",
+      "javac": "unavailable; /usr/bin/javac reports no Java Runtime",
+      "ant": "not found",
+      "gradle": "not found",
+      "afl_fuzz": "not found",
+      "docker": "available"
+    },
+    "container_environment": {
+      "java": "OpenJDK 21.0.12.1",
+      "javac": "javac 21.0.12.1",
+      "ant": "not found",
+      "gradle": "not found",
+      "gcc": "not found",
+      "afl_fuzz": "not found",
+      "simple_java_compile": "pass for Kelinci examples/simple/SimpleBuggy.java"
+    },
+    "independent_java_subjects": {
+      "badger_evaluation_directories": ["01_insertionsort", "02_quicksort", "03_regex", "04_hashtable", "05_compress", "06_image_processor", "07_smart_contract"],
+      "kelinci_example_directories": ["commons-compress", "commons-imaging", "hashtable", "jdk-imageio", "regex", "simple", "wise"],
+      "finding": "The available material contains multiple subjects/examples, but it does not provide a verified held-out independent suite with a completed common build. Several names overlap or are derived from the Badger evaluation; independence and comparability therefore remain unverified."
+    },
+    "worst_case_cost_metric": {
+      "badger_supported": ["jumps", "instructions", "userdefined"],
+      "kelinciwca_supported": ["instrumentation", "time", "memory", "userdefined"],
+      "source_definition": "Badger's default timing proxy is an instrumented count of executed jumps/branches; KelinciWCA also reports runtime and memory, and user-defined costs.",
+      "fairness_result": "No cross-arm equivalence was established. cgroup CPU time is an external resource budget, not the same thing as the input-ranking objective. A valid study must freeze one identical subject-level cost definition and independently record cgroup CPU usage."
+    },
+    "cgroup_cpu_observability": {
+      "result": "pass_in_disposable_container_only",
+      "controller_file": "/sys/fs/cgroup/cgroup.controllers",
+      "controllers_observed": ["cpuset", "cpu", "io", "memory", "hugetlb", "pids", "rdma"],
+      "counter": "cpu.stat: usage_usec",
+      "probe": "before 37793, after 300193, delta 262400 usec after a bounded busy loop",
+      "limitation": "The macOS host does not expose the Linux cgroup files directly; the future experiment must run both arms inside equivalent Linux containers/cgroups and retain raw cpu.stat snapshots."
+    }
+  },
+  "resource_fairness_protocol_if_reopened": {
+    "prerequisites": [
+      "Build and hash a Java/Ant/JPF/SPF/Z3 environment and resolve KelinciWCA dependencies with checksums.",
+      "Build the repository's AFL fork, KelinciWCA instrumentor, Badger, and the same instrumented subject successfully.",
+      "Demonstrate that both arms emit the same subject-level cost for a fixed calibration input, while separately logging cgroup CPU usage.",
+      "Predeclare a non-overlapping subject set and verify each subject runs deterministically on the pinned JDK."
+    ],
+    "allocation": "One Linux cgroup per arm, one CPU effective quota per cgroup, same memory limit, same JDK/container digest, equal usage_usec stopping target, randomized arm order within subject/seed, and no shared concurrent host workload.",
+    "primary_metric": "Maximum verified common cost observed per subject and seed at the equal cgroup usage_usec target; do not substitute wall time or raw process count.",
+    "secondary_metrics": ["time to first threshold", "number of valid executions", "wall-clock elapsed", "peak memory"],
+    "falsification_gate": "If any subject cannot produce identical calibration costs, if either arm lacks complete raw CPU counters, or if the subject suite is not independent and held out, the matched-CPU claim is falsified as a measurement design and the experiment stops."
+  },
+  "uncertainty": [
+    "The exact Java version compatible with the 2018 JPF/SPF fork was not resolved; JDK 21 compatibility is unknown.",
+    "JPF core, SPF, Z3, AFL, and Gradle/Ant dependency artifacts were not built or checksum-pinned in this session.",
+    "No independent held-out subject set was authenticated.",
+    "The cgroup observation is container-local and demonstrates instrumentation availability, not end-to-end Badger/KelinciWCA CPU fairness.",
+    "No performance outcome, null outcome, bug yield, or comparative scientific result was observed."
+  ],
+  "next_falsifiable_action": {
+    "action": "Acquire or construct a finite, offline, checksum-pinned Linux build image containing a Java version compatible with the pinned JPF/SPF code, Ant, Gradle, AFL fork, Z3, and all declared jars; then run only a one-subject calibration gate.",
+    "budget": {
+      "paid_compute_usd": 0,
+      "maximum_local_wall_minutes": 30,
+      "maximum_cgroup_cpu_seconds": 60,
+      "persistent_services": 0
+    },
+    "pass_condition": "Both standalone KelinciWCA and Badger complete the same calibration subject, produce the same frozen cost metric on fixed inputs, and expose raw cgroup usage_usec counters.",
+    "fail_condition": "Any missing dependency, incompatible build, metric mismatch, absent counter, nondeterministic fixed-input cost, or lack of an independent subject causes a no-go without comparative outcome claims."
+  },
+  "claims_not_supported": [
+    "This artifact does not reproduce the Badger paper's result.",
+    "This artifact does not establish that Badger is better or worse than KelinciWCA.",
+    "The planning information-gain estimate of 0.65 remains unvalidated."
+  ]
+}

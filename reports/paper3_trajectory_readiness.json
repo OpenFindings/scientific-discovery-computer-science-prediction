@@ -1,0 +1,80 @@
+{
+  "report_id": "PAPER3-TRAJECTORY-READINESS-2026-10-15",
+  "methodology": "docs/paper3_methodology.md",
+  "trajectory_dataset": "reports/historical_evidence_trajectory_round2.json",
+  "feature_freeze": {
+    "status": "source_and_cutoff_features_frozen_for_readiness_audit_only",
+    "features_allowed": [
+      "source-version publication date",
+      "source-defined question text",
+      "source-defined object/comparator/metric/gate",
+      "topic/year stratum from frozen cohort frame"
+    ],
+    "future_text_or_outcome_features_used": false,
+    "model_fit_performed": false
+  },
+  "outcome_counts": {
+    "direct_scientific_resolution": {
+      "supported": 0,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 12,
+      "not_assessable": 0
+    },
+    "premise_refutation_or_revision": {
+      "supported": 0,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 12,
+      "not_assessable": 0
+    },
+    "partial_progress": {
+      "supported": 5,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 7,
+      "not_assessable": 0
+    },
+    "independent_evidence_strengthening": {
+      "supported": 1,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 11,
+      "not_assessable": 0
+    },
+    "contradictory_evidence": {
+      "supported": 0,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 12,
+      "not_assessable": 0
+    },
+    "scope_narrowing_or_reformulation": {
+      "supported": 3,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 9,
+      "not_assessable": 0
+    },
+    "continued_explicit_uncertainty": {
+      "supported": 0,
+      "contradicted": 0,
+      "not_observed_after_bounded_search": 12,
+      "not_assessable": 0
+    }
+  },
+  "class_power_gate": {
+    "direct_resolution_supported": 0,
+    "direct_resolution_contradicted": 0,
+    "direct_resolution_assessable_positive_or_negative": 0,
+    "required_for_score": "nonzero positive and negative direct labels in grouped chronological training and untouched test periods, with prespecified minimum units and uncertainty analysis",
+    "passed": false
+  },
+  "temporal_split_audit": {
+    "chronological_grouped_holdout_constructed": false,
+    "reason": "All 12 direct outcomes are unadjudicated; not-observed-after-search is missingness, not a negative class. A temporal split would therefore contain no valid direct-outcome contrast.",
+    "untouched_final_test_period": "reserved; no valid labels yet"
+  },
+  "decision": "no_paper3_score",
+  "scientific_result": "The separate trajectory rubric produces measurable partial-progress (5) and scope-narrowing (3) records, but zero direct-resolution positives or negatives. Paper 3 transfer is not statistically or scientifically identifiable from this cohort yet.",
+  "required_next_data": [
+    "Directly matched future resolution or refutation under the frozen question definitions",
+    "Independent negative/direct non-resolution evidence only if it is an explicit adjudicated outcome, never a failed search",
+    "Enough grouped question units across early training and later untouched test periods for ranking/calibration uncertainty"
+  ],
+  "negative_result": "No AUC, calibration, ranking score or breakthrough probability is reported. Dimension prevalence is not estimated from this selected cohort."
+}

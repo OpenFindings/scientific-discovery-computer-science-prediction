@@ -17,6 +17,28 @@ for task in queue.get("tasks", []):
     if task.get("status") == "completed" and not (ROOT / p).is_file(): errors.append(f"completed artifact missing: {task.get('task_id')}")
 if state.get("schema_version") != 1: errors.append("unsupported state schema")
 if len(state.get("completed_tasks", [])) != len(set(state.get("completed_tasks", []))): errors.append("duplicate completed task")
+supervisor_path = ROOT / "research/supervisor_state.json"
+if supervisor_path.is_file():
+    try:
+        supervisor = json.loads(supervisor_path.read_text())
+        if supervisor.get("schema_version") != 1: errors.append("unsupported supervisor state schema")
+        if supervisor.get("status") not in {"ACTIVE", "RUNNING", "QUOTA_PAUSED", "WAITING_FOR_RESET", "RESUME_CHECK", "BLOCKED", "STOPPED_BY_USER", "NOT_INITIALIZED"}:
+            errors.append("invalid supervisor status")
+        if supervisor.get("quota", {}).get("state") not in {"AVAILABLE", "PAUSED"}:
+            errors.append("invalid supervisor quota state")
+        global_ids = set(ids)
+        seen_track_ids = set()
+        for track in ("forecasting", "experiments"):
+            lane_path = ROOT / "research/tracks" / track / "task_queue.json"
+            if not lane_path.is_file():
+                errors.append(f"missing track queue: {track}")
+                continue
+            lane_ids = {task.get("task_id") for task in json.loads(lane_path.read_text()).get("tasks", [])}
+            if not lane_ids.issubset(global_ids): errors.append(f"track queue contains unknown task: {track}")
+            if seen_track_ids & lane_ids: errors.append("task appears in multiple track queues")
+            seen_track_ids |= lane_ids
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"invalid supervisor state: {exc}")
 ledger = ROOT / "research/experiment_ledger.jsonl"
 if not ledger.is_file(): errors.append("experiment ledger missing")
 experiment_ids = set()

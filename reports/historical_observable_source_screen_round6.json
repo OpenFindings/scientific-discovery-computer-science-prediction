@@ -1,0 +1,102 @@
+{
+  "screen_id": "HCS-OBSERVABLE-16-SOURCE-ROUND6-2026-10-15",
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "future_evidence_searched_for_these_questions": false,
+  "method": "Read the exact cutoff-version primary source, including the abstract, contribution/conclusion and explicit future-work/open-question passages, before any post-cutoff search. Eligibility requires a source-grounded open direction plus an object, comparator or property, measurable endpoint and falsification condition that can be frozen without later results.",
+  "rows": [
+    {
+      "versioned_id": "1811.06740v1",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1811.06740v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "ineligible_broad_survey_no_single_source_question",
+      "source_locator": "PDF pp. 1-4 abstract/introduction and survey challenge taxonomy",
+      "source_basis": "The source is a survey collecting challenges from advanced application domains. The inspected cutoff text does not leave one uniquely defined unresolved proposition with a fixed object, comparator and falsification gate. Turning one of the survey topics into such a question would be a reviewer-created question rather than a source-only lock.",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1805.02751v2",
+      "as_of": "2018-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1805.02751v2",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 1-3 abstract/introduction; pp. 10-12 discussion and future-work passages",
+      "source_basis": "The source studies three commercial smart toys and identifies privacy-policy and network-security mismatches. It explicitly motivates auditing more toys and automating the mapping from vague privacy policies to verifiable technical properties. The object and endpoint can be frozen as policy-to-observable-property agreement and independently reproduced violation detection, without using later findings.",
+      "candidate_question": "Across a preregistered sample of connected children's toys, can an automated policy-to-property audit recover the same objectively verifiable privacy and network-security violations as independent manual analysis while reducing analyst effort without increasing false negatives?",
+      "comparison_and_metric": "automated policy-to-property audit versus independently blinded manual audit on the same toy firmware/network traces; violation recall, false-positive rate and analyst time",
+      "falsification_gate": "The automation fails if recall is materially lower than the manual audit, false positives increase beyond a predeclared margin, or analyst-time savings disappear after review of ambiguous policy language. A larger vulnerability count alone is not a success label.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1905.06122v1",
+      "as_of": "2019-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1905.06122v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "ineligible_future_directions_without_single_falsifiable_question",
+      "source_locator": "PDF pp. 1-2 abstract/introduction; pp. 9-10 conclusion and future-work discussion",
+      "source_basis": "The paper presents a Six Sigma-inspired catalog mapping Industry 4.0 requirements to security controls and implementation-cost estimates. Its future directions concern adapting the catalog to scenarios and standards and automating assessment, but the inspected source does not define one fixed comparative endpoint or falsification condition. A later benchmark would be an externally invented question.",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "2003.02892v1",
+      "as_of": "2020-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/2003.02892v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 2-3 open challenge; pp. 21-22 discussion of richer behavior and whitelist convergence",
+      "source_basis": "SERENIoT explicitly states that correct whitelisted IoT behavior is open, and asks whether a collaborative intrusion-detection system can converge on permitted connections when richer device behavior and adversarial observations are present. The source supplies an observable policy set, convergence behavior and security/performance tradeoffs.",
+      "candidate_question": "For heterogeneous smart-home devices with software-update and adversarial-traffic regimes, can collaborative whitelist learning converge to a stable permitted-connection set while keeping false blocking and attacker-injected allowance below predeclared thresholds?",
+      "comparison_and_metric": "collaborative majority-derived whitelist versus a fixed manufacturer/local-observation baseline across benign, update and adversarial traces; convergence time, false-block rate, attacker-allowance rate and policy size",
+      "falsification_gate": "The claim fails if convergence is absent within the predeclared horizon, or if either false blocking or attacker allowance exceeds the fixed safety margin relative to the baseline. A proof-of-concept throughput result alone does not settle policy correctness.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1903.05387v1",
+      "as_of": "2019-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1903.05387v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 1-3 contribution/evaluation; p. 10 conclusion and explicit plan to add constraint handling through a solver",
+      "source_basis": "The source presents an Avocado combinatorial-interaction-testing framework and explicitly plans constraint handling through a constraint solver. The source leaves an implementation-and-evaluation question that can be frozen as constrained versus unconstrained test generation on invalid-configuration detection and execution cost.",
+      "candidate_question": "On constrained virtual-machine configuration spaces, does adding solver-backed constraint handling to Avocado reduce invalid or redundant test executions while preserving or improving detection of invalid configurations relative to unconstrained t-way generation?",
+      "comparison_and_metric": "solver-backed constrained CIT versus the source's unconstrained t-way generation on the same configuration model; invalid-configuration detection recall, executed-test count, invalid-test rate and wall-clock cost",
+      "falsification_gate": "No reduction in invalid/redundant executions at non-inferior detection recall, or a benefit that disappears on held-out configuration models, falsifies the claimed practical value. A framework implementation without a matched comparison is partial progress only.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "2007.03275v1",
+      "as_of": "2020-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/2007.03275v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 1-3 method and evaluation; pp. 16-17 conclusion/future work on missing UML sequence diagrams and broader applications",
+      "source_basis": "The source evaluates security-pattern selection and LTL checking on ten Web applications, then explicitly identifies two unresolved limitations: broader application types and patterns without UML sequence diagrams. This supports a source-only generalization question with objective trace-property detection outcomes.",
+      "candidate_question": "Can the security-pattern checking approach generalize from UML-sequence-diagram-supported Web applications to applications or patterns lacking those diagrams by using code annotations, while preserving independently verified behavioral-property detection precision and recall?",
+      "comparison_and_metric": "original UML-sequence-diagram pipeline versus the proposed annotation-based representation on project-disjoint applications/patterns; property-detection precision, recall, annotation effort and runtime",
+      "falsification_gate": "The generalization fails if precision or recall falls beyond a predeclared margin, annotations cannot be independently checked, or the apparent result depends on the same projects used to design the representation. More application examples without a matched representation comparison are not decisive.",
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ],
+  "counts": {
+    "new_source_section_screened": 6,
+    "new_eligible_questions": 4,
+    "new_ineligible": 2,
+    "combined_source_section_screened": 16,
+    "combined_eligible_questions": 12,
+    "combined_ineligible": 4,
+    "remaining_unscreened": 0,
+    "future_outcomes_adjudicated_for_new_rows": 0
+  },
+  "limitation": "These are targeted source-section decisions, not exhaustive page-by-page annotation. Four eligible questions now require bounded future checks; no later result was used to decide eligibility, and no direct resolution label is implied.",
+  "primary_source_checks": [
+    {"url": "https://arxiv.org/abs/1811.06740", "first_public_date": "2018-11-16", "note": "survey source"},
+    {"url": "https://arxiv.org/abs/1805.02751", "first_public_date": "2018-05-07", "note": "smart-toy source; v2 cutoff version inspected"},
+    {"url": "https://arxiv.org/abs/1905.06122", "first_public_date": "2019-05-15", "note": "security-compliance source"},
+    {"url": "https://arxiv.org/abs/2003.02892", "first_public_date": "2020-03-05", "note": "SERENIoT source"},
+    {"url": "https://arxiv.org/abs/1903.05387", "first_public_date": "2019-03-13", "note": "Avocado framework source"},
+    {"url": "https://arxiv.org/abs/2007.03275", "first_public_date": "2020-07-07", "note": "security-pattern source"}
+  ]
+}

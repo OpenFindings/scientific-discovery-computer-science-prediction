@@ -9,6 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 STATE, QUEUE = Path("research/state.json"), Path("research/task_queue.json")
 EVENTS = Path("research/supervisor_events.jsonl")
 TASK_CANDIDATES = Path("research/task_candidates.json")
+SUPERVISOR_STATE = Path("research/supervisor_state.json")
+TRACK_ROOT = Path("research/tracks")
+TRACKS = ("forecasting", "experiments")
 
 def now() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -35,6 +38,137 @@ def append_jsonl(path: Path, row: dict[str, Any]) -> None:
     with path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
         f.flush(); os.fsync(f.fileno())
+
+def task_track(task: dict[str, Any]) -> str:
+    """Assign every shared-queue task to exactly one logical research lane."""
+    explicit = task.get("track")
+    if explicit in TRACKS:
+        return explicit
+    task_id = str(task.get("task_id", ""))
+    forecast_prefixes = ("FORECAST", "BROAD-CS", "HISTORICAL", "PAPER3")
+    return "forecasting" if task_id.startswith(forecast_prefixes) else "experiments"
+
+def default_supervisor_state(campaign_id: str) -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "campaign_id": campaign_id,
+        "status": "ACTIVE",
+        "stop_requested": False,
+        "created_at": now(),
+        "updated_at": now(),
+        "quota": {
+            "state": "AVAILABLE",
+            "source": "not_checked",
+            "last_failure_class": None,
+            "last_failure_at": None,
+            "next_check_at": None,
+            "official_reset_at": None,
+            "consecutive_quota_failures": 0,
+        },
+        "usage": {"date_utc": now()[:10], "conservative_worker_seconds": 0.0,
+                  "track_worker_seconds": {track: 0.0 for track in TRACKS}},
+        "active_workers": [],
+        "last_event": None,
+    }
+
+def load_supervisor_state(root: Path, campaign_id: str) -> dict[str, Any]:
+    path = root / SUPERVISOR_STATE
+    if path.is_file():
+        value = read_json(path)
+        value.setdefault("quota", default_supervisor_state(campaign_id)["quota"])
+        value.setdefault("usage", default_supervisor_state(campaign_id)["usage"])
+        value.setdefault("active_workers", [])
+        value.setdefault("stop_requested", False)
+        value.setdefault("status", "ACTIVE")
+        return value
+    value = default_supervisor_state(campaign_id)
+    atomic_json(path, value)
+    return value
+
+def sync_track_checkpoints(root: Path, state: dict[str, Any], queue: dict[str, Any], supervisor: dict[str, Any]) -> None:
+    """Write derived lane checkpoints; the shared queue remains the source of truth."""
+    completed = set(state.get("completed_tasks", []))
+    for track in TRACKS:
+        tasks = [dict(task, track=task_track(task)) for task in queue.get("tasks", []) if task_track(task) == track]
+        track_dir = root / TRACK_ROOT / track
+        atomic_json(track_dir / "task_queue.json", {"schema_version": 1, "track": track, "tasks": tasks})
+        active = [task["task_id"] for task in tasks if task.get("status") == "running"]
+        track_state = {
+            "schema_version": 1,
+            "track": track,
+            "campaign_id": state.get("campaign_id"),
+            "status": "RUNNING" if active else ("BLOCKED" if any(task.get("status") == "blocked" for task in tasks) else "IDLE"),
+            "active_task_ids": active,
+            "completed_task_ids": [task["task_id"] for task in tasks if task["task_id"] in completed or task.get("status") == "completed"],
+            "pending_task_ids": [task["task_id"] for task in tasks if task.get("status") in {"pending", "failed"}],
+            "blocked_task_ids": [task["task_id"] for task in tasks if task.get("status") == "blocked"],
+            "checkpoint_time": state.get("checkpoint_time"),
+            "last_supervisor_status": supervisor.get("status"),
+        }
+        atomic_json(track_dir / "state.json", track_state)
+
+def write_supervisor_state(root: Path, supervisor: dict[str, Any]) -> None:
+    supervisor["updated_at"] = now()
+    atomic_json(root / SUPERVISOR_STATE, supervisor)
+
+def parse_structured_events(raw: str) -> list[dict[str, Any]]:
+    records = []
+    for line in raw.splitlines():
+        try:
+            value = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, dict):
+            records.append(value)
+    return records
+
+def classify_failure(raw: str) -> tuple[str, int | None, str | None]:
+    """Return (class, retry-after-seconds, official-reset timestamp) conservatively."""
+    records = parse_structured_events(raw)
+    text = raw.lower()
+    structured = json.dumps(records, ensure_ascii=False).lower()
+    combined = structured + " " + text
+    quota_terms = ("usage_limit", "usage limit", "rate_limit", "rate limit", "too many requests", "quota exceeded")
+    auth_terms = ("authentication", "unauthorized", "invalid api key", "login required", "forbidden")
+    network_terms = ("connection refused", "network error", "timed out", "dns", "temporarily unavailable")
+    if any(term in combined for term in quota_terms):
+        retry_after = None
+        reset_at = None
+        for record in records:
+            for key in ("retry_after_seconds", "retry_after"):
+                value = record.get(key)
+                if isinstance(value, (int, float)):
+                    retry_after = max(0, int(value)); break
+            for key in ("reset_at", "resets_at", "rate_limit_reset_at"):
+                value = record.get(key)
+                if isinstance(value, (int, float, str)):
+                    reset_at = str(value); break
+        return "quota", retry_after, reset_at
+    if any(term in combined for term in auth_terms):
+        return "authentication", None, None
+    if any(term in combined for term in network_terms):
+        return "network", None, None
+    return "worker", None, None
+
+def quota_waiting(supervisor: dict[str, Any]) -> bool:
+    quota = supervisor.setdefault("quota", {})
+    if supervisor.get("status") not in {"QUOTA_PAUSED", "WAITING_FOR_RESET"}:
+        return False
+    next_check = quota.get("next_check_at")
+    if not next_check:
+        return False
+    try:
+        return dt.datetime.fromisoformat(next_check.replace("Z", "+00:00")).timestamp() > time.time()
+    except ValueError:
+        return False
+
+def next_quota_check(supervisor: dict[str, Any], result: dict[str, Any], attempt: int) -> str:
+    quota = supervisor.setdefault("quota", {})
+    retry = result.get("retry_after_seconds")
+    if retry is None:
+        failures = int(quota.get("consecutive_quota_failures", 0))
+        retry = min(3600, 300 * (2 ** min(failures, 4)))
+    return (dt.datetime.now(dt.timezone.utc) + dt.timedelta(seconds=max(1, int(retry)))).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 def eligible_tasks(queue: dict[str, Any], completed: set[str], at: float | None = None) -> list[dict[str, Any]]:
     at = time.time() if at is None else at
@@ -134,8 +268,8 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     if root.resolve() not in artifact.parents: return {"exit_code": 2, "error": "artifact outside repository", "timed_out": False}
     artifact.parent.mkdir(parents=True, exist_ok=True)
     raw, stderr, final = worker_dir / "events.jsonl", worker_dir / "stderr.txt", worker_dir / "final.txt"
-    command = [codex, "exec", "--json", "--sandbox", "workspace-write", "--ask-for-approval", "never", "-C", str(root), "-o", str(final), "-"]
-    before = git_snapshot(root); started = time.monotonic(); timed_out = False
+    command = [codex, "exec", "--json", "--approve-for-me", "-C", str(root), "-o", str(final), "-"]
+    started = time.monotonic(); timed_out = False
     prior_artifact_hash = hashlib.sha256(artifact.read_bytes()).hexdigest() if artifact.is_file() else None
     child_env = os.environ.copy()
     secret_markers = ("TOKEN", "SECRET", "PASSWORD", "CREDENTIAL", "API_KEY", "ACCESS_KEY", "PRIVATE_KEY")
@@ -144,6 +278,10 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     with raw.open("wb") as out, stderr.open("wb") as err:
         proc = subprocess.Popen(command, cwd=root, stdin=subprocess.PIPE, stdout=out, stderr=err, start_new_session=True, env=child_env)
         if on_start: on_start(proc.pid)
+        # The callback records worker_pid in the supervisor-owned queue. Take
+        # the worker-diff baseline after that write, otherwise a supervisor
+        # bookkeeping change is misattributed to the child.
+        before = git_snapshot(root)
         try: proc.communicate(worker_prompt(task, output_rel, attempt).encode(), timeout=timeout)
         except subprocess.TimeoutExpired:
             timed_out = True; os.killpg(proc.pid, signal.SIGTERM)
@@ -154,6 +292,11 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     after = git_snapshot(root)
     changed = {name for name in set(before) | set(after) if before.get(name) != after.get(name)}
     supervisor_paths = {str(p.relative_to(root)) for p in worker_dir.iterdir()}
+    # Lane checkpoints are derived supervisor artifacts. Workers may run the
+    # mandated dry-run status check, which refreshes these files without
+    # changing the canonical queue/state owned by the supervisor.
+    supervisor_paths.update({f"research/tracks/{track}/{name}"
+                             for track in TRACKS for name in ("state.json", "task_queue.json")})
     unexpected = sorted(changed - {output_rel} - supervisor_paths)
     artifact_ok = artifact.is_file() and artifact.stat().st_size <= artifact_limit
     if artifact_ok and prior_artifact_hash == hashlib.sha256(artifact.read_bytes()).hexdigest():
@@ -167,13 +310,28 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     elif sum(sizes.values()) > artifact_limit: error = "worker logs exceeded size limit"
     elif not artifact_ok and proc.returncode == 0: error = "worker exited zero but did not produce a new or changed bounded artifact"
     else: error = None
-    combined = raw.read_text(errors="replace") + stderr.read_text(errors="replace")[-2000:] + (final.read_text(errors="replace") if final.exists() else "")
-    signal_text = combined.lower()
-    limited = any(s in signal_text for s in ("usage limit", "rate limit", "too many requests", "quota exceeded"))
+    # Command-execution aggregates can echo AGENTS.md policy text containing
+    # words such as "rate limits". Only structured error events, stderr and
+    # the final message are valid fallback evidence for quota classification.
+    event_errors = []
+    for line in raw.read_text(errors="replace").splitlines():
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if (event.get("type") in {"error", "turn.failed", "turn.completed"}
+                or "error" in event or "retry_after_seconds" in event
+                or "reset_at" in event or "rate_limit_reset_at" in event):
+            event_errors.append(json.dumps(event, ensure_ascii=False))
+    combined = "\n".join(event_errors) + "\n" + stderr.read_text(errors="replace")[-2000:] + "\n" + (final.read_text(errors="replace") if final.exists() else "")
+    failure_class, retry_after_seconds, official_reset_at = classify_failure(combined)
+    limited = failure_class == "quota"
     return {"exit_code": proc.returncode, "timed_out": timed_out, "elapsed_seconds": elapsed, "artifact_valid": artifact_ok,
             "artifact_bytes": artifact.stat().st_size if artifact_ok else None, "log_bytes": sizes,
             "session_id": parse_session_id(raw), "error": error, "rate_limited": limited,
-            "command": [Path(codex).name, "exec", "--json", "--sandbox", "workspace-write", "--ask-for-approval", "never"],
+            "failure_class": failure_class, "retry_after_seconds": retry_after_seconds,
+            "official_reset_at": official_reset_at,
+            "command": [Path(codex).name, "exec", "--json", "--approve-for-me"],
             "raw_output_sha256": hashlib.sha256(raw.read_bytes()).hexdigest()}
 
 def main() -> int:
@@ -181,17 +339,52 @@ def main() -> int:
     mode = ap.add_mutually_exclusive_group(required=True)
     mode.add_argument("--dry-run", action="store_true", help="schedule only; never invoke Codex")
     mode.add_argument("--start", action="store_true", help="explicitly authorize bounded workers")
+    mode.add_argument("--stop", action="store_true", help="persist a user STOP request; do not start workers")
+    mode.add_argument("--resume", action="store_true", help="clear a user STOP request and allow the next bounded run")
     ap.add_argument("--repo-root", type=Path, default=ROOT)
     ap.add_argument("--max-rounds", type=int)
     ap.add_argument("--timeout-seconds", type=int)
     args = ap.parse_args(); root = args.repo_root.resolve()
     sp, qp = root / STATE, root / QUEUE
     state, queue = read_json(sp), read_json(qp)
+    supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
+    sync_track_checkpoints(root, state, queue, supervisor)
+    if args.stop:
+        supervisor["stop_requested"] = True
+        supervisor["status"] = "STOPPED_BY_USER"
+        supervisor["last_event"] = {"event": "stop_requested", "timestamp": now()}
+        state["campaign_status"] = "stopped_by_user"
+        state["checkpoint_time"] = now()
+        write_supervisor_state(root, supervisor); atomic_json(sp, state)
+        sync_track_checkpoints(root, state, queue, supervisor)
+        print(json.dumps({"campaign_status": state["campaign_status"], "supervisor_status": supervisor["status"]}, indent=2)); return 0
+    if args.resume:
+        supervisor["stop_requested"] = False
+        supervisor["status"] = "RESUME_CHECK"
+        supervisor["last_event"] = {"event": "resume_requested", "timestamp": now()}
+        state["campaign_status"] = "active"
+        state["checkpoint_time"] = now()
+        write_supervisor_state(root, supervisor); atomic_json(sp, state)
+        sync_track_checkpoints(root, state, queue, supervisor)
+        print(json.dumps({"campaign_status": state["campaign_status"], "supervisor_status": supervisor["status"]}, indent=2)); return 0
+    if supervisor.get("stop_requested"):
+        supervisor["status"] = "STOPPED_BY_USER"
+        state["campaign_status"] = "stopped_by_user"; state["checkpoint_time"] = now()
+        write_supervisor_state(root, supervisor); atomic_json(sp, state); sync_track_checkpoints(root, state, queue, supervisor)
+        print(json.dumps({"campaign_status": state["campaign_status"], "supervisor_status": supervisor["status"]}, indent=2)); return 0
+    if args.start and quota_waiting(supervisor):
+        supervisor["status"] = "WAITING_FOR_RESET"
+        state["campaign_status"] = "waiting_for_quota_reset"; state["checkpoint_time"] = now()
+        write_supervisor_state(root, supervisor); atomic_json(sp, state); sync_track_checkpoints(root, state, queue, supervisor)
+        print(json.dumps({"campaign_status": state["campaign_status"], "supervisor_status": supervisor["status"],
+                          "next_check_at": supervisor.get("quota", {}).get("next_check_at")}, indent=2)); return 0
     done = set(state.get("completed_tasks", [])) | {t["task_id"] for t in queue["tasks"] if t.get("status") == "completed"}
     ready = eligible_tasks(queue, done)
     if args.dry_run:
         print(json.dumps({"mode": "dry-run", "campaign_status": state.get("campaign_status"), "next_task": ready[0] if ready else None,
                           "scheduled_count": len(ready), "proposed_continuations": [t["task_id"] for t in proposed_continuations(root, queue)],
+                          "supervisor_status": supervisor.get("status"), "quota": supervisor.get("quota"),
+                          "tracks": {track: sum(task_track(t) == track for t in queue["tasks"]) for track in TRACKS},
                           "worker_invocations": 0}, ensure_ascii=False, indent=2)); return 0
     limits = state.get("budget_consumption", {})
     rounds = args.max_rounds or limits.get("configured_max_rounds", 1)
@@ -199,6 +392,15 @@ def main() -> int:
     timeout = args.timeout_seconds or min(1800, limits.get("configured_max_wall_seconds", 1800))
     max_bytes = int(limits.get("configured_max_artifact_mib", 50) * 1024 * 1024)
     min_free = int(limits.get("minimum_disk_free_mib", 2048) * 1024 * 1024)
+    operational = state.setdefault("operational_limits", {})
+    # Preserve the legacy per-start worker limit for migrated/test states.
+    # max_active_workers is a concurrency invariant; the loop is sequential,
+    # so it must not silently reduce the separately configured per-start cap.
+    operational.setdefault("max_active_workers", max_workers)
+    operational.setdefault("max_daily_worker_seconds", 4 * 60 * 60)
+    operational.setdefault("max_track_worker_seconds", 2 * 60 * 60)
+    operational.setdefault("max_task_retries", 2)
+    operational.setdefault("cooling_off_seconds", 300)
     if not 1 <= rounds <= min(100, limits.get("configured_max_rounds", 1)):
         ap.error("round count exceeds configured campaign limit")
     if not 1 <= timeout <= min(7200, limits.get("configured_max_wall_seconds", 7200)):
@@ -234,35 +436,56 @@ def main() -> int:
             state["checkpoint_time"] = now()
             atomic_json(qp, queue); atomic_json(sp, state)
         enqueue_continuations(root, state, queue)
+        supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
+        sync_track_checkpoints(root, state, queue, supervisor)
         started, invocations = time.monotonic(), 0
         for _ in range(rounds):
             state, queue = read_json(sp), read_json(qp)
+            supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
+            if supervisor.get("stop_requested"):
+                supervisor["status"] = "STOPPED_BY_USER"; state["campaign_status"] = "stopped_by_user"; state["checkpoint_time"] = now()
+                write_supervisor_state(root, supervisor); atomic_json(sp, state); sync_track_checkpoints(root, state, queue, supervisor); break
+            if quota_waiting(supervisor):
+                supervisor["status"] = "WAITING_FOR_RESET"; state["campaign_status"] = "waiting_for_quota_reset"; state["checkpoint_time"] = now()
+                write_supervisor_state(root, supervisor); atomic_json(sp, state); sync_track_checkpoints(root, state, queue, supervisor); break
             enqueue_continuations(root, state, queue)
             state, queue = read_json(sp), read_json(qp)
+            supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
             done = set(state.get("completed_tasks", [])) | {t["task_id"] for t in queue["tasks"] if t.get("status") == "completed"}
             ready = eligible_tasks(queue, done)
             if not ready:
                 state["campaign_status"] = "waiting_for_eligible_task"
                 state["next_action"] = "Add or unblock a scientifically justified task; do not invent outcomes."
-                state["checkpoint_time"] = now(); atomic_json(sp, state); break
+                supervisor["status"] = "ACTIVE"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             task = ready[0]
             budget = state.setdefault("budget_consumption", {})
             if budget.get("worker_invocations_started", 0) >= max_workers:
                 state["campaign_status"] = "paused_worker_budget"
-                state["checkpoint_time"] = now(); atomic_json(sp, state); break
+                supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             if task.get("counts_as_experiment") and budget.get("experiments_started", 0) >= limits.get("configured_max_experiments", 0):
                 state["campaign_status"] = "paused_experiment_budget"
-                state["checkpoint_time"] = now(); atomic_json(sp, state); break
+                supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             if invocations >= max_workers or time.monotonic()-started+limits.get("final_reporting_reserve_seconds", 300) >= limits.get("configured_max_wall_seconds", 7200): break
+            usage = supervisor.setdefault("usage", {})
+            utc_date = now()[:10]
+            if usage.get("date_utc") != utc_date:
+                usage.update({"date_utc": utc_date, "conservative_worker_seconds": 0.0,
+                              "track_worker_seconds": {track: 0.0 for track in TRACKS}})
+            track = task_track(task)
+            if usage.get("conservative_worker_seconds", 0.0) >= float(operational["max_daily_worker_seconds"]):
+                state["campaign_status"] = "paused_daily_local_budget"; supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
+            if usage.get("track_worker_seconds", {}).get(track, 0.0) >= float(operational["max_track_worker_seconds"]):
+                state["campaign_status"] = "paused_track_local_budget"; supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             if shutil.disk_usage(root).free < min_free:
-                state["campaign_status"] = "paused_disk_reserve"; state["checkpoint_time"] = now(); atomic_json(sp, state); break
+                state["campaign_status"] = "paused_disk_reserve"; supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             task["status"] = "running"; task["attempts"] = task.get("attempts", 0)+1; task["started_at"] = now()
             if task.get("counts_as_experiment"):
                 state["budget_consumption"]["experiments_started"] = state["budget_consumption"].get("experiments_started", 0)+1
             state["budget_consumption"]["worker_invocations_started"] = state["budget_consumption"].get("worker_invocations_started", 0)+1
             state["campaign_status"] = "running"; state["current_phase"] = task["task_id"].lower()
             state["next_action"] = task["objective"]; state["checkpoint_time"] = now()
-            atomic_json(qp, queue); atomic_json(sp, state)
+            supervisor["status"] = "RUNNING"; supervisor["active_workers"] = [{"task_id": task["task_id"], "track": track, "attempt": task["attempts"]}]
+            atomic_json(qp, queue); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor)
             wdir = rdir / "worker_runs" / task["task_id"] / f"attempt-{task['attempts']}"; wdir.mkdir(parents=True, exist_ok=True)
             def record_pid(pid: int) -> None:
                 task["worker_pid"] = pid
@@ -270,8 +493,12 @@ def main() -> int:
             result = run_worker(root, task, task["attempts"], timeout, max_bytes, wdir, record_pid); invocations += 1
             task.pop("worker_pid", None)
             task["finished_at"] = now()
-            fields = ("exit_code", "timed_out", "elapsed_seconds", "artifact_valid", "artifact_bytes", "session_id", "error", "rate_limited", "raw_output_sha256")
+            fields = ("exit_code", "timed_out", "elapsed_seconds", "artifact_valid", "artifact_bytes", "session_id", "error", "rate_limited", "failure_class", "retry_after_seconds", "official_reset_at", "raw_output_sha256")
             task["last_result"] = {k: result.get(k) for k in fields}
+            elapsed = float(result.get("elapsed_seconds") or 0.0)
+            usage["conservative_worker_seconds"] = float(usage.get("conservative_worker_seconds", 0.0)) + elapsed
+            usage.setdefault("track_worker_seconds", {})[track] = float(usage.get("track_worker_seconds", {}).get(track, 0.0)) + elapsed
+            supervisor["usage"] = usage; supervisor["active_workers"] = []
             append_jsonl(root / EVENTS, {"task_id": task["task_id"], "attempt": task["attempts"], "timestamp": now(), **task["last_result"]})
             success = result.get("exit_code") == 0 and result.get("artifact_valid") and not result.get("error")
             experiment_id = task.get("experiment_id")
@@ -298,20 +525,36 @@ def main() -> int:
                 if task["task_id"] not in state.setdefault("completed_tasks", []): state["completed_tasks"].append(task["task_id"])
                 state["current_research_round"] = state.get("current_research_round", 0)+1
             elif result.get("rate_limited"):
-                task["status"] = "pending"; state["campaign_status"] = "paused_quota_or_rate_limit"
+                task["status"] = "pending"
+                quota = supervisor.setdefault("quota", {})
+                quota["state"] = "PAUSED"; quota["source"] = "codex_cli_structured_or_bounded_fallback"
+                quota["last_failure_class"] = "quota"; quota["last_failure_at"] = now()
+                quota["consecutive_quota_failures"] = int(quota.get("consecutive_quota_failures", 0)) + 1
+                quota["next_check_at"] = next_quota_check(supervisor, result, task["attempts"])
+                quota["official_reset_at"] = result.get("official_reset_at")
+                supervisor["status"] = "QUOTA_PAUSED"
+                task["retry_after"] = quota["next_check_at"]
+                state["campaign_status"] = "paused_quota_or_rate_limit"
             elif task["attempts"] >= task.get("max_attempts", 1):
                 task["status"] = "blocked"; task["failure_note"] = result.get("error") or f"worker exit {result.get('exit_code')}"
                 if task["task_id"] not in state.setdefault("blocked_tasks", []): state["blocked_tasks"].append(task["task_id"])
             else:
                 task["status"] = "failed"; delay = min(3600, 30 * (2 ** (task["attempts"]-1)))
                 task["retry_after"] = (dt.datetime.now(dt.timezone.utc)+dt.timedelta(seconds=delay)).replace(microsecond=0).isoformat().replace("+00:00", "Z")
-            state["checkpoint_time"] = now(); atomic_json(qp, queue); atomic_json(sp, state)
+                supervisor["status"] = "ACTIVE"; supervisor["quota"]["state"] = "AVAILABLE"
+            if success:
+                supervisor["status"] = "ACTIVE"; supervisor["quota"]["state"] = "AVAILABLE"; supervisor["quota"]["consecutive_quota_failures"] = 0; supervisor["quota"]["next_check_at"] = None
+            state["checkpoint_time"] = now(); atomic_json(qp, queue); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor)
             if state.get("campaign_status", "").startswith("paused"): break
         state = read_json(sp)
         if state.get("campaign_status") == "running": state["campaign_status"] = "active"
-        state["checkpoint_time"] = now(); atomic_json(sp, state)
+        supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
+        if supervisor.get("status") == "RUNNING": supervisor["status"] = "ACTIVE"
+        state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor)
+        sync_track_checkpoints(root, state, queue, supervisor)
     print(json.dumps({"campaign_status": state.get("campaign_status"), "completed_tasks": state.get("completed_tasks", []),
                       "blocked_tasks": state.get("blocked_tasks", []), "worker_invocations_this_run": invocations,
+                      "supervisor_status": supervisor.get("status"), "next_check_at": supervisor.get("quota", {}).get("next_check_at"),
                       "next_action": state.get("next_action")}, ensure_ascii=False, indent=2)); return 0
 
 if __name__ == "__main__": raise SystemExit(main())

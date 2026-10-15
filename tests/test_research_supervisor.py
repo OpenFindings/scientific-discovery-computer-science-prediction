@@ -34,7 +34,8 @@ class ResearchSupervisorTests(unittest.TestCase):
         fake = self.root / "fake-codex"
         fake.write_text("#!/usr/bin/env python3\nimport os,sys,json\nfrom pathlib import Path\n"
                         "mode=os.environ.get('FAKE_CODEX_MODE','success')\n"
-                        "if mode=='limit': print('usage limit reached',file=sys.stderr); raise SystemExit(1)\n"
+                        "if mode=='limit': print(json.dumps({'error':{'code':'rate_limit_exceeded'},'retry_after_seconds':3600})); raise SystemExit(1)\n"
+                        "if mode=='auth': print('unauthorized: login required',file=sys.stderr); raise SystemExit(1)\n"
                         "if mode=='fail': raise SystemExit(9)\n"
                         "if mode=='unchanged': raise SystemExit(0)\n"
                         "prompt=sys.stdin.read(); rel=[x.removeprefix('Write only: ') for x in prompt.splitlines() if x.startswith('Write only: ')][0]\n"
@@ -90,6 +91,54 @@ class ResearchSupervisorTests(unittest.TestCase):
         self.assertEqual(self.state()["campaign_status"], "paused_quota_or_rate_limit")
         self.assertEqual(self.queue()["tasks"][0]["status"], "pending")
         self.assertEqual(self.state()["completed_tasks"], [])
+        supervisor = json.loads((self.root / "research/supervisor_state.json").read_text())
+        self.assertEqual(supervisor["status"], "QUOTA_PAUSED")
+        self.assertEqual(supervisor["quota"]["state"], "PAUSED")
+        self.assertEqual(supervisor["quota"]["next_check_at"], self.queue()["tasks"][0]["retry_after"])
+
+    def test_quota_backoff_skips_immediate_retry_and_resumes_after_reset(self):
+        self.assertEqual(self.invoke("limit").returncode, 0)
+        skipped = self.invoke("success")
+        self.assertEqual(skipped.returncode, 0, skipped.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["attempts"], 1)
+        supervisor = json.loads((self.root / "research/supervisor_state.json").read_text())
+        supervisor["quota"]["next_check_at"] = "2000-01-01T00:00:00Z"
+        (self.root / "research/supervisor_state.json").write_text(json.dumps(supervisor))
+        queue = self.queue()
+        queue["tasks"][0]["retry_after"] = "2000-01-01T00:00:00Z"
+        (self.root / "research/task_queue.json").write_text(json.dumps(queue))
+        resumed = self.invoke("success")
+        self.assertEqual(resumed.returncode, 0, resumed.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["status"], "completed")
+        self.assertEqual(json.loads((self.root / "research/supervisor_state.json").read_text())["status"], "ACTIVE")
+
+    def test_authentication_failure_is_not_quota(self):
+        result = self.invoke("auth")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertNotEqual(self.state()["campaign_status"], "paused_quota_or_rate_limit")
+        self.assertEqual(self.queue()["tasks"][0]["status"], "failed")
+        supervisor = json.loads((self.root / "research/supervisor_state.json").read_text())
+        self.assertEqual(supervisor["quota"]["state"], "AVAILABLE")
+
+    def test_stop_request_prevents_new_worker(self):
+        stopped = self.invoke(args=("--stop",))
+        self.assertEqual(stopped.returncode, 0, stopped.stderr)
+        run = self.invoke("success")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual(self.queue()["tasks"][0].get("attempts", 0), 0)
+        self.assertEqual(self.state()["campaign_status"], "stopped_by_user")
+
+    def test_two_track_checkpoints_are_isolated(self):
+        queue = self.queue()
+        queue["tasks"].append({"task_id": "EXP1", "objective": "experiment task", "track": "experiments", "dependencies": [], "expected_information_gain": 1, "cost_estimate": 1, "priority": 0, "status": "pending", "max_attempts": 1, "artifact": "results/EXP1.json"})
+        queue["tasks"][0]["track"] = "forecasting"
+        (self.root / "research/task_queue.json").write_text(json.dumps(queue))
+        result = self.invoke(args=("--start", "--max-rounds", "2"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        forecast = json.loads((self.root / "research/tracks/forecasting/task_queue.json").read_text())
+        experiments = json.loads((self.root / "research/tracks/experiments/task_queue.json").read_text())
+        self.assertEqual([t["task_id"] for t in forecast["tasks"]], ["T1"])
+        self.assertEqual([t["task_id"] for t in experiments["tasks"]], ["EXP1"])
 
     def test_interrupted_worker_is_recovered_without_losing_task(self):
         queue = self.queue()

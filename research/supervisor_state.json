@@ -1,0 +1,27 @@
+{
+  "active_workers": [],
+  "campaign_id": "cs-discovery-long-horizon-2026-10",
+  "created_at": "2026-10-15T00:46:10Z",
+  "last_event": null,
+  "quota": {
+    "consecutive_quota_failures": 0,
+    "last_failure_at": null,
+    "last_failure_class": null,
+    "next_check_at": null,
+    "official_reset_at": null,
+    "source": "not_checked",
+    "state": "AVAILABLE"
+  },
+  "schema_version": 1,
+  "status": "ACTIVE",
+  "stop_requested": false,
+  "updated_at": "2026-10-15T00:55:45Z",
+  "usage": {
+    "conservative_worker_seconds": 154.60000000000002,
+    "date_utc": "2026-10-15",
+    "track_worker_seconds": {
+      "experiments": 154.60000000000002,
+      "forecasting": 0.0
+    }
+  }
+}

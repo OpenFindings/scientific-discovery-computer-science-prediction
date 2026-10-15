@@ -1,23 +1,572 @@
 {
   "schema_version": 1,
   "tasks": [
-    {"task_id": "RECOVERY-001", "objective": "Reconcile Git/local manifests/R2 object availability and checksums; report precise recoverability of referenced audit batches.", "dependencies": [], "expected_information_gain": 0.8, "cost_estimate": 0.2, "execution_requirements": ["local filesystem", "read-only R2 access"], "priority": 100, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "Retry only transient remote reads; otherwise preserve receipts and mark blocked with exact failed object keys.", "success_criteria": ["counts reconciled", "remote objects checksum-verified or explicitly marked inaccessible", "audit written"], "artifact": "docs/RESEARCH_RECOVERY_AUDIT.md"},
-    {"task_id": "LEADS-001", "objective": "Independently compare findings 155-158, source evidence, novelty limits, and minimum executable experiments; choose a lead without sunk-cost bias.", "dependencies": ["RECOVERY-001"], "expected_information_gain": 0.7, "cost_estimate": 0.5, "execution_requirements": ["full-text audit artifacts", "source-code/prior-art inspection"], "priority": 90, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "If exact primary sources are unavailable, retain the lead as unverified and select an independently executable task.", "success_criteria": ["each lead has competing hypotheses and blocker", "selected experiment is preregistered and feasible"], "artifact": "reports/lead_reevaluation.json"},
-    {"task_id": "EXPERIMENT-001", "objective": "Execute a bounded, reproducible falsification/robustness study for the selected lead and preserve null/failure outcomes.", "dependencies": ["LEADS-001"], "expected_information_gain": 0.9, "cost_estimate": 0.7, "execution_requirements": ["verified code/data", "frozen configuration", "local compute"], "priority": 85, "status": "completed", "attempts": 1, "max_attempts": 2, "experiment_id": "EXP-DBMS-FEEDBACK-REP-4111-4115", "hypothesis_id": "H1_DBMS_FEEDBACK_PROXY", "domain": "DBMS testing", "counts_as_experiment": true, "prior_evidence": "Exploratory previous five-seed long run; see preregistration.", "methodology": "Paired fresh seeds with pinned build, SQLite/NoREC, 20 databases and 200 attempts per database; source-log reanalysis and exact sign test.", "dataset_version": "SQLancer++ commit 1405d4eb5b7af7a639717a47147bd89362558830; jar SHA in per-seed metadata.", "execution_command": "python3.12 scripts/run_sqlancerpp_long_campaign.py --source /private/tmp/sqlancerpp-source-1405d4e --output results/sqlancerpp_feedback_replication_4111_4115 --first-seed 4111 --seeds 5 --database-cap 20", "configuration": {"seeds": [4111, 4112, 4113, 4114, 4115], "database_cap_per_arm": 20, "query_attempts_per_database": 200, "docker_network": "none", "cpus_per_container": 1}, "failure_handling": "Record failures as outcomes; change direction only with a documented measurement/feasibility reason.", "success_criteria": ["command reruns deterministically", "raw outputs and uncertainty retained", "interpretation respects evidence tier"], "artifact": "results/sqlancerpp_feedback_replication_4111_4115/independent_analysis.json"},
-    {"task_id": "FORECAST-001", "objective": "Audit whether authentic historical CS question/outcome records can support leakage-free Paper 3 temporal evaluation; specify data gaps and baselines.", "dependencies": ["RECOVERY-001"], "expected_information_gain": 0.75, "cost_estimate": 0.8, "execution_requirements": ["dated metadata", "future outcome labels", "historical snapshots"], "priority": 75, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "Do not train/test without historically valid labels; document smallest obtainable dataset.", "success_criteria": ["point-in-time availability audit", "temporal split plan", "no hindsight label leakage"], "artifact": "reports/paper3_cs_feasibility.json"},
-    {"task_id": "PLANNER-001", "objective": "Implement a Paper 4-style typed evidence graph and compare selected next action against simple information-gain/lowest-cost baselines on audited leads.", "dependencies": ["LEADS-001"], "expected_information_gain": 0.7, "cost_estimate": 0.6, "execution_requirements": ["provenanced evidence", "declared action outcomes/likelihoods"], "priority": 70, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "If action ground truth is absent, report feasibility only; do not score expected utility as validated discovery value.", "success_criteria": ["evidence roots and gaps are typed", "action ranking has explicit assumptions and baseline"], "artifact": "reports/paper4_action_plan.json"},
-    {"task_id": "RECOVER-BATCH-PDFS-001", "objective": "Recover and checksum all retrievable full texts cited in audit batches 8, 15, 30 and 34, including source-linked PMLR records; preserve withdrawn/unavailable items explicitly.", "dependencies": ["RECOVERY-001"], "expected_information_gain": 0.65, "cost_estimate": 0.25, "execution_requirements": ["public source access", "local disk"], "priority": 100, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "Do not overwrite existing files; retain exact HTTP errors and missing identifiers.", "success_criteria": ["PDF magic/version/title checked", "SHA-256 and URL captured", "batch-specific coverage reconciled; inaccessible withdrawn record explicitly preserved"], "artifact": "reports/fulltext_batch_recovery.json"},
-    {"task_id": "MATCHED-CPU-001", "objective": "Design and implement an exact-counter, matched-CPU follow-up for SQLancer++ feedback using fresh paired seeds; randomize run order and preserve all NoREC traces.", "dependencies": ["EXPERIMENT-001"], "expected_information_gain": 0.9, "cost_estimate": 0.7, "execution_requirements": ["pinned source/build", "Docker CPU telemetry", "fresh seeds"], "priority": 95, "status": "completed", "attempts": 1, "max_attempts": 2, "experiment_id": "EXP-DBMS-FEEDBACK-EQUAL-CPU-4131-4135", "counts_as_experiment": true, "failure_handling": "If reliable container CPU-time accounting is unavailable, stop short of matched-compute claims and publish a measurement plan only.", "success_criteria": ["CPU time measured per arm", "counter denominators exact", "all mismatch candidate logs independently inspected; none existed, so blinded rerun was not applicable"], "artifact": "reports/dbms_equal_cpu_result.json"},
-    {"task_id": "DP158-ACCOUNTANT-001", "objective": "Pin the finding-158 paper and relevant accountant implementations; translate filter validity assumptions into an executable regime-boundary test without claiming theorem novelty.", "dependencies": ["RECOVERY-001"], "expected_information_gain": 0.8, "cost_estimate": 0.8, "execution_requirements": ["primary paper and source code", "high-precision privacy accounting"], "priority": 75, "status": "completed", "attempts": 1, "max_attempts": 2, "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026", "counts_as_experiment": true, "failure_handling": "If proof/code assumptions cannot be pinned, report the uncertainty and do not run a misleading approximation.", "success_criteria": ["published validity conditions extracted", "theorem-backed conservative RDP reference implemented and tested; production implementation not audited", "boundary diagnostic predeclared, executed and independently analyzed", "no theorem/production novelty overclaim"], "artifact": "reports/dp158_accountant_audit.json"},
-    {"task_id": "CPU-THROUGHPUT-001", "objective": "Measure preregistered CPU-normalized successful-query throughput on fresh SQLancer++ feedback on/off seed pairs, then analyze raw per-database rates and cgroup-v2 CPU counters independently.", "dependencies": ["EXPERIMENT-001"], "expected_information_gain": 0.7, "cost_estimate": 0.5, "execution_requirements": ["pinned source/build", "Docker cgroup-v2 CPU telemetry", "fresh preregistered seeds"], "priority": 90, "status": "completed", "attempts": 1, "max_attempts": 1, "experiment_id": "EXP-DBMS-FEEDBACK-CPU-THROUGHPUT-4121-4125", "counts_as_experiment": true, "success_criteria": ["five paired seeds complete", "both arms have exact counters and positive CPU counters", "all limitations retained"], "artifact": "results/sqlancerpp_feedback_cpu_4121_4125/independent_analysis.json"},
-    {"task_id": "DP158-VECTOR-HYPOTHETICAL-001", "objective": "Run and transparently adjudicate a dimension sweep of an independent DP158-inspired model.", "dependencies": ["RECOVERY-001"], "expected_information_gain": 0.3, "cost_estimate": 0.2, "execution_requirements": ["source audit", "local Monte Carlo"], "priority": 30, "status": "completed", "attempts": 1, "max_attempts": 1, "experiment_id": "EXP-DP158-DIMENSION-SENSITIVITY-2026", "counts_as_experiment": true, "success_criteria": ["all prespecified dimensions run", "source mismatch and withdrawn interpretation recorded"], "artifact": "results/dp158_filter_dimension_sensitivity/summary.json"},
-    {"task_id": "DP158-SCALAR-REPRO-001", "objective": "Independently reproduce the paper's q=0.1 scalar numerical example using its actual approximate budget formula and transparently report deviations.", "dependencies": ["RECOVERY-001"], "expected_information_gain": 0.6, "cost_estimate": 0.2, "execution_requirements": ["primary paper", "local Monte Carlo", "frozen exploratory protocol"], "priority": 65, "status": "completed", "attempts": 1, "max_attempts": 1, "experiment_id": "EXP-DP158-SOURCE-MATCHED-EXPLORATORY-2026", "counts_as_experiment": true, "success_criteria": ["million paths per arm", "frozen seeds and source budget validated", "all published comparison metrics reported", "limitations retained"], "artifact": "results/dp158_filter_source_matched_q01/independent_analysis.json"},
-    {"task_id": "BROAD-CS-HISTORICAL-001", "objective": "Expand point-in-time CS question discovery beyond the 407-paper sample by stratifying the historical arXiv metadata corpus, selecting falsifiable questions, and auditing pre/post-cutoff evidence without future leakage.", "dependencies": ["FORECAST-001"], "expected_information_gain": 0.85, "cost_estimate": 0.7, "execution_requirements": ["937531-record local metadata corpus", "dated primary-source follow-ups", "version-aware temporal split"], "priority": 90, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "If authentic question/outcome labels cannot be verified, preserve coverage and labels as pending; never score synthetic/hindsight outcomes as Paper 3 validation.", "success_criteria": ["2010-2022 year/topic frame and temporal-revision exclusions audited", "three falsifiable candidates sourced", "source and dated follow-up provenance preserved with non-resolution explicitly marked", "zero historical outcome labels claimed"], "artifact": "reports/broad_cs_historical_audit.json"},
-    {"task_id": "HISTORICAL-OUTCOME-001", "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.", "dependencies": ["BROAD-CS-HISTORICAL-001"], "expected_information_gain": 0.35, "cost_estimate": 0.9, "execution_requirements": ["original full texts and dated source links", "frozen original rubric", "specific retrieval gap from reports/historical_label_bottleneck_audit.json"], "priority": 40, "status": "pending", "max_attempts": 2, "failure_handling": "If follow-ups are merely topical or source timing ambiguous, mark unadjudicated; never convert attention to resolution or leak future text into forecast features.", "success_criteria": ["source texts and follow-up claims separately verified", "at least one direct resolution or explicit unresolved label under a frozen rubric", "Paper 3 comparison only after enough labels exist"], "artifact": "reports/historical_outcome_adjudication.json"},
-    {"task_id": "HISTORICAL-TRAJECTORY-001", "research_key": "observable_historical_trajectory_source_screen_and_adjudication_round1", "objective": "Screen at least four additional source-only exact-version papers in the separately frozen 16-paper cohort, lock eligible questions before future search, and adjudicate distinct evidence-trajectory dimensions with primary dates and exclusions; preserve ineligible rows.", "dependencies": ["BROAD-CS-HISTORICAL-001"], "expected_information_gain": 0.9, "cost_estimate": 0.45, "execution_requirements": ["frozen trajectory rubric and cohort", "exact cutoff-version PDFs", "primary full-text follow-ups only after each source lock"], "priority": 95, "status": "completed", "attempts": 1, "max_attempts": 2, "failure_handling": "No replacement by known winners; record missingness, ineligibility and near-matches; do not score Paper 3 without adequate class counts.", "success_criteria": ["at least four more source-screened rows or a documented retrieval blocker", "dated primary follow-ups for eligible questions", "dimension counts and missingness checked"], "artifact": "reports/historical_observable_cohort_audit.json"},
-    {"task_id": "HISTORICAL-TRAJECTORY-002", "research_key": "observable_historical_trajectory_remaining_ten", "objective": "Screen the ten remaining papers in the frozen 16-paper cohort using cutoff-version primary sources; lock source-only eligibility before future searches, retain ineligible and inaccessible cases, and adjudicate separately under the unchanged trajectory rubric.", "dependencies": ["HISTORICAL-TRAJECTORY-001"], "expected_information_gain": 0.8, "cost_estimate": 0.6, "execution_requirements": ["frozen 16-paper selection", "source-only locks before follow-up", "primary date and exact-definition checks"], "priority": 95, "status": "pending", "max_attempts": 2, "failure_handling": "Preserve all failures and avoid replacement by known resolved cases; move away from weak keyword retrieval when exact sources remain absent.", "success_criteria": ["all 16 source-screen statuses recorded", "all eligible questions have bounded dated follow-up checks or explicit retrieval blockers", "per-dimension counts and missingness audited"], "artifact": "reports/historical_observable_cohort_audit_round2.json"},
-    {"task_id": "CAM-TRANSFER-FEAS-001", "research_key": "cam_independent_industrial_endpoint_data_feasibility", "objective": "Audit whether public or authorized industrial CAM-style data can support a project-disjoint, class-skew-aware comparison of log-only and added-artifact multiclass cause accuracy without confusing 2019 binary product-fault recall for that endpoint; decide go/no-go for a small preregistered test.", "dependencies": ["HISTORICAL-TRAJECTORY-001"], "expected_information_gain": 0.65, "cost_estimate": 0.35, "execution_requirements": ["primary 2017 CAM and 2019 independent replication", "dataset schema/license inspection", "no restricted data upload"], "priority": 72, "status": "pending", "max_attempts": 1, "failure_handling": "If project labels or extra artifacts are unavailable, record no-go and pursue another observable experiment.", "success_criteria": ["metrics and populations reconciled", "data/access and split feasibility checked", "go/no-go with next experiment cost"], "artifact": "reports/cam_artifact_ablation_feasibility.json"},
-    {"task_id": "BADGER-FAIR-CPU-FEAS-001", "research_key": "badger_resource_fair_build_metric_feasibility", "objective": "Pin and build the Badger and KelinciWCA source stacks, check independent Java subjects, worst-case cost metric and cgroup CPU observability; decide whether a preregistered matched-CPU falsification experiment is feasible without claiming an outcome yet.", "dependencies": ["LEADS-001"], "expected_information_gain": 0.65, "cost_estimate": 0.4, "execution_requirements": ["primary 2018 Badger source", "pinned code and dependencies", "no paid compute or persistent service"], "priority": 75, "status": "pending", "max_attempts": 2, "failure_handling": "If old dependencies cannot be built, preserve exact failures and choose a different observable test; no synthetic performance claim.", "success_criteria": ["build and measurement feasibility documented", "resource fairness confound addressed", "go/no-go decision with exact cost"], "artifact": "reports/badger_matched_cpu_feasibility.json"},
-    {"task_id": "DP158-MATCHED-GUARANTEE-001", "objective": "Compare a published approximate GDP filter and a valid adaptive RDP fallback only at matched adjacency and finite-q (epsilon,delta) guarantees, using certified numerical errors; otherwise publish why comparison remains infeasible.", "dependencies": ["DP158-ACCOUNTANT-001"], "expected_information_gain": 0.65, "cost_estimate": 0.9, "execution_requirements": ["tighter proved per-step RDP bound", "certified finite-q conversion", "author-code assumptions or exact pairwise metrics"], "priority": 55, "status": "pending", "max_attempts": 2, "failure_handling": "Do not compare raw active steps at unequal privacy guarantees or treat the floating-point reference as production certification.", "success_criteria": ["guarantees comparable or explicit infeasibility result", "no production undercount claim without deployed implementation"], "artifact": "reports/dp158_matched_guarantee_audit.json"}
+    {
+      "artifact": "docs/RESEARCH_RECOVERY_AUDIT.md",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "dependencies": [],
+      "execution_requirements": [
+        "local filesystem",
+        "read-only R2 access"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "Retry only transient remote reads; otherwise preserve receipts and mark blocked with exact failed object keys.",
+      "max_attempts": 2,
+      "objective": "Reconcile Git/local manifests/R2 object availability and checksums; report precise recoverability of referenced audit batches.",
+      "priority": 100,
+      "status": "completed",
+      "success_criteria": [
+        "counts reconciled",
+        "remote objects checksum-verified or explicitly marked inaccessible",
+        "audit written"
+      ],
+      "task_id": "RECOVERY-001"
+    },
+    {
+      "artifact": "reports/lead_reevaluation.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "full-text audit artifacts",
+        "source-code/prior-art inspection"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If exact primary sources are unavailable, retain the lead as unverified and select an independently executable task.",
+      "max_attempts": 2,
+      "objective": "Independently compare findings 155-158, source evidence, novelty limits, and minimum executable experiments; choose a lead without sunk-cost bias.",
+      "priority": 90,
+      "status": "completed",
+      "success_criteria": [
+        "each lead has competing hypotheses and blocker",
+        "selected experiment is preregistered and feasible"
+      ],
+      "task_id": "LEADS-001"
+    },
+    {
+      "artifact": "results/sqlancerpp_feedback_replication_4111_4115/independent_analysis.json",
+      "attempts": 1,
+      "configuration": {
+        "cpus_per_container": 1,
+        "database_cap_per_arm": 20,
+        "docker_network": "none",
+        "query_attempts_per_database": 200,
+        "seeds": [
+          4111,
+          4112,
+          4113,
+          4114,
+          4115
+        ]
+      },
+      "cost_estimate": 0.7,
+      "counts_as_experiment": true,
+      "dataset_version": "SQLancer++ commit 1405d4eb5b7af7a639717a47147bd89362558830; jar SHA in per-seed metadata.",
+      "dependencies": [
+        "LEADS-001"
+      ],
+      "domain": "DBMS testing",
+      "execution_command": "python3.12 scripts/run_sqlancerpp_long_campaign.py --source /private/tmp/sqlancerpp-source-1405d4e --output results/sqlancerpp_feedback_replication_4111_4115 --first-seed 4111 --seeds 5 --database-cap 20",
+      "execution_requirements": [
+        "verified code/data",
+        "frozen configuration",
+        "local compute"
+      ],
+      "expected_information_gain": 0.9,
+      "experiment_id": "EXP-DBMS-FEEDBACK-REP-4111-4115",
+      "failure_handling": "Record failures as outcomes; change direction only with a documented measurement/feasibility reason.",
+      "hypothesis_id": "H1_DBMS_FEEDBACK_PROXY",
+      "max_attempts": 2,
+      "methodology": "Paired fresh seeds with pinned build, SQLite/NoREC, 20 databases and 200 attempts per database; source-log reanalysis and exact sign test.",
+      "objective": "Execute a bounded, reproducible falsification/robustness study for the selected lead and preserve null/failure outcomes.",
+      "prior_evidence": "Exploratory previous five-seed long run; see preregistration.",
+      "priority": 85,
+      "status": "completed",
+      "success_criteria": [
+        "command reruns deterministically",
+        "raw outputs and uncertainty retained",
+        "interpretation respects evidence tier"
+      ],
+      "task_id": "EXPERIMENT-001"
+    },
+    {
+      "artifact": "reports/paper3_cs_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.8,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "dated metadata",
+        "future outcome labels",
+        "historical snapshots"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "Do not train/test without historically valid labels; document smallest obtainable dataset.",
+      "max_attempts": 2,
+      "objective": "Audit whether authentic historical CS question/outcome records can support leakage-free Paper 3 temporal evaluation; specify data gaps and baselines.",
+      "priority": 75,
+      "status": "completed",
+      "success_criteria": [
+        "point-in-time availability audit",
+        "temporal split plan",
+        "no hindsight label leakage"
+      ],
+      "task_id": "FORECAST-001"
+    },
+    {
+      "artifact": "reports/paper4_action_plan.json",
+      "attempts": 1,
+      "cost_estimate": 0.6,
+      "dependencies": [
+        "LEADS-001"
+      ],
+      "execution_requirements": [
+        "provenanced evidence",
+        "declared action outcomes/likelihoods"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If action ground truth is absent, report feasibility only; do not score expected utility as validated discovery value.",
+      "max_attempts": 2,
+      "objective": "Implement a Paper 4-style typed evidence graph and compare selected next action against simple information-gain/lowest-cost baselines on audited leads.",
+      "priority": 70,
+      "status": "completed",
+      "success_criteria": [
+        "evidence roots and gaps are typed",
+        "action ranking has explicit assumptions and baseline"
+      ],
+      "task_id": "PLANNER-001"
+    },
+    {
+      "artifact": "reports/fulltext_batch_recovery.json",
+      "attempts": 1,
+      "cost_estimate": 0.25,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "public source access",
+        "local disk"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "Do not overwrite existing files; retain exact HTTP errors and missing identifiers.",
+      "max_attempts": 2,
+      "objective": "Recover and checksum all retrievable full texts cited in audit batches 8, 15, 30 and 34, including source-linked PMLR records; preserve withdrawn/unavailable items explicitly.",
+      "priority": 100,
+      "status": "completed",
+      "success_criteria": [
+        "PDF magic/version/title checked",
+        "SHA-256 and URL captured",
+        "batch-specific coverage reconciled; inaccessible withdrawn record explicitly preserved"
+      ],
+      "task_id": "RECOVER-BATCH-PDFS-001"
+    },
+    {
+      "artifact": "reports/dbms_equal_cpu_result.json",
+      "attempts": 1,
+      "cost_estimate": 0.7,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "EXPERIMENT-001"
+      ],
+      "execution_requirements": [
+        "pinned source/build",
+        "Docker CPU telemetry",
+        "fresh seeds"
+      ],
+      "expected_information_gain": 0.9,
+      "experiment_id": "EXP-DBMS-FEEDBACK-EQUAL-CPU-4131-4135",
+      "failure_handling": "If reliable container CPU-time accounting is unavailable, stop short of matched-compute claims and publish a measurement plan only.",
+      "max_attempts": 2,
+      "objective": "Design and implement an exact-counter, matched-CPU follow-up for SQLancer++ feedback using fresh paired seeds; randomize run order and preserve all NoREC traces.",
+      "priority": 95,
+      "status": "completed",
+      "success_criteria": [
+        "CPU time measured per arm",
+        "counter denominators exact",
+        "all mismatch candidate logs independently inspected; none existed, so blinded rerun was not applicable"
+      ],
+      "task_id": "MATCHED-CPU-001"
+    },
+    {
+      "artifact": "reports/dp158_accountant_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.8,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "primary paper and source code",
+        "high-precision privacy accounting"
+      ],
+      "expected_information_gain": 0.8,
+      "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026",
+      "failure_handling": "If proof/code assumptions cannot be pinned, report the uncertainty and do not run a misleading approximation.",
+      "max_attempts": 2,
+      "objective": "Pin the finding-158 paper and relevant accountant implementations; translate filter validity assumptions into an executable regime-boundary test without claiming theorem novelty.",
+      "priority": 75,
+      "status": "completed",
+      "success_criteria": [
+        "published validity conditions extracted",
+        "theorem-backed conservative RDP reference implemented and tested; production implementation not audited",
+        "boundary diagnostic predeclared, executed and independently analyzed",
+        "no theorem/production novelty overclaim"
+      ],
+      "task_id": "DP158-ACCOUNTANT-001"
+    },
+    {
+      "artifact": "results/sqlancerpp_feedback_cpu_4121_4125/independent_analysis.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "EXPERIMENT-001"
+      ],
+      "execution_requirements": [
+        "pinned source/build",
+        "Docker cgroup-v2 CPU telemetry",
+        "fresh preregistered seeds"
+      ],
+      "expected_information_gain": 0.7,
+      "experiment_id": "EXP-DBMS-FEEDBACK-CPU-THROUGHPUT-4121-4125",
+      "max_attempts": 2,
+      "objective": "Measure preregistered CPU-normalized successful-query throughput on fresh SQLancer++ feedback on/off seed pairs, then analyze raw per-database rates and cgroup-v2 CPU counters independently.",
+      "priority": 90,
+      "status": "completed",
+      "success_criteria": [
+        "five paired seeds complete",
+        "both arms have exact counters and positive CPU counters",
+        "all limitations retained"
+      ],
+      "task_id": "CPU-THROUGHPUT-001"
+    },
+    {
+      "artifact": "results/dp158_filter_dimension_sensitivity/summary.json",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "source audit",
+        "local Monte Carlo"
+      ],
+      "expected_information_gain": 0.3,
+      "experiment_id": "EXP-DP158-DIMENSION-SENSITIVITY-2026",
+      "max_attempts": 1,
+      "objective": "Run and transparently adjudicate a dimension sweep of an independent DP158-inspired model.",
+      "priority": 30,
+      "status": "completed",
+      "success_criteria": [
+        "all prespecified dimensions run",
+        "source mismatch and withdrawn interpretation recorded"
+      ],
+      "task_id": "DP158-VECTOR-HYPOTHETICAL-001"
+    },
+    {
+      "artifact": "results/dp158_filter_source_matched_q01/independent_analysis.json",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "primary paper",
+        "local Monte Carlo",
+        "frozen exploratory protocol"
+      ],
+      "expected_information_gain": 0.6,
+      "experiment_id": "EXP-DP158-SOURCE-MATCHED-EXPLORATORY-2026",
+      "max_attempts": 1,
+      "objective": "Independently reproduce the paper's q=0.1 scalar numerical example using its actual approximate budget formula and transparently report deviations.",
+      "priority": 65,
+      "status": "completed",
+      "success_criteria": [
+        "million paths per arm",
+        "frozen seeds and source budget validated",
+        "all published comparison metrics reported",
+        "limitations retained"
+      ],
+      "task_id": "DP158-SCALAR-REPRO-001"
+    },
+    {
+      "artifact": "reports/broad_cs_historical_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.7,
+      "dependencies": [
+        "FORECAST-001"
+      ],
+      "execution_requirements": [
+        "937531-record local metadata corpus",
+        "dated primary-source follow-ups",
+        "version-aware temporal split"
+      ],
+      "expected_information_gain": 0.85,
+      "failure_handling": "If authentic question/outcome labels cannot be verified, preserve coverage and labels as pending; never score synthetic/hindsight outcomes as Paper 3 validation.",
+      "max_attempts": 2,
+      "objective": "Expand point-in-time CS question discovery beyond the 407-paper sample by stratifying the historical arXiv metadata corpus, selecting falsifiable questions, and auditing pre/post-cutoff evidence without future leakage.",
+      "priority": 90,
+      "status": "completed",
+      "success_criteria": [
+        "2010-2022 year/topic frame and temporal-revision exclusions audited",
+        "three falsifiable candidates sourced",
+        "source and dated follow-up provenance preserved with non-resolution explicitly marked",
+        "zero historical outcome labels claimed"
+      ],
+      "task_id": "BROAD-CS-HISTORICAL-001"
+    },
+    {
+      "artifact": "reports/historical_outcome_adjudication.json",
+      "cost_estimate": 0.9,
+      "dependencies": [
+        "BROAD-CS-HISTORICAL-001"
+      ],
+      "execution_requirements": [
+        "original full texts and dated source links",
+        "frozen original rubric",
+        "specific retrieval gap from reports/historical_label_bottleneck_audit.json"
+      ],
+      "expected_information_gain": 0.35,
+      "failure_handling": "If follow-ups are merely topical or source timing ambiguous, mark unadjudicated; never convert attention to resolution or leak future text into forecast features.",
+      "max_attempts": 2,
+      "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
+      "priority": 40,
+      "status": "pending",
+      "success_criteria": [
+        "source texts and follow-up claims separately verified",
+        "at least one direct resolution or explicit unresolved label under a frozen rubric",
+        "Paper 3 comparison only after enough labels exist"
+      ],
+      "task_id": "HISTORICAL-OUTCOME-001"
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "BROAD-CS-HISTORICAL-001"
+      ],
+      "execution_requirements": [
+        "frozen trajectory rubric and cohort",
+        "exact cutoff-version PDFs",
+        "primary full-text follow-ups only after each source lock"
+      ],
+      "expected_information_gain": 0.9,
+      "failure_handling": "No replacement by known winners; record missingness, ineligibility and near-matches; do not score Paper 3 without adequate class counts.",
+      "max_attempts": 2,
+      "objective": "Screen at least four additional source-only exact-version papers in the separately frozen 16-paper cohort, lock eligible questions before future search, and adjudicate distinct evidence-trajectory dimensions with primary dates and exclusions; preserve ineligible rows.",
+      "priority": 95,
+      "research_key": "observable_historical_trajectory_source_screen_and_adjudication_round1",
+      "status": "completed",
+      "success_criteria": [
+        "at least four more source-screened rows or a documented retrieval blocker",
+        "dated primary follow-ups for eligible questions",
+        "dimension counts and missingness checked"
+      ],
+      "task_id": "HISTORICAL-TRAJECTORY-001"
+    },
+    {
+      "artifact": "reports/historical_evidence_trajectory_round2.json",
+      "attempts": 1,
+      "cost_estimate": 0.6,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "frozen 16-paper selection",
+        "source-only locks before follow-up",
+        "primary date and exact-definition checks"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "Preserve all failures and avoid replacement by known resolved cases; move away from weak keyword retrieval when exact sources remain absent.",
+      "max_attempts": 2,
+      "objective": "Screen the six remaining papers in the frozen 16-paper cohort using cutoff-version primary sources; lock source-only eligibility before future searches, retain ineligible and inaccessible cases, and adjudicate separately under the unchanged trajectory rubric.",
+      "priority": 95,
+      "research_key": "observable_historical_trajectory_remaining_six",
+      "result": "16/16 source screens locked; 12 eligible rows received bounded future checks; direct resolution 0; partial progress 5; scope narrowing 3; no Paper 3 score.",
+      "status": "completed",
+      "success_criteria": [
+        "all 16 source-screen statuses recorded",
+        "all eligible questions have bounded dated follow-up checks or explicit retrieval blockers",
+        "per-dimension counts and missingness audited"
+      ],
+      "task_id": "HISTORICAL-TRAJECTORY-002"
+    },
+    {
+      "artifact": "reports/paper3_trajectory_readiness.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "immutable source-only features",
+        "audited dimensional labels",
+        "grouped temporal holdout"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If class counts are sparse, report power and missingness without AUC or probabilities.",
+      "max_attempts": 1,
+      "objective": "Quantify per-dimension class counts, missingness and temporal test feasibility for the separate observable cohort; evaluate Paper 3 only if the prespecified class and grouped time-split gates pass.",
+      "priority": 85,
+      "research_key": "paper3_trajectory_label_power_and_temporal_readiness",
+      "result": "No score: 12 rows, direct-resolution supported 0, contradicted 0; grouped temporal holdout is not identifiable from missing direct labels.",
+      "status": "completed",
+      "success_criteria": [
+        "separate outcome counts",
+        "uncertainty and split audit",
+        "valid score or explicit no-score decision"
+      ],
+      "task_id": "PAPER3-TRAJECTORY-READINESS-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/patch_explanation_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "public repair benchmark or documented subset",
+        "independent test execution",
+        "frozen condition generator",
+        "no participant recruitment"
+      ],
+      "expected_information_gain": 0.85,
+      "failure_handling": "If public artifacts or semantic labels are insufficient, record a no-go and preserve the exact missingness; do not replace human outcomes with LLM judgments.",
+      "max_attempts": 1,
+      "objective": "Build and audit a no-participant pilot for patch-only versus accurate-explanation software-repair review conditions: verify patch labels, behavioral-difference examples, explanation factuality, blinding and automated scoring without claiming human review effects.",
+      "priority": 94,
+      "research_key": "patch_explanation_review_feasibility",
+      "result": "Synthetic artifact pilot passed blinding/material checks; no usable Defects4J/Java runtime, so real benchmark execution and human outcomes remain unmeasured.",
+      "status": "completed",
+      "success_criteria": [
+        "versioned material manifest",
+        "correct/incorrect patch and explanation audit",
+        "condition-blinding and scoring checks",
+        "human-study protocol with preregistered primary outcomes"
+      ],
+      "task_id": "PATCH-EXPLAIN-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/cam_artifact_ablation_feasibility.json",
+      "attempts": 2,
+      "cost_estimate": 0.35,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "primary 2017 CAM and 2019 independent replication",
+        "dataset schema/license inspection",
+        "no restricted data upload"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "If project labels or extra artifacts are unavailable, record no-go and pursue another observable experiment.",
+      "failure_note": "worker changed paths outside declared artifact: research/task_queue.json",
+      "finished_at": "2026-10-15T00:52:53Z",
+      "last_result": {
+        "artifact_bytes": 12310,
+        "artifact_valid": true,
+        "elapsed_seconds": 65.412,
+        "error": "worker changed paths outside declared artifact: research/task_queue.json",
+        "exit_code": 0,
+        "failure_class": "quota",
+        "official_reset_at": null,
+        "rate_limited": true,
+        "raw_output_sha256": "9121e47c9b64d71e844265030a9a0fbab4f2f96ad3f1e6a8fe29c9265a4d2ec8",
+        "retry_after_seconds": null,
+        "session_id": "01a13d0b-3920-7f42-b9bb-5c8ac5f7e966",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Audit whether public or authorized industrial CAM-style data can support a project-disjoint, class-skew-aware comparison of log-only and added-artifact multiclass cause accuracy without confusing 2019 binary product-fault recall for that endpoint; decide go/no-go for a small preregistered test.",
+      "priority": 72,
+      "research_key": "cam_independent_industrial_endpoint_data_feasibility",
+      "result": "Artifact validated after reconciling a supervisor-owned queue snapshot false positive: public data cannot support the required project-disjoint CAM artifact ablation; binary Ericsson recall remains separate from multiclass CAM accuracy.",
+      "retry_after": "2026-10-15T01:02:53Z",
+      "started_at": "2026-10-15T00:51:47Z",
+      "status": "completed",
+      "success_criteria": [
+        "metrics and populations reconciled",
+        "data/access and split feasibility checked",
+        "go/no-go with next experiment cost"
+      ],
+      "task_id": "CAM-TRANSFER-FEAS-001"
+    },
+    {
+      "artifact": "reports/badger_matched_cpu_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "dependencies": [
+        "LEADS-001"
+      ],
+      "execution_requirements": [
+        "primary 2018 Badger source",
+        "pinned code and dependencies",
+        "no paid compute or persistent service"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "If old dependencies cannot be built, preserve exact failures and choose a different observable test; no synthetic performance claim.",
+      "finished_at": "2026-10-15T00:55:45Z",
+      "last_result": {
+        "artifact_bytes": 11301,
+        "artifact_valid": true,
+        "elapsed_seconds": 89.057,
+        "error": "worker changed paths outside declared artifact: research/tracks/experiments/task_queue.json",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "6211148228b59cb4925b2e5699e203780223d17e92179ceafd9a2270f89178f7",
+        "retry_after_seconds": null,
+        "session_id": "01a13d0d-7b1c-7301-a5b7-12e6a7f90b9f",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Pin and build the Badger and KelinciWCA source stacks, check independent Java subjects, worst-case cost metric and cgroup CPU observability; decide whether a preregistered matched-CPU falsification experiment is feasible without claiming an outcome yet.",
+      "priority": 75,
+      "research_key": "badger_resource_fair_build_metric_feasibility",
+      "retry_after": "2026-10-15T00:56:15Z",
+      "started_at": "2026-10-15T00:54:15Z",
+      "status": "completed",
+      "result": "Bounded no-go: native Kelinci interface builds and cgroup counters are observable, but Ant/Gradle/AFL/JPF/SPF/Z3 and a common cost metric are not reproducibly assembled; no matched-CPU outcome was run.",
+      "success_criteria": [
+        "build and measurement feasibility documented",
+        "resource fairness confound addressed",
+        "go/no-go decision with exact cost"
+      ],
+      "task_id": "BADGER-FAIR-CPU-FEAS-001"
+    },
+    {
+      "artifact": "reports/dp158_matched_guarantee_audit.json",
+      "cost_estimate": 0.9,
+      "dependencies": [
+        "DP158-ACCOUNTANT-001"
+      ],
+      "execution_requirements": [
+        "tighter proved per-step RDP bound",
+        "certified finite-q conversion",
+        "author-code assumptions or exact pairwise metrics"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "Do not compare raw active steps at unequal privacy guarantees or treat the floating-point reference as production certification.",
+      "max_attempts": 2,
+      "objective": "Compare a published approximate GDP filter and a valid adaptive RDP fallback only at matched adjacency and finite-q (epsilon,delta) guarantees, using certified numerical errors; otherwise publish why comparison remains infeasible.",
+      "priority": 55,
+      "status": "pending",
+      "success_criteria": [
+        "guarantees comparable or explicit infeasibility result",
+        "no production undercount claim without deployed implementation"
+      ],
+      "task_id": "DP158-MATCHED-GUARANTEE-001"
+    }
   ]
 }

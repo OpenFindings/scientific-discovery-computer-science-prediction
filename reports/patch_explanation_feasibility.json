@@ -1,0 +1,78 @@
+{
+  "automated_judgments_are_human_substitutes": false,
+  "decision": "go_for_material_protocol_no_go_for_real_benchmark_execution",
+  "environment": {
+    "defects4j_cli": null,
+    "docker": "/usr/local/bin/docker",
+    "java": "/usr/bin/java",
+    "java_runtime_usable": false,
+    "java_version_probe": [
+      "The operation couldn\u2019t be completed. Unable to locate a Java Runtime.",
+      "Please visit http://www.java.com for information on installing Java."
+    ],
+    "javac": "/usr/bin/javac",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "public_benchmark": {
+      "active_bug_count_claimed_by_official_site": 854,
+      "correctness_caveat": "Passing developer tests is not semantic correctness; correct/plausible labels require independent audit.",
+      "name": "Defects4J",
+      "patch_index_url": "https://github.com/program-repair/defects4j-dissection/blob/master/defects4j-patch.md",
+      "source_url": "https://defects4j.org/",
+      "version_reference": "3.0.1"
+    }
+  },
+  "evidence_level": 0,
+  "human_outcomes_measured": false,
+  "materials": {
+    "blinding_checks": {
+      "condition_ids_preserved": true,
+      "gold_label_absent": true
+    },
+    "errors": [],
+    "presentation_rows": 4,
+    "presentations": [
+      {
+        "arm": "patch_plus_explanation",
+        "behavioral_difference": "null input returns 0 instead of raising a null dereference.",
+        "condition_id": "fixture-good",
+        "explanation_text": "The patch treats a missing value as an empty collection before reading its length.",
+        "patch_text": "return value == null ? 0 : value.length();",
+        "presentation_id": "f779ae563ee5057c"
+      },
+      {
+        "arm": "patch_only",
+        "condition_id": "fixture-good",
+        "patch_text": "return value == null ? 0 : value.length();",
+        "presentation_id": "b80197bbb57f4aa8"
+      },
+      {
+        "arm": "patch_plus_explanation",
+        "behavioral_difference": "null input returns 1, which changes the documented empty-value behavior.",
+        "condition_id": "fixture-defective",
+        "explanation_text": "The patch treats a missing value as an empty collection before reading its length.",
+        "patch_text": "return value == null ? 1 : value.length();",
+        "presentation_id": "608ea3c3d2de0347"
+      },
+      {
+        "arm": "patch_only",
+        "condition_id": "fixture-defective",
+        "patch_text": "return value == null ? 1 : value.length();",
+        "presentation_id": "9a125c6137d44b81"
+      }
+    ],
+    "public_rows": 0,
+    "rows": 2,
+    "seed": 20261015,
+    "synthetic_fixture_rows": 2,
+    "unique_presentation_ids": 4
+  },
+  "next_falsifiable_action": "Acquire a version-pinned Defects4J checkout with Java 11 in an authorized local environment; verify a small correct/plausible subset and generate blinded conditions before any participant study.",
+  "pilot_type": "artifact_and_feasibility_only",
+  "protocol": "research/patch_explanation_protocol_v1.md",
+  "real_benchmark_execution_ready": false,
+  "uncertainty": [
+    "Fixture checks are synthetic engineering diagnostics, not developer evidence.",
+    "Defects4J patch plausibility and semantic correctness still require version-pinned test execution and independent review.",
+    "No claim about review accuracy, decision time, confidence calibration or automation bias is supported."
+  ]
+}

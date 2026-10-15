@@ -2,6 +2,30 @@
 
 No new breakthrough has been established by this campaign checkpoint.
 
+## 2026-10-15: the 16-paper trajectory cohort is fully screened
+
+- **Changed scientific decision:** The remaining six exact-version source screens are complete. The separately frozen cohort is now **16/16 source-screened: 12 eligible and 4 ineligible**. No paper was replaced after looking at later outcomes. The source-only ledger is [`historical_observable_source_screen_round6.json`](historical_observable_source_screen_round6.json).
+- **Trajectory result:** Bounded follow-up checks for all 12 eligible questions yield direct resolution **0**, premise refutation/revision **0**, partial progress **5**, independent broad-premise strengthening **1**, contradiction **0**, scope narrowing/reformulation **3**, continued explicit uncertainty **0**. The 12 direct outcomes remain unadjudicated; a missing hit is not a negative label. Full provenance and exclusions are in [`historical_evidence_trajectory_round2.json`](historical_evidence_trajectory_round2.json).
+- **What this rules out:** Increasing the number of source-screened papers did not by itself create a valid Paper 3 outcome dataset. The bottleneck is observable, definition-matched future outcomes, not simply article count. The original 20-paper blind cohort and its 13-question labels remain unchanged.
+- **New actionable leads:** Avocado has follow-up implementation of the source's planned constraint-solver capability, but no matched constrained/unconstrained detection-cost comparison; SERENIoT follow-up makes cross-device whitelist generalization and adversarial false-allow/false-block rates the decisive missing experiment. These are leads, not discoveries.
+
+## 2026-10-15: Paper 3 readiness and patch-explanation feasibility are negative/limited results
+
+- **Paper 3:** [`paper3_trajectory_readiness.json`](paper3_trajectory_readiness.json) records a valid no-score decision: 12 rows, zero direct positive labels and zero direct negative labels, so no temporal holdout or forecast metric can be estimated.
+- **Paper 4 transfer:** The artifact-only patch-explanation pilot passed material validation and blinding checks on two synthetic fixtures, but local environment inspection found no Defects4J CLI and no usable Java runtime. It therefore supports only a protocol/materials go decision, not a human-review effect, LLM-as-human substitute, or repair benchmark result. See [`patch_explanation_feasibility.json`](patch_explanation_feasibility.json).
+
+## 2026-10-15: CAM feasibility is a completed conditional no-go
+
+- **Changed scientific decision:** A real bounded worker audited the CAM source, the independent Ericsson replication and public industrial-data candidates. The artifact records a conditional no-go: currently verified public data do not jointly provide project-linked logs, multiclass cause labels and paired software artifacts for the required log-only versus log-plus-artifact comparison.
+- **Endpoint protection:** The 2019 Ericsson 50% product-fault recall remains a separate binary endpoint and is not used as a direct result for the 2017 multiclass CAM question. The next experiment is allowed only after an authorized data release passes project-disjoint split, artifact-at-alarm-time and label/license gates.
+- **Supervisor validation:** The first retry was blocked by a supervisor-owned queue snapshot false positive and a CLI invocation compatibility issue; both were fixed. The second real worker produced and independently JSON-validated [`cam_artifact_ablation_feasibility.json`](cam_artifact_ablation_feasibility.json). The raw failed attempt is retained under `research/worker_runs/`.
+
+## 2026-10-15: Badger matched-CPU experiment is currently infeasible
+
+- **Changed scientific decision:** The real bounded Badger audit pinned the 2018 source repositories, built Kelinci's native interface and confirmed `cpu.stat: usage_usec` in a disposable Linux container, but could not assemble the Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack or a common subject-level cost metric. The artifact is [`badger_matched_cpu_feasibility.json`](badger_matched_cpu_feasibility.json).
+- **No performance claim:** No Java benchmark, paired randomization, bug-yield measurement or Badger-versus-KelinciWCA outcome ran. The lead is a completed conditional no-go for this machine, not a negative performance result.
+- **Reranking:** The next queue priority moves to the DP158 matched-guarantee audit or a targeted original-cohort source gap. A future Badger retry requires a finite offline compatible build image and one-subject calibration gate; no package installation or persistent service was started.
+
 ## 2026-10-14: historical-outcome bottleneck and separate trajectory pilot
 
 - **Changed scientific decision:** A 13-question [retrieval/directness audit](historical_label_bottleneck_audit.json) found only four future primary full-text section checks; nine cases are too weakly retrieved to distinguish absence from search failure. All four checked near-misses differ on exact scope, assumptions or joint metric. The original zero direct labels remain unchanged. Repeating broad keyword variants is down-ranked in favor of a separately frozen, outcome-observable cohort.

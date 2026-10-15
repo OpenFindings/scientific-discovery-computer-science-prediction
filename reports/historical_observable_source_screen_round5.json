@@ -1,0 +1,48 @@
+{
+  "screen_id": "HCS-OBSERVABLE-16-SOURCE-ROUND5-2026-10-15",
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "future_evidence_searched_for_these_questions": false,
+  "method": "Read cutoff-version primary PDFs before any post-cutoff search. Candidate questions are retained only when the source states an open test/design direction and the object, comparator, measurable endpoint and falsification gate can be written without using later results.",
+  "rows": [
+    {
+      "versioned_id": "1901.02771v1",
+      "as_of": "2019-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1901.02771v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "ineligible_no_explicit_unresolved_question_in_inspected_sections",
+      "source_locator": "PDF pp. 1-4 abstract, algorithm description and computational study",
+      "source_basis": "The paper proposes sweep heuristics and reports a computational benchmark with 100 instances per configuration. The inspected source describes performance dependence on instance characteristics but does not explicitly leave a falsifiable next proposition or unresolved comparison; a stronger generalization or later benchmark would be reviewer-invented.",
+      "candidate_question": null,
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1905.02597v1",
+      "as_of": "2019-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1905.02597v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 1-2 abstract/introduction; pp. 6-8 sections 4.1-4.3 and conclusion",
+      "source_basis": "The source explicitly argues that repair bots should produce an explainable package consisting of a patch, explanation and behavioral-difference example, and proposes experiments on whether synthesized explanations capture the patch essence and are clear. The paper reports no controlled comparison of dry versus explainable repair proposals on reviewer outcomes.",
+      "candidate_question": "For automated repair proposals from the same repair bot, does attaching a natural-language explanation plus a concrete behavioral-difference example improve blinded reviewer acceptance or time-to-decision compared with a patch-only proposal, at matched patch correctness and review workload?",
+      "comparison_and_metric": "same valid/invalid repair proposals with explainable package versus patch-only presentation; blinded reviewer acceptance/understanding and time-to-decision, with patch correctness held constant",
+      "falsification_gate": "No improvement in prespecified acceptance or decision-time/understanding outcomes across independent reviewers and patch units, or a penalty after controlling for patch correctness, fails the proposed communication benefit; subjective preference alone without a decision/understanding endpoint is insufficient.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "2005.00972v1",
+      "as_of": "2020-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/2005.00972v1",
+      "source_status": "targeted_original_version_sections_reviewed",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF p. 1 abstract; pp. 10-11 section 11 Conclusion and Future Work",
+      "source_basis": "The source reports 667 DNN bug/repair instances and explicitly calls for DNN-aware repair/localization, detection of dimension-mismatch regressions and vulnerability-introducing fixes. It does not evaluate a DNN-aware repair intervention against a matched baseline on those outcomes.",
+      "candidate_question": "On held-out DNN bug-fix instances, does a DNN-aware repair/localization intervention reduce incorrect or vulnerability-introducing patches relative to a code-only repair baseline while preserving verified bug-fix success?",
+      "comparison_and_metric": "DNN-aware versus code-only repair/localization on project-disjoint held-out bug/repair units; verified fix rate, regression rate and security-relevant regression rate",
+      "falsification_gate": "No reduction in independently verified regressions at non-inferior fix success, or a reduction that disappears under project-disjoint evaluation, fails the proposed DNN-aware value claim. Dataset frequency alone is not an outcome.",
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ],
+  "counts": {"new_source_section_screened": 3, "new_eligible_questions": 2, "new_ineligible": 1, "combined_source_section_screened": 10, "combined_eligible_questions": 8, "combined_ineligible": 2, "remaining_unscreened": 6, "future_outcomes_adjudicated_for_new_rows": 0},
+  "limitation": "These are targeted source-section decisions, not exhaustive paper annotation. The two eligible questions require later work to verify whether comparable public data and interventions exist; no future evidence was searched before this ledger was frozen."
+}

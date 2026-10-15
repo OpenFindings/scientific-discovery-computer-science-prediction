@@ -1,0 +1,20 @@
+{
+  "source": "Semantic Scholar Academic Graph API",
+  "started_utc": "2026-10-15T02:17:50.750503+00:00",
+  "finished_utc": "2026-10-15T02:59:38.464479+00:00",
+  "frame_unique_papers": 1006,
+  "s2_matched": 1000,
+  "unmatched": [
+    "1012.2496",
+    "1210.1653",
+    "1404.3706",
+    "1507.01715",
+    "1607.01835",
+    "1709.04255"
+  ],
+  "citations_complete": 1000,
+  "citations_incomplete": [],
+  "requests": 1509,
+  "cache_hits": 3,
+  "errors": 0
+}

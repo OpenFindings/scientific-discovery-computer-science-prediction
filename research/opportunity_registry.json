@@ -1,14 +1,14 @@
 {
   "registry_id": "CS-OPPORTUNITY-REGISTRY-20261015",
-  "updated_at": "2026-10-15T06:25:00Z",
+  "updated_at": "2026-10-15T07:00:00Z",
   "directions": [
     {"id": "QAOA-POSTSELECTION", "status": "temporarily_closed", "reason": "conditional state-quality effect replicated but complete fixed-shot procedure underperformed standard sampling; no new run without a new hypothesis and authorization"},
     {"id": "BADGER", "status": "conditional_no_go", "reason": "missing compatible Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack and fair metric"},
     {"id": "CAM", "status": "conditional_no_go", "reason": "no public project-linked artifacts plus multiclass labels for matched ablation"},
     {"id": "SERENIOT", "status": "conditional_no_go", "reason": "no matched device-disjoint traces and false-allow/false-block labels"},
     {"id": "DP158", "status": "audit_complete_no_new_claim", "reason": "source-matched numerical reproduction and boundary limitation; no certified privacy comparison"},
-    {"id": "EDCS-LAZY-REPAIR-INVARIANT-001", "status": "variant_falsified_temporarily_closed", "reason": "independently verified four-update P1 counterexample to the frozen one-flip lazy repair variant; original EDCS theory and maintenance algorithm remain untested"},
-    {"id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "fallback_waiting_authorization", "reason": "lower-cost finite adversarial-sequence checker"},
+    {"id": "EDCS-LAZY-REPAIR-INVARIANT-001", "status": "variant_falsified_mathematical_generalization_pending_authorization", "reason": "independently verified four-update P1 counterexample and proved family for every integer beta>=3 with beta_minus=beta-1 in the one-toggle model; original EDCS theory and maintenance algorithm remain untested"},
+    {"id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "fallback_waiting_authorization", "reason": "only consider after a separately authorized parameter/repair-budget comparison; no experiment is currently authorized"},
     {"id": "CERT-SQLITE-TRANSFER-003", "status": "rejected_endpoint_gate", "reason": "CERT is known prior art and local SQLite lacks a comparable estimated-row endpoint"},
     {"id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "rejected_dependency_gate", "reason": "pinned semantics/checker/toolchain unavailable"}
   ]

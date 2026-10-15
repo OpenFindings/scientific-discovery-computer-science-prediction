@@ -1,0 +1,250 @@
+{
+  "checker": "independent_fixed_witness_replay",
+  "sequence": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "beta": 4,
+  "beta_minus": 3,
+  "rows": [
+    {
+      "update_index": 0,
+      "inserted": [
+        0,
+        0
+      ],
+      "H": [
+        [
+          0,
+          0
+        ]
+      ],
+      "dirty_after_repair": [
+        [
+          "L",
+          0
+        ],
+        [
+          "R",
+          0
+        ]
+      ],
+      "flips": [
+        {
+          "kind": "P2",
+          "edge": [
+            0,
+            0
+          ],
+          "before_delta": 0
+        }
+      ],
+      "degrees": {
+        "L0": 1,
+        "L1": 0,
+        "R0": 1,
+        "R1": 0,
+        "R2": 0
+      },
+      "p1_violations": []
+    },
+    {
+      "update_index": 1,
+      "inserted": [
+        0,
+        1
+      ],
+      "H": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "dirty_after_repair": [
+        [
+          "L",
+          0
+        ],
+        [
+          "R",
+          0
+        ],
+        [
+          "R",
+          1
+        ]
+      ],
+      "flips": [
+        {
+          "kind": "P2",
+          "edge": [
+            0,
+            1
+          ],
+          "before_delta": 1
+        }
+      ],
+      "degrees": {
+        "L0": 2,
+        "L1": 0,
+        "R0": 1,
+        "R1": 1,
+        "R2": 0
+      },
+      "p1_violations": []
+    },
+    {
+      "update_index": 2,
+      "inserted": [
+        0,
+        2
+      ],
+      "H": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "dirty_after_repair": [
+        [
+          "L",
+          0
+        ],
+        [
+          "R",
+          0
+        ],
+        [
+          "R",
+          1
+        ],
+        [
+          "R",
+          2
+        ]
+      ],
+      "flips": [
+        {
+          "kind": "P2",
+          "edge": [
+            0,
+            2
+          ],
+          "before_delta": 2
+        }
+      ],
+      "degrees": {
+        "L0": 3,
+        "L1": 0,
+        "R0": 1,
+        "R1": 1,
+        "R2": 1
+      },
+      "p1_violations": []
+    },
+    {
+      "update_index": 3,
+      "inserted": [
+        1,
+        0
+      ],
+      "H": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "dirty_after_repair": [
+        [
+          "R",
+          0
+        ],
+        [
+          "R",
+          1
+        ],
+        [
+          "R",
+          2
+        ],
+        [
+          "L",
+          1
+        ]
+      ],
+      "flips": [
+        {
+          "kind": "P2",
+          "edge": [
+            1,
+            0
+          ],
+          "before_delta": 1
+        }
+      ],
+      "degrees": {
+        "L0": 3,
+        "L1": 1,
+        "R0": 2,
+        "R1": 1,
+        "R2": 1
+      },
+      "p1_violations": [
+        {
+          "edge": [
+            0,
+            0
+          ],
+          "degree_sum": 5
+        }
+      ]
+    }
+  ],
+  "first_violation_update_index": 3,
+  "first_violation": {
+    "edge": [
+      0,
+      0
+    ],
+    "degree_sum": 5
+  },
+  "conclusion": "The fourth insertion is P2-repaired by adding (1,0), after which (0,0) has degree sum 5 > 4."
+}

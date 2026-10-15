@@ -1562,7 +1562,7 @@
       "track": "experiments"
     },
     {
-      "artifact": "results/edcs_lazy_repair_counterexample_20261015/result.json",
+      "artifact": "reports/edcs_experiment_result_20261015.json",
       "attempts": 1,
       "cost_estimate": 0.3,
       "counts_as_experiment": true,
@@ -1585,6 +1585,7 @@
         "falsification_status": "variant_P1_counterexample_verified",
         "independent_validation": "results/edcs_lazy_repair_counterexample_20261015/independent_validation.json",
         "raw_result": "results/edcs_lazy_repair_counterexample_20261015/result.json",
+        "scientific_report": "reports/edcs_experiment_result_20261015.json",
         "scientific_success": true
       },
       "max_attempts": 1,
@@ -1596,7 +1597,7 @@
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "experiment_result",
-        "reason": "finite variant counterexample independently reproduced and minimized",
+        "reason": "structured scientific report and independent validation satisfy the experiment gate",
         "scientific_success": true
       },
       "status": "completed",

@@ -117,8 +117,8 @@
       "PAPER4-QAOA-CLOSURE-001"
     ],
     "selected_experiment": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-    "selected_experiment_status": "blocked_pending_explicit_authorization",
-    "new_experiment_started": 0,
+    "selected_experiment_status": "completed_variant_counterexample_then_mathematical_generalization",
+    "new_experiment_started": 1,
     "lifetime_experiment_counter_changed": false,
     "authorization_request": {
       "cpu_seconds": 120,
@@ -126,7 +126,7 @@
       "processes": 1,
       "network": false
     },
-    "interpretation": "The candidate pool and Paper 4 action ranking are source-audited planning evidence only. The finite EDCS search is not a result, and the supervisor must not start it until explicit renewed local experiment authorization is present."
+    "interpretation": "The single explicitly authorized EDCS search completed. No additional search was run; subsequent work is a fixed-witness mathematical audit and provenance repair."
   },
   "edcs_experiment_audit": {
     "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
@@ -141,5 +141,19 @@
     "original_edcs_theory_refuted": false,
     "original_dynamic_edcs_algorithm_tested": false,
     "next_state": "experimental_execution_closed_until_new_protocol_and_authorization"
+  },
+  "edcs_provenance_audit": {
+    "artifact": "reports/edcs_provenance_audit_20261015.json",
+    "protocol_commit": "d54db55",
+    "validation_commit": "c1724dd",
+    "declared_frozen_at_consistent_with_execution": false,
+    "conclusion": "Git content chronology supports protocol-before-execution, but the declared frozen_at timestamp is later than observed execution and validation artifacts; strict temporal preregistration is chronology-uncertain."
+  },
+  "edcs_supervisor_repair": {
+    "false_artifact_only_event_preserved": true,
+    "cause": "task artifact pointed to compact runner result rather than structured scientific report",
+    "repair_script": "scripts/repair_edcs_checkpoint.py",
+    "lifetime_experiment_counter_changed": false,
+    "scientific_status_after_repair": "scientifically_completed"
   }
 }

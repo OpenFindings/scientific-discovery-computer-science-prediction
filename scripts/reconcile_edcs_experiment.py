@@ -31,6 +31,9 @@ def main() -> int:
     if not task:
         raise SystemExit(f"missing task: {TASK_ID}")
     task.update({
+        # The scientific gate must read the structured report, not the compact
+        # runner result. Keep the raw result explicitly linked below.
+        "artifact": ARTIFACT,
         "status": "completed",
         "attempts": 1,
         "finished_at": now(),
@@ -50,6 +53,7 @@ def main() -> int:
             "falsification_status": report["falsification_gate"]["status"],
             "independent_validation": VALIDATION,
             "raw_result": RAW_RESULT,
+            "scientific_report": ARTIFACT,
         },
     })
     task.pop("failure_note", None)

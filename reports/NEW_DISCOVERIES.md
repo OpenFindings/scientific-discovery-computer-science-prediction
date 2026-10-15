@@ -1,5 +1,13 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: EDCS one-flip failure generalizes mathematically, without refuting EDCS
+
+- **Independent derivation:** A separate fixed-witness checker reproduced the queue behavior and degree arithmetic. On the fourth insertion, P2 forces `(1,0)` into `H`; this raises the old used edge `(0,0)` to degree sum `3+2=5>beta=4`.
+- **Generalized result:** For every integer `beta=b>=3` with `beta_minus=b-1`, a star of `b-1` used edges followed by one cross-edge insertion creates the same obstruction. In the explicitly stated single-edge-toggle model, at least two H toggles are necessary: add the deficient edge and remove a newly violating used edge.
+- **Classification:** The four-edge result is an independently reproduced finite counterexample; the parameterized statement is fully proved for this variant class; no theorem about original EDCS, HEDCS or dynamic matching has been claimed.
+- **Provenance caveat:** The protocol Git commit predates execution, but the internal `frozen_at` field is later than the observed execution and validation files. Strict temporal preregistration is therefore chronology-uncertain. A later supervisor artifact-only misclassification is preserved and repaired by pointing the task to the structured report.
+- **Next step:** A parameter/repair-budget/queue-policy comparison is specified but not executed; it requires a new explicit authorization.
+
 ## 2026-10-15: frozen Paper 4 action produced an explicit setup infeasibility
 
 - **Experiment:** The pre-frozen A2 action tested a 3-independent-set postselection condition in an exact n=8 state-vector simulation on 20 seeded simple 3-regular graphs.

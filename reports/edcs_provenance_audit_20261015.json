@@ -1,0 +1,37 @@
+{
+  "audit_id": "EDCS-PROVENANCE-AUDIT-20261015",
+  "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+  "protocol_id": "EDCS-LAZY-REPAIR-PROTOCOL-V1",
+  "implementation_sha256": "a343bc323f31747815001a68bde79d0c5ffb87b97d7e0a7c70350933619ea864",
+  "chronology": [
+    {"event": "implementation_file_observed", "time": "2026-10-15T06:05:38Z", "basis": "filesystem mtime; non-authoritative"},
+    {"event": "protocol_file_observed", "time": "2026-10-15T06:05:41Z", "basis": "filesystem mtime; non-authoritative"},
+    {"event": "protocol_commit", "commit": "d54db55", "time": "2026-10-15T06:05:45Z", "basis": "Git commit metadata"},
+    {"event": "runner_result_observed", "time": "2026-10-15T06:06:45Z", "basis": "result.json filesystem mtime; non-authoritative"},
+    {"event": "independent_validation_observed", "time": "2026-10-15T06:07:37Z", "basis": "independent_validation.json filesystem mtime; non-authoritative"},
+    {"event": "scientific_report_observed", "time": "2026-10-15T06:08:19Z", "basis": "report filesystem mtime; non-authoritative"},
+    {"event": "validation_commit", "commit": "c1724dd", "time": "2026-10-15T06:10:13Z", "basis": "Git commit metadata"}
+  ],
+  "declared_protocol_frozen_at": "2026-10-15T06:15:00Z",
+  "discrepancy": {
+    "seconds_after_protocol_commit": 555,
+    "seconds_after_runner_result_observed": 495,
+    "seconds_after_independent_validation_observed": 443,
+    "seconds_after_validation_report_observed": 401,
+    "interpretation": "The declared frozen_at timestamp is later than the Git freeze commit and all observed execution/validation artifacts. It cannot be a reliable pre-execution freeze timestamp. The protocol content was committed before execution, but strict temporal preregistration is not fully authenticated.",
+    "uncertainty": "Filesystem mtimes are not authoritative and the runner stores only a monotonic start value, so the exact wall-clock execution instant is not independently authenticated by the raw artifact."
+  },
+  "immutable_records_preserved": [
+    "research/edcs_experiment_protocol_v1.json",
+    "results/edcs_lazy_repair_counterexample_20261015/result.json",
+    "results/edcs_lazy_repair_counterexample_20261015/independent_validation.json",
+    "results/edcs_lazy_repair_counterexample_20261015/raw_trace.jsonl.gz"
+  ],
+  "provenance_conclusion": "Content-before-execution is supported by Git chronology, but the protocol's declared frozen_at field is inconsistent and strict preregistration should be reported as chronology-uncertain rather than fully authenticated.",
+  "supervisor_followup": {
+    "false_artifact_only_event": "2026-10-15T06:10:50Z",
+    "cause": "task artifact pointed to raw result.json, while the scientific completion gate expects the structured report JSON",
+    "repair": "task artifact now points to reports/edcs_experiment_result_20261015.json; raw result and independent validation remain linked as supporting artifacts",
+    "historical_event_preserved": true
+  }
+}

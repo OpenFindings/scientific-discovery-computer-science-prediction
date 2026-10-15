@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.research_supervisor import classify_failure, scientific_validation, proposed_continuations
+from scripts.research_supervisor import classify_failure, effective_experiment_cap, scientific_validation, proposed_continuations
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPERVISOR = ROOT / "scripts/research_supervisor.py"
@@ -135,6 +135,15 @@ class ResearchSupervisorTests(unittest.TestCase):
         supervisor = json.loads((self.root / "research/supervisor_state.json").read_text())
         self.assertEqual(supervisor["activation"]["worker_invocations"], 1)
         self.assertGreaterEqual(supervisor["activation"]["renewal_count"], 2)
+
+    def test_renewable_experiment_cap_adds_bounded_budget_without_resetting_history(self):
+        budget = {"configured_max_experiments": 8, "experiments_started": 8,
+                  "renewable_experiment_budget": {"status": "AUTHORIZED", "authorized_additional": 2}}
+        self.assertEqual(effective_experiment_cap(budget), 10)
+        budget["renewable_experiment_budget"]["authorized_additional"] = 99
+        self.assertEqual(effective_experiment_cap(budget), 12)
+        budget["renewable_experiment_budget"]["status"] = "EXPIRED"
+        self.assertEqual(effective_experiment_cap(budget), 8)
 
     def test_authentication_failure_is_not_quota(self):
         result = self.invoke("auth")

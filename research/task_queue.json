@@ -353,6 +353,7 @@
       "max_attempts": 2,
       "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
       "priority": 40,
+      "scientific_completion": "outcome_label",
       "started_at": "2026-10-15T02:14:24Z",
       "status": "completed",
       "success_criteria": [
@@ -395,6 +396,7 @@
       "objective": "Determine whether the uncertainty-robustness lead can support a preregistered direct test of uncommon-uncertainty adversarial examples versus conventional adversarial training at equal example count and compute; otherwise reject it as currently infeasible.",
       "priority": 50,
       "research_key": "uncertainty_robust_direct_test_feasibility",
+      "scientific_completion": "feasibility_decision",
       "started_at": "2026-10-15T02:17:05Z",
       "status": "completed",
       "success_criteria": [
@@ -406,6 +408,7 @@
     },
     {
       "artifact": "reports/sereniot_cross_device_feasibility.json",
+      "attempts": 1,
       "cost_estimate": 0.5,
       "dependencies": [
         "HISTORICAL-TRAJECTORY-002"
@@ -417,11 +420,28 @@
       ],
       "expected_information_gain": 0.6,
       "failure_handling": "If cross-device traces, policy labels or comparable artifacts are unavailable, record a bounded no-go and do not infer security improvement from adoption or deployment claims.",
+      "finished_at": "2026-10-15T02:22:13Z",
+      "last_result": {
+        "artifact_bytes": 12266,
+        "artifact_valid": true,
+        "elapsed_seconds": 63.077,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "6c545b923ef1e3c98f181d6c7774af78fc8a2cc13f97052a07d2a5b6d0aed44a",
+        "retry_after_seconds": null,
+        "session_id": "01a13d5d-0bda-73a3-aa1b-970ad13ff539",
+        "timed_out": false
+      },
       "max_attempts": 2,
       "objective": "Audit whether SERENIoT's cross-device whitelist-generalization gap supports a low-cost, falsifiable test with matched device families and explicit false-allow/false-block outcomes.",
       "priority": 48,
       "research_key": "sereniot_cross_device_whitelist_generalization_feasibility",
-      "status": "pending",
+      "scientific_completion": "feasibility_decision",
+      "started_at": "2026-10-15T02:21:09Z",
+      "status": "completed",
       "success_criteria": [
         "source and follow-up endpoint definitions reconciled",
         "public data/artifact and split feasibility checked",

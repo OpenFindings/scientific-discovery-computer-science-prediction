@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from scripts.research_supervisor import classify_failure
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPERVISOR = ROOT / "scripts/research_supervisor.py"
@@ -31,6 +32,7 @@ class ResearchSupervisorTests(unittest.TestCase):
         (self.root / "research/state.json").write_text(json.dumps(state))
         (self.root / "research/task_queue.json").write_text(json.dumps(queue))
         (self.root / "research/experiment_ledger.jsonl").write_text("")
+        subprocess.run(["git", "init", "-q"], cwd=self.root, check=True)
         fake = self.root / "fake-codex"
         fake.write_text("#!/usr/bin/env python3\nimport os,sys,json\nfrom pathlib import Path\n"
                         "mode=os.environ.get('FAKE_CODEX_MODE','success')\n"
@@ -40,6 +42,7 @@ class ResearchSupervisorTests(unittest.TestCase):
                         "if mode=='unchanged': raise SystemExit(0)\n"
                         "prompt=sys.stdin.read(); rel=[x.removeprefix('Write only: ') for x in prompt.splitlines() if x.startswith('Write only: ')][0]\n"
                         "p=Path(rel); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps({'result':'negative','evidence_tier':4}))\n"
+                        "if mode=='tamper': Path('research/task_queue.json').write_text('tampered by worker')\n"
                         "raise SystemExit(0)\n")
         fake.chmod(0o755)
         self.fake = fake
@@ -120,6 +123,10 @@ class ResearchSupervisorTests(unittest.TestCase):
         supervisor = json.loads((self.root / "research/supervisor_state.json").read_text())
         self.assertEqual(supervisor["quota"]["state"], "AVAILABLE")
 
+    def test_policy_prose_is_not_false_quota_signal(self):
+        self.assertEqual(classify_failure("AGENTS.md: never bypass rate limits or quota; preserve artifacts"), ("worker", None, None))
+        self.assertEqual(classify_failure(json.dumps({"error": {"code": "rate_limit_exceeded"}, "retry_after_seconds": 12}))[0], "quota")
+
     def test_stop_request_prevents_new_worker(self):
         stopped = self.invoke(args=("--stop",))
         self.assertEqual(stopped.returncode, 0, stopped.stderr)
@@ -197,6 +204,23 @@ class ResearchSupervisorTests(unittest.TestCase):
         self.assertEqual(run.returncode, 0, run.stderr)
         self.assertEqual(self.queue()["tasks"][0]["status"], "failed")
         self.assertNotIn("T1", self.state()["completed_tasks"])
+
+    def test_worker_cannot_modify_canonical_queue(self):
+        run = self.invoke(mode="tamper")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["status"], "failed")
+        self.assertNotIn("T1", self.state()["completed_tasks"])
+        self.assertIn("research/task_queue.json", self.queue()["tasks"][0]["last_result"]["error"])
+
+    def test_valid_artifact_can_be_scientifically_incomplete(self):
+        queue = self.queue()
+        queue["tasks"][0]["scientific_completion"] = "outcome_label"
+        (self.root / "research/task_queue.json").write_text(json.dumps(queue))
+        run = self.invoke()
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["status"], "artifact_only")
+        self.assertNotIn("T1", self.state()["completed_tasks"])
+        self.assertIn("T1", self.state()["artifact_only_tasks"])
 
     def test_lock_blocks_second_supervisor(self):
         with (self.root / "research/.supervisor.lock").open("a+") as lock:

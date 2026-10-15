@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bounded, resumable launcher for explicit Codex research-worker runs."""
 from __future__ import annotations
-import argparse, datetime as dt, fcntl, hashlib, json, os, shutil, signal, subprocess, sys, tempfile, time
+import argparse, datetime as dt, fcntl, hashlib, json, os, re, shutil, signal, subprocess, sys, tempfile, time
 from pathlib import Path
 from typing import Any
 
@@ -125,13 +125,28 @@ def parse_structured_events(raw: str) -> list[dict[str, Any]]:
 def classify_failure(raw: str) -> tuple[str, int | None, str | None]:
     """Return (class, retry-after-seconds, official-reset timestamp) conservatively."""
     records = parse_structured_events(raw)
+    structured_errors = []
+    for record in records:
+        kind = str(record.get("type", ""))
+        if kind not in {"error", "turn.failed", "turn.completed"} and not any(k in record for k in ("error", "retry_after_seconds", "reset_at", "rate_limit_reset_at")):
+            continue
+        if kind == "turn.completed" and not any(k in record for k in ("error", "retry_after_seconds", "reset_at", "rate_limit_reset_at")):
+            continue
+        if "error" in record:
+            structured_errors.append(record.get("error"))
+        for key in ("code", "message", "retry_after_seconds", "retry_after", "reset_at", "resets_at", "rate_limit_reset_at"):
+            if key in record:
+                structured_errors.append(record[key])
+    structured = json.dumps(structured_errors, ensure_ascii=False).lower()
     text = raw.lower()
-    structured = json.dumps(records, ensure_ascii=False).lower()
-    combined = structured + " " + text
-    quota_terms = ("usage_limit", "usage limit", "rate_limit", "rate limit", "too many requests", "quota exceeded")
+    quota_terms = ("usage_limit", "usage limit", "rate_limit_exceeded", "rate limit exceeded", "too many requests", "quota exceeded")
+    # Do not classify policy prose such as "do not bypass rate limits" as a
+    # service response. Plain text is accepted only for explicit error wording
+    # or HTTP 429; structured provider errors remain the preferred signal.
+    explicit_plain_quota = re.search(r"\b(?:429|rate[ _-]?limit(?:ed)?\s+exceeded|quota\s+exceeded|usage\s+limit(?:ed)?\s+reached|too\s+many\s+requests)\b", text)
     auth_terms = ("authentication", "unauthorized", "invalid api key", "login required", "forbidden")
     network_terms = ("connection refused", "network error", "timed out", "dns", "temporarily unavailable")
-    if any(term in combined for term in quota_terms):
+    if any(term in structured for term in quota_terms) or explicit_plain_quota:
         retry_after = None
         reset_at = None
         for record in records:
@@ -144,11 +159,134 @@ def classify_failure(raw: str) -> tuple[str, int | None, str | None]:
                 if isinstance(value, (int, float, str)):
                     reset_at = str(value); break
         return "quota", retry_after, reset_at
+    combined = structured + " " + text
     if any(term in combined for term in auth_terms):
         return "authentication", None, None
     if any(term in combined for term in network_terms):
         return "network", None, None
     return "worker", None, None
+
+def scientific_validation(task: dict[str, Any], artifact: dict[str, Any]) -> tuple[bool, dict[str, Any]]:
+    """Separate a bounded JSON artifact from satisfaction of scientific criteria."""
+    mode = task.get("scientific_completion")
+    task_id = str(task.get("task_id", ""))
+    if mode is None and task_id.startswith("HISTORICAL-OUTCOME"):
+        mode = "outcome_label"
+    if mode is None:
+        # Legacy infrastructure tasks predate the explicit gate. They still
+        # require the worker artifact schema, while new tasks must opt into a
+        # stricter mode in task_queue.json.
+        mode = "legacy_artifact_schema"
+    common = ("evidence_tier", "sources_and_data", "method", "observed_result_or_blocker", "uncertainty", "next_falsifiable_action")
+    missing = [key for key in common if key not in artifact]
+    if mode == "legacy_artifact_schema":
+        ok = "evidence_tier" in artifact and ("result" in artifact or "observed_result_or_blocker" in artifact)
+    elif mode == "outcome_label":
+        gate = artifact.get("paper3_gate", {}) if isinstance(artifact.get("paper3_gate"), dict) else {}
+        snapshot = artifact.get("original_13_label_snapshot", {}) if isinstance(artifact.get("original_13_label_snapshot"), dict) else {}
+        direct = int(snapshot.get("direct_labels", 0) or 0)
+        explicit = int(snapshot.get("explicitly_unresolved_labels", 0) or 0)
+        ok = direct > 0 or explicit > 0
+        missing = missing + (["direct_or_explicit_unresolved_label"] if not ok else [])
+        if gate.get("status") == "not_eligible_for_comparison":
+            ok = False
+    elif mode in {"feasibility_decision", "planning_audit", "trajectory_audit"}:
+        decision = artifact.get("decision")
+        observed = artifact.get("observed_result_or_blocker")
+        ok = bool(observed is not None and (decision is not None or mode == "trajectory_audit"))
+        missing = missing + (["decision_or_observed_result"] if not ok else [])
+    else:
+        ok = False
+        missing.append("recognized_scientific_completion_mode")
+    return ok, {"mode": mode, "scientific_success": ok, "missing_or_failed": missing,
+                "reason": "scientific criteria satisfied" if ok else "valid artifact does not satisfy scientific success criteria"}
+
+def artifact_summary(task: dict[str, Any], artifact: dict[str, Any], scientific_ok: bool, validation: dict[str, Any]) -> dict[str, Any]:
+    observed = artifact.get("observed_result_or_blocker")
+    if observed is None:
+        observed = artifact.get("decision", artifact.get("result"))
+    return {
+        "artifact": task.get("artifact"),
+        "task_id": task.get("task_id"),
+        "evidence_level": artifact.get("evidence_level", artifact.get("evidence_tier")),
+        "scientific_success": scientific_ok,
+        "scientific_validation": validation,
+        "observed_result_or_blocker": observed,
+        "uncertainty": artifact.get("uncertainty"),
+        "next_falsifiable_action": artifact.get("next_falsifiable_action"),
+        "timestamp": now(),
+    }
+
+def update_scientific_checkpoint(root: Path, state: dict[str, Any], task: dict[str, Any], artifact: dict[str, Any], scientific_ok: bool, validation: dict[str, Any]) -> None:
+    summary = artifact_summary(task, artifact, scientific_ok, validation)
+    state.setdefault("scientific_artifact_audits", []).append(summary)
+    state.setdefault("actual_experiment_results", []).append({
+        "artifact": task.get("artifact"),
+        "evidence_level": artifact.get("evidence_level", 0),
+        "experiment_id": task.get("experiment_id", f"AUDIT-{task.get('task_id')}"),
+        "limitation": "; ".join(validation.get("missing_or_failed", [])) or str(artifact.get("uncertainty", ""))[:500],
+        "result": str(summary.get("observed_result_or_blocker"))[:1000],
+    })
+    state["latest_scientific_increment"] = {
+        "kind": "supervisor_validated_worker_checkpoint",
+        "task_id": task.get("task_id"),
+        "scientific_success": scientific_ok,
+        "evidence_level": artifact.get("evidence_level", 0),
+        "decision": artifact.get("decision"),
+        "next_falsifiable_action": artifact.get("next_falsifiable_action"),
+    }
+    pending = [t for t in read_json(root / QUEUE).get("tasks", []) if t.get("status") in {"pending", "failed"}]
+    state["opportunity_ranking"] = [
+        {"task_id": t["task_id"], "track": task_track(t),
+         "score": round(float(t.get("priority", 0)) * float(t.get("expected_information_gain", 0)) / max(float(t.get("cost_estimate", 1)), .01), 4),
+         "scientific_completion": t.get("scientific_completion", "legacy_artifact_schema")}
+        for t in sorted(pending, key=lambda x: (-(float(x.get("priority", 0)) * float(x.get("expected_information_gain", 0)) / max(float(x.get("cost_estimate", 1)), .01)), x["task_id"]))
+    ]
+    state["next_action"] = artifact.get("next_falsifiable_action") or task.get("objective")
+
+def update_human_status(root: Path, task: dict[str, Any], artifact: dict[str, Any], scientific_ok: bool, validation: dict[str, Any]) -> None:
+    """Keep a compact, replace-in-place human checkpoint after every worker."""
+    path = root / "RESEARCH_STATUS.md"
+    if not path.is_file():
+        return
+    start, end = "<!-- supervisor-auto-checkpoint:start -->", "<!-- supervisor-auto-checkpoint:end -->"
+    observed = artifact.get("observed_result_or_blocker", artifact.get("decision", artifact.get("result")))
+    next_action = artifact.get("next_falsifiable_action", "")
+    block = (f"{start}\n**Supervisor auto-checkpoint ({now()}):** `{task.get('task_id')}` produced a bounded artifact. "
+             f"Scientific success: **{str(scientific_ok).lower()}**; evidence tier: `{artifact.get('evidence_tier', artifact.get('evidence_level', 'unknown'))}`. "
+             f"Observed result/blocker: {str(observed)[:700]}  \n"
+             f"Next falsifiable action: {str(next_action)[:700]}\n{end}")
+    text = path.read_text(encoding="utf-8")
+    if start in text and end in text:
+        before = text.split(start, 1)[0]
+        after = text.split(end, 1)[1]
+        path.write_text(before + block + after, encoding="utf-8")
+    else:
+        path.write_text(text.rstrip() + "\n\n" + block + "\n", encoding="utf-8")
+
+def reconcile_scientific_completions(root: Path, state: dict[str, Any], queue: dict[str, Any]) -> bool:
+    changed = False
+    for task in queue.get("tasks", []):
+        if task.get("status") != "completed" or not task.get("scientific_completion"):
+            continue
+        artifact_path = root / task.get("artifact", "")
+        try:
+            artifact = read_json(artifact_path)
+        except (OSError, ValueError):
+            continue
+        ok, validation = scientific_validation(task, artifact)
+        task["scientific_validation"] = validation
+        if not ok:
+            task["status"] = "artifact_only"
+            task["scientific_status"] = "artifact_only"
+            state.setdefault("artifact_only_tasks", [])
+            if task["task_id"] not in state["artifact_only_tasks"]:
+                state["artifact_only_tasks"].append(task["task_id"])
+            if task["task_id"] in state.get("completed_tasks", []):
+                state["completed_tasks"].remove(task["task_id"])
+            append_jsonl(root / EVENTS, {"event": "artifact_only_scientific_validation", "task_id": task["task_id"], "timestamp": now(), "validation": validation})
+            changed = True
+    return changed
 
 def quota_waiting(supervisor: dict[str, Any]) -> bool:
     quota = supervisor.setdefault("quota", {})
@@ -297,6 +435,10 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     # changing the canonical queue/state owned by the supervisor.
     supervisor_paths.update({f"research/tracks/{track}/{name}"
                              for track in TRACKS for name in ("state.json", "task_queue.json")})
+    # launchd writes these two streams independently of the worker. A
+    # concurrent bounded activation must not turn that expected append into a
+    # worker-write conflict; canonical state and queue paths remain protected.
+    supervisor_paths.update({"research/logs/launchd.out.log", "research/logs/launchd.err.log"})
     unexpected = sorted(changed - {output_rel} - supervisor_paths)
     artifact_ok = artifact.is_file() and artifact.stat().st_size <= artifact_limit
     if artifact_ok and prior_artifact_hash == hashlib.sha256(artifact.read_bytes()).hexdigest():
@@ -319,7 +461,7 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
             event = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if (event.get("type") in {"error", "turn.failed", "turn.completed"}
+        if (event.get("type") in {"error", "turn.failed"}
                 or "error" in event or "retry_after_seconds" in event
                 or "reset_at" in event or "rate_limit_reset_at" in event):
             event_errors.append(json.dumps(event, ensure_ascii=False))
@@ -347,6 +489,9 @@ def main() -> int:
     args = ap.parse_args(); root = args.repo_root.resolve()
     sp, qp = root / STATE, root / QUEUE
     state, queue = read_json(sp), read_json(qp)
+    if args.start and reconcile_scientific_completions(root, state, queue):
+        state["checkpoint_time"] = now()
+        atomic_json(qp, queue); atomic_json(sp, state)
     supervisor = load_supervisor_state(root, state.get("campaign_id", "research"))
     sync_track_checkpoints(root, state, queue, supervisor)
     if args.stop:
@@ -411,6 +556,9 @@ def main() -> int:
         except BlockingIOError: print("another supervisor holds the campaign lock", file=sys.stderr); return 3
         # Recover an interrupted manager without discarding its partial artifact.
         state, queue = read_json(sp), read_json(qp)
+        if reconcile_scientific_completions(root, state, queue):
+            state["checkpoint_time"] = now()
+            atomic_json(qp, queue); atomic_json(sp, state)
         recovered = False
         for task in queue["tasks"]:
             if task.get("status") != "running": continue
@@ -500,7 +648,18 @@ def main() -> int:
             usage.setdefault("track_worker_seconds", {})[track] = float(usage.get("track_worker_seconds", {}).get(track, 0.0)) + elapsed
             supervisor["usage"] = usage; supervisor["active_workers"] = []
             append_jsonl(root / EVENTS, {"task_id": task["task_id"], "attempt": task["attempts"], "timestamp": now(), **task["last_result"]})
-            success = result.get("exit_code") == 0 and result.get("artifact_valid") and not result.get("error")
+            artifact_scientific_ok = False
+            validation = {"scientific_success": False, "reason": "artifact was not valid"}
+            artifact_value = None
+            if result.get("exit_code") == 0 and result.get("artifact_valid") and not result.get("error"):
+                artifact_value = read_json(root / task["artifact"])
+                artifact_scientific_ok, validation = scientific_validation(task, artifact_value)
+                result["scientific_success"] = artifact_scientific_ok
+                task["last_result"]["scientific_success"] = artifact_scientific_ok
+                task["scientific_validation"] = validation
+                update_scientific_checkpoint(root, state, task, artifact_value, artifact_scientific_ok, validation)
+                update_human_status(root, task, artifact_value, artifact_scientific_ok, validation)
+            success = result.get("exit_code") == 0 and result.get("artifact_valid") and not result.get("error") and artifact_scientific_ok
             experiment_id = task.get("experiment_id")
             if success and experiment_id:
                 ledger_path = root / "research/experiment_ledger.jsonl"
@@ -511,7 +670,7 @@ def main() -> int:
                     task["last_result"]["error"] = task["failure_note"]
             if success:
                 if experiment_id:
-                    artifact_value = read_json(root / task["artifact"])
+                    artifact_value = artifact_value or read_json(root / task["artifact"])
                     ledger_path = root / "research/experiment_ledger.jsonl"
                     append_jsonl(ledger_path, {"experiment_id": experiment_id, "hypothesis_id": task.get("hypothesis_id"),
                                                    "domain": task.get("domain"), "question": task["objective"],
@@ -524,6 +683,14 @@ def main() -> int:
                 task["status"] = "completed"
                 if task["task_id"] not in state.setdefault("completed_tasks", []): state["completed_tasks"].append(task["task_id"])
                 state["current_research_round"] = state.get("current_research_round", 0)+1
+            elif artifact_value is not None and not artifact_scientific_ok and not result.get("rate_limited"):
+                task["status"] = "artifact_only"
+                task["scientific_status"] = "artifact_only"
+                task["failure_note"] = validation.get("reason")
+                state.setdefault("artifact_only_tasks", [])
+                if task["task_id"] not in state["artifact_only_tasks"]:
+                    state["artifact_only_tasks"].append(task["task_id"])
+                append_jsonl(root / EVENTS, {"event": "artifact_only_scientific_validation", "task_id": task["task_id"], "attempt": task["attempts"], "timestamp": now(), "validation": validation})
             elif result.get("rate_limited"):
                 task["status"] = "pending"
                 quota = supervisor.setdefault("quota", {})

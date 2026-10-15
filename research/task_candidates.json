@@ -39,6 +39,47 @@
         "success_criteria": ["separate outcome counts", "uncertainty and split audit", "valid score or explicit no-score decision"],
         "artifact": "reports/paper3_trajectory_readiness.json"
       }
+    },
+    {
+      "evidence_artifacts": ["reports/historical_evidence_trajectory_round2.json", "reports/paper3_trajectory_readiness.json"],
+      "gate_json_equals": {"path": "reports/paper3_trajectory_readiness.json", "field": "decision", "value": "no_paper3_score"},
+      "task": {
+        "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+        "research_key": "paper3_outcome_observability_round3",
+        "track": "forecasting",
+        "objective": "Create a new source-only, cutoff-frozen historical CS question mini-cohort from the existing year/topic frame, then audit dated follow-ups under the frozen trajectory rubric; report direct-label yield and missingness without scoring Paper 3 unless valid labels exist.",
+        "dependencies": ["HISTORICAL-TRAJECTORY-002"],
+        "expected_information_gain": 0.65,
+        "cost_estimate": 0.55,
+        "execution_requirements": ["existing year/topic frame", "source-only selection before follow-up search", "frozen trajectory rubric", "no hindsight labels"],
+        "priority": 78,
+        "status": "pending",
+        "max_attempts": 1,
+        "scientific_completion": "trajectory_audit",
+        "failure_handling": "If direct labels remain sparse, preserve missingness and produce a valid no-score decision; do not reinterpret partial progress as resolution.",
+        "success_criteria": ["new source-only rows and cutoff provenance", "dated follow-up audit", "direct-label prevalence and Paper 3 gate reported"],
+        "artifact": "reports/historical_observable_cohort_round3.json"
+      }
+    },
+    {
+      "evidence_artifacts": ["reports/paper4_badger_action_plan.json", "reports/cam_artifact_ablation_feasibility.json", "reports/badger_matched_cpu_feasibility.json", "reports/dp158_matched_guarantee_audit.json", "reports/uncertainty_robust_direct_test_feasibility.json", "reports/sereniot_cross_device_feasibility.json"],
+      "task": {
+        "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+        "research_key": "paper4_observed_action_outcome_audit",
+        "track": "experiments",
+        "objective": "Compare Paper 4's pre-action rankings and declared feasibility assumptions against the observed CAM, Badger, DP158, uncertainty-robustness and SERENIoT action outcomes; quantify only descriptive calibration/rank agreement when provenance permits, and do not call it validated planning utility.",
+        "dependencies": ["PLANNER-001", "CAM-TRANSFER-FEAS-001", "BADGER-FAIR-CPU-FEAS-001", "DP158-MATCHED-GUARANTEE-001"],
+        "expected_information_gain": 0.75,
+        "cost_estimate": 0.45,
+        "execution_requirements": ["pre-action plan timestamps", "post-action feasibility artifacts", "independent outcome coding", "no causal utility claim from small n"],
+        "priority": 88,
+        "status": "pending",
+        "max_attempts": 1,
+        "scientific_completion": "planning_audit",
+        "failure_handling": "If pre-action ranking or outcome provenance is insufficient, report non-identifiability and do not invent an information-gain score.",
+        "success_criteria": ["pre/post action provenance reconciled", "observed go/no-go outcomes coded", "planning utility remains gated if sample is too small"],
+        "artifact": "reports/paper4_action_outcome_audit.json"
+      }
     }
   ]
 }

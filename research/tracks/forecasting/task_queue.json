@@ -86,6 +86,7 @@
       "max_attempts": 2,
       "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
       "priority": 40,
+      "scientific_completion": "outcome_label",
       "started_at": "2026-10-15T02:14:24Z",
       "status": "completed",
       "success_criteria": [

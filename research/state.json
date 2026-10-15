@@ -80,11 +80,11 @@
     "note": "Configured rounds are a per-start local supervisor cap, not a Codex service quota or remaining lifetime scientific-round budget. No paid worker or background service started.",
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 6
+    "worker_invocations_started": 7
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "active",
-  "checkpoint_time": "2026-10-15T02:18:10Z",
+  "campaign_status": "waiting_for_eligible_task",
+  "checkpoint_time": "2026-10-15T02:27:36Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -106,7 +106,8 @@
     "BADGER-FAIR-CPU-FEAS-001",
     "DP158-MATCHED-GUARANTEE-001",
     "HISTORICAL-OUTCOME-001",
-    "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001"
+    "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+    "SERENIOT-CROSS-DEVICE-FEAS-001"
   ],
   "current_best_opportunities": [
     {
@@ -170,8 +171,8 @@
       "status": "external-outcome data lead"
     }
   ],
-  "current_phase": "sereniot-cross-device-feasibility",
-  "current_research_round": 10,
+  "current_phase": "sereniot-cross-device-feas-001",
+  "current_research_round": 11,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -230,13 +231,13 @@
   "latest_scientific_increment": {
     "dp158": "matched-guarantee-comparison-explicitly-infeasible",
     "historical": "targeted-retrieval-near-match-no-direct-label",
-    "uncertainty_robust": "bounded-current-no-go-no-code-or-matched-budget",
     "kind": "source-and-experiment-feasibility-rerank",
     "paper3": "no_score_zero_direct_resolution_labels",
-    "paper4": "planning_utility_unvalidated"
+    "paper4": "planning_utility_unvalidated",
+    "uncertainty_robust": "bounded-current-no-go-no-code-or-matched-budget"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Audit the SERENIoT cross-device whitelist-generalization lead for exact source metrics, public artifacts and an affordable falsifiable false-allow/false-block test; do not claim security benefit without matched multi-device evidence.",
+  "next_action": "Add or unblock a scientifically justified task; do not invent outcomes.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,

@@ -1,0 +1,133 @@
+{
+  "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
+  "attempt": 1,
+  "evidence_tier": "dated_primary_source_and_follow_up_scope_audit; feasibility_only; no_security_outcome",
+  "objective": "Audit whether SERENIoT's cross-device whitelist-generalization gap supports a low-cost, falsifiable test with matched device families and separate false-allow and false-block endpoints.",
+  "decision": {
+    "go_no_go": "conditional_go_for_new_small_lab_test; no_go_for_immediate_public-data-only_replay",
+    "basis": "The endpoint gap is testable with a small number of matched physical devices and packet traces, but the original SERENIoT implementation/data and the follow-up IoT Inspector data are not presently public in a directly runnable form. A positive deployment or functionality result must not be interpreted as a security benefit."
+  },
+  "sources_and_data": [
+    {
+      "role": "original_primary_source",
+      "title": "SERENIoT: Collaborative Network Security Policy Management and Enforcement for Smart Homes",
+      "authors": ["Corentin Thomasset", "David Barrera"],
+      "version": "arXiv:2003.02892v1",
+      "date": "2020-03-05",
+      "url": "https://arxiv.org/pdf/2003.02892v1",
+      "locators": ["pp. 1-4", "pp. 5-8", "pp. 9-12"],
+      "inspected": true,
+      "observations": [
+        "The open problem is determining the correct network behavior to whitelist.",
+        "A packet signature is H(protocol, endpoint, service port); endpoint is a domain name or IP when a domain is unavailable.",
+        "Device types are grouped by the sorted set of packet signatures, without device-specific identifiers.",
+        "The whitelist contains signatures observed by the majority of Sentinels for the device type; every packet not specified in the whitelist is discarded.",
+        "The threat model concerns changed outbound or inbound behavior, while local-network traffic and malicious use of valid credentials are out of scope.",
+        "The evaluation used simulated Sentinels plus three LIFX Mini bulbs, and demonstrated convergence/performance, not matched false-allow and false-block rates."
+      ]
+    },
+    {
+      "role": "dated_follow_up_primary_source",
+      "title": "Making Interactions With Home IoT Devices More Secure, Private, and Usable",
+      "author": "Pranshu Chatterjee",
+      "public_date_bound": "2022-07-07 mailing-list attachment date; exact dissertation deposit date not independently authenticated",
+      "url": "https://mailman.cs.uchicago.edu/mailman/public/cs/attachments/20220707/a4ebadef/attachment-0001.pdf",
+      "locators": ["pp. 16-17", "pp. 80-92", "pp. 98-108", "pp. 109-117"],
+      "inspected": true,
+      "observations": [
+        "The follow-up explicitly says SERENIoT does not study generalizing traffic data or how policies generalize across devices, and flags load balancing as an outside-lab concern.",
+        "Its own experiment generates allowlists from IoT Inspector traffic and applies them to disjoint held-out devices; D and D' are required to be disjoint.",
+        "Its policy family is not SERENIoT's native majority packet-signature rule: it varies hostname, domain, pattern, IP and thresholds requiring a host to appear on n devices.",
+        "Its main retrospective endpoint, MFAF, is the median fraction of observed flows allowed; this is a legitimate-flow-coverage measure, not a false-allow rate.",
+        "The lab study tested nine products and 52 functionalities; observed failures were functionality blocking, not a controlled estimate of malicious traffic accepted."
+      ]
+    },
+    {
+      "role": "data_and_artifact_access_audit",
+      "title": "IoT Inspector: Crowdsourcing Labeled Network Traffic from Smart Home Devices at Scale",
+      "url": "https://arxiv.org/abs/1909.09848",
+      "additional_public_access": "https://github.com/nyu-mlab/iot-inspector-client",
+      "inspected": true,
+      "observations": [
+        "The follow-up reports 5,439 validated devices, 424 products, 80 vendors, 43 device types, 1,468 households and 38,164,870 flows collected from 2019-04-08 through 2019-07-24 in the analyzed subset.",
+        "The follow-up states that the full IoT Inspector dataset cannot be shared without original-author IRB permission; it supplies synthetic sample data instead.",
+        "Public IoT Inspector software is accessible, but that does not provide the historical labeled flow corpus or the follow-up's processed subset.",
+        "The follow-up claims its analysis and firewall code were available in an anonymized GitHub repository cited only as reference [228] in the inspected dissertation; the dissertation reference gives no resolvable repository URL. The original SERENIoT paper likewise did not expose a verified runnable artifact URL in the inspected text.",
+        "Therefore public-data replay and exact artifact replication were not feasible from the inspected public materials alone."
+      ]
+    }
+  ],
+  "policy_reconciliation": {
+    "original_sereniot_policy": {
+      "unit": "packet signature",
+      "signature": "H(protocol, endpoint, service_port)",
+      "device_grouping": "same sorted signature set; no device-specific identifier",
+      "admission": "signature observed by the majority of Sentinels for the device type",
+      "enforcement": "discard every unmatched packet",
+      "update_rule": "behavior changes are incorporated when majority observations support them"
+    },
+    "follow_up_policy": {
+      "unit": "host representation, optionally with port",
+      "representations": ["hostname", "second-level domain", "pattern", "IP address"],
+      "admission": "host appears in at least n distinct training devices for the selected product/sample",
+      "enforcement": "traffic not matching the selected representation is blocked; DNS resolution and cold-start behavior affect enforcement",
+      "evaluation_split": "training devices and held-out devices are disjoint"
+    },
+    "reconciliation": "Both are default-deny allowlisting from observed network behavior and both target transfer across distinct devices, but they are not the same intervention. The follow-up is endpoint-relevant scope-narrowing evidence, not a direct SERENIoT replication or resolution."
+  },
+  "endpoints": {
+    "false_block": {
+      "definition": "A ground-truth legitimate flow or required user-visible device function is rejected by the frozen whitelist.",
+      "primary_measure": "per-flow false-block rate on held-out benign/update traces, plus per-functionality failure rate in a blinded functionality checklist",
+      "related_follow_up_measure": "MFAF = median fraction of held-out observed flows allowed; report 1-MFAF only as a coverage-derived proxy, not as a complete false-block label",
+      "required_ground_truth": "independently frozen legitimate-flow/functionality labels and a predeclared handling rule for previously unseen but legitimate endpoints"
+    },
+    "false_allow": {
+      "definition": "A flow independently labeled unauthorized or attacker-injected is accepted by the frozen whitelist.",
+      "primary_measure": "per-flow false-allow rate on seeded attack traces, reported separately by attack family and host representation",
+      "related_follow_up_measure": "attack-surface breadth is only a proxy; the follow-up's domain/pattern discussion does not establish a false-allow rate",
+      "required_ground_truth": "a separate attack trace set with known unauthorized destinations/ports and no contamination of whitelist-construction traces"
+    },
+    "non_equivalence_warning": "Do not combine false-allow and false-block into one accuracy score, and do not call MFAF, functionality success, convergence, or throughput a security outcome."
+  },
+  "feasible_test": {
+    "hypothesis": "Under a frozen SERENIoT packet-signature policy, a whitelist learned from one or more devices in a matched product family transfers to held-out physical devices with lower false-block than a single-device whitelist, without increasing false-allow beyond a predeclared margin.",
+    "competing_explanations": [
+      "Observed transfer is caused by shared vendor endpoints or common firmware rather than collaborative majority learning.",
+      "Endpoint churn, regional routing, load balancing, DNS resolution or software updates cause false blocks independent of device-family similarity.",
+      "A permissive domain/pattern abstraction reduces false blocks but increases false allows; apparent improvement is a policy-representation trade-off, not generalization."
+    ],
+    "low_cost_design": {
+      "units": "At least two matched device families, with at least 3 physical devices per family when available; separate training and held-out devices and, if possible, separate homes/networks.",
+      "arms": [
+        "native SERENIoT signature whitelist learned from one training device",
+        "native SERENIoT signature whitelist learned by majority/union rule from the remaining training devices",
+        "follow-up-style hostname/pattern or domain comparator, labeled as a different policy rather than SERENIoT"
+      ],
+      "trace_blocks": ["benign steady-state", "rare but legitimate documented functions", "software-update or endpoint-change period", "seeded unauthorized outbound destinations/ports"],
+      "split": "No device may contribute to both whitelist construction and held-out evaluation; freeze signatures/thresholds before opening held-out traces.",
+      "analysis": "Report per-family and pooled counts with exact denominators, confidence intervals clustered by physical device, and separate false-block and false-allow tables."
+    },
+    "falsification_gate": "The proposed generalization claim fails if the majority-trained policy does not reduce held-out false blocks relative to the single-device policy, or if its false-allow rate exceeds the predeclared margin; either endpoint may independently falsify the claim."
+  },
+  "observed_result_or_blocker": {
+    "observed": [
+      "The source and follow-up endpoint definitions are reconciled and materially differ in policy construction.",
+      "The follow-up supplies a device-disjoint split concept and demonstrates that cross-device transfer is measurable, but its reported results do not provide SERENIoT false-allow/false-block estimates.",
+      "A low-cost matched-device test is conceptually feasible with packet capture and a small lab, provided legitimate and attack labels are frozen independently."
+    ],
+    "blockers": [
+      "The IoT Inspector historical corpus is not publicly downloadable from the inspected sources and requires permission/IRB access.",
+      "The follow-up's anonymized analysis/firewall repository was not resolvable from the cited dissertation text, and a verified SERENIoT runnable artifact was not found in the inspected original paper.",
+      "No matched physical-device traces, ground-truth attack traces, or current endpoint labels were available in this workspace, so no experiment was executed."
+    ],
+    "negative_result_preserved": "No direct evidence was found that SERENIoT's native policy achieves safe cross-device generalization; no direct evidence was found that it fails. Search/access failure is not treated as a negative scientific result."
+  },
+  "uncertainty": [
+    "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
+    "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
+    "The exact source implementation, chain state, reverse-DNS behavior and majority timing may affect reproducibility beyond the paper's policy description.",
+    "A small lab sample can test the frozen endpoint mechanics but cannot establish deployment-wide security or prevalence."
+  ],
+  "next_falsifiable_action": "Acquire authorized current packet traces or collect a preregistered small matched-device dataset; implement the exact SERENIoT signature rule H(protocol, endpoint, service_port), freeze device-disjoint training/held-out splits and policy update timing, seed independently labeled unauthorized destinations, and report false-block and false-allow endpoints separately before considering any broader claim."
+}

@@ -1,0 +1,93 @@
+{
+  "sample_size": 32,
+  "population_size_in_eligible_frame": 10779,
+  "eligible_frame_scope": "nonempty DOI and journal_reference in the 198,690-row uncapped arXiv-CS lexical candidate pool",
+  "date_comparison": "arXiv submission calendar year versus the source-adjudicated venue/reference year; venue-year ambiguity is separately flagged",
+  "known_venue_years": 31,
+  "unresolved_arxiv_ids": [
+    "1212.2414"
+  ],
+  "recorded_venue_year_mismatch_estimate_unresolved_as_match": {
+    "weighted_estimate": 0.43475739864551444,
+    "design_standard_error": 0.10543606213628082,
+    "normal_approx_95_percent_interval": [
+      0.22810271685840403,
+      0.6414120804326249
+    ],
+    "by_period": {
+      "2010-2014": {
+        "population_N": 948,
+        "sample_n": 8,
+        "disagreements": 4,
+        "sample_rate": 0.5,
+        "population_weight": 0.08794878931255218
+      },
+      "2015-2019": {
+        "population_N": 1962,
+        "sample_n": 8,
+        "disagreements": 4,
+        "sample_rate": 0.5,
+        "population_weight": 0.18202059560256054
+      },
+      "2020-2024": {
+        "population_N": 5056,
+        "sample_n": 8,
+        "disagreements": 4,
+        "sample_rate": 0.5,
+        "population_weight": 0.469060209666945
+      },
+      "2025-2026": {
+        "population_N": 2813,
+        "sample_n": 8,
+        "disagreements": 2,
+        "sample_rate": 0.25,
+        "population_weight": 0.2609704054179423
+      }
+    }
+  },
+  "sensitivity_if_unresolved_is_mismatch": {
+    "weighted_estimate": 0.44575099730958345,
+    "design_standard_error": 0.10535484468419205,
+    "normal_approx_95_percent_interval": [
+      0.23925550172856702,
+      0.6522464928905999
+    ],
+    "by_period": {
+      "2010-2014": {
+        "population_N": 948,
+        "sample_n": 8,
+        "disagreements": 5,
+        "sample_rate": 0.625,
+        "population_weight": 0.08794878931255218
+      },
+      "2015-2019": {
+        "population_N": 1962,
+        "sample_n": 8,
+        "disagreements": 4,
+        "sample_rate": 0.5,
+        "population_weight": 0.18202059560256054
+      },
+      "2020-2024": {
+        "population_N": 5056,
+        "sample_n": 8,
+        "disagreements": 4,
+        "sample_rate": 0.5,
+        "population_weight": 0.469060209666945
+      },
+      "2025-2026": {
+        "population_N": 2813,
+        "sample_n": 8,
+        "disagreements": 2,
+        "sample_rate": 0.25,
+        "population_weight": 0.2609704054179423
+      }
+    }
+  },
+  "limitations": [
+    "This is only the DOI+venue-reference eligible subset of the lexical candidate pool, not all 198,690 candidates or all CS research.",
+    "Only 8 records per period were sampled, so design uncertainty is wide.",
+    "The point estimate depends on using the adjudicated reference/issue year; online-first and proceedings-event conventions can differ.",
+    "A normal-approximation interval is descriptive for this small sample and does not capture source-adjudication errors or screening omissions.",
+    "The SHA-256 rank creates a fixed pseudo-random sample; results are conditional on this frozen draw."
+  ]
+}

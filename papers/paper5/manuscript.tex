@@ -1,0 +1,20 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\title{Forecasting and Prioritizing Computer Science Research Opportunities Through Scientific Question Prediction and Evidence-Guided Planning}
+\author{Methods and application protocol}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+This manuscript specifies a leakage-safe transfer evaluation of scientific-question forecasting and offline evidence-acquisition planning in computer science. The repository contains an executable infrastructure pilot, a broad arXiv CS metadata/abstract harvest, and 26 source-linked candidate questions, but no full-text-coded question corpus or audited historical labels; therefore this document is a protocol and makes no transfer-performance claim.
+\end{abstract}
+\section{Discovery corpus}
+The arXiv discovery corpus contains 937,531 unique titled records matching \texttt{cat:cs.*}, submitted from 2010-01-01 through 2026-10-11. All 937,538 quarterly API result slots were retrieved and audited across 68 date windows. Abstract and PDF-link coverage is 100\%. Of the unique records, 816,895 have a computer-science primary category and 120,636 are cross-listed into CS with a non-CS primary category; analyses preserve this distinction. These are metadata, abstracts, and links, not 937k downloaded or manually read full texts, and they do not cover papers absent from arXiv. A separate, incomplete OpenAlex sample has 9,746 titled works and has not been merged. The retrieval corpus is only a screening frame: the final study requires a smaller, source-adjudicated set of research questions and historical labels. No forecast or research-opportunity result is inferred from raw corpus counts.
+\section{Methods}
+Question records are versioned by historical cutoff and retain source provenance, evidence independence, and separately adjudicated outcomes for attention, resolution, and premise revision. Paper 3 is evaluated with temporal grouped validation. Paper 4 ranks typed evidence-acquisition actions using declared information gain, provenance-based novelty, tractability, and cost, followed by Bayesian updating from observed outcomes.
+\section{Evaluation}
+Comparisons are random, citation, trend, Paper 3, Paper 4, and combined Paper 3 plus Paper 4 under matched budgets. We report AUROC, AUPRC, Brier score, calibration, ranking quality, entropy reduction, action diversity, hypothesis coverage, and resolution efficiency. Historical action-level scores are reported only where documented.
+\section{Status and limitations}
+The four-case pilot is an infrastructure check, not evidence of successful transfer. No opportunity is called neglected from citation counts alone, and no labels are created without source records.
+\end{document}

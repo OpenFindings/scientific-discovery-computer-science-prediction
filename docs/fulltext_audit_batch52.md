@@ -1,0 +1,35 @@
+# Full-text audit batch 52: sparsification, speed scaling, streaming union estimates
+
+Updated 2026-10-12. This batch closes the top three lexical-priority records in the frozen `algorithms_complexity × 2025–2026-through-10-11` cell. The selected papers address stochastic packing, processor scheduling, and streaming algorithms; their measures are not pooled. All three exact-version PDFs were retrieved and reviewed. Publication and revision details were checked against primary proceedings/arXiv records.
+
+## Sampled papers
+
+### 1. Near-Optimal Sparsifiers for Stochastic Knapsack and Assignment Problems (arXiv:2512.01240v1; ITCS 2026)
+
+[arXiv record](https://arxiv.org/abs/2512.01240); [ITCS 2026 proceedings record](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2026.51); local PDF: `data/fulltexts/arxiv/2512.01240v1.pdf` (51 pages); extracted text: `data/fulltexts/text/2512.01240v1.txt`.
+
+The paper introduces a polyhedral sparsification degree for stochastic packing, then proves near-`(1−ε)` sparsifiers for knapsack, multiple knapsack, and generalized assignment with degree polynomial in `1/p` and `1/ε` independent of total dimensions, under independent item activation. Its experiments deliberately use synthetic deterministic instances (`p=1`) and practical parameters weaker than worst-case theorem settings. For `m=2`, `r>4`, `n>1000`, the reported averages are 4.67× end-to-end speedup and 5.14× equal-time objective ratio; all runs average 0.998 approximation ratio and 2.79× speedup. The authors also identify an anomalous `n=10000,m=5` slice and attribute it to their generator, and note that standard hard GAP instances and existing benchmarks are themselves sparse. Thus the evidence is useful and unusually explicit about its synthetic regime, but does not yet establish a gain on real application workloads.
+
+### 2. Refining the Complexity Landscape of Speed Scaling: Hardness and Algorithms (arXiv:2512.17663v3; STACS 2026)
+
+[arXiv record](https://arxiv.org/abs/2512.17663); [STACS 2026 proceedings record](https://doi.org/10.4230/LIPIcs.STACS.2026.7); local PDF: `data/fulltexts/arxiv/2512.17663v3.pdf` (30 pages); extracted text: `data/fulltexts/text/2512.17663v3.txt`.
+
+The authors resolve four previously open variants of energy/flow-time scheduling. The flow-plus-energy cases with unit weights/arbitrary sizes and arbitrary weights/unit sizes are NP-hard; corresponding energy-budget cases are also NP-hard, even with a prescribed priority order. Conversely, all considered variants with a prescribed completion-time order are solvable in polynomial time through an LP formulation. This is a structural distinction: a priority order is not equivalent to knowing the completion order. The paper also corrects a prior claimed generalization: a two-speed algorithm was asserted to extend straightforwardly to `k` speeds, but the authors give counterexamples to two natural generalizations and use a different LP approach. Its future direction is approximation of the NP-hard variants, with online `(2+ε)` competitiveness as a baseline for one flow-plus-energy case. These are worst-case complexity results, not measurements of data-center energy savings.
+
+### 3. Estimating Size of the Union of Sets in Streaming Model (arXiv:2607.26997v1; original PODS 2021 work, substantially revised 2026)
+
+[arXiv record](https://arxiv.org/abs/2607.26997); [PODS 2021 publication record](https://dl.acm.org/doi/10.1145/3452021.3458333); local PDF: `data/fulltexts/arxiv/2607.26997v1.pdf` (11 pages); extracted text: `data/fulltexts/text/2607.26997v1.txt`.
+
+The paper defines Delphic set families through efficient membership, sampling, and counting operations and gives an insertion-only streaming estimator for union size. It applies to discrete Klee's measure, combinatorial test coverage, and DNF model counting. The claimed Klee's-measure update time has linear dependence on dimension, resolving a prior open problem; a second coverage estimator improves space using an NP oracle and has polynomial update time. Crucially, the 2026 arXiv version says it is significantly revised from PODS 2021: the main claims are said to remain unchanged, but proof typos/bugs were fixed, theorem statements formalized, and the proofs machine-checked in Lean 4. This materially strengthens proof auditability, while not itself validating end-to-end performance. The insertion-only model, Delphic-oracle assumptions, and (for the space improvement) NP oracle remain important boundaries.
+
+## Bounded findings
+
+1. **Sparsifier performance depends on both redundancy and solver behavior.** The synthetic results support a measurable benefit in high-redundancy, multi-bin regimes, but the authors report easy/low-redundancy slices, an `n=10000,m=5` generator artifact, sparse standard benchmarks, and no real-workload validation. A focused next test is to preserve each application's item values, capacities, assignment heterogeneity, and uncertainty while sweeping a controlled redundancy parameter; compare sparsify+solve against full solving under both equal-time and exact-completion protocols. This is not a claim that the existing method lacks value: its own synthetic results are positive and its worst-case theorem is separate from the empirical claims.
+
+2. **Speed-scaling complexity registry needs ordering-aware labels.** “Given an order” is underspecified: the new paper finds NP-hardness even under a priority order but polynomial solvability with a completion-time order. The 2-speed-to-k-speed counterexamples are a concrete warning against transporting an algorithmic claim across machine models. Update any theorem registry to encode objective, integral/fractional flow, discrete/continuous speeds, weights/sizes, and whether the supplied order is priority or completion order. The four complexity questions are resolved by the paper; approximation and exact ordering complexity remain separate questions.
+
+3. **A proof-strengthening revision is not a systems evaluation.** The 2026 union-estimator revision machine-checks its algorithm/correctness proof in Lean and repairs earlier proof issues, while its own “future work” still calls for broader Delphic applications, turnstile streams, higher moments, and improved dependence on stream length. A reproducible implementation study can test whether the asymptotic update bounds and oracle interfaces translate to real coverage/KMP/DNF workloads, reporting space, per-update latency, oracle calls, and accuracy separately. Keep theorem correctness and engineering performance as separate axes.
+
+## Scope and limitations
+
+These are three purposively sampled high-score papers from one frozen topic-period cell. The empirical sparsification study is synthetic; speed scaling is theoretical; the streaming estimator is proof-oriented and insertion-only. We did not reproduce proofs, re-run their experiments, implement algorithms, or exhaustively search for later follow-up work. Findings are bounded research/evaluation leads, not claims of novelty or prevalence in the full 198,690-record corpus.

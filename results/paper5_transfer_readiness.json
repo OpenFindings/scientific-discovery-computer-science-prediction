@@ -1,0 +1,14 @@
+{
+  "audited_label_counts": {
+    "attention": 0,
+    "premise_revision": 0,
+    "resolution": 0
+  },
+  "candidate_questions": 26,
+  "direction_value_rankings": null,
+  "historical_question_snapshots": 0,
+  "next_step": "Freeze source-located historical CS questions and future labels; validate Paper 3 transfer out of time before reporting probabilities. Audit action likelihoods and outcomes before ranking Paper 4 actions.",
+  "paper3_cs_forecasts": null,
+  "paper4_action_rankings": null,
+  "status": "cs_outcome_model_unvalidated"
+}

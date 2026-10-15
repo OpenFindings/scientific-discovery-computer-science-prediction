@@ -1,0 +1,394 @@
+{
+  "source": "data/research_candidates_uncapped.jsonl.gz",
+  "candidate_records_scanned": 198690,
+  "sampling_seed": "cs-literature-fulltext-frame-2026-10-11-v1",
+  "sampling_arms": {
+    "uniform_random": "deterministic uniform hash-priority sample within each cell, useful for estimating lexical-screen precision",
+    "lexical_priority": "top lexical screen-score papers within each cell, useful for discovery but intentionally score-biased"
+  },
+  "per_cell_target": 3,
+  "periods": {
+    "2010-2014": [
+      2010,
+      2014
+    ],
+    "2015-2019": [
+      2015,
+      2019
+    ],
+    "2020-2024": [
+      2020,
+      2024
+    ],
+    "2025-2026-through-10-11": [
+      2025,
+      2026
+    ]
+  },
+  "selected_topic_period_rows": 428,
+  "unique_base_arxiv_ids": 407,
+  "cell_counts": {
+    "agent_memory_coordination|2010-2014": {
+      "pool": 66,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_memory_coordination|2015-2019": {
+      "pool": 206,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_memory_coordination|2020-2024": {
+      "pool": 1304,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_memory_coordination|2025-2026-through-10-11": {
+      "pool": 4193,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_reliability_security|2010-2014": {
+      "pool": 17,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_reliability_security|2015-2019": {
+      "pool": 55,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_reliability_security|2020-2024": {
+      "pool": 373,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "agent_reliability_security|2025-2026-through-10-11": {
+      "pool": 2283,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "ai_generated_code|2010-2014": {
+      "pool": 38,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "ai_generated_code|2015-2019": {
+      "pool": 77,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "ai_generated_code|2020-2024": {
+      "pool": 1310,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "ai_generated_code|2025-2026-through-10-11": {
+      "pool": 2735,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "algorithms_complexity|2010-2014": {
+      "pool": 4084,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "algorithms_complexity|2015-2019": {
+      "pool": 7113,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "algorithms_complexity|2020-2024": {
+      "pool": 9525,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "algorithms_complexity|2025-2026-through-10-11": {
+      "pool": 4530,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "compilers_programming_languages|2010-2014": {
+      "pool": 471,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "compilers_programming_languages|2015-2019": {
+      "pool": 1081,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "compilers_programming_languages|2020-2024": {
+      "pool": 2505,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "compilers_programming_languages|2025-2026-through-10-11": {
+      "pool": 1812,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "continual_multimodal_learning|2010-2014": {
+      "pool": 3,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "continual_multimodal_learning|2015-2019": {
+      "pool": 342,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "continual_multimodal_learning|2020-2024": {
+      "pool": 4103,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "continual_multimodal_learning|2025-2026-through-10-11": {
+      "pool": 4754,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "databases|2010-2014": {
+      "pool": 657,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "databases|2015-2019": {
+      "pool": 1002,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "databases|2020-2024": {
+      "pool": 1673,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "databases|2025-2026-through-10-11": {
+      "pool": 1253,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "distributed_cloud_systems|2010-2014": {
+      "pool": 746,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "distributed_cloud_systems|2015-2019": {
+      "pool": 1868,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "distributed_cloud_systems|2020-2024": {
+      "pool": 3495,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "distributed_cloud_systems|2025-2026-through-10-11": {
+      "pool": 1593,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "energy_efficient_computing|2010-2014": {
+      "pool": 139,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "energy_efficient_computing|2015-2019": {
+      "pool": 370,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "energy_efficient_computing|2020-2024": {
+      "pool": 1069,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "energy_efficient_computing|2025-2026-through-10-11": {
+      "pool": 672,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "foundation_models|2010-2014": {
+      "pool": 1,
+      "uniform_random_selected": 1,
+      "lexical_priority_selected": 1
+    },
+    "foundation_models|2015-2019": {
+      "pool": 60,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "foundation_models|2020-2024": {
+      "pool": 27012,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "foundation_models|2025-2026-through-10-11": {
+      "pool": 62176,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "model_efficiency|2010-2014": {
+      "pool": 5,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "model_efficiency|2015-2019": {
+      "pool": 249,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "model_efficiency|2020-2024": {
+      "pool": 2009,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "model_efficiency|2025-2026-through-10-11": {
+      "pool": 2478,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "optimization_causal_science|2010-2014": {
+      "pool": 164,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "optimization_causal_science|2015-2019": {
+      "pool": 814,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "optimization_causal_science|2020-2024": {
+      "pool": 3492,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "optimization_causal_science|2025-2026-through-10-11": {
+      "pool": 2526,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "program_repair_verification|2010-2014": {
+      "pool": 97,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "program_repair_verification|2015-2019": {
+      "pool": 297,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "program_repair_verification|2020-2024": {
+      "pool": 696,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "program_repair_verification|2025-2026-through-10-11": {
+      "pool": 564,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "reasoning_and_agents|2010-2014": {
+      "pool": 35,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "reasoning_and_agents|2015-2019": {
+      "pool": 89,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "reasoning_and_agents|2020-2024": {
+      "pool": 2244,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "reasoning_and_agents|2025-2026-through-10-11": {
+      "pool": 9760,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "robotics_embodied_ai|2010-2014": {
+      "pool": 509,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "robotics_embodied_ai|2015-2019": {
+      "pool": 3860,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "robotics_embodied_ai|2020-2024": {
+      "pool": 15524,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "robotics_embodied_ai|2025-2026-through-10-11": {
+      "pool": 12875,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "security_privacy|2010-2014": {
+      "pool": 361,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "security_privacy|2015-2019": {
+      "pool": 1355,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "security_privacy|2020-2024": {
+      "pool": 4865,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "security_privacy|2025-2026-through-10-11": {
+      "pool": 2564,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_supply_chain|2010-2014": {
+      "pool": 3,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_supply_chain|2015-2019": {
+      "pool": 10,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_supply_chain|2020-2024": {
+      "pool": 82,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_supply_chain|2025-2026-through-10-11": {
+      "pool": 122,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_testing|2010-2014": {
+      "pool": 214,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_testing|2015-2019": {
+      "pool": 586,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_testing|2020-2024": {
+      "pool": 2041,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    },
+    "software_testing|2025-2026-through-10-11": {
+      "pool": 1934,
+      "uniform_random_selected": 3,
+      "lexical_priority_selected": 3
+    }
+  },
+  "interpretation": "A reproducible full-text review frame. Random and lexical-priority arms must be analyzed separately; this is not a census, evidence adjudication, or claim that selected full texts have already been read.",
+  "output": "data/fulltext_stratified_sample.jsonl"
+}

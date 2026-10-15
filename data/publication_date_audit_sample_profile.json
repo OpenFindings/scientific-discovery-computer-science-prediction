@@ -1,0 +1,21 @@
+{
+  "source_records_scanned": 198690,
+  "eligible_by_period": {
+    "2010-2014": 948,
+    "2015-2019": 1962,
+    "2020-2024": 5056,
+    "2025-2026": 2813
+  },
+  "sample_size": 32,
+  "sample_by_period": {
+    "2010-2014": 8,
+    "2015-2019": 8,
+    "2020-2024": 8,
+    "2025-2026": 8
+  },
+  "seed": "date-audit-v1",
+  "selection_rule": "within each arXiv submission-period band, sort eligible rows by SHA-256(seed|arxiv_id) and select the first 8",
+  "eligibility_rule": "nonempty DOI and journal_reference in the 198,690-row uncapped arXiv-CS lexical candidate pool",
+  "interpretation": "fixed stratified sample for source adjudication; not all arXiv-CS papers and not a full-text sample",
+  "output": "data/publication_date_audit_sample.jsonl"
+}

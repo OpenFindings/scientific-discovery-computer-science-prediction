@@ -1,0 +1,209 @@
+{
+  "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+  "attempt": "1/1",
+  "evidence_tier": "tier_3_source_only_artifact_gated_cohort_and_dated_primary_followup_audit; no_exact_direct_outcome_matches",
+  "objective": "Apply PAPER3-DIRECT-ENDPOINT-COHORT-V1 without hindsight, audit dated primary follow-ups against sealed endpoint tuples, and apply the predeclared stop gate.",
+  "sources_data": [
+    "docs/paper3_methodology.md",
+    "reports/paper3_observability_cause_diagnosis.json",
+    "data/historical_cs_year_topic_frame.jsonl",
+    "research/historical_evidence_trajectory_protocol_v1.json",
+    "research/task_queue.json",
+    "RESEARCH_STATUS.md",
+    "original-version PDFs retrieved to /tmp/paper3-round6-pdfs (not repository artifacts)"
+  ],
+  "method": {
+    "rule_id": "PAPER3-DIRECT-ENDPOINT-COHORT-V1",
+    "selection_order": [
+      "select from the year-end-safe frame using only frame metadata, title eligibility, topic/year stratum, and deterministic hash priority",
+      "exclude prior cohort and pilot IDs before source screening",
+      "retrieve and inspect the requested original-version primary full text",
+      "seal object, comparator, endpoint, falsification condition, and five-year window before follow-up searching",
+      "audit dated primary follow-ups only within the fixed post-cutoff window"
+    ],
+    "selection_seed": "paper3-direct-endpoint-cohort-round6-2026-10-15-v1",
+    "strata": {
+      "topics": ["algorithms_complexity", "program_repair_verification", "security_privacy", "software_testing"],
+      "cutoff_years": [2017, 2018, 2019, 2020],
+      "rows_selected_before_source_screen": 16,
+      "frame_rows": 1018,
+      "future_outcomes_used_for_selection": false
+    },
+    "year_end_rule": "updated <= the row's recorded year-end cutoff; follow-up admissible strictly after cutoff through December 31 of cutoff year plus five years inclusive",
+    "eligibility_rule": "The original source had to identify a concrete public artifact, benchmark, dataset, implementation, or formal test object; state a fixed object; state a source-pinned comparator or baseline; provide an independently checkable endpoint with unit/denominator; and provide a falsification condition. Reviewer-created generalizations were rejected.",
+    "followup_protocol": "Bounded title/citation tracing and primary-source checking on 2026-10-15. A follow-up was coverage-positive only when a dated primary record in the fixed window was authenticated; adjacency was never upgraded to a direct label.",
+    "negative_and_missingness_rule": "No candidate absence, adjacent result, same-team continuation, or proxy endpoint was coded as a negative outcome; source-ineligible rows were not searched and remained in the selected denominator."
+  },
+  "original_version_audit": {
+    "retrieval": "All 16 requested versioned PDFs were retrieved from their frame URLs and passed PDF magic/version inspection.",
+    "sha256": {
+      "1706.02214v1": "60a8fa984faf95512acd3ffae9bf9d902821371b5ee616bbb3b70ef76c1ffa1a",
+      "1707.09038v3": "47c8ffe6a7802f5787b19239b252976af5d0a8e797d262ad45737085a70439e4",
+      "1708.03786v1": "c995711df8465e9a5cfd32b2fa8d38db7ac0236a88b7df417e3d4eaf7c959cac",
+      "1712.09136v1": "50de3691c2e42d6f24ae0e4db42beca9518cc0180c49c4438bde9c4a5e018e57",
+      "1801.02381v1": "915270be60890682599c67c62abd8e9960a394bfdc950b5425aad0ad58af8e63",
+      "1806.03283v1": "d469609f7eb0daafdf9a6f1fc5211993664f3df9b4f43b0c3eab96e1c559763e",
+      "1807.07619v1": "23c8134043393ff2ed827ab6757478b2845ac0adf2c0fa7520bba40dec5e0c65",
+      "1809.00821v1": "75e8df530c6cf789b18578c66a1c83b85e2deb1d7d21c1ceafc46dc75a2c1d5c",
+      "1901.02771v1": "e944d2b3ba4df4152e3e25cb67267854fb51abb3aecd9011fb92aa1be749f34a",
+      "1901.03675v2": "5cc65b24ff18ac414c0bd75be907dc9a5c0ddf215c6543ef8ffd468f4a91444a",
+      "1903.06407v2": "decf9fad65dcfaa6b9c749488825902212ed59212bc78f5f3d7cda3edf43c266",
+      "1912.01142v1": "d02da3eb1538541c3e7e4725c40df7e29e914a8fcb99d3e61ebb4e9591337214",
+      "2001.11959v2": "5b73aba5ec6832c580e60c67764a290115ac643bf1c3b084fb6fd6868546f045",
+      "2004.01256v1": "45c872d7d0097e3131f6717359960c332df216d47c93fe5a68cf9e007355a9b0",
+      "2004.04211v1": "7daf5220e65b438260e8897240acf68f5846460ddbcbae8ab15357d2a9d991ba",
+      "2008.02934v1": "e08417148ec103b2e7f5f89961fe528ca71258cc2cb430cfa9a66af0b704e3a1"
+    }
+  },
+  "source_screen": {
+    "selected_rows": 16,
+    "eligible_questions": 6,
+    "ineligible_rows": 10,
+    "eligible": [
+      {
+        "versioned_id": "1707.09038v3",
+        "title": "Enabling Mutation Testing for Android Apps",
+        "topic": "software_testing",
+        "cutoff": "2017-12-31T23:59:59Z",
+        "followup_end": "2022-12-31T23:59:59Z",
+        "artifact_or_benchmark": "MDroid+ implementation and the source's Android-app/fault-artifact corpus; original source reports 38 implemented operators and comparison with existing mutation tools.",
+        "object": "Android application test suites and seeded Android faults",
+        "comparator": "traditional mutation tools/operators and the source's named alternative tools",
+        "endpoint": "stillborn/trivial mutant rates and representation of real Android faults, with mutants as the independent unit",
+        "falsification_condition": "The Android-specific operators fail if they do not improve the prespecified fault-representation/stillborn-trivial endpoint over the source-pinned alternatives on the held-out app/fault set.",
+        "source_url": "https://arxiv.org/pdf/1707.09038v3.pdf"
+      },
+      {
+        "versioned_id": "1712.09136v1",
+        "title": "Towards Measuring Membership Privacy",
+        "topic": "security_privacy",
+        "cutoff": "2017-12-31T23:59:59Z",
+        "followup_end": "2022-12-31T23:59:59Z",
+        "artifact_or_benchmark": "Publicly named real-world classifier datasets and released source paper's DTP computation protocol.",
+        "object": "Classifier/training-set membership privacy risk",
+        "comparator": "DTP against measured membership-attack success, with the source's DTP-1 decision threshold",
+        "endpoint": "classifier-level DTP versus maximum membership-attack accuracy; independent unit is the classifier/dataset configuration",
+        "falsification_condition": "The DTP-1 proposal fails if DTP does not predict attack success or if the threshold does not discriminate release-risk cases under the fixed datasets and attack protocol.",
+        "source_url": "https://arxiv.org/pdf/1712.09136v1.pdf"
+      },
+      {
+        "versioned_id": "1806.03283v1",
+        "title": "Badger: Complexity Analysis with Fuzzing and Symbolic Execution",
+        "topic": "software_testing",
+        "cutoff": "2018-12-31T23:59:59Z",
+        "followup_end": "2023-12-31T23:59:59Z",
+        "artifact_or_benchmark": "Public Badger repository (https://github.com/isstac/badger), Kelinci/Symbolic PathFinder artifacts, and named Java benchmark applications.",
+        "object": "Java programs with worst-case resource-consuming paths",
+        "comparator": "hybrid Badger versus fuzzing-only KelinciWCA and symbolic-execution-only Symbolic PathFinder",
+        "endpoint": "time to generate worst-case executions and number of resource-cost-increasing executions, per benchmark program",
+        "falsification_condition": "Badger fails if it does not improve the source-pinned worst-case endpoint at matched program, budget, and cost accounting, or if the result is not reproducible on the named benchmarks.",
+        "source_url": "https://arxiv.org/pdf/1806.03283v1.pdf"
+      },
+      {
+        "versioned_id": "1901.02771v1",
+        "title": "Sweep Algorithms for the Capacitated Vehicle Routing Problem with Structured Time Window",
+        "topic": "algorithms_complexity",
+        "cutoff": "2019-12-31T23:59:59Z",
+        "followup_end": "2024-12-31T23:59:59Z",
+        "artifact_or_benchmark": "Public benchmark set described in the source and linked at http://tinyurl.com/vrpstw.",
+        "object": "cVRPsTW routes with non-overlapping structured time windows",
+        "comparator": "proposed structured sweep variants and local-improvement heuristics versus the source-pinned sweep/baseline heuristics",
+        "endpoint": "objective value and feasibility on each benchmark instance; independent unit is the route instance",
+        "falsification_condition": "The structured sweep extension fails if it does not improve or preserve the prespecified objective/feasibility endpoint over the baseline on the fixed benchmark set.",
+        "source_url": "https://arxiv.org/pdf/1901.02771v1.pdf"
+      },
+      {
+        "versioned_id": "1903.06407v2",
+        "title": "Get rid of inline assembly through verification-oriented lifting",
+        "topic": "program_repair_verification",
+        "cutoff": "2019-12-31T23:59:59Z",
+        "followup_end": "2024-12-31T23:59:59Z",
+        "artifact_or_benchmark": "Public TInA artifact record and named real-world GMP and ffmpeg inline-assembly objects.",
+        "object": "C programs containing inline assembly",
+        "comparator": "TInA lifted C representation versus manual/equivalent handling and direct analysis of the original assembly where available",
+        "endpoint": "semantic equivalence and downstream verification success on each inline-assembly unit",
+        "falsification_condition": "TInA fails if semantic equivalence or verification success is not preserved on the fixed GMP/ffmpeg units, or if gains require an unreported manual correction.",
+        "source_url": "https://arxiv.org/pdf/1903.06407v2.pdf"
+      },
+      {
+        "versioned_id": "2004.04211v1",
+        "title": "Do Null-Type Mutation Operators Help Prevent Null-Type Faults?",
+        "topic": "software_testing",
+        "cutoff": "2020-12-31T23:59:59Z",
+        "followup_end": "2025-12-31T23:59:59Z",
+        "artifact_or_benchmark": "Replication package referenced by the source and 15 named open-source project test suites.",
+        "object": "Java test suites and null-type fault mutants",
+        "comparator": "four null-type mutation operators versus traditional mutation operators/no null-type operators",
+        "endpoint": "mutant detection/killing and subsumption on each project test suite, with the project as independent unit",
+        "falsification_condition": "Null-type operators fail if they do not reveal additional null-fault-relevant missing tests at the source's stated trade-off threshold on the fixed projects.",
+        "source_url": "https://arxiv.org/pdf/2004.04211v1.pdf"
+      }
+    ],
+    "ineligible": [
+      {"versioned_id": "1706.02214v1", "reason": "The inspected source is a theoretical scheduling study; no single source-grounded unresolved intervention/comparator question with an independently checkable public artifact and falsification gate was sealed."},
+      {"versioned_id": "1708.03786v1", "reason": "Public code exists, but the source's future real-course effectiveness question lacks a frozen source-pinned comparator and independently checkable human-feedback endpoint."},
+      {"versioned_id": "1801.02381v1", "reason": "The source is a conceptual benchmarking-threat analysis; it does not provide one fixed intervention/comparator endpoint tuple suitable for direct follow-up."},
+      {"versioned_id": "1807.07619v1", "reason": "The source gives graph-theoretic methods and theoretical approximation discussion but no source-pinned public benchmark/comparator tuple for the frozen rule."},
+      {"versioned_id": "1809.00821v1", "reason": "The source is a standards/position analysis; no independently checkable intervention endpoint and falsification gate were specified."},
+      {"versioned_id": "1901.03675v2", "reason": "The source's signal-injection framework lacks a source-pinned public artifact and fixed comparator/endpoint tuple for a follow-up question."},
+      {"versioned_id": "1912.01142v1", "reason": "The correlational study does not state an intervention/comparator; turning correlation into a causal or predictive intervention question would be reviewer-created."},
+      {"versioned_id": "2001.11959v2", "reason": "The theoretical sparse-polynomial result has no source-pinned empirical comparator/benchmark endpoint for the frozen transfer rule."},
+      {"versioned_id": "2004.01256v1", "reason": "The source describes a proposed healthcare model and future implementation, but no public artifact or source-pinned comparator with independently checkable endpoint was available in the original version."},
+      {"versioned_id": "2008.02934v1", "reason": "The inspected formal-verification source presents a method/proof object but no source-pinned comparative endpoint and falsification condition for a dated follow-up."}
+    ]
+  },
+  "followup_audit": {
+    "search_date_utc": "2026-10-15",
+    "fixed_window_respected": true,
+    "eligible_rows": 6,
+    "authenticated_primary_followup_coverage": "5/6",
+    "coverage_rows": [
+      {"versioned_id": "1707.09038v3", "primary_record": "MDroid+: A Mutation Testing Framework for Android (arXiv:1802.04749, 2018-02-13)", "url": "https://arxiv.org/abs/1802.04749", "classification": "adjacent/continuation; not exact because app set, operator set, and frozen endpoint tuple differ"},
+      {"versioned_id": "1806.03283v1", "primary_record": "Hybrid Differential Software Testing (2021), which cites and extends the Badger line", "url": "https://link.springer.com/chapter/10.1007/978-3-030-83128-8_9", "classification": "adjacent; differential-testing object and endpoint differ from the frozen worst-case-complexity comparator"},
+      {"versioned_id": "1901.02771v1", "primary_record": "dated primary routing/structured-time-window follow-up records were found, but none used the same linked benchmark, sweep comparator, and objective tuple", "url": "https://arxiv.org/abs/1901.02771", "classification": "no exact match"},
+      {"versioned_id": "1903.06407v2", "primary_record": "TInA ASE 2019 artifact/publication record and later primary presentation record", "url": "https://binsec.github.io/publications", "classification": "same-line record, not a new endpoint-matched follow-up; no independent exact comparison found"},
+      {"versioned_id": "2004.04211v1", "primary_record": "later public replication-package record for the null-type mutation study", "url": "https://www.parsai.net/files/research/Do%20Null-Type%20Mutation%20Operators%20Help%20Prevent%20Null-Type%20Faults%20(preprint).pdf", "classification": "same study/adjacent record; no independently dated exact comparator result found"}
+    ],
+    "no_authenticated_primary_followup": ["1712.09136v1"],
+    "direct_tuple_adjudication": {
+      "exact_positive": 0,
+      "exact_negative": 0,
+      "direct_unadjudicated": 6,
+      "adjacent_or_same_line_records_not_counted": 5,
+      "search_non_detection_not_negative": true
+    },
+    "window_phase_counts": {
+      "year_1_2_primary_records": 4,
+      "year_3_5_primary_records": 3,
+      "note": "Records can contribute to both phase counts when multiple dated records were present; these are coverage counts, not outcome labels."
+    }
+  },
+  "observed_result": {
+    "selected_rows": 16,
+    "source_eligible_questions": 6,
+    "source_ineligible_rows": 10,
+    "direct_resolution_positive": 0,
+    "direct_resolution_negative": 0,
+    "direct_label_yield": "0/6 eligible questions",
+    "direct_label_missingness": "6/6 eligible questions remain unadjudicated because no dated primary follow-up matched the complete frozen object/comparator/endpoint/falsification tuple.",
+    "trajectory_observations": {"partial_progress_or_adjacent": 5, "scope_narrowing_or_reformulation": 0, "independent_evidence_strengthening": 0, "contradictory_evidence": 0},
+    "descriptive_zero_yield_two_sided_95_percent_clopper_pearson_upper_bound": 0.459,
+    "interpretation": "Artifact/comparator gating increased source specificity and produced six eligible questions, but did not produce an exact direct outcome label. This is descriptive evidence of continued endpoint mismatch, not evidence that the underlying questions were unresolved or false."
+  },
+  "stop_gate": {
+    "predeclared_rule": "stop if at least 6 eligible rows, at least 4 independently checkable public artifacts, 0 exact direct matches, and authenticated primary follow-up coverage for at least 5/6",
+    "conditions": {"eligible_at_least_6": true, "artifacts_at_least_4": true, "exact_direct_matches_zero": true, "coverage_at_least_5_of_6": true},
+    "status": "FIRED",
+    "decision": "Stop retrieval-focused Paper 3 cohort expansion under the current rubric. Do not score Paper 3 and do not convert missingness into negative labels. Move to a separately preregistered endpoint-matched experiment or revise the outcome-observation protocol with supervisor approval."
+  },
+  "uncertainty": [
+    "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
+    "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
+    "Several coverage-positive records were same-line, adjacent, or continuation studies and were explicitly excluded from direct labels.",
+    "The Clopper–Pearson interval is descriptive for six eligible rows and is not a prevalence estimate.",
+    "No temporal Paper 3 forecast score, calibration, ranking metric, causal effect, resolution prevalence, or premise-revision prevalence is estimable from this null direct-label cohort."
+  ],
+  "next_falsifiable_action": "Run one preregistered, independently executable experiment on a single sealed endpoint tuple (for example Badger or null-type mutation testing) with version-pinned artifacts, equal-budget comparator arms, independent units, exact denominators, uncertainty, and a falsification threshold; stop if the public artifact, comparator, or endpoint oracle cannot be authenticated.",
+  "negative_or_null_preserved": true,
+  "state_queue_ledger_status": "not edited; only reports/paper3_direct_endpoint_cohort_round6.json was written"
+}

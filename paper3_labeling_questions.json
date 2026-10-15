@@ -1,0 +1,549 @@
+{
+  "questions": [
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1801.07379v1",
+      "source_paper_id": "1801.07379v1",
+      "source_url": "https://arxiv.org/pdf/1801.07379v1",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2021-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "Under stealthy or insider attacks, can a mobile-crowdsensing protection policy retain security utility when its online utility estimates are perturbed, versus a policy without robustness treatment?",
+      "question_zh": "在隐蔽攻击或内部攻击下，当在线效用估计受到扰动时，移动众感知保护策略能否在保护成本相同的情况下保持安全效用，相比之下不采用鲁棒性处理的策略如何？",
+      "criterion": "On a specified attack and estimation-error distribution, no improvement in measured security utility at matched protection cost would fail the proposed robustness benefit.",
+      "criterion_zh": "在指定攻击和估计误差分布下，如果在保护成本匹配时安全效用没有改善，则不能支持所提出的鲁棒性收益。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1802.07361v1",
+      "source_paper_id": "1802.07361v1",
+      "source_url": "https://arxiv.org/pdf/1802.07361v1",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2021-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "Does the weak-mutation source-test advantage in metamorphic testing persist on larger codebases at equal source-test budget, compared with line, branch and random generation?",
+      "question_zh": "在相同源测试预算下，相比行覆盖、分支覆盖和随机生成，弱变异源测试方法在更大代码库上的优势是否仍然存在？",
+      "criterion": "Across independent larger-codebase units at equal test budget, no replicated advantage in independently verified distinct fault detection would fail this narrower generalization; mutant kills alone are a proxy.",
+      "criterion_zh": "在独立的较大代码库单元和相同测试预算下，如果无法重复验证其对独立确认的不同故障检测优势，则不能支持这一更窄的推广；仅有变异体杀死率属于代理指标。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1807.07619v1",
+      "source_paper_id": "1807.07619v1",
+      "source_url": "https://arxiv.org/pdf/1807.07619v1",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2021-12-31T23:59:59Z",
+      "domain": "algorithms_complexity",
+      "question": "Is general graph metric repair W[2]-hard when parameterized by the number of modified edges, under the paper's graph and allowed-weight-change definitions?",
+      "question_zh": "按照论文对图和允许修改权重的定义，以修改边的数量为参数时，一般图度量修复问题是否为 W[2]-困难？",
+      "criterion": "A valid FPT algorithm for the general problem under the same parameter/definitions would oppose the hardness conjecture, subject to standard complexity assumptions; a correct parameter-preserving W[2]-hardness reduction would directly support it.",
+      "criterion_zh": "在相同参数和定义下，如果存在一个有效的固定参数算法，则不支持该困难性猜想；如果给出保持参数的正确 W[2]-困难归约，则直接支持该猜想。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1811.10861v1",
+      "source_paper_id": "1811.10861v1",
+      "source_url": "https://arxiv.org/pdf/1811.10861v1",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2021-12-31T23:59:59Z",
+      "domain": "databases",
+      "question": "Under the same astronomical streaming and historical-query workload, can automatic cross-store data redistribution improve query latency over a fixed layout while meeting the original ingestion-latency target?",
+      "question_zh": "在相同的天文流式处理和历史查询负载下，自动跨存储系统的数据重新分布能否在满足原始摄取延迟目标的同时，相比固定布局降低查询延迟？",
+      "criterion": "On frozen independent workloads and equal resources, no query-latency advantage or violation of the ingestion target fails the joint benefit claim.",
+      "criterion_zh": "在冻结的独立负载和相同资源下，如果查询延迟没有优势，或违反摄取延迟目标，则不能支持联合收益主张。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1905.04752v1",
+      "source_paper_id": "1905.04752v1",
+      "source_url": "https://arxiv.org/pdf/1905.04752v1",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "program_analysis",
+      "question": "At matched review budget on independently confirmed Scala memory leaks, does a semantic-aware static detector find more true leaks than syntax/pattern-only analysis without an unacceptable false-positive increase?",
+      "question_zh": "在独立确认的 Scala 内存泄漏上、审查预算匹配时，语义感知的静态检测器能否在假阳性不增加到不可接受程度的情况下，比仅使用语法或模式的分析发现更多真实泄漏？",
+      "criterion": "No independently verified recall gain at a prespecified false-positive ceiling on held-out projects fails the claim.",
+      "criterion_zh": "在预先规定的假阳性上限和留出项目上，如果没有独立验证的召回率提升，则不能支持该主张。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1910.05923v1",
+      "source_paper_id": "1910.05923v1",
+      "source_url": "https://arxiv.org/pdf/1910.05923v1",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "ai_generated_code",
+      "question": "With matched training data and compute, do grammar constraints improve parseable and test-passing code generation over this dual-task model without reducing task correctness?",
+      "question_zh": "在训练数据和计算资源匹配时，语法约束是否能在不降低任务正确性的情况下，相比该双任务模型提高可解析代码和测试通过代码的生成效果？",
+      "criterion": "No held-out task-correctness or test-passing benefit at matched budget, despite higher parseability, fails the substantive claim.",
+      "criterion_zh": "在预算匹配时，即使可解析性更高，如果留出任务的任务正确率或测试通过率没有收益，则不能支持实质性主张。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__1912.01990v1",
+      "source_paper_id": "1912.01990v1",
+      "source_url": "https://arxiv.org/pdf/1912.01990v1",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "algorithms_complexity",
+      "question": "Can Hamiltonian Index be computed with a strictly improved treewidth-exponential base under the paper's graph and decomposition assumptions?",
+      "question_zh": "在论文的图和分解假设下，Hamiltonian Index 能否使用严格更优的树宽指数底数计算？",
+      "criterion": "A matching conditional lower bound for the specified model/base opposes the faster-algorithm branch; a correct faster algorithm supports it. Runtime experiments alone are insufficient.",
+      "criterion_zh": "针对指定模型和底数，匹配的条件下界不支持更快算法分支；正确的更快算法支持该分支。仅有运行时间实验不足以解决该理论问题。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__2004.11573v1",
+      "source_paper_id": "2004.11573v1",
+      "source_url": "https://arxiv.org/pdf/2004.11573v1",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "ai_robustness",
+      "question": "At equal training-example count and compute, does training on uncommon-uncertainty adversarial examples improve held-out robust accuracy over conventional adversarial training without materially degrading clean accuracy?",
+      "question_zh": "在训练样本数量和计算量相同的情况下，使用非常规不确定性对抗样本训练，能否相比常规对抗训练提高留出数据上的鲁棒准确率，同时不造成实质性的干净准确率下降？",
+      "criterion": "No held-out robustness advantage, or prespecified clean-accuracy degradation, fails the proposed benefit.",
+      "criterion_zh": "如果留出数据上的鲁棒性没有优势，或干净准确率下降超过预先规定的程度，则不能支持所提出的收益。",
+      "evidence": [
+        {
+          "title": "Guiding the retraining of convolutional neural networks against adversarial inputs",
+          "title_zh": "引导卷积神经网络针对对抗输入进行再训练",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10495969/",
+          "date": "2023-08-08",
+          "relationship": "Near-match only: the dated follow-up studies uncertainty-guided ordering of adversarial inputs generated by standard attacks; it does not use the source's uncommon-uncertainty generator or compare equal example count and compute against conventional adversarial training.",
+          "relationship_zh": "近似匹配而非直接解决：后续研究了标准攻击生成的对抗输入的基于不确定性的排序，没有使用来源的非常规不确定性生成器，也没有在样本数和计算量相同下与常规对抗训练比较，因此没有给出冻结问题的直接正面或负面结果。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__2005.07992v1",
+      "source_paper_id": "2005.07992v1",
+      "source_url": "https://arxiv.org/pdf/2005.07992v1",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "databases",
+      "question": "Can an in-database functional-dependency table be kept correct under base-table updates with lower update-plus-query cost than re-mining the dependencies after every update?",
+      "question_zh": "数据库内的函数依赖表能否在基表更新下保持正确，并且相比每次更新后重新挖掘函数依赖，降低更新加查询的总成本？",
+      "criterion": "On frozen update/query traces, an incremental implementation with incorrect FD answers or no measured cost advantage over a matched full re-mining baseline would not support the claim.",
+      "criterion_zh": "在冻结的更新/查询轨迹上，如果增量实现给出错误的函数依赖答案，或相对于匹配的完整重新挖掘基线没有测得成本优势，则不能支持该主张。",
+      "evidence": [
+        {
+          "title": "Workload-driven, Lazy Discovery of Data Dependencies for Query Optimization",
+          "title_zh": "面向查询优化的工作负载驱动惰性数据依赖发现",
+          "url": "https://www.vldb.org/cidrdb/papers/2022/p70-kossmann.pdf",
+          "date": "2022-01-09 to 2022-01-12",
+          "relationship": "Near-match only: the Hyrise prototype discovers dependency metadata and reports query improvement, but does not test the frozen update-plus-query FD-table comparison.",
+          "relationship_zh": "近似匹配而非直接解决：Hyrise 原型发现 UCC、FD 和 OD 元数据并报告发现后查询执行时间改善，但没有在冻结测试中验证更新期间可查询 FD 表的正确性，也没有匹配的更新加查询成本比较。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__2010.14077v1",
+      "source_paper_id": "2010.14077v1",
+      "source_url": "https://arxiv.org/pdf/2010.14077v1",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "Can a lattice-based IBE equality-test scheme retain flexible authorization while meeting a precisely specified CCA2 security definition?",
+      "question_zh": "基于格的带相等性测试的身份基加密方案，能否在保持灵活授权的同时，满足精确定义的 CCA2 安全性？",
+      "criterion": "A valid attack under the claimed CCA2 game defeats a proposed construction; a complete reduction for a defined construction establishes the positive branch only under its stated assumptions.",
+      "criterion_zh": "在所声称的 CCA2 游戏下，对所提出构造的有效攻击会否定该构造；对于明确定义的构造，完整安全归约只能在其明确假设下支持正面结论。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__2103.05704v1",
+      "source_paper_id": "2103.05704v1",
+      "source_url": "https://arxiv.org/pdf/2103.05704v1",
+      "source_as_of": "2021-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "ai_generated_code",
+      "question": "Across independently recruited end-user developers and matched app tasks, does sketch-to-App-Inventor generation improve UI fidelity and completion time relative to manual implementation?",
+      "question_zh": "在独立招募的终端用户开发者和匹配的应用任务中，草图到 App Inventor 的生成是否相对于手工实现提高界面保真度并缩短完成时间？",
+      "criterion": "No prespecified fidelity or time advantage in an independent matched-task evaluation fails the generalization claim.",
+      "criterion_zh": "在独立的匹配任务评估中，如果预先规定的保真度或时间优势不存在，则不能支持该推广主张。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__2106.00714v1",
+      "source_paper_id": "2106.00714v1",
+      "source_url": "https://arxiv.org/pdf/2106.00714v1",
+      "source_as_of": "2021-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "algorithms_complexity",
+      "question": "Can the paper's algebraic framework be extended to compute shortest three disjoint cycles in its weighted-graph setting with a proved parallel bound?",
+      "question_zh": "在该论文的加权图设定下，能否将其代数框架扩展为计算三个最短不相交环，并给出有证明的并行界限？",
+      "criterion": "A correct counterexample to a proposed three-cycle extension defeats that extension; a fully proved algorithm with the specified assumptions and bound supports it. Related two-cycle results do not settle it.",
+      "criterion_zh": "对所提出的三个环扩展给出正确反例会否定该扩展；在指定假设和界限下给出完整证明的算法则支持它。相关的两个环结果不能解决该问题。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-BLIND-20-2026-10-14__2109.08630v1",
+      "source_paper_id": "2109.08630v1",
+      "source_url": "https://arxiv.org/pdf/2109.08630v1",
+      "source_as_of": "2021-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "At matched privacy budget and data, does interactive GNMAX voting produce a different between-group excessive-risk disparity than noninteractive PATE aggregation because of selection effects?",
+      "question_zh": "在隐私预算和数据相匹配时，交互式 GNMAX 投票是否会因为选择效应而产生不同于非交互式 PATE 聚合的组间过度风险差异？",
+      "criterion": "No reproducible group-disparity difference across independent datasets with matched privacy and selection accounting fails the claimed effect.",
+      "criterion_zh": "在隐私和选择过程核算相匹配的独立数据集上，如果无法重复观察组间差异，则不能支持该效应主张。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1703.00768v1",
+      "source_paper_id": "1703.00768v1",
+      "source_url": "https://arxiv.org/pdf/1703.00768v1",
+      "source_as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "Across held-out industrial software projects, does adding software artifacts to the CAM log-based test-alarm classifier improve independently verified cause-classification accuracy over log-only CAM at matched training budget?",
+      "question_zh": "在留出的工业软件项目上，在训练预算匹配时，向 CAM 的基于日志的测试告警分类器加入软件制品，是否比仅使用日志的 CAM 提高独立验证的故障原因分类准确率？",
+      "criterion": "No reproducible held-out project-level accuracy gain at comparable labeling/training budget, or a gain confined to already-seen projects, fails the proposed generalization and artifact-value claim.",
+      "criterion_zh": "如果在可比的标注/训练预算下，留出项目级准确率没有可重复提升，或收益仅限于已经见过的项目，则不能支持推广和制品价值主张。",
+      "evidence": [
+        {
+          "title": "Mining Historical Test Logs to Predict Bugs and Localize Faults in the Test Logs",
+          "title_zh": "挖掘历史测试日志以预测缺陷并定位测试日志中的故障",
+          "url": "https://users.encs.concordia.ca/~pcr/paper/Amar2019ICSE-draft.pdf",
+          "date": "2019-05-25",
+          "relationship": "partial_progress_on_independent_industrial_log_only_baseline_and_explicit_scope_narrowing: The independent authors reimplemented CAM on Ericsson failure logs and report 50% FaultsFound for product faults at K=15, with skewed environmental failures limiting majority-vote KNN. They altered the task to binary product-fault detection and fault-line localization. They did not add test scripts or other artifacts to CAM, did not evaluate held-out project-level multiclass cause accuracy, and did not report matched labeling/training budget.",
+          "relationship_zh": "独立工业日志基线上的部分进展和明确范围收窄：独立团队在 Ericsson 故障日志上重实现 CAM，报告 K=15 时产品故障 FaultsFound 为 50%；但任务改成了二元产品故障检测和故障行定位，没有加入测试脚本或其他制品，也没有评估留出项目级多类原因准确率或匹配标注/训练预算。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1706.02214v1",
+      "source_paper_id": "1706.02214v1",
+      "source_url": "https://arxiv.org/pdf/1706.02214v1",
+      "source_as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "algorithms_complexity",
+      "question": "For the paper's stretched coupled-task makespan problem, what is the exact computational complexity when the compatibility graph is a tree of bounded maximum degree?",
+      "question_zh": "对于论文的拉伸耦合任务最大完工时间问题，当兼容图是最大度有界的树时，其精确计算复杂度是什么？",
+      "criterion": "A correct polynomial-time algorithm or hardness proof for the bounded-degree tree setting settles a corresponding branch; a theorem for a different compatibility graph or task model does not.",
+      "criterion_zh": "针对有界度树情形的正确多项式算法或困难性证明，可以解决相应分支；针对不同兼容图或任务模型的定理不能解决该问题。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1708.03786v1",
+      "source_paper_id": "1708.03786v1",
+      "source_url": "https://arxiv.org/pdf/1708.03786v1",
+      "source_as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "In an actual introductory programming course with repeated debugging attempts, does TraceDiff improve independently verified bug-fix completion or time relative to a matched Python Tutor workflow?",
+      "question_zh": "在真实的入门编程课程中，经过多次调试尝试后，TraceDiff 相对于匹配的 Python Tutor 工作流，是否提高独立验证的修复完成率或缩短修复时间？",
+      "criterion": "No improvement in prespecified verified fixes or time across independent students/tasks, or loss of benefit under iterative attempts, fails the proposed generalization; preference ratings alone are not a fix outcome.",
+      "criterion_zh": "如果在独立学生/任务上，预先规定的已验证修复率或时间没有提升，或在迭代尝试下收益消失，则不能支持推广；仅有偏好评分不构成修复结果。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1712.09136v1",
+      "source_paper_id": "1712.09136v1",
+      "source_url": "https://arxiv.org/pdf/1712.09136v1",
+      "source_as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "For records with low single-query PDTP, can multiple selected queries to the same classifier raise membership-inference accuracy over a single direct-query baseline at a fixed query budget?",
+      "question_zh": "对于单次查询 PDTP 较低的记录，对同一分类器发起多次选定查询，能否在固定查询预算下相对于单次直接查询基线提高成员推断准确率？",
+      "criterion": "No reproducible attack-advantage increase across independent model/data units at a prespecified query budget fails the empirical multiple-query concern; a proof of a matching upper bound under explicit assumptions could refute it in that regime.",
+      "criterion_zh": "在预先规定的查询预算和独立模型/数据单元上，如果无法重复观察多查询攻击优势，则不能支持这一经验性担忧；在明确假设的范围内证明匹配的上界，也可以在该范围内反驳它。",
+      "evidence": [
+        {
+          "title": "Label-Only Membership Inference Attacks",
+          "title_zh": "仅标签成员推断攻击",
+          "url": "https://proceedings.mlr.press/v139/choquette-choo21a/choquette-choo21a.pdf",
+          "date": "2020-07-28",
+          "relationship": "partial_progress_on_multi_query_component_only: Multiple strategically perturbed label queries are used for membership inference. On the reported CIFAR-10 setup, 3-query rotation or (4d+1)-query translation attacks and larger-budget boundary attacks exceed the one-label gap baseline for some settings; the paper reports 3-4 percentage-point improvements at tuned small perturbations. No PDTP values or low-PDTP subgroup analysis are reported in the inspected PDF.",
+          "relationship_zh": "多查询组成部分的部分进展：通过多次策略性扰动标签查询进行成员推断；在报告的 CIFAR-10 设置下，若干三查询或四维加一查询攻击以及更大预算的边界攻击在部分设置超过单标签差距基线，但没有报告 PDTP 值或低 PDTP 子组分析。"
+        },
+        {
+          "title": "Sampling Attacks: Amplification of Membership Inference Attacks by Repeated Queries",
+          "title_zh": "采样攻击：通过重复查询放大成员推断攻击",
+          "url": "https://arxiv.org/pdf/2009.00395v1",
+          "date": "2020-09-01",
+          "relationship": "corroborating_multi_query_mechanism_only: Repeated perturbed-label queries are aggregated into attack features. Exact first publication may predate arXiv v1 via the stated 2019 workshop version; either date remains within the 2018-2022 window. This paper is not counted as a separate independent outcome unit for prevalence.",
+          "relationship_zh": "仅支持多查询机制：重复扰动标签查询被聚合为攻击特征；精确首发时间可能早于 arXiv v1，因为论文注明了 2019 年 workshop 版本，但两种日期都在窗口内。它不是对低 PDTP 子组的匹配测试，也不作为单独的独立结果单元。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1802.06026v1",
+      "source_paper_id": "1802.06026v1",
+      "source_url": "https://arxiv.org/pdf/1802.06026v1",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "algorithms_complexity",
+      "question": "For exact metric sparsifiers of Zero Extension with s labels and crossing-number parameter k, is an exponent growing with s necessary in worst-case sparsifier size, or can an exponent independent of s suffice?",
+      "question_zh": "对于具有 s 个标签和交叉数参数 k 的 Zero Extension 精确度量稀疏器，最坏情况下稀疏器大小的指数是否必须随 s 增长，还是可以存在与 s 无关的指数？",
+      "criterion": "A valid k^Omega(s) worst-case lower bound under the source definition refutes an exponent uniform in s; a valid k^O(1) upper bound with exponent independent of s refutes necessity of growth. A bound for only s-Multiway Cut or a different sparsifier definition does not settle this question.",
+      "criterion_zh": "在来源定义下有效的 k^Ω(s) 最坏情况下界会反驳指数与 s 无关的可能性；有效的、指数与 s 无关的 k^O(1) 上界会反驳增长的必要性。仅针对 s-Multiway Cut 或不同稀疏器定义的界限不能解决该问题。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1805.02751v2",
+      "source_paper_id": "1805.02751v2",
+      "source_url": "https://arxiv.org/pdf/1805.02751v2",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "Across a preregistered sample of connected children's toys, can an automated policy-to-property audit recover the same objectively verifiable privacy and network-security violations as independent manual analysis while reducing analyst effort without increasing false negatives?",
+      "question_zh": "对于预先登记的一组联网儿童玩具，自动化的策略到属性审计能否在不增加假阴性的情况下，恢复独立人工分析发现的同一批可客观验证的隐私和网络安全违规，并减少分析人员投入？",
+      "criterion": "The automation fails if recall is materially lower than the manual audit, false positives increase beyond a predeclared margin, or analyst-time savings disappear after review of ambiguous policy language. A larger vulnerability count alone is not a success label.",
+      "criterion_zh": "如果自动化相对于人工审计的召回率实质性更低、假阳性超过预先规定的幅度，或审查含糊策略语言后分析时间节省消失，则自动化失败。漏洞数量更多本身不是成功标签。",
+      "evidence": []
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1806.03283v1",
+      "source_paper_id": "1806.03283v1",
+      "source_url": "https://arxiv.org/pdf/1806.03283v1",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "At matched total CPU resources, does parallelized Badger generate higher worst-case resource-cost inputs than a standalone cost-guided fuzzer on held-out Java subjects within the same wall-clock budget?",
+      "question_zh": "在总 CPU 资源匹配时，在相同墙钟时间预算内，并行化 Badger 是否在留出的 Java 被测对象上比独立的成本引导模糊测试器生成更高的最坏情况资源成本输入？",
+      "criterion": "No consistent held-out cost advantage at matched total CPU, or disappearance of the apparent gain when both arms have comparable parallelism, fails the resource-fair benefit claim; a significant advantage in the source's unequal-core setup alone does not count.",
+      "criterion_zh": "在总 CPU 匹配时，如果留出数据上没有一致的成本优势，或当两组并行度相当时优势消失，则不能支持资源公平收益主张；仅在来源的不等核心设置下获得显著优势不算数。",
+      "evidence": [
+        {
+          "title": "HotFuzz: Discovering Algorithmic Denial-of-Service Vulnerabilities Through Guided Micro-Fuzzing",
+          "title_zh": "HotFuzz：通过引导式微模糊测试发现算法拒绝服务漏洞",
+          "url": "https://www.ndss-symposium.org/wp-content/uploads/2020/02/24415-paper.pdf",
+          "date": "2020-02-09",
+          "relationship": "independent_evidence_for_broad_cost_guided_testing_premise_only: The authors evaluate guided micro-fuzzing over the JRE, STAC challenges and 100 popular Maven libraries; Table II reports AC witnesses and confirmed cases under SRI versus IVI seed strategies. This does not include matched-CPU Badger versus standalone KelinciWCA.",
+          "relationship_zh": "仅支持广义成本引导测试前提的独立证据：作者评估了 JRE、STAC 挑战和 100 个 Maven 库中的引导式微模糊测试，并报告不同种子策略下的算法复杂度见证和确认案例；没有进行匹配 CPU 的 Badger 与独立 KelinciWCA 比较。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1903.05387v1",
+      "source_paper_id": "1903.05387v1",
+      "source_url": "https://arxiv.org/pdf/1903.05387v1",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "On constrained virtual-machine configuration spaces, does adding solver-backed constraint handling to Avocado reduce invalid or redundant test executions while preserving or improving detection of invalid configurations relative to unconstrained t-way generation?",
+      "question_zh": "在受约束的虚拟机配置空间中，与无约束的 t-way 生成相比，加入求解器支持的约束处理是否能减少无效或冗余测试执行，同时保持或提高无效配置的检测率？",
+      "criterion": "No reduction in invalid/redundant executions at non-inferior detection recall, or a benefit that disappears on held-out configuration models, falsifies the claimed practical value. A framework implementation without a matched comparison is partial progress only.",
+      "criterion_zh": "如果在检测召回率不劣的情况下没有减少无效/冗余执行，或在留出的配置模型上收益消失，则实际价值主张被否定。只有框架实现而没有匹配比较，只能算部分进展。",
+      "evidence": [
+        {
+          "title": "Avocado: Open-Source Flexible Constrained Interaction Testing for Practical Application",
+          "title_zh": "Avocado：用于实际应用的开源灵活约束交互测试",
+          "url": "https://arxiv.org/pdf/2002.00390",
+          "date": "2020-02-02",
+          "relationship": "partial_progress_on_planned_constraint_handling: The follow-up describes constraint-solver support, constrained suite generation, execution and an industrial application, but does not authenticate the source question's matched comparison as a direct result.",
+          "relationship_zh": "计划中的约束处理取得部分进展：后续工作描述了求解器支持、约束测试套件生成、执行和工业应用，但没有验证来源问题要求的匹配基线比较。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__1905.02597v1",
+      "source_paper_id": "1905.02597v1",
+      "source_url": "https://arxiv.org/pdf/1905.02597v1",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "program_repair_verification",
+      "question": "For automated repair proposals from the same repair bot, does attaching a natural-language explanation plus a concrete behavioral-difference example improve blinded reviewer acceptance or time-to-decision compared with a patch-only proposal, at matched patch correctness and review workload?",
+      "question_zh": "对于来自同一修复机器人的自动修复建议，在补丁正确性和审查工作量匹配时，附加自然语言解释及具体行为差异示例，是否相比仅提供补丁提高盲审接受率或缩短决策时间？",
+      "criterion": "No improvement in prespecified acceptance or decision-time/understanding outcomes across independent reviewers and patch units, or a penalty after controlling for patch correctness, fails the proposed communication benefit; subjective preference alone without a decision/understanding endpoint is insufficient.",
+      "criterion_zh": "如果在独立审查者和补丁单元上，预先规定的接受率或决策时间/理解结果没有改善，或控制补丁正确性后出现惩罚，则不能支持沟通收益；没有决策或理解端点的主观偏好不足以作出结论。",
+      "evidence": [
+        {
+          "title": "Evaluating Explanations for Software Patches Generated by Large Language Models",
+          "title_zh": "大型语言模型生成的软件补丁解释评估",
+          "url": "https://solar.cs.ucl.ac.uk/pdf/SSBSE_23_Challenge_Track__Explanations_for_GI_Final.pdf",
+          "date": "2023-12-08",
+          "relationship": "partial_progress_on_explanation_quality_not_reviewer_acceptance: For 30 bugs, GPT-3.5 explanations of machine-generated patches were correct in 84% and complete in 54% of cases in at least one of three runs. Evaluation was manual content assessment; there was no patch-only control and no adoption, decision-time or comprehension task outcome.",
+          "relationship_zh": "部分进展而非直接解决：在 30 个缺陷上，GPT-3.5 对机器生成补丁的解释在三次运行至少一次中有 84% 正确、54% 完整；这是人工内容评估，没有仅补丁控制组，也没有采用率、决策时间或理解任务端点。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__2003.02892v1",
+      "source_paper_id": "2003.02892v1",
+      "source_url": "https://arxiv.org/pdf/2003.02892v1",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "For heterogeneous smart-home devices with software-update and adversarial-traffic regimes, can collaborative whitelist learning converge to a stable permitted-connection set while keeping false blocking and attacker-injected allowance below predeclared thresholds?",
+      "question_zh": "对于具有软件更新和对抗流量情形的异构智能家居设备，协作式白名单学习能否收敛到稳定的允许连接集合，同时将误阻断和攻击者注入的允许项控制在预先规定的阈值以下？",
+      "criterion": "The claim fails if convergence is absent within the predeclared horizon, or if either false blocking or attacker allowance exceeds the fixed safety margin relative to the baseline. A proof-of-concept throughput result alone does not settle policy correctness.",
+      "criterion_zh": "如果在预先规定的时间范围内没有收敛，或误阻断或攻击者允许项任一指标相对于基线超过固定安全裕度，则该主张失败。仅有概念验证吞吐量结果不能解决策略正确性。",
+      "evidence": [
+        {
+          "title": "Making Interactions With Home IoT Devices More Secure, Private, and Usable",
+          "title_zh": "让家庭物联网设备交互更安全、更私密且更易用",
+          "url": "https://mailman.cs.uchicago.edu/mailman/public/cs/attachments/20220707/a4ebadef/attachment-0001.pdf",
+          "date": "2022-07-07",
+          "relationship": "scope_narrowing_not_direct_resolution: The later work states that SERENIoT creates allowlists from observed behavior but does not study how traffic data generalizes or how policies generalize across devices, and flags deployment variation as a concern.",
+          "relationship_zh": "范围收窄而非直接解决：后续工作指出 SERENIoT 从观察行为创建允许列表，但没有研究流量数据或策略如何跨设备泛化，并将部署差异列为问题。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__2005.00972v1",
+      "source_paper_id": "2005.00972v1",
+      "source_url": "https://arxiv.org/pdf/2005.00972v1",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "domain": "program_repair_verification",
+      "question": "On held-out DNN bug-fix instances, does a DNN-aware repair/localization intervention reduce incorrect or vulnerability-introducing patches relative to a code-only repair baseline while preserving verified bug-fix success?",
+      "question_zh": "在留出的 DNN 修复实例上，相对于仅使用代码信息的修复基线，DNN 感知的修复/定位干预能否减少错误补丁或引入漏洞的补丁，同时保持已验证的缺陷修复成功率？",
+      "criterion": "No reduction in independently verified regressions at non-inferior fix success, or a reduction that disappears under project-disjoint evaluation, fails the proposed DNN-aware value claim. Dataset frequency alone is not an outcome.",
+      "criterion_zh": "如果在修复成功率不劣的情况下，独立验证的回归没有减少，或在项目划分评估下收益消失，则不能支持 DNN 感知价值主张。数据集频率本身不是结果。",
+      "evidence": [
+        {
+          "title": "DeepDiagnosis: Automatically Diagnosing Faults and Recommending Actionable Fixes in Deep Learning Programs",
+          "title_zh": "DeepDiagnosis：自动诊断深度学习程序故障并推荐可执行修复",
+          "url": "https://wardat.github.io/files/DeepDiagnosis.pdf",
+          "date": "2021-12-07",
+          "relationship": "partial_progress_and_scope_narrowing_to_diagnosis: DeepDiagnosis outperforms listed fault-localization baselines and supplies actionable recommendations, but explicitly does not perform automated fixes; its future work includes automatic repair and additional bug types.",
+          "relationship_zh": "部分进展和范围收窄：DeepDiagnosis 优于列出的故障定位基线并提供可执行建议，但明确没有执行自动修复；其未来工作包括自动修复和更多故障类型。"
+        },
+        {
+          "title": "Repairing DNN Architecture: Are We There Yet?",
+          "title_zh": "修复 DNN 架构：我们已经做到哪一步？",
+          "url": "https://jinhan.me/assets/files/papers/Kim2022ak.pdf",
+          "date": "2023-01-27",
+          "relationship": "partial_progress_on_performance_repair_not_security_regression: Random search is comparable to or outperforms existing repair methods in some cases, and all tested techniques fail on larger and more complicated models. The endpoint is model-performance repair, not introduced-bug/security regression under the frozen comparison.",
+          "relationship_zh": "部分进展但端点不同：随机搜索在部分情形下可与或优于现有修复方法，所有测试技术在更大、更复杂模型上都失败；该端点是模型性能修复，不是冻结问题中的引入漏洞/安全回归。"
+        }
+      ]
+    },
+    {
+      "question_id": "HCS-OBSERVABLE-16-2026-10-14__2007.03275v1",
+      "source_paper_id": "2007.03275v1",
+      "source_url": "https://arxiv.org/pdf/2007.03275v1",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "Can the security-pattern checking approach generalize from UML-sequence-diagram-supported Web applications to applications or patterns lacking those diagrams by using code annotations, while preserving independently verified behavioral-property detection precision and recall?",
+      "question_zh": "安全模式检查方法能否从依赖 UML 时序图的 Web 应用推广到没有这些图或没有相应模式的应用，并通过代码注释保持独立验证的行为属性检测精确率和召回率？",
+      "criterion": "The generalization fails if precision or recall falls beyond a predeclared margin, annotations cannot be independently checked, or the apparent result depends on the same projects used to design the representation. More application examples without a matched representation comparison are not decisive.",
+      "criterion_zh": "如果精确率或召回率超出预先规定的下降幅度、注释无法独立检查，或结果依赖于设计表示时使用过的同一项目，则推广失败。没有匹配表示比较的更多应用示例并不具有决定性。",
+      "evidence": []
+    },
+    {
+      "question_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001__1707.09038v3",
+      "source_paper_id": "1707.09038v3",
+      "source_url": "https://arxiv.org/pdf/1707.09038v3.pdf",
+      "source_as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "On the source's Android application/fault-artifact corpus, do Android-specific mutation operators improve fault representation and reduce stillborn/trivial mutants relative to the source-pinned traditional mutation operators and tools?",
+      "question_zh": "在 Android 应用测试套件和植入的 Android 故障上，Android 专用变异算子是否相对于来源指定的传统算子/工具，提高故障表示能力并减少无意义或无效变异体？",
+      "criterion": "The Android-specific operators fail if they do not improve the prespecified fault-representation/stillborn-trivial endpoint over the source-pinned alternatives on the held-out app/fault set.",
+      "criterion_zh": "如果在留出的应用/故障集合上，Android 专用算子没有超过来源指定替代方案的预定故障表示率或无意义/无效变异体端点，则该主张失败。",
+      "evidence": [
+        {
+          "title": "MDroid+: A Mutation Testing Framework for Android",
+          "title_zh": "MDroid+：Android 变异测试框架",
+          "url": "https://arxiv.org/abs/1802.04749",
+          "date": "2018-02-13",
+          "relationship": "adjacent/continuation; not exact because app set, operator set, and frozen endpoint tuple differ",
+          "relationship_zh": "相邻/延续而非精确匹配：应用集合、算子集合和冻结端点元组不同，不能提供来源问题的直接标签。"
+        }
+      ]
+    },
+    {
+      "question_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001__1712.09136v1",
+      "source_paper_id": "1712.09136v1",
+      "source_url": "https://arxiv.org/pdf/1712.09136v1.pdf",
+      "source_as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "domain": "security_privacy",
+      "question": "Does the source's DTP-1 metric predict membership-attack success and distinguish classifier release-risk cases on the fixed datasets and attack protocol?",
+      "question_zh": "DTP-1 指标能否在固定数据集和攻击协议下预测成员攻击成功率，并区分应当避免发布的风险分类器？",
+      "criterion": "The DTP-1 proposal fails if DTP does not predict attack success or if the threshold does not discriminate release-risk cases under the fixed datasets and attack protocol.",
+      "criterion_zh": "如果 DTP 不能预测攻击成功率，或在固定数据集和攻击协议下无法区分发布风险案例，则 DTP-1 主张失败。",
+      "evidence": []
+    },
+    {
+      "question_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001__1806.03283v1",
+      "source_paper_id": "1806.03283v1",
+      "source_url": "https://arxiv.org/pdf/1806.03283v1.pdf",
+      "source_as_of": "2018-12-31T23:59:59Z",
+      "followup_end": "2023-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "At matched program, budget and cost accounting, does hybrid Badger generate worst-case executions faster and produce more resource-cost-increasing executions than fuzzing-only KelinciWCA and symbolic-execution-only Symbolic PathFinder?",
+      "question_zh": "在相同程序、预算和成本核算下，Badger 混合方法是否比仅模糊测试的 KelinciWCA 和仅符号执行的 Symbolic PathFinder 更快生成最坏情况执行，并产生更多提高资源成本的执行？",
+      "criterion": "Badger fails if it does not improve the source-pinned worst-case endpoint at matched program, budget, and cost accounting, or if the result is not reproducible on the named benchmarks.",
+      "criterion_zh": "如果在匹配条件下没有改善来源指定的最坏情况端点，或在指定基准上无法重复，则 Badger 主张失败。",
+      "evidence": [
+        {
+          "title": "Hybrid Differential Software Testing",
+          "title_zh": "混合差分软件测试",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-030-83128-8_9",
+          "date": "2021",
+          "relationship": "adjacent; differential-testing object and endpoint differ from the frozen worst-case-complexity comparator",
+          "relationship_zh": "相邻结果而非精确匹配：对象和端点是差分测试，不同于冻结的最坏情况复杂度比较。"
+        }
+      ]
+    },
+    {
+      "question_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001__1901.02771v1",
+      "source_paper_id": "1901.02771v1",
+      "source_url": "https://arxiv.org/pdf/1901.02771v1.pdf",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "algorithms_complexity",
+      "question": "On the fixed public benchmark instances, do the structured-time-window sweep extensions improve or preserve objective value and feasibility relative to the source-pinned sweep and baseline heuristics?",
+      "question_zh": "在固定公开基准实例上，结构化时间窗的扫掠算法扩展是否相对于来源指定的扫掠/基线启发式，保持或改善每个实例的目标值和可行性？",
+      "criterion": "The structured sweep extension fails if it does not improve or preserve the prespecified objective/feasibility endpoint over the baseline on the fixed benchmark set.",
+      "criterion_zh": "如果在固定基准集上，结构化扫掠扩展没有改善或保持预先规定的目标值/可行性端点，则该扩展失败。",
+      "evidence": [
+        {
+          "title": "dated primary routing/structured-time-window follow-up records were found, but none used the same linked benchmark, sweep comparator, and objective tuple",
+          "title_zh": "已找到有日期的路由/结构化时间窗后续主要记录，但没有一项使用相同的关联基准、扫掠比较器和目标元组",
+          "url": "https://arxiv.org/abs/1901.02771",
+          "date": null,
+          "relationship": "no exact match",
+          "relationship_zh": "没有精确匹配：发现了有日期的相关记录，但没有使用相同的基准、扫掠比较器和目标元组，因此不能提供冻结问题的直接标签。"
+        }
+      ]
+    },
+    {
+      "question_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001__1903.06407v2",
+      "source_paper_id": "1903.06407v2",
+      "source_url": "https://arxiv.org/pdf/1903.06407v2.pdf",
+      "source_as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "domain": "program_repair_verification",
+      "question": "For C programs containing inline assembly, does TInA's verification-oriented lifted representation preserve semantic equivalence and downstream verification success on each inline-assembly unit?",
+      "question_zh": "对于含有内联汇编的 C 程序，TInA 的验证导向提升表示是否能在每个内联汇编单元上保持语义等价和后续验证成功率？",
+      "criterion": "TInA fails if semantic equivalence or verification success is not preserved on the fixed GMP/ffmpeg units, or if gains require an unreported manual correction.",
+      "criterion_zh": "如果在固定的 GMP/ffmpeg 单元上无法保持语义等价或验证成功率，或收益需要未报告的人工修正，则 TInA 失败。",
+      "evidence": [
+        {
+          "title": "TInA ASE 2019 artifact/publication record and later primary presentation record",
+          "title_zh": "TInA ASE 2019 制品/出版记录及后续主要展示记录",
+          "url": "https://binsec.github.io/publications",
+          "date": "2019",
+          "relationship": "same-line record, not a new endpoint-matched follow-up; no independent exact comparison found",
+          "relationship_zh": "同一研究线记录而非端点匹配的后续结果；没有找到独立的精确比较。"
+        }
+      ]
+    },
+    {
+      "question_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001__2004.04211v1",
+      "source_paper_id": "2004.04211v1",
+      "source_url": "https://arxiv.org/pdf/2004.04211v1.pdf",
+      "source_as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "domain": "software_testing",
+      "question": "On the fixed open-source project test suites, do the four null-type mutation operators reveal additional null-fault-relevant missing tests relative to traditional mutation operators?",
+      "question_zh": "在固定开源项目测试套件上，四种空类型变异算子相比传统变异算子，是否能发现额外的、与空故障相关的缺失测试？",
+      "criterion": "Null-type operators fail if they do not reveal additional null-fault-relevant missing tests at the source's stated trade-off threshold on the fixed projects.",
+      "criterion_zh": "如果在固定项目上，空类型算子没有在来源给定的权衡阈值下揭示额外的空故障相关缺失测试，则该主张失败。",
+      "evidence": [
+        {
+          "title": "later public replication-package record for the null-type mutation study",
+          "title_zh": "空类型变异研究的后续公开复现包记录",
+          "url": "https://www.parsai.net/files/research/Do%20Null-Type%20Mutation%20Operators%20Help%20Prevent%20Null-Type%20Faults%20(preprint).pdf",
+          "date": null,
+          "relationship": "same study/adjacent record; no independently dated exact comparator result found",
+          "relationship_zh": "同一研究的相邻记录；没有找到独立日期的精确比较结果。"
+        }
+      ]
+    }
+  ]
+}

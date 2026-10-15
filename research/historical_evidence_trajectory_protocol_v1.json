@@ -1,0 +1,32 @@
+{
+  "protocol_id": "HCS-EVIDENCE-TRAJECTORY-V1-2026-10-14",
+  "status": "frozen_before_new_cohort_followup_adjudication",
+  "relation_to_existing_cohort": "Additive dataset only. Never overwrite HCS-BLIND-20-2026-10-14 source questions, three-year windows, or direct-resolution labels.",
+  "new_cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "source_frame": "data/historical_cs_year_topic_frame.jsonl",
+  "source_only_selection": {
+    "years": [2017, 2018, 2019, 2020],
+    "topics": ["algorithms_complexity", "program_repair_verification", "security_privacy", "software_testing"],
+    "title_regex_case_insensitive": "algorithm|bound|complexity|hardness|verify|verification|testing|fault|bug|benchmark|performance|privacy|secure|security|correctness|optimal|repair",
+    "exclude_ids": "all 20 arxiv IDs in data/historical_cs_blind_cohort_20.jsonl, plus previous four pilot IDs",
+    "sampling": "one SHA-256 hash-priority title-eligible paper per topic/year cell using fixed seed hcs-observable-title-2026-10-14-v1; no later citation, abstract revision or outcome feature used",
+    "eligibility_stage": "Selection is only an outcome-observability proxy. An exact cutoff-version full-text source screen must verify an explicitly open question, object, metric/property, and falsification condition before any future search. Keep ineligible and inaccessible rows in the denominator."
+  },
+  "cutoff": "publication-year end as recorded in the source frame; verify requested version was public by cutoff",
+  "future_window": "strictly after cutoff through the end of cutoff year plus five years, inclusive; no extension after viewing results",
+  "adjudication_unit": "one frozen question per eligible source paper; related publications and versions grouped by arxiv ID or verified research family",
+  "dimensions": {
+    "direct_scientific_resolution": "A dated primary source directly tests the same object and prespecified outcome/assumptions or proves the same formal proposition. Record support or refutation, not a generic success flag.",
+    "premise_refutation_or_revision": "A dated primary result directly undermines a necessary premise under matched definitions; separate this from direct resolution and from pre-cutoff prior art.",
+    "partial_progress": "A dated primary result establishes a strict subcase, weaker guarantee, narrower population, proxy endpoint, or one component of a conjunction without settling the frozen question.",
+    "independent_evidence_strengthening": "A distinct author team or independent data/code reproduces or strengthens a relevant claim with a verifiable metric; same-team follow-up alone does not count as independent.",
+    "contradictory_evidence": "Dated primary results disagree on a matched or explicitly comparable claim, with assumptions and discrepancy recorded; differing tasks alone are not contradiction.",
+    "scope_narrowing_or_reformulation": "A dated primary source explicitly narrows the question's domain, assumptions or metric; reviewer inference alone is a note, not a positive dimension.",
+    "continued_explicit_uncertainty": "An in-window primary source explicitly states that the same defined question remains open or directly reports an inconclusive test. A failed search never counts.",
+    "unadjudicated": "Evidence is absent, inaccessible, outside the fixed window, only topically related, or lacks a verifiable date/match. This is missingness, not a negative outcome."
+  },
+  "row_values": "For each of the first seven dimensions use supported, contradicted, not_observed_after_bounded_search, or not_assessable; record every supporting URL, first-public date, PDF page/section, exact scope and independent-unit caveat. Unadjudicated is a separate row-level flag. Not_observed is not evidence of absence.",
+  "adjudication_order": ["freeze cohort and protocol", "screen exact cutoff-version primary full text and lock one question", "record prespecified object, comparator and gate", "search future evidence", "verify primary full text and first-public date", "assign each dimension independently with provenance and exclusions"],
+  "analysis_gate": "Report per-dimension observed positives, assessable denominators, missingness by topic/year and exact binomial intervals. Do not fit or score Paper 3 until temporally split, grouped held-out units include enough positive and negative directly adjudicated outcomes; absence-of-hit rows are not negatives.",
+  "bias_controls": ["No outcome-informed replacement or survivor-only cohort", "No publication-count-only breakthrough label", "No retrospective change to the old rubric", "Positive controls, if added, are separately named case-control diagnostics and excluded from prevalence/forecast validation", "Record source-selection and retrieval failures"]
+}

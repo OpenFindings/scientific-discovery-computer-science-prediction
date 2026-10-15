@@ -1,0 +1,128 @@
+{
+  "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
+  "attempt": "1/1",
+  "evidence_tier": "tier_3_source_and_replication_package_feasibility_audit; no_new_experiment",
+  "objective": "Audit whether the null-type mutation question has a locally executable, version-pinned, endpoint-matched experiment after the Paper 3 Round 6 stop gate.",
+  "sources_data": {
+    "round6_stop_gate": {
+      "artifact": "reports/paper3_direct_endpoint_cohort_round6.json",
+      "status": "FIRED",
+      "relevant_result": "The null-type question was one of 6 eligible rows; exact direct outcome matches were 0/6. The prescribed next action was one endpoint-matched experiment, stopping if the artifact, comparator, or oracle could not be authenticated."
+    },
+    "original_paper": {
+      "title": "Do Null-Type Mutation Operators Help Prevent Null-Type Faults?",
+      "version": "arXiv 2004.04211v1",
+      "url": "https://arxiv.org/pdf/2004.04211v1",
+      "sha256": "7daf5220e65b438260e8897240acf68f5846460ddbcbae8ab15357d2a9d991ba",
+      "audited_claim": "Four null-type operators are evaluated against traditional mutation operators using VideoStore and 15 open-source Java projects."
+    },
+    "replication_package": {
+      "url": "https://parsai.net/files/research/SofSemReplicationPackage.7z",
+      "local_audit_path": "/private/tmp/nulltype-audit/SofSemReplicationPackage.7z",
+      "archive_format": "7-zip",
+      "bytes": 344929967,
+      "sha256": "93b639766eab6fe861e8b38436caa8402faa41780904913d2908222ca351df9c",
+      "contents_verified": [
+        "Projects/NullType and Projects/Traditional trees",
+        "Tools/LittleDarwin-Null.sh and LittleDarwin mutation/subsumption scripts",
+        "Reports/TypeReports, Reports/SubsumingReports, and project coverage reports",
+        "15 matching project versions in both comparator trees"
+      ]
+    },
+    "named_projects": [
+      "Apache Commons CLI 1.3.1",
+      "JSQLParser 0.9.4",
+      "jOpt Simple 4.8",
+      "Apache Commons Lang 3.4",
+      "Joda Time 2.8.1",
+      "Apache Commons Codec 1.10",
+      "Apache Commons Collections 4.1",
+      "VRaptor 3.5.5",
+      "HTTP Request 6.0",
+      "Apache Commons FileUpload 1.3.1",
+      "jsoup 1.8.3",
+      "JGraphT 0.9.1",
+      "PITest 1.1.7",
+      "JFreeChart 1.0.17",
+      "PMD r7706"
+    ],
+    "source_report_outcomes": {
+      "unit": "project for per-project type counts; mutant for kill/survival; dynamic subsumption report for redundancy",
+      "columns": "survived, killed, total",
+      "projects": {
+        "JSQLParser 0.9.4": {"traditional": [31, 457, 488], "null_type": [358, 1062, 1420]},
+        "Apache Commons CLI 1.3.1": {"traditional": [24, 318, 342], "null_type": [71, 415, 486]},
+        "Apache Commons Codec 1.10": {"traditional": [364, 1612, 1976], "null_type": [147, 927, 1074]},
+        "Apache Commons Collections 4.1": {"traditional": [638, 2705, 3343], "null_type": [1179, 5851, 7030]},
+        "Apache Commons FileUpload 1.3.1": {"traditional": [81, 273, 354], "null_type": [137, 211, 348]},
+        "Apache Commons Lang 3.4": {"traditional": [559, 5455, 6014], "null_type": [564, 5469, 6033]},
+        "HTTP Request 6.0": {"traditional": [49, 178, 227], "null_type": [69, 383, 452]},
+        "JFreeChart 1.0.17": {"traditional": [10558, 5603, 16161], "null_type": [8563, 6248, 14811]},
+        "JGraphT 0.9.1": {"traditional": [416, 940, 1356], "null_type": [834, 1457, 2291]},
+        "Joda Time 2.8.1": {"traditional": [892, 3978, 4870], "null_type": [836, 5371, 6207]},
+        "jOpt Simple 4.8": {"traditional": [17, 189, 206], "null_type": [37, 494, 531]},
+        "jsoup 1.8.3": {"traditional": [291, 928, 1219], "null_type": [553, 1455, 2008]},
+        "PITest 1.1.7": {"traditional": [398, 672, 1070], "null_type": [551, 2964, 3515]},
+        "PMD r7706": {"traditional": [5205, 2734, 7939], "null_type": [5099, 4613, 9712]},
+        "VRaptor 3.5.5": {"traditional": [111, 478, 589], "null_type": [795, 2111, 2906]}
+      },
+      "aggregate": {
+        "traditional": [19634, 26520, 46154],
+        "null_type": [19793, 39031, 58824],
+        "all_mutants": 104978,
+        "all_killed": 65551,
+        "all_subsuming": 16205,
+        "interpretation": "These are inspected source-package reports, not outcomes generated in this session. The paper reports null-type mutants as complementary to traditional mutants, with marginally increased redundancy; this audit does not validate that claim independently."
+      }
+    }
+  },
+  "endpoint_tuple": {
+    "object": "Java test suites and null-type fault mutants",
+    "intervention": "LittleDarwin-Null with NullifyReturnValue, NullifyInputVariable, NullifyObjectInitialization, and NegateNullCheck (reported in package as removeNullCheck)",
+    "comparator": "LittleDarwin traditional mutation operators",
+    "endpoint": "per-project mutant survival/killing and dynamic mutant subsumption; project is the independent unit for comparative summaries",
+    "falsification_gate": "Null-type operators fail to add null-fault-relevant missing tests at the stated trade-off threshold on the fixed project set, or the matched source package/oracle cannot be run and inspected."
+  },
+  "method": {
+    "performed": [
+      "Read the Round 6 stop-gate artifact and froze its null-type endpoint tuple.",
+      "Downloaded and SHA-256 checked the original paper and the paper-referenced replication archive.",
+      "Inspected archive membership, project/version names, Traditional versus NullType trees, tool scripts, type reports, and subsumption reports.",
+      "Checked local Java/build command availability and attempted the bundled LittleDarwin driver help path only as a bounded oracle smoke; no mutant generation or project test execution was started."
+    ],
+    "local_commands_and_observations": {
+      "java": "present as /usr/bin/java but fails: Unable to locate a Java Runtime",
+      "javac": "present as /usr/bin/javac but fails with the same missing Java Runtime",
+      "maven": "not found",
+      "ant": "not found",
+      "gradle": "not found",
+      "python": "resolves to Python 3; bundled LittleDarwin.py uses Python-2 print syntax and raises SyntaxError under python3 --help",
+      "smoke_result": "blocked before mutation/build execution; zero new mutants, kills, subsumption pairs, or efficacy measurements were produced"
+    },
+    "execution_decision": "INFEASIBLE_LOCALLY; no bounded experiment run"
+  },
+  "observed_result_or_blocker": {
+    "decision": "The endpoint and source package are authenticated enough for a future reproduction plan, but the full endpoint-matched experiment is not locally executable in this session.",
+    "blockers": [
+      "No usable Java runtime: both java and javac fail before execution.",
+      "No Maven, Ant, or Gradle executable is available for the heterogeneous project builds.",
+      "The bundled LittleDarwin driver is Python-2 syntax, while the available python command is Python 3; no Python-2 interpreter is available.",
+      "The projects use legacy build/dependency contracts, including Java source/target 1.5 in inspected POM/build files, so a current unpinned toolchain would not be an endpoint-preserving substitute.",
+      "A package containing precomputed reports is not a substitute for rerunning the source-pinned mutation/test oracle."
+    ],
+    "negative_or_null_preserved": true,
+    "not_claimed": "No claim is made that null-type operators are ineffective, effective, or independently reproduced; the reported counts remain source-package observations only."
+  },
+  "uncertainty": [
+    "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
+    "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
+    "The exact original environment versions, dependency-cache state, and run order are not fully specified by the inspected materials.",
+    "The aggregate source reports include generated artifacts; their presence does not establish that the bundled source can still reproduce them.",
+    "The local no-go is an environment/toolchain feasibility result, not a scientific null result."
+  ],
+  "next_falsifiable_action": {
+    "action": "Provision an isolated, version-recorded legacy toolchain containing a usable JDK compatible with the projects' Java 1.5-era builds, Maven/Ant as required by each project, and Python 2.7 or a separately validated port of LittleDarwin; then run one fixed project (JSQLParser 0.9.4) from clean Traditional and NullType trees before expanding to all 15.",
+    "enabling_condition": "Do not proceed until java -version, javac -version, the project build/test command, and LittleDarwin-Null produce successful, independently inspectable outputs on that single project with exact surviving/killed denominators and a reproducible report hash.",
+    "falsification": "If the clean single-project smoke cannot compile, run the source test suite, generate both operator groups, and emit the package-compatible kill/subsumption records under the pinned environment, terminate the reproduction attempt and retain the no-go."
+  }
+}

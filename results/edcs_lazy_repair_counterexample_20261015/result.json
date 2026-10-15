@@ -1,0 +1,247 @@
+{
+  "deletion_sequences": 79209,
+  "deletion_updates": 1165122,
+  "domains": {
+    "deletion_k": 3,
+    "deletion_prefix_max": 6,
+    "greedy_mixed_depth": 6,
+    "static_k": [
+      1,
+      2,
+      3
+    ]
+  },
+  "elapsed_seconds": 53.979445916600525,
+  "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+  "first_failure": {
+    "G": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "H": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "context": "static_all_masks_k3_mask15",
+    "dirty_after_state": [
+      [
+        "R",
+        0
+      ],
+      [
+        "R",
+        1
+      ],
+      [
+        "R",
+        2
+      ],
+      [
+        "L",
+        1
+      ]
+    ],
+    "failed": true,
+    "k": 3,
+    "matching_ratio": 1.0,
+    "mu_G": 2,
+    "mu_H": 2,
+    "relevant_degree_sums": [
+      {
+        "degree_left": 3,
+        "degree_right": 2,
+        "degree_sum": 5,
+        "edge": [
+          0,
+          0
+        ],
+        "kind": "P1",
+        "threshold": 4
+      }
+    ],
+    "sequence": [
+      {
+        "edge": [
+          0,
+          0
+        ],
+        "operation": "insert"
+      },
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "operation": "insert"
+      },
+      {
+        "edge": [
+          0,
+          2
+        ],
+        "operation": "insert"
+      },
+      {
+        "edge": [
+          1,
+          0
+        ],
+        "operation": "insert"
+      }
+    ],
+    "update": {
+      "H_before": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "dirty_after_repair": [
+        [
+          "R",
+          0
+        ],
+        [
+          "R",
+          1
+        ],
+        [
+          "R",
+          2
+        ],
+        [
+          "L",
+          1
+        ]
+      ],
+      "edge": [
+        1,
+        0
+      ],
+      "flips": [
+        {
+          "before_delta": 1,
+          "edge": [
+            1,
+            0
+          ],
+          "kind": "P2"
+        }
+      ],
+      "operation": "insert"
+    },
+    "update_index": 3,
+    "violations": [
+      {
+        "degree_sum": 5,
+        "edge": [
+          0,
+          0
+        ],
+        "kind": "P1",
+        "threshold": 4,
+        "used": true
+      }
+    ]
+  },
+  "greedy_sequence": [
+    {
+      "edge": [
+        2,
+        2
+      ],
+      "operation": "insert"
+    },
+    {
+      "edge": [
+        2,
+        2
+      ],
+      "operation": "delete"
+    },
+    {
+      "edge": [
+        2,
+        2
+      ],
+      "operation": "insert"
+    },
+    {
+      "edge": [
+        2,
+        2
+      ],
+      "operation": "delete"
+    },
+    {
+      "edge": [
+        2,
+        2
+      ],
+      "operation": "insert"
+    },
+    {
+      "edge": [
+        2,
+        2
+      ],
+      "operation": "delete"
+    }
+  ],
+  "greedy_updates": 6,
+  "implementation_sha256": "a343bc323f31747815001a68bde79d0c5ffb87b97d7e0a7c70350933619ea864",
+  "outcome": "counterexample_found",
+  "parameters": {
+    "beta": 4,
+    "beta_minus": 3,
+    "repair_flips_per_update": 1
+  },
+  "protocol_id": "EDCS-LAZY-REPAIR-PROTOCOL-V1",
+  "raw_trace_sha256": "e500803afa8a5e6bb669221edab548bc461dc1e23c73e0ede0a36003fd8f7c18",
+  "resource_limits": {
+    "cpu_seconds_max": 120,
+    "memory_mib_max": 1024,
+    "network": false,
+    "processes": 1
+  },
+  "seed": 20261015,
+  "started_at_monotonic": 4064415.110164583,
+  "static_graphs": 530,
+  "static_updates": 2337
+}

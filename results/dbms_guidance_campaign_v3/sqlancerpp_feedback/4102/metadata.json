@@ -1,0 +1,45 @@
+{
+  "conditions": [
+    {
+      "condition": "feedback_off",
+      "database_versions_logged": [
+        "3.40.0"
+      ],
+      "databases": 3,
+      "elapsed_seconds": 2.304,
+      "exit_code": 0,
+      "feedback_enabled": false,
+      "queries": 461,
+      "stderr_file": "feedback_off/stderr.log",
+      "stdout_file": "feedback_off/stdout.log",
+      "successful_statements": 604,
+      "unsuccessful_statements": 156
+    },
+    {
+      "condition": "feedback_on",
+      "database_versions_logged": [
+        "3.40.0"
+      ],
+      "databases": 3,
+      "elapsed_seconds": 2.223,
+      "exit_code": 0,
+      "feedback_enabled": true,
+      "queries": 461,
+      "stderr_file": "feedback_on/stderr.log",
+      "stdout_file": "feedback_on/stdout.log",
+      "successful_statements": 604,
+      "unsuccessful_statements": 156
+    }
+  ],
+  "confirmed_distinct_bugs": null,
+  "container_image_digest": "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+  "database_cap": 3,
+  "database_engine": "SQLITE",
+  "jar_sha256": "d5d342e99d9088eebadac1f13c9ffe86d7b886b75c585a8271034cedc51410be",
+  "learning_enabled": false,
+  "oracle": "NoREC",
+  "query_cap_per_database": 200,
+  "seed": 4102,
+  "source_commit": "1405d4eb5b7af7a639717a47147bd89362558830",
+  "study_status": "operational_feasibility_only"
+}

@@ -1,0 +1,150 @@
+{
+  "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+  "attempt": "1/1",
+  "evidence_tier": "tier_3_provenance_reconciled_descriptive_planning_audit",
+  "audit_scope": "Compare inspectable Paper 4 pre-action planning records with post-action feasibility artifacts for CAM, Badger, DP158, uncertainty-robustness, and SERENIoT. This is not a validation of planning utility, scientific value, or causal action benefit.",
+  "sources_and_data": [
+    {
+      "path": "reports/paper4_action_plan.json",
+      "role": "Paper 4 DBMS planning baseline",
+      "filesystem_mtime": "2026-10-13T17:15:42-04:00",
+      "observed": "Offline plan selected A1 (fresh paired SQLancer++ seeds); declared ordinal expected information gain 0.85, feasibility 0.9, cost 0.25. The artifact explicitly says these are planning assumptions and that no action-level ground truth exists.",
+      "limitation": "This is a DBMS plan, not a unified pre-action ranking for the five audited leads."
+    },
+    {
+      "path": "reports/paper4_badger_action_plan.json",
+      "role": "Badger-specific Paper 4 planning record",
+      "filesystem_mtime": "not independently available in this session",
+      "observed": "Selected next action was A1, a pin/build/metric feasibility gate, with A2 conditional on passing A1. The artifact declares hypothetical prior, sensitivity, specificity, feasibility, entropy, and information-gain values rather than measured probabilities.",
+      "limitation": "Internal created_at/generated_at/audited_at fields are null; the planning timestamp is therefore not fully self-contained."
+    },
+    {
+      "path": "reports/cam_artifact_ablation_feasibility.json",
+      "role": "CAM post-action feasibility outcome",
+      "filesystem_mtime": "2026-10-14T20:52:44-04:00",
+      "queue_provenance": "CAM-TRANSFER-FEAS-001 started 2026-10-15T00:51:47Z and finished 2026-10-15T00:52:53Z",
+      "observed": "NO-GO now for the public-data artifact ablation; conditional GO only after authorized project-linked logs, cause labels, and artifacts. No model fitting or ablation ran. The 2019 Ericsson 50% binary product-fault recall remains non-comparable to CAM multiclass accuracy.",
+      "independent_coding": "go_no_go=no_go_now; execution_status=not_executed; outcome_type=feasibility_blocker"
+    },
+    {
+      "path": "reports/badger_matched_cpu_feasibility.json",
+      "role": "Badger post-action feasibility outcome",
+      "filesystem_mtime": "2026-10-14T20:55:36-04:00",
+      "queue_provenance": "BADGER-FAIR-CPU-FEAS-001 started 2026-10-15T00:54:15Z and finished 2026-10-15T00:55:45Z",
+      "observed": "Bounded NO-GO for the matched-CPU experiment: native Kelinci built and CPU counters were observable, but Ant/Gradle/AFL/JPF/SPF/Z3 and a common cost metric were not reproducibly assembled. No Badger-versus-Kelinci outcome ran; paid compute and persistent services were zero.",
+      "independent_coding": "go_no_go=no_go; execution_status=feasibility_probe_only; outcome_type=feasibility_blocker"
+    },
+    {
+      "path": "reports/dp158_matched_guarantee_audit.json",
+      "role": "DP158 post-action matched-guarantee outcome",
+      "filesystem_mtime": "2026-10-14T21:06:04-04:00",
+      "queue_provenance": "DP158-MATCHED-GUARANTEE-001 started 2026-10-15T01:05:17Z and finished 2026-10-15T01:06:16Z",
+      "observed": "Comparison was not executable: the published GDP filter lacks a certified finite-q error enclosure, while the adaptive RDP fallback is conservative ordinary-floating-point reference code. No matched (epsilon, delta) comparison or production undercount claim is justified.",
+      "independent_coding": "go_no_go=no_go_for_matched_comparison; execution_status=not_executed; outcome_type=certification_blocker"
+    },
+    {
+      "path": "reports/uncertainty_robust_direct_test_feasibility.json",
+      "role": "uncertainty-robustness post-action feasibility outcome",
+      "filesystem_mtime": "2026-10-14T22:18:03-04:00",
+      "queue_provenance": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001 started 2026-10-15T02:17:05Z and finished 2026-10-15T02:18:10Z",
+      "observed": "Current direct test was rejected as infeasible: no version-pinned generator/code/data, matched comparator, equal-budget protocol, model training, or efficacy outcome was available. The historical near-match was not relabeled.",
+      "independent_coding": "go_no_go=no_go_currently; execution_status=not_executed; outcome_type=artifact_and_protocol_blocker"
+    },
+    {
+      "path": "reports/sereniot_cross_device_feasibility.json",
+      "role": "SERENIoT post-action feasibility outcome",
+      "filesystem_mtime": "2026-10-14T22:22:04-04:00",
+      "queue_provenance": "SERENIOT-CROSS-DEVICE-FEAS-001 started 2026-10-15T02:21:09Z and finished 2026-10-15T02:22:13Z",
+      "observed": "Conditional GO for a new small matched-device lab test, but NO-GO for immediate public-data replay. No experiment ran because traces, attack labels, and a verified runnable artifact were unavailable. Follow-up MFAF/functionality results were not treated as false-allow/false-block security outcomes.",
+      "independent_coding": "go_no_go=conditional_go_new_lab_test; execution_status=not_executed; outcome_type=access_blocker"
+    }
+  ],
+  "method": {
+    "provenance_reconciliation": [
+      "Read the planner artifacts, dependency artifacts, queue records, repository status, and filesystem mtimes.",
+      "Used queue started_at/finished_at values where present; treated report mtimes as supporting local provenance only, not as authoritative creation times.",
+      "Required an explicit pre-action rank or selected action before coding rank agreement; missing rank entries were coded non-identifiable rather than as disagreement."
+    ],
+    "independent_outcome_coding": "Coded each post-action artifact from its decision, execution status, and blocker text without importing the planner's hypothetical likelihoods or inferring success from a proxy endpoint.",
+    "agreement_metric": "Descriptive exact rank agreement was computed only where a lead had both an inspectable pre-action rank and a post-action coded outcome. No such complete, common ranking/outcome table exists for the five-lead set; therefore rank agreement, calibration, correlation, and expected utility are not estimable.",
+    "sample_unit": "five lead-level feasibility actions, with no completed efficacy outcome and no independent action-level utility label"
+  },
+  "observed_outcomes": [
+    {
+      "lead": "CAM",
+      "pre_action_rank": null,
+      "pre_action_status": "not_found_in_inspected_unified_planner_record",
+      "post_action_code": "NO_GO_NOW",
+      "post_action_observed": false,
+      "interpretation": "Feasibility correctly remains unresolved by execution, but rank agreement is not identifiable."
+    },
+    {
+      "lead": "Badger",
+      "pre_action_rank": "A1 feasibility_gate_then_A2_if_pass",
+      "pre_action_status": "inspectable; self-contained planning timestamps missing",
+      "post_action_code": "NO_GO",
+      "post_action_observed": false,
+      "interpretation": "The declared gate was exercised and failed on build/metric feasibility. This is one descriptive plan-to-gate correspondence, not utility validation."
+    },
+    {
+      "lead": "DP158",
+      "pre_action_rank": null,
+      "pre_action_status": "not_found_in_inspected_unified_planner_record",
+      "post_action_code": "NO_GO_FOR_MATCHED_COMPARISON",
+      "post_action_observed": false,
+      "interpretation": "Certification infeasibility was preserved; rank agreement is not identifiable."
+    },
+    {
+      "lead": "uncertainty_robustness",
+      "pre_action_rank": null,
+      "pre_action_status": "not_found_in_inspected_unified_planner_record",
+      "post_action_code": "NO_GO_CURRENTLY",
+      "post_action_observed": false,
+      "interpretation": "Artifact/protocol absence blocked the direct test; the near-match is not an outcome label."
+    },
+    {
+      "lead": "SERENIoT",
+      "pre_action_rank": null,
+      "pre_action_status": "not_found_in_inspected_unified_planner_record",
+      "post_action_code": "CONDITIONAL_GO_NEW_LAB_TEST_ONLY",
+      "post_action_observed": false,
+      "interpretation": "A feasible future design was identified, but no public-data action outcome was observed and no security benefit was inferred."
+    }
+  ],
+  "descriptive_calibration_and_rank_agreement": {
+    "complete_pre_post_cases": 1,
+    "total_audited_leads": 5,
+    "pre_action_rank_observed_for_all_five": false,
+    "exact_rank_agreement": null,
+    "rank_correlation": null,
+    "calibration_error": null,
+    "reason_not_estimable": "The available planning records are lead-specific and incomplete: the DBMS plan is a separate baseline, the Badger plan has no internal timestamp fields, and no inspectable pre-action rank is present for CAM, DP158, uncertainty-robustness, or SERENIoT. A one-case gate correspondence cannot support a rank statistic."
+  },
+  "result": {
+    "provenance_reconciled": true,
+    "observed_go_no_go_outcomes_coded": true,
+    "efficacy_outcomes_observed": 0,
+    "feasibility_blockers_observed": 4,
+    "conditional_future_test_only": 1,
+    "planning_utility_status": "GATED_UNVALIDATED",
+    "summary": "The audited actions produced feasibility and certification decisions, not action-level scientific outcomes. Badger's prerequisite gate was directionally consistent with its own pre-action plan, but the five-lead sample has no unified timestamped ranking and no completed efficacy outcomes. Paper 4 planning utility remains unvalidated."
+  },
+  "uncertainty": [
+    "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
+    "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
+    "The five actions are heterogeneous and were not randomized against a common action set or baseline.",
+    "Small n, missing pre-action ranks, and zero completed efficacy outcomes preclude causal utility, expected-utility, calibration, or ranking-performance claims.",
+    "Proxy observations and near-matches were excluded from direct success/failure coding when their endpoint, comparator, or provenance did not match."
+  ],
+  "next_falsifiable_action": {
+    "action": "Freeze a single timestamped Paper 4 plan covering the same candidate leads with explicit rank, cost, feasibility assumptions, outcome definitions, and falsification gates before any further action; then prospectively code whether each gate outcome matches the predeclared feasibility prediction.",
+    "minimum_evidence": [
+      "one immutable pre-action plan with creation hash and timestamp",
+      "common candidate-action table and simple baseline",
+      "independent post-action coder and exact outcome rubric",
+      "at least several completed, endpoint-matched actions before any descriptive calibration summary",
+      "separate efficacy outcomes from setup/access/certification blockers"
+    ],
+    "falsification_gate": "If future gate outcomes cannot be linked to immutable pre-action ranks and declared likelihood assumptions, retain planning utility as non-identifiable rather than scoring it."
+  }
+}

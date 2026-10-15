@@ -1,0 +1,93 @@
+{
+  "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+  "attempt": 1,
+  "status": "completed_bounded_current_no_go",
+  "decision": "no_go_currently",
+  "evidence_tier": "tier_3_source_and_feasibility_audit; no_direct_outcome",
+  "objective": "Determine whether a preregistered direct test can compare training on uncommon-uncertainty adversarial examples with conventional adversarial training at equal example count and compute.",
+  "frozen_question": "At equal training-example count and compute, does training on 2004.11573v1 uncommon-uncertainty adversarial examples improve held-out robust accuracy over conventional adversarial training without materially degrading clean accuracy?",
+  "sources_and_data": [
+    {
+      "role": "original_source",
+      "title": "Towards Characterizing Adversarial Defects of Deep Learning Software from the Lens of Uncertainty",
+      "version": "arXiv:2004.11573v1",
+      "url": "https://arxiv.org/pdf/2004.11573v1",
+      "abstract_url": "https://arxiv.org/abs/2004.11573",
+      "first_publication": "2020-04-24T07:29:47Z",
+      "sha256_from_prior_local_audit": "5bf733d9dc5e0b303c7f0c2dad338add604469ec239b8c0a4b0addfbb3cb5483",
+      "inspected_locations": ["PDF pp. 1-2", "PDF pp. 6-8", "PDF pp. 9-10"],
+      "observations": [
+        "The paper studies PCS and Bayesian variation ratio (VRO); common benign examples are generally high-PCS/low-VRO (HL), while attack adversarial examples are generally low-PCS/high-VRO (LH).",
+        "The paper defines uncommon targets as HH (high PCS/high VRO), LL (low PCS/low VRO), benign LH, and adversarial HL.",
+        "For the relevant adversarial HL target, the objective is PCS(x,M) > p, VRO(x,M) < v, and x is an adversarial example; AE(x) is an indicator that the model prediction differs from the benign seed/ground truth condition used by the paper.",
+        "KuK generates candidates from a benign seed with random-noise population initialization, an L-infinity constraint, tournament selection, pixel-wise crossover, and white-noise mutation; it iterates until the target is met or computation is exhausted.",
+        "Reported settings are population 100, crossover rate 0.5, mutation rate 0.005, L-infinity radius 0.3, 200 benign seeds per dataset, four target types per seed, and at most 50 GA iterations. Reported thresholds are high PCS > 0.7, low PCS < 0.3, high VRO > 0.6, and low VRO < 0.4; the paper says thresholds were selected from prior observed data distributions.",
+        "The paper evaluates generated test data against existing defenses; its conclusion explicitly leaves deeper application of uncommon data to robustness enhancement as future work. It does not specify a training intervention, equal-count comparator, equal-compute accounting, or held-out robust-accuracy protocol."
+      ]
+    },
+    {
+      "role": "official_project_page",
+      "title": "Model Uncertainty project website",
+      "url": "https://sites.google.com/view/modeluncertainty",
+      "observed": "The linked public pages expose paper/results material and figures; no versioned KuK source repository, release archive, commit, dataset manifest, or training implementation was authenticated during this audit."
+    },
+    {
+      "role": "historical_near_match",
+      "title": "Guiding the retraining of convolutional neural networks against adversarial inputs",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10495969/",
+      "doi_url": "https://doi.org/10.7717/peerj-cs.1454",
+      "observed": "The dated follow-up uses standard FGSM/BIM/CW examples and uncertainty-guided ordering/configurations (OAR/AR/AF), with an augmented test endpoint. The prior audit records that it does not use the 2004.11573 uncommon generator, does not provide the frozen equal-count/equal-compute comparison, and does not report the prespecified clean-accuracy trade-off.",
+      "evidence_role": "near_match_only; not a historical direct label"
+    },
+    {
+      "role": "local_feasibility_inputs",
+      "artifacts": ["reports/historical_outcome_adjudication.json", "reports/historical_label_bottleneck_audit.json"],
+      "observed": "The local audit preserves the original source hash and the near-match mismatch assessment. No MNIST/CIFAR10/ImageNet data, KuK code, model checkpoints, or uncertainty-robust training implementation is present in the repository."
+    }
+  ],
+  "method": {
+    "type": "bounded source, provenance, implementation, and local-compute feasibility audit",
+    "actions_taken": [
+      "Inspected the original versioned source and its exact PCS/VRO objectives, fitness functions, GA operators, thresholds, and reported settings.",
+      "Inspected the cited project website and searched for a version-pinned public code/data artifact; no authenticated implementation snapshot was found.",
+      "Inspected the prior historical-outcome adjudication and kept the 2023 follow-up as a near-match rather than relabeling it.",
+      "Checked the current environment: Python 3.9.6; TensorFlow, Keras, PyTorch, torchvision, CleverHans, and Foolbox are not installed; nvidia-smi is unavailable; no relevant datasets or code are present locally."
+    ],
+    "not_run": "No model training, adversarial generation, proxy experiment, synthetic labels, or hindsight relabeling was performed."
+  },
+  "source_intervention_and_comparator": {
+    "intervention_pinned": "Partially at algorithmic definition level: KuK-generated adversarial HL samples satisfying high PCS, low VRO, and AE status.",
+    "intervention_not_pinned": "No versioned implementation, exact random-noise distribution/seed protocol, full stopping/retry behavior, data preprocessing, or training-label construction is available.",
+    "comparator_pinned": false,
+    "comparator_gap": "Conventional adversarial training is not operationally specified by the source. The near-match uses standard attack-generated examples and cannot serve as the comparator definition for this frozen question.",
+    "budget_pinned": false,
+    "budget_gap": "Neither equal training-example count nor equal compute accounting is specified in the source; GA generation cost versus conventional attack-generation cost would also need an a priori accounting rule."
+  },
+  "observed_result_or_blocker": {
+    "result": "Current direct-test feasibility is rejected.",
+    "blockers": [
+      "No authenticated version-pinned KuK code/data/training artifact was found.",
+      "The source defines uncommon test-data generation, not the proposed robustness-training intervention or its labels.",
+      "Comparator, equal-example budget, equal-compute budget, held-out attack families, and clean/robust endpoint protocol are not source-pinned.",
+      "The local machine lacks the legacy Keras 2.2.4/TensorFlow 1.12.0 stack reported by the paper, GPU tooling, and relevant local datasets/models."
+    ],
+    "negative_or_null_preserved": "No efficacy result was observed. This no-go is an input/feasibility decision, not evidence that uncommon-uncertainty training is ineffective. The historical near-match remains unadjudicated and is not converted into a positive or negative outcome label."
+  },
+  "uncertainty": [
+    "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
+    "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
+    "A future implementation could make a direct test feasible with new resources; current absence is not evidence that no such implementation exists anywhere.",
+    "No sample-size or power calculation is claimed because the intervention and outcome variance inputs are not yet available."
+  ],
+  "next_falsifiable_action": {
+    "action": "Acquire an author-released or independently archived KuK implementation with commit/hash, environment lockfile, dataset/model manifest, and generation traces; then preregister a matched comparison before running it.",
+    "minimum_protocol": [
+      "Freeze dataset/model/version, seed set, preprocessing, KuK target type and thresholds, generation retries/stopping, and training-label construction.",
+      "Define conventional adversarial training and its attack-generation parameters before inspecting outcomes.",
+      "Equalize the number of training examples and wall-clock or accelerator-compute budget using the same accounting rule in both arms.",
+      "Evaluate clean accuracy and robust accuracy on held-out attack families and held-out generated examples, with independent seeds, clustered uncertainty, and a prespecified material clean-accuracy degradation threshold.",
+      "If any required artifact remains unavailable, retain this bounded no-go and do not run a proxy or assign a historical outcome label."
+    ],
+    "falsification_gate": "The lead fails the proposed benefit if the preregistered uncommon-generator arm has no held-out robust-accuracy advantage or exceeds the prespecified clean-accuracy degradation threshold."
+  }
+}

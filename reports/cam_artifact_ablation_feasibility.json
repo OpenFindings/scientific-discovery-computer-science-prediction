@@ -1,0 +1,130 @@
+{
+  "task_id": "CAM-TRANSFER-FEAS-001",
+  "attempt": "2/2",
+  "audited_at": "2026-10-15",
+  "evidence_tier": "source-authenticated feasibility audit; no ablation executed and no performance effect established",
+  "decision": "no-go for a preregistered CAM artifact ablation with currently verified public data; conditional go only after authorized release of project-linked logs, cause labels, and artifacts",
+  "objective_interpretation": {
+    "target_endpoint": "project-disjoint multiclass cause-classification accuracy comparing log-only CAM with an added-artifact arm at matched training budget",
+    "secondary_endpoint": "binary product-fault recall/FaultCaught, reported separately and not used as a substitute for multiclass cause accuracy",
+    "unit_and_split": "alarm/test-log instances grouped by industrial project; train, validation, and test projects must be disjoint, with no repeated alarm, near-duplicate log, artifact, or temporal leakage across groups",
+    "class_skew": "must report per-class support, macro-F1, balanced accuracy, multiclass accuracy, one-vs-rest AUPRC/AUROC where defined, calibration, and confusion matrices; majority-class accuracy is a baseline, not evidence of cause-model quality"
+  },
+  "sources_and_data": [
+    {
+      "source": "2017 primary CAM paper",
+      "title": "What Causes My Test Alarm? Automatic Cause Analysis for Test Alarms in System and Integration Testing",
+      "urls": [
+        "https://arxiv.org/abs/1703.00768",
+        "https://se-lab.cs.wmich.edu/static/pdf/icse_17_cam.pdf"
+      ],
+      "inspected_facts": {
+        "population": "two Huawei industrial testing projects, DS1 and DS2",
+        "size_and_time": "14,640 total test logs; DS1 7,663 over 40 testing days and DS2 6,977 over 22 days; raw dataset sizes reported as 4.72 GB and 6.06 GB",
+        "schema_level": "test-log text with manually labeled failure cause; the paper describes logs, timestamps/test steps, function points, and cause labels, but does not release the raw industrial records",
+        "classes": "DS1 has seven cause classes and DS2 six; DS1 product-code defects are 58.19%, while test-script defects are 11.64% and environmental issues 0.28%; DS2 product-code defects are 28.14%, test-script defects 46.71%, and environmental issues 2.41%",
+        "reported_endpoint": "CAM multiclass accuracy 58.3% on DS1 and 65.8% on DS2; these are not project-disjoint transfer estimates",
+        "artifact_availability": "the paper uses test logs and labels; no public release of the paired software artifacts needed for an added-artifact arm was located in this audit",
+        "access_status": "industrial data are not publicly downloadable from the inspected paper/source pages; authorization and a data-use agreement would be required"
+      },
+      "evidence_role": "primary endpoint and population definition"
+    },
+    {
+      "source": "2019 independent replication",
+      "title": "Mining Historical Test Logs to Predict Bugs and Localize Faults in the Test Logs",
+      "url": "https://users.encs.concordia.ca/~pcr/paper/Amar2019ICSE-draft.pdf",
+      "inspected_facts": {
+        "population": "Ericsson integration-test failure logs, independent of the Huawei CAM team/data",
+        "reported_endpoint": "plain CAM at K=15 catches 50.00% of product faults (FaultCaught); the paper also reports variants using Exclusive KNN and line-flagging metrics",
+        "task_change": "the analysis is binary product-fault versus non-product/environmental failure plus fault-line localization, not multiclass cause classification",
+        "skew_and_scope": "the authors attribute plain CAM's poor transfer to a high proportion of environmental failures and skewed KNN voting",
+        "artifact_availability": "the inspected paper reports Ericsson logs and derived processing, but does not release the industrial logs, labels, or a paired software-artifact corpus",
+        "population_reconciliation": "the 50% product-fault result is not numerically comparable to the 2017 58.3%/65.8% multiclass accuracies and is not an artifact-on/off result"
+      },
+      "evidence_role": "independent transfer and confound audit"
+    },
+    {
+      "source": "public packaging-machine alarm dataset",
+      "title": "Alarm logs of industrial packaging machines",
+      "url": "https://researchdata.cab.unipd.it/1031/",
+      "license": "Creative Commons Attribution 4.0",
+      "inspected_facts": {
+        "schema": "raw CSV rows contain timestamp, alarm code, and machine serial",
+        "coverage": "20 machines in different plants, 2019-02-21 through 2020-06-17, 154 alarm codes; the repository reports highly unbalanced distributions",
+        "available_labels": "alarm-code/sequence targets for forecasting and multi-label alarm prediction; no human multiclass cause label corresponding to CAM C1-C7 was found",
+        "project_disjointness": "machine serials support a possible machine-grouped split, but plant/project identity, independent cause adjudication, and software-project artifacts are not provided in the inspected schema/readme",
+        "artifact_arm": "no source code, test scripts, configuration files, or other paired software artifacts are included"
+      },
+      "evidence_role": "public schema/license inspection; insufficient endpoint match"
+    },
+    {
+      "source": "public causRCA machinery dataset",
+      "title": "causRCA: Real-World Dataset for Causal Discovery and Root Cause Analysis in Machinery",
+      "url": "https://github.com/causalgraph/causRCA/blob/main/data/README_DATASET.md",
+      "license": "Apache License 2.0",
+      "inspected_facts": {
+        "schema": "time-series recordings from CNC control, normal real-operation data, digital-twin fault scenarios, labels for underlying simulated cause and diagnosis, and an expert causal graph",
+        "coverage": "coolant, hydraulics, and probe experiment groups with multiple runs per scenario",
+        "project_disjointness": "scenario/run grouping may support grouped evaluation, but this is machinery fault diagnosis rather than industrial software test-alarm data and does not expose software projects or paired software artifacts",
+        "artifact_arm": "no software source, test scripts, or configuration artifacts matching the CAM added-artifact intervention are provided"
+      },
+      "evidence_role": "public labeled-fault alternative; insufficient modality and population match"
+    },
+    {
+      "source": "public Petrobras 3W dataset description",
+      "title": "3W: Anomaly Detection Dataset",
+      "url": "https://www.indatlas.com/datasets/3w/",
+      "license": "dataset CC BY 4.0; toolkit Apache-2.0 as described on the inspected page",
+      "inspected_facts": {
+        "schema": "multivariate oil-well time series with sample and fault-type labels",
+        "endpoint_match": "supports fault diagnosis/classification, but not CAM-style software test logs, human cause classes C1-C7, or paired software artifacts",
+        "split_match": "well/event grouping could be investigated, but project-disjoint software transfer is not established by the inspected description"
+      },
+      "evidence_role": "public labeled-fault alternative; insufficient modality and population match"
+    }
+  ],
+  "method": {
+    "actions_completed": [
+      "Read project state, queue, status, Paper 3 and Paper 4 methodology, and the prior CAM trajectory audit.",
+      "Inspected the primary 2017 CAM source metadata and dataset table claims.",
+      "Inspected the 2019 independent replication's endpoint, class-skew discussion, and reported CAM result.",
+      "Inspected public dataset landing pages/readmes, licenses, schemas, labels, grouping fields, and artifact availability for the packaging-machine alarm, causRCA, and 3W datasets.",
+      "Applied an endpoint gate: do not pool binary product-fault recall with multiclass cause accuracy or treat alarm-code/fault labels as CAM cause labels."
+    ],
+    "not_run": "No model fitting, data download into the repository, label conversion, or ablation was run because no verified dataset satisfied the required labels plus paired artifacts plus project-disjoint grouping conditions.",
+    "no_restricted_upload": true
+  },
+  "observed_result_or_blocker": {
+    "result": "No currently verified public dataset supports the full comparison. The closest public dataset has 20 machine serial groups and CC BY 4.0 data but only alarm-code sequence labels; the other public labeled-fault datasets are machinery/process time series without software artifacts. The original Huawei and Ericsson industrial records are not publicly released in the inspected sources.",
+    "blockers": [
+      "No public paired corpus containing log-only inputs, additional software artifacts, and independently adjudicated multiclass cause labels.",
+      "No verified public project identifier/split unit for the closest alarm dataset; machine serial is not assumed to equal independent software project.",
+      "No authorized data-use agreement or industrial data delivery was available in this session.",
+      "2019 FaultCaught is a binary product-fault recall endpoint and cannot validate the target multiclass cause-accuracy claim."
+    ],
+    "go_no_go": "NO-GO now; CONDITIONAL GO after authorized data access and schema audit"
+  },
+  "next_falsifiable_action": {
+    "action": "Request a de-identified, access-controlled release from an industrial partner containing at least three independent projects (or an explicitly documented project-equivalent grouping), raw test logs, artifact snapshots available at prediction time, single or adjudicated cause labels, timestamps, project IDs, and label provenance. Freeze an artifact manifest and preregistration before modeling.",
+    "minimum_protocol": {
+      "arms": ["log-only CAM", "log-plus-artifact CAM with artifacts restricted to information available at alarm time"],
+      "split": "leave-one-project-out or train/validation/test project holdout; no within-project random split as the primary result",
+      "metrics": ["multiclass accuracy", "macro-F1", "balanced accuracy", "per-class recall/precision", "confusion matrix", "calibration", "one-vs-rest AUPRC/AUROC where estimable", "binary product-fault recall as a separately labeled secondary endpoint"],
+      "controls": ["majority-class and log-only baselines", "matched training examples and tuning budget", "class-weighting/resampling fixed before test evaluation", "artifact missingness and availability audit", "duplicate/near-duplicate and temporal leakage checks"],
+      "falsification_gate": "abstain from a positive artifact claim if the artifact arm does not improve predeclared macro-F1 and balanced accuracy on held-out projects, or if label/schema alignment fails; report nulls and negative class-specific effects"
+    },
+    "estimated_cost": "planning estimate only: 1-2 person-weeks for data-use approval, de-identification/schema audit, project-group integrity checks, and preregistration; approximately 1-3 additional CPU-days for a small classical CAM ablation once data are delivered. These costs were not incurred or externally confirmed in this audit."
+  },
+  "uncertainty": [
+    "Public dataset descriptions were inspected, but absence of a field on a landing page/readme is not proof that an undisclosed authorized supplement cannot exist.",
+    "The exact first-public date and full access terms for the 2019 author draft are not independently reconstructed here; this does not affect the endpoint mismatch.",
+    "Machine, well, or scenario grouping in public alternatives may be useful for other fault-diagnosis studies but has not been shown to represent independent software projects.",
+    "The proposed minimum project count and cost are feasibility assumptions for a small preregistered test, not observed power or validated effect-size claims.",
+    "No causal benefit of adding artifacts, no multiclass transfer performance, and no Paper 3 forecast skill are established."
+  ],
+  "negative_results_preserved": [
+    "No artifact-on/off comparison was executed.",
+    "No public dataset inspected supplied the complete required endpoint and artifact pairing.",
+    "The 2019 50% product-fault result remains an independent binary transfer observation only."
+  ]
+}

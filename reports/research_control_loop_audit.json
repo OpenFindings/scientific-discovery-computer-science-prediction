@@ -1,0 +1,159 @@
+{
+  "audit_id": "research_control_loop_2026-10-15",
+  "scope": "supervisor_events, scientific completion gates, bounded worker continuation, quota recovery, launchd",
+  "historical_event_audit": {
+    "event_rows_at_audit": 84,
+    "worker_result_rows": 19,
+    "historical_false_quota_rows": [
+      {
+        "task_id": "CAM-TRANSFER-FEAS-001",
+        "attempt": 2,
+        "recorded_failure_class": "quota",
+        "recorded_rate_limited": true,
+        "error": "worker changed paths outside declared artifact: research/task_queue.json",
+        "corrected_interpretation": "worker_write_conflict",
+        "reason": "the worker produced a bounded artifact and the failure was a protected canonical-queue write, not a provider quota response"
+      }
+    ],
+    "actual_canonical_write_conflicts": [
+      "CAM-TRANSFER-FEAS-001 attempt 1 and attempt 2: research/task_queue.json"
+    ],
+    "historical_false_positive_write_conflicts": [
+      "BADGER-FAIR-CPU-FEAS-001: derived experiments lane checkpoint refreshed by status tooling",
+      "DP158-MATCHED-GUARANTEE-001: launchd stderr append concurrent with the worker"
+    ],
+    "current_policy": "canonical research/state.json, research/task_queue.json, and ledger remain supervisor-owned; derived lane checkpoints and launchd streams are tolerated concurrent outputs"
+  },
+  "scientific_completion_audit": {
+    "artifact_only_preserved": [
+      {
+        "task_id": "HISTORICAL-OUTCOME-001",
+        "status": "artifact_only",
+        "reason": "no authenticated direct future-resolution or explicit-unresolved label"
+      }
+    ],
+    "scientifically_completed_descriptive_audit": {
+      "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "status": "completed",
+      "evidence_tier": "tier_3_provenance_reconciled_descriptive_planning_audit",
+      "observed": {
+        "actions_coded": 5,
+        "efficacy_outcomes": 0,
+        "feasibility_blockers": 4,
+        "conditional_future_tests": 1
+      },
+      "scientific_boundary": "descriptive audit completed; Paper 4 planning utility remains GATED_UNVALIDATED because there is no unified immutable pre-action ranking and no endpoint-matched efficacy sample"
+    }
+  },
+  "mock_provider_recovery": {
+    "focused_supervisor_tests": 22,
+    "full_unittest_suite": 64,
+    "passed": true,
+    "covered": [
+      "structured rate_limit_exceeded pauses without completing the task",
+      "retry is skipped before reset and resumes after an expired reset",
+      "authentication failure is not quota",
+      "policy prose containing rate limits is not quota",
+      "valid JSON artifact can remain artifact_only"
+    ]
+  },
+  "launchd_verification": {
+    "plist": "/Users/amao/Library/LaunchAgents/com.nonameisready.scientific-discovery.supervisor.plist",
+    "installed": true,
+    "loaded": true,
+    "label": "com.nonameisready.scientific-discovery.supervisor",
+    "program": "/opt/homebrew/bin/python3.12",
+    "run_interval_seconds": 900,
+    "run_at_load": true,
+    "bounded_arguments": ["--start", "--max-rounds", "1"],
+    "kickstart_observation": {
+      "runs_before": 3,
+      "runs_after": 4,
+      "last_exit_code": 0,
+      "state_after_bounded_exit": "not running",
+      "interpretation": "the job is loaded and restart-capable; not running after a bounded successful run is expected, not a failed persistent-service assertion"
+      }
+    },
+    "latest_kickstart_observation": {
+      "runs_before": 6,
+      "runs_after": 7,
+      "last_exit_code": 0,
+      "state_after_bounded_exit": "not running",
+      "lock_conflict_observation": "Earlier exit code 3 events correspond to a concurrent manual activation holding the campaign lock; a kickstart after the worker queue was idle exited 0."
+  },
+  "autonomous_continuation": {
+    "forecasting_successor": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+    "forecasting_successor_status": "completed_stop_gate_fired",
+    "experiments_successor_generation": "QAOA A1 larger-n robustness completed; Avocado and null-type endpoint audits recorded conditional no-go results",
+    "current_worker_budget": "per-activation allowance renewed 19 times; lifetime worker count 19 remains append-only; configured experiment-start cap exhausted at 8",
+    "next_state": "waiting_for_experiment_authorization",
+    "scientific_claim": "control loop distinguishes scheduling, artifact completion, independent reconciliation, and validated scientific completion; no Paper 3 predictive score or general breakthrough claim is made"
+  },
+  "idle_continuation_observation": {
+    "observed_at": "2026-10-15T04:40:43Z",
+    "source": "loaded launchd bounded activations",
+    "additional_activation_events": 6,
+    "worker_invocations_started": 0,
+    "eligible_tasks_scheduled": 0,
+    "experiment_budget_changed": false,
+    "interpretation": "The scheduler renewed its bounded activation allowance and repeatedly rechecked the queue without inventing a successor, replaying an exhausted experiment, or treating an empty queue as scientific progress."
+  },
+  "renewable_experiment_budget_audit": {
+    "renewal_id": "PAPER4-QAOA-REPLICATION-CYCLE-20261015",
+    "authorized_additional": 2,
+    "experiments_started_before": 8,
+    "experiments_started_after": 10,
+    "consumed": 2,
+    "remaining": 0,
+    "lifetime_counter_reset": false,
+    "service_quota_bypassed": false,
+    "decision": "bounded renewal consumed exactly by independent replication and fair shot-cost comparison"
+  },
+  "novel_cs_cycle_audit": {
+    "planning_checkpoints_reconciled": [
+      "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
+      "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+      "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
+      "PAPER4-QAOA-CLOSURE-001"
+    ],
+    "selected_experiment": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+    "selected_experiment_status": "completed_variant_counterexample_then_mathematical_generalization",
+    "new_experiment_started": 1,
+    "lifetime_experiment_counter_changed": false,
+    "authorization_request": {
+      "cpu_seconds": 120,
+      "memory_mib": 1024,
+      "processes": 1,
+      "network": false
+    },
+    "interpretation": "The single explicitly authorized EDCS search completed. No additional search was run; subsequent work is a fixed-witness mathematical audit and provenance repair."
+  },
+  "edcs_experiment_audit": {
+    "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+    "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+    "authorization": "one bounded local experiment explicitly authorized by user",
+    "new_experiments_started_this_cycle": 1,
+    "elapsed_seconds": 53.979445916600525,
+    "resource_limits": {"cpu_seconds_max": 120, "memory_mib_max": 1024, "processes": 1, "network": false},
+    "trace_rows_independently_checked": 1167465,
+    "outcome": "variant_P1_counterexample_verified",
+    "matching_ratio_failure": false,
+    "original_edcs_theory_refuted": false,
+    "original_dynamic_edcs_algorithm_tested": false,
+    "next_state": "experimental_execution_closed_until_new_protocol_and_authorization"
+  },
+  "edcs_provenance_audit": {
+    "artifact": "reports/edcs_provenance_audit_20261015.json",
+    "protocol_commit": "d54db55",
+    "validation_commit": "c1724dd",
+    "declared_frozen_at_consistent_with_execution": false,
+    "conclusion": "Git content chronology supports protocol-before-execution, but the declared frozen_at timestamp is later than observed execution and validation artifacts; strict temporal preregistration is chronology-uncertain."
+  },
+  "edcs_supervisor_repair": {
+    "false_artifact_only_event_preserved": true,
+    "cause": "task artifact pointed to compact runner result rather than structured scientific report",
+    "repair_script": "scripts/repair_edcs_checkpoint.py",
+    "lifetime_experiment_counter_changed": false,
+    "scientific_status_after_repair": "scientifically_completed"
+  }
+}

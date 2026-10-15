@@ -1,0 +1,22 @@
+{
+  "validation_id": "VALIDATE-EXP-PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-20261015",
+  "input": "results/qaoa_source_baseline_replication_20261015/result.json",
+  "checks": {
+    "experiment_id": true,
+    "new_seed": true,
+    "new_graph_count": true,
+    "all_graph_indices_unique": true,
+    "all_edges_simple_3_regular": true,
+    "all_observations_retained": true,
+    "raw_rows_reconcile": true,
+    "no_nan_payload": true,
+    "independent_small_row_recomputation": true,
+    "state_norm": true
+  },
+  "all_checks_pass": true,
+  "scientific_interpretation": "This validates the frozen state-vector convention, graph retention and arithmetic for the independent replication; it does not establish practical advantage or novelty.",
+  "unresolved": [
+    "Equal-cost end-to-end best-cut performance is evaluated separately.",
+    "The cited source may already imply the conditional state-quality effect; this run is a replication until a primary-source novelty audit says otherwise."
+  ]
+}

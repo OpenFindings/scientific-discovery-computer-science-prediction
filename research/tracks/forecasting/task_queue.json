@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "artifact": "reports/paper3_cs_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.8,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "dated metadata",
+        "future outcome labels",
+        "historical snapshots"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "Do not train/test without historically valid labels; document smallest obtainable dataset.",
+      "max_attempts": 2,
+      "objective": "Audit whether authentic historical CS question/outcome records can support leakage-free Paper 3 temporal evaluation; specify data gaps and baselines.",
+      "priority": 75,
+      "status": "completed",
+      "success_criteria": [
+        "point-in-time availability audit",
+        "temporal split plan",
+        "no hindsight label leakage"
+      ],
+      "task_id": "FORECAST-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/broad_cs_historical_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.7,
+      "dependencies": [
+        "FORECAST-001"
+      ],
+      "execution_requirements": [
+        "937531-record local metadata corpus",
+        "dated primary-source follow-ups",
+        "version-aware temporal split"
+      ],
+      "expected_information_gain": 0.85,
+      "failure_handling": "If authentic question/outcome labels cannot be verified, preserve coverage and labels as pending; never score synthetic/hindsight outcomes as Paper 3 validation.",
+      "max_attempts": 2,
+      "objective": "Expand point-in-time CS question discovery beyond the 407-paper sample by stratifying the historical arXiv metadata corpus, selecting falsifiable questions, and auditing pre/post-cutoff evidence without future leakage.",
+      "priority": 90,
+      "status": "completed",
+      "success_criteria": [
+        "2010-2022 year/topic frame and temporal-revision exclusions audited",
+        "three falsifiable candidates sourced",
+        "source and dated follow-up provenance preserved with non-resolution explicitly marked",
+        "zero historical outcome labels claimed"
+      ],
+      "task_id": "BROAD-CS-HISTORICAL-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/historical_outcome_adjudication.json",
+      "attempts": 1,
+      "cost_estimate": 0.9,
+      "dependencies": [
+        "BROAD-CS-HISTORICAL-001"
+      ],
+      "execution_requirements": [
+        "original full texts and dated source links",
+        "frozen original rubric",
+        "specific retrieval gap from reports/historical_label_bottleneck_audit.json"
+      ],
+      "expected_information_gain": 0.35,
+      "failure_handling": "If follow-ups are merely topical or source timing ambiguous, mark unadjudicated; never convert attention to resolution or leak future text into forecast features.",
+      "finished_at": "2026-10-15T02:15:39Z",
+      "last_result": {
+        "artifact_bytes": 10285,
+        "artifact_valid": true,
+        "elapsed_seconds": 73.851,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "815ed92c1c06c9def0204989825ea2924c03ddb04b9efc73f8c145857cf80c48",
+        "retry_after_seconds": null,
+        "session_id": "01a13d56-db17-7270-bc2a-32179c34ef49",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
+      "priority": 40,
+      "scientific_completion": "outcome_label",
+      "scientific_status": "artifact_only",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "sources_and_data",
+          "method",
+          "uncertainty",
+          "next_falsifiable_action",
+          "observed_result_or_blocker",
+          "direct_or_explicit_unresolved_label"
+        ],
+        "mode": "outcome_label",
+        "reason": "valid artifact does not satisfy scientific success criteria",
+        "scientific_success": false
+      },
+      "started_at": "2026-10-15T02:14:24Z",
+      "status": "artifact_only",
+      "success_criteria": [
+        "source texts and follow-up claims separately verified",
+        "at least one direct resolution or explicit unresolved label under a frozen rubric",
+        "Paper 3 comparison only after enough labels exist"
+      ],
+      "task_id": "HISTORICAL-OUTCOME-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "BROAD-CS-HISTORICAL-001"
+      ],
+      "execution_requirements": [
+        "frozen trajectory rubric and cohort",
+        "exact cutoff-version PDFs",
+        "primary full-text follow-ups only after each source lock"
+      ],
+      "expected_information_gain": 0.9,
+      "failure_handling": "No replacement by known winners; record missingness, ineligibility and near-matches; do not score Paper 3 without adequate class counts.",
+      "max_attempts": 2,
+      "objective": "Screen at least four additional source-only exact-version papers in the separately frozen 16-paper cohort, lock eligible questions before future search, and adjudicate distinct evidence-trajectory dimensions with primary dates and exclusions; preserve ineligible rows.",
+      "priority": 95,
+      "research_key": "observable_historical_trajectory_source_screen_and_adjudication_round1",
+      "status": "completed",
+      "success_criteria": [
+        "at least four more source-screened rows or a documented retrieval blocker",
+        "dated primary follow-ups for eligible questions",
+        "dimension counts and missingness checked"
+      ],
+      "task_id": "HISTORICAL-TRAJECTORY-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/historical_evidence_trajectory_round2.json",
+      "attempts": 1,
+      "cost_estimate": 0.6,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "frozen 16-paper selection",
+        "source-only locks before follow-up",
+        "primary date and exact-definition checks"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "Preserve all failures and avoid replacement by known resolved cases; move away from weak keyword retrieval when exact sources remain absent.",
+      "max_attempts": 2,
+      "objective": "Screen the six remaining papers in the frozen 16-paper cohort using cutoff-version primary sources; lock source-only eligibility before future searches, retain ineligible and inaccessible cases, and adjudicate separately under the unchanged trajectory rubric.",
+      "priority": 95,
+      "research_key": "observable_historical_trajectory_remaining_six",
+      "result": "16/16 source screens locked; 12 eligible rows received bounded future checks; direct resolution 0; partial progress 5; scope narrowing 3; no Paper 3 score.",
+      "status": "completed",
+      "success_criteria": [
+        "all 16 source-screen statuses recorded",
+        "all eligible questions have bounded dated follow-up checks or explicit retrieval blockers",
+        "per-dimension counts and missingness audited"
+      ],
+      "task_id": "HISTORICAL-TRAJECTORY-002",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/paper3_trajectory_readiness.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "immutable source-only features",
+        "audited dimensional labels",
+        "grouped temporal holdout"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If class counts are sparse, report power and missingness without AUC or probabilities.",
+      "max_attempts": 1,
+      "objective": "Quantify per-dimension class counts, missingness and temporal test feasibility for the separate observable cohort; evaluate Paper 3 only if the prespecified class and grouped time-split gates pass.",
+      "priority": 85,
+      "research_key": "paper3_trajectory_label_power_and_temporal_readiness",
+      "result": "No score: 12 rows, direct-resolution supported 0, contradicted 0; grouped temporal holdout is not identifiable from missing direct labels.",
+      "status": "completed",
+      "success_criteria": [
+        "separate outcome counts",
+        "uncertainty and split audit",
+        "valid score or explicit no-score decision"
+      ],
+      "task_id": "PAPER3-TRAJECTORY-READINESS-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round3.json",
+      "attempts": 2,
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-002"
+      ],
+      "execution_requirements": [
+        "existing year/topic frame",
+        "source-only selection before follow-up search",
+        "frozen trajectory rubric",
+        "no hindsight labels"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "If direct labels remain sparse, preserve missingness and produce a valid no-score decision; do not reinterpret partial progress as resolution.",
+      "finished_at": "2026-10-15T02:43:17Z",
+      "last_result": {
+        "artifact_bytes": 17850,
+        "artifact_valid": true,
+        "elapsed_seconds": 134.78,
+        "error": "worker changed paths outside declared artifact: research/state.json",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "14e8c66530e00cc203ef5e34d23f6e85f99246a5d4c641e803b6b2705cd27afd",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "scientific_validation_reconciled": true,
+        "session_id": "01a13d6f-3cf9-7770-b779-bc1c131e3955",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Create a new source-only, cutoff-frozen historical CS question mini-cohort from the existing year/topic frame, then audit dated follow-ups under the frozen trajectory rubric; report direct-label yield and missingness without scoring Paper 3 unless valid labels exist.",
+      "priority": 78,
+      "research_key": "paper3_outcome_observability_round3",
+      "scientific_completion": "trajectory_audit",
+      "scientific_status": "scientifically_completed_after_independent_reconciliation",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:41:02Z",
+      "status": "completed",
+      "success_criteria": [
+        "new source-only rows and cutoff provenance",
+        "dated follow-up audit",
+        "direct-label prevalence and Paper 3 gate reported"
+      ],
+      "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+      "track": "forecasting",
+      "worker_failure_note": "worker changed a supervisor-owned path",
+      "worker_status": "write_conflict_rejected"
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round4.json",
+      "attempts": 1,
+      "cost_estimate": 0.6,
+      "dependencies": [
+        "PAPER3-OBSERVABILITY-ROUND3-001"
+      ],
+      "execution_requirements": [
+        "Round 3 artifact and independent validation",
+        "citation-tracing sources",
+        "authenticated primary full text where available",
+        "frozen source/outcome cutoff separation"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "Retain missingness when exact intervention, comparator, endpoint or date cannot be authenticated; never turn a failed search into a negative resolution label.",
+      "finished_at": "2026-10-15T02:52:07Z",
+      "last_result": {
+        "artifact_bytes": 15086,
+        "artifact_valid": true,
+        "elapsed_seconds": 143.631,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "7b76f7d95e96111e5e85164be0447da9129770f22d27395486f0f44e54b5b489",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d77-2f98-7403-bb12-e1a9a1c64e09",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "For the three eligible rows in the independently validated Round 3 cohort, run a second frozen retrieval protocol using citation tracing plus authenticated primary full-text access; classify direct resolution, premise revision, partial progress and missingness without changing the original cohort or manufacturing labels.",
+      "priority": 86,
+      "research_key": "paper3_independent_citation_tracing_round4",
+      "scientific_completion": "trajectory_audit",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:49:43Z",
+      "status": "completed",
+      "success_criteria": [
+        "second protocol frozen before follow-up adjudication",
+        "all three rows receive provenance-coded dimension outcomes",
+        "Paper 3 score remains gated unless direct labels exist"
+      ],
+      "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/historical_objective_cohort_round5.json",
+      "attempts": 1,
+      "cost_estimate": 0.7,
+      "dependencies": [
+        "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001"
+      ],
+      "execution_requirements": [
+        "historical metadata frame",
+        "original-version primary full text",
+        "objective endpoint rubric frozen before follow-up",
+        "no hindsight selection"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "If an endpoint is not objectively defined in the source, exclude it from the outcome-observable cohort and retain the exclusion; do not create labels from publication or citation counts.",
+      "finished_at": "2026-10-15T02:55:26Z",
+      "last_result": {
+        "artifact_bytes": 23767,
+        "artifact_valid": true,
+        "elapsed_seconds": 72.282,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "5a782ac2f79967f0147df0d4aa026fdd49239a5bc8f5f98e4a3de9dbbf329697",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d7b-5294-73c1-b622-7776c0081efc",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Construct a fresh source-only historical CS cohort centered on explicit formal conjectures, complexity bounds, program properties or public benchmark targets with objectively checkable endpoints; freeze source definitions before any future-outcome search and report whether outcome observability improves over the prior retrieval-focused cohort.",
+      "priority": 91,
+      "research_key": "paper3_objective_outcome_observable_cohort_round5",
+      "scientific_completion": "trajectory_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:54:14Z",
+      "status": "completed",
+      "success_criteria": [
+        "source-only selection and cutoff provenance",
+        "objective endpoint and falsification rule per retained question",
+        "direct-label yield and missingness reported without Paper 3 scoring when sparse"
+      ],
+      "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/paper3_observability_cause_diagnosis.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001"
+      ],
+      "execution_requirements": [
+        "Round 3/4/5 reports and validation receipts",
+        "original frozen-cohort boundaries",
+        "no hindsight relabeling",
+        "separate direct labels from trajectory dimensions"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "If a cause cannot be distinguished from bounded-search missingness, mark it unidentified; do not choose a cause from intuition or infer a prevalence estimate.",
+      "finished_at": "2026-10-15T02:57:52Z",
+      "last_result": {
+        "artifact_bytes": 14349,
+        "artifact_valid": true,
+        "elapsed_seconds": 84.888,
+        "error": "worker changed paths outside declared artifact: research/state.json",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "7ea2fa9cccd94d00ea64eb7578b70574886452194bce11410dce16171adc1784",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "scientific_validation_reconciled": true,
+        "session_id": "01a13d7d-5bee-7431-9708-391cec71195b",
+        "timed_out": false,
+        "worker_integrity_failure": "worker changed paths outside declared artifact: research/state.json"
+      },
+      "max_attempts": 1,
+      "objective": "Diagnose the direct-label bottleneck across the independently validated Paper 3 rounds without repeating keyword search: compare retrieval coverage, source eligibility, question-definition specificity, outcome-window structure, and trajectory missingness; identify which explanations are empirically supported and freeze the next cohort-selection rule.",
+      "priority": 90,
+      "research_key": "paper3_observability_cause_diagnosis_rounds3_to5",
+      "scientific_completion": "diagnostic_audit",
+      "scientific_status": "scientifically_completed_after_independent_reconciliation",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "diagnostic_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:56:27Z",
+      "status": "completed",
+      "success_criteria": [
+        "cause comparison has explicit denominators and exclusions",
+        "retrieval versus formulation/window explanations are separated",
+        "a changed next-selection rule or explicit stop decision is recorded"
+      ],
+      "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+      "track": "forecasting",
+      "worker_failure_note": "artifact retained; supervisor-owned state write rejected and diagnosis independently reconciled",
+      "worker_status": "write_conflict_rejected"
+    },
+    {
+      "artifact": "reports/paper3_direct_endpoint_cohort_round6.json",
+      "attempts": 1,
+      "cost_estimate": 0.8,
+      "dependencies": [
+        "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001"
+      ],
+      "execution_requirements": [
+        "diagnosis report and frozen selection rule",
+        "year-end-safe frame",
+        "original-version full text",
+        "artifact/comparator/endpoint audit before follow-up"
+      ],
+      "expected_information_gain": 0.85,
+      "failure_handling": "If fewer than six eligible artifact-gated questions survive, report selection attrition and do not use later outcomes to replace them; if the stop gate fires, move to experiment rather than repeating retrieval.",
+      "finished_at": "2026-10-15T03:02:53Z",
+      "last_result": {
+        "artifact_bytes": 18189,
+        "artifact_valid": true,
+        "elapsed_seconds": 114.95,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "c31ec334f0f42062867fe4077e0bd8737228c606ae8635371756e7e01806f065",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d81-7d8e-77c0-a0f0-0a0dbd6fd079",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Apply the frozen PAPER3-DIRECT-ENDPOINT-COHORT-V1 rule to a new source-only cohort: require a public artifact or benchmark, source-pinned comparator, independently checkable endpoint and falsification condition before any future search; then audit dated primary follow-ups and stop expansion if high-coverage exact matching remains zero.",
+      "priority": 92,
+      "research_key": "paper3_direct_endpoint_artifact_gated_cohort_round6",
+      "scientific_completion": "trajectory_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "trajectory_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T03:00:58Z",
+      "status": "completed",
+      "success_criteria": [
+        "new source-only rule applied without hindsight",
+        "artifact/comparator/endpoint eligibility recorded",
+        "direct yield and the predeclared stop gate reported"
+      ],
+      "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "research/paper3_target_b_protocol_v1.json",
+      "attempts": 0,
+      "cost_estimate": 0.15,
+      "dependencies": [],
+      "expected_information_gain": 0.82,
+      "failure_handling": "Do not score Paper 3 until the frozen label and temporal-split gates are met.",
+      "max_attempts": 1,
+      "objective": "Freeze a separate Paper 3 Target B protocol for independently verifiable scientific progress while preserving the original direct-resolution cohorts and labels.",
+      "priority": 93,
+      "research_key": "paper3_target_b_evidence_growth_protocol",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "protocol_freeze",
+        "reason": "Target B protocol is frozen with explicit label gates and no-score conditions",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "Target A and Target B remain separate",
+        "source-only chronological features and leakage rules are explicit",
+        "minimum label gates and no-score rule are frozen",
+        "original cohorts are explicitly immutable"
+      ],
+      "task_id": "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
+      "track": "forecasting"
+    }
+  ],
+  "track": "forecasting"
+}

@@ -1,0 +1,59 @@
+{
+  "report_id": "EDCS-PRIOR-ART-COMPARISON-20261015",
+  "scope": "mathematical novelty audit after the finite one-flip lazy-repair counterexample",
+  "sources": [
+    {
+      "title": "Fully Dynamic Matching in Bipartite Graphs",
+      "year": 2015,
+      "url": "https://arxiv.org/html/1506.07076",
+      "classification": "known prior art",
+      "verified_observations": [
+        "Defines P1/P2 endpoint degree-sum constraints.",
+        "For beta_minus=beta-1, treats full and deficient edges and restores validity through alternating paths.",
+        "Bounds an alternating path and reports at most O(beta) H-edge updates per external update.",
+        "Uses orientation and, in the general case, bucketed approximate degree information."
+      ],
+      "boundary": "The frozen one-flip FIFO variant has none of these alternating-path, orientation, or bucket mechanisms; its failure is not a refutation of this algorithm or theorem."
+    },
+    {
+      "title": "New Trade-Offs for Fully Dynamic Matching via Hierarchical EDCS",
+      "year": 2022,
+      "url": "https://arxiv.org/abs/2201.02905",
+      "classification": "known prior art",
+      "verified_observations": [
+        "Introduces hierarchical EDCS as a generalization for dynamic matching trade-offs."
+      ],
+      "boundary": "No claim in this audit targets HEDCS or its maintenance analysis."
+    },
+    {
+      "title": "Deterministic Dynamic Maximal Matching in Sublinear Update Time",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2504.20780",
+      "classification": "known prior art",
+      "verified_observations": [
+        "Uses EDCS in a different role for matching high-degree vertices in a sublinear-update maximal-matching algorithm."
+      ],
+      "boundary": "This does not validate or analyze the one-flip local rule."
+    },
+    {
+      "title": "A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2605.00797",
+      "classification": "known prior art / boundary check",
+      "verified_observations": [
+        "Describes EDCS as a verification-and-repair mechanism in recent dynamic maximal matching work and introduces a separate subgraph-system framework."
+      ],
+      "boundary": "The existence of cascading verification/repair mechanisms reinforces that a one-toggle local rule is a distinct object; no novelty claim is made."
+    }
+  ],
+  "novelty_conclusion": {
+    "finite_variant_counterexample": "independently reproduced",
+    "parameterized_one_toggle_family": "fully proved for the explicitly stated model, subject to independent peer review",
+    "broad_deficient_edge_must_be_inserted_lemma": "disproved; an alternate unused edge can repair P2 when the parameter gap permits it",
+    "restricted_single_toggle_impossibility": "fully proved under beta_minus=beta-1, degree-zero/private-endpoint, and one-toggle assumptions",
+    "original_edcs_theory_or_matching_theorem": "not refuted",
+    "new_dynamic_matching_lower_bound": "not established",
+    "new_algorithm": "none",
+    "overall_claim": "No publication-level novelty claim is supported. The defensible contribution is a corrected, clearly delimited mathematical diagnosis of why the tested one-toggle variant cannot maintain P1/P2 on a parameterized family. Close this direction as an independently verified educational/engineering result."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "report_id": "NOVEL-CS-OPPORTUNITY-POOL-20261015",
+  "status": "source_audited_candidate_pool",
+  "source_audit_scope": "Primary papers and official arXiv records checked before candidate ranking; no candidate is claimed novel.",
+  "candidates": [
+    {
+      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+      "rank": 1,
+      "question": "For a fully dynamic bipartite graph, does a specified lazy edge-deletion/local-repair implementation of an EDCS preserve the EDCS degree-sum constraints and the promised matching-ratio bound without periodic global rebuilds?",
+      "earliest_relevant_prior_work": ["https://arxiv.org/abs/1506.07076", "https://arxiv.org/abs/2108.10461"],
+      "what_remains_uncertain": "The cited papers prove and maintain EDCS-based algorithms, but this explicitly frozen lazy-repair variant is not their stated algorithm; any failure would be a bounded implementation/invariant counterexample, not a refutation of their theorem.",
+      "competing_hypotheses": ["local repair preserves the EDCS inequalities for the tested update regime", "a short adversarial deletion sequence creates a minimal inequality violation or matching-ratio failure"],
+      "minimal_test": "Enumerate all labeled graphs through n=6, then bounded n<=8 adversarial insert/delete sequences of length <=6; check every EDCS inequality and exact maximum matching by brute force.",
+      "endpoints": {"success": "independently verified minimal counterexample or all tested states satisfy the invariant", "failure": "implementation cannot define a deterministic repair rule or exact matching oracle"},
+      "readiness": "code/data ready; no external dependency", "estimated_cpu": "<=120 seconds proposed", "expected_uncertainty_reduction": 0.8,
+      "independent_validation": "second implementation of EDCS inequalities plus exact matching enumeration and minimized replay trace",
+      "novelty_status": "plausible but unverified; must not be called a theorem or breakthrough"
+    },
+    {
+      "id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002",
+      "rank": 2,
+      "question": "Under a frozen endpoint-only repair rule for deletions in a dynamic maximal matching, can an adversarial sequence force a matching ratio below the rule's intended 2-approximation before rebuild?",
+      "earliest_relevant_prior_work": ["https://arxiv.org/abs/1207.1277", "https://arxiv.org/abs/2108.10461"],
+      "what_remains_uncertain": "The literature gives stronger dynamic algorithms, but does not validate this deliberately restricted endpoint-only implementation as a scientific algorithm; the value is a precise negative robustness result if a minimal trace exists.",
+      "competing_hypotheses": ["endpoint repair maintains maximality and the 2-approximation invariant", "a short adversarial sequence causes loss of maximality or ratio degradation"],
+      "minimal_test": "Enumerate graphs n<=7, exact maximum matching, and all bounded update sequences under a deterministic endpoint-only repair.",
+      "endpoints": {"success": "minimal replayable counterexample with exact optimum", "failure": "no counterexample in the declared finite boundary; no asymptotic claim"},
+      "readiness": "code/data ready; no external dependency", "estimated_cpu": "<=60 seconds proposed", "expected_uncertainty_reduction": 0.55,
+      "independent_validation": "alternate matching oracle and replay from serialized update trace",
+      "novelty_status": "plausible engineering-science boundary; unverified"
+    },
+    {
+      "id": "CERT-SQLITE-TRANSFER-003",
+      "rank": 3,
+      "question": "Does the CERT cardinality-restriction monotonicity oracle transfer to a locally available DBMS with a comparable estimated-row endpoint, and are any violations performance-relevant after structural-plan filtering?",
+      "earliest_relevant_prior_work": ["https://arxiv.org/abs/2306.00355"],
+      "what_remains_uncertain": "CERT already introduced the oracle and evaluated MySQL, TiDB and CockroachDB; SQLite's local EXPLAIN interface does not expose the same estimated-row endpoint, so transfer is currently not identifiable.",
+      "competing_hypotheses": ["a comparable estimator endpoint exists and violations transfer", "the endpoint mismatch prevents a valid transfer claim"],
+      "minimal_test": "Availability audit first; only proceed if a version-pinned DBMS exposes estimated rows and the source structural-similarity filter can be reproduced.",
+      "endpoints": {"success": "source-matched endpoint and independently replayable violation", "failure": "no comparable local estimator or structural filter"},
+      "readiness": "blocked by endpoint availability", "estimated_cpu": "<=30 seconds for audit; experiment not authorized", "expected_uncertainty_reduction": 0.2,
+      "independent_validation": "source-version check and parser cross-check",
+      "novelty_status": "not a fresh candidate until a new endpoint or extension is defined"
+    },
+    {
+      "id": "OXIDE-REF-BLIND-SOUNDNESS-004",
+      "rank": 4,
+      "question": "Does the ref-blind approximation of the Oxide ownership information-flow analysis preserve noninterference for the restricted fragment claimed by the full system?",
+      "earliest_relevant_prior_work": ["https://arxiv.org/abs/2111.13662"],
+      "what_remains_uncertain": "The source proves soundness for the formal system and describes ref-blind variants, but the local executable semantics and checker are unavailable.",
+      "competing_hypotheses": ["the restricted abstraction remains sound", "aliasing loses dependencies and produces a counterexample"],
+      "minimal_test": "Obtain the pinned Oxide semantics/checker, then bounded enumerate typed programs and compare analysis dependencies against two executions.",
+      "endpoints": {"success": "formally replayable counterexample or checked finite invariant", "failure": "missing semantics/toolchain"},
+      "readiness": "blocked; no local toolchain", "estimated_cpu": "unknown", "expected_uncertainty_reduction": 0.3,
+      "independent_validation": "small-step interpreter plus source checker comparison",
+      "novelty_status": "not selected"
+    }
+  ],
+  "selection_decision": "EDCS-LAZY-REPAIR-INVARIANT-001 is the strongest feasible new question, but execution is blocked by the exhausted renewable experiment authorization. The second dynamic-matching action remains a lower-cost fallback. CERT and Oxide are not admitted as experiments under current evidence.",
+  "authorization_request": {"experiments": 1, "cpu_seconds": 120, "memory_mib": 1024, "artifacts": ["all enumerated/replayed update traces", "exact matching outputs", "independent validation report"], "reason": "bounded counterexample/invariant search; no external data or model service"}
+}

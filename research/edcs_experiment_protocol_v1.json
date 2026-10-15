@@ -1,0 +1,59 @@
+{
+  "protocol_id": "EDCS-LAZY-REPAIR-PROTOCOL-V1",
+  "status": "FROZEN_BEFORE_SEARCH",
+  "frozen_at": "2026-10-15T06:15:00Z",
+  "hypothesis": "A deterministic lazy local-repair rule that performs at most one EDCS edge flip per external graph update can preserve the EDCS endpoint inequalities and a 2/3 finite matching-ratio threshold on the declared small bipartite domain.",
+  "competing_hypotheses": [
+    "The one-flip lazy rule preserves both EDCS inequalities and the 2/3 finite matching-ratio endpoint on the tested domain.",
+    "A deletion or mixed update sequence creates a minimal P1/P2 violation or a matching ratio below 2/3 before the lazy queue catches up.",
+    "The proposed rule is underspecified or the independent oracles disagree, so no scientific endpoint is valid."
+  ],
+  "object": {
+    "graph_family": "simple labeled bipartite graphs G=(L union R,E), L=R={0,...,k-1}, no parallel edges",
+    "enumerated_domain": "all edge masks for k=1,2,3 (total vertex count <=6; 2^(k*k) graphs per k)",
+    "adversarial_domain": "all distinct-edge deletion prefixes of length 1..6 from K_{3,3}, plus one deterministic greedy mixed-update trajectory of depth 6",
+    "edge_order": "lexicographic (left_vertex,right_vertex)"
+  },
+  "edcs_parameters": {
+    "beta": 4,
+    "beta_minus": 3,
+    "used_edge_rule": "P1: d_H(u)+d_H(v) <= 4",
+    "unused_edge_rule": "P2: d_H(u)+d_H(v) >= 3",
+    "matching_ratio_endpoint": "For every tested state with mu(G)>0, mu(H)/mu(G) >= 2/3; this is a finite diagnostic threshold for the variant, not a restatement of the asymptotic theorem."
+  },
+  "lazy_repair_algorithm": {
+    "initial_state": "G=empty, H=empty, dirty FIFO contains no vertices",
+    "external_update": [
+      "Apply one insertion or deletion to G.",
+      "If an inserted edge is absent from H and is P2-deficient, enqueue both endpoints; if a deleted edge is in H, remove it and enqueue both endpoints; enqueue endpoints of every changed H edge.",
+      "Perform at most one repair flip per external update.",
+      "Scan dirty vertices FIFO; for the first dirty vertex, inspect all incident G edges in lexicographic order.",
+      "Choose the lexicographically smallest P1-violating used edge (remove it) before any P2-deficient unused edge (add it).",
+      "After a flip, enqueue both endpoints and retain the dirty vertex; if no incident violation exists, remove that vertex from the dirty FIFO.",
+      "Do not perform a global rebuild, orientation, bucket refresh, alternating-path search, or more than one H flip per external update."
+    ],
+    "determinism": "No random choices; all edges and queue operations are lexicographically/FIFO ordered.",
+    "variant_scope": "This is intentionally not the Bernstein-Stein dynamic maintenance algorithm."
+  },
+  "oracles": {
+    "runner_invariant_oracle": "direct degree-sum scan over every G edge and H edge",
+    "runner_matching_oracle": "subset/permutation enumeration over left vertices",
+    "independent_validator": "separately implemented recursive right-vertex bitmask maximum matching and independent degree-sum replay"
+  },
+  "falsification_gate": {
+    "failure": "first state with any P1 violation, P2 violation, or exact mu(H)/mu(G) < 2/3; record update index, operation, H/G edges and all relevant endpoint degree sums",
+    "success": "no failure over all declared static masks, all K3,3 deletion prefixes, and the greedy mixed trajectory; report finite coverage and do not claim a proof",
+    "invalid": "implementation hash/oracle disagreement, incomplete trace, resource limit, or inability to define the deterministic rule"
+  },
+  "resources": {
+    "cpu_seconds_max": 120,
+    "memory_mib_max": 1024,
+    "processes": 1,
+    "network": false,
+    "python": "3.12",
+    "seed": 20261015
+  },
+  "implementation_hash": "a343bc323f31747815001a68bde79d0c5ffb87b97d7e0a7c70350933619ea864",
+  "source_audit": "reports/edcs_prior_art_audit_20261015.json",
+  "paper4_plan": "reports/paper4_novel_action_plan_20261015.json"
+}

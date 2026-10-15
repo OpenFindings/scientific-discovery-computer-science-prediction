@@ -1,0 +1,287 @@
+{
+  "checks": {
+    "first_failure_reproduced": true,
+    "independent_rows_checked": 1167465,
+    "runner_independent_agreement": true,
+    "runner_script_hash_present": true,
+    "trace_hash_matches": true,
+    "trace_nonempty": true
+  },
+  "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+  "independent_first_failure": {
+    "independent": {
+      "matching_ratio": 1.0,
+      "mu_G": 2,
+      "mu_H": 2,
+      "ratio_failure": false,
+      "violations": [
+        {
+          "degree_left": 3,
+          "degree_right": 2,
+          "degree_sum": 5,
+          "edge": [
+            0,
+            0
+          ],
+          "kind": "P1",
+          "threshold": 4
+        }
+      ]
+    },
+    "record": {
+      "G": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "H": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "context": "static_all_masks_k3_mask15",
+      "dirty_after_state": [
+        [
+          "R",
+          0
+        ],
+        [
+          "R",
+          1
+        ],
+        [
+          "R",
+          2
+        ],
+        [
+          "L",
+          1
+        ]
+      ],
+      "failed": true,
+      "k": 3,
+      "matching_ratio": 1.0,
+      "mu_G": 2,
+      "mu_H": 2,
+      "relevant_degree_sums": [
+        {
+          "degree_left": 3,
+          "degree_right": 2,
+          "degree_sum": 5,
+          "edge": [
+            0,
+            0
+          ],
+          "kind": "P1",
+          "threshold": 4
+        }
+      ],
+      "sequence": [
+        {
+          "edge": [
+            0,
+            0
+          ],
+          "operation": "insert"
+        },
+        {
+          "edge": [
+            0,
+            1
+          ],
+          "operation": "insert"
+        },
+        {
+          "edge": [
+            0,
+            2
+          ],
+          "operation": "insert"
+        },
+        {
+          "edge": [
+            1,
+            0
+          ],
+          "operation": "insert"
+        }
+      ],
+      "update": {
+        "H_before": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "dirty_after_repair": [
+          [
+            "R",
+            0
+          ],
+          [
+            "R",
+            1
+          ],
+          [
+            "R",
+            2
+          ],
+          [
+            "L",
+            1
+          ]
+        ],
+        "edge": [
+          1,
+          0
+        ],
+        "flips": [
+          {
+            "before_delta": 1,
+            "edge": [
+              1,
+              0
+            ],
+            "kind": "P2"
+          }
+        ],
+        "operation": "insert"
+      },
+      "update_index": 3,
+      "violations": [
+        {
+          "degree_sum": 5,
+          "edge": [
+            0,
+            0
+          ],
+          "kind": "P1",
+          "threshold": 4,
+          "used": true
+        }
+      ]
+    }
+  },
+  "interpretation": "The independent oracle reproduces the finite failure and records the exact violating degree sums.",
+  "minimized_failure": {
+    "G": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "H": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "matching_ratio": 1.0,
+    "mu_G": 2,
+    "mu_H": 2,
+    "sequence": [
+      {
+        "edge": [
+          0,
+          0
+        ],
+        "operation": "insert"
+      },
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "operation": "insert"
+      },
+      {
+        "edge": [
+          0,
+          2
+        ],
+        "operation": "insert"
+      },
+      {
+        "edge": [
+          1,
+          0
+        ],
+        "operation": "insert"
+      }
+    ],
+    "update_index": 3,
+    "violations": [
+      {
+        "degree_left": 3,
+        "degree_right": 2,
+        "degree_sum": 5,
+        "edge": [
+          0,
+          0
+        ],
+        "kind": "P1",
+        "threshold": 4
+      }
+    ]
+  },
+  "scientific_success": true,
+  "validation_id": "EDCS-LAZY-REPAIR-VALIDATION-20261015"
+}

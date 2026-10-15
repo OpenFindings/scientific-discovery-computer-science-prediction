@@ -1,0 +1,36 @@
+{
+  "report_id": "EDCS-PRIOR-ART-AUDIT-20261015",
+  "status": "completed_before_experiment",
+  "checked_sources": [
+    {
+      "title": "Fully Dynamic Matching in Bipartite Graphs",
+      "authors": ["Aaron Bernstein", "Cliff Stein"],
+      "version": "arXiv:1506.07076v2",
+      "url": "https://arxiv.org/html/1506.07076",
+      "source_observations": [
+        "The EDCS definition uses P1: every used edge has endpoint-degree sum <= beta.",
+        "The EDCS definition uses P2: every unused graph edge has endpoint-degree sum >= beta_minus.",
+        "The dynamic maintenance algorithm uses alternating full/augmentable paths and orientation/bucket information updates.",
+        "The paper states that the EDCS structure has a global effect even though the constraints are local, and the maintenance algorithm explicitly restores P1/P2 after updates.",
+        "The theorem gives parameterized matching guarantees for a valid EDCS; it does not validate the lazy one-repair variant defined in this experiment."
+      ],
+      "relevant_sections": ["Definition 1", "Theorems 3.1-3.4", "Section 5", "Appendix 0.C.2"]
+    },
+    {
+      "title": "Deterministic Dynamic Matching In Worst-Case Update Time",
+      "authors": ["Peter Kiss"],
+      "version": "arXiv:2108.10461v3",
+      "url": "https://arxiv.org/abs/2108.10461",
+      "source_observations": [
+        "The paper studies deterministic dynamic matching with explicit approximation and worst-case update-time guarantees.",
+        "Its result is not an evaluation of the lazy repair rule tested here and is used only as a prior-art boundary for dynamic matching guarantees."
+      ]
+    }
+  ],
+  "variant_boundary": {
+    "original_theory_tested": false,
+    "tested_object": "A deterministic one-repair-per-external-update EDCS-like maintenance rule defined in research/edcs_experiment_protocol_v1.json.",
+    "novelty_claim": "none",
+    "interpretation_rule": "A failure is evidence against this frozen variant under the finite tested boundary only; it is not a counterexample to the original EDCS definition, theorem or Bernstein-Stein maintenance algorithm. No failure is not a proof."
+  }
+}

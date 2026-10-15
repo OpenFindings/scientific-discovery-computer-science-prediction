@@ -1,0 +1,39 @@
+{
+  "activation": {
+    "id": "2026-10-15T17:41:17Z-pid73160",
+    "max_worker_invocations": 1,
+    "renewal_count": 71,
+    "started_at": "2026-10-15T17:41:17Z",
+    "worker_invocations": 1
+  },
+  "active_workers": [],
+  "campaign_id": "cs-discovery-long-horizon-2026-10",
+  "created_at": "2026-10-15T00:46:10Z",
+  "last_event": {
+    "event": "scientific_artifact_independently_reconciled_after_worker_conflict",
+    "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+    "timestamp": "2026-10-15T02:44:39Z"
+  },
+  "quota": {
+    "consecutive_quota_failures": 0,
+    "last_failure_at": null,
+    "last_failure_class": null,
+    "next_check_at": null,
+    "official_reset_at": null,
+    "source": "not_checked",
+    "state": "AVAILABLE"
+  },
+  "schema_version": 1,
+  "status": "ACTIVE",
+  "stop_requested": false,
+  "updated_at": "2026-10-15T17:42:22Z",
+  "usage": {
+    "conservative_worker_seconds": 1633.9280000000003,
+    "date_utc": "2026-10-15",
+    "track_worker_seconds": {
+      "experiments": 944.114,
+      "forecasting": 624.587,
+      "theory": 65.227
+    }
+  }
+}

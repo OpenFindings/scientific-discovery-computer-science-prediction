@@ -1,0 +1,21 @@
+{
+  "audit_id": "HCS-OBSERVABLE-16-ROUND1-CHECKPOINT-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "cohort": "data/historical_cs_observable_cohort_16.jsonl",
+  "source_screen_ledger": ["reports/historical_observable_source_screen_round1.json", "reports/historical_observable_source_screen_round2.json", "reports/historical_observable_source_screen_round3.json", "reports/historical_observable_source_screen_round4.json", "reports/historical_observable_source_screen_round5.json"],
+  "trajectory_ledger": "reports/historical_evidence_trajectory_round1.json",
+  "old_cohort_bottleneck": "reports/historical_label_bottleneck_audit.json",
+  "source_screen": {"selected_titles": 16, "targeted_cutoff_source_sections_checked": 10, "eligible_question_locked_before_future_search": 8, "ineligible_no_explicit_open_question": 2, "unscreened": 6, "retrieval_failure_after_single-version_recovery": 0},
+  "future_evidence_trajectory": {"eligible_questions_bounded_searched": 8, "direct_resolution_authenticated": 0, "premise_refutation_or_revision_supported": 0, "partial_progress_supported": 4, "independent_evidence_strengthening_supported": 1, "contradictory_evidence_supported": 0, "scope_narrowing_or_reformulation_supported": 2, "continued_explicit_uncertainty_supported": 0, "direct_outcomes_unadjudicated": 8},
+  "denominator_warning": "The eight future-audited eligible questions are an incomplete source-screened subset of the fixed 16-title cohort. The dimension counts are descriptive, not prevalence or statistical Paper 3 outcomes. The seven dimensions are nonexclusive; multiple supported entries may come from the same future paper and do not add independent units.",
+  "old_cohort": {"source_papers_screened": 20, "falsifiable_questions": 13, "future_primary_fulltext_sections_checked": 4, "direct_outcomes_authenticated": 0, "retrieval_weak_or_missing": 9},
+  "changed_scientific_decisions": [
+    "Do not score Paper 3 CS transfer: neither cohort has direct positive/negative labels or a temporally grouped holdout.",
+    "Do not mistake independent Ericsson log-only CAM product-fault recall for source CAM's multiclass cause accuracy or for an artifact-on/off comparison.",
+    "Prioritize class-skew and endpoint-alignment audit before an industrial CAM artifact ablation; retain Badger matched-CPU build/metric gate as a different affordable experiment.",
+    "Move the remaining six source screens to a new bounded task instead of reopening the completed ten-paper checkpoint or repeatedly keyword-searching the old 13."
+  ],
+  "next_tasks": ["HISTORICAL-TRAJECTORY-002", "CAM-TRANSFER-FEAS-001", "BADGER-FAIR-CPU-FEAS-001"],
+  "negative_results_preserved": ["No direct outcomes authenticated among old 13 or five new questions", "Bounded search did not authenticate a bounded-degree-tree coupled-task theorem", "No observed Paper 4 action result"],
+  "analysis_gate": "No AUC, calibration or breakthrough-probability estimate. Need independently adjudicated outcomes of both classes, grouped chronological split and power check before a Paper 3 transfer evaluation."
+}

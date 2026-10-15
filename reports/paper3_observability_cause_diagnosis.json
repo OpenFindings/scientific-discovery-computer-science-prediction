@@ -1,0 +1,165 @@
+{
+  "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
+  "attempt": "1/1",
+  "evidence_tier": "tier_3_cross_round_provenance_and_observability_diagnosis; no_direct_outcome_labels",
+  "objective": "Diagnose the direct-label bottleneck across independently validated Paper 3 observability rounds without repeating keyword search, separating retrieval coverage, source eligibility, question-definition specificity, outcome-window structure, and trajectory missingness.",
+  "sources_data": [
+    "docs/paper3_methodology.md",
+    "reports/historical_observable_cohort_round3.json",
+    "reports/paper3_round3_independent_validation.json",
+    "reports/historical_observable_cohort_round4.json",
+    "reports/historical_objective_cohort_round5.json",
+    "reports/paper3_trajectory_readiness.json",
+    "reports/historical_label_bottleneck_audit.json",
+    "data/historical_cs_year_topic_frame.jsonl",
+    "data/historical_cs_blind_cohort_20.jsonl",
+    "data/historical_cs_observable_cohort_16.jsonl",
+    "research/historical_evidence_trajectory_protocol_v1.json"
+  ],
+  "method": {
+    "design": "Descriptive cross-round audit of frozen cohorts and their recorded source/follow-up receipts. Round 3 was independently reconciled; Round 4 used a frozen citation-tracing plus authenticated-primary-full-text protocol; Round 5 used a fresh source-only objective-endpoint cohort and a fixed five-year future window.",
+    "no_hindsight_relabeling": true,
+    "no_new_keyword_search": true,
+    "denominator_rules": [
+      "Source eligibility uses selected source rows as denominator; source-ineligible rows remain counted and were not future-searched.",
+      "Direct-label yield uses source-eligible questions as denominator. Not-observed, inaccessible, adjacent, proxy, same-team, or unmatched follow-ups remain unadjudicated, never negative.",
+      "Round 4 is not a new independent cohort: it re-audits the three eligible Round 3 rows and is not pooled as three additional questions.",
+      "Trajectory dimensions are counted separately from direct resolution/refutation and are not substituted for Paper 3 labels."
+    ]
+  },
+  "frozen_cohort_boundaries": {
+    "frame": {
+      "path": "data/historical_cs_year_topic_frame.jsonl",
+      "rows": 1018,
+      "selection_features_allowed": ["frame metadata", "topic/year stratum", "title eligibility", "year-end-safe version/update dates", "deterministic hash priority"],
+      "future_outcome_features_used": false
+    },
+    "round3": {
+      "artifact": "reports/historical_observable_cohort_round3.json",
+      "selected_rows": 4,
+      "eligible_questions": 3,
+      "ineligible_rows": 1,
+      "selected_ids": ["2011.05425v1", "1710.11054v1", "2003.07630v2", "1909.04368v1"],
+      "followup_window": "strictly after each year-end cutoff through cutoff year plus five years inclusive",
+      "independent_validation": "reports/paper3_round3_independent_validation.json; all_checks_passed=true"
+    },
+    "round4": {
+      "artifact": "reports/historical_observable_cohort_round4.json",
+      "rows_audited": 3,
+      "inherited_eligible_ids": ["2011.05425v1", "1710.11054v1", "1909.04368v1"],
+      "new_cohort_rows": 0,
+      "followup_window": "strictly after each year-end cutoff through the inherited fixed followup end"
+    },
+    "round5": {
+      "artifact": "reports/historical_objective_cohort_round5.json",
+      "selected_rows": 6,
+      "eligible_questions": 6,
+      "selected_ids": ["1905.02597v1", "2005.00972v1", "1805.02751v2", "2003.02892v1", "1903.05387v1", "2007.03275v1"],
+      "followup_window": "strictly after each year-end cutoff through cutoff year plus five years inclusive",
+      "selection_before_followup": true
+    },
+    "combined_source_screen_context": {
+      "observable_cohort_rows": 16,
+      "eligible": 12,
+      "ineligible": 4,
+      "note": "This is the separate 16-paper source-screen frame; it is not a direct-outcome denominator and was not retrospectively relabeled."
+    }
+  },
+  "cross_round_counts": {
+    "unique_questions_in_round3_and_round5": 9,
+    "round4_duplicate_reaudits_excluded_from_unique_denominator": 3,
+    "unique_direct_positive": 0,
+    "unique_direct_negative": 0,
+    "unique_direct_label_yield": "0/9",
+    "round3": {"eligible": 3, "direct_positive": 0, "direct_negative": 0, "partial_progress": 1, "direct_unadjudicated": 3},
+    "round4": {"audited": 3, "direct_positive": 0, "direct_negative": 0, "partial_progress": 3, "direct_unadjudicated": 3},
+    "round5": {"eligible": 6, "direct_positive": 0, "direct_negative": 0, "partial_progress": 3, "scope_narrowing": 2, "direct_unadjudicated": 6},
+    "paper3_score": "not_estimable; no positive/negative direct class contrast and no valid grouped temporal holdout"
+  },
+  "cause_comparison": [
+    {
+      "cause": "retrieval_coverage",
+      "status": "supported_as_a_measurement_limitation_but_not_sufficient_explanation",
+      "denominators_and_exclusions": {
+        "round3": "3 eligible; the report records two rows without authenticated matched primary full text after bounded searching; the one authenticated positive trajectory was partial only.",
+        "round4": "3/3 inherited rows had recorded authenticated or cross-checked follow-up source material (2, 3, and 2 source records respectively), but 0/3 matched the frozen endpoint tuple.",
+        "round5": "4/6 rows had at least one follow-up source record (source counts 1, 2, 0, 1, 1, 0); 2/6 had no candidate primary follow-up in the bounded search. The 4 source-bearing rows still yielded 0/4 direct labels.",
+        "prior_13_question_audit": "4/13 primary-full-text-checked; 4/13 abstract/search-visible only; 1/13 undated web only; 1/13 source/pre-cutoff only; 3/13 no candidate primary; 0/13 direct labels."
+      },
+      "observed_support": "Coverage is incomplete, especially for the original 13-question audit and two Round 5 rows. Retrieval improvement is therefore required for valid ascertainment.",
+      "limitation": "Because all source-bearing Round 4 and Round 5 follow-ups were definition-mismatched, better retrieval alone did not produce a direct label. Search non-detection remains missingness, not evidence of unresolved science."
+    },
+    {
+      "cause": "source_eligibility",
+      "status": "not_supported_as_primary_direct_label_bottleneck_after_screening",
+      "denominators_and_exclusions": {
+        "round3": "3/4 selected rows source-eligible; 1/4 ineligible and excluded from follow-up, retained in the source-screen denominator.",
+        "round5": "6/6 selected rows source-eligible under the stricter objective-endpoint rule.",
+        "separate_16_row_frame": "12/16 eligible and 4/16 ineligible."
+      },
+      "observed_support": "Eligibility screening reliably produces source-grounded questions, but the eligible subset still has 0/9 unique direct labels across Rounds 3 and 5. Eligibility attrition is real (4/16 in the separate frame) but cannot explain the direct-label zero once eligible rows are analyzed."
+    },
+    {
+      "cause": "question_definition_specificity_and_endpoint_matching",
+      "status": "strongest_supported_explanation",
+      "denominators_and_exclusions": {
+        "round4": "0/3 exact matches despite follow-up source records for all 3. QAOA sources changed postselection to GNN/recursive initialization; repair sources changed SSC to other repair/representation methods; RiverGame changed exploit reporting to broader visual/audio/gameplay testing.",
+        "round5": "0/6 exact matches. The 4 source-bearing rows were adjacent or partial: explanation quality without patch-only reviewer outcomes; DNN diagnosis/performance repair without DNN-aware security-regression comparison; SERENIoT scope narrowing without matched policy efficacy; Avocado implementation/case study without matched unconstrained baseline. The two no-source rows remain missing, not mismatches.",
+        "exact_endpoint_tuple": "object + intervention/comparator + metric + success/falsification condition"
+      },
+      "observed_support": "Across 7 recorded Round 4 source records and 5 recorded Round 5 source records, none matched the frozen tuple sufficiently for a direct label. Round 5's more objective source definitions improved trajectory coding (3 partial-progress and 2 scope-narrowing records) but did not improve direct-label yield from the Round 4 baseline of 0/3 to 0/6."
+    },
+    {
+      "cause": "outcome_window_structure",
+      "status": "not_supported_as_cause; remains_unresolved",
+      "denominators_and_exclusions": {
+        "window": "All three rounds used fixed five-year post-cutoff windows; Round 3 and Round 5 explicitly bound admissible evidence to strictly after cutoff through cutoff year plus five years inclusive.",
+        "observed_windows": "Round 3 spans 2017–2022, 2019–2024, and 2020–2025 among eligible rows; Round 5 spans 2018–2023, 2019–2024, and 2020–2025."
+      },
+      "observed_support": "No matched direct result was authenticated near or just beyond a window boundary. The prior bottleneck audit likewise found no authenticated result just outside a frozen three-year window. Therefore a too-short window is neither established nor falsified.",
+      "limitation": "Bounded retrieval and zero matched candidates prevent a window-edge sensitivity estimate; extending the window without endpoint matching would not solve the bottleneck."
+    },
+    {
+      "cause": "trajectory_missingness",
+      "status": "direct_label_missingness_is_supported; total_evidence_missingness_is_not",
+      "denominators_and_exclusions": {
+        "round3": "Among 3 eligible, 1/3 partial progress and 3/3 direct outcomes unadjudicated.",
+        "round4": "Among 3 audited, 3/3 partial progress and 3/3 direct outcomes unadjudicated.",
+        "round5": "Among 6 eligible, 3/6 partial progress, 2/6 scope narrowing, and 6/6 direct outcomes unadjudicated; 0/6 independent strengthening and 0/6 contradictory evidence."
+      },
+      "observed_support": "The rubric can observe non-direct trajectories while the direct outcome field remains entirely missing. This is a structural missingness problem for the Paper 3 target, not permission to collapse partial progress or scope narrowing into resolution/refutation."
+    }
+  ],
+  "observed_result_or_blocker": {
+    "diagnosis": "The direct-label bottleneck is primarily endpoint-definition/matching scarcity, amplified by incomplete retrieval. Source eligibility is a useful gate but not the limiting step after screening. A five-year window has not been shown inadequate. Trajectory evidence is observable, but direct outcome labels are missing by design-preserving adjudication.",
+    "blockers": [
+      "No positive or negative direct label exists in the 9 unique eligible questions.",
+      "No temporal Paper 3 score, calibration, ranking metric, or forecast accuracy is identifiable.",
+      "Search non-detection and adjacent outcomes cannot be used as negative labels."
+    ],
+    "null_and_negative_preserved": true
+  },
+  "next_cohort_selection_rule": {
+    "status": "changed_and_frozen_for_next_selection; source_only_before_followup",
+    "rule_id": "PAPER3-DIRECT-ENDPOINT-COHORT-V1",
+    "selection_steps": [
+      "Sample only from the year-end-safe historical frame using deterministic hash priority and predeclared topic/year strata; do not use future citations, follow-up hits, popularity, or known outcomes.",
+      "Require the cutoff-version source to state one fixed object or property, one explicit intervention/comparator or baseline, one measurable endpoint with an independent unit/denominator, and one falsification condition.",
+      "Require the source to identify a concrete public artifact, benchmark, dataset, implementation, or formal test object available by the cutoff; reject reviewer-created generalizations and questions requiring vague human success judgments without a frozen protocol.",
+      "Prefer questions whose endpoint can be checked by an independent primary artifact and whose comparator is source-pinned; do not select merely because a later result is known.",
+      "Seal the question, endpoint, comparator, window, and exclusion rules before any future-evidence retrieval; retain source-ineligible rows in the denominator.",
+      "Use the same five-year window initially, but record year-1–2 versus year-3–5 evidence separately; do not extend or relabel a window post hoc."
+    ],
+    "falsification_gate_for_rule": "If the next source-only cohort has at least 6 eligible rows, at least 4 with independently checkable public artifacts, and still produces 0 exact direct matches despite authenticated primary follow-up coverage for at least 5/6, stop further retrieval-focused cohort expansion and declare the direct-label transfer infeasible under the current Paper 3 rubric; pursue a separately preregistered experiment instead.",
+    "why_changed": "Rounds 3–5 show that objective wording alone does not overcome endpoint mismatch. The next rule adds source-pinned artifact/comparator requirements while preserving point-in-time selection and no hindsight relabeling."
+  },
+  "next_falsifiable_action": "Apply PAPER3-DIRECT-ENDPOINT-COHORT-V1 to a new deterministic source-only cohort, then independently audit dated primary artifacts against the exact endpoint tuple and split evidence by window phase. The claim that formulation/matching is the main bottleneck is falsified if this artifact/comparator-gated cohort yields materially higher exact-match coverage than 0/9; the claim that retrieval is sufficient is falsified if authenticated coverage remains high while exact matches remain zero.",
+  "uncertainty": [
+    "These are deterministic, bounded cohorts rather than representative CS population samples.",
+    "Round 4 is an independent retrieval audit but not an independent question cohort.",
+    "Authenticated source availability and candidate counts are receipts of the bounded protocols, not estimates of all published evidence.",
+    "The cause comparison is descriptive and cannot establish causal attribution among correlated retrieval and formulation mechanisms.",
+    "No direct outcome prevalence or Paper 3 predictive performance is claimed."
+  ],
+  "state_queue_ledger_status": "not edited; supervisor-owned state, queue, ledger, and status preserved"
+}

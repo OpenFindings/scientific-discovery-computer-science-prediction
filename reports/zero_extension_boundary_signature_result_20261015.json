@@ -1,0 +1,99 @@
+{
+  "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "evidence_tier": "tier_3_fully_proved_restricted_mathematical_result",
+  "sources_and_data": [
+    {
+      "source": "Reidl-Wahlström, Parameterized Algorithms for Zero Extension and Metric Labelling Problems",
+      "version": "arXiv:1802.06026v1",
+      "url": "https://arxiv.org/abs/1802.06026",
+      "use": "source definition, exact k-bounded metric-sparsifier target, fixed-s O(k^(s+1)) baseline"
+    },
+    {
+      "source": "reports/zero_extension_theorem_and_novelty_audit_20261015.md",
+      "use": "local source/novelty audit and mismatch boundaries for later flow, cut, and retracted claims"
+    }
+  ],
+  "method": {
+    "type": "direct mathematical proof and adversarial source audit; no experiment",
+    "host_class": "finite connected unweighted trees",
+    "construction": "delete terminal-free leaves and suppress nonterminal degree-two paths",
+    "boundary_signature": "for each suppressed path, sigma_P(a,b)=(mu(a,b), 1[a != b]); graph schema is independent of D, mu, tau, and k",
+    "quantifiers": "all finite metrics on at most s labels, all injective terminal labelings, and all integers k >= 0",
+    "two_sided_maps": [
+      "tree to core: triangle inequality lowers cost and endpoint disagreement lowers crossings",
+      "core to tree: label every suppressed path internally by one endpoint, preserving both cost and crossings"
+    ]
+  },
+  "source_definition_restatement": {
+    "objective": "minimum sum of metric distances over edges among extensions of an injective terminal labeling",
+    "restriction": "at most k crossing edges",
+    "preservation": "exact equality of restricted optima for every admissible metric and terminal labeling",
+    "infinite_case": "infeasible restricted optimum is +infinity",
+    "threshold_note": "source notation includes q, but q is not needed for this exact equality lemma"
+  },
+  "mathematical_claim": "For every finite connected unweighted tree T with terminal set S, its terminal core C preserves OPT_{T,k}(mu,tau) exactly for every admissible metric, injective terminal labeling, and k. For m=|S|>=2, |E(C)|<=2m-3.",
+  "assumptions": [
+    "T is a finite connected unweighted tree and S is its designated terminal set.",
+    "D is finite, mu is a metric on D, and tau:S->D is injective; |D|<=s is only a parameter bound.",
+    "The restricted objective counts every tree edge with unit multiplicity and imposes only the upper bound cr(lambda)<=k.",
+    "The sparsifier is allowed to retain all terminals and replace terminal-free leaves and nonterminal degree-two paths by the stated terminal core."
+  ],
+  "verified_steps": [
+    "Deleting a terminal-free leaf and copying its parent's label preserves both optimum cost and crossing feasibility in both directions.",
+    "For every suppressed path, triangle inequality maps any tree labeling to an endpoint edge of no greater cost, while endpoint disagreement is no more than the path's crossing count.",
+    "A core labeling extends by making every suppressed path constant except at one endpoint, giving exactly the endpoint metric cost and disagreement bit; deleted leaves copy their parent.",
+    "All core leaves are terminals and all nonterminals have degree at least three, so the tree degree identity yields |E(C)|<=2|S|-3 for |S|>=2.",
+    "The construction and both inequalities contain no s-dependent exponent; only the explicit terminal factor O(|S|)<=O(s) remains."
+  ],
+  "gaps": [],
+  "counterexamples": [],
+  "proof_status": {
+    "overall": "fully_proved",
+    "scope": "finite connected unweighted trees only",
+    "claim_classification": "fully_proved_restricted_mathematical_result",
+    "excluded_claims": [
+      "No conclusion for weighted trees, cacti, or general graphs.",
+      "No conclusion about a universal sparsifier exponent for unrestricted graphs.",
+      "No asymptotic lower bound is inferred."
+    ]
+  },
+  "independent_review": {
+    "status": "passed",
+    "review_type": "adversarial manual proof review against the source definition",
+    "reviewed_failure_modes": [
+      "k=0 and infeasible (+infinity) cases",
+      "one- and two-terminal boundary cases",
+      "hidden dependence on label count s",
+      "incorrect transfer to weighted trees or cycles"
+    ],
+    "review_conclusion": "The restricted tree lemma is closed; the stated exclusions remain open rather than silently resolved."
+  },
+  "observed_result_or_blocker": {
+    "result": "The tree two-sided proof obligation is discharged.",
+    "size_form": "O(s) * k^0, with explicit terminal-count factor; not O(1) uniformly in s",
+    "cactus_status": "unresolved; no source-matched counterexample established",
+    "fallback_status": "contraction-only lower-bound obstruction not needed and remains open",
+    "negative_findings": [
+      "No result for weighted trees, cacti, or general graphs follows from the path argument.",
+      "Exact flow/cut, approximate, and Steiner-node results are not transferred to this objective.",
+      "No finite evidence was used to claim an asymptotic lower bound."
+    ]
+  },
+  "hidden_s_dependence_audit": {
+    "construction_dependence": "none beyond retaining the given terminals",
+    "proof_dependence": "none in the two inequalities",
+    "explicit_output_dependence": "O(|S|)<=O(s) edges",
+    "exponent": "k-exponent 0 for the unweighted-tree class",
+    "warning": "This does not establish a label-independent exponent for unrestricted graphs or cacti."
+  },
+  "uncertainty": [
+    "The theorem is restricted to finite connected unweighted trees.",
+    "Cycle interactions prevent automatic extension to cacti; this remains an unproved obligation rather than a negative result.",
+    "The audited forward source chain does not resolve the unrestricted exact metric-sparsifier question.",
+    "The source audit is bounded and does not prove global absence of later literature."
+  ],
+  "paper3_state_check": "Paper 3 Target A and Target B were not edited; no Paper 3 evidence or forecast label was changed.",
+  "next_falsifiable_action": "Attempt a single-cycle cactus boundary signature with complete two-sided cost/crossing preservation. If closure fails, record the smallest source-matched obstruction and reassess O7; do not promote it to an asymptotic lower bound.",
+  "exposition_artifact": "reports/zero_extension_boundary_signature_proof_20261015.md"
+}

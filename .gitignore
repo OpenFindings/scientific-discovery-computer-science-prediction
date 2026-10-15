@@ -3,6 +3,30 @@ __pycache__/
 .venv/
 .ruff_cache/
 .pytest_cache/
+.env.local
+data/arxiv_cs_corpus.jsonl
+data/arxiv_cs_checkpoint.json
+data/openalex_cs_corpus.jsonl
+data/research_candidates_uncapped.jsonl.gz
+data/research_candidate_screen.jsonl
+data/fulltexts/
+.wrangler/
+research/logs/
+research/worker_runs/
+results/**/logs/
+results/**/container.id
+results/edcs_lazy_repair_counterexample_20261015/raw_trace.jsonl
 
 data/cs_forecast/cache/
 data/cs_forecast_s2/cache/
+# Supervisor/runtime state and generated experiment storage. Keep these local;
+# reproducibility manifests and small JSON summaries remain trackable.
+research/.supervisor.lock
+research/*.lock
+results/**/databases/
+results/**/*.db
+results/**/*.db-journal
+results/**/*.log
+results/**/*.stat
+data/research_candidates_uncapped.jsonl
+data/research_candidates_uncapped.jsonl.gz

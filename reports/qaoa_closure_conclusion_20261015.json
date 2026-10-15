@@ -1,0 +1,28 @@
+{
+  "report_id": "QAOA-CLOSURE-20261015",
+  "status": "temporarily_closed",
+  "conditional_state_quality": {
+    "original_n10_mean_delta": 0.19723368377120884,
+    "independent_n10_mean_delta": 0.18067856676890753,
+    "independent_graphs": 20,
+    "independent_positive_graphs": 20,
+    "conditioning_probability": 0.24999999999999994,
+    "interpretation": "The fixed local state-vector convention produced a reproducible conditional expected-cut increase on two bounded n=10 graph samples."
+  },
+  "complete_procedure_performance": {
+    "state_preparations_per_procedure": 400,
+    "mean_accepted_postselected_samples": 100.0078125,
+    "mean_discarded_postselected_samples": 299.9921875,
+    "postselected_minus_standard_best_cut_mean": -0.1515625,
+    "postselected_better_graphs": 0,
+    "interpretation": "Conditional state quality did not translate into better end-to-end best-cut performance under the declared shot budget."
+  },
+  "limitations": [
+    "Exact state-vector simulation does not identify physical runtime, hardware noise, queueing or measurement overhead.",
+    "The graph family, fixed beta/gamma, pair rule and alternating assignment are narrow and not a population or asymptotic claim.",
+    "The original A2 action failed its n=8 setup gate and was not retrospectively rewritten.",
+    "The result is a reproduction/bounded extension; no new theorem, quantum advantage or planner superiority is established."
+  ],
+  "novelty_boundary": "The conditional effect is treated as a reproduction of a source-style construction plus a bounded extension, not as a novel discovery.",
+  "next_action": "Do not repeat QAOA without a substantively new cost or state-preparation hypothesis and a new explicit local authorization."
+}

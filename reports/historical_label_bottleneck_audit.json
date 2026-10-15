@@ -1,0 +1,40 @@
+{
+  "audit_id": "HCS-BLIND-20-LABEL-BOTTLENECK-2026-10-14",
+  "population": "13 eligible frozen questions in the original 20-paper cohort",
+  "input_ledgers": ["reports/historical_blind_followup_triage_round1.json", "reports/historical_fd_followup_deep_audit.json"],
+  "method": "Descriptive recoding of documented first-pass retrieval quality and directness. No new future-label adjudication and no claim that a search failure proves a research question unresolved.",
+  "retrieval_evidence_classes": {
+    "primary_full_text_checked": "A dated future primary full text was inspected at least in the relevant sections; may still miss the exact question.",
+    "abstract_or_search_visible_only": "A candidate has at most an abstract/search-visible passage; exact test conditions cannot be authenticated.",
+    "undated_web_only": "A relevant web page exists but first-public date and matched primary result are not authenticated.",
+    "source_or_pre_cutoff_only": "Only the source or older prior art is in the ledger; not a future outcome.",
+    "no_candidate_primary": "Bounded searches located no candidate future primary source. This does not establish absence."
+  },
+  "rows": [
+    {"versioned_id": "1807.07619v1", "retrieval_class": "primary_full_text_checked", "directness_obstacle": "Different graph class and approximation/FPT claim, not specified W[2] theorem for general metric repair", "first_next_test": "Check theorem definitions against frozen parameterized claim"},
+    {"versioned_id": "1912.01990v1", "retrieval_class": "abstract_or_search_visible_only", "directness_obstacle": "Journal appearance of source result, not independent improved base or lower bound", "first_next_test": "Compare journal theorem with source before broader citation tracing"},
+    {"versioned_id": "2106.00714v1", "retrieval_class": "primary_full_text_checked", "directness_obstacle": "Unmarked cycle packing differs from required marked-vertex three-cycle problem", "first_next_test": "Look for a marked-vertex extension or lower bound, not another unmarked theorem"},
+    {"versioned_id": "2010.14077v1", "retrieval_class": "primary_full_text_checked", "directness_obstacle": "Lattice CCA construction and flexible authorization construction found separately; conjunction not authenticated", "first_next_test": "Audit construction and game definitions for all three conditions together"},
+    {"versioned_id": "2109.08630v1", "retrieval_class": "abstract_or_search_visible_only", "directness_obstacle": "Fairness-aware aggregator differs from matched-budget interactive versus noninteractive excessive-risk comparison; posting date unverified", "first_next_test": "Authenticate full text/version and exact metric"},
+    {"versioned_id": "2103.05704v1", "retrieval_class": "undated_web_only", "directness_obstacle": "Dataset page does not date or evaluate an independent matched-task comparison", "first_next_test": "Find a dated independent participant/task evaluation"},
+    {"versioned_id": "1910.05923v1", "retrieval_class": "source_or_pre_cutoff_only", "directness_obstacle": "Pre-cutoff grammar guidance is prior art, not future dual-model ablation", "first_next_test": "Trace source citations forward for a matched dual-task grammar ablation"},
+    {"versioned_id": "2004.11573v1", "retrieval_class": "abstract_or_search_visible_only", "directness_obstacle": "Uncertainty-guided retraining hit lacks authenticated uncommon-uncertainty equal-count robust/clean accuracy comparison", "first_next_test": "Inspect future primary full text and its actual training-example construction"},
+    {"versioned_id": "1811.10861v1", "retrieval_class": "no_candidate_primary", "directness_obstacle": "No authenticated later same-system adaptive-versus-fixed layout experiment", "first_next_test": "Trace system/project follow-ups beyond keyword search"},
+    {"versioned_id": "2005.07992v1", "retrieval_class": "primary_full_text_checked", "directness_obstacle": "Hyrise separates discovery and query benchmarks; no matched update-plus-query FD-table test; DynFD predates cutoff", "first_next_test": "Search for a queryable FD-table implementation with update correctness and compare against DynFD as well as re-mining"},
+    {"versioned_id": "1802.07361v1", "retrieval_class": "abstract_or_search_visible_only", "directness_obstacle": "Different path-directed strategy, not larger-codebase weak-mutation replication with verified faults", "first_next_test": "Inspect full text and replication artifacts for matched comparison"},
+    {"versioned_id": "1905.04752v1", "retrieval_class": "no_candidate_primary", "directness_obstacle": "No accessible semantic-memory-leak Scala detector evaluation authenticated", "first_next_test": "Trace exact defect benchmark and verified leak reports"},
+    {"versioned_id": "1801.07379v1", "retrieval_class": "no_candidate_primary", "directness_obstacle": "No dated matched protection-policy robustness intervention authenticated", "first_next_test": "Search policy-specific primary experiments, not generic crowdsensing reviews"}
+  ],
+  "derived_counts": {"questions": 13, "primary_full_text_checked": 4, "abstract_or_search_visible_only": 4, "undated_web_only": 1, "source_or_pre_cutoff_only": 1, "no_candidate_primary": 3, "direct_labels": 0},
+  "explanations": {
+    "inadequate_retrieval": "Supported as a measurement limitation: 9/13 lack a checked future primary full text. This does not prove a direct result exists.",
+    "excessively_narrow_formulations": "Plausible and directly documented in all four full-text near-misses: exact graph/marking/security-conjunction/FD-table conditions fail. Do not loosen the original rubric after seeing these hits.",
+    "genuine_absence_of_direct_research": "Not identified: non-detection cannot distinguish absence from retrieval failure.",
+    "insufficient_outcome_window": "Not identified in this audit: no matched later result is authenticated just beyond a frozen three-year window. The new, separate pilot uses a prespecified five-year window to test this prospectively.",
+    "source_selection_bias": "Observed source-screen attrition was 7/20; source-only title filtering in the new pilot yielded 1 eligible and 1 ineligible in its first two section screens. Too small to estimate improvement or scientific prevalence.",
+    "nonobservable_resolution_criteria": "Not a total absence: all 13 old eligible questions specify a falsification gate, but empirical gates often demand an exact comparator and multiple endpoints. The full-text near-misses demonstrate low match probability, not a license to relabel.",
+    "partial_progress_vs_resolution": "Directly evidenced by near-miss types (e.g., unmarked cycles and component security constructions), but dimensional trajectory labels require independent primary-source and date checks under the new rubric. This audit does not assign such labels retrospectively."
+  },
+  "scientific_decision": "Stop treating repeated keyword variation on these 13 as the highest-value next action. Preserve their unadjudicated direct labels; build a separate source-only observable cohort and capture evidence dimensions without converting topical near-misses into resolution.",
+  "uncertainty": "This is a 13-question descriptive diagnostic of one bounded search pass. Retrieval depth differs among rows, and the new cohort's title filter has unknown selection bias."
+}

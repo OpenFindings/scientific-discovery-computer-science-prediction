@@ -1,0 +1,87 @@
+{
+  "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
+  "attempt": "1/1",
+  "evidence_tier": "tier_3_independent_citation_trace_and_authenticated_primary_full_text_audit; no_direct_outcome_labels",
+  "artifact_scope": "Additive second retrieval audit of the three eligible Round 3 rows. The cohort, source questions, windows, and prior labels were not changed.",
+  "input_artifacts": {
+    "round3_report": "reports/historical_observable_cohort_round3.json",
+    "round3_validation": "reports/paper3_round3_independent_validation.json",
+    "round3_artifact_sha256": "6ffb371cde89d9f150d43304ae5cc41b7a5db9899acf2af67290cb831cdf051f",
+    "round3_validation_passed": true,
+    "cohort_id": "HCS-OBSERVABLE-ROUND3-4-2026-10-15",
+    "eligible_versioned_ids": ["2011.05425v1", "1710.11054v1", "1909.04368v1"],
+    "preserved_round3_direct_labels": {"positive": 0, "negative": 0, "direct_labels": "0/3; all unadjudicated"}
+  },
+  "protocol": {
+    "protocol_id": "HCS-OBSERVABLE-ROUND4-RETRIEVAL-V1-2026-10-14",
+    "frozen_before_followup_adjudication": true,
+    "freeze_timestamp_utc": "2026-10-14",
+    "source_cutoff_outcome_cutoff_separation": "Only primary artifacts first public strictly after each row's as_of and no later than its existing followup_end were admissible; historical features and future outcomes were kept separate.",
+    "retrieval_order": ["load exact Round 3 row", "trace forward citations/reference and author links", "retrieve primary full text from arXiv/publisher/conference/author endpoint", "verify title/authors/date/full-text access", "inspect section/page or HTML locator", "compare object/intervention/comparator/metric/gate", "assign seven dimensions independently and record missingness separately"],
+    "adjudication_rule": "Direct resolution requires matched object, intervention/comparator, metric and success condition. Premise revision requires a matched necessary-premise result. Partial progress is a strict component, subcase, weaker or adjacent endpoint only. Not observed is missingness, never a negative label.",
+    "citation_tracing_sources": [
+      {"source": "Semantic Scholar Graph API", "urls": ["https://api.semanticscholar.org/graph/v1/paper/ARXIV:2011.05425/citations?limit=100&fields=title,year,publicationDate,externalIds,openAccessPdf,authors", "https://api.semanticscholar.org/graph/v1/paper/ARXIV:1710.11054/citations?limit=100&fields=title,year,publicationDate,externalIds,openAccessPdf,authors"], "use": "Forward-citation enumeration for QAOA and semantic repair."},
+      {"source": "RiverGame author publication record and primary full text", "urls": ["https://dblp.org/rec/conf/icst/PaduraruPS22", "https://www.researchgate.net/publication/361316914_RiverGame_-_a_game_testing_tool_using_artificial_intelligence"], "use": "Reference/author tracing from the game-testing cutoff paper to the 2022 same-team follow-up."}
+    ]
+  },
+  "rows": [
+    {
+      "versioned_id": "2011.05425v1",
+      "title": "Improving the Quantum Approximate Optimization Algorithm with postselection",
+      "as_of": "2020-12-31T23:59:59Z",
+      "followup_end": "2025-12-31T23:59:59Z",
+      "frozen_question": "For depth-1 QAOA MaxCut on typical random 3-regular graphs, do postselection schemes beyond the paper's 2-independent-set construction improve satisfied-edge fraction over unconditioned depth-1 QAOA at comparable sampling/state-preparation cost?",
+      "frozen_gate": "Same graph family/depth; alternative postselection versus unconditioned comparator; matched cost; reproducible satisfied-edge improvement.",
+      "sources_data": [
+        {"title": "Graph neural network initialisation of quantum approximate optimisation", "arxiv_id": "2111.03016v1", "first_public_date": "2021-11-04", "full_text": "authenticated arXiv HTML/PDF", "url": "https://arxiv.org/html/2111.03016v1", "pdf_url": "https://arxiv.org/pdf/2111.03016v1", "locator": "abstract and Sections 2-4", "observed_scope": "GNN warm-start initialization/optimization for MaxCut; different intervention and no postselection comparator."},
+        {"title": "Recursive greedy initialization of the quantum approximate optimization algorithm with guaranteed improvement", "arxiv_id": "2209.01159v1", "first_public_date": "2022-09-02", "full_text": "authenticated arXiv PDF", "url": "https://arxiv.org/pdf/2209.01159", "locator": "pp. 1-2", "observed_scope": "Recursive initialization with depth-improvement guarantee; different intervention."}
+      ],
+      "dimension_outcomes": {"direct_scientific_resolution": "not_observed_after_bounded_search", "premise_refutation_or_revision": "not_observed_after_bounded_search", "partial_progress": "supported", "independent_evidence_strengthening": "not_observed_after_bounded_search", "contradictory_evidence": "not_observed_after_bounded_search", "scope_narrowing_or_reformulation": "not_observed_after_bounded_search", "continued_explicit_uncertainty": "not_observed_after_bounded_search"},
+      "observed_result_or_blocker": "The authenticated in-window follow-ups report adjacent QAOA initialization improvements: GNN-QAOA can outperform either component and generalize across graph sizes; recursive greedy initialization guarantees lower energy with increasing depth. Neither tests a postselection configuration beyond 2-independent sets against unconditioned depth-1 QAOA at matched sampling/state-preparation cost. Partial progress is broader-initialization evidence only, not a direct label.",
+      "missingness": {"direct_outcome_unadjudicated": true, "definition_matched_followup": false, "retrieval_failure_is_not_negative": true},
+      "uncertainty": ["Bounded indexed citation trace, not an exhaustive review.", "No effect estimate is transferred across interventions.", "No claim about inaccessible or unpublished matched studies."],
+      "next_falsifiable_action": "Authenticate or execute a same-graph, same-depth postselection comparison beyond 2-independent sets with matched sampling/state-preparation cost; retain missingness if definitions cannot be verified."
+    },
+    {
+      "versioned_id": "1710.11054v1",
+      "title": "Semantic Code Repair using Neuro-Symbolic Transformation Networks",
+      "as_of": "2017-12-31T23:59:59Z",
+      "followup_end": "2022-12-31T23:59:59Z",
+      "frozen_question": "On held-out real-world semantic bug-fix instances, does an iterative decoder or broader learned bug-type coverage improve exact and multi-bug exact repair over the one-pass Share-Specialize-Compete decoder at matched data/evaluation?",
+      "frozen_gate": "Matched SSC comparator/data/protocol; exact repair and multi-bug exact endpoint; synthetic-only gains fail.",
+      "sources_data": [
+        {"title": "Neural Program Repair by Jointly Learning to Localize and Repair", "arxiv_id": "1904.01720v1", "first_public_date": "2019-04-03", "full_text": "authenticated arXiv HTML/PDF", "url": "https://arxiv.org/html/1904.01720", "pdf_url": "https://arxiv.org/pdf/1904.01720v1", "locator": "Sections 3-4.4 and 5", "observed_scope": "Joint pointer localization/repair for VarMisuse; reports 65.7% localization+repair on ETH-Py150 and 15.8% on industrial snapshots, not SSC or the frozen semantic multi-bug endpoint."},
+        {"title": "A Controlled Experiment of Different Code Representations for Learning-Based Program Repair", "arxiv_id": "2110.14081v1", "first_public_date": "2021-10-26", "full_text": "authenticated arXiv HTML/PDF", "url": "https://arxiv.org/html/2110.14081", "pdf_url": "https://arxiv.org/pdf/2110.14081v1", "locator": "Sections 5-8", "observed_scope": "Controlled representation and patch-generation study; no iterative SSC or broader SSC bug-type comparison."},
+        {"title": "Generating bug-fixes using pretrained transformers", "arxiv_id": "2104.07896v1", "first_public_date": "2021-04-16", "full_text": "citation-trace candidate; definition mismatch retained", "url": "https://arxiv.org/abs/2104.07896", "observed_scope": "Different model family and benchmark/comparator."}
+      ],
+      "dimension_outcomes": {"direct_scientific_resolution": "not_observed_after_bounded_search", "premise_refutation_or_revision": "not_observed_after_bounded_search", "partial_progress": "supported", "independent_evidence_strengthening": "not_observed_after_bounded_search", "contradictory_evidence": "not_observed_after_bounded_search", "scope_narrowing_or_reformulation": "not_observed_after_bounded_search", "continued_explicit_uncertainty": "not_observed_after_bounded_search"},
+      "observed_result_or_blocker": "The 2019 primary follow-up is genuine adjacent progress: joint localization/repair replaces enumerative VarMisuse repair and reports higher repair accuracy, including real developer-history data. The 2021 study tests code representations and patch generation. Neither is an iterative SSC decoder or broader SSC bug-type comparison at matched data/evaluation, and neither supplies the frozen semantic multi-bug endpoint. Partial progress only.",
+      "missingness": {"direct_outcome_unadjudicated": true, "definition_matched_followup": false, "retrieval_failure_is_not_negative": true},
+      "uncertainty": ["Adjacent repair methods are not interchangeable with SSC.", "Only accessible, date-valid primary full texts were positive-coded.", "No claim that no iterative/broader SSC successor exists outside the bounded trace."],
+      "next_falsifiable_action": "Find an in-window primary artifact pinning SSC plus iterative decoding or new learned bug types and matched real/multi-bug exact repair; otherwise keep the direct outcome missing and plan a leakage-free matched reimplementation."
+    },
+    {
+      "versioned_id": "1909.04368v1",
+      "title": "Automatic difficulty management and testing in games using a framework based on behavior trees and genetic algorithms",
+      "as_of": "2019-12-31T23:59:59Z",
+      "followup_end": "2024-12-31T23:59:59Z",
+      "frozen_question": "In game behavior-tree testing, does a formal exploit-reporting mechanism reduce human effort while preserving/improving independently verified logic-exploit detection over the tree-width/height heuristic and manual review?",
+      "frozen_gate": "Formal exploit reports versus width/height heuristic/manual review; held-out exploit recall, false-positive rate, and analyst effort.",
+      "sources_data": [
+        {"title": "RiverGame - a game testing tool using artificial intelligence", "doi": "10.1109/ICST53961.2022.00048", "first_public_date": "2022-04-06", "full_text": "authenticated author-uploaded primary full text; publisher/conference metadata cross-checked", "url": "https://www.researchgate.net/publication/361316914_RiverGame_-_a_game_testing_tool_using_artificial_intelligence", "publisher_record": "https://icst2022.vrain.upv.es/details/icst-2022-testing-tool/3/RiverGame-a-game-testing-tool-using-artificial-intelligence", "locator": "abstract; Sections III-VII", "observed_scope": "Broader automated visual/sound/animation/gameplay/statistical testing and scheduling; no formal exploit-reporting comparator or held-out exploit endpoint.", "access_note": "IEEE publisher PDF was not retrievable here; the complete author-uploaded primary full text was accessible and DOI/venue/authors matched."},
+        {"title": "Automated game testing using computer vision methods", "venue_year": "ASE4Games 2021", "full_text": "citation/reference lead only", "observed_scope": "Adjacent game-testing computer vision; exact exploit-reporting endpoint not authenticated."}
+      ],
+      "dimension_outcomes": {"direct_scientific_resolution": "not_observed_after_bounded_search", "premise_refutation_or_revision": "not_observed_after_bounded_search", "partial_progress": "supported", "independent_evidence_strengthening": "not_observed_after_bounded_search", "contradictory_evidence": "not_observed_after_bounded_search", "scope_narrowing_or_reformulation": "not_observed_after_bounded_search", "continued_explicit_uncertainty": "not_observed_after_bounded_search"},
+      "observed_result_or_blocker": "RiverGame is a dated same-team primary follow-up implementing broader automated game testing. It reports visual, sound, animation, gameplay and statistical checks, including approximately 93% correct detection on 273 audio samples and a 33% false-positive rate on 27 voices, while leaving further false-positive reduction as future work. It does not implement or compare formal exploit reporting against the width/height heuristic/manual review or report held-out exploit recall and analyst effort. Partial infrastructure progress only.",
+      "missingness": {"direct_outcome_unadjudicated": true, "definition_matched_followup": false, "publisher_full_text_unavailable_author_full_text_available": true, "retrieval_failure_is_not_negative": true},
+      "uncertainty": ["Author-uploaded full text rather than IEEE PDF; DOI, venue, authorship and content were cross-checked.", "Same-team follow-up is not independent evidence strengthening.", "Audio/visual endpoints are not exploit-detection proxies and were not treated as direct labels."],
+      "next_falsifiable_action": "Authenticate a primary study defining exploit labels and comparing formal reports with width/height and blinded manual review on held-out behavior trees; otherwise retain direct missingness."
+    }
+  ],
+  "observed_result": {"rows_audited": 3, "direct_resolution_positive": 0, "direct_resolution_negative": 0, "premise_revision_supported": 0, "partial_progress_supported": 3, "independent_evidence_strengthening_supported": 0, "contradictory_evidence_supported": 0, "scope_narrowing_or_reformulation_supported": 0, "continued_explicit_uncertainty_supported": 0, "direct_outcome_unadjudicated": 3, "direct_label_yield": "0/3", "interpretation": "All three rows received provenance-coded dimension outcomes; partial progress is not a direct scientific outcome."},
+  "paper3_gate": {"status": "gated_no_score", "reason": "The second protocol produced zero directly adjudicated positive or negative outcomes; temporal forecast metrics, calibration and transfer claims remain non-estimable.", "not_claimed": ["No resolution prevalence", "No premise-revision prevalence", "No negative outcome rate", "No Paper 3 score", "No inference from retrieval failure to unresolved science"]},
+  "uncertainty": ["Bounded citation-tracing/full-text audit, not exhaustive review.", "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.", "The hash-priority Round 3 cohort is not population-random; counts are descriptive.", "Partial progress remains separate from direct resolution, refutation and Paper 3 labels."],
+  "next_falsifiable_action": "Require a date-verified primary source matching each frozen intervention/object/comparator/metric/gate before assigning a direct label, then obtain independent adjudication and a temporally grouped holdout; keep Paper 3 gated until that occurs.",
+  "negative_or_null_preserved": true,
+  "state_queue_ledger_status": "not edited; supervisor-owned checkpoints untouched"
+}

@@ -1,0 +1,1143 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "artifact": "docs/RESEARCH_RECOVERY_AUDIT.md",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "dependencies": [],
+      "execution_requirements": [
+        "local filesystem",
+        "read-only R2 access"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "Retry only transient remote reads; otherwise preserve receipts and mark blocked with exact failed object keys.",
+      "max_attempts": 2,
+      "objective": "Reconcile Git/local manifests/R2 object availability and checksums; report precise recoverability of referenced audit batches.",
+      "priority": 100,
+      "status": "completed",
+      "success_criteria": [
+        "counts reconciled",
+        "remote objects checksum-verified or explicitly marked inaccessible",
+        "audit written"
+      ],
+      "task_id": "RECOVERY-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/lead_reevaluation.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "full-text audit artifacts",
+        "source-code/prior-art inspection"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If exact primary sources are unavailable, retain the lead as unverified and select an independently executable task.",
+      "max_attempts": 2,
+      "objective": "Independently compare findings 155-158, source evidence, novelty limits, and minimum executable experiments; choose a lead without sunk-cost bias.",
+      "priority": 90,
+      "status": "completed",
+      "success_criteria": [
+        "each lead has competing hypotheses and blocker",
+        "selected experiment is preregistered and feasible"
+      ],
+      "task_id": "LEADS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/sqlancerpp_feedback_replication_4111_4115/independent_analysis.json",
+      "attempts": 1,
+      "configuration": {
+        "cpus_per_container": 1,
+        "database_cap_per_arm": 20,
+        "docker_network": "none",
+        "query_attempts_per_database": 200,
+        "seeds": [
+          4111,
+          4112,
+          4113,
+          4114,
+          4115
+        ]
+      },
+      "cost_estimate": 0.7,
+      "counts_as_experiment": true,
+      "dataset_version": "SQLancer++ commit 1405d4eb5b7af7a639717a47147bd89362558830; jar SHA in per-seed metadata.",
+      "dependencies": [
+        "LEADS-001"
+      ],
+      "domain": "DBMS testing",
+      "execution_command": "python3.12 scripts/run_sqlancerpp_long_campaign.py --source /private/tmp/sqlancerpp-source-1405d4e --output results/sqlancerpp_feedback_replication_4111_4115 --first-seed 4111 --seeds 5 --database-cap 20",
+      "execution_requirements": [
+        "verified code/data",
+        "frozen configuration",
+        "local compute"
+      ],
+      "expected_information_gain": 0.9,
+      "experiment_id": "EXP-DBMS-FEEDBACK-REP-4111-4115",
+      "failure_handling": "Record failures as outcomes; change direction only with a documented measurement/feasibility reason.",
+      "hypothesis_id": "H1_DBMS_FEEDBACK_PROXY",
+      "max_attempts": 2,
+      "methodology": "Paired fresh seeds with pinned build, SQLite/NoREC, 20 databases and 200 attempts per database; source-log reanalysis and exact sign test.",
+      "objective": "Execute a bounded, reproducible falsification/robustness study for the selected lead and preserve null/failure outcomes.",
+      "prior_evidence": "Exploratory previous five-seed long run; see preregistration.",
+      "priority": 85,
+      "status": "completed",
+      "success_criteria": [
+        "command reruns deterministically",
+        "raw outputs and uncertainty retained",
+        "interpretation respects evidence tier"
+      ],
+      "task_id": "EXPERIMENT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_action_plan.json",
+      "attempts": 1,
+      "cost_estimate": 0.6,
+      "dependencies": [
+        "LEADS-001"
+      ],
+      "execution_requirements": [
+        "provenanced evidence",
+        "declared action outcomes/likelihoods"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If action ground truth is absent, report feasibility only; do not score expected utility as validated discovery value.",
+      "max_attempts": 2,
+      "objective": "Implement a Paper 4-style typed evidence graph and compare selected next action against simple information-gain/lowest-cost baselines on audited leads.",
+      "priority": 70,
+      "status": "completed",
+      "success_criteria": [
+        "evidence roots and gaps are typed",
+        "action ranking has explicit assumptions and baseline"
+      ],
+      "task_id": "PLANNER-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/fulltext_batch_recovery.json",
+      "attempts": 1,
+      "cost_estimate": 0.25,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "public source access",
+        "local disk"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "Do not overwrite existing files; retain exact HTTP errors and missing identifiers.",
+      "max_attempts": 2,
+      "objective": "Recover and checksum all retrievable full texts cited in audit batches 8, 15, 30 and 34, including source-linked PMLR records; preserve withdrawn/unavailable items explicitly.",
+      "priority": 100,
+      "status": "completed",
+      "success_criteria": [
+        "PDF magic/version/title checked",
+        "SHA-256 and URL captured",
+        "batch-specific coverage reconciled; inaccessible withdrawn record explicitly preserved"
+      ],
+      "task_id": "RECOVER-BATCH-PDFS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/dbms_equal_cpu_result.json",
+      "attempts": 1,
+      "cost_estimate": 0.7,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "EXPERIMENT-001"
+      ],
+      "execution_requirements": [
+        "pinned source/build",
+        "Docker CPU telemetry",
+        "fresh seeds"
+      ],
+      "expected_information_gain": 0.9,
+      "experiment_id": "EXP-DBMS-FEEDBACK-EQUAL-CPU-4131-4135",
+      "failure_handling": "If reliable container CPU-time accounting is unavailable, stop short of matched-compute claims and publish a measurement plan only.",
+      "max_attempts": 2,
+      "objective": "Design and implement an exact-counter, matched-CPU follow-up for SQLancer++ feedback using fresh paired seeds; randomize run order and preserve all NoREC traces.",
+      "priority": 95,
+      "status": "completed",
+      "success_criteria": [
+        "CPU time measured per arm",
+        "counter denominators exact",
+        "all mismatch candidate logs independently inspected; none existed, so blinded rerun was not applicable"
+      ],
+      "task_id": "MATCHED-CPU-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/dp158_accountant_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.8,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "primary paper and source code",
+        "high-precision privacy accounting"
+      ],
+      "expected_information_gain": 0.8,
+      "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026",
+      "failure_handling": "If proof/code assumptions cannot be pinned, report the uncertainty and do not run a misleading approximation.",
+      "max_attempts": 2,
+      "objective": "Pin the finding-158 paper and relevant accountant implementations; translate filter validity assumptions into an executable regime-boundary test without claiming theorem novelty.",
+      "priority": 75,
+      "status": "completed",
+      "success_criteria": [
+        "published validity conditions extracted",
+        "theorem-backed conservative RDP reference implemented and tested; production implementation not audited",
+        "boundary diagnostic predeclared, executed and independently analyzed",
+        "no theorem/production novelty overclaim"
+      ],
+      "task_id": "DP158-ACCOUNTANT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/sqlancerpp_feedback_cpu_4121_4125/independent_analysis.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "EXPERIMENT-001"
+      ],
+      "execution_requirements": [
+        "pinned source/build",
+        "Docker cgroup-v2 CPU telemetry",
+        "fresh preregistered seeds"
+      ],
+      "expected_information_gain": 0.7,
+      "experiment_id": "EXP-DBMS-FEEDBACK-CPU-THROUGHPUT-4121-4125",
+      "max_attempts": 2,
+      "objective": "Measure preregistered CPU-normalized successful-query throughput on fresh SQLancer++ feedback on/off seed pairs, then analyze raw per-database rates and cgroup-v2 CPU counters independently.",
+      "priority": 90,
+      "status": "completed",
+      "success_criteria": [
+        "five paired seeds complete",
+        "both arms have exact counters and positive CPU counters",
+        "all limitations retained"
+      ],
+      "task_id": "CPU-THROUGHPUT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/dp158_filter_dimension_sensitivity/summary.json",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "source audit",
+        "local Monte Carlo"
+      ],
+      "expected_information_gain": 0.3,
+      "experiment_id": "EXP-DP158-DIMENSION-SENSITIVITY-2026",
+      "max_attempts": 1,
+      "objective": "Run and transparently adjudicate a dimension sweep of an independent DP158-inspired model.",
+      "priority": 30,
+      "status": "completed",
+      "success_criteria": [
+        "all prespecified dimensions run",
+        "source mismatch and withdrawn interpretation recorded"
+      ],
+      "task_id": "DP158-VECTOR-HYPOTHETICAL-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/dp158_filter_source_matched_q01/independent_analysis.json",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "RECOVERY-001"
+      ],
+      "execution_requirements": [
+        "primary paper",
+        "local Monte Carlo",
+        "frozen exploratory protocol"
+      ],
+      "expected_information_gain": 0.6,
+      "experiment_id": "EXP-DP158-SOURCE-MATCHED-EXPLORATORY-2026",
+      "max_attempts": 1,
+      "objective": "Independently reproduce the paper's q=0.1 scalar numerical example using its actual approximate budget formula and transparently report deviations.",
+      "priority": 65,
+      "status": "completed",
+      "success_criteria": [
+        "million paths per arm",
+        "frozen seeds and source budget validated",
+        "all published comparison metrics reported",
+        "limitations retained"
+      ],
+      "task_id": "DP158-SCALAR-REPRO-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "HISTORICAL-OUTCOME-001"
+      ],
+      "execution_requirements": [
+        "original 2004.11573v1 source and exact uncommon-uncertainty generator definition",
+        "version-pinned follow-up/code/data availability audit",
+        "no synthetic outcome labels or hindsight relabeling"
+      ],
+      "expected_information_gain": 0.55,
+      "failure_handling": "If the source generator, comparator, equal-budget data or held-out metric cannot be pinned, record a bounded no-go and do not run a proxy experiment.",
+      "finished_at": "2026-10-15T02:18:10Z",
+      "last_result": {
+        "artifact_bytes": 9069,
+        "artifact_valid": true,
+        "elapsed_seconds": 64.879,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "440150dfdb4de234f5b1ea1f429eb40ac6aae287407e644676387c2be1695b5a",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d59-516e-7180-9845-91dd47fb98dc",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Determine whether the uncertainty-robustness lead can support a preregistered direct test of uncommon-uncertainty adversarial examples versus conventional adversarial training at equal example count and compute; otherwise reject it as currently infeasible.",
+      "priority": 50,
+      "research_key": "uncertainty_robust_direct_test_feasibility",
+      "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:17:05Z",
+      "status": "completed",
+      "success_criteria": [
+        "source intervention and comparator definitions pinned",
+        "data/code and compute feasibility checked",
+        "go/no-go recorded without converting a near-match into a historical label"
+      ],
+      "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/sereniot_cross_device_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-002"
+      ],
+      "execution_requirements": [
+        "original SERENIoT source and exact whitelist policy definition",
+        "dated follow-up primary source and public artifact/access audit",
+        "false-allow and false-block endpoints kept separate"
+      ],
+      "expected_information_gain": 0.6,
+      "failure_handling": "If cross-device traces, policy labels or comparable artifacts are unavailable, record a bounded no-go and do not infer security improvement from adoption or deployment claims.",
+      "finished_at": "2026-10-15T02:22:13Z",
+      "last_result": {
+        "artifact_bytes": 12266,
+        "artifact_valid": true,
+        "elapsed_seconds": 63.077,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "6c545b923ef1e3c98f181d6c7774af78fc8a2cc13f97052a07d2a5b6d0aed44a",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d5d-0bda-73a3-aa1b-970ad13ff539",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Audit whether SERENIoT's cross-device whitelist-generalization gap supports a low-cost, falsifiable test with matched device families and explicit false-allow/false-block outcomes.",
+      "priority": 48,
+      "research_key": "sereniot_cross_device_whitelist_generalization_feasibility",
+      "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "method"
+        ],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:21:09Z",
+      "status": "completed",
+      "success_criteria": [
+        "source and follow-up endpoint definitions reconciled",
+        "public data/artifact and split feasibility checked",
+        "go/no-go recorded without treating deployment as a security outcome"
+      ],
+      "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/patch_explanation_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "public repair benchmark or documented subset",
+        "independent test execution",
+        "frozen condition generator",
+        "no participant recruitment"
+      ],
+      "expected_information_gain": 0.85,
+      "failure_handling": "If public artifacts or semantic labels are insufficient, record a no-go and preserve the exact missingness; do not replace human outcomes with LLM judgments.",
+      "max_attempts": 1,
+      "objective": "Build and audit a no-participant pilot for patch-only versus accurate-explanation software-repair review conditions: verify patch labels, behavioral-difference examples, explanation factuality, blinding and automated scoring without claiming human review effects.",
+      "priority": 94,
+      "research_key": "patch_explanation_review_feasibility",
+      "result": "Synthetic artifact pilot passed blinding/material checks; no usable Defects4J/Java runtime, so real benchmark execution and human outcomes remain unmeasured.",
+      "status": "completed",
+      "success_criteria": [
+        "versioned material manifest",
+        "correct/incorrect patch and explanation audit",
+        "condition-blinding and scoring checks",
+        "human-study protocol with preregistered primary outcomes"
+      ],
+      "task_id": "PATCH-EXPLAIN-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/cam_artifact_ablation_feasibility.json",
+      "attempts": 2,
+      "cost_estimate": 0.35,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-001"
+      ],
+      "execution_requirements": [
+        "primary 2017 CAM and 2019 independent replication",
+        "dataset schema/license inspection",
+        "no restricted data upload"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "If project labels or extra artifacts are unavailable, record no-go and pursue another observable experiment.",
+      "failure_note": "worker changed paths outside declared artifact: research/task_queue.json",
+      "finished_at": "2026-10-15T00:52:53Z",
+      "last_result": {
+        "artifact_bytes": 12310,
+        "artifact_valid": true,
+        "elapsed_seconds": 65.412,
+        "error": "worker changed paths outside declared artifact: research/task_queue.json",
+        "exit_code": 0,
+        "failure_class": "quota",
+        "official_reset_at": null,
+        "rate_limited": true,
+        "raw_output_sha256": "9121e47c9b64d71e844265030a9a0fbab4f2f96ad3f1e6a8fe29c9265a4d2ec8",
+        "retry_after_seconds": null,
+        "session_id": "01a13d0b-3920-7f42-b9bb-5c8ac5f7e966",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Audit whether public or authorized industrial CAM-style data can support a project-disjoint, class-skew-aware comparison of log-only and added-artifact multiclass cause accuracy without confusing 2019 binary product-fault recall for that endpoint; decide go/no-go for a small preregistered test.",
+      "priority": 72,
+      "research_key": "cam_independent_industrial_endpoint_data_feasibility",
+      "result": "Artifact validated after reconciling a supervisor-owned queue snapshot false positive: public data cannot support the required project-disjoint CAM artifact ablation; binary Ericsson recall remains separate from multiclass CAM accuracy.",
+      "retry_after": "2026-10-15T01:02:53Z",
+      "started_at": "2026-10-15T00:51:47Z",
+      "status": "completed",
+      "success_criteria": [
+        "metrics and populations reconciled",
+        "data/access and split feasibility checked",
+        "go/no-go with next experiment cost"
+      ],
+      "task_id": "CAM-TRANSFER-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/badger_matched_cpu_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "dependencies": [
+        "LEADS-001"
+      ],
+      "execution_requirements": [
+        "primary 2018 Badger source",
+        "pinned code and dependencies",
+        "no paid compute or persistent service"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "If old dependencies cannot be built, preserve exact failures and choose a different observable test; no synthetic performance claim.",
+      "finished_at": "2026-10-15T00:55:45Z",
+      "last_result": {
+        "artifact_bytes": 11301,
+        "artifact_valid": true,
+        "elapsed_seconds": 89.057,
+        "error": "worker changed paths outside declared artifact: research/tracks/experiments/task_queue.json",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "6211148228b59cb4925b2e5699e203780223d17e92179ceafd9a2270f89178f7",
+        "retry_after_seconds": null,
+        "session_id": "01a13d0d-7b1c-7301-a5b7-12e6a7f90b9f",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Pin and build the Badger and KelinciWCA source stacks, check independent Java subjects, worst-case cost metric and cgroup CPU observability; decide whether a preregistered matched-CPU falsification experiment is feasible without claiming an outcome yet.",
+      "priority": 75,
+      "research_key": "badger_resource_fair_build_metric_feasibility",
+      "result": "Bounded no-go: native Kelinci interface builds and cgroup counters are observable, but Ant/Gradle/AFL/JPF/SPF/Z3 and a common cost metric are not reproducibly assembled; no matched-CPU outcome was run.",
+      "retry_after": "2026-10-15T00:56:15Z",
+      "started_at": "2026-10-15T00:54:15Z",
+      "status": "completed",
+      "success_criteria": [
+        "build and measurement feasibility documented",
+        "resource fairness confound addressed",
+        "go/no-go decision with exact cost"
+      ],
+      "task_id": "BADGER-FAIR-CPU-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/dp158_matched_guarantee_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.9,
+      "dependencies": [
+        "DP158-ACCOUNTANT-001"
+      ],
+      "execution_requirements": [
+        "tighter proved per-step RDP bound",
+        "certified finite-q conversion",
+        "author-code assumptions or exact pairwise metrics"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "Do not compare raw active steps at unequal privacy guarantees or treat the floating-point reference as production certification.",
+      "finished_at": "2026-10-15T01:06:16Z",
+      "last_result": {
+        "artifact_bytes": 7579,
+        "artifact_valid": true,
+        "elapsed_seconds": 58.969,
+        "error": "worker changed paths outside declared artifact: research/logs/launchd.err.log",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "080a90dfbdf7198254bd17a659ef2308b492bba254e0ccb0fb3759349cf09c65",
+        "retry_after_seconds": null,
+        "session_id": "01a13d17-9394-7f03-9e6d-60b3563fdd8b",
+        "timed_out": false
+      },
+      "max_attempts": 2,
+      "objective": "Compare a published approximate GDP filter and a valid adaptive RDP fallback only at matched adjacency and finite-q (epsilon,delta) guarantees, using certified numerical errors; otherwise publish why comparison remains infeasible.",
+      "priority": 55,
+      "result": "Explicit infeasibility: the published GDP filter has asymptotic error orders and Monte Carlo finite-q evidence, but no certified finite-q error enclosure; the local RDP fallback is theorem-valid but only an ordinary-floating-point, deliberately conservative reference. No matched (epsilon,delta) comparison or production undercount claim is justified.",
+      "retry_after": "2026-10-15T01:06:46Z",
+      "started_at": "2026-10-15T01:05:17Z",
+      "status": "completed",
+      "success_criteria": [
+        "guarantees comparable or explicit infeasibility result",
+        "no production undercount claim without deployed implementation"
+      ],
+      "task_id": "DP158-MATCHED-GUARANTEE-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_action_outcome_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "PLANNER-001",
+        "CAM-TRANSFER-FEAS-001",
+        "BADGER-FAIR-CPU-FEAS-001",
+        "DP158-MATCHED-GUARANTEE-001"
+      ],
+      "execution_requirements": [
+        "pre-action plan timestamps",
+        "post-action feasibility artifacts",
+        "independent outcome coding",
+        "no causal utility claim from small n"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "If pre-action ranking or outcome provenance is insufficient, report non-identifiability and do not invent an information-gain score.",
+      "finished_at": "2026-10-15T02:30:48Z",
+      "last_result": {
+        "artifact_bytes": 11255,
+        "artifact_valid": true,
+        "elapsed_seconds": 52.006,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "a5e854b820aad2667cec42e791f766c41bdfc9c557c67a734b29b267abb906ab",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d65-1369-7f63-bb83-b6c61f5fad62",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Compare Paper 4's pre-action rankings and declared feasibility assumptions against the observed CAM, Badger, DP158, uncertainty-robustness and SERENIoT action outcomes; quantify only descriptive calibration/rank agreement when provenance permits, and do not call it validated planning utility.",
+      "priority": 88,
+      "research_key": "paper4_observed_action_outcome_audit",
+      "scientific_completion": "planning_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "planning_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:29:56Z",
+      "status": "completed",
+      "success_criteria": [
+        "pre/post action provenance reconciled",
+        "observed go/no-go outcomes coded",
+        "planning utility remains gated if sample is too small"
+      ],
+      "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_postselection_pilot_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.2,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-ACTION-OUTCOME-AUDIT-001"
+      ],
+      "execution_command": "python3.12 scripts/run_qaoa_postselection_pilot.py",
+      "expected_information_gain": 0.55,
+      "experiment_id": "EXP-PAPER4-QAOA-POSTSELECTION-PILOT-20261015",
+      "finished_at": "2026-10-15T02:47:54Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "setup_infeasible_for_alternative",
+        "independent_validation": "reports/paper4_qaoa_postselection_validation_20261015.json",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Execute the frozen Paper 4 A2 QAOA postselection pilot and preserve the A2 setup-feasibility result plus the conditional A1 baseline.",
+      "priority": 84,
+      "research_key": "paper4_qaoa_postselection_pilot",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:47:54Z",
+      "status": "completed",
+      "success_criteria": [
+        "frozen plan hash verified",
+        "A2 setup feasibility measured",
+        "A1 denominator and limitations preserved"
+      ],
+      "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_qaoa_pilot_independent_review.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "dependencies": [
+        "PAPER4-ACTION-OUTCOME-AUDIT-001"
+      ],
+      "execution_requirements": [
+        "frozen Paper 4 plan hash",
+        "raw per-graph observations",
+        "independent arithmetic and schema checks",
+        "no new parameter tuning"
+      ],
+      "expected_information_gain": 0.55,
+      "failure_handling": "If the raw result or plan hash does not verify, mark the pilot invalid and preserve the setup failure; do not repair the result by changing the frozen plan.",
+      "finished_at": "2026-10-15T02:49:12Z",
+      "last_result": {
+        "artifact_bytes": 12374,
+        "artifact_valid": true,
+        "elapsed_seconds": 53.489,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "a878ffa81383f928cd9dc93a672ffd5f32524562b7a190b593fb530b3e27d361",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d75-e572-78d2-849c-67aec3743e42",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Independently re-analyze the frozen QAOA postselection pilot, preserving the A2 setup-infeasibility result and the A1 conditional denominator; verify that the observed delta is not promoted to a general or planner-utility claim.",
+      "priority": 82,
+      "research_key": "paper4_qaoa_pilot_independent_reanalysis",
+      "scientific_completion": "experiment_review",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_review",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:48:18Z",
+      "status": "completed",
+      "success_criteria": [
+        "plan and raw observations independently verified",
+        "A2 infeasibility and A1 denominator reported",
+        "scope and uncertainty limitations retained"
+      ],
+      "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_sensitivity_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001"
+      ],
+      "execution_requirements": [
+        "raw pilot and independent review",
+        "same seed/graphs/parameters",
+        "valid-set rule frozen before recomputation",
+        "paired graph-level uncertainty"
+      ],
+      "expected_information_gain": 0.6,
+      "failure_handling": "If the raw graph set or frozen parameters do not verify, record an invalidation and do not substitute a new sample.",
+      "finished_at": "2026-10-15T02:53:42Z",
+      "last_result": {
+        "artifact_bytes": 27901,
+        "artifact_valid": true,
+        "elapsed_seconds": 42.015,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "cdf61685269f4c9ace3a68a3e36a5140711d0d0fcaa4c2b1195cb307cd868c10",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d7a-3244-79f2-b3ee-3db45ffebe49",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Run a predeclared local sensitivity check for the A1 source-style QAOA baseline using the same 20 graphs and parameters but an explicitly defined valid-set rule; quantify how the 16/20 denominator and paired delta change without tuning after observing the pilot.",
+      "priority": 87,
+      "research_key": "paper4_qaoa_a1_valid_set_sensitivity",
+      "scientific_completion": "experiment_reanalysis",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_reanalysis",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:53:00Z",
+      "status": "completed",
+      "success_criteria": [
+        "valid-set rule declared before recomputation",
+        "all 20 graph outcomes retained",
+        "conditional A1 effect and denominator reported with limitations"
+      ],
+      "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_avocado_constraint_comparison_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001"
+      ],
+      "execution_requirements": [
+        "public source and version pins",
+        "local Python/solver feasibility",
+        "held-out configuration model",
+        "predeclared recall/invalid-test/count/cost metrics"
+      ],
+      "expected_information_gain": 0.72,
+      "failure_handling": "A missing solver, source, baseline or held-out model is a bounded no-go; do not substitute citation counts or a synthetic configuration benchmark.",
+      "finished_at": "2026-10-15T03:00:43Z",
+      "last_result": {
+        "artifact_bytes": 10222,
+        "artifact_valid": true,
+        "elapsed_seconds": 111.943,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "3cc14742bdd522c800c7b01c5671ff69c6aa49fd0bc7876011dc7749ba2e15b4",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d7f-8b8c-77d0-b31c-88bba8173329",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Establish a concrete feasibility gate for the Avocado constrained-interaction-testing follow-up: pin source versions, reconstruct the constrained and unconstrained arms, verify objective invalid-test/detection/cost endpoints, and run a small real comparison only if both arms and a held-out configuration model are locally executable.",
+      "priority": 88,
+      "research_key": "paper4_avocado_constraint_comparison_feasibility",
+      "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:58:51Z",
+      "status": "completed",
+      "success_criteria": [
+        "source and endpoint definitions pinned",
+        "go/no-go based on actual local feasibility",
+        "if go, execute a bounded comparison; if no-go, preserve exact missing dependency and next improvement"
+      ],
+      "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_nulltype_mutation_feasibility.json",
+      "attempts": 1,
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001"
+      ],
+      "execution_requirements": [
+        "Round 6 stop-gate report",
+        "original paper and replication package",
+        "local Java/build audit",
+        "source-pinned project/test oracle"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "Missing Java/build/package/oracle is a bounded no-go and must not be replaced with synthetic mutants, citation counts, or a different mutation endpoint.",
+      "finished_at": "2026-10-15T03:08:13Z",
+      "last_result": {
+        "artifact_bytes": 9232,
+        "artifact_valid": true,
+        "elapsed_seconds": 297.08,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "aeb19eeeb462802bda34eb1699db7e8776c207765a610041d113a9941487c47b",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d83-9674-7aa2-ae82-97aaf2bc1d8d",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Use the Paper 3 stop-gate direction to audit whether the null-type mutation question has a locally executable, version-pinned endpoint-matched experiment: inspect the replication package, Java/build availability, named projects, traditional-mutant comparator and exact mutant-kill/subsumption outcomes; run only a bounded smoke if the full oracle is feasible.",
+      "priority": 89,
+      "research_key": "paper4_nulltype_mutation_endpoint_feasibility",
+      "scientific_completion": "feasibility_decision",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T03:03:16Z",
+      "status": "completed",
+      "success_criteria": [
+        "endpoint tuple and source package audited",
+        "actual local feasibility decision",
+        "if infeasible, exact blocker and concrete enabling condition recorded"
+      ],
+      "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_larger_n_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.4,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001"
+      ],
+      "execution_requirements": [
+        "NumPy/Python 3.12",
+        "frozen source parameter convention",
+        "20 independent graph units",
+        "all-graph feasibility gate",
+        "paired graph-level uncertainty"
+      ],
+      "expected_information_gain": 0.7,
+      "failure_handling": "If any graph lacks the conditioning event, report the all-graph setup failure and do not silently drop it; do not tune beta/gamma or change the graph family after seeing outcomes.",
+      "finished_at": "2026-10-15T03:09:21Z",
+      "last_result": {
+        "artifact_bytes": 26889,
+        "artifact_valid": true,
+        "elapsed_seconds": 46.056,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "e122f88dc6ce06aa29ab0e33b85b83e5f531ba2d947a48084400aac4390dd0e5",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d88-76e0-7832-a159-04c8112cf84f",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Run a new, predeclared larger-n source-style QAOA A1 robustness experiment using exact local state vectors: sample 20 seeded simple 3-regular graphs at n=10, require the distance-at-least-3 conditioning event to be feasible on every graph or record setup failure, and compare graph-level conditioned versus unconditioned expected cut at the frozen beta/gamma without post-hoc filtering.",
+      "priority": 90,
+      "research_key": "paper4_qaoa_a1_larger_n_robustness",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T03:08:35Z",
+      "status": "completed",
+      "success_criteria": [
+        "20 graph outcomes retained",
+        "all-graph feasibility or explicit setup failure",
+        "paired delta and graph-level uncertainty reported",
+        "no general or planner-utility claim"
+      ],
+      "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_replication_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
+      ],
+      "execution_command": "python3.12 scripts/run_qaoa_independent_replication.py",
+      "expected_information_gain": 0.82,
+      "experiment_id": "EXP-PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-20261015",
+      "failure_handling": "A non-positive or infeasible independent replication is a scientific result; do not alter the seed, graph family or denominator.",
+      "finished_at": "2026-10-15T04:50:14Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "replication_positive",
+        "independent_validation": "reports/qaoa_independent_replication_validation_20261015.json",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Run a second predeclared n=10 QAOA A1 replication on 20 new simple 3-regular graph units using the unchanged source convention, fixed beta/gamma, lexicographic distance-ge-3 pair rule and alternating assignment; retain all graphs and report paired deltas.",
+      "priority": 96,
+      "research_key": "paper4_qaoa_a1_independent_replication",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T04:50:14Z",
+      "status": "completed",
+      "success_criteria": [
+        "20 new graph units retained",
+        "all-graph feasibility reported",
+        "paired delta and graph-level uncertainty reported",
+        "no post-hoc parameter tuning"
+      ],
+      "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_fair_cost_comparison_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001"
+      ],
+      "execution_command": "python3.12 scripts/run_qaoa_fair_cost_comparison.py",
+      "expected_information_gain": 0.9,
+      "experiment_id": "EXP-PAPER4-QAOA-FAIR-SHOT-COST-20261015",
+      "failure_handling": "If physical runtime is not identifiable, retain the shot-count comparison and do not claim hardware speedup or quantum advantage.",
+      "finished_at": "2026-10-15T04:50:14Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "end_to_end_advantage_not_supported",
+        "independent_validation": "inline_fair_cost_checks",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Compare standard and postselected QAOA end-to-end under equal state-preparation and measurement budgets on the frozen independent replication graphs, with a matched accepted-shot standard reference; report discarded samples and no-acceptance failures.",
+      "priority": 97,
+      "research_key": "paper4_qaoa_fair_shot_cost_comparison",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "sources_and_data"
+        ],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T04:50:14Z",
+      "status": "completed",
+      "success_criteria": [
+        "complete procedure scored",
+        "equal preparation budget declared",
+        "discarded and accepted samples retained",
+        "conditional quality separated from end-to-end efficacy"
+      ],
+      "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/novel_cs_opportunity_pool_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.25,
+      "dependencies": [],
+      "expected_information_gain": 0.86,
+      "failure_handling": "A bounded source audit is a valid rejection when the endpoint, dependency or novelty gate fails; do not promote a literature lead to a discovery.",
+      "max_attempts": 1,
+      "objective": "Audit fresh CS candidates outside the exhausted QAOA, Badger, CAM, SERENIoT and DP158 directions, and reject candidates lacking a source-level novelty boundary or executable objective endpoint.",
+      "priority": 94,
+      "research_key": "novel_cs_candidate_source_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "source_level_opportunity_audit",
+        "reason": "Four candidates were bounded; two were rejected and EDCS was selected conditionally",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "at least three fresh candidate questions source-audited",
+        "objective endpoint and feasibility gate recorded for each",
+        "known prior art and unresolved boundary separated",
+        "one candidate selected without hindsight from later outcomes"
+      ],
+      "task_id": "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_novel_action_plan_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.18,
+      "dependencies": [
+        "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001"
+      ],
+      "expected_information_gain": 0.78,
+      "failure_handling": "Planning scores remain assumptions until observed evidence change is measured; infeasible actions are not treated as scientific failures.",
+      "max_attempts": 1,
+      "objective": "Freeze a Paper 4 comparison across genuinely feasible research actions, declare score assumptions and baselines, and execute no action until the local experiment authorization gate is satisfied.",
+      "priority": 92,
+      "research_key": "paper4_novel_action_comparison",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "planning_protocol",
+        "reason": "Three actions were compared; EDCS was selected only conditionally and remains unexecuted",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "at least three candidate actions or an explicit feasibility rejection",
+        "cost and information-gain assumptions are declared",
+        "simple ranking baselines are recorded",
+        "planner superiority is not claimed from assumed scores"
+      ],
+      "task_id": "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/qaoa_closure_conclusion_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.12,
+      "dependencies": [
+        "PAPER4-QAOA-FAIR-SHOT-COST-001"
+      ],
+      "expected_information_gain": 0.76,
+      "failure_handling": "Do not repeat QAOA parameter sweeps without a substantively new hypothesis and explicit renewed budget.",
+      "max_attempts": 1,
+      "objective": "Close the authorized QAOA investigation with separate conditional state-quality, complete-procedure, shot-budget and novelty conclusions.",
+      "priority": 91,
+      "research_key": "paper4_qaoa_direction_closure",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "negative_result_closure",
+        "reason": "The conditional effect and negative complete-procedure cost result are separately documented",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "independent conditional replication retained",
+        "negative fair-cost result retained",
+        "graph-family and simulation limitations stated",
+        "no quantum advantage or novelty claim made"
+      ],
+      "task_id": "PAPER4-QAOA-CLOSURE-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/edcs_experiment_result_20261015.json",
+      "attempts": 1,
+      "cost_estimate": 0.3,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+        "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001"
+      ],
+      "execution_requirements": [
+        "explicit renewed local experiment authorization",
+        "Python 3.12 and existing standard-library tooling only",
+        "one process, no network, <=120 CPU seconds, <=1024 MiB",
+        "n<=6 exact enumeration plus deletion sequences of length <=6; bounded n<=8 extension only if the first gate passes"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "A finite search that finds no counterexample narrows the question but does not prove the invariant; implementation or runtime failure is recorded separately.",
+      "finished_at": "2026-10-15T06:09:27Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "variant_P1_counterexample_verified",
+        "independent_validation": "results/edcs_lazy_repair_counterexample_20261015/independent_validation.json",
+        "raw_result": "results/edcs_lazy_repair_counterexample_20261015/result.json",
+        "scientific_report": "reports/edcs_experiment_result_20261015.json",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Test whether the frozen lazy edge-deletion/local-repair implementation preserves the EDCS endpoint inequalities and matching-quality guarantee on bounded simple graphs and deletion sequences.",
+      "priority": 99,
+      "research_key": "edcs_lazy_repair_invariant_counterexample",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "structured scientific report and independent validation satisfy the experiment gate",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "exact enumeration or bounded deletion search completes under the declared limit",
+        "all candidate traces and implementation parameters are retained",
+        "any counterexample is minimized and independently recomputed",
+        "survival is reported only as finite evidence, never as a proof"
+      ],
+      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+      "track": "experiments"
+    }
+  ],
+  "track": "experiments"
+}

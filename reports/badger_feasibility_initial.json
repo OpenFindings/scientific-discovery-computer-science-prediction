@@ -1,0 +1,20 @@
+{
+  "audit_id": "BADGER-FAIR-CPU-INITIAL-2026-10-14",
+  "task_id": "BADGER-FAIR-CPU-FEAS-001",
+  "status": "partial_feasibility_check_not_full_build_or_metric_validation",
+  "research_question": "Can Badger's reported hybrid advantage be tested against KelinciWCA with identical total CPU, wall-clock, cost metric and held-out Java programs?",
+  "hypothesis": "If original code and dependencies can be pinned and the same cost metric observed in both arms, an independent paired resource-fair experiment is feasible at bounded cost.",
+  "source": "https://arxiv.org/pdf/1806.03283v1",
+  "repositories": [
+    {"url": "https://github.com/isstac/badger", "head_checked": "82b946c3ef3761b61864aa898f2c6711c5bb2396", "last_pre_2019_commit_observed": "c1c94ff20964615770751f72945bab54bd36c7f2", "readme_build": "ant build after JPF core/SPF setup; Badger's symbolic-execution part alone"},
+    {"url": "https://github.com/isstac/kelinci/tree/kelinciwca", "branch_head_checked": "2c72f97733b36710d8f5845faa928e9589053e61", "last_pre_2019_commit_observed": "ba003cd15bc877f774348a5c5335ec5266dc3a0e", "readme_build": "make for native AFL interface and gradle build for Java instrumentor; AFL required"}
+  ],
+  "dependency_evidence": "Badger README references JPF core nolleryc commit 0f2f2901cd0ae9833145c38fee57be03da90a64f and Symbolic PathFinder jpf-symbc commit b64ab6a0c8dde218b34969b46ee526ece7ddee44, plus Z3. Evaluation scripts are present but do not establish cross-arm CPU parity.",
+  "observed_environment": {"host_java_runtime": "unavailable; java -version reports Unable to locate a Java Runtime", "host_ant": "not_found", "host_gradle": "not_found", "host_afl_fuzz": "not_found", "docker_daemon": "available 29.7.2", "cached_container": "maven:3.9-eclipse-temurin-21", "container_jdk": "21.0.12.1", "container_ant": "not_found", "container_gradle": "not_found", "metric_alignment": "not_yet_verified", "cgroup_cpu_accounting": "not_yet_verified_for_this_stack"},
+  "actual_check": "Public repositories cloned into disposable /private/tmp/badger-feas-XDqnXq for inspection; git SHA and pre-2019 commits checked; host and one offline disposable container tool inventory checked. No Badger, KelinciWCA, JPF/SPF or AFL component was built or run; no cost-input output measured.",
+  "decision": "defer_full_build_pending_pinned_dependency_environment",
+  "observed_information_contribution": "The proposed first action found that source availability is not the blocking condition; 2018-era dependency/build reproducibility and CPU/cost-metric alignment are. This is an observed planning/feasibility result, not a validated Paper 4 information-gain prediction.",
+  "next_gate": "Only attempt a bounded build in an isolated pinned container with compatible Java, Ant, Gradle, AFL, JPF core/SPF and Z3; compare one known-cost input across arms before scheduling any paired experiment. If dependency/bootstrap cost exceeds the local experiment budget, record no-go and redirect to a cheaper observable lead.",
+  "uncertainty": "Build compatibility, Java version, exact JPF/SPF dependencies, pinned AFL instrumentation, cost-counter equivalence and per-subject CPU fairness remain unverified. The existing JDK21 container may not be compatible with 2018 JPF code.",
+  "paper4_validation_status": "one planned feasibility action partially executed with a negative environment result; predicted entropy gain and action ranking remain uncalibrated and were not compared against an observed baseline action"
+}

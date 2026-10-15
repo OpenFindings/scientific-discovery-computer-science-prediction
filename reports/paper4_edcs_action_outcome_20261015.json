@@ -1,0 +1,30 @@
+{
+  "record_id": "PAPER4-EDCS-ACTION-OUTCOME-20261015",
+  "frozen_plan": "reports/paper4_novel_action_plan_20261015.json",
+  "selected_action": "A1_EDCS_LAZY_REPAIR",
+  "assumptions_unchanged": true,
+  "prospective_prediction": {
+    "feasibility_assumption": 0.95,
+    "information_gain_assumption": 0.8,
+    "paper4_score": 0.6333
+  },
+  "observed_action": {
+    "authorized_experiments": 1,
+    "actual_feasibility": "completed_within_limits",
+    "elapsed_seconds": 53.979445916600525,
+    "cpu_limit_seconds": 120,
+    "memory_limit_mib": 1024,
+    "network": false,
+    "scientific_outcome": "minimal_P1_counterexample_to_frozen_lazy_variant",
+    "uncertainty_reduction": "The one-flip lazy repair rule is rejected for the declared P1 invariant on a four-update witness; the original EDCS algorithm remains outside scope.",
+    "unexpected_blockers": [],
+    "independent_validation": "1,167,465 trace rows checked; runner/independent oracle agreement and minimized replay passed"
+  },
+  "comparison": {
+    "feasibility_prediction_consistent": true,
+    "observed_information_gain_direction": "substantial_bounded_reduction",
+    "planner_superiority_established": false,
+    "reason": "One selected action is insufficient to calibrate Paper 4 scores or compare against A2/A3 outcomes."
+  },
+  "boundary": "This is a single prospective action outcome, not evidence that Paper 4 is a better selector than simple baselines."
+}

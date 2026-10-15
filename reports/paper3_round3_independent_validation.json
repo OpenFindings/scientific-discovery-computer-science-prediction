@@ -1,0 +1,25 @@
+{
+  "report": "reports/historical_observable_cohort_round3.json",
+  "validation": "independent_supervisor_reconciliation",
+  "checks": {
+    "report_schema": true,
+    "four_source_rows": true,
+    "no_overlap_with_frozen_cohorts": true,
+    "frame_provenance_matches": true,
+    "cutoff_years_are_in_declared_frame": true,
+    "no_direct_labels_claimed": true,
+    "ineligible_row_stays_in_denominator": true,
+    "partial_progress_not_promoted": true
+  },
+  "all_checks_passed": true,
+  "artifact_sha256": "6ffb371cde89d9f150d43304ae5cc41b7a5db9899acf2af67290cb831cdf051f",
+  "scientific_interpretation": {
+    "source_rows": 4,
+    "eligible_questions": 3,
+    "direct_positive": 0,
+    "direct_negative": 0,
+    "partial_progress": 1,
+    "paper3_score": "not estimable",
+    "boundary": "missing or unadjudicated outcomes are not negative labels"
+  }
+}

@@ -1,7 +1,9 @@
 {
-  "status": "exploratory_pilot_only_not_forecast_validation",
+  "artifact_id": "HISTORICAL-OUTCOME-001",
+  "attempt": 1,
+  "status": "completed_bounded_adjudication_no_direct_resolution; exploratory_pilot_only_not_forecast_validation",
   "frame": "data/historical_cs_year_topic_frame.jsonl",
-  "selection_warning": "This pair was chosen after a targeted search for a later controlled study. Its outcome must not enter training, validation, or test scoring for Paper 3. A forecast benchmark needs questions frozen before follow-up retrieval and independently labeled under a predeclared rubric.",
+  "selection_warning": "The legacy pilot pair below was selected after a targeted search for a later controlled study and remains outside Paper 3 scoring. The new bounded adjudication in this artifact is separately identified by artifact_id and preserves the frozen 13-question labels.",
   "question_id": "HCS-IDE-CODE-PRODUCTIVITY-2021",
   "domain": "ai_generated_code",
   "cutoff": "2021-12-31T23:59:59Z",
@@ -31,5 +33,130 @@
     "reason": "Different assistant (hybrid PyCharm retrieval/generation versus Copilot), different language/tasks and participant pools; the 2023 time result is conditional on completion, with an imprecise success-rate effect. The study itself does not assess code quality or general professional-project productivity.",
     "evidence_level": "dated_primary_source_pair_not_independent_replication"
   },
-  "next_required_step": "Freeze a larger question cohort and label rubric before searching for follow-ups; keep this hand-selected pilot out of Paper 3 benchmark scoring."
+  "next_required_step": "Freeze a larger question cohort and label rubric before searching for follow-ups; keep this hand-selected pilot out of Paper 3 benchmark scoring.",
+  "evidence_tier": "dated_primary_source_pair_audited; historical_outcome_label_unadjudicated",
+  "scope": {
+    "cohort": "HCS-BLIND-20-2026-10-14",
+    "original_eligible_question_count": 13,
+    "original_labels_changed": false,
+    "paper3_comparison": "not_run; zero direct labels remain insufficient",
+    "selection_rule": "One weak retrieval was improved by full-text and definition tracing; no broad keyword expansion or label relaxation was used."
+  },
+  "frozen_rubric": {
+    "protocol": "research/historical_outcome_label_protocol_v1.json",
+    "outcome_window": "strictly after each source as_of timestamp through frozen three_year_followup_end inclusive",
+    "direct_supported": "An independently dated in-window primary source directly tests the same question, object and metric or proves the same formal claim with explicit assumptions and enough evidence for the prespecified success criterion.",
+    "direct_refuted_or_premise_revised": "An independently dated in-window primary source directly falsifies the specified claim or shows that a central premise fails under the stated conditions.",
+    "explicitly_unresolved": "An in-window primary source explicitly states that the same question remains open or reports a direct inconclusive/negative test under relevant conditions.",
+    "unadjudicated": "No directly matching, date-verified evidence is authenticated, or the match/conditions are ambiguous; search non-detection is not a negative outcome."
+  },
+  "retrieval_gap_targeted": {
+    "audit": "reports/historical_label_bottleneck_audit.json",
+    "versioned_id": "2004.11573v1",
+    "prior_class": "abstract_or_search_visible_only",
+    "documented_gap": "The prior candidate was a 2023 uncertainty-guided retraining study whose exact training-example construction, comparator, and robustness endpoint had not been full-text audited.",
+    "follow_up_method": "Verified the frozen source record and source-grounded definition, then inspected the complete dated follow-up article at empirical-study, model-training, results, threats-to-validity, and conclusions sections."
+  },
+  "adjudications": [
+    {
+      "question_id": "HCS-UNCERTAINTY-ROBUST-2020",
+      "versioned_id": "2004.11573v1",
+      "source_and_question": {
+        "source_title": "Towards Characterizing Adversarial Defects of Deep Learning Software from the Lens of Uncertainty",
+        "source_url": "https://arxiv.org/pdf/2004.11573v1",
+        "source_abstract_url": "https://arxiv.org/abs/2004.11573",
+        "first_publication": "2020-04-24T07:29:47Z",
+        "as_of": "2020-12-31T23:59:59Z",
+        "source_sha256": "5bf733d9dc5e0b303c7f0c2dad338add604469ec239b8c0a4b0addfbb3cb5483",
+        "source_text_verification": {
+          "status": "verified_from_original_full_text_record",
+          "locator": "PDF p. 11, §8 Conclusion and Future Work; source-screen record reports the same version and hash",
+          "observed_claim": "The source characterizes and generates uncommon-uncertainty adversarial examples, and leaves using those examples to enhance robustness as future work; evasion-generation results are not training evidence."
+        },
+        "frozen_question": "At equal training-example count and compute, does training on uncommon-uncertainty adversarial examples improve held-out robust accuracy over conventional adversarial training without materially degrading clean accuracy?",
+        "frozen_falsification_gate": "No held-out robustness advantage, or prespecified clean-accuracy degradation, fails the proposed benefit."
+      },
+      "follow_up_source": {
+        "title": "Guiding the retraining of convolutional neural networks against adversarial inputs",
+        "authors": ["Francisco Durán", "Silverio Martínez-Fernández", "Michael Felderer", "Xavier Franch"],
+        "primary_full_text_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10495969/",
+        "doi_url": "https://doi.org/10.7717/peerj-cs.1454",
+        "first_publication": "2023-08-08",
+        "date_verification": "PeerJ/PMC article header records 2023 Aug 8; received 2023-03-20 and accepted 2023-06-06.",
+        "in_window": true,
+        "full_text_sections_inspected": [
+          "Empirical study: Research questions and Variables",
+          "Study design: Model training",
+          "Results on guidance metrics (RQ1)",
+          "Results on retraining configurations (RQ2)",
+          "Threats to validity",
+          "Conclusions and future work"
+        ],
+        "verified_follow_up_claims": [
+          "The study evaluates five image-classification datasets and CNN models.",
+          "Adversarial training and test inputs are generated with FGSM, BIM, and CW; the training set combines original and adversarial inputs.",
+          "Guidance metrics are NC, DSA, LSA, Random, DeepGini, and softmax entropy; the study compares OAR, AR, and AF retraining configurations.",
+          "The accuracy endpoint uses an augmented held-out test set containing original and adversarial test inputs; the paper reports uncertainty metrics as often selecting inputs with the best observed accuracy and AR as favorable under its design."
+        ],
+        "evidence_locators": [
+          "HTML §§ Empirical study, Variables, and Study design",
+          "HTML § Model training: adversarial inputs and FGSM/BIM/CW construction; OAR/AR/AF definitions",
+          "HTML §§ Results RQ1/RQ2",
+          "HTML §§ Threats to validity and Conclusions/future work"
+        ]
+      },
+      "match_audit": {
+        "same_object": false,
+        "same_intervention": false,
+        "same_comparator": false,
+        "same_metric": "partial",
+        "same_training_budget": false,
+        "same_compute_budget": false,
+        "reason": "The follow-up studies uncertainty-guided ordering of adversarial inputs generated by standard attacks. It does not use the source paper's uncommon-uncertainty adversarial-example generator, does not compare that intervention with conventional adversarial training at equal example count and compute, and does not report a prespecified clean-accuracy trade-off for that comparison. Its augmented adversarial accuracy endpoint is related but not sufficient."
+      },
+      "observed_result_or_blocker": {
+        "result": "Near-match only: independent dated follow-up evidence strengthens the broader premise that uncertainty-guided adversarial retraining can improve the study's augmented-test accuracy/resource trade-off within its CNN, dataset, attack, and configuration choices.",
+        "label": "unadjudicated",
+        "direct_resolution": false,
+        "explicit_unresolved": false,
+        "negative_result_preserved": "No direct positive, negative, or explicit-unresolved outcome for the frozen uncommon-uncertainty intervention was authenticated."
+      },
+      "uncertainty": [
+        "This is one near-match and cannot distinguish uncertainty-based selection from ordinary adversarial retraining, attack choice, or configuration effects.",
+        "The follow-up reports best observed values across retraining data points; it is not the frozen equal-count/equal-compute comparison.",
+        "The source/follow-up pair is suitable for evidence-gap refinement, not Paper 3 outcome scoring."
+      ],
+      "next_falsifiable_action": "Locate or execute, under a newly preregistered protocol that preserves this frozen question, a dated primary comparison using the 2004.11573 uncommon-uncertainty generator versus conventional adversarial training, equalized training-example count and compute, held-out attack families, clean accuracy, robust accuracy, independent seeds, and a prespecified material-degradation threshold."
+    }
+  ],
+  "original_13_label_snapshot": {
+    "source": "reports/historical_label_bottleneck_audit.json",
+    "all_labels": "unadjudicated",
+    "direct_labels": 0,
+    "explicitly_unresolved_labels": 0,
+    "rows": [
+      {"versioned_id": "1807.07619v1", "retrieval_class": "primary_full_text_checked", "label": "unadjudicated"},
+      {"versioned_id": "1912.01990v1", "retrieval_class": "abstract_or_search_visible_only", "label": "unadjudicated"},
+      {"versioned_id": "2106.00714v1", "retrieval_class": "primary_full_text_checked", "label": "unadjudicated"},
+      {"versioned_id": "2010.14077v1", "retrieval_class": "primary_full_text_checked", "label": "unadjudicated"},
+      {"versioned_id": "2109.08630v1", "retrieval_class": "abstract_or_search_visible_only", "label": "unadjudicated"},
+      {"versioned_id": "2103.05704v1", "retrieval_class": "undated_web_only", "label": "unadjudicated"},
+      {"versioned_id": "1910.05923v1", "retrieval_class": "source_or_pre_cutoff_only", "label": "unadjudicated"},
+      {"versioned_id": "2004.11573v1", "retrieval_class": "abstract_or_search_visible_only", "label": "unadjudicated", "updated_by_this_attempt": true},
+      {"versioned_id": "1811.10861v1", "retrieval_class": "no_candidate_primary", "label": "unadjudicated"},
+      {"versioned_id": "2005.07992v1", "retrieval_class": "primary_full_text_checked", "label": "unadjudicated"},
+      {"versioned_id": "1802.07361v1", "retrieval_class": "abstract_or_search_visible_only", "label": "unadjudicated"},
+      {"versioned_id": "1905.04752v1", "retrieval_class": "no_candidate_primary", "label": "unadjudicated"},
+      {"versioned_id": "1801.07379v1", "retrieval_class": "no_candidate_primary", "label": "unadjudicated"}
+    ]
+  },
+  "paper3_gate": {
+    "status": "not_eligible_for_comparison",
+    "reason": "No direct resolution or explicit-unresolved labels were authenticated in this attempt; the near-match is not a historical outcome label and must not enter forecast features, training, validation, or test scoring."
+  },
+  "machine_readable_conclusion": {
+    "observed": "Specific weak retrieval improved from search-visible-only to full-text-audited dated near-match.",
+    "not_observed": "No direct resolution, direct refutation, or explicit unresolved label.",
+    "next_action": "Target only an exact intervention/comparator/budget-matched primary source or a preregistered direct test; retain all 13 frozen labels unchanged."
+  }
 }

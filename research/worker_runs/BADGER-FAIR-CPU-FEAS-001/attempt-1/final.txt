@@ -1,0 +1,8 @@
+Completed the bounded feasibility audit.
+
+- Decision: no-go for the matched-CPU experiment on this machine.
+- Native Kelinci interface builds; Badger/Gradle builds are blocked by missing tooling and dependencies.
+- cgroup CPU observability works in the disposable container, but metric alignment and independent held-out subjects remain unverified.
+- No scientific outcome was claimed.
+
+Artifact: [badger_matched_cpu_feasibility.json](/Users/amao/Documents/ChatGPT/ScientificDiscovery/reports/badger_matched_cpu_feasibility.json)

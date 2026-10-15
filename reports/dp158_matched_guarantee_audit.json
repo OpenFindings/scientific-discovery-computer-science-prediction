@@ -1,0 +1,98 @@
+{
+  "task_id": "DP158-MATCHED-GUARANTEE-001",
+  "attempt": 1,
+  "objective": "Compare the published approximate GDP filter with a valid adaptive RDP fallback only at matched adjacency and finite-q (epsilon,delta) guarantees.",
+  "evidence_tier": {
+    "level": 3,
+    "label": "source-authenticated methodological audit plus local implementation check; no matched privacy comparison executed",
+    "not_claimed": [
+      "no theorem counterexample",
+      "no production accountant undercount",
+      "no privacy-utility superiority result",
+      "no deployed implementation validation"
+    ]
+  },
+  "sources_and_data": [
+    {
+      "kind": "primary_paper",
+      "citation": "Tran et al., f-Differential Privacy Filters: Validity and Approximate Solutions, arXiv:2602.06756v2",
+      "url": "https://arxiv.org/html/2602.06756v2",
+      "inspected_sections": ["Definition 2.1", "Theorem 4.2", "Algorithm 2", "Theorem G.1", "Appendix G.2"],
+      "relevant_facts": [
+        "The mechanism relation is a remove-neighbor pair.",
+        "The approximate GDP filter is proved only in asymptotic regimes: error Delta=O(sqrt(q_bar)) near q=0 or Delta=O(log(sigma_bar)/sigma_bar) near q=1.",
+        "The paper states that the approximation can underestimate privacy loss at realistic subsampling rates.",
+        "The finite-q table and Figure 12 are Monte Carlo validation, not a finite-q exact GDP certificate.",
+        "The order-one RDP-to-(epsilon,delta) conversion in Theorem G.1 is a separate algebraic conversion and is not a certified finite-q error bound for the GDP approximation."
+      ]
+    },
+    {
+      "kind": "primary_paper",
+      "citation": "Feldman and Zrnic, Individual Privacy Accounting via a Renyi Filter, NeurIPS 2021",
+      "url": "https://papers.neurips.cc/paper_files/paper/2021/hash/ec7f346604f518906d35ef0492709f78-Paper.pdf",
+      "relevant_fact": "The RDP filter theorem supports adaptive pre-release stopping when the pathwise sum of conditionally valid per-step RDP charges stays within a fixed-order budget."
+    },
+    {
+      "kind": "local_dependency_audit",
+      "paths": [
+        "reports/dp158_accountant_audit.json",
+        "src/research_platform/rdp_filter_reference.py",
+        "tests/test_rdp_filter_reference.py",
+        "results/dp158_regime_boundary/summary.json",
+        "results/dp158_filter_source_matched_q01/independent_analysis.json"
+      ],
+      "observed": [
+        "The existing fallback uses a revealed-coin per-step RDP upper bound, deliberately conservative relative to a tighter subsampled-Gaussian bound.",
+        "The implementation uses ordinary Python floating point and is explicitly documented as not a certified numerical accountant.",
+        "The prior one-dimensional boundary diagnostic reported maximum empirical Gaussian-CDF discrepancies 0.0146299851, 0.0281486450, 0.0481296471, and 0.0921804925 at q=0.1, 0.19, 0.3, and 0.5; these are empirical diagnostics, not privacy certificates.",
+        "The prior q=0.1 reproduction used one million trajectories per arm and was close to the paper's reported values, but it was not author code or a matched guarantee."
+      ]
+    },
+    {
+      "kind": "local_test",
+      "command": "python3 -m unittest tests/test_rdp_filter_reference.py",
+      "result": "4 tests passed",
+      "scope": "formula guardrails and adaptive pre-release stopping only"
+    }
+  ],
+  "method": {
+    "steps": [
+      "Read the dependency audit and its declared comparison cautions.",
+      "Audited the published filter's adjacency definition, asymptotic theorem, finite-q simulation section, and order-one RDP conversion.",
+      "Audited the local adaptive RDP reference and ran its focused tests.",
+      "Applied the predeclared gate: do not compare active-step or utility outcomes unless both filters have the same adjacency, finite-(epsilon,delta) guarantee, and certified numerical error accounting."
+    ],
+    "matched_adjacency": {
+      "candidate": "remove-neighbor adjacency",
+      "status": "conceptually alignable from the paper's definition, but not sufficient to make the finite guarantees comparable"
+    },
+    "certification_standard": "A numerical comparison would require interval/validated arithmetic or an otherwise proven error enclosure for every relevant conversion and pairwise privacy quantity; Monte Carlo confidence bounds alone do not certify the GDP approximation error."
+  },
+  "observed_result_or_blocker": {
+    "status": "infeasible_in_this_attempt",
+    "comparison_executed": false,
+    "reason": "The published GDP filter has no explicit finite-q worst-case (epsilon,delta) error enclosure at the proposed intermediate q values. Its theorem supplies asymptotic big-O errors with no constants sufficient for certification, while the finite-q evidence is simulation. The fallback is theorem-valid for adaptive RDP but its inspected implementation is the deliberately loose revealed-coin bound in ordinary floating point. No verified author implementation, exact pairwise privacy metric, or validated finite-q GDP conversion was available in the inspected repository/source materials.",
+    "requirement_status": {
+      "tighter_proved_per_step_rdp_bound": "not met: no tighter bound was implemented and certified in this task; the available local bound is explicitly conservative",
+      "certified_finite_q_conversion": "not met: the source gives asymptotic GDP error orders and empirical Monte Carlo discrepancies, not a finite-q certified enclosure",
+      "author_code_assumptions_or_exact_pairwise_metrics": "not met: no author-code artifact or exact pairwise metric sufficient to validate the adaptive filter comparison was identified"
+    },
+    "negative_result": "The prior finite-q discrepancies cannot be converted into a matched (epsilon,delta) comparison, and raw active-step counts must not be compared at unequal or uncertified guarantees."
+  },
+  "uncertainty": [
+    "The paper's Appendix G.2 scalar-versus-vector convention and zero-history clipping convention remain unverified against author code.",
+    "The Monte Carlo DKW intervals quantify sampling noise only; they do not bound model, theorem-remainder, implementation, or floating-point error.",
+    "The local RDP formula is mathematically motivated by the cited theorem, but its floating-point values are not machine-certified outward enclosures.",
+    "No claim is made about a production implementation, deployed behavior, or an actual privacy undercount."
+  ],
+  "next_falsifiable_action": {
+    "action": "Obtain a version-pinned author implementation or fully specified scalar/vector and clipping conventions; then implement a certified interval-arithmetic or validated-quadrature accountant for the exact remove-neighbor subsampled-Gaussian pair, including a tighter proved per-step RDP upper bound and an explicit finite-q GDP-to-(epsilon,delta) error enclosure.",
+    "preconditions": [
+      "freeze q, adaptive schedule, budget, target epsilon and delta",
+      "use the same remove-neighbor pair and output convention in both filters",
+      "record all interval tolerances and rejection/halting rules"
+    ],
+    "falsification_gate": "If the certified finite-q enclosure overlaps or exceeds the valid RDP fallback at the target guarantee, the claim that the approximate GDP filter safely permits more releases is falsified for that regime; if no enclosure can be obtained, retain this infeasibility result."
+  },
+  "decision": "Publish explicit infeasibility; do not claim comparable guarantees, undercounting, or production impact."
+}

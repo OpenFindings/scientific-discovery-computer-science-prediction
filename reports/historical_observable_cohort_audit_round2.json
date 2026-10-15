@@ -1,0 +1,47 @@
+{
+  "audit_id": "HCS-OBSERVABLE-16-ROUND2-CHECKPOINT-2026-10-15",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "cohort": "data/historical_cs_observable_cohort_16.jsonl",
+  "source_screen_ledger": [
+    "reports/historical_observable_source_screen_round1.json",
+    "reports/historical_observable_source_screen_round2.json",
+    "reports/historical_observable_source_screen_round3.json",
+    "reports/historical_observable_source_screen_round4.json",
+    "reports/historical_observable_source_screen_round5.json",
+    "reports/historical_observable_source_screen_round6.json"
+  ],
+  "trajectory_ledger": "reports/historical_evidence_trajectory_round2.json",
+  "source_screen": {
+    "selected_titles": 16,
+    "targeted_cutoff_source_sections_checked": 16,
+    "eligible_question_locked_before_future_search": 12,
+    "ineligible_no_explicit_open_question_or_falsifiable_gate": 4,
+    "unscreened": 0,
+    "retrieval_failure_after_single_version_recovery": 0
+  },
+  "future_evidence_trajectory": {
+    "eligible_questions_bounded_searched": 12,
+    "direct_resolution_authenticated": 0,
+    "premise_refutation_or_revision_supported": 0,
+    "partial_progress_supported": 5,
+    "independent_evidence_strengthening_supported": 1,
+    "contradictory_evidence_supported": 0,
+    "scope_narrowing_or_reformulation_supported": 3,
+    "continued_explicit_uncertainty_supported": 0,
+    "direct_outcomes_unadjudicated": 12
+  },
+  "denominator_warning": "The 16 papers were source-selected by a frozen hash-priority frame and are not a random sample of CS. Dimension rows are nonexclusive, and not-observed-after-bounded-search is missingness rather than evidence of absence.",
+  "changed_scientific_decisions": [
+    "Close the remaining-six source-screen task: every selected title now has a retained eligible or ineligible source-only decision.",
+    "Do not score Paper 3: direct resolution has zero positive and zero negative labels, so a temporal grouped holdout has no valid class contrast.",
+    "Prioritize endpoint-matched experiments for constrained CIT and IoT whitelist generalization; neither later follow-up resolves its frozen source question.",
+    "Treat patch-explanation feasibility as a materials/protocol result only because no real Defects4J/Java execution or human outcome was available."
+  ],
+  "negative_results_preserved": [
+    "No direct outcome authenticated among the original 13 or the 12 new eligible questions.",
+    "No contradiction or explicit continued-uncertainty label authenticated under the frozen definitions.",
+    "No Paper 4 action-outcome utility comparison observed.",
+    "No real patch-review experiment run; synthetic artifact pilot only."
+  ],
+  "analysis_gate": "No AUC, calibration or breakthrough-probability estimate. A valid Paper 3 evaluation requires independently adjudicated direct outcomes in grouped chronological training and untouched test periods with sufficient positive and negative units."
+}

@@ -1,0 +1,5 @@
+Completed the bounded adjudication.
+
+Artifact: [historical_outcome_adjudication.json](/Users/amao/Documents/ChatGPT/ScientificDiscovery/reports/historical_outcome_adjudication.json)
+
+Result: one weak retrieval was upgraded to a dated full-text audit, but it was only a near-match. All 13 frozen labels remain `unadjudicated`; no Paper 3 comparison was run. JSON and repository checks pass.

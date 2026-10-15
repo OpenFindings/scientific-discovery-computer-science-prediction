@@ -1,0 +1,46 @@
+{
+  "attempts": 1,
+  "conditions": [
+    {
+      "condition": "unguided",
+      "database_log_count": 1,
+      "database_versions_logged": [
+        "3.49.1"
+      ],
+      "databases": 1,
+      "elapsed_seconds": 2.629,
+      "exit_code": 0,
+      "qpg_enabled": false,
+      "queries": 195,
+      "stderr_file": "unguided/stderr.log",
+      "stdout_file": "unguided/stdout.log",
+      "successful_statements": null,
+      "unsuccessful_statements": null
+    },
+    {
+      "condition": "query_plan_guidance",
+      "database_log_count": 1,
+      "database_versions_logged": [
+        "3.49.1"
+      ],
+      "databases": 1,
+      "elapsed_seconds": 2.425,
+      "exit_code": 0,
+      "qpg_enabled": true,
+      "queries": 200,
+      "stderr_file": "query_plan_guidance/stderr.log",
+      "stdout_file": "query_plan_guidance/stdout.log",
+      "successful_statements": null,
+      "unsuccessful_statements": null
+    }
+  ],
+  "confirmed_distinct_bugs": null,
+  "container_image_digest": "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+  "database_cap": 1,
+  "jar_sha256": "3c8f75d54ab1e9fca7a37946b12ef8618c0a6adb829118043614b81c8643501c",
+  "oracle": "NoREC",
+  "query_cap": 200,
+  "seed": 4104,
+  "source_commit": "d8e6b158a1a18ab803d1c90bbbc45f58c94c60ba",
+  "study_status": "feasibility_only"
+}

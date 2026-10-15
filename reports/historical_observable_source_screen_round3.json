@@ -1,0 +1,42 @@
+{
+  "screen_id": "HCS-OBSERVABLE-16-SOURCE-ROUND3-2026-10-14",
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "supersedes_only": "The two transient PDF retrieval-failure rows in historical_observable_source_screen_round2.json; preserve those failed attempts as provenance.",
+  "future_evidence_searched_for_these_questions": false,
+  "recovery_method": "The explicit /pdf/<id>v1 URLs returned an internal web retrieval error, but official /pdf/<id> URLs opened. Each official arXiv abstract version history lists v1 as the only version, so the unversioned PDF is the same cutoff version for this targeted source screen.",
+  "rows": [
+    {
+      "versioned_id": "1703.00768v1",
+      "as_of": "2017-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1703.00768v1",
+      "retrieved_pdf_url": "https://arxiv.org/pdf/1703.00768",
+      "version_history_url": "https://arxiv.org/abs/1703.00768",
+      "source_status": "targeted_original_version_sections_reviewed_after_recovery",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF p. 1 abstract/field evaluation; p. 9 threats to validity; p. 10 section VIII Conclusion and Future Work",
+      "source_basis": "The CAM test-alarm cause classifier was already evaluated on two industrial datasets and deployed at one partner; these completed results are not open outcomes. The paper explicitly proposes adding more software artifacts and verifying CAM on more projects. A matched log-only versus augmented-artifact, out-of-project comparison was not reported in the inspected sections.",
+      "candidate_question": "Across held-out industrial software projects, does adding software artifacts to the CAM log-based test-alarm classifier improve independently verified cause-classification accuracy over log-only CAM at matched training budget?",
+      "comparison_and_metric": "same classifier family with versus without extra software artifacts, trained without test-project leakage; held-out project-level multiclass cause accuracy and cost",
+      "falsification_gate": "No reproducible held-out project-level accuracy gain at comparable labeling/training budget, or a gain confined to already-seen projects, fails the proposed generalization and artifact-value claim.",
+      "future_outcome_status": "sealed_not_searched"
+    },
+    {
+      "versioned_id": "1706.02214v1",
+      "as_of": "2017-12-31T23:59:59Z",
+      "source_pdf_url": "https://arxiv.org/pdf/1706.02214v1",
+      "retrieved_pdf_url": "https://arxiv.org/pdf/1706.02214",
+      "version_history_url": "https://arxiv.org/abs/1706.02214",
+      "source_status": "targeted_original_version_sections_reviewed_after_recovery",
+      "question_status": "eligible_source_open",
+      "source_locator": "PDF pp. 19-20, section 5 Conclusion",
+      "source_basis": "The paper proves results for bipartite and staged-bipartite compatibility graphs, then explicitly asks about computational complexity on bounded-degree tree compatibility graphs, stating no complexity result in its setting. The inspected source does not solve that case.",
+      "candidate_question": "For the paper's stretched coupled-task makespan problem, what is the exact computational complexity when the compatibility graph is a tree of bounded maximum degree?",
+      "comparison_and_metric": "formal P versus NP-hardness/parameterized classification under the same task timing and tree-degree definitions",
+      "falsification_gate": "A correct polynomial-time algorithm or hardness proof for the bounded-degree tree setting settles a corresponding branch; a theorem for a different compatibility graph or task model does not.",
+      "future_outcome_status": "sealed_not_searched"
+    }
+  ],
+  "counts": {"recovered_source_rows": 2, "new_eligible_questions": 2, "combined_source_section_screened": 6, "combined_eligible_questions": 5, "combined_ineligible": 1, "remaining_unscreened": 10, "future_outcomes_adjudicated_for_new_rows": 0},
+  "limitation": "Targeted sections, not exhaustive page-by-page annotation. The source work was already published in a 2016 journal according to arXiv metadata, so originality of later formulations is not inferred."
+}

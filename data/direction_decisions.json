@@ -1,0 +1,63 @@
+[
+  {
+    "direction_id": "dbms-guidance-comparison",
+    "finding_id": "dbms-guidance-signal-calibration-001",
+    "stage": "real within-tool proxy runs completed; integrated 2×2 incompatible; bug-yield question remains open",
+    "reason_to_test": "Three source-audited methods optimize different guidance signals. Real within-tool tests show proxy behavior worth probing, but the key uncertainty is whether those gains correspond to distinct, reproducible logic bugs at equal cost.",
+    "observed_feasibility": "On 10 short SQLancer seeds, 9/10 database pairs completed and QPG made 7.33 more NoREC checks on average; seed 4109 completed no database despite exit 0. SQLancer++ feedback on/off was indistinguishable for 10 three-database seeds, but a 20-database follow-up had more rate-derived successful query pairs with feedback on in all five tested seeds (+215,+221,+373,+277,+244). These are proxy outcomes, not confirmed bug yield. See docs/dbms_guidance_campaign.md.",
+    "competing_hypotheses": [
+      "Validity feedback raises executable SQL yield, but plan guidance adds no distinct logic bugs at matched cost.",
+      "Plan guidance reaches distinct bug behaviors beyond the gain from valid SQL alone.",
+      "Apparent cross-paper bug-yield differences arise mainly from DBMS, oracle, budget, and deduplication choices."
+    ],
+    "next_action": {
+      "title": "Pre-register an equal-CPU-hour bug-yield and behavior-coverage phase",
+      "procedure": "Keep the SQLancer/QPG and SQLancer++ feedback studies separate. Freeze a repeated-seed, equal-CPU-hour budget; log exact per-database valid SQL and plan/behavior signatures. Independently reproduce and root-cause-deduplicate any NoREC discrepancy, including zero-discovery runs. Compare each toggle only with its own pinned baseline.",
+      "budget": "Use a small preregistered gate before any full agent campaign; stop or redesign if setup failures or missing exact counters prevent interpretation.",
+      "supports_if": "A proxy gain survives matched CPU cost and reaches distinct reproducible behaviors or logic bugs.",
+      "weakens_if": "The proxy gain disappears at equal CPU cost or produces no additional distinct behavior after independent triage.",
+      "prerequisite": "The integrated 2×2 design is incompatible in the released code; see docs/sqlancerpp_compatibility_audit.md."
+    },
+    "stop_rule": "Stop any cross-method effect or interaction claim until a common implementation, DBMS revision, oracle, and budget are validated."
+  },
+  {
+    "direction_id": "agent-tool-outcome-gap",
+    "finding_id": "agent-tool-use-outcome-gap-008",
+    "stage": "benchmark and artifact audit",
+    "reason_to_test": "Two source-audited agent benchmarks report a gap between valid tool calls and task success. The actionable uncertainty is which stage loses information under a fixed tool and token budget.",
+    "competing_hypotheses": [
+      "Selecting the wrong tool or route explains a substantial share of failed tasks.",
+      "The main loss occurs after valid tool calls, when the agent integrates evidence and forms an answer.",
+      "The apparent gap is substantially driven by benchmark grading or task composition."
+    ],
+    "next_action": {
+      "title": "Instrument matched tasks and replay oracle tool routes",
+      "procedure": "Pin a public task subset, a single model, tool inventory, and call/token limits. Log routing, schema validity, evidence returned, evidence use, and final answer. Replay a valid oracle route with the same answer procedure and budget to estimate how much route choice explains the failure.",
+      "budget": "Begin with 20 auditable multi-source tasks; set the larger sample after checking task and grading reproducibility.",
+      "supports_if": "Oracle-route replay raises final task success on previously failed cases without changing evidence or token budget.",
+      "weakens_if": "Final task success remains low after route correction, pointing to evidence integration or answer verification instead.",
+      "prerequisite": "Verify benchmark task files, license, grading code, and availability of reproducible tool responses."
+    },
+    "stop_rule": "Do not claim a routing intervention if the benchmark cannot separate tool choice from evidence use or if oracle replay changes the information budget."
+  },
+  {
+    "direction_id": "code-uncertainty-equivalence",
+    "finding_id": "code-uncertainty-semantic-clustering-003",
+    "stage": "artifact and cost audit",
+    "reason_to_test": "The reviewed studies disagree in ways consistent with their different program-equivalence checks. Repository-scale behavior and timeout-related misclassification remain directly testable.",
+    "competing_hypotheses": [
+      "Bounded symbolic equivalence improves uncertainty calibration after accounting for checker cost and error.",
+      "Short-program benchmark structure or checker timeouts explain the apparent advantage.",
+      "Model, sampling, and correctness-oracle differences explain more of the cross-study contrast than the equivalence method."
+    ],
+    "next_action": {
+      "title": "Audit equivalence-checker errors on a held-out repair set",
+      "procedure": "Pin the released checker and a repository-held-out code-repair set. Compare embedding, CodeBLEU, and bounded symbolic equivalence on the same generated candidate patches. Independently adjudicate a stratified set of checker agreements, disagreements, and timeouts before any risk-coverage claim.",
+      "budget": "First measure checker timeouts and reviewer effort on a small frozen sample; set a full matched compute budget from that pilot.",
+      "supports_if": "Symbolic clustering improves calibrated selective risk after including checker runtime and false-equivalence errors.",
+      "weakens_if": "Timeout or false-equivalence rates erase the risk-coverage gain, or the gain does not transfer beyond the original short-program benchmark.",
+      "prerequisite": "Audit released implementations, candidate-sampling protocol, repository benchmark license, and independent correctness labels."
+    },
+    "stop_rule": "Defer an effectiveness claim if equivalence errors cannot be independently measured or repository-level correctness has only weak test oracles."
+  }
+]

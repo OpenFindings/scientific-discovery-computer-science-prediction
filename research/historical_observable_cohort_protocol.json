@@ -1,0 +1,26 @@
+{
+  "cohort_id": "HCS-OBSERVABLE-16-2026-10-14",
+  "protocol": "research/historical_evidence_trajectory_protocol_v1.json",
+  "seed": "hcs-observable-title-2026-10-14-v1",
+  "cell_pool_sizes_after_source_only_filter": {
+    "algorithms_complexity|2017": 1,
+    "algorithms_complexity|2018": 2,
+    "algorithms_complexity|2019": 2,
+    "algorithms_complexity|2020": 2,
+    "program_repair_verification|2017": 2,
+    "program_repair_verification|2018": 3,
+    "program_repair_verification|2019": 4,
+    "program_repair_verification|2020": 2,
+    "security_privacy|2017": 3,
+    "security_privacy|2018": 4,
+    "security_privacy|2019": 3,
+    "security_privacy|2020": 3,
+    "software_testing|2017": 2,
+    "software_testing|2018": 1,
+    "software_testing|2019": 3,
+    "software_testing|2020": 2
+  },
+  "selected_rows": 16,
+  "excluded_prior_blind_ids": 20,
+  "selection_uses_future_outcomes": false
+}

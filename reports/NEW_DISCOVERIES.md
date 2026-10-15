@@ -1,5 +1,11 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: uncertainty-robustness direct test is currently infeasible
+
+- **Changed scientific decision:** The original 2004.11573 source pins the KuK-style uncommon-uncertainty generation objectives and headline settings, but no versioned implementation, dataset/model bundle, matched conventional comparator, equal-example/equal-compute rule, or held-out robustness protocol was authenticated. The local machine also lacks the reported legacy stack and relevant artifacts.
+- **What this rules out:** The 2023 uncertainty-guided retraining near-match cannot be promoted to direct resolution, causal robustness benefit, or a Paper 3 label. No model training, proxy experiment, synthetic labels, or hindsight relabeling was performed.
+- **Reranking:** This lead is rejected as an actionable experiment for the current environment. The next bounded candidate is SERENIoT cross-device whitelist generalization, with false-allow and false-block endpoints kept separate. See [`uncertainty_robust_direct_test_feasibility.json`](uncertainty_robust_direct_test_feasibility.json).
+
 ## 2026-10-15: targeted retrieval improved observability but produced no Paper 3 label
 
 - **Changed scientific decision:** Citation/definition tracing upgraded the 2004.11573 question from search-visible-only to a full-text-audited dated follow-up. The 2023 study is a genuine primary source, but it uses standard attack-generated examples and uncertainty-guided ordering rather than the source's uncommon-uncertainty generator, and it does not provide the frozen equal-example/equal-compute comparison.

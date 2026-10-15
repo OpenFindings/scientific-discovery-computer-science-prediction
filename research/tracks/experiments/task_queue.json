@@ -282,6 +282,7 @@
     },
     {
       "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
+      "attempts": 1,
       "cost_estimate": 0.55,
       "dependencies": [
         "HISTORICAL-OUTCOME-001"
@@ -293,17 +294,59 @@
       ],
       "expected_information_gain": 0.55,
       "failure_handling": "If the source generator, comparator, equal-budget data or held-out metric cannot be pinned, record a bounded no-go and do not run a proxy experiment.",
+      "finished_at": "2026-10-15T02:18:10Z",
+      "last_result": {
+        "artifact_bytes": 9069,
+        "artifact_valid": true,
+        "elapsed_seconds": 64.879,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "440150dfdb4de234f5b1ea1f429eb40ac6aae287407e644676387c2be1695b5a",
+        "retry_after_seconds": null,
+        "session_id": "01a13d59-516e-7180-9845-91dd47fb98dc",
+        "timed_out": false
+      },
       "max_attempts": 2,
       "objective": "Determine whether the uncertainty-robustness lead can support a preregistered direct test of uncommon-uncertainty adversarial examples versus conventional adversarial training at equal example count and compute; otherwise reject it as currently infeasible.",
       "priority": 50,
       "research_key": "uncertainty_robust_direct_test_feasibility",
-      "status": "pending",
+      "started_at": "2026-10-15T02:17:05Z",
+      "status": "completed",
       "success_criteria": [
         "source intervention and comparator definitions pinned",
         "data/code and compute feasibility checked",
         "go/no-go recorded without converting a near-match into a historical label"
       ],
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/sereniot_cross_device_feasibility.json",
+      "cost_estimate": 0.5,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-002"
+      ],
+      "execution_requirements": [
+        "original SERENIoT source and exact whitelist policy definition",
+        "dated follow-up primary source and public artifact/access audit",
+        "false-allow and false-block endpoints kept separate"
+      ],
+      "expected_information_gain": 0.6,
+      "failure_handling": "If cross-device traces, policy labels or comparable artifacts are unavailable, record a bounded no-go and do not infer security improvement from adoption or deployment claims.",
+      "max_attempts": 2,
+      "objective": "Audit whether SERENIoT's cross-device whitelist-generalization gap supports a low-cost, falsifiable test with matched device families and explicit false-allow/false-block outcomes.",
+      "priority": 48,
+      "research_key": "sereniot_cross_device_whitelist_generalization_feasibility",
+      "status": "pending",
+      "success_criteria": [
+        "source and follow-up endpoint definitions reconciled",
+        "public data/artifact and split feasibility checked",
+        "go/no-go recorded without treating deployment as a security outcome"
+      ],
+      "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
       "track": "experiments"
     },
     {

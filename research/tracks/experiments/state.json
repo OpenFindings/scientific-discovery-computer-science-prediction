@@ -2,7 +2,7 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T02:15:39Z",
+  "checkpoint_time": "2026-10-15T02:18:10Z",
   "completed_task_ids": [
     "RECOVERY-001",
     "LEADS-001",
@@ -14,6 +14,7 @@
     "CPU-THROUGHPUT-001",
     "DP158-VECTOR-HYPOTHETICAL-001",
     "DP158-SCALAR-REPRO-001",
+    "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
     "PATCH-EXPLAIN-FEAS-001",
     "CAM-TRANSFER-FEAS-001",
     "BADGER-FAIR-CPU-FEAS-001",
@@ -21,7 +22,7 @@
   ],
   "last_supervisor_status": "ACTIVE",
   "pending_task_ids": [
-    "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001"
+    "SERENIOT-CROSS-DEVICE-FEAS-001"
   ],
   "schema_version": 1,
   "status": "IDLE",

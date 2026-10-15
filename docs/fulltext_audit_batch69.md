@@ -1,0 +1,67 @@
+# Full-text audit batch 69: databases, 2010–2014 (lexical-priority arm)
+
+This audit covers the three lexical-priority papers and rechecks the three uniform-random papers in the `databases × 2010–2014` stratum. The random papers already had earlier audit records (batches 6 and 44); batch 69 reconciles them against the full text and provides a unified cell report rather than counting them as newly covered. The two selection arms remain distinct; these six papers are not a prevalence estimate for the 198,690-candidate pool.
+
+## 1. Mining Statistically Significant Substrings Based on the Chi-Square Measure (`1002.4315v2`)
+
+The paper ranks substrings by a chi-square deviation score and proposes ARLM and AGMM heuristics. On a 425-innings ODI sequence, runs are quantized into five categories and symbol probabilities are estimated from that same career sequence. The reported top and bottom patches correspond to visibly different career periods (20 innings averaging 84.31 with 8 centuries and 3 half-centuries versus 9 innings averaging 21.89 with no score above 40). On a 989,819-record click dataset, the authors report exact top-1 answers for both heuristics; the table gives 40 hours for ARLM and 3 hours for AGMM, versus 75+ hours for naive search and 52 hours for blocking. Because of runtime, they did not run varying top-k queries on that click dataset. Synthetic tests report approximation ratios above 0.96, and ARLM is exact for top-1 in the tested settings.
+
+**Boundary:** this establishes efficient ranking for the paper's score and tested sequences, not calibrated false-discovery probabilities or that a high-ranked substring is a reproducible causal anomaly. The score's reference probabilities are estimated on the same career sequence, the real click benchmark reports top-1 only, and the paper does not report a multiple-testing or held-out calibration study. The paper's own results are useful counterevidence to any claim that the heuristics are inaccurate: their top-1 tests are exact and their synthetic approximation ratios are high.
+
+## 2. Bayesian Data Cleaning for Web Data (`1204.3677v1`)
+
+The method learns a Bayesian-network generative model and a maximum-entropy corruption model from dirty data, then selects the most likely repaired tuple. Evaluation starts with roughly 10,000 used-car records crawled from Google Base; the authors manually inspect this source dataset and treat it as clean, then inject spelling, replacement, and deletion errors at rates from 0.1% to 5%. At 1% injected noise the paper reports 357 corrupt values; its best net gain is 87 clean values at parameter 3.0. Its combined-feature method corrects more than 31% of errors at that noise level, while the compared CFD methods learn no rules; reported false positives in the parameter experiments are at most 11 tuples. The paper also shows a precision/recall-style tradeoff: raising the likelihood weight reduces false corrections but also reduces the number corrected.
+
+**Boundary:** these are controlled corruption experiments on one schema/domain, with a manually inspected clean source used to construct ground truth. They do not establish performance on naturally noisy, multi-domain web data with unknown corruption processes. The result is nevertheless substantive evidence that a probabilistic method can outperform the tested CFD baselines in this particular noise regime; it should not be dismissed merely because the corruption is synthetic.
+
+## 3. Recursive Mechanism: Towards Node Differential Privacy and Unrestricted Joins (full-version draft, `1304.4795v1`)
+
+The proposed mechanism releases approximate linear statistics over positive relational-algebra results, including unrestricted joins, with node- or edge-differential-privacy guarantees. Its error analysis is tied to empirical sensitivity. Evaluation includes random synthetic graphs and seven real graph datasets; the paper compares median relative error with earlier mechanisms. It reports that its edge-private mechanism is most accurate among the compared methods for the reported triangle-counting experiments. But under node privacy, relative error is high for 2-star and 2-triangle counts because changing one node can affect many motifs; the authors report error decreasing as graph size grows. The paper also notes that local-sensitivity comparators can be unhelpful on sparse graphs.
+
+**Boundary:** privacy guarantee does not imply useful relative accuracy for every graph statistic or density. The counterexamples are part of the authors' own evaluation and narrow the broad abstract-level claim. The arXiv item is explicitly a full-version draft (Draft 0.1); its PDF notes that a different version was accepted to SIGMOD 2013, so claims here refer to the audited arXiv draft unless reconciled against the proceedings version.
+
+## 4. Opening the Black Boxes in Data Flow Optimization (`1208.0087v1`, uniform-random arm; re-audit of batch 6)
+
+The Stratosphere prototype uses static analysis of user-defined functions to infer a small set of read/write properties and reorder operators in parallel data flows. The evaluation uses four hand-built tasks: two modified TPC-H queries, a biomedical text-mining flow, and clickstream processing. It reports that the best text-mining plan is nearly an order of magnitude faster than the worst sampled plan; for TPC-H Q15, the best plan is reported as 1.4× faster than the implemented order. Static analysis enables almost all manually annotated valid reorderings on these four tasks. Plan enumeration for these tasks takes under 1,654 ms.
+
+**Boundary:** these results show the feasibility and potential of a prototype on four handcrafted workloads, not universal improvement on production jobs. The paper says that determining which legal rewrites are beneficial, estimating black-box selectivity/cost, and more efficient search-space pruning remain future work. Its positive evidence is stronger than a purely simulated proposal: the prototype was executed on large input datasets, but across a limited set of tasks and a pre-release system.
+
+## 5. Serializable Snapshot Isolation in PostgreSQL (`1208.4179v1`, uniform-random arm; re-audit of batch 44)
+
+This paper documents an implementation shipped in PostgreSQL 9.1 and evaluates it with SIBENCH, a modified TPC-C-like DBT-2++ workload, and RUBiS. In the reported RUBiS configuration, SSI reaches 422 requests/s versus 435 for snapshot isolation and 208 for strict two-phase locking; serialization failures are 0.03% for SSI versus 0.004% for SI and 0.76% for S2PL. In the in-memory DBT-2++ setup, SSI incurs a reported 5% slowdown relative to SI; in the disk-bound setup it is indistinguishable from SI, and failure rates stay below 0.25%. The simpler SIBENCH shows 10–20% CPU overhead for dependency tracking before read-only optimizations.
+
+**Boundary:** results substantiate a successful production implementation with workload-dependent overhead; they do not support a blanket “zero-cost serializability” claim. The paper itself exposes CPU-vs-disk and read-only-mix differences. Measurements are from the PostgreSQL 9.1-era system and 2012-era hardware/workloads, so a contemporary replication would need version-pinned builds and current workload traces.
+
+## 6. Analysis and Study of Incremental DBSCAN Clustering Algorithm (`1406.4754v1`, uniform-random arm; re-audit of batch 44)
+
+The full text proposes assigning new records to an existing cluster using distance to a cluster/core representative, falling back to outliers or a new cluster, and suggests a threshold at which full DBSCAN should be rerun. However, the paper provides illustrative toy examples and a comparison recipe (`T1` versus `T2`), not a dataset-backed runtime or clustering-quality experiment. It gives no measured threshold, and its conclusion claims the incremental method is faster without reporting a quantitative evaluation. The pseudocode and narrative also contain inconsistencies (including references to incremental K-means and new-item insertion while the title/abstract describe DBSCAN and dynamic updates). The arXiv PDF embeds a 2011 journal-issue header although the arXiv submission is dated 2014; arXiv has no journal reference for the record.
+
+**Disposition:** do not treat the claimed speedup as measured evidence. This is a full-text audit and a useful negative control for abstract-level screening, not evidence that incremental DBSCAN methods generally fail. A defensible comparison would need an executable implementation, exact incremental semantics (insertions and deletions), shared datasets/parameters, clustering-quality measures, wall-clock/runtime and memory, and a measured crossover threshold.
+
+## Cross-paper synthesis and falsifiable follow-ups
+
+These six papers make distinct claims and are not pooled into one effect. Four have executable or controlled empirical evaluations with clear limits; the DBSCAN paper makes a speed claim without a reported benchmark. A shared audit lesson is to keep the paper's proxy separate from the eventual decision outcome: chi-square rank versus calibrated anomaly, injected-error repair versus natural error correction, privacy guarantee versus useful error for a workload, plan-cost estimates versus end-to-end workload performance, and isolation-level correctness versus its workload-specific overhead. Findings 133–137 capture bounded follow-ups; the DBSCAN paper is retained as a low-evidence disposition rather than counted as a positive result.
+
+The five bounded follow-ups are recorded as findings 133–137 in `data/research_findings_batch69.jsonl`. Each proposes a held-out or workload-stratified test and names evidence that would weaken the lead.
+
+## Targeted full-text follow-ups that narrow the leads
+
+These were found by title/citation searches after reading the six frame papers. They are not additional random-frame observations and are not counted in the 292/407 sample coverage.
+
+- **Multiple testing in pattern discovery** (`0906.5263v1`) develops a generic data-mining multiple-hypothesis procedure with strong family-wise error control under its stated minP condition and evaluates it on real and generated data. This predates the 2010 sampled substring paper and rules out presenting multiplicity correction itself as a new opportunity. It does not by itself validate the 2010 paper's overlapping contiguous-substring scan or same-sequence probability estimates.
+- **A later chi-square substring miner** (`1207.0144v1`, PVLDB 2012) directly studies most-significant-substring search and defines per-substring p-values under a memoryless Bernoulli/multinomial model; it proposes an O(n^(3/2))-time-with-high-probability algorithm. Its conclusion says the asymptotic behavior of the maximum statistic could inform confidence for rejecting the null, while a rigorous proof and extensions to Markov/correlated sequences remain open. This strengthens the algorithmic literature and narrows, rather than confirms, the sampled paper's calibration lead; it is not evidence that the two heuristics in `1002.4315v2` have inflated error.
+- **HoloClean** (`1702.00820v1`) is substantial counterevidence to a broad claim that data cleaning lacks cross-domain real-data evaluation: its full paper evaluates four real datasets spanning 1,000 to 2,071,849 tuples and reports mean repair precision around 90%, recall around 76%, and over 2× average F1 improvement versus the compared systems. It is a later holistic model combining statistical, constraint, and external signals, not an independent replication of `1204.3677v1`. The authors manually label 2,000 Food and 2,500 Physicians cells and explicitly warn recall estimates may be biased; their performance/runtime trade-offs and assumptions still merit direct comparison.
+- **Faster approximate subgraph counts with privacy** (NeurIPS 2023) studies efficient approximate-sensitivity methods for edge-private graph counting and compares against the recursive mechanism literature. The paper explicitly says its fast triangle-counting technique is edge-DP-specific and new ideas are needed for node-DP. This confirms that the privacy unit matters and that the 2013 node-DP result should not be judged by an edge-only follow-up; it does not refute the sampled mechanism's node-DP theorem or its reported motif-specific utility limits.
+
+The exact sources, checked sections, and what each does or does not establish are recorded in `data/research_followups_batch69.jsonl`.
+
+## Primary sources and provenance
+
+- `1002.4315v2`, submitted 2010-02-23, revised 2010-03-06; PAKDD 2010 to appear: <https://arxiv.org/abs/1002.4315
+- `1204.3677v1`, submitted 2012-04-17: <https://arxiv.org/abs/1204.3677
+- `1304.4795v1`, submitted 2013-04-17; arXiv page identifies this as a full-version draft and the PDF notes a different SIGMOD 2013 version: <https://arxiv.org/abs/1304.4795
+- `1208.0087v1`, submitted 2012-08-01; PVLDB 5(11), 1256–1267 (2012): <https://arxiv.org/abs/1208.0087
+- `1208.4179v1`, submitted 2012-08-21; PVLDB 5(12), 1850–1861 (2012): <https://arxiv.org/abs/1208.4179
+- `1406.4754v1`, submitted 2014-06-18; no journal reference on the arXiv record: <https://arxiv.org/abs/1406.4754
+
+All six versions were checked against their downloaded PDFs and extracted text. The three random-arm records were also checked against their earlier audit notes in batches 6 and 44. This closes this six-paper frame cell, not all database research or the 198,690-record candidate corpus.

@@ -1,0 +1,11 @@
+{
+  "name": "paper5-cs-transfer-v0",
+  "status": "protocol-only-until-corpus-is-loaded",
+  "historical_cutoffs": ["2016-12-31", "2018-12-31", "2020-12-31"],
+  "future_horizon_years": 5,
+  "question_registry": "data/questions.jsonl",
+  "required_outcomes": ["attention", "resolution", "premise_revision"],
+  "baselines": ["publication_count", "historical_citation", "text_embedding", "research_trend", "statistical"],
+  "comparisons": ["random", "citation", "trend", "paper3", "paper4", "paper3_plus_paper4"],
+  "policy": "No labels, forecasts, opportunity claims, or historical scores may be emitted without cited source records."
+}

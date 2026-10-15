@@ -1,0 +1,605 @@
+{
+  "created_at_utc": "2026-10-11T22:54:35+00:00",
+  "source": "data/arxiv_cs_corpus.jsonl",
+  "records_scanned": 937531,
+  "uncapped_unique_papers_matched": 198690,
+  "topic_match_occurrences": 229190,
+  "per_year_topic_cap": null,
+  "topic_definitions": {
+    "foundation_models": {
+      "categories": [
+        "cs.CL",
+        "cs.LG",
+        "cs.AI"
+      ],
+      "term_patterns": [
+        "\\bfoundation models?\\b",
+        "\\blarge language models?\\b",
+        "\\bLLMs?\\b",
+        "\\bpretrained language models?\\b"
+      ]
+    },
+    "reasoning_and_agents": {
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "term_patterns": [
+        "\\b(reasoning|planning)\\b.{0,35}\\b(large language models?|LLMs?|agents?)\\b",
+        "\\b(LLM|language model) agents?\\b",
+        "\\btool[- ]using agents?\\b",
+        "\\bagentic systems?\\b"
+      ]
+    },
+    "agent_reliability_security": {
+      "categories": [
+        "cs.AI",
+        "cs.CR",
+        "cs.SE"
+      ],
+      "term_patterns": [
+        "\\b(agents?|agentic systems?)\\b.{0,45}\\b(reliability|robustness|security|safety|failure|long[- ]horizon)\\b",
+        "\\b(reliability|robustness|security|safety)\\b.{0,45}\\b(agents?|agentic systems?)\\b"
+      ]
+    },
+    "agent_memory_coordination": {
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "term_patterns": [
+        "\\b(agent|agents|LLM|language model).{0,35}(memory|multi[- ]agent|coordination)\\b",
+        "\\b(memory|multi[- ]agent|coordination).{0,35}(agent|agents|LLM|language model)\\b"
+      ]
+    },
+    "continual_multimodal_learning": {
+      "categories": [
+        "cs.LG",
+        "cs.CV",
+        "cs.CL"
+      ],
+      "term_patterns": [
+        "\\bcontinual learning\\b",
+        "\\bmultimodal (learning|reasoning|models?)\\b",
+        "\\bcatastrophic forgetting\\b"
+      ]
+    },
+    "model_efficiency": {
+      "categories": [
+        "cs.LG",
+        "cs.DC"
+      ],
+      "term_patterns": [
+        "\\b(model|inference|training) (efficiency|compression|quantization)\\b",
+        "\\benergy[- ]efficient (machine learning|inference|computing)\\b",
+        "\\binference (cost|energy|latency)\\b"
+      ]
+    },
+    "software_testing": {
+      "categories": [
+        "cs.SE"
+      ],
+      "term_patterns": [
+        "\\b(software )?testing\\b",
+        "\\bfuzz(ing| testing)?\\b",
+        "\\btest generation\\b",
+        "\\btest oracle\\b"
+      ]
+    },
+    "program_repair_verification": {
+      "categories": [
+        "cs.SE",
+        "cs.PL"
+      ],
+      "term_patterns": [
+        "\\b(program|automated|code|bug) repair\\b",
+        "\\b(program|software|code) verification\\b",
+        "\\bformal methods?\\b",
+        "\\bprogram synthesis\\b"
+      ]
+    },
+    "ai_generated_code": {
+      "categories": [
+        "cs.SE",
+        "cs.PL"
+      ],
+      "term_patterns": [
+        "\\b(code|program) generation\\b",
+        "\\b(LLM|large language model).{0,35}(code|program|software)\\b",
+        "\\b(code|program|software).{0,35}(large language model|LLM)\\b"
+      ]
+    },
+    "software_supply_chain": {
+      "categories": [
+        "cs.CR",
+        "cs.SE"
+      ],
+      "term_patterns": [
+        "\\b(dependency|package|software supply chain|software ecosystem)\\b.{0,40}\\b(security|vulnerabilit|risk|attack)\\b",
+        "\\b(vulnerabilit|attack|security)\\b.{0,40}\\b(dependency|package|supply chain)\\b"
+      ]
+    },
+    "distributed_cloud_systems": {
+      "categories": [
+        "cs.DC",
+        "cs.NI",
+        "cs.OS"
+      ],
+      "term_patterns": [
+        "\\b(distributed systems?|cloud computing|serverless|edge computing|data center)\\b",
+        "\\b(consensus|replication|fault tolerance)\\b"
+      ]
+    },
+    "databases": {
+      "categories": [
+        "cs.DB"
+      ],
+      "term_patterns": [
+        "\\b(database|databases|query optimization|query processing|transaction processing)\\b"
+      ]
+    },
+    "compilers_programming_languages": {
+      "categories": [
+        "cs.PL",
+        "cs.SE"
+      ],
+      "term_patterns": [
+        "\\b(compilers?|programming languages?|static analysis|runtime systems?)\\b",
+        "\\bcompiler testing\\b"
+      ]
+    },
+    "energy_efficient_computing": {
+      "categories": [
+        "cs.DC",
+        "cs.AR"
+      ],
+      "term_patterns": [
+        "\\benergy[- ]efficient computing\\b",
+        "\\b(power|energy) consumption\\b",
+        "\\bcarbon[- ]aware computing\\b"
+      ]
+    },
+    "security_privacy": {
+      "categories": [
+        "cs.CR"
+      ],
+      "term_patterns": [
+        "\\b(privacy-preserving|privacy protection|differential privacy|cryptographic protocol)\\b",
+        "\\b(security|privacy)\\b.{0,45}\\b(machine learning|artificial intelligence|software|systems?)\\b"
+      ]
+    },
+    "robotics_embodied_ai": {
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "term_patterns": [
+        "\\brobot(ics| learning)?\\b",
+        "\\bembodied (AI|artificial intelligence|reasoning|agents?)\\b",
+        "\\bsim[- ]to[- ]real\\b"
+      ]
+    },
+    "algorithms_complexity": {
+      "categories": [
+        "cs.DS",
+        "cs.CC"
+      ],
+      "term_patterns": [
+        "\\balgorithms?\\b",
+        "\\bcomputational complexity\\b",
+        "\\bapproximation algorithms?\\b"
+      ]
+    },
+    "optimization_causal_science": {
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.DS"
+      ],
+      "term_patterns": [
+        "\\b(causal inference|causal representation|causal learning)\\b",
+        "\\b(bayesian experimental design|active learning|information gain)\\b",
+        "\\bscientific discovery\\b",
+        "\\bresearch question(s)?\\b"
+      ]
+    }
+  },
+  "matched_by_topic": {
+    "agent_memory_coordination": 5769,
+    "agent_reliability_security": 2728,
+    "ai_generated_code": 4160,
+    "algorithms_complexity": 25252,
+    "compilers_programming_languages": 5869,
+    "continual_multimodal_learning": 9202,
+    "databases": 4585,
+    "distributed_cloud_systems": 7702,
+    "energy_efficient_computing": 2250,
+    "foundation_models": 89249,
+    "model_efficiency": 4741,
+    "optimization_causal_science": 6996,
+    "program_repair_verification": 1654,
+    "reasoning_and_agents": 12128,
+    "robotics_embodied_ai": 32768,
+    "security_privacy": 9145,
+    "software_supply_chain": 217,
+    "software_testing": 4775
+  },
+  "matched_by_year_topic": {
+    "2010|agent_memory_coordination": 5,
+    "2010|agent_reliability_security": 3,
+    "2010|ai_generated_code": 3,
+    "2010|algorithms_complexity": 576,
+    "2010|compilers_programming_languages": 79,
+    "2010|databases": 85,
+    "2010|distributed_cloud_systems": 96,
+    "2010|energy_efficient_computing": 9,
+    "2010|model_efficiency": 1,
+    "2010|optimization_causal_science": 16,
+    "2010|program_repair_verification": 9,
+    "2010|reasoning_and_agents": 1,
+    "2010|robotics_embodied_ai": 37,
+    "2010|security_privacy": 57,
+    "2010|software_testing": 35,
+    "2011|agent_memory_coordination": 12,
+    "2011|agent_reliability_security": 4,
+    "2011|ai_generated_code": 4,
+    "2011|algorithms_complexity": 688,
+    "2011|compilers_programming_languages": 79,
+    "2011|databases": 123,
+    "2011|distributed_cloud_systems": 116,
+    "2011|energy_efficient_computing": 14,
+    "2011|optimization_causal_science": 21,
+    "2011|program_repair_verification": 10,
+    "2011|reasoning_and_agents": 4,
+    "2011|robotics_embodied_ai": 71,
+    "2011|security_privacy": 49,
+    "2011|software_testing": 16,
+    "2012|agent_memory_coordination": 15,
+    "2012|agent_reliability_security": 3,
+    "2012|ai_generated_code": 8,
+    "2012|algorithms_complexity": 816,
+    "2012|compilers_programming_languages": 84,
+    "2012|databases": 162,
+    "2012|distributed_cloud_systems": 161,
+    "2012|energy_efficient_computing": 24,
+    "2012|foundation_models": 1,
+    "2012|model_efficiency": 1,
+    "2012|optimization_causal_science": 49,
+    "2012|program_repair_verification": 22,
+    "2012|reasoning_and_agents": 7,
+    "2012|robotics_embodied_ai": 85,
+    "2012|security_privacy": 82,
+    "2012|software_supply_chain": 1,
+    "2012|software_testing": 52,
+    "2013|agent_memory_coordination": 11,
+    "2013|agent_reliability_security": 2,
+    "2013|ai_generated_code": 6,
+    "2013|algorithms_complexity": 974,
+    "2013|compilers_programming_languages": 112,
+    "2013|continual_multimodal_learning": 2,
+    "2013|databases": 144,
+    "2013|distributed_cloud_systems": 181,
+    "2013|energy_efficient_computing": 41,
+    "2013|model_efficiency": 2,
+    "2013|optimization_causal_science": 42,
+    "2013|program_repair_verification": 21,
+    "2013|reasoning_and_agents": 11,
+    "2013|robotics_embodied_ai": 146,
+    "2013|security_privacy": 65,
+    "2013|software_supply_chain": 1,
+    "2013|software_testing": 50,
+    "2014|agent_memory_coordination": 23,
+    "2014|agent_reliability_security": 5,
+    "2014|ai_generated_code": 17,
+    "2014|algorithms_complexity": 1030,
+    "2014|compilers_programming_languages": 117,
+    "2014|continual_multimodal_learning": 1,
+    "2014|databases": 143,
+    "2014|distributed_cloud_systems": 192,
+    "2014|energy_efficient_computing": 51,
+    "2014|model_efficiency": 1,
+    "2014|optimization_causal_science": 36,
+    "2014|program_repair_verification": 35,
+    "2014|reasoning_and_agents": 12,
+    "2014|robotics_embodied_ai": 170,
+    "2014|security_privacy": 108,
+    "2014|software_supply_chain": 1,
+    "2014|software_testing": 61,
+    "2015|agent_memory_coordination": 9,
+    "2015|agent_reliability_security": 5,
+    "2015|ai_generated_code": 12,
+    "2015|algorithms_complexity": 1138,
+    "2015|compilers_programming_languages": 111,
+    "2015|continual_multimodal_learning": 5,
+    "2015|databases": 159,
+    "2015|distributed_cloud_systems": 220,
+    "2015|energy_efficient_computing": 43,
+    "2015|model_efficiency": 5,
+    "2015|optimization_causal_science": 57,
+    "2015|program_repair_verification": 36,
+    "2015|reasoning_and_agents": 10,
+    "2015|robotics_embodied_ai": 204,
+    "2015|security_privacy": 136,
+    "2015|software_supply_chain": 2,
+    "2015|software_testing": 45,
+    "2016|agent_memory_coordination": 20,
+    "2016|agent_reliability_security": 5,
+    "2016|ai_generated_code": 9,
+    "2016|algorithms_complexity": 1280,
+    "2016|compilers_programming_languages": 169,
+    "2016|continual_multimodal_learning": 9,
+    "2016|databases": 196,
+    "2016|distributed_cloud_systems": 281,
+    "2016|energy_efficient_computing": 64,
+    "2016|model_efficiency": 12,
+    "2016|optimization_causal_science": 91,
+    "2016|program_repair_verification": 30,
+    "2016|reasoning_and_agents": 4,
+    "2016|robotics_embodied_ai": 417,
+    "2016|security_privacy": 147,
+    "2016|software_supply_chain": 1,
+    "2016|software_testing": 74,
+    "2017|agent_memory_coordination": 34,
+    "2017|agent_reliability_security": 11,
+    "2017|ai_generated_code": 17,
+    "2017|algorithms_complexity": 1379,
+    "2017|compilers_programming_languages": 217,
+    "2017|continual_multimodal_learning": 37,
+    "2017|databases": 175,
+    "2017|distributed_cloud_systems": 342,
+    "2017|energy_efficient_computing": 68,
+    "2017|model_efficiency": 24,
+    "2017|optimization_causal_science": 101,
+    "2017|program_repair_verification": 61,
+    "2017|reasoning_and_agents": 9,
+    "2017|robotics_embodied_ai": 726,
+    "2017|security_privacy": 249,
+    "2017|software_supply_chain": 2,
+    "2017|software_testing": 94,
+    "2018|agent_memory_coordination": 51,
+    "2018|agent_reliability_security": 11,
+    "2018|ai_generated_code": 14,
+    "2018|algorithms_complexity": 1551,
+    "2018|compilers_programming_languages": 273,
+    "2018|continual_multimodal_learning": 104,
+    "2018|databases": 208,
+    "2018|distributed_cloud_systems": 444,
+    "2018|energy_efficient_computing": 91,
+    "2018|foundation_models": 5,
+    "2018|model_efficiency": 61,
+    "2018|optimization_causal_science": 231,
+    "2018|program_repair_verification": 79,
+    "2018|reasoning_and_agents": 32,
+    "2018|robotics_embodied_ai": 1010,
+    "2018|security_privacy": 326,
+    "2018|software_supply_chain": 3,
+    "2018|software_testing": 179,
+    "2019|agent_memory_coordination": 92,
+    "2019|agent_reliability_security": 23,
+    "2019|ai_generated_code": 25,
+    "2019|algorithms_complexity": 1765,
+    "2019|compilers_programming_languages": 311,
+    "2019|continual_multimodal_learning": 187,
+    "2019|databases": 264,
+    "2019|distributed_cloud_systems": 581,
+    "2019|energy_efficient_computing": 104,
+    "2019|foundation_models": 55,
+    "2019|model_efficiency": 147,
+    "2019|optimization_causal_science": 334,
+    "2019|program_repair_verification": 91,
+    "2019|reasoning_and_agents": 34,
+    "2019|robotics_embodied_ai": 1503,
+    "2019|security_privacy": 497,
+    "2019|software_supply_chain": 2,
+    "2019|software_testing": 194,
+    "2020|agent_memory_coordination": 121,
+    "2020|agent_reliability_security": 45,
+    "2020|ai_generated_code": 23,
+    "2020|algorithms_complexity": 1985,
+    "2020|compilers_programming_languages": 375,
+    "2020|continual_multimodal_learning": 311,
+    "2020|databases": 309,
+    "2020|distributed_cloud_systems": 694,
+    "2020|energy_efficient_computing": 149,
+    "2020|foundation_models": 123,
+    "2020|model_efficiency": 237,
+    "2020|optimization_causal_science": 509,
+    "2020|program_repair_verification": 89,
+    "2020|reasoning_and_agents": 39,
+    "2020|robotics_embodied_ai": 2013,
+    "2020|security_privacy": 765,
+    "2020|software_supply_chain": 8,
+    "2020|software_testing": 229,
+    "2021|agent_memory_coordination": 164,
+    "2021|agent_reliability_security": 41,
+    "2021|ai_generated_code": 47,
+    "2021|algorithms_complexity": 1768,
+    "2021|compilers_programming_languages": 427,
+    "2021|continual_multimodal_learning": 471,
+    "2021|databases": 272,
+    "2021|distributed_cloud_systems": 674,
+    "2021|energy_efficient_computing": 198,
+    "2021|foundation_models": 299,
+    "2021|model_efficiency": 253,
+    "2021|optimization_causal_science": 562,
+    "2021|program_repair_verification": 123,
+    "2021|reasoning_and_agents": 44,
+    "2021|robotics_embodied_ai": 2341,
+    "2021|security_privacy": 797,
+    "2021|software_supply_chain": 10,
+    "2021|software_testing": 348,
+    "2022|agent_memory_coordination": 194,
+    "2022|agent_reliability_security": 58,
+    "2022|ai_generated_code": 92,
+    "2022|algorithms_complexity": 1731,
+    "2022|compilers_programming_languages": 442,
+    "2022|continual_multimodal_learning": 616,
+    "2022|databases": 280,
+    "2022|distributed_cloud_systems": 649,
+    "2022|energy_efficient_computing": 188,
+    "2022|foundation_models": 869,
+    "2022|model_efficiency": 339,
+    "2022|optimization_causal_science": 645,
+    "2022|program_repair_verification": 126,
+    "2022|reasoning_and_agents": 71,
+    "2022|robotics_embodied_ai": 2716,
+    "2022|security_privacy": 943,
+    "2022|software_supply_chain": 12,
+    "2022|software_testing": 350,
+    "2023|agent_memory_coordination": 288,
+    "2023|agent_reliability_security": 78,
+    "2023|ai_generated_code": 345,
+    "2023|algorithms_complexity": 1988,
+    "2023|compilers_programming_languages": 560,
+    "2023|continual_multimodal_learning": 1024,
+    "2023|databases": 370,
+    "2023|distributed_cloud_systems": 702,
+    "2023|energy_efficient_computing": 211,
+    "2023|foundation_models": 6903,
+    "2023|model_efficiency": 423,
+    "2023|optimization_causal_science": 809,
+    "2023|program_repair_verification": 159,
+    "2023|reasoning_and_agents": 520,
+    "2023|robotics_embodied_ai": 3652,
+    "2023|security_privacy": 1065,
+    "2023|software_supply_chain": 22,
+    "2023|software_testing": 479,
+    "2024|agent_memory_coordination": 537,
+    "2024|agent_reliability_security": 151,
+    "2024|ai_generated_code": 803,
+    "2024|algorithms_complexity": 2053,
+    "2024|compilers_programming_languages": 701,
+    "2024|continual_multimodal_learning": 1681,
+    "2024|databases": 442,
+    "2024|distributed_cloud_systems": 776,
+    "2024|energy_efficient_computing": 323,
+    "2024|foundation_models": 18818,
+    "2024|model_efficiency": 757,
+    "2024|optimization_causal_science": 967,
+    "2024|program_repair_verification": 199,
+    "2024|reasoning_and_agents": 1570,
+    "2024|robotics_embodied_ai": 4802,
+    "2024|security_privacy": 1295,
+    "2024|software_supply_chain": 30,
+    "2024|software_testing": 635,
+    "2025|agent_memory_coordination": 1464,
+    "2025|agent_reliability_security": 573,
+    "2025|ai_generated_code": 1382,
+    "2025|algorithms_complexity": 2176,
+    "2025|compilers_programming_languages": 911,
+    "2025|continual_multimodal_learning": 2464,
+    "2025|databases": 626,
+    "2025|distributed_cloud_systems": 902,
+    "2025|energy_efficient_computing": 404,
+    "2025|foundation_models": 30068,
+    "2025|model_efficiency": 1190,
+    "2025|optimization_causal_science": 1318,
+    "2025|program_repair_verification": 277,
+    "2025|reasoning_and_agents": 4202,
+    "2025|robotics_embodied_ai": 5903,
+    "2025|security_privacy": 1429,
+    "2025|software_supply_chain": 51,
+    "2025|software_testing": 926,
+    "2026|agent_memory_coordination": 2729,
+    "2026|agent_reliability_security": 1710,
+    "2026|ai_generated_code": 1353,
+    "2026|algorithms_complexity": 2354,
+    "2026|compilers_programming_languages": 901,
+    "2026|continual_multimodal_learning": 2290,
+    "2026|databases": 627,
+    "2026|distributed_cloud_systems": 691,
+    "2026|energy_efficient_computing": 268,
+    "2026|foundation_models": 32108,
+    "2026|model_efficiency": 1288,
+    "2026|optimization_causal_science": 1208,
+    "2026|program_repair_verification": 287,
+    "2026|reasoning_and_agents": 5558,
+    "2026|robotics_embodied_ai": 6972,
+    "2026|security_privacy": 1135,
+    "2026|software_supply_chain": 71,
+    "2026|software_testing": 1008
+  },
+  "matched_by_stratum_topic": {
+    "2010-2014|agent_memory_coordination": 66,
+    "2010-2014|agent_reliability_security": 17,
+    "2010-2014|ai_generated_code": 38,
+    "2010-2014|algorithms_complexity": 4084,
+    "2010-2014|compilers_programming_languages": 471,
+    "2010-2014|continual_multimodal_learning": 3,
+    "2010-2014|databases": 657,
+    "2010-2014|distributed_cloud_systems": 746,
+    "2010-2014|energy_efficient_computing": 139,
+    "2010-2014|foundation_models": 1,
+    "2010-2014|model_efficiency": 5,
+    "2010-2014|optimization_causal_science": 164,
+    "2010-2014|program_repair_verification": 97,
+    "2010-2014|reasoning_and_agents": 35,
+    "2010-2014|robotics_embodied_ai": 509,
+    "2010-2014|security_privacy": 361,
+    "2010-2014|software_supply_chain": 3,
+    "2010-2014|software_testing": 214,
+    "2015-2019|agent_memory_coordination": 206,
+    "2015-2019|agent_reliability_security": 55,
+    "2015-2019|ai_generated_code": 77,
+    "2015-2019|algorithms_complexity": 7113,
+    "2015-2019|compilers_programming_languages": 1081,
+    "2015-2019|continual_multimodal_learning": 342,
+    "2015-2019|databases": 1002,
+    "2015-2019|distributed_cloud_systems": 1868,
+    "2015-2019|energy_efficient_computing": 370,
+    "2015-2019|foundation_models": 60,
+    "2015-2019|model_efficiency": 249,
+    "2015-2019|optimization_causal_science": 814,
+    "2015-2019|program_repair_verification": 297,
+    "2015-2019|reasoning_and_agents": 89,
+    "2015-2019|robotics_embodied_ai": 3860,
+    "2015-2019|security_privacy": 1355,
+    "2015-2019|software_supply_chain": 10,
+    "2015-2019|software_testing": 586,
+    "2020-2024|agent_memory_coordination": 1304,
+    "2020-2024|agent_reliability_security": 373,
+    "2020-2024|ai_generated_code": 1310,
+    "2020-2024|algorithms_complexity": 9525,
+    "2020-2024|compilers_programming_languages": 2505,
+    "2020-2024|continual_multimodal_learning": 4103,
+    "2020-2024|databases": 1673,
+    "2020-2024|distributed_cloud_systems": 3495,
+    "2020-2024|energy_efficient_computing": 1069,
+    "2020-2024|foundation_models": 27012,
+    "2020-2024|model_efficiency": 2009,
+    "2020-2024|optimization_causal_science": 3492,
+    "2020-2024|program_repair_verification": 696,
+    "2020-2024|reasoning_and_agents": 2244,
+    "2020-2024|robotics_embodied_ai": 15524,
+    "2020-2024|security_privacy": 4865,
+    "2020-2024|software_supply_chain": 82,
+    "2020-2024|software_testing": 2041,
+    "2025-2026_partial|agent_memory_coordination": 4193,
+    "2025-2026_partial|agent_reliability_security": 2283,
+    "2025-2026_partial|ai_generated_code": 2735,
+    "2025-2026_partial|algorithms_complexity": 4530,
+    "2025-2026_partial|compilers_programming_languages": 1812,
+    "2025-2026_partial|continual_multimodal_learning": 4754,
+    "2025-2026_partial|databases": 1253,
+    "2025-2026_partial|distributed_cloud_systems": 1593,
+    "2025-2026_partial|energy_efficient_computing": 672,
+    "2025-2026_partial|foundation_models": 62176,
+    "2025-2026_partial|model_efficiency": 2478,
+    "2025-2026_partial|optimization_causal_science": 2526,
+    "2025-2026_partial|program_repair_verification": 564,
+    "2025-2026_partial|reasoning_and_agents": 9760,
+    "2025-2026_partial|robotics_embodied_ai": 12875,
+    "2025-2026_partial|security_privacy": 2564,
+    "2025-2026_partial|software_supply_chain": 122,
+    "2025-2026_partial|software_testing": 1934
+  },
+  "interpretation": "Uncapped high-recall lexical candidate index, not all CS research, not full text, not evidence adjudication or value ranking.",
+  "limitations": [
+    "arXiv-only; venue-only records not in arXiv are missing",
+    "category and phrase rules omit relevant papers that use different terminology",
+    "metadata and abstracts cannot establish results, unresolved status, or contradictory evidence",
+    "topics overlap; one paper is stored once with all matched topics",
+    "2026 includes submissions only through 2026-10-11"
+  ],
+  "output": "data/research_candidates_uncapped.jsonl.gz"
+}

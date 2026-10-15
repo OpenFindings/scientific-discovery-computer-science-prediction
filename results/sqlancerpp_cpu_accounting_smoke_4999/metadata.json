@@ -1,0 +1,41 @@
+{
+  "conditions": [
+    {
+      "condition": "feedback_off",
+      "container_cpu_stats": {
+        "burst_usec": 0,
+        "nice_usec": 0,
+        "nr_bursts": 0,
+        "nr_periods": 2,
+        "nr_throttled": 1,
+        "system_usec": 75529,
+        "throttled_usec": 580,
+        "usage_usec": 126536,
+        "user_usec": 51006
+      },
+      "container_cpu_usage_seconds": 0.126536,
+      "database_versions_logged": [],
+      "databases": null,
+      "elapsed_seconds": 0.278,
+      "exit_code": 1,
+      "feedback_enabled": false,
+      "queries": null,
+      "stderr_file": "feedback_off/stderr.log",
+      "stdout_file": "feedback_off/stdout.log",
+      "successful_query_pairs_from_rates": null,
+      "successful_statements": null,
+      "unsuccessful_statements": null
+    }
+  ],
+  "confirmed_distinct_bugs": null,
+  "container_image_digest": "maven@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320",
+  "database_cap": 1,
+  "database_engine": "SQLITE",
+  "jar_sha256": "d5d342e99d9088eebadac1f13c9ffe86d7b886b75c585a8271034cedc51410be",
+  "learning_enabled": false,
+  "oracle": "NoREC",
+  "query_cap_per_database": 200,
+  "seed": 4999,
+  "source_commit": "1405d4eb5b7af7a639717a47147bd89362558830",
+  "study_status": "operational_feasibility_only"
+}

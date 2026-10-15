@@ -1,0 +1,836 @@
+{
+  "confirmed_distinct_bugs": null,
+  "cross_tool_effect_comparison": null,
+  "seed_policy": {
+    "count": 10,
+    "first_seed": 4101
+  },
+  "study_status": "multi_seed_operational_check_not_effectiveness_test",
+  "within_tool_pairs": {
+    "sqlancer_qpg": {
+      "conditions": [
+        "unguided",
+        "query_plan_guidance"
+      ],
+      "incomplete_seeds": [
+        4109
+      ],
+      "n_complete_pairs": 7,
+      "n_operational_pairs": 9,
+      "n_seeds": 10,
+      "paired_differences_on_minus_off": {
+        "elapsed_seconds": {
+          "mean": 0.0398,
+          "median": 0.057,
+          "n_pairs": 9,
+          "nonzero_pairs": 9
+        },
+        "queries": {
+          "mean": 7.3333,
+          "median": 7,
+          "n_pairs": 9,
+          "nonzero_pairs": 9
+        },
+        "successful_statements": {
+          "mean": 247.8571,
+          "median": 247,
+          "n_pairs": 7,
+          "nonzero_pairs": 7
+        },
+        "unsuccessful_statements": {
+          "mean": 6,
+          "median": 3,
+          "n_pairs": 7,
+          "nonzero_pairs": 6
+        }
+      },
+      "retained_sql_trace_equal_pairs": 0,
+      "rows": [
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.847,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 195,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 605,
+            "unsuccessful_statements": 25
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.924,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 848,
+            "unsuccessful_statements": 28
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4101
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.782,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 193,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 531,
+            "unsuccessful_statements": 23
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.825,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 778,
+            "unsuccessful_statements": 30
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4102
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.992,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 192,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 569,
+            "unsuccessful_statements": 41
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 2.083,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 816,
+            "unsuccessful_statements": 75
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4103
+        },
+        {
+          "complete_pair": false,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 2.275,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 195,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": null,
+            "unsuccessful_statements": null
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 2.146,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": null,
+            "unsuccessful_statements": null
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4104
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.714,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 190,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 486,
+            "unsuccessful_statements": 35
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.878,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 744,
+            "unsuccessful_statements": 35
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4105
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.668,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 189,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 507,
+            "unsuccessful_statements": 34
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.809,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 755,
+            "unsuccessful_statements": 33
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4106
+        },
+        {
+          "complete_pair": false,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 2.187,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 195,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": null,
+            "unsuccessful_statements": null
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 2.244,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": null,
+            "unsuccessful_statements": null
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4107
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.886,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 189,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 548,
+            "unsuccessful_statements": 45
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.745,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 801,
+            "unsuccessful_statements": 35
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4108
+        },
+        {
+          "complete_pair": false,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 0,
+            "elapsed_seconds": 1.948,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 0,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": null,
+            "unsuccessful_statements": null
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 0,
+            "elapsed_seconds": 2.025,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 0,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": null,
+            "unsuccessful_statements": null
+          },
+          "operational_pair": false,
+          "retained_sql_trace_equal": null,
+          "seed": 4109
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "unguided",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.688,
+            "exit_code": 0,
+            "qpg_enabled": false,
+            "queries": 196,
+            "stderr_file": "unguided/stderr.log",
+            "stdout_file": "unguided/stdout.log",
+            "successful_statements": 571,
+            "unsuccessful_statements": 52
+          },
+          "on": {
+            "condition": "query_plan_guidance",
+            "database_log_count": 1,
+            "database_versions_logged": [
+              "3.49.1"
+            ],
+            "databases": 1,
+            "elapsed_seconds": 1.743,
+            "exit_code": 0,
+            "qpg_enabled": true,
+            "queries": 200,
+            "stderr_file": "query_plan_guidance/stderr.log",
+            "stdout_file": "query_plan_guidance/stdout.log",
+            "successful_statements": 810,
+            "unsuccessful_statements": 61
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": null,
+          "seed": 4110
+        }
+      ],
+      "unparsed_statement_seeds": [
+        4104,
+        4107
+      ]
+    },
+    "sqlancerpp_feedback": {
+      "conditions": [
+        "feedback_off",
+        "feedback_on"
+      ],
+      "incomplete_seeds": [],
+      "n_complete_pairs": 10,
+      "n_operational_pairs": 10,
+      "n_seeds": 10,
+      "paired_differences_on_minus_off": {
+        "elapsed_seconds": {
+          "mean": 0.0525,
+          "median": 0.062,
+          "n_pairs": 10,
+          "nonzero_pairs": 10
+        },
+        "queries": {
+          "mean": 0,
+          "median": 0.0,
+          "n_pairs": 10,
+          "nonzero_pairs": 0
+        },
+        "successful_statements": {
+          "mean": 0,
+          "median": 0.0,
+          "n_pairs": 10,
+          "nonzero_pairs": 0
+        },
+        "unsuccessful_statements": {
+          "mean": 0,
+          "median": 0.0,
+          "n_pairs": 10,
+          "nonzero_pairs": 0
+        }
+      },
+      "retained_sql_trace_equal_pairs": 10,
+      "rows": [
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.203,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 438,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 649,
+            "unsuccessful_statements": 194
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.263,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 438,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 649,
+            "unsuccessful_statements": 194
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4101
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.304,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 461,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 604,
+            "unsuccessful_statements": 156
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.223,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 461,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 604,
+            "unsuccessful_statements": 156
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4102
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.24,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 452,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 701,
+            "unsuccessful_statements": 201
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.343,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 452,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 701,
+            "unsuccessful_statements": 201
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4103
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.364,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 463,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 679,
+            "unsuccessful_statements": 162
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.528,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 463,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 679,
+            "unsuccessful_statements": 162
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4104
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.632,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 427,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 685,
+            "unsuccessful_statements": 255
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.45,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 427,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 685,
+            "unsuccessful_statements": 255
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4105
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.359,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 439,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 593,
+            "unsuccessful_statements": 168
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.393,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 439,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 593,
+            "unsuccessful_statements": 168
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4106
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.237,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 467,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 635,
+            "unsuccessful_statements": 149
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.356,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 467,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 635,
+            "unsuccessful_statements": 149
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4107
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.362,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 419,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 591,
+            "unsuccessful_statements": 198
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.426,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 419,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 591,
+            "unsuccessful_statements": 198
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4108
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.32,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 460,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 666,
+            "unsuccessful_statements": 160
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.326,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 460,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 666,
+            "unsuccessful_statements": 160
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4109
+        },
+        {
+          "complete_pair": true,
+          "off": {
+            "condition": "feedback_off",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.439,
+            "exit_code": 0,
+            "feedback_enabled": false,
+            "queries": 458,
+            "stderr_file": "feedback_off/stderr.log",
+            "stdout_file": "feedback_off/stdout.log",
+            "successful_statements": 663,
+            "unsuccessful_statements": 187
+          },
+          "on": {
+            "condition": "feedback_on",
+            "database_versions_logged": [
+              "3.40.0"
+            ],
+            "databases": 3,
+            "elapsed_seconds": 2.677,
+            "exit_code": 0,
+            "feedback_enabled": true,
+            "queries": 458,
+            "stderr_file": "feedback_on/stderr.log",
+            "stdout_file": "feedback_on/stdout.log",
+            "successful_statements": 663,
+            "unsuccessful_statements": 187
+          },
+          "operational_pair": true,
+          "retained_sql_trace_equal": true,
+          "seed": 4110
+        }
+      ],
+      "unparsed_statement_seeds": []
+    }
+  }
+}

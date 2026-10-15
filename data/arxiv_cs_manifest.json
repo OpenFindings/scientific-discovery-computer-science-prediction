@@ -1,0 +1,459 @@
+{
+  "retrieved_at_utc": "2026-10-11T18:46:58.869679+00:00",
+  "provider": "arXiv export API",
+  "provider_docs": "https://info.arxiv.org/help/api/user-manual.html",
+  "search": "cat:cs.* AND submittedDate within each calendar quarter",
+  "date_range": "2010-01-01 through 2026-10-11",
+  "max_results_per_api_page": 2000,
+  "unique_papers": 937531,
+  "quarter_cells": {
+    "2010-Q1": {
+      "api_results_available": 1737,
+      "api_results_returned": 1737,
+      "new_unique_records": 1737,
+      "cap": 2000
+    },
+    "2010-Q2": {
+      "api_results_available": 2088,
+      "api_results_returned": 2088,
+      "new_unique_records": 2088,
+      "page_size": 2000
+    },
+    "2010-Q3": {
+      "api_results_available": 1713,
+      "api_results_returned": 1713,
+      "new_unique_records": 1713,
+      "cap": 2000
+    },
+    "2010-Q4": {
+      "api_results_available": 1905,
+      "api_results_returned": 1905,
+      "new_unique_records": 1905,
+      "cap": 2000
+    },
+    "2011-Q1": {
+      "api_results_available": 1969,
+      "api_results_returned": 1969,
+      "new_unique_records": 1969,
+      "cap": 2000
+    },
+    "2011-Q2": {
+      "api_results_available": 2158,
+      "api_results_returned": 2158,
+      "new_unique_records": 2158,
+      "page_size": 2000
+    },
+    "2011-Q3": {
+      "api_results_available": 2235,
+      "api_results_returned": 2235,
+      "new_unique_records": 2235,
+      "page_size": 2000
+    },
+    "2011-Q4": {
+      "api_results_available": 2337,
+      "api_results_returned": 2337,
+      "new_unique_records": 2337,
+      "page_size": 2000
+    },
+    "2012-Q1": {
+      "api_results_available": 2785,
+      "api_results_returned": 2785,
+      "new_unique_records": 2785,
+      "page_size": 2000
+    },
+    "2012-Q2": {
+      "api_results_available": 3107,
+      "api_results_returned": 3107,
+      "new_unique_records": 3107,
+      "page_size": 2000
+    },
+    "2012-Q3": {
+      "api_results_available": 2985,
+      "api_results_returned": 2985,
+      "new_unique_records": 2985,
+      "page_size": 2000
+    },
+    "2012-Q4": {
+      "api_results_available": 3066,
+      "api_results_returned": 3066,
+      "new_unique_records": 3066,
+      "page_size": 2000
+    },
+    "2013-Q1": {
+      "api_results_available": 4130,
+      "api_results_returned": 4130,
+      "new_unique_records": 4130,
+      "page_size": 2000
+    },
+    "2013-Q2": {
+      "api_results_available": 3328,
+      "api_results_returned": 3328,
+      "new_unique_records": 3328,
+      "page_size": 2000
+    },
+    "2013-Q3": {
+      "api_results_available": 3324,
+      "api_results_returned": 3324,
+      "new_unique_records": 3324,
+      "page_size": 2000
+    },
+    "2013-Q4": {
+      "api_results_available": 3607,
+      "api_results_returned": 3607,
+      "new_unique_records": 3607,
+      "page_size": 2000
+    },
+    "2014-Q1": {
+      "api_results_available": 3941,
+      "api_results_returned": 3941,
+      "new_unique_records": 3941,
+      "page_size": 2000
+    },
+    "2014-Q2": {
+      "api_results_available": 3960,
+      "api_results_returned": 3960,
+      "new_unique_records": 3960,
+      "page_size": 2000
+    },
+    "2014-Q3": {
+      "api_results_available": 3699,
+      "api_results_returned": 3699,
+      "new_unique_records": 3699,
+      "page_size": 2000
+    },
+    "2014-Q4": {
+      "api_results_available": 4072,
+      "api_results_returned": 4072,
+      "new_unique_records": 4072,
+      "page_size": 2000
+    },
+    "2015-Q1": {
+      "api_results_available": 4192,
+      "api_results_returned": 4192,
+      "new_unique_records": 4192,
+      "page_size": 2000
+    },
+    "2015-Q2": {
+      "api_results_available": 4631,
+      "api_results_returned": 4631,
+      "new_unique_records": 4631,
+      "page_size": 2000
+    },
+    "2015-Q3": {
+      "api_results_available": 4392,
+      "api_results_returned": 4392,
+      "new_unique_records": 4392,
+      "page_size": 2000
+    },
+    "2015-Q4": {
+      "api_results_available": 4775,
+      "api_results_returned": 4775,
+      "new_unique_records": 4775,
+      "page_size": 2000
+    },
+    "2016-Q1": {
+      "api_results_available": 5000,
+      "api_results_returned": 5000,
+      "new_unique_records": 5000,
+      "page_size": 2000
+    },
+    "2016-Q2": {
+      "api_results_available": 6011,
+      "api_results_returned": 6011,
+      "new_unique_records": 6011,
+      "page_size": 2000
+    },
+    "2016-Q3": {
+      "api_results_available": 5499,
+      "api_results_returned": 5499,
+      "new_unique_records": 5499,
+      "page_size": 2000
+    },
+    "2016-Q4": {
+      "api_results_available": 6294,
+      "api_results_returned": 6294,
+      "new_unique_records": 6294,
+      "page_size": 2000
+    },
+    "2017-Q1": {
+      "api_results_available": 6679,
+      "api_results_returned": 6679,
+      "new_unique_records": 6679,
+      "page_size": 2000
+    },
+    "2017-Q2": {
+      "api_results_available": 7353,
+      "api_results_returned": 7353,
+      "new_unique_records": 7353,
+      "page_size": 2000
+    },
+    "2017-Q3": {
+      "api_results_available": 7676,
+      "api_results_returned": 7676,
+      "new_unique_records": 7676,
+      "page_size": 2000
+    },
+    "2017-Q4": {
+      "api_results_available": 7900,
+      "api_results_returned": 7900,
+      "new_unique_records": 7900,
+      "page_size": 2000
+    },
+    "2018-Q1": {
+      "api_results_available": 8736,
+      "api_results_returned": 8736,
+      "new_unique_records": 8736,
+      "page_size": 2000
+    },
+    "2018-Q2": {
+      "api_results_available": 10447,
+      "api_results_returned": 10447,
+      "new_unique_records": 10447,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2018-Q3": {
+      "api_results_available": 9905,
+      "api_results_returned": 9905,
+      "new_unique_records": 9905,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2018-Q4": {
+      "api_results_available": 11180,
+      "api_results_returned": 11180,
+      "new_unique_records": 11180,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2019-Q1": {
+      "api_results_available": 10695,
+      "api_results_returned": 10695,
+      "new_unique_records": 10695,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2019-Q2": {
+      "api_results_available": 14014,
+      "api_results_returned": 14014,
+      "new_unique_records": 14014,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2019-Q3": {
+      "api_results_available": 13054,
+      "api_results_returned": 13054,
+      "new_unique_records": 13054,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2019-Q4": {
+      "api_results_available": 13828,
+      "api_results_returned": 13828,
+      "new_unique_records": 13828,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2020-Q1": {
+      "api_results_available": 13757,
+      "api_results_returned": 13757,
+      "new_unique_records": 13757,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2020-Q2": {
+      "api_results_available": 17329,
+      "api_results_returned": 17329,
+      "new_unique_records": 17328,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2020-Q3": {
+      "api_results_available": 16187,
+      "api_results_returned": 16187,
+      "new_unique_records": 16187,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2020-Q4": {
+      "api_results_available": 18491,
+      "api_results_returned": 18491,
+      "new_unique_records": 18491,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2021-Q1": {
+      "api_results_available": 16847,
+      "api_results_returned": 16847,
+      "new_unique_records": 16847,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2021-Q2": {
+      "api_results_available": 19239,
+      "api_results_returned": 19239,
+      "new_unique_records": 19238,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2021-Q3": {
+      "api_results_available": 17188,
+      "api_results_returned": 17188,
+      "new_unique_records": 17187,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2021-Q4": {
+      "api_results_available": 18296,
+      "api_results_returned": 18296,
+      "new_unique_records": 18296,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2022-Q1": {
+      "api_results_available": 18087,
+      "api_results_returned": 18087,
+      "new_unique_records": 18087,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2022-Q2": {
+      "api_results_available": 19436,
+      "api_results_returned": 19436,
+      "new_unique_records": 19436,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2022-Q3": {
+      "api_results_available": 17926,
+      "api_results_returned": 17926,
+      "new_unique_records": 17926,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2022-Q4": {
+      "api_results_available": 20810,
+      "api_results_returned": 20810,
+      "new_unique_records": 20810,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2023-Q1": {
+      "api_results_available": 19659,
+      "api_results_returned": 19659,
+      "new_unique_records": 19659,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2023-Q2": {
+      "api_results_available": 24618,
+      "api_results_returned": 24618,
+      "new_unique_records": 24618,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2023-Q3": {
+      "api_results_available": 22973,
+      "api_results_returned": 22973,
+      "new_unique_records": 22973,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2023-Q4": {
+      "api_results_available": 26316,
+      "api_results_returned": 26316,
+      "new_unique_records": 26316,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2024-Q1": {
+      "api_results_available": 27754,
+      "api_results_returned": 27754,
+      "new_unique_records": 27754,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2024-Q2": {
+      "api_results_available": 30223,
+      "api_results_returned": 30223,
+      "new_unique_records": 30223,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2024-Q3": {
+      "api_results_available": 28067,
+      "api_results_returned": 28067,
+      "new_unique_records": 28067,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2024-Q4": {
+      "api_results_available": 32253,
+      "api_results_returned": 32253,
+      "new_unique_records": 32253,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2025-Q1": {
+      "api_results_available": 32603,
+      "api_results_returned": 32603,
+      "new_unique_records": 32602,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2025-Q2": {
+      "api_results_available": 37436,
+      "api_results_returned": 37436,
+      "new_unique_records": 37436,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2025-Q3": {
+      "api_results_available": 36577,
+      "api_results_returned": 36577,
+      "new_unique_records": 36577,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2025-Q4": {
+      "api_results_available": 37310,
+      "api_results_returned": 37310,
+      "new_unique_records": 37307,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2026-Q1": {
+      "api_results_available": 41356,
+      "api_results_returned": 41356,
+      "new_unique_records": 41356,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2026-Q2": {
+      "api_results_available": 50451,
+      "api_results_returned": 50451,
+      "new_unique_records": 50451,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2026-Q3": {
+      "api_results_available": 49803,
+      "api_results_returned": 49803,
+      "new_unique_records": 49803,
+      "page_size": 2000,
+      "retrieval_strategy": "recursive date windows"
+    },
+    "2026-Q4": {
+      "api_results_available": 6139,
+      "api_results_returned": 6139,
+      "new_unique_records": 6139,
+      "page_size": 2000
+    }
+  },
+  "limitations": [
+    "This corpus covers arXiv CS-category submissions, not all CS publication venues.",
+    "Queries are paginated in date-bounded quarters; any provider omissions or unstable result counts remain possible.",
+    "Records include abstracts and links, not downloaded full text; source versions and licenses must be checked before reuse.",
+    "Cross-listed papers may appear under multiple arXiv category codes but are deduplicated by base arXiv ID."
+  ]
+}

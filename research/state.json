@@ -428,7 +428,7 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "idle_reason": null,
   "last_activation_id": "2026-10-15T17:41:17Z-pid73160",
-  "last_successful_commit": "ebeb990",
+  "last_successful_commit": "fd22bad",
   "latest_scientific_increment": {
     "decision": "On finite connected unweighted trees, deleting terminal-free leaves and suppressing nonterminal degree-two paths preserves the exact k-bounded metric-labeling optimum for every finite metric and injective terminal labeling. The construction has O(|S|) edges and universal k-exponent 0; the unrestricted graph and cactus questions remain open.",
     "evidence_level": "tier_3_fully_proved_restricted_mathematical_result",

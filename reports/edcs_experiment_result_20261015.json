@@ -1,0 +1,80 @@
+{
+  "report_id": "EDCS-LAZY-REPAIR-RESULT-20261015",
+  "evidence_tier": "tier_4_independently_verified_finite_variant_counterexample",
+  "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+  "protocol_id": "EDCS-LAZY-REPAIR-PROTOCOL-V1",
+  "hypothesis": "The deterministic one-repair-per-update lazy EDCS variant preserves P1/P2 and a 2/3 finite matching-ratio endpoint on the declared small bipartite domain.",
+  "sources_and_data": [
+    "research/edcs_experiment_protocol_v1.json",
+    "reports/edcs_prior_art_audit_20261015.json",
+    "results/edcs_lazy_repair_counterexample_20261015/result.json",
+    "results/edcs_lazy_repair_counterexample_20261015/independent_validation.json",
+    "results/edcs_lazy_repair_counterexample_20261015/raw_trace.jsonl.gz"
+  ],
+  "method": {
+    "runner": "scripts/run_edcs_lazy_repair_experiment.py",
+    "independent_validator": "scripts/validate_edcs_lazy_repair_experiment.py",
+    "implementation_sha256": "a343bc323f31747815001a68bde79d0c5ffb87b97d7e0a7c70350933619ea864",
+    "parameters": {"beta": 4, "beta_minus": 3, "repair_flips_per_update": 1},
+    "domain": "all labeled bipartite masks k=1,2,3; all K3,3 deletion prefixes lengths 1..6; one greedy mixed depth-6 trajectory",
+    "resource_limits": {"cpu_seconds_max": 120, "memory_mib_max": 1024, "processes": 1, "network": false}
+  },
+  "configuration": {
+    "seed": 20261015,
+    "static_graphs": 530,
+    "static_updates": 2337,
+    "deletion_sequences": 79209,
+    "deletion_updates": 1165122,
+    "greedy_updates": 6,
+    "elapsed_seconds": 53.979445916600525,
+    "raw_trace_sha256": "e500803afa8a5e6bb669221edab548bc461dc1e23c73e0ede0a36003fd8f7c18",
+    "compressed_raw_trace_sha256": "e56ed6bdb075a449dc349bc2513ad260af953c236eed66a659e29b96d8cd53b1"
+  },
+  "summary": {
+    "outcome": "counterexample_found",
+    "first_failure_context": "static_all_masks_k3_mask15",
+    "first_failure_update_index": 3,
+    "minimal_sequence": [
+      {"operation": "insert", "edge": [0, 0]},
+      {"operation": "insert", "edge": [0, 1]},
+      {"operation": "insert", "edge": [0, 2]},
+      {"operation": "insert", "edge": [1, 0]}
+    ],
+    "final_G": [[0, 0], [0, 1], [0, 2], [1, 0]],
+    "final_H": [[0, 0], [0, 1], [0, 2], [1, 0]],
+    "violating_edge": [0, 0],
+    "violating_kind": "P1",
+    "degree_left": 3,
+    "degree_right": 2,
+    "degree_sum": 5,
+    "threshold": 4,
+    "mu_G": 2,
+    "mu_H": 2,
+    "matching_ratio": 1.0,
+    "repair_action_that_preceded_failure": {"kind": "P2", "edge": [1, 0], "before_delta": 1}
+  },
+  "metrics": {
+    "independent_rows_checked": 1167465,
+    "runner_independent_agreement": true,
+    "first_failure_reproduced": true,
+    "matching_oracle_agreement": true
+  },
+  "falsification_gate": {
+    "status": "variant_P1_counterexample_verified",
+    "rule": "A state with used-edge degree sum > beta falsifies the frozen lazy-variant invariant.",
+    "original_edcs_theory_refuted": false,
+    "original_dynamic_edcs_algorithm_tested": false
+  },
+  "observed_result_or_blocker": "The frozen one-flip lazy rule inserts (1,0) to repair a P2 deficiency but leaves used edge (0,0) at degree sum 5>4. The exact matching ratio remains 1.0, so this is an invariant-maintenance failure rather than a matching-ratio failure.",
+  "uncertainty": [
+    "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
+    "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
+    "The source-level novelty audit found no claim that this finite variant counterexample is a new theorem or general dynamic-matching result."
+  ],
+  "limitations": [
+    "No asymptotic or production update-time conclusion.",
+    "The matching-ratio endpoint was not falsified in the minimal witness.",
+    "The compressed raw trace is lossless; the uncompressed local trace is intentionally ignored by Git due to its size."
+  ],
+  "next_falsifiable_action": "Stop experimental execution for this authorization cycle. Any revised repair rule requires a new protocol, prior-art audit and separate explicit experiment authorization."
+}

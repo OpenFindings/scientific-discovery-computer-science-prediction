@@ -15,6 +15,7 @@ research/logs/
 research/worker_runs/
 results/**/logs/
 results/**/container.id
+results/edcs_lazy_repair_counterexample_20261015/raw_trace.jsonl
 
 # Supervisor/runtime state and generated experiment storage. Keep these local;
 # reproducibility manifests and small JSON summaries remain trackable.

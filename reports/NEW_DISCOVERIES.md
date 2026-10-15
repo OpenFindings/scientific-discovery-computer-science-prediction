@@ -171,6 +171,15 @@ This file is intentionally sparse. Only verified raw experiment outputs can add 
 
 The separate [Paper 3 Target B protocol](../research/paper3_target_b_protocol_v1.json) is frozen for future evidence-growth evaluation. The original direct-resolution cohorts and their no-score status are unchanged; missing follow-up evidence is not relabeled as negative progress.
 
+## 2026-10-15: independently verified EDCS lazy-repair counterexample
+
+- **Frozen claim tested:** With `beta=4`, `beta_minus=3`, and at most one local H-edge flip per graph update, the proposed lazy repair should preserve P1/P2 and the finite `mu(H)/mu(G) >= 2/3` endpoint.
+- **Actual result:** The first minimal witness is four insertions: `(0,0)`, `(0,1)`, `(0,2)`, `(1,0)`. After the last update, used edge `(0,0)` has `d_H(L0)=3`, `d_H(R0)=2`, and degree sum `5`, violating P1's upper bound `4`. The exact matching oracle gives `mu(G)=2`, `mu(H)=2`, ratio `1.0`.
+- **Coverage:** 530 static masks, 79,209 deletion prefixes, 1,165,122 deletion-update states, plus the fixed mixed trajectory; total independent checks 1,167,465. The separately implemented checker matched the runner and replayed/minimized the first failure.
+- **Scientific interpretation:** This is a genuine negative result against the frozen variant. It is not a counterexample to the original EDCS theory or Bernstein–Stein's different maintenance algorithm, and it is not a new theorem. The result narrows the design space: one-flip local repair cannot be used with this invariant and parameter choice without additional global/queued repair semantics.
+- **Paper 4:** The selected action was feasible within 53.98 seconds and produced substantial bounded uncertainty reduction. One action outcome cannot establish planner superiority or calibrate the original Paper 4 scores; those assumptions remain unchanged.
+- **Authorization boundary:** The single authorized experiment is consumed. No further EDCS or other experiment is scheduled in this cycle.
+
 ## DP158 numerical reproduction and corrected negative lead
 
 - **Source-matched scalar Figure 12 simulation (exploratory, not a new breakthrough):** Using the paper's explicit small-`q` budget formula at `q=0.1`, an independent million-path-per-arm implementation obtained P/Q halt rates **0.988712 / 0.987891** versus the published **0.9886 / 0.9880**; mean active steps **113.136 / 113.149** versus **113.1**. PLRV moments and empirical Gaussian-CDF discrepancies are recorded in `results/dp158_filter_source_matched_q01/independent_analysis.json`. The first exact-KL preregistration was withdrawn after source review; this run is explicitly exploratory. It does not verify a theorem, establish a new privacy bound, or audit deployed code.

@@ -1091,7 +1091,7 @@
     },
     {
       "artifact": "results/edcs_lazy_repair_counterexample_20261015/result.json",
-      "attempts": 0,
+      "attempts": 1,
       "cost_estimate": 0.3,
       "counts_as_experiment": true,
       "dependencies": [
@@ -1106,21 +1106,28 @@
       ],
       "expected_information_gain": 0.8,
       "failure_handling": "A finite search that finds no counterexample narrows the question but does not prove the invariant; implementation or runtime failure is recorded separately.",
-      "failure_note": "blocked_pending_explicit_experiment_authorization",
+      "finished_at": "2026-10-15T06:09:27Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "variant_P1_counterexample_verified",
+        "independent_validation": "results/edcs_lazy_repair_counterexample_20261015/independent_validation.json",
+        "raw_result": "results/edcs_lazy_repair_counterexample_20261015/result.json",
+        "scientific_success": true
+      },
       "max_attempts": 1,
       "objective": "Test whether the frozen lazy edge-deletion/local-repair implementation preserves the EDCS endpoint inequalities and matching-quality guarantee on bounded simple graphs and deletion sequences.",
       "priority": 99,
       "research_key": "edcs_lazy_repair_invariant_counterexample",
-      "scientific_status": "blocked_pending_explicit_authorization",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
       "scientific_validation": {
-        "missing_or_failed": [
-          "explicit_local_experiment_authorization"
-        ],
-        "mode": "authorization_gate",
-        "reason": "The candidate is frozen but cannot execute after the configured lifetime experiment authorization was exhausted",
-        "scientific_success": false
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "finite variant counterexample independently reproduced and minimized",
+        "scientific_success": true
       },
-      "status": "blocked",
+      "status": "completed",
       "success_criteria": [
         "exact enumeration or bounded deletion search completes under the declared limit",
         "all candidate traces and implementation parameters are retained",

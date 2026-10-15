@@ -1,10 +1,8 @@
 {
   "active_task_ids": [],
-  "blocked_task_ids": [
-    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
-  ],
+  "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T05:57:42Z",
+  "checkpoint_time": "2026-10-15T06:09:27Z",
   "completed_task_ids": [
     "RECOVERY-001",
     "LEADS-001",
@@ -33,11 +31,12 @@
     "PAPER4-QAOA-FAIR-SHOT-COST-001",
     "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
     "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
-    "PAPER4-QAOA-CLOSURE-001"
+    "PAPER4-QAOA-CLOSURE-001",
+    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
   ],
   "last_supervisor_status": "ACTIVE",
   "pending_task_ids": [],
   "schema_version": 1,
-  "status": "BLOCKED",
+  "status": "IDLE",
   "track": "experiments"
 }

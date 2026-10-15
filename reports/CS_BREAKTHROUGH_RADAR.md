@@ -35,6 +35,12 @@ Paper 4's new three-action comparison is frozen in [`paper4_novel_action_plan_20
 
 Paper 3 now has a separate frozen Target B protocol for substantial evidence growth. The original direct-resolution cohorts remain unchanged and unscored. A future score requires enough independently adjudicated positive and negative/verified-no-progress labels in chronological blocks; publication volume, citation count and topical similarity are not outcomes. See [`paper3_target_b_protocol_v1.json`](../research/paper3_target_b_protocol_v1.json).
 
+## EDCS result (2026-10-15)
+
+The selected action produced a real bounded negative result. The frozen deterministic lazy variant performed at most one H-edge repair per external update, with `beta=4` and `beta_minus=3`. Across all 530 static masks for k=1,2,3, all 79,209 K3,3 deletion prefixes of length up to 6, and one fixed mixed trajectory, the first failure was the four-insertion witness `(0,0),(0,1),(0,2),(1,0)`. It left used edge `(0,0)` with endpoint degrees 3 and 2, so P1 was violated at sum 5>4. The matching ratio was still 2/2=1.0.
+
+This is a counterexample to the proposed lazy-repair rule, not to EDCS generally. Bernstein–Stein define the same P1/P2 degree-sum constraints but maintain them through a substantially different dynamic algorithm involving alternating paths and orientation/bucket information; their paper explicitly emphasizes the global effect of the local constraints. The [prior-art audit](edcs_prior_art_audit_20261015.json) and [independent validation](edcs_experiment_result_20261015.json) preserve that boundary. This direction is now temporarily closed unless a new repair rule and new authorization are proposed.
+
 ## Paper 3 and Paper 4 status
 
 - Paper 3: the [trajectory readiness audit](paper3_trajectory_readiness.json) has 12 audited eligible questions but zero directly adjudicated positive or negative resolution outcomes. No grouped chronological holdout, AUC, calibration or breakthrough probability is valid. Do not reuse astronomy effect sizes.

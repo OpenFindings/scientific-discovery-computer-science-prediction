@@ -2,7 +2,7 @@
   "audit_id": "research_control_loop_2026-10-15",
   "scope": "supervisor_events, scientific completion gates, bounded worker continuation, quota recovery, launchd",
   "historical_event_audit": {
-    "event_rows_at_audit": 83,
+    "event_rows_at_audit": 84,
     "worker_result_rows": 19,
     "historical_false_quota_rows": [
       {
@@ -127,5 +127,19 @@
       "network": false
     },
     "interpretation": "The candidate pool and Paper 4 action ranking are source-audited planning evidence only. The finite EDCS search is not a result, and the supervisor must not start it until explicit renewed local experiment authorization is present."
+  },
+  "edcs_experiment_audit": {
+    "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+    "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+    "authorization": "one bounded local experiment explicitly authorized by user",
+    "new_experiments_started_this_cycle": 1,
+    "elapsed_seconds": 53.979445916600525,
+    "resource_limits": {"cpu_seconds_max": 120, "memory_mib_max": 1024, "processes": 1, "network": false},
+    "trace_rows_independently_checked": 1167465,
+    "outcome": "variant_P1_counterexample_verified",
+    "matching_ratio_failure": false,
+    "original_edcs_theory_refuted": false,
+    "original_dynamic_edcs_algorithm_tested": false,
+    "next_state": "experimental_execution_closed_until_new_protocol_and_authorization"
   }
 }

@@ -169,24 +169,125 @@
       "experiment_id": "EXP-PAPER4-QAOA-FAIR-SHOT-COST-20261015",
       "limitation": "sources_and_data",
       "result": "The complete procedure comparison is reported with all 20 graph rows, raw count summaries and the predeclared shot-cost accounting."
+    },
+    {
+      "artifact": "reports/edcs_experiment_result_20261015.json",
+      "evidence_level": "tier_4_independently_verified_finite_variant_counterexample",
+      "experiment_id": "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015",
+      "falsification_outcome": {
+        "original_dynamic_edcs_algorithm_tested": false,
+        "original_edcs_theory_refuted": false,
+        "rule": "A state with used-edge degree sum > beta falsifies the frozen lazy-variant invariant.",
+        "status": "variant_P1_counterexample_verified"
+      },
+      "limitation": "No asymptotic or production update-time conclusion.; The matching-ratio endpoint was not falsified in the minimal witness.; The compressed raw trace is lossless; the uncompressed local trace is intentionally ignored by Git due to its size.",
+      "result": {
+        "degree_left": 3,
+        "degree_right": 2,
+        "degree_sum": 5,
+        "final_G": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "final_H": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "first_failure_context": "static_all_masks_k3_mask15",
+        "first_failure_update_index": 3,
+        "matching_ratio": 1.0,
+        "minimal_sequence": [
+          {
+            "edge": [
+              0,
+              0
+            ],
+            "operation": "insert"
+          },
+          {
+            "edge": [
+              0,
+              1
+            ],
+            "operation": "insert"
+          },
+          {
+            "edge": [
+              0,
+              2
+            ],
+            "operation": "insert"
+          },
+          {
+            "edge": [
+              1,
+              0
+            ],
+            "operation": "insert"
+          }
+        ],
+        "mu_G": 2,
+        "mu_H": 2,
+        "outcome": "counterexample_found",
+        "repair_action_that_preceded_failure": {
+          "before_delta": 1,
+          "edge": [
+            1,
+            0
+          ],
+          "kind": "P2"
+        },
+        "threshold": 4,
+        "violating_edge": [
+          0,
+          0
+        ],
+        "violating_kind": "P1"
+      }
     }
   ],
   "artifact_only_tasks": [
     "HISTORICAL-OUTCOME-001"
   ],
-  "blocked_tasks": [
-    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
-  ],
+  "blocked_tasks": [],
   "budget_consumption": {
     "activations_started": 24,
-    "completed_experiments": 8,
+    "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
     "configured_max_rounds": 8,
     "configured_max_wall_seconds": 7200,
     "configured_max_worker_invocations": 8,
     "configured_max_worker_invocations_per_activation": 1,
-    "experiments_started": 10,
+    "experiments_started": 11,
     "final_reporting_reserve_seconds": 300,
     "minimum_disk_free_mib": 2048,
     "note": "Configured rounds are a per-start local supervisor cap, not a Codex service quota or remaining lifetime scientific-round budget. No paid worker or background service started.",
@@ -206,8 +307,8 @@
     "worker_invocations_started": 19
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "waiting_for_experiment_authorization",
-  "checkpoint_time": "2026-10-15T05:57:42Z",
+  "campaign_status": "waiting_for_eligible_task",
+  "checkpoint_time": "2026-10-15T06:09:27Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -247,78 +348,23 @@
     "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
     "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
     "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
-    "PAPER4-QAOA-CLOSURE-001"
+    "PAPER4-QAOA-CLOSURE-001",
+    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
   ],
   "current_best_opportunities": [
     {
-      "confidence": "moderate for an endpoint-defined evidence gap; none for a security benefit",
-      "finding_id": "SERENIOT-cross-device-whitelist-generalization",
-      "reason": "The source defines a native packet-signature majority whitelist, while the dated follow-up uses a different host/domain policy and does not report native false-allow or false-block rates. A device-disjoint matched-device test is conceptually feasible, but public replay is blocked by unavailable historical data/artifacts and no local traces.",
-      "status": "conditional go for a new small matched-device lab test; no-go for immediate public-data-only replay; artifact-only feasibility record"
+      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+      "reason": "finite P1 counterexample verified for the frozen one-flip lazy variant; no revised experiment authorized",
+      "status": "temporarily_closed_variant_falsified"
     },
     {
-      "confidence": "moderate for source methodological confound; low for novel performance advantage",
-      "finding_id": "Badger-resource-fair-test",
-      "reason": "Badger's 2018 PDF p.9 states unequal process/core resources. The bounded audit pinned public code, built the native Kelinci interface and observed container CPU counters, but host/container Java/Ant/Gradle/AFL and JPF/SPF/Z3/common metric assembly failed. No benchmark or direct outcome ran.",
-      "status": "completed conditional no-go for current machine; HotFuzz supports only broad premise"
-    },
-    {
-      "confidence": "moderate for independent scope limitation; none for frozen multiclass artifact effect",
-      "finding_id": "CAM-industrial-transfer-artifact-ablation",
-      "reason": "Amar and Rigby report 50% product-fault recall at K=15 on Ericsson data. This cannot be compared numerically with original multiclass cause accuracy or interpreted as an artifact-on/off outcome. First audit project-disjoint and class-skew-aware baselines, conditional on comparable data access.",
-      "status": "conditional no-go for current public-data artifact ablation; independent 2019 Ericsson reimplementation remains a class-skew/transport caveat on a different binary endpoint"
-    },
-    {
-      "confidence": "high for source question; none for novelty or forecast",
-      "finding_id": "Zero-Extension-exact-sparsifier-size",
-      "reason": "Reidl and Wahlström p.24 explicitly ask for size lower bounds after k^(s+1) exact metric sparsifier. Approximation-quality and 0-Extension LP results have different guarantees; forward-citation audit needed.",
-      "status": "2018 source-authenticated formal lower-bound/uniform-exponent question; no exact in-window theorem authenticated after bounded search"
-    },
-    {
-      "confidence": "moderate for endpoint gap; none for positive intervention effect",
-      "finding_id": "Explainable-repair-review-effect",
-      "reason": "A 2023 study assessed 180 LLM explanations with three reviewers and found quality metrics, but no patch-only control or acceptance/time endpoint. The next test is a blinded presentation experiment, not an extrapolated forecast.",
-      "status": "partial progress on explanation correctness/completeness; reviewer acceptance/time causal effect remains untested"
-    },
-    {
-      "confidence": "moderate for endpoint gap; none for safety benefit",
-      "finding_id": "DNN-aware-repair-regression-safety",
-      "reason": "DeepDiagnosis (2022) localizes and recommends fixes but does not automate repair; a 2023 architecture study reports random baselines and failures on complex models. Neither measures project-disjoint introduced-bug/security regressions versus code-only repair.",
-      "status": "partial progress on DNN diagnosis/performance repair with scope narrowing; frozen regression/security comparison remains unadjudicated"
-    },
-    {
-      "confidence": "moderate for independent numerical diagnostic; low for novel opportunity",
-      "finding_id": 158,
-      "reason": "At q=.1,.19,.3,.5 maximum Gaussian-CDF discrepancies were .01463,.02815,.04813,.09218 under frozen one-dimensional simulation, with near-99% halt rates. This known limitation is not a theorem or production vulnerability.",
-      "status": "q=0.1 numerical example closely matched; finite-q discrepancy increases quantified; matched-guarantee accountant comparison open"
-    },
-    {
-      "confidence": "low for narrow proxy, none for bug-yield benefit",
-      "finding_id": "DBMS-feedback-proxy",
-      "reason": "Fresh seeds 4131–4135 gave secondary differences +25,+51,+228,+393,-15 (two-sided sign p=.375) and no NoREC mismatch candidates. Short run underpowered for rare bugs.",
-      "status": "down-ranked after balanced-order equal-CPU study: 4/5 positive completed-database proxy pairs, no mismatch candidates, zero confirmed bugs"
-    },
-    {
-      "confidence": "low",
-      "finding_id": 157,
-      "reason": "The ICML 2023 malicious-server membership-inference paper makes threat-model alignment central. Need real multi-attribute data, explicit composition, and attack/utility evaluation; no universal LDP claim.",
-      "status": "bounded integration lead; broad novelty rejected; active-server LDP attack counterevidence audited in full text"
-    },
-    {
-      "confidence": "low",
-      "finding_id": 155,
-      "reason": "Causal field measurement needs consenting review teams and instrumentation.",
-      "status": "collaboration-dependent study design"
-    },
-    {
-      "confidence": "low",
-      "finding_id": 156,
-      "reason": "Adoption proxies are not verified security outcomes; suitable longitudinal incident data are not yet available.",
-      "status": "external-outcome data lead"
+      "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
+      "reason": "Target B protocol is frozen, but no valid historical forecast labels are available",
+      "status": "frozen_no_score_until_labels"
     }
   ],
   "current_phase": "novel-edcs-lazy-repair-experiment-001",
-  "current_research_round": 29,
+  "current_research_round": 30,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -373,19 +419,20 @@
     "old_future_primary_fulltexts_checked": 4
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
-  "idle_reason": "selected_novel_experiment_blocked_pending_explicit_authorization",
+  "idle_reason": "single_authorized_edcs_experiment_consumed_no_further_experiment_execution",
   "last_activation_id": "2026-10-15T05:55:49Z-pid43114",
   "last_successful_commit": "5cebeeb",
   "latest_scientific_increment": {
-    "decision": "EDCS selected conditionally; no experiment executed",
-    "evidence_level": "tier_2_source_audited_hypothesis_waiting_authorization",
-    "kind": "novel_cs_source_audit_and_protocol_freeze",
-    "next_falsifiable_action": "Obtain explicit authorization for exactly one EDCS bounded experiment (<=120 CPU seconds, <=1024 MiB, one process, no network); do not reset the lifetime experiment counter.",
-    "scientific_success": false,
+    "decision": "variant_P1_counterexample_verified",
+    "evidence_level": "tier_4_independently_verified_finite_variant_counterexample",
+    "kind": "independently_verified_finite_variant_counterexample",
+    "next_falsifiable_action": "Stop experimental execution for this authorization cycle; preserve the EDCS variant counterexample and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
+    "observed_result": "The frozen one-flip lazy rule inserts (1,0) to repair a P2 deficiency but leaves used edge (0,0) at degree sum 5>4. The exact matching ratio remains 1.0, so this is an invariant-maintenance failure rather than a matching-ratio failure.",
+    "scientific_success": true,
     "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Obtain explicit authorization for exactly one EDCS bounded experiment (<=120 CPU seconds, <=1024 MiB, one process, no network); do not reset the lifetime experiment counter.",
+  "next_action": "Stop experimental execution for this authorization cycle; preserve the EDCS variant counterexample and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -395,21 +442,7 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
-  "opportunity_ranking": [
-    {
-      "scientific_completion": "authorization_gate",
-      "score": 264.0,
-      "status": "blocked_pending_explicit_authorization",
-      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "track": "experiments"
-    },
-    {
-      "score": null,
-      "status": "protocol_frozen_no_score_until_labels",
-      "task_id": "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
-      "track": "forecasting"
-    }
-  ],
+  "opportunity_ranking": [],
   "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
@@ -1040,6 +1073,26 @@
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
         "A positive conditional result can coexist with a non-positive end-to-end result."
+      ]
+    },
+    {
+      "artifact": "reports/edcs_experiment_result_20261015.json",
+      "evidence_level": "tier_4_independently_verified_finite_variant_counterexample",
+      "next_falsifiable_action": "Stop experimental execution for this authorization cycle; preserve the EDCS variant counterexample and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
+      "observed_result_or_blocker": "The frozen one-flip lazy rule inserts (1,0) to repair a P2 deficiency but leaves used edge (0,0) at degree sum 5>4. The exact matching ratio remains 1.0, so this is an invariant-maintenance failure rather than a matching-ratio failure.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "finite variant counterexample independently reproduced and minimized",
+        "scientific_success": true
+      },
+      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+      "timestamp": "2026-10-15T06:09:27Z",
+      "uncertainty": [
+        "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
+        "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
+        "The source-level novelty audit found no claim that this finite variant counterexample is a new theorem or general dynamic-matching result."
       ]
     }
   ],

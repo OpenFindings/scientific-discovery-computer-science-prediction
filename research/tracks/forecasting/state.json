@@ -2,18 +2,17 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T01:06:16Z",
+  "checkpoint_time": "2026-10-15T02:15:39Z",
   "completed_task_ids": [
     "FORECAST-001",
     "BROAD-CS-HISTORICAL-001",
+    "HISTORICAL-OUTCOME-001",
     "HISTORICAL-TRAJECTORY-001",
     "HISTORICAL-TRAJECTORY-002",
     "PAPER3-TRAJECTORY-READINESS-001"
   ],
   "last_supervisor_status": "ACTIVE",
-  "pending_task_ids": [
-    "HISTORICAL-OUTCOME-001"
-  ],
+  "pending_task_ids": [],
   "schema_version": 1,
   "status": "IDLE",
   "track": "forecasting"

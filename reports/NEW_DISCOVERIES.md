@@ -1,5 +1,11 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: targeted retrieval improved observability but produced no Paper 3 label
+
+- **Changed scientific decision:** Citation/definition tracing upgraded the 2004.11573 question from search-visible-only to a full-text-audited dated follow-up. The 2023 study is a genuine primary source, but it uses standard attack-generated examples and uncertainty-guided ordering rather than the source's uncommon-uncertainty generator, and it does not provide the frozen equal-example/equal-compute comparison.
+- **What this rules out:** The follow-up cannot be used as direct resolution, refutation, or explicit-unresolved evidence. All 13 original frozen labels remain `unadjudicated`; no Paper 3 feature, training row, validation row, test score, or forecast probability was created.
+- **Next falsifiable gate:** Audit source-code/data availability and exact intervention/comparator/budget feasibility for a preregistered direct test. If those inputs cannot be pinned, reject this lead rather than substituting a proxy experiment or synthetic label. See [`historical_outcome_adjudication.json`](historical_outcome_adjudication.json).
+
 ## 2026-10-15: DP158 matched-guarantee comparison is explicitly infeasible
 
 - **Changed scientific decision:** The source-authenticated audit of the published GDP filter and the adaptive RDP fallback found that a matched comparison cannot be made defensibly with the currently available evidence. The GDP result supplies asymptotic error orders and finite-q Monte Carlo checks, but no certified finite-q `(epsilon, delta)` error enclosure. The local RDP fallback is theorem-motivated and adaptive, but its inspected implementation is deliberately conservative and ordinary floating point rather than a certified accountant.

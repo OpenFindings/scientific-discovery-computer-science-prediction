@@ -281,6 +281,32 @@
       "track": "experiments"
     },
     {
+      "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "HISTORICAL-OUTCOME-001"
+      ],
+      "execution_requirements": [
+        "original 2004.11573v1 source and exact uncommon-uncertainty generator definition",
+        "version-pinned follow-up/code/data availability audit",
+        "no synthetic outcome labels or hindsight relabeling"
+      ],
+      "expected_information_gain": 0.55,
+      "failure_handling": "If the source generator, comparator, equal-budget data or held-out metric cannot be pinned, record a bounded no-go and do not run a proxy experiment.",
+      "max_attempts": 2,
+      "objective": "Determine whether the uncertainty-robustness lead can support a preregistered direct test of uncommon-uncertainty adversarial examples versus conventional adversarial training at equal example count and compute; otherwise reject it as currently infeasible.",
+      "priority": 50,
+      "research_key": "uncertainty_robust_direct_test_feasibility",
+      "status": "pending",
+      "success_criteria": [
+        "source intervention and comparator definitions pinned",
+        "data/code and compute feasibility checked",
+        "go/no-go recorded without converting a near-match into a historical label"
+      ],
+      "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+      "track": "experiments"
+    },
+    {
       "artifact": "reports/patch_explanation_feasibility.json",
       "attempts": 1,
       "cost_estimate": 0.45,

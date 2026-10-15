@@ -323,6 +323,7 @@
     },
     {
       "artifact": "reports/historical_outcome_adjudication.json",
+      "attempts": 1,
       "cost_estimate": 0.9,
       "dependencies": [
         "BROAD-CS-HISTORICAL-001"
@@ -334,16 +335,57 @@
       ],
       "expected_information_gain": 0.35,
       "failure_handling": "If follow-ups are merely topical or source timing ambiguous, mark unadjudicated; never convert attention to resolution or leak future text into forecast features.",
+      "finished_at": "2026-10-15T02:15:39Z",
+      "last_result": {
+        "artifact_bytes": 10285,
+        "artifact_valid": true,
+        "elapsed_seconds": 73.851,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "815ed92c1c06c9def0204989825ea2924c03ddb04b9efc73f8c145857cf80c48",
+        "retry_after_seconds": null,
+        "session_id": "01a13d56-db17-7270-bc2a-32179c34ef49",
+        "timed_out": false
+      },
       "max_attempts": 2,
       "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
       "priority": 40,
-      "status": "pending",
+      "started_at": "2026-10-15T02:14:24Z",
+      "status": "completed",
       "success_criteria": [
         "source texts and follow-up claims separately verified",
         "at least one direct resolution or explicit unresolved label under a frozen rubric",
         "Paper 3 comparison only after enough labels exist"
       ],
       "task_id": "HISTORICAL-OUTCOME-001"
+    },
+    {
+      "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "HISTORICAL-OUTCOME-001"
+      ],
+      "execution_requirements": [
+        "original 2004.11573v1 source and exact uncommon-uncertainty generator definition",
+        "version-pinned follow-up/code/data availability audit",
+        "no synthetic outcome labels or hindsight relabeling"
+      ],
+      "expected_information_gain": 0.55,
+      "failure_handling": "If the source generator, comparator, equal-budget data or held-out metric cannot be pinned, record a bounded no-go and do not run a proxy experiment.",
+      "max_attempts": 2,
+      "objective": "Determine whether the uncertainty-robustness lead can support a preregistered direct test of uncommon-uncertainty adversarial examples versus conventional adversarial training at equal example count and compute; otherwise reject it as currently infeasible.",
+      "priority": 50,
+      "research_key": "uncertainty_robust_direct_test_feasibility",
+      "status": "pending",
+      "success_criteria": [
+        "source intervention and comparator definitions pinned",
+        "data/code and compute feasibility checked",
+        "go/no-go recorded without converting a near-match into a historical label"
+      ],
+      "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001"
     },
     {
       "artifact": "reports/historical_observable_cohort_audit.json",
@@ -577,9 +619,9 @@
       "max_attempts": 2,
       "objective": "Compare a published approximate GDP filter and a valid adaptive RDP fallback only at matched adjacency and finite-q (epsilon,delta) guarantees, using certified numerical errors; otherwise publish why comparison remains infeasible.",
       "priority": 55,
+      "result": "Explicit infeasibility: the published GDP filter has asymptotic error orders and Monte Carlo finite-q evidence, but no certified finite-q error enclosure; the local RDP fallback is theorem-valid but only an ordinary-floating-point, deliberately conservative reference. No matched (epsilon,delta) comparison or production undercount claim is justified.",
       "retry_after": "2026-10-15T01:06:46Z",
       "started_at": "2026-10-15T01:05:17Z",
-      "result": "Explicit infeasibility: the published GDP filter has asymptotic error orders and Monte Carlo finite-q evidence, but no certified finite-q error enclosure; the local RDP fallback is theorem-valid but only an ordinary-floating-point, deliberately conservative reference. No matched (epsilon,delta) comparison or production undercount claim is justified.",
       "status": "completed",
       "success_criteria": [
         "guarantees comparable or explicit infeasibility result",

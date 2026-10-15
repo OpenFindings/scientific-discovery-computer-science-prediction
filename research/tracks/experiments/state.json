@@ -2,7 +2,7 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T01:06:16Z",
+  "checkpoint_time": "2026-10-15T02:15:39Z",
   "completed_task_ids": [
     "RECOVERY-001",
     "LEADS-001",
@@ -20,7 +20,9 @@
     "DP158-MATCHED-GUARANTEE-001"
   ],
   "last_supervisor_status": "ACTIVE",
-  "pending_task_ids": [],
+  "pending_task_ids": [
+    "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001"
+  ],
   "schema_version": 1,
   "status": "IDLE",
   "track": "experiments"

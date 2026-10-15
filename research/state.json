@@ -60,11 +60,28 @@
     },
     {
       "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
-      "evidence_level": 3,
-      "experiment_id": "AUDIT-UNCERTAINTY-ROBUST-FEAS-2026",
-      "limitation": "Source algorithm is only partially operationally pinned; no code/data, matched comparator, equal-budget protocol, model training, or efficacy outcome was available.",
-      "result": "Current direct-test feasibility is a bounded no-go. The near-match remains unadjudicated and the lead is rejected as an actionable experiment until versioned implementation, data/model artifacts and a preregistered matched protocol are available."
+      "evidence_level": "tier_3_source_and_feasibility_audit; no_direct_outcome",
+      "experiment_id": "AUDIT-UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+      "limitation": "['The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.', 'The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.', 'A future implementation could make a direct test feasible with new resources; current absence is not evidence that no such implementation exists anywhere.', 'No sample-size or power calculation is claimed ",
+      "result": "{'result': 'Current direct-test feasibility is rejected.', 'blockers': ['No authenticated version-pinned KuK code/data/training artifact was found.', 'The source defines uncommon test-data generation, not the proposed robustness-training intervention or its labels.', 'Comparator, equal-example budget, equal-compute budget, held-out attack families, and clean/robust endpoint protocol are not source-pinned.', 'The local machine lacks the legacy Keras 2.2.4/TensorFlow 1.12.0 stack reported by the paper, GPU tooling, and relevant local datasets/models.'], 'negative_or_null_preserved': 'No efficacy result was observed. This no-go is an input/feasibility decision, not evidence that uncommon-uncertainty training is ineffective. The historical near-match remains unadjudicated and is not converted into a positive or negative outcome label.'}"
+    },
+    {
+      "artifact": "reports/sereniot_cross_device_feasibility.json",
+      "evidence_level": "dated_primary_source_and_follow_up_scope_audit; feasibility_only; no_security_outcome",
+      "experiment_id": "AUDIT-SERENIOT-CROSS-DEVICE-FEAS-001",
+      "limitation": "method",
+      "result": "{'observed': ['The source and follow-up endpoint definitions are reconciled and materially differ in policy construction.', 'The follow-up supplies a device-disjoint split concept and demonstrates that cross-device transfer is measurable, but its reported results do not provide SERENIoT false-allow/false-block estimates.', 'A low-cost matched-device test is conceptually feasible with packet capture and a small lab, provided legitimate and attack labels are frozen independently.'], 'blockers': ['The IoT Inspector historical corpus is not publicly downloadable from the inspected sources and requires permission/IRB access.', \"The follow-up's anonymized analysis/firewall repository was not resolvable from the cited dissertation text, and a verified SERENIoT runnable artifact was not found in the inspected original paper.\", 'No matched physical-device traces, ground-truth attack traces, or current endpoint labels were available in this workspace, so no experiment was executed.'], 'negative_"
+    },
+    {
+      "artifact": "reports/paper4_action_outcome_audit.json",
+      "evidence_level": "tier_3_provenance_reconciled_descriptive_planning_audit",
+      "experiment_id": "AUDIT-PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "limitation": "['Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.', 'A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.', 'The five actions are heterogeneous and were not randomized against a common action set or baseline.', 'Small n, missing pre-action ranks, and zero completed efficacy outcomes preclude causal utility, expected-utility, calibration, or rankin",
+      "result": "{'provenance_reconciled': True, 'observed_go_no_go_outcomes_coded': True, 'efficacy_outcomes_observed': 0, 'feasibility_blockers_observed': 4, 'conditional_future_test_only': 1, 'planning_utility_status': 'GATED_UNVALIDATED', 'summary': \"The audited actions produced feasibility and certification decisions, not action-level scientific outcomes. Badger's prerequisite gate was directionally consistent with its own pre-action plan, but the five-lead sample has no unified timestamped ranking and no completed efficacy outcomes. Paper 4 planning utility remains unvalidated.\"}"
     }
+  ],
+  "artifact_only_tasks": [
+    "HISTORICAL-OUTCOME-001"
   ],
   "blocked_tasks": [],
   "budget_consumption": {
@@ -80,11 +97,11 @@
     "note": "Configured rounds are a per-start local supervisor cap, not a Codex service quota or remaining lifetime scientific-round budget. No paid worker or background service started.",
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 7
+    "worker_invocations_started": 8
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-15T02:27:36Z",
+  "campaign_status": "paused_worker_budget",
+  "checkpoint_time": "2026-10-15T02:32:46Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -105,11 +122,17 @@
     "CAM-TRANSFER-FEAS-001",
     "BADGER-FAIR-CPU-FEAS-001",
     "DP158-MATCHED-GUARANTEE-001",
-    "HISTORICAL-OUTCOME-001",
     "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-    "SERENIOT-CROSS-DEVICE-FEAS-001"
+    "SERENIOT-CROSS-DEVICE-FEAS-001",
+    "PAPER4-ACTION-OUTCOME-AUDIT-001"
   ],
   "current_best_opportunities": [
+    {
+      "confidence": "moderate for an endpoint-defined evidence gap; none for a security benefit",
+      "finding_id": "SERENIOT-cross-device-whitelist-generalization",
+      "reason": "The source defines a native packet-signature majority whitelist, while the dated follow-up uses a different host/domain policy and does not report native false-allow or false-block rates. A device-disjoint matched-device test is conceptually feasible, but public replay is blocked by unavailable historical data/artifacts and no local traces.",
+      "status": "conditional go for a new small matched-device lab test; no-go for immediate public-data-only replay; artifact-only feasibility record"
+    },
     {
       "confidence": "moderate for source methodological confound; low for novel performance advantage",
       "finding_id": "Badger-resource-fair-test",
@@ -171,8 +194,8 @@
       "status": "external-outcome data lead"
     }
   ],
-  "current_phase": "sereniot-cross-device-feas-001",
-  "current_research_round": 11,
+  "current_phase": "paper3-observability-round3-001",
+  "current_research_round": 12,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -229,15 +252,35 @@
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "last_successful_commit": "5cebeeb",
   "latest_scientific_increment": {
-    "dp158": "matched-guarantee-comparison-explicitly-infeasible",
-    "historical": "targeted-retrieval-near-match-no-direct-label",
-    "kind": "source-and-experiment-feasibility-rerank",
-    "paper3": "no_score_zero_direct_resolution_labels",
-    "paper4": "planning_utility_unvalidated",
-    "uncertainty_robust": "bounded-current-no-go-no-code-or-matched-budget"
+    "decision": null,
+    "evidence_level": "tier_3_provenance_reconciled_descriptive_planning_audit",
+    "kind": "supervisor_validated_worker_checkpoint",
+    "next_falsifiable_action": {
+      "action": "Freeze a single timestamped Paper 4 plan covering the same candidate leads with explicit rank, cost, feasibility assumptions, outcome definitions, and falsification gates before any further action; then prospectively code whether each gate outcome matches the predeclared feasibility prediction.",
+      "falsification_gate": "If future gate outcomes cannot be linked to immutable pre-action ranks and declared likelihood assumptions, retain planning utility as non-identifiable rather than scoring it.",
+      "minimum_evidence": [
+        "one immutable pre-action plan with creation hash and timestamp",
+        "common candidate-action table and simple baseline",
+        "independent post-action coder and exact outcome rubric",
+        "at least several completed, endpoint-matched actions before any descriptive calibration summary",
+        "separate efficacy outcomes from setup/access/certification blockers"
+      ]
+    },
+    "scientific_success": true,
+    "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Add or unblock a scientifically justified task; do not invent outcomes.",
+  "next_action": {
+    "action": "Freeze a single timestamped Paper 4 plan covering the same candidate leads with explicit rank, cost, feasibility assumptions, outcome definitions, and falsification gates before any further action; then prospectively code whether each gate outcome matches the predeclared feasibility prediction.",
+    "falsification_gate": "If future gate outcomes cannot be linked to immutable pre-action ranks and declared likelihood assumptions, retain planning utility as non-identifiable rather than scoring it.",
+    "minimum_evidence": [
+      "one immutable pre-action plan with creation hash and timestamp",
+      "common candidate-action table and simple baseline",
+      "independent post-action coder and exact outcome rubric",
+      "at least several completed, endpoint-matched actions before any descriptive calibration summary",
+      "separate efficacy outcomes from setup/access/certification blockers"
+    ]
+  },
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -247,10 +290,135 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
+  "opportunity_ranking": [
+    {
+      "scientific_completion": "trajectory_audit",
+      "score": 92.1818,
+      "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+      "track": "forecasting"
+    }
+  ],
   "pending_tasks": [
-    "SERENIOT-CROSS-DEVICE-FEAS-001"
+    "PAPER3-OBSERVABILITY-ROUND3-001"
   ],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
-  "schema_version": 1
+  "schema_version": 1,
+  "scientific_artifact_audits": [
+    {
+      "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
+      "evidence_level": "tier_3_source_and_feasibility_audit; no_direct_outcome",
+      "next_falsifiable_action": {
+        "action": "Acquire an author-released or independently archived KuK implementation with commit/hash, environment lockfile, dataset/model manifest, and generation traces; then preregister a matched comparison before running it.",
+        "falsification_gate": "The lead fails the proposed benefit if the preregistered uncommon-generator arm has no held-out robust-accuracy advantage or exceeds the prespecified clean-accuracy degradation threshold.",
+        "minimum_protocol": [
+          "Freeze dataset/model/version, seed set, preprocessing, KuK target type and thresholds, generation retries/stopping, and training-label construction.",
+          "Define conventional adversarial training and its attack-generation parameters before inspecting outcomes.",
+          "Equalize the number of training examples and wall-clock or accelerator-compute budget using the same accounting rule in both arms.",
+          "Evaluate clean accuracy and robust accuracy on held-out attack families and held-out generated examples, with independent seeds, clustered uncertainty, and a prespecified material clean-accuracy degradation threshold.",
+          "If any required artifact remains unavailable, retain this bounded no-go and do not run a proxy or assign a historical outcome label."
+        ]
+      },
+      "observed_result_or_blocker": {
+        "blockers": [
+          "No authenticated version-pinned KuK code/data/training artifact was found.",
+          "The source defines uncommon test-data generation, not the proposed robustness-training intervention or its labels.",
+          "Comparator, equal-example budget, equal-compute budget, held-out attack families, and clean/robust endpoint protocol are not source-pinned.",
+          "The local machine lacks the legacy Keras 2.2.4/TensorFlow 1.12.0 stack reported by the paper, GPU tooling, and relevant local datasets/models."
+        ],
+        "negative_or_null_preserved": "No efficacy result was observed. This no-go is an input/feasibility decision, not evidence that uncommon-uncertainty training is ineffective. The historical near-match remains unadjudicated and is not converted into a positive or negative outcome label.",
+        "result": "Current direct-test feasibility is rejected."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
+      "timestamp": "2026-10-15T02:34:21Z",
+      "uncertainty": [
+        "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
+        "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
+        "A future implementation could make a direct test feasible with new resources; current absence is not evidence that no such implementation exists anywhere.",
+        "No sample-size or power calculation is claimed because the intervention and outcome variance inputs are not yet available."
+      ]
+    },
+    {
+      "artifact": "reports/sereniot_cross_device_feasibility.json",
+      "evidence_level": "dated_primary_source_and_follow_up_scope_audit; feasibility_only; no_security_outcome",
+      "next_falsifiable_action": "Acquire authorized current packet traces or collect a preregistered small matched-device dataset; implement the exact SERENIoT signature rule H(protocol, endpoint, service_port), freeze device-disjoint training/held-out splits and policy update timing, seed independently labeled unauthorized destinations, and report false-block and false-allow endpoints separately before considering any broader claim.",
+      "observed_result_or_blocker": {
+        "blockers": [
+          "The IoT Inspector historical corpus is not publicly downloadable from the inspected sources and requires permission/IRB access.",
+          "The follow-up's anonymized analysis/firewall repository was not resolvable from the cited dissertation text, and a verified SERENIoT runnable artifact was not found in the inspected original paper.",
+          "No matched physical-device traces, ground-truth attack traces, or current endpoint labels were available in this workspace, so no experiment was executed."
+        ],
+        "negative_result_preserved": "No direct evidence was found that SERENIoT's native policy achieves safe cross-device generalization; no direct evidence was found that it fails. Search/access failure is not treated as a negative scientific result.",
+        "observed": [
+          "The source and follow-up endpoint definitions are reconciled and materially differ in policy construction.",
+          "The follow-up supplies a device-disjoint split concept and demonstrates that cross-device transfer is measurable, but its reported results do not provide SERENIoT false-allow/false-block estimates.",
+          "A low-cost matched-device test is conceptually feasible with packet capture and a small lab, provided legitimate and attack labels are frozen independently."
+        ]
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [
+          "method"
+        ],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
+      "timestamp": "2026-10-15T02:34:21Z",
+      "uncertainty": [
+        "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
+        "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
+        "The exact source implementation, chain state, reverse-DNS behavior and majority timing may affect reproducibility beyond the paper's policy description.",
+        "A small lab sample can test the frozen endpoint mechanics but cannot establish deployment-wide security or prevalence."
+      ]
+    },
+    {
+      "artifact": "reports/paper4_action_outcome_audit.json",
+      "evidence_level": "tier_3_provenance_reconciled_descriptive_planning_audit",
+      "next_falsifiable_action": {
+        "action": "Freeze a single timestamped Paper 4 plan covering the same candidate leads with explicit rank, cost, feasibility assumptions, outcome definitions, and falsification gates before any further action; then prospectively code whether each gate outcome matches the predeclared feasibility prediction.",
+        "falsification_gate": "If future gate outcomes cannot be linked to immutable pre-action ranks and declared likelihood assumptions, retain planning utility as non-identifiable rather than scoring it.",
+        "minimum_evidence": [
+          "one immutable pre-action plan with creation hash and timestamp",
+          "common candidate-action table and simple baseline",
+          "independent post-action coder and exact outcome rubric",
+          "at least several completed, endpoint-matched actions before any descriptive calibration summary",
+          "separate efficacy outcomes from setup/access/certification blockers"
+        ]
+      },
+      "observed_result_or_blocker": {
+        "conditional_future_test_only": 1,
+        "efficacy_outcomes_observed": 0,
+        "feasibility_blockers_observed": 4,
+        "observed_go_no_go_outcomes_coded": true,
+        "planning_utility_status": "GATED_UNVALIDATED",
+        "provenance_reconciled": true,
+        "summary": "The audited actions produced feasibility and certification decisions, not action-level scientific outcomes. Badger's prerequisite gate was directionally consistent with its own pre-action plan, but the five-lead sample has no unified timestamped ranking and no completed efficacy outcomes. Paper 4 planning utility remains unvalidated."
+      },
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "planning_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "timestamp": "2026-10-15T02:34:21Z",
+      "uncertainty": [
+        "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
+        "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
+        "The five actions are heterogeneous and were not randomized against a common action set or baseline.",
+        "Small n, missing pre-action ranks, and zero completed efficacy outcomes preclude causal utility, expected-utility, calibration, or ranking-performance claims.",
+        "Proxy observations and near-matches were excluded from direct success/failure coding when their endpoint, comparator, or provenance did not match."
+      ]
+    }
+  ]
 }

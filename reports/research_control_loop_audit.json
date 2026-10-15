@@ -1,0 +1,85 @@
+{
+  "audit_id": "research_control_loop_2026-10-15",
+  "scope": "supervisor_events, scientific completion gates, bounded worker continuation, quota recovery, launchd",
+  "historical_event_audit": {
+    "event_rows_at_audit": 13,
+    "worker_result_rows": 10,
+    "historical_false_quota_rows": [
+      {
+        "task_id": "CAM-TRANSFER-FEAS-001",
+        "attempt": 2,
+        "recorded_failure_class": "quota",
+        "recorded_rate_limited": true,
+        "error": "worker changed paths outside declared artifact: research/task_queue.json",
+        "corrected_interpretation": "worker_write_conflict",
+        "reason": "the worker produced a bounded artifact and the failure was a protected canonical-queue write, not a provider quota response"
+      }
+    ],
+    "actual_canonical_write_conflicts": [
+      "CAM-TRANSFER-FEAS-001 attempt 1 and attempt 2: research/task_queue.json"
+    ],
+    "historical_false_positive_write_conflicts": [
+      "BADGER-FAIR-CPU-FEAS-001: derived experiments lane checkpoint refreshed by status tooling",
+      "DP158-MATCHED-GUARANTEE-001: launchd stderr append concurrent with the worker"
+    ],
+    "current_policy": "canonical research/state.json, research/task_queue.json, and ledger remain supervisor-owned; derived lane checkpoints and launchd streams are tolerated concurrent outputs"
+  },
+  "scientific_completion_audit": {
+    "artifact_only_preserved": [
+      {
+        "task_id": "HISTORICAL-OUTCOME-001",
+        "status": "artifact_only",
+        "reason": "no authenticated direct future-resolution or explicit-unresolved label"
+      }
+    ],
+    "scientifically_completed_descriptive_audit": {
+      "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "status": "completed",
+      "evidence_tier": "tier_3_provenance_reconciled_descriptive_planning_audit",
+      "observed": {
+        "actions_coded": 5,
+        "efficacy_outcomes": 0,
+        "feasibility_blockers": 4,
+        "conditional_future_tests": 1
+      },
+      "scientific_boundary": "descriptive audit completed; Paper 4 planning utility remains GATED_UNVALIDATED because there is no unified immutable pre-action ranking and no endpoint-matched efficacy sample"
+    }
+  },
+  "mock_provider_recovery": {
+    "focused_supervisor_tests": 18,
+    "full_unittest_suite": 59,
+    "passed": true,
+    "covered": [
+      "structured rate_limit_exceeded pauses without completing the task",
+      "retry is skipped before reset and resumes after an expired reset",
+      "authentication failure is not quota",
+      "policy prose containing rate limits is not quota",
+      "valid JSON artifact can remain artifact_only"
+    ]
+  },
+  "launchd_verification": {
+    "plist": "/Users/amao/Library/LaunchAgents/com.nonameisready.scientific-discovery.supervisor.plist",
+    "installed": true,
+    "loaded": true,
+    "label": "com.nonameisready.scientific-discovery.supervisor",
+    "program": "/opt/homebrew/bin/python3.12",
+    "run_interval_seconds": 900,
+    "run_at_load": true,
+    "bounded_arguments": ["--start", "--max-rounds", "1"],
+    "kickstart_observation": {
+      "runs_before": 3,
+      "runs_after": 4,
+      "last_exit_code": 0,
+      "state_after_bounded_exit": "not running",
+      "interpretation": "the job is loaded and restart-capable; not running after a bounded successful run is expected, not a failed persistent-service assertion"
+    }
+  },
+  "autonomous_continuation": {
+    "forecasting_successor": "PAPER3-OBSERVABILITY-ROUND3-001",
+    "forecasting_successor_status": "pending",
+    "experiments_successor_generation": "Paper 4 action-outcome audit was evidence-gated and completed; its next falsifiable prospective plan is stored in the artifact",
+    "current_worker_budget": "exhausted without bypass",
+    "next_state": "paused_worker_budget",
+    "scientific_claim": "control loop now distinguishes scheduling and artifact completion from validated scientific completion; no breakthrough or Paper 3 predictive score is claimed"
+  }
+}

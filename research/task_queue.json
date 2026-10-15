@@ -354,8 +354,22 @@
       "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
       "priority": 40,
       "scientific_completion": "outcome_label",
+      "scientific_status": "artifact_only",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "sources_and_data",
+          "method",
+          "uncertainty",
+          "next_falsifiable_action",
+          "observed_result_or_blocker",
+          "direct_or_explicit_unresolved_label"
+        ],
+        "mode": "outcome_label",
+        "reason": "valid artifact does not satisfy scientific success criteria",
+        "scientific_success": false
+      },
       "started_at": "2026-10-15T02:14:24Z",
-      "status": "completed",
+      "status": "artifact_only",
       "success_criteria": [
         "source texts and follow-up claims separately verified",
         "at least one direct resolution or explicit unresolved label under a frozen rubric",
@@ -389,6 +403,7 @@
         "rate_limited": false,
         "raw_output_sha256": "440150dfdb4de234f5b1ea1f429eb40ac6aae287407e644676387c2be1695b5a",
         "retry_after_seconds": null,
+        "scientific_success": true,
         "session_id": "01a13d59-516e-7180-9845-91dd47fb98dc",
         "timed_out": false
       },
@@ -397,6 +412,12 @@
       "priority": 50,
       "research_key": "uncertainty_robust_direct_test_feasibility",
       "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
       "started_at": "2026-10-15T02:17:05Z",
       "status": "completed",
       "success_criteria": [
@@ -432,6 +453,7 @@
         "rate_limited": false,
         "raw_output_sha256": "6c545b923ef1e3c98f181d6c7774af78fc8a2cc13f97052a07d2a5b6d0aed44a",
         "retry_after_seconds": null,
+        "scientific_success": true,
         "session_id": "01a13d5d-0bda-73a3-aa1b-970ad13ff539",
         "timed_out": false
       },
@@ -440,6 +462,14 @@
       "priority": 48,
       "research_key": "sereniot_cross_device_whitelist_generalization_feasibility",
       "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "method"
+        ],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
       "started_at": "2026-10-15T02:21:09Z",
       "status": "completed",
       "success_criteria": [
@@ -690,6 +720,90 @@
         "no production undercount claim without deployed implementation"
       ],
       "task_id": "DP158-MATCHED-GUARANTEE-001"
+    },
+    {
+      "artifact": "reports/historical_observable_cohort_round3.json",
+      "cost_estimate": 0.55,
+      "dependencies": [
+        "HISTORICAL-TRAJECTORY-002"
+      ],
+      "execution_requirements": [
+        "existing year/topic frame",
+        "source-only selection before follow-up search",
+        "frozen trajectory rubric",
+        "no hindsight labels"
+      ],
+      "expected_information_gain": 0.65,
+      "failure_handling": "If direct labels remain sparse, preserve missingness and produce a valid no-score decision; do not reinterpret partial progress as resolution.",
+      "max_attempts": 1,
+      "objective": "Create a new source-only, cutoff-frozen historical CS question mini-cohort from the existing year/topic frame, then audit dated follow-ups under the frozen trajectory rubric; report direct-label yield and missingness without scoring Paper 3 unless valid labels exist.",
+      "priority": 78,
+      "research_key": "paper3_outcome_observability_round3",
+      "scientific_completion": "trajectory_audit",
+      "status": "pending",
+      "success_criteria": [
+        "new source-only rows and cutoff provenance",
+        "dated follow-up audit",
+        "direct-label prevalence and Paper 3 gate reported"
+      ],
+      "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
+      "track": "forecasting"
+    },
+    {
+      "artifact": "reports/paper4_action_outcome_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "PLANNER-001",
+        "CAM-TRANSFER-FEAS-001",
+        "BADGER-FAIR-CPU-FEAS-001",
+        "DP158-MATCHED-GUARANTEE-001"
+      ],
+      "execution_requirements": [
+        "pre-action plan timestamps",
+        "post-action feasibility artifacts",
+        "independent outcome coding",
+        "no causal utility claim from small n"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "If pre-action ranking or outcome provenance is insufficient, report non-identifiability and do not invent an information-gain score.",
+      "finished_at": "2026-10-15T02:30:48Z",
+      "last_result": {
+        "artifact_bytes": 11255,
+        "artifact_valid": true,
+        "elapsed_seconds": 52.006,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "a5e854b820aad2667cec42e791f766c41bdfc9c557c67a734b29b267abb906ab",
+        "retry_after_seconds": null,
+        "scientific_success": true,
+        "session_id": "01a13d65-1369-7f63-bb83-b6c61f5fad62",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Compare Paper 4's pre-action rankings and declared feasibility assumptions against the observed CAM, Badger, DP158, uncertainty-robustness and SERENIoT action outcomes; quantify only descriptive calibration/rank agreement when provenance permits, and do not call it validated planning utility.",
+      "priority": 88,
+      "research_key": "paper4_observed_action_outcome_audit",
+      "scientific_completion": "planning_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "planning_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:29:56Z",
+      "status": "completed",
+      "success_criteria": [
+        "pre/post action provenance reconciled",
+        "observed go/no-go outcomes coded",
+        "planning utility remains gated if sample is too small"
+      ],
+      "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
+      "track": "experiments"
     }
   ]
 }

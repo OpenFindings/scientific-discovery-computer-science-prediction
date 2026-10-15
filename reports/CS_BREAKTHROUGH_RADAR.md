@@ -35,3 +35,11 @@ The [CAM artifact-ablation audit](cam_artifact_ablation_feasibility.json) is a c
 - Uncertainty-robustness feasibility: the source generator is algorithmically described, but no version-pinned implementation, data/model bundle, matched comparator or equal-compute protocol was authenticated; current direct-test decision is a bounded no-go, not an efficacy result.
 - Candidate selection changed after the matched-CPU negative bug-yield checkpoint: DBMS is now below finding 158. Do not extend the DBMS run until it turns positive; any new campaign needs a fresh protocol and a distinct-bug outcome.
 - The new [Badger action graph](paper4_badger_action_plan.json) is an offline Paper 4-style plan with declared illustrative likelihoods; neither its expected information gain nor its ranking has been validated against an executed action. The immediate priority is feasibility, not an asserted breakthrough.
+
+## Control-loop and action-outcome checkpoint (2026-10-15)
+
+The supervisor audit is now explicit in [`research_control_loop_audit.json`](research_control_loop_audit.json). A historical CAM queue-write conflict had been misclassified as quota because provider-policy text was mixed with the failure signal. Structured quota errors are now required; policy prose is not enough. Canonical state and queue writes remain rejected from workers, while expected derived-lane and launchd-log concurrency is excluded from false conflict reports.
+
+The Paper 4 action-outcome audit is a genuine descriptive increment: five prior actions were provenance-reconciled, with **0 efficacy outcomes, 4 feasibility blockers and 1 conditional future test**. One Badger gate was directionally consistent with its own plan, but the sample has no common immutable pre-action ranking. Therefore planning utility, expected-utility calibration and causal action advantage remain **unvalidated**. The ranking is not promoted to a breakthrough claim.
+
+The next evidence-gated actions remain separate: Paper 3 observability round 3 is pending in the forecasting lane; Paper 4's next action is a prospective timestamped plan with endpoint-matched outcomes. The current worker budget is exhausted and was not bypassed.

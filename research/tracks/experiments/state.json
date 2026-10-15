@@ -2,7 +2,7 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T02:27:36Z",
+  "checkpoint_time": "2026-10-15T02:32:46Z",
   "completed_task_ids": [
     "RECOVERY-001",
     "LEADS-001",
@@ -19,9 +19,10 @@
     "PATCH-EXPLAIN-FEAS-001",
     "CAM-TRANSFER-FEAS-001",
     "BADGER-FAIR-CPU-FEAS-001",
-    "DP158-MATCHED-GUARANTEE-001"
+    "DP158-MATCHED-GUARANTEE-001",
+    "PAPER4-ACTION-OUTCOME-AUDIT-001"
   ],
-  "last_supervisor_status": "ACTIVE",
+  "last_supervisor_status": "WAITING_FOR_RESET",
   "pending_task_ids": [],
   "schema_version": 1,
   "status": "IDLE",

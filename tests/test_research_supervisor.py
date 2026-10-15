@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.research_supervisor import classify_failure
+from scripts.research_supervisor import classify_failure, scientific_validation
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPERVISOR = ROOT / "scripts/research_supervisor.py"
@@ -221,6 +221,20 @@ class ResearchSupervisorTests(unittest.TestCase):
         self.assertEqual(self.queue()["tasks"][0]["status"], "artifact_only")
         self.assertNotIn("T1", self.state()["completed_tasks"])
         self.assertIn("T1", self.state()["artifact_only_tasks"])
+
+    def test_planning_audit_uses_nested_observed_outcomes(self):
+        task = {"task_id": "PAPER4-AUDIT", "scientific_completion": "planning_audit"}
+        artifact = {
+            "evidence_tier": "tier_3_provenance_reconciled_descriptive_planning_audit",
+            "sources_and_data": ["plan", "outcomes"],
+            "method": "provenance reconciliation",
+            "uncertainty": "no efficacy outcomes",
+            "next_falsifiable_action": {"action": "freeze a prospective plan"},
+            "result": {"provenance_reconciled": True, "observed_go_no_go_outcomes_coded": True},
+        }
+        ok, validation = scientific_validation(task, artifact)
+        self.assertTrue(ok)
+        self.assertTrue(validation["scientific_success"])
 
     def test_lock_blocks_second_supervisor(self):
         with (self.root / "research/.supervisor.lock").open("a+") as lock:

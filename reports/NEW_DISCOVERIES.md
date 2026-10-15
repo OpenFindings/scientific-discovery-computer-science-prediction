@@ -1,5 +1,25 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: SERENIoT cross-device test is feasible only with new matched-device evidence
+
+- **Changed scientific decision:** The source and follow-up audit reconciles SERENIoT's native packet-signature majority whitelist with a different follow-up host/domain policy. The follow-up supports device-disjoint evaluation as a design idea, but it does not report SERENIoT false-allow or false-block rates.
+- **What is blocked:** The historical IoT Inspector corpus is not publicly downloadable from the inspected sources, the cited anonymized repository was not resolvable, and this workspace contains no matched physical-device or independently labeled attack traces. No experiment ran, and no security benefit is claimed.
+- **Next falsifiable gate:** With authorized traces or a small preregistered lab dataset, compare single-device and majority-trained native signature whitelists on held-out devices; report false-block and false-allow separately with exact denominators. Either endpoint can falsify the proposed transfer benefit.
+- **Evidence boundary:** This is an artifact-only feasibility decision, not a Paper 3 outcome label, a Paper 4 utility validation, or a deployment security result. See [`sereniot_cross_device_feasibility.json`](sereniot_cross_device_feasibility.json).
+
+## 2026-10-15: control-loop audit separates artifacts from scientific success
+
+- **Changed scientific decision:** The supervisor now requires a task-specific scientific completion gate after JSON artifact validation. `HISTORICAL-OUTCOME-001` remains `artifact_only` because no direct future-resolution or explicit-unresolved label was authenticated. The Paper 4 action-outcome artifact is scientifically complete as a descriptive provenance audit, while its planning-utility claim remains gated and unvalidated.
+- **Actual action evidence:** Five prior actions were coded: 0 efficacy outcomes, 4 feasibility blockers and 1 conditional future test. There was no unified immutable pre-action ranking and no endpoint-matched efficacy sample, so no Paper 4 utility score, calibration estimate or causal benefit is reported.
+- **Control-loop result:** Historical audit found one false quota classification (CAM canonical queue write) and two historical false-positive concurrent-write detections (derived lane checkpoint and launchd log). New tests cover structured quota detection, mock pause/reset recovery, canonical queue protection and artifact-only outcomes. Full audit: [`research_control_loop_audit.json`](research_control_loop_audit.json).
+- **Boundary:** launchd is installed and loaded and a real kickstart increased observed runs from 3 to 4 with exit code 0; the bounded job being `not running` afterward is expected. This proves restart-capable bounded execution, not a claim of a continuously running service or scientific success.
+
+## 2026-10-15: Paper 4 action utility remains unvalidated after real outcome coding
+
+- **Finding:** The descriptive audit reconciled Paper 4 plans with observed feasibility/certification outcomes across CAM, Badger, DP158, uncertainty robustness and SERENIoT. The only directional plan-to-gate correspondence was Badger's prerequisite gate; the action set is heterogeneous and lacks a common timestamped ranking.
+- **What changed:** The audit is now a scientifically completed negative/bounded result rather than an artifact-only failure. It strengthens the decision to require a prospective immutable plan and independent endpoint coding before any utility estimate.
+- **What did not happen:** No direct historical label was fabricated, no Paper 3 metric was estimated, and no breakthrough or planning advantage was claimed.
+
 ## 2026-10-15: uncertainty-robustness direct test is currently infeasible
 
 - **Changed scientific decision:** The original 2004.11573 source pins the KuK-style uncommon-uncertainty generation objectives and headline settings, but no versioned implementation, dataset/model bundle, matched conventional comparator, equal-example/equal-compute rule, or held-out robustness protocol was authenticated. The local machine also lacks the reported legacy stack and relevant artifacts.
@@ -49,7 +69,7 @@ No new breakthrough has been established by this campaign checkpoint.
 - **Changed scientific decision:** A 13-question [retrieval/directness audit](historical_label_bottleneck_audit.json) found only four future primary full-text section checks; nine cases are too weakly retrieved to distinguish absence from search failure. All four checked near-misses differ on exact scope, assumptions or joint metric. The original zero direct labels remain unchanged. Repeating broad keyword variants is down-ranked in favor of a separately frozen, outcome-observable cohort.
 - **Original-source eligibility result:** In the new 16-title cohort, targeted exact-version sections yielded one eligible [Badger](https://arxiv.org/pdf/1806.03283v1) fair-resource comparison and one ineligible completed fair-submodular result. This is a 2-paper source screen, not a population estimate. Badger's paper itself names an unequal-process/core comparison and proposes a fairer one.
 - **One bounded trajectory dimension, not a breakthrough:** Independent [HotFuzz 2020](https://www.ndss-symposium.org/wp-content/uploads/2020/02/24415-paper.pdf) confirms that another cost-guided Java fuzzing approach can expose complexity vulnerabilities. Under the newly frozen rubric, this supports only a broad independent-evidence premise. It does **not** resolve Badger's matched-CPU hybrid advantage, and it is not a Paper 3 positive resolution label. [Provenance and exclusions](historical_evidence_trajectory_round1.json).
-- **Still unverified:** no fair-CPU Badger run, no direct new-cohort resolution, no valid Paper 3 CS forecast metric, and no observed Paper 4 action utility. [The new action graph](paper4_badger_action_plan.json) uses illustrative, not measured, likelihoods.
+- **Still unverified:** no fair-CPU Badger run, no direct new-cohort resolution, no valid Paper 3 CS forecast metric, and no validated Paper 4 action utility. The descriptive action audit exists, while [the new action graph](paper4_badger_action_plan.json) still uses illustrative, not measured, likelihoods.
 
 ## 2026-10-14: independent industrial transfer caveat (not a direct outcome)
 
@@ -88,7 +108,7 @@ The first bounded future-evidence triage searched all 13 questions but authentic
 
 - No DBMS run has a confirmed distinct logic bug.
 - Paper 3 has not yet produced a historically valid CS forecast evaluation.
-- Paper 4 action utility has not yet been scored against real action outcomes.
+- Paper 4 action outcomes have now been coded descriptively, but planning utility has not been scored or validated because the common pre-action ranking and efficacy endpoint sample are missing.
 - The study has not yet established matched-CPU superiority or any increase in independently confirmed distinct logic bugs.
 
 ## Additional pre-registered CPU-normalized operational result

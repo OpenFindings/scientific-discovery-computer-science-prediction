@@ -13,14 +13,14 @@
     "state": "AVAILABLE"
   },
   "schema_version": 1,
-  "status": "ACTIVE",
+  "status": "WAITING_FOR_RESET",
   "stop_requested": false,
-  "updated_at": "2026-10-15T02:27:36Z",
+  "updated_at": "2026-10-15T02:32:46Z",
   "usage": {
-    "conservative_worker_seconds": 415.37600000000003,
+    "conservative_worker_seconds": 467.38200000000006,
     "date_utc": "2026-10-15",
     "track_worker_seconds": {
-      "experiments": 341.52500000000003,
+      "experiments": 393.53100000000006,
       "forecasting": 73.851
     }
   }

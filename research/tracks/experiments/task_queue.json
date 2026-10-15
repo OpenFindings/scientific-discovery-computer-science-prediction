@@ -314,6 +314,12 @@
       "priority": 50,
       "research_key": "uncertainty_robust_direct_test_feasibility",
       "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "feasibility_decision",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
       "started_at": "2026-10-15T02:17:05Z",
       "status": "completed",
       "success_criteria": [
@@ -326,6 +332,7 @@
     },
     {
       "artifact": "reports/sereniot_cross_device_feasibility.json",
+      "artifact_only": true,
       "attempts": 1,
       "cost_estimate": 0.5,
       "dependencies": [
@@ -358,6 +365,14 @@
       "priority": 48,
       "research_key": "sereniot_cross_device_whitelist_generalization_feasibility",
       "scientific_completion": "feasibility_decision",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "method"
+        ],
+        "mode": "feasibility_decision",
+        "reason": "artifact-only feasibility decision recorded; no matched-device experiment or scientific validation ran",
+        "scientific_success": false
+      },
       "started_at": "2026-10-15T02:21:09Z",
       "status": "completed",
       "success_criteria": [
@@ -530,6 +545,63 @@
         "no production undercount claim without deployed implementation"
       ],
       "task_id": "DP158-MATCHED-GUARANTEE-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_action_outcome_audit.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "dependencies": [
+        "PLANNER-001",
+        "CAM-TRANSFER-FEAS-001",
+        "BADGER-FAIR-CPU-FEAS-001",
+        "DP158-MATCHED-GUARANTEE-001"
+      ],
+      "execution_requirements": [
+        "pre-action plan timestamps",
+        "post-action feasibility artifacts",
+        "independent outcome coding",
+        "no causal utility claim from small n"
+      ],
+      "expected_information_gain": 0.75,
+      "failure_handling": "If pre-action ranking or outcome provenance is insufficient, report non-identifiability and do not invent an information-gain score.",
+      "failure_note": "valid artifact does not satisfy scientific success criteria",
+      "finished_at": "2026-10-15T02:30:48Z",
+      "last_result": {
+        "artifact_bytes": 11255,
+        "artifact_valid": true,
+        "elapsed_seconds": 52.006,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "a5e854b820aad2667cec42e791f766c41bdfc9c557c67a734b29b267abb906ab",
+        "retry_after_seconds": null,
+        "scientific_success": false,
+        "session_id": "01a13d65-1369-7f63-bb83-b6c61f5fad62",
+        "timed_out": false
+      },
+      "max_attempts": 1,
+      "objective": "Compare Paper 4's pre-action rankings and declared feasibility assumptions against the observed CAM, Badger, DP158, uncertainty-robustness and SERENIoT action outcomes; quantify only descriptive calibration/rank agreement when provenance permits, and do not call it validated planning utility.",
+      "priority": 88,
+      "research_key": "paper4_observed_action_outcome_audit",
+      "scientific_completion": "planning_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "planning_audit",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T02:29:56Z",
+      "status": "completed",
+      "success_criteria": [
+        "pre/post action provenance reconciled",
+        "observed go/no-go outcomes coded",
+        "planning utility remains gated if sample is too small"
+      ],
+      "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
       "track": "experiments"
     }
   ],

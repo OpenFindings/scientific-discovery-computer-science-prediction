@@ -56,6 +56,7 @@
     },
     {
       "artifact": "reports/historical_outcome_adjudication.json",
+      "attempts": 1,
       "cost_estimate": 0.9,
       "dependencies": [
         "BROAD-CS-HISTORICAL-001"
@@ -67,10 +68,26 @@
       ],
       "expected_information_gain": 0.35,
       "failure_handling": "If follow-ups are merely topical or source timing ambiguous, mark unadjudicated; never convert attention to resolution or leak future text into forecast features.",
+      "finished_at": "2026-10-15T02:15:39Z",
+      "last_result": {
+        "artifact_bytes": 10285,
+        "artifact_valid": true,
+        "elapsed_seconds": 73.851,
+        "error": null,
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "815ed92c1c06c9def0204989825ea2924c03ddb04b9efc73f8c145857cf80c48",
+        "retry_after_seconds": null,
+        "session_id": "01a13d56-db17-7270-bc2a-32179c34ef49",
+        "timed_out": false
+      },
       "max_attempts": 2,
       "objective": "Authenticate direct future evidence for the original 13 frozen questions only after improving specific weak retrievals or citation/definition tracing; do not repeat broad keyword variants or alter original labels.",
       "priority": 40,
-      "status": "pending",
+      "started_at": "2026-10-15T02:14:24Z",
+      "status": "completed",
       "success_criteria": [
         "source texts and follow-up claims separately verified",
         "at least one direct resolution or explicit unresolved label under a frozen rubric",

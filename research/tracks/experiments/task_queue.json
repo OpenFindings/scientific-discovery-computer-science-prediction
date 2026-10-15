@@ -403,6 +403,7 @@
     },
     {
       "artifact": "reports/dp158_matched_guarantee_audit.json",
+      "attempts": 1,
       "cost_estimate": 0.9,
       "dependencies": [
         "DP158-ACCOUNTANT-001"
@@ -414,10 +415,28 @@
       ],
       "expected_information_gain": 0.65,
       "failure_handling": "Do not compare raw active steps at unequal privacy guarantees or treat the floating-point reference as production certification.",
+      "finished_at": "2026-10-15T01:06:16Z",
+      "last_result": {
+        "artifact_bytes": 7579,
+        "artifact_valid": true,
+        "elapsed_seconds": 58.969,
+        "error": "worker changed paths outside declared artifact: research/logs/launchd.err.log",
+        "exit_code": 0,
+        "failure_class": "worker",
+        "official_reset_at": null,
+        "rate_limited": false,
+        "raw_output_sha256": "080a90dfbdf7198254bd17a659ef2308b492bba254e0ccb0fb3759349cf09c65",
+        "retry_after_seconds": null,
+        "session_id": "01a13d17-9394-7f03-9e6d-60b3563fdd8b",
+        "timed_out": false
+      },
       "max_attempts": 2,
       "objective": "Compare a published approximate GDP filter and a valid adaptive RDP fallback only at matched adjacency and finite-q (epsilon,delta) guarantees, using certified numerical errors; otherwise publish why comparison remains infeasible.",
       "priority": 55,
-      "status": "pending",
+      "result": "Explicit infeasibility: the published GDP filter has asymptotic error orders and Monte Carlo finite-q evidence, but no certified finite-q error enclosure; the local RDP fallback is theorem-valid but only an ordinary-floating-point, deliberately conservative reference. No matched (epsilon,delta) comparison or production undercount claim is justified.",
+      "retry_after": "2026-10-15T01:06:46Z",
+      "started_at": "2026-10-15T01:05:17Z",
+      "status": "completed",
       "success_criteria": [
         "guarantees comparable or explicit infeasibility result",
         "no production undercount claim without deployed implementation"

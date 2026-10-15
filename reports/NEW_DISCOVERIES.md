@@ -1,5 +1,11 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: DP158 matched-guarantee comparison is explicitly infeasible
+
+- **Changed scientific decision:** The source-authenticated audit of the published GDP filter and the adaptive RDP fallback found that a matched comparison cannot be made defensibly with the currently available evidence. The GDP result supplies asymptotic error orders and finite-q Monte Carlo checks, but no certified finite-q `(epsilon, delta)` error enclosure. The local RDP fallback is theorem-motivated and adaptive, but its inspected implementation is deliberately conservative and ordinary floating point rather than a certified accountant.
+- **What this rules out:** Raw active-step counts, utility comparisons, production undercount claims and privacy-superiority claims are not valid at unequal or uncertified guarantees. The prior finite-q Gaussian-CDF discrepancies remain numerical diagnostics only; they are not a theorem counterexample or deployed privacy failure.
+- **Next falsifiable gate:** A future attempt requires version-pinned author code or fully specified scalar/vector and clipping conventions, a tighter proved per-step RDP bound, and validated interval/quadrature error enclosures. If those cannot be obtained, retain this infeasibility result and move effort to the targeted historical source gap. See [`dp158_matched_guarantee_audit.json`](dp158_matched_guarantee_audit.json).
+
 No new breakthrough has been established by this campaign checkpoint.
 
 ## 2026-10-15: the 16-paper trajectory cohort is fully screened

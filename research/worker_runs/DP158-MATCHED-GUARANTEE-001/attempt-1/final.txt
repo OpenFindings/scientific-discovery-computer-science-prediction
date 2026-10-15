@@ -1,0 +1,5 @@
+Completed the audit and wrote only:
+
+[dp158_matched_guarantee_audit.json](</Users/amao/Documents/ChatGPT/ScientificDiscovery/reports/dp158_matched_guarantee_audit.json>)
+
+Result: matched comparison is infeasible because the GDP filter lacks a certified finite-\(q\) error bound and author-code/exact pairwise validation. No production undercount claim was made. Focused tests and repository checks passed. Source audit used the [primary paper](https://arxiv.org/html/2602.06756v2) and [adaptive RDP filter paper](https://papers.neurips.cc/paper_files/paper/2021/hash/ec7f346604f518906d35ef0492709f78-Paper.pdf).

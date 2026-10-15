@@ -43,6 +43,13 @@
       "experiment_id": "EXP-DP158-REGIME-BOUNDARY-2026",
       "limitation": "Known finite-q numerical approximation limitation in one-dimensional independent model; no theorem counterexample, formal guard threshold, matched-(epsilon,delta) comparison or production audit.",
       "result": "q=.1,.19,.3,.5 maximum Gaussian-CDF discrepancies .01463,.02815,.04813,.09218; all higher-q contrasts exceeded predeclared +.01 materiality threshold after simultaneous DKW uncertainty"
+    },
+    {
+      "artifact": "reports/dp158_matched_guarantee_audit.json",
+      "evidence_level": 3,
+      "experiment_id": "AUDIT-DP158-MATCHED-GUARANTEE-2026",
+      "limitation": "Methodological/source audit plus local reference test; no certified finite-q GDP accountant, matched privacy comparison, or production implementation validation.",
+      "result": "Explicit infeasibility: the GDP filter has no inspected finite-q error enclosure, while the adaptive RDP fallback is only a conservative ordinary-floating-point reference; raw active-step or utility comparisons are therefore not valid."
     }
   ],
   "blocked_tasks": [],
@@ -59,11 +66,11 @@
     "note": "Configured rounds are a per-start local supervisor cap, not a Codex service quota or remaining lifetime scientific-round budget. No paid worker or background service started.",
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
-    "worker_invocations_started": 3
+    "worker_invocations_started": 4
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "active",
-  "checkpoint_time": "2026-10-15T00:55:45Z",
+  "checkpoint_time": "2026-10-15T01:08:30Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -82,7 +89,8 @@
     "PAPER3-TRAJECTORY-READINESS-001",
     "PATCH-EXPLAIN-FEAS-001",
     "CAM-TRANSFER-FEAS-001",
-    "BADGER-FAIR-CPU-FEAS-001"
+    "BADGER-FAIR-CPU-FEAS-001",
+    "DP158-MATCHED-GUARANTEE-001"
   ],
   "current_best_opportunities": [
     {
@@ -146,15 +154,8 @@
       "status": "external-outcome data lead"
     }
   ],
-  "current_phase": "badger-feasibility",
+  "current_phase": "historical-outcome-targeted-gap-001",
   "current_research_round": 8,
-  "latest_scientific_increment": {
-    "kind": "paired_feasibility_audits",
-    "cam": "conditional_no_go_current_public_data",
-    "badger": "bounded_no_go_current_machine",
-    "paper3": "no_score_zero_direct_resolution_labels",
-    "paper4": "planning_utility_unvalidated"
-  },
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -209,8 +210,15 @@
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
   "last_successful_commit": "5cebeeb",
+  "latest_scientific_increment": {
+    "dp158": "matched-guarantee-comparison-explicitly-infeasible",
+    "kind": "certification-gated-methodological-audit",
+    "paper3": "no_score_zero_direct_resolution_labels",
+    "paper4": "planning_utility_unvalidated",
+    "prior_feasibility": "CAM-conditional-no-go-and-Badger-bounded-no-go"
+  },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Badger feasibility is a bounded no-go for the matched-CPU experiment on this machine: native Kelinci builds and cgroup counters are available, but the Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack, common cost metric and held-out subject suite are not reproducibly assembled. Next priority is DP158 matched-guarantee audit or a targeted old-cohort source gap, not a synthetic Badger outcome.",
+  "next_action": "Target only one high-value weak retrieval in the original 13-question cohort using citation/definition tracing; do not repeat broad keyword variants. If no exact future primary outcome is found, preserve the zero-label Paper 3 gate and quantify the remaining observability limitation.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -221,8 +229,7 @@
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
   "pending_tasks": [
-    "HISTORICAL-OUTCOME-001",
-    "DP158-MATCHED-GUARANTEE-001"
+    "HISTORICAL-OUTCOME-001"
   ],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",

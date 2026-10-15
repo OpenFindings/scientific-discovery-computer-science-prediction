@@ -155,6 +155,58 @@
       "experiment_id": "AUDIT-PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
       "limitation": "['The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.', 'The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.', 'This local exact-state-vector computation does not establish source implementation equivalence, hardware performance, general QAOA behavi",
       "result": "{'status': 'completed', 'result': 'All 20 graphs admitted the predeclared conditioning event; graph-level paired conditioned-minus-unconditioned expected cuts were computed.'}"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_replication_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_independent_replication",
+      "experiment_id": "EXP-PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-20261015",
+      "falsification_outcome": {
+        "rule": "Falsify this bounded replication if all-graph feasibility fails or the paired mean delta is non-positive; do not reinterpret a negative replication as a failed build.",
+        "status": "replication_positive"
+      },
+      "limitation": "This is a finite local exact simulation, not hardware or physical-runtime evidence.; The graph family, parameter choice, pair rule and assignment are inherited unchanged; no post hoc tuning was performed.; A positive replication does not establish quantum advantage, general QAOA behavior, or Paper 4 planner superiority.",
+      "result": {
+        "all_graph_feasibility": true,
+        "baseline_expected_cut_mean": 9.766993059143207,
+        "conditioned_expected_cut_mean": 9.947671625912111,
+        "conditioning_probability": {
+          "max": 0.24999999999999997,
+          "mean": 0.24999999999999994,
+          "min": 0.24999999999999992
+        },
+        "graph_count": 20,
+        "infeasible_graph_indices": [],
+        "outcomes_retained": 20,
+        "paired_delta": {
+          "mean": 0.18067856676890753,
+          "n": 20,
+          "negative_count": 0,
+          "positive_count": 20,
+          "sample_sd": 0.11704503793560106,
+          "standard_error": 0.02617206612530456,
+          "zero_count": 0
+        }
+      }
+    },
+    {
+      "artifact": "results/qaoa_fair_cost_comparison_20261015/result.json",
+      "evidence_level": "tier_4_local_shot_budget_end_to_end_comparison",
+      "experiment_id": "EXP-PAPER4-QAOA-FAIR-SHOT-COST-20261015",
+      "falsification_outcome": {
+        "rule": "Do not call conditional state quality a practical advantage unless the complete postselected procedure exceeds equal-preparation standard QAOA; never call this quantum speedup.",
+        "status": "end_to_end_advantage_not_supported"
+      },
+      "limitation": "Exact simulation cannot identify physical runtime, hardware noise, queueing or measurement cost.; The shot-count result is a bounded graph-family and fixed-parameter comparison, not a general optimizer or quantum-advantage claim.; Monte Carlo repeats are nested within fixed graph units; graph-level variation remains the conservative uncertainty unit.",
+      "result": {
+        "graphs": 20,
+        "mean_accepted_count": 100.0078125,
+        "mean_discarded_count": 299.9921875,
+        "positive_vs_matched_budget_standard": 0,
+        "positive_vs_standard": 0,
+        "postselected_minus_matched_budget_standard_mean": -0.1515625,
+        "postselected_minus_standard_mean": -0.1515625,
+        "postselected_no_acceptance_total": 0
+      }
     }
   ],
   "artifact_only_tasks": [
@@ -163,24 +215,35 @@
   "blocked_tasks": [],
   "budget_consumption": {
     "activations_started": 19,
-    "completed_experiments": 6,
+    "completed_experiments": 8,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
     "configured_max_rounds": 8,
     "configured_max_wall_seconds": 7200,
     "configured_max_worker_invocations": 8,
     "configured_max_worker_invocations_per_activation": 1,
-    "experiments_started": 8,
+    "experiments_started": 10,
     "final_reporting_reserve_seconds": 300,
     "minimum_disk_free_mib": 2048,
     "note": "Configured rounds are a per-start local supervisor cap, not a Codex service quota or remaining lifetime scientific-round budget. No paid worker or background service started.",
+    "renewable_experiment_budget": {
+      "authorized_additional": 2,
+      "consumed": 2,
+      "created_at": "2026-10-15T04:49:52Z",
+      "exhausted_at": "2026-10-15T04:50:14Z",
+      "expires_after_experiments_started": 10,
+      "reason": "Current research-cycle instruction explicitly authorizes one bounded independent-replication and fair-shot-cost validation cycle; preserve lifetime counts and stop after two experiments.",
+      "remaining": 0,
+      "renewal_id": "PAPER4-QAOA-REPLICATION-CYCLE-20261015",
+      "status": "EXHAUSTED"
+    },
     "supervisor_can_query_service_quota": false,
     "token_or_cost_spend_measurable": false,
     "worker_invocations_started": 19
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-15T04:40:43Z",
+  "checkpoint_time": "2026-10-15T04:50:14Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -214,7 +277,9 @@
     "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
     "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
     "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-    "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
+    "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
+    "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
+    "PAPER4-QAOA-FAIR-SHOT-COST-001"
   ],
   "current_best_opportunities": [
     {
@@ -284,8 +349,8 @@
       "status": "external-outcome data lead"
     }
   ],
-  "current_phase": "paper4-qaoa-a1-larger-n-robustness-001",
-  "current_research_round": 23,
+  "current_phase": "paper4-qaoa-fair-shot-cost-001",
+  "current_research_round": 25,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -343,15 +408,16 @@
   "last_activation_id": "2026-10-15T04:40:43Z-pid16958",
   "last_successful_commit": "5cebeeb",
   "latest_scientific_increment": {
-    "decision": null,
-    "evidence_level": "tier_4_local_exact_state_vector_robustness_experiment",
-    "kind": "supervisor_validated_worker_checkpoint",
-    "next_falsifiable_action": "If the all-graph gate passes, independently rerun the same frozen protocol with a second predeclared n=10 graph seed and test whether the paired delta remains positive; if the gate fails, predeclare a graph-family/size feasibility revision before any further effect comparison.",
+    "decision": "end_to_end_advantage_not_supported",
+    "evidence_level": "tier_4_local_shot_budget_end_to_end_comparison",
+    "kind": "independent_replication_and_fair_cost_experiment",
+    "next_falsifiable_action": "If the end-to-end gate is non-positive, retain the conditional state-quality observation as a reproduction only; if positive, rerun one fresh shot seed before any stronger claim.",
+    "observed_result": "The complete procedure comparison is reported with all 20 graph rows, raw count summaries and the predeclared shot-cost accounting.",
     "scientific_success": true,
-    "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
+    "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Add or unblock a scientifically justified task; do not invent outcomes.",
+  "next_action": "Do not claim QAOA practical advantage; require a changed protocol or renewed budget before another run.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,

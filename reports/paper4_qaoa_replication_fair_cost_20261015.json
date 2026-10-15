@@ -1,0 +1,46 @@
+{
+  "report_id": "PAPER4-QAOA-REPLICATION-FAIR-COST-20261015",
+  "evidence_level": "tier_4_local_replication_and_shot_budget_validation",
+  "original_plan_decision": {
+    "selected_action": "A2",
+    "selection_was_frozen_before_execution": true,
+    "a2_result": "setup_infeasible_at_n8_0_of_20",
+    "a1_original_n8_conditional_delta": 0.3435041777311078,
+    "a1_original_n10_delta": 0.19723368377120884
+  },
+  "independent_replication": {
+    "artifact": "results/qaoa_source_baseline_replication_20261015/result.json",
+    "validation": "reports/qaoa_independent_replication_validation_20261015.json",
+    "seed": 20261016,
+    "graphs": 20,
+    "all_graph_feasibility": true,
+    "paired_delta_mean": 0.18067856676890753,
+    "sample_sd": 0.11704503793560106,
+    "standard_error": 0.02617206612530456,
+    "positive_count": 20,
+    "negative_count": 0,
+    "conditioning_probability": 0.24999999999999994,
+    "decision": "bounded_conditional_state_quality_replicated"
+  },
+  "fair_cost_comparison": {
+    "artifact": "results/qaoa_fair_cost_comparison_20261015/result.json",
+    "state_preparations_per_standard_or_postselected_procedure": 400,
+    "mean_accepted_postselected_samples": 100.0078125,
+    "mean_discarded_postselected_samples": 299.9921875,
+    "postselected_minus_standard_best_cut_mean": -0.1515625,
+    "postselected_minus_matched_budget_standard_best_cut_mean": -0.1515625,
+    "postselected_better_graphs": 0,
+    "postselected_no_acceptance_total": 0,
+    "decision": "end_to_end_advantage_not_supported"
+  },
+  "mathematical_and_novelty_boundary": {
+    "state_vector_norm_and_small_row_recomputation_passed": true,
+    "exact_enumeration_basis": "all 2^10 bitstrings per graph",
+    "interpretation": "The positive conditional expected-cut effect survived one new seed, but the complete fixed-shot procedure did not outperform standard sampling.",
+    "novelty_status": "reproduction_or_bounded_extension_only",
+    "not_claimed": ["quantum advantage", "hardware speedup", "general QAOA theorem", "Paper 4 planner superiority", "new breakthrough"]
+  },
+  "paper4_decision": "The original A2 choice remains a setup-feasibility failure. A1 conditional state quality is reproducible under the fixed local convention, but the fair shot-cost endpoint weakens the practical interpretation; planning utility remains unvalidated.",
+  "paper3_status": "unchanged_no_score; direct historical labels remain insufficient and the original cohorts were not altered.",
+  "next_falsifiable_action": "Do not run another QAOA cycle without a new predeclared cost model or renewed authorized budget; if reopened, use a fresh shot seed and retain the complete-procedure endpoint."
+}

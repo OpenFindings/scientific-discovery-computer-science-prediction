@@ -1,0 +1,1574 @@
+{
+  "experiment_id": "EXP-PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-20261015",
+  "replication_of": "EXP-PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-20261015",
+  "original_result_sha256": "8cee8da22bb5f03dbdbc17ad39c567ed994b3fd76a966c92174525d006ca5369",
+  "evidence_tier": "tier_4_local_exact_state_vector_independent_replication",
+  "sources_and_data": [
+    "results/qaoa_source_baseline_larger_n_20261015/result.json",
+    "scripts/run_qaoa_postselection_pilot.py"
+  ],
+  "hypothesis": "The fixed source-style A1 postselection rule has a positive paired expected-cut delta on a new n=10 graph sample.",
+  "competing_explanation": "The earlier positive delta is graph-seed-specific or induced by the fixed graph family, pair rule, or parameter convention.",
+  "method": "Exact NumPy state-vector simulation on 20 new simple 3-regular n=10 graphs using the unchanged beta/gamma, distance-ge-3 lexicographic pair rule, alternating assignment, and graph-level paired outcome.",
+  "configuration": {
+    "vertices": 10,
+    "graphs": 20,
+    "seed": 20261016,
+    "beta": -0.7853981633974483,
+    "gamma": 0.7853981633974483,
+    "distance_threshold": 3,
+    "pair_rule": "lexicographically first pair with graph distance >= 3",
+    "state_convention": "exp(-i beta H_B/2) exp(-i gamma H_C/2), H_C=-cut",
+    "assignment": "alternating +1,-1 / bits 0,1",
+    "graph_generator": "rejection-sampled simple 3-regular configuration model"
+  },
+  "metrics": {
+    "outcome": "paired conditioned-minus-unconditioned expected cut",
+    "secondary": [
+      "conditioning probability",
+      "positive/negative graph count"
+    ],
+    "uncertainty_unit": "independent generated graph"
+  },
+  "summary": {
+    "graph_count": 20,
+    "outcomes_retained": 20,
+    "all_graph_feasibility": true,
+    "infeasible_graph_indices": [],
+    "baseline_expected_cut_mean": 9.766993059143207,
+    "conditioned_expected_cut_mean": 9.947671625912111,
+    "paired_delta": {
+      "n": 20,
+      "mean": 0.18067856676890753,
+      "sample_sd": 0.11704503793560106,
+      "standard_error": 0.02617206612530456,
+      "positive_count": 20,
+      "negative_count": 0,
+      "zero_count": 0
+    },
+    "conditioning_probability": {
+      "mean": 0.24999999999999994,
+      "min": 0.24999999999999992,
+      "max": 0.24999999999999997
+    }
+  },
+  "falsification_gate": {
+    "status": "replication_positive",
+    "rule": "Falsify this bounded replication if all-graph feasibility fails or the paired mean delta is non-positive; do not reinterpret a negative replication as a failed build."
+  },
+  "limitations": [
+    "This is a finite local exact simulation, not hardware or physical-runtime evidence.",
+    "The graph family, parameter choice, pair rule and assignment are inherited unchanged; no post hoc tuning was performed.",
+    "A positive replication does not establish quantum advantage, general QAOA behavior, or Paper 4 planner superiority."
+  ],
+  "uncertainty": [
+    "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
+    "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
+    "The result must be paired with the fair shot-budget comparison before any practical efficacy interpretation."
+  ],
+  "observed_result_or_blocker": "All generated graphs and raw per-graph observations are retained; the independent replication status and paired effect are reported in summary.",
+  "next_falsifiable_action": "Compare the complete procedure against unconditioned QAOA under a fixed state-preparation and shot budget; treat conditional state quality and end-to-end best-cut performance separately.",
+  "wall_seconds": 0.111,
+  "observations": [
+    {
+      "graph_index": 0,
+      "edges": [
+        [
+          0,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "a1_pair": [
+        0,
+        2
+      ],
+      "baseline_expected_cut": 9.668555559143204,
+      "conditioned_expected_cut": 9.807969173521492,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.13941361437828803,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 1,
+      "edges": [
+        [
+          4,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "a1_pair": [
+        0,
+        6
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.855844981138148,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.0935394219949437,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 2,
+      "edges": [
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "a1_pair": [
+        0,
+        6
+      ],
+      "baseline_expected_cut": 9.856055559143204,
+      "conditioned_expected_cut": 10.018949965692856,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.16289440654965226,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 3,
+      "edges": [
+        [
+          8,
+          9
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "a1_pair": [
+        0,
+        3
+      ],
+      "baseline_expected_cut": 9.949805559143204,
+      "conditioned_expected_cut": 10.384198455487912,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.4343928963447077,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 4,
+      "edges": [
+        [
+          5,
+          9
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "a1_pair": [
+        0,
+        2
+      ],
+      "baseline_expected_cut": 9.574805559143204,
+      "conditioned_expected_cut": 9.670019725042772,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.09521416589956821,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 5,
+      "edges": [
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "a1_pair": [
+        0,
+        7
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 10.15607092619249,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.39376536704928533,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 6,
+      "edges": [
+        [
+          2,
+          8
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "a1_pair": [
+        1,
+        2
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.899430945249513,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.13712538610630887,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 7,
+      "edges": [
+        [
+          3,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "a1_pair": [
+        0,
+        2
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.819175998412655,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.05687043926945101,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 8,
+      "edges": [
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "a1_pair": [
+        0,
+        4
+      ],
+      "baseline_expected_cut": 9.668555559143202,
+      "conditioned_expected_cut": 9.926306526391372,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.25775096724816926,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 9,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "a1_pair": [
+        0,
+        1
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.78249537396132,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.020189814818115437,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 10,
+      "edges": [
+        [
+          0,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "a1_pair": [
+        0,
+        1
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.884948194513498,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.12264263537029407,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 11,
+      "edges": [
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "a1_pair": [
+        0,
+        6
+      ],
+      "baseline_expected_cut": 9.856055559143204,
+      "conditioned_expected_cut": 10.115759651391372,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.2597040922481675,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 12,
+      "edges": [
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "a1_pair": [
+        0,
+        8
+      ],
+      "baseline_expected_cut": 9.856055559143204,
+      "conditioned_expected_cut": 10.13900348976672,
+      "conditioning_probability": 0.24999999999999997,
+      "feasible": true,
+      "paired_delta": 0.2829479306235161,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 13,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          7
+        ]
+      ],
+      "a1_pair": [
+        0,
+        2
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 10.045588593038698,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.2832830338954935,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 14,
+      "edges": [
+        [
+          7,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "a1_pair": [
+        0,
+        4
+      ],
+      "baseline_expected_cut": 9.762305559143202,
+      "conditioned_expected_cut": 9.884948194513496,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.12264263537029407,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 15,
+      "edges": [
+        [
+          5,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "a1_pair": [
+        0,
+        1
+      ],
+      "baseline_expected_cut": 9.856055559143202,
+      "conditioned_expected_cut": 10.11575965139137,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.2597040922481675,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 16,
+      "edges": [
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "a1_pair": [
+        0,
+        4
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.899430945249513,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.13712538610630887,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 17,
+      "edges": [
+        [
+          6,
+          7
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "a1_pair": [
+        0,
+        2
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 10.02005652639137,
+      "conditioning_probability": 0.24999999999999997,
+      "feasible": true,
+      "paired_delta": 0.2577509672481657,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 18,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "a1_pair": [
+        0,
+        1
+      ],
+      "baseline_expected_cut": 9.762305559143204,
+      "conditioned_expected_cut": 9.782495373961318,
+      "conditioning_probability": 0.24999999999999994,
+      "feasible": true,
+      "paired_delta": 0.02018981481811366,
+      "setup_failure_code": null
+    },
+    {
+      "graph_index": 19,
+      "edges": [
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "a1_pair": [
+        0,
+        3
+      ],
+      "baseline_expected_cut": 9.668555559143204,
+      "conditioned_expected_cut": 9.744979826934344,
+      "conditioning_probability": 0.24999999999999992,
+      "feasible": true,
+      "paired_delta": 0.07642426779113975,
+      "setup_failure_code": null
+    }
+  ]
+}

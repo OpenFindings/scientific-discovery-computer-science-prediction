@@ -2,7 +2,7 @@
   "active_task_ids": [],
   "blocked_task_ids": [],
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "checkpoint_time": "2026-10-15T04:40:43Z",
+  "checkpoint_time": "2026-10-15T04:50:14Z",
   "completed_task_ids": [
     "RECOVERY-001",
     "LEADS-001",
@@ -26,7 +26,9 @@
     "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
     "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
     "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-    "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
+    "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
+    "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
+    "PAPER4-QAOA-FAIR-SHOT-COST-001"
   ],
   "last_supervisor_status": "ACTIVE",
   "pending_task_ids": [],

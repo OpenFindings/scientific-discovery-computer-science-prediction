@@ -912,6 +912,92 @@
       ],
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
       "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_replication_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.45,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001"
+      ],
+      "execution_command": "python3.12 scripts/run_qaoa_independent_replication.py",
+      "expected_information_gain": 0.82,
+      "experiment_id": "EXP-PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-20261015",
+      "failure_handling": "A non-positive or infeasible independent replication is a scientific result; do not alter the seed, graph family or denominator.",
+      "finished_at": "2026-10-15T04:50:14Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "replication_positive",
+        "independent_validation": "reports/qaoa_independent_replication_validation_20261015.json",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Run a second predeclared n=10 QAOA A1 replication on 20 new simple 3-regular graph units using the unchanged source convention, fixed beta/gamma, lexicographic distance-ge-3 pair rule and alternating assignment; retain all graphs and report paired deltas.",
+      "priority": 96,
+      "research_key": "paper4_qaoa_a1_independent_replication",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T04:50:14Z",
+      "status": "completed",
+      "success_criteria": [
+        "20 new graph units retained",
+        "all-graph feasibility reported",
+        "paired delta and graph-level uncertainty reported",
+        "no post-hoc parameter tuning"
+      ],
+      "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/qaoa_fair_cost_comparison_20261015/result.json",
+      "attempts": 1,
+      "cost_estimate": 0.35,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001"
+      ],
+      "execution_command": "python3.12 scripts/run_qaoa_fair_cost_comparison.py",
+      "expected_information_gain": 0.9,
+      "experiment_id": "EXP-PAPER4-QAOA-FAIR-SHOT-COST-20261015",
+      "failure_handling": "If physical runtime is not identifiable, retain the shot-count comparison and do not claim hardware speedup or quantum advantage.",
+      "finished_at": "2026-10-15T04:50:14Z",
+      "last_result": {
+        "artifact_valid": true,
+        "exit_code": 0,
+        "falsification_status": "end_to_end_advantage_not_supported",
+        "independent_validation": "inline_fair_cost_checks",
+        "scientific_success": true
+      },
+      "max_attempts": 1,
+      "objective": "Compare standard and postselected QAOA end-to-end under equal state-preparation and measurement budgets on the frozen independent replication graphs, with a matched accepted-shot standard reference; report discarded samples and no-acceptance failures.",
+      "priority": 97,
+      "research_key": "paper4_qaoa_fair_shot_cost_comparison",
+      "scientific_completion": "experiment_result",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "started_at": "2026-10-15T04:50:14Z",
+      "status": "completed",
+      "success_criteria": [
+        "complete procedure scored",
+        "equal preparation budget declared",
+        "discarded and accepted samples retained",
+        "conditional quality separated from end-to-end efficacy"
+      ],
+      "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
+      "track": "experiments"
     }
   ],
   "track": "experiments"

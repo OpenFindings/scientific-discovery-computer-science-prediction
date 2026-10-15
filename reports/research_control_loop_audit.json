@@ -2,7 +2,7 @@
   "audit_id": "research_control_loop_2026-10-15",
   "scope": "supervisor_events, scientific completion gates, bounded worker continuation, quota recovery, launchd",
   "historical_event_audit": {
-    "event_rows_at_audit": 68,
+    "event_rows_at_audit": 73,
     "worker_result_rows": 19,
     "historical_false_quota_rows": [
       {
@@ -97,5 +97,16 @@
     "eligible_tasks_scheduled": 0,
     "experiment_budget_changed": false,
     "interpretation": "The scheduler renewed its bounded activation allowance and repeatedly rechecked the queue without inventing a successor, replaying an exhausted experiment, or treating an empty queue as scientific progress."
+  },
+  "renewable_experiment_budget_audit": {
+    "renewal_id": "PAPER4-QAOA-REPLICATION-CYCLE-20261015",
+    "authorized_additional": 2,
+    "experiments_started_before": 8,
+    "experiments_started_after": 10,
+    "consumed": 2,
+    "remaining": 0,
+    "lifetime_counter_reset": false,
+    "service_quota_bypassed": false,
+    "decision": "bounded renewal consumed exactly by independent replication and fair shot-cost comparison"
   }
 }

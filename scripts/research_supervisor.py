@@ -117,6 +117,20 @@ def begin_activation(root: Path, state: dict[str, Any], supervisor: dict[str, An
     })
     return activation
 
+def effective_experiment_cap(budget: dict[str, Any]) -> int:
+    """Return the bounded local experiment cap without resetting lifetime counts."""
+    base = max(0, int(budget.get("configured_max_experiments", 0)))
+    renewal = budget.get("renewable_experiment_budget", {})
+    if not isinstance(renewal, dict) or renewal.get("status") != "AUTHORIZED":
+        return base
+    try:
+        additional = int(renewal.get("authorized_additional", 0))
+    except (TypeError, ValueError):
+        return base
+    # A renewal is deliberately small and auditable; larger changes require a
+    # new explicit checkpoint rather than silently becoming a new lifetime cap.
+    return base + max(0, min(additional, 4))
+
 def sync_track_checkpoints(root: Path, state: dict[str, Any], queue: dict[str, Any], supervisor: dict[str, Any]) -> None:
     """Write derived lane checkpoints; the shared queue remains the source of truth."""
     completed = set(state.get("completed_tasks", []))
@@ -780,7 +794,7 @@ def main() -> int:
                 state["campaign_status"] = "waiting_for_next_activation"
                 state["next_action"] = "Wait for the next bounded supervisor activation; lifetime worker history is preserved."
                 supervisor["status"] = "ACTIVE"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
-            if task.get("counts_as_experiment") and budget.get("experiments_started", 0) >= limits.get("configured_max_experiments", 0):
+            if task.get("counts_as_experiment") and budget.get("experiments_started", 0) >= effective_experiment_cap(budget):
                 state["campaign_status"] = "paused_experiment_budget"
                 supervisor["status"] = "WAITING_FOR_RESET"; state["checkpoint_time"] = now(); atomic_json(sp, state); write_supervisor_state(root, supervisor); sync_track_checkpoints(root, state, queue, supervisor); break
             if invocations >= int(activation.get("max_worker_invocations", activation_worker_limit)) or time.monotonic()-started+limits.get("final_reporting_reserve_seconds", 300) >= limits.get("configured_max_wall_seconds", 7200): break
@@ -799,6 +813,13 @@ def main() -> int:
             task["status"] = "running"; task["attempts"] = task.get("attempts", 0)+1; task["started_at"] = now()
             if task.get("counts_as_experiment"):
                 state["budget_consumption"]["experiments_started"] = state["budget_consumption"].get("experiments_started", 0)+1
+                renewal = state["budget_consumption"].get("renewable_experiment_budget")
+                if isinstance(renewal, dict) and renewal.get("status") == "AUTHORIZED":
+                    base = int(state["budget_consumption"].get("configured_max_experiments", 0))
+                    consumed = max(0, state["budget_consumption"]["experiments_started"] - base)
+                    renewal["consumed"] = consumed
+                    renewal["remaining"] = max(0, effective_experiment_cap(state["budget_consumption"]) - state["budget_consumption"]["experiments_started"])
+                    append_jsonl(root / EVENTS, {"event": "renewable_experiment_budget_consumed", "renewal_id": renewal.get("renewal_id"), "consumed": consumed, "remaining": renewal["remaining"], "timestamp": now()})
             state["budget_consumption"]["worker_invocations_started"] = state["budget_consumption"].get("worker_invocations_started", 0)+1
             activation["worker_invocations"] = int(activation.get("worker_invocations", 0)) + 1
             supervisor["activation"] = activation

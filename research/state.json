@@ -160,61 +160,25 @@
       "artifact": "results/qaoa_source_baseline_replication_20261015/result.json",
       "evidence_level": "tier_4_local_exact_state_vector_independent_replication",
       "experiment_id": "EXP-PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-20261015",
-      "falsification_outcome": {
-        "rule": "Falsify this bounded replication if all-graph feasibility fails or the paired mean delta is non-positive; do not reinterpret a negative replication as a failed build.",
-        "status": "replication_positive"
-      },
-      "limitation": "This is a finite local exact simulation, not hardware or physical-runtime evidence.; The graph family, parameter choice, pair rule and assignment are inherited unchanged; no post hoc tuning was performed.; A positive replication does not establish quantum advantage, general QAOA behavior, or Paper 4 planner superiority.",
-      "result": {
-        "all_graph_feasibility": true,
-        "baseline_expected_cut_mean": 9.766993059143207,
-        "conditioned_expected_cut_mean": 9.947671625912111,
-        "conditioning_probability": {
-          "max": 0.24999999999999997,
-          "mean": 0.24999999999999994,
-          "min": 0.24999999999999992
-        },
-        "graph_count": 20,
-        "infeasible_graph_indices": [],
-        "outcomes_retained": 20,
-        "paired_delta": {
-          "mean": 0.18067856676890753,
-          "n": 20,
-          "negative_count": 0,
-          "positive_count": 20,
-          "sample_sd": 0.11704503793560106,
-          "standard_error": 0.02617206612530456,
-          "zero_count": 0
-        }
-      }
+      "limitation": "['Graph-level sample SD/SE are descriptive over these 20 new seeded units only.', 'The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.', 'The result must be paired with the fair shot-budget comparison before any practical efficacy interpretation.']",
+      "result": "All generated graphs and raw per-graph observations are retained; the independent replication status and paired effect are reported in summary."
     },
     {
       "artifact": "results/qaoa_fair_cost_comparison_20261015/result.json",
       "evidence_level": "tier_4_local_shot_budget_end_to_end_comparison",
       "experiment_id": "EXP-PAPER4-QAOA-FAIR-SHOT-COST-20261015",
-      "falsification_outcome": {
-        "rule": "Do not call conditional state quality a practical advantage unless the complete postselected procedure exceeds equal-preparation standard QAOA; never call this quantum speedup.",
-        "status": "end_to_end_advantage_not_supported"
-      },
-      "limitation": "Exact simulation cannot identify physical runtime, hardware noise, queueing or measurement cost.; The shot-count result is a bounded graph-family and fixed-parameter comparison, not a general optimizer or quantum-advantage claim.; Monte Carlo repeats are nested within fixed graph units; graph-level variation remains the conservative uncertainty unit.",
-      "result": {
-        "graphs": 20,
-        "mean_accepted_count": 100.0078125,
-        "mean_discarded_count": 299.9921875,
-        "positive_vs_matched_budget_standard": 0,
-        "positive_vs_standard": 0,
-        "postselected_minus_matched_budget_standard_mean": -0.1515625,
-        "postselected_minus_standard_mean": -0.1515625,
-        "postselected_no_acceptance_total": 0
-      }
+      "limitation": "sources_and_data",
+      "result": "The complete procedure comparison is reported with all 20 graph rows, raw count summaries and the predeclared shot-cost accounting."
     }
   ],
   "artifact_only_tasks": [
     "HISTORICAL-OUTCOME-001"
   ],
-  "blocked_tasks": [],
+  "blocked_tasks": [
+    "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
+  ],
   "budget_consumption": {
-    "activations_started": 19,
+    "activations_started": 24,
     "completed_experiments": 8,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -242,8 +206,8 @@
     "worker_invocations_started": 19
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
-  "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-15T04:50:14Z",
+  "campaign_status": "waiting_for_experiment_authorization",
+  "checkpoint_time": "2026-10-15T05:57:42Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -279,7 +243,11 @@
     "PAPER4-NULLTYPE-MUTATION-FEAS-001",
     "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
     "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-    "PAPER4-QAOA-FAIR-SHOT-COST-001"
+    "PAPER4-QAOA-FAIR-SHOT-COST-001",
+    "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
+    "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+    "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
+    "PAPER4-QAOA-CLOSURE-001"
   ],
   "current_best_opportunities": [
     {
@@ -349,8 +317,8 @@
       "status": "external-outcome data lead"
     }
   ],
-  "current_phase": "paper4-qaoa-fair-shot-cost-001",
-  "current_research_round": 25,
+  "current_phase": "novel-edcs-lazy-repair-experiment-001",
+  "current_research_round": 29,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
     "download_failures": 19,
@@ -405,19 +373,19 @@
     "old_future_primary_fulltexts_checked": 4
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
-  "last_activation_id": "2026-10-15T04:40:43Z-pid16958",
+  "idle_reason": "selected_novel_experiment_blocked_pending_explicit_authorization",
+  "last_activation_id": "2026-10-15T05:55:49Z-pid43114",
   "last_successful_commit": "5cebeeb",
   "latest_scientific_increment": {
-    "decision": "end_to_end_advantage_not_supported",
-    "evidence_level": "tier_4_local_shot_budget_end_to_end_comparison",
-    "kind": "independent_replication_and_fair_cost_experiment",
-    "next_falsifiable_action": "If the end-to-end gate is non-positive, retain the conditional state-quality observation as a reproduction only; if positive, rerun one fresh shot seed before any stronger claim.",
-    "observed_result": "The complete procedure comparison is reported with all 20 graph rows, raw count summaries and the predeclared shot-cost accounting.",
-    "scientific_success": true,
-    "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001"
+    "decision": "EDCS selected conditionally; no experiment executed",
+    "evidence_level": "tier_2_source_audited_hypothesis_waiting_authorization",
+    "kind": "novel_cs_source_audit_and_protocol_freeze",
+    "next_falsifiable_action": "Obtain explicit authorization for exactly one EDCS bounded experiment (<=120 CPU seconds, <=1024 MiB, one process, no network); do not reset the lifetime experiment counter.",
+    "scientific_success": false,
+    "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Do not claim QAOA practical advantage; require a changed protocol or renewed budget before another run.",
+  "next_action": "Obtain explicit authorization for exactly one EDCS bounded experiment (<=120 CPU seconds, <=1024 MiB, one process, no network); do not reset the lifetime experiment counter.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -427,7 +395,21 @@
     "max_track_worker_seconds": 7200,
     "note": "Conservative local limits; they do not measure or bypass Codex service quota."
   },
-  "opportunity_ranking": [],
+  "opportunity_ranking": [
+    {
+      "scientific_completion": "authorization_gate",
+      "score": 264.0,
+      "status": "blocked_pending_explicit_authorization",
+      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+      "track": "experiments"
+    },
+    {
+      "score": null,
+      "status": "protocol_frozen_no_score_until_labels",
+      "task_id": "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
+      "track": "forecasting"
+    }
+  ],
   "pending_tasks": [],
   "rejected_hypotheses": [],
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
@@ -465,7 +447,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -500,7 +482,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -592,7 +574,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -631,7 +613,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -653,7 +635,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -686,7 +668,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -711,7 +693,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": null
     },
     {
@@ -749,7 +731,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -800,7 +782,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -829,7 +811,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -911,7 +893,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -948,7 +930,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -985,7 +967,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1010,12 +992,54 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-15T04:40:43Z",
+      "timestamp": "2026-10-15T05:55:49Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
         "This local exact-state-vector computation does not establish source implementation equivalence, hardware performance, general QAOA behavior, or Paper 4 planning utility.",
         "If setup failure occurs, the unconditioned values and every graph row remain retained, but no post-hoc filtered conditioned estimate is reported."
+      ]
+    },
+    {
+      "artifact": "results/qaoa_source_baseline_replication_20261015/result.json",
+      "evidence_level": "tier_4_local_exact_state_vector_independent_replication",
+      "next_falsifiable_action": "Compare the complete procedure against unconditioned QAOA under a fixed state-preparation and shot budget; treat conditional state quality and end-to-end best-cut performance separately.",
+      "observed_result_or_blocker": "All generated graphs and raw per-graph observations are retained; the independent replication status and paired effect are reported in summary.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
+      "timestamp": "2026-10-15T05:55:49Z",
+      "uncertainty": [
+        "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
+        "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
+        "The result must be paired with the fair shot-budget comparison before any practical efficacy interpretation."
+      ]
+    },
+    {
+      "artifact": "results/qaoa_fair_cost_comparison_20261015/result.json",
+      "evidence_level": "tier_4_local_shot_budget_end_to_end_comparison",
+      "next_falsifiable_action": "If the end-to-end gate is non-positive, retain the conditional state-quality observation as a reproduction only; if positive, rerun one fresh shot seed before any stronger claim.",
+      "observed_result_or_blocker": "The complete procedure comparison is reported with all 20 graph rows, raw count summaries and the predeclared shot-cost accounting.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [
+          "sources_and_data"
+        ],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
+      "timestamp": "2026-10-15T05:55:49Z",
+      "uncertainty": [
+        "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
+        "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
+        "A positive conditional result can coexist with a non-positive end-to-end result."
       ]
     }
   ],

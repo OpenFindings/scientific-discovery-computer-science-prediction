@@ -464,6 +464,34 @@
       ],
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
       "track": "forecasting"
+    },
+    {
+      "artifact": "research/paper3_target_b_protocol_v1.json",
+      "attempts": 0,
+      "cost_estimate": 0.15,
+      "dependencies": [],
+      "expected_information_gain": 0.82,
+      "failure_handling": "Do not score Paper 3 until the frozen label and temporal-split gates are met.",
+      "max_attempts": 1,
+      "objective": "Freeze a separate Paper 3 Target B protocol for independently verifiable scientific progress while preserving the original direct-resolution cohorts and labels.",
+      "priority": 93,
+      "research_key": "paper3_target_b_evidence_growth_protocol",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "protocol_freeze",
+        "reason": "Target B protocol is frozen with explicit label gates and no-score conditions",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "Target A and Target B remain separate",
+        "source-only chronological features and leakage rules are explicit",
+        "minimum label gates and no-score rule are frozen",
+        "original cohorts are explicitly immutable"
+      ],
+      "task_id": "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
+      "track": "forecasting"
     }
   ],
   "track": "forecasting"

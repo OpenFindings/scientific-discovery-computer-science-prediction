@@ -1,0 +1,18 @@
+{
+  "plan_id": "PAPER4-NOVEL-CS-ACTIONS-20261015-v1",
+  "status": "FROZEN_BEFORE_NEW_EXPERIMENT",
+  "frozen_at": "2026-10-15T06:00:00Z",
+  "basis": "reports/novel_cs_opportunity_pool_20261015.json",
+  "actions": [
+    {"id": "A1_EDCS_LAZY_REPAIR", "question_id": "EDCS-LAZY-REPAIR-INVARIANT-001", "cost_seconds": 120, "feasibility_assumption": 0.95, "information_gain_assumption": 0.8, "paper4_score": 0.6333, "selection": "selected", "outcome": "awaiting_explicit_experiment_authorization"},
+    {"id": "A2_DYNAMIC_MAXIMAL_MATCHING", "question_id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "cost_seconds": 60, "feasibility_assumption": 0.98, "information_gain_assumption": 0.55, "paper4_score": 0.605, "selection": "lowest_cost_baseline", "outcome": "not_executed"},
+    {"id": "A3_CERT_TRANSFER_AUDIT", "question_id": "CERT-SQLITE-TRANSFER-003", "cost_seconds": 30, "feasibility_assumption": 0.25, "information_gain_assumption": 0.2, "paper4_score": 0.1667, "selection": "random/availability baseline", "outcome": "endpoint_blocked_before_experiment"}
+  ],
+  "baselines": {"lowest_cost": "A3_CERT_TRANSFER_AUDIT", "random_selection": "predeclared random seed 20261015 chooses one of A1-A3", "straightforward": "select the first source-audited feasible action without information-gain weighting"},
+  "scoring_assumptions": "Scores are declared planning assumptions only: information_gain_assumption * feasibility_assumption / normalized cost; they are not observed utility or probabilities.",
+  "selected_action": "A1_EDCS_LAZY_REPAIR",
+  "selection_reason": "Highest expected uncertainty reduction among the two currently executable original-CS paths; A3 is retained as an explicit availability baseline but fails its endpoint gate.",
+  "actual_observation": "No new experiment ran because the renewable local experiment authorization is exhausted at lifetime experiments_started=10.",
+  "paper4_boundary": "This is one frozen prospective decision record, not evidence of planner superiority. A future authorized run must compare the selected action against its declared baselines and record actual feasibility, cost and scientific outcome.",
+  "next_action": "Request exactly one bounded local experiment authorization for A1: <=120 CPU seconds, <=1024 MiB, no network, one process, all raw traces retained."
+}

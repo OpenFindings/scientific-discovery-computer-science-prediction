@@ -1,0 +1,50 @@
+{
+  "protocol_id": "PAPER3-TARGET-B-EVIDENCE-GROWTH-V1",
+  "status": "FROZEN_FOR_PROSPECTIVE_EVALUATION",
+  "frozen_at": "2026-10-15T06:00:00Z",
+  "purpose": "Evaluate whether source-only features can forecast substantial independently verifiable scientific progress, separately from exact resolution/refutation.",
+  "targets": {
+    "A_direct_resolution": {
+      "definition": "The frozen question receives an independently authenticated result that matches the source object, assumptions, intervention/comparator, endpoint and falsification condition within the prespecified 3-5 year window.",
+      "positive": "Exact resolution or refutation with primary full-text provenance.",
+      "negative": "Only when the complete outcome-acquisition protocol finds an authenticated primary record explicitly showing the frozen question remains false or is not resolved under the exact endpoint; search absence is missing.",
+      "missing": "No authenticated exact endpoint, incomplete retrieval, or endpoint mismatch.",
+      "paper3_score_gate": "At least 20 labeled questions, at least 5 positive and 5 negative labels, at least 3 question-family groups in every chronological evaluation split, and independent adjudication before any AUC/calibration estimate."
+    },
+    "B_substantial_progress": {
+      "definition": "A dated primary source independently verifies at least one prespecified progress category for the frozen question without requiring exact full resolution.",
+      "positive_categories": [
+        "verified new theorem or bound that directly narrows the frozen gap",
+        "verified algorithmic improvement against a matched baseline and endpoint",
+        "replicated empirical improvement on independent units with the same endpoint",
+        "independent counterexample to a frozen premise or claimed regime",
+        "premise refutation or revision with explicit scope and evidence",
+        "substantive narrowing of the open question with a changed falsification or parameter boundary"
+      ],
+      "negative": "A completed, source-authenticated search and adjudication protocol finds no positive category in the frozen window and records sufficient coverage; this is not assigned from missing search hits.",
+      "missing": "Incomplete retrieval, no primary full text, unclear relation to the frozen question, or only publication/citation/topical similarity.",
+      "independent_adjudication": "Two provenance checks must agree on category, relation to source question, date, endpoint and exclusion of publication-count proxies.",
+      "paper3_score_gate": "At least 30 questions, at least 10 independently adjudicated positives and 10 verified no-progress/negative outcomes, at least 3 grouped chronological holdout blocks, and a frozen feature table. Otherwise report no-score with label counts."
+    }
+  },
+  "source_selection": {
+    "cutoff_only": true,
+    "cohort_size_target": 40,
+    "selection_window": "source publication years 2010-2021; source versions frozen at each year-end",
+    "required_source_fields": ["precise_question", "object", "assumptions", "baseline_or_comparator", "endpoint", "falsification_condition", "cutoff_timestamp", "source_version_hash"],
+    "exclusions": ["publication or citation counts as outcomes", "later knowledge during source selection", "questions whose endpoint cannot be observed independently", "duplicate question families without grouping"],
+    "frozen_cohorts_untouched": ["original 20-paper blind cohort", "separate 16-paper trajectory cohort", "artifact-gated Round 6 cohort"]
+  },
+  "features": {
+    "point_in_time_only": true,
+    "allowed": ["source text structure", "explicit uncertainty language", "baseline gap", "endpoint specificity", "artifact availability at cutoff", "historical field momentum computed only from earlier sources"],
+    "forbidden": ["future citations", "later papers", "future author knowledge", "publication count after cutoff", "outcome-derived wording"],
+    "baselines": ["source-only textual features", "historical field momentum", "publication volume only if computed point-in-time and not used as an outcome proxy"]
+  },
+  "evaluation": {
+    "split": "chronological grouped holdout with untouched final period",
+    "metrics": ["ranking only if class gate passes", "calibration only if prevalence and sample-size gate passes", "missingness and class-count report always"],
+    "case_control_diagnostic": "Permitted only as pipeline mechanics and explicitly excluded from unbiased forecast claims."
+  },
+  "next_evidence_acquisition": "Build the 40-row source-only cohort and pre-register follow-up retrieval before searching for outcomes; stop if the positive/negative class gates remain infeasible rather than expanding metadata indefinitely."
+}

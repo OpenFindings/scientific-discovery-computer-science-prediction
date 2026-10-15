@@ -1,0 +1,15 @@
+{
+  "registry_id": "CS-OPPORTUNITY-REGISTRY-20261015",
+  "updated_at": "2026-10-15T06:00:00Z",
+  "directions": [
+    {"id": "QAOA-POSTSELECTION", "status": "temporarily_closed", "reason": "conditional state-quality effect replicated but complete fixed-shot procedure underperformed standard sampling; no new run without a new hypothesis and authorization"},
+    {"id": "BADGER", "status": "conditional_no_go", "reason": "missing compatible Java/Ant/Gradle/AFL/JPF/SPF/Z3 stack and fair metric"},
+    {"id": "CAM", "status": "conditional_no_go", "reason": "no public project-linked artifacts plus multiclass labels for matched ablation"},
+    {"id": "SERENIOT", "status": "conditional_no_go", "reason": "no matched device-disjoint traces and false-allow/false-block labels"},
+    {"id": "DP158", "status": "audit_complete_no_new_claim", "reason": "source-matched numerical reproduction and boundary limitation; no certified privacy comparison"},
+    {"id": "EDCS-LAZY-REPAIR-INVARIANT-001", "status": "selected_waiting_authorization", "reason": "fresh bounded exact counterexample/invariant question; proposed <=120 CPU seconds"},
+    {"id": "DYNAMIC-MAXIMAL-MATCHING-LOCAL-REPAIR-002", "status": "fallback_waiting_authorization", "reason": "lower-cost finite adversarial-sequence checker"},
+    {"id": "CERT-SQLITE-TRANSFER-003", "status": "rejected_endpoint_gate", "reason": "CERT is known prior art and local SQLite lacks a comparable estimated-row endpoint"},
+    {"id": "OXIDE-REF-BLIND-SOUNDNESS-004", "status": "rejected_dependency_gate", "reason": "pinned semantics/checker/toolchain unavailable"}
+  ]
+}

@@ -161,6 +161,16 @@ The first bounded future-evidence triage searched all 13 questions but authentic
 
 This file is intentionally sparse. Only verified raw experiment outputs can add new empirical discoveries; literature-derived claims remain labeled as such.
 
+## 2026-10-15: fresh original-CS discovery attempt is frozen, not yet executed
+
+- **Observed evidence:** The authorized QAOA line was closed after independent n=10 conditional replication (+0.1807 expected-cut units, 20/20 positive graph units) and a negative equal-preparation end-to-end result (postselection −0.1516 best-cut units versus standard sampling over 20 graph units). The result is retained as an independent reproduction plus a fair-cost negative, not a breakthrough.
+- **New scientific decision:** A source-level audit outside the exhausted directions compared four candidates. EDCS lazy local repair was selected conditionally because it has a precise invariant/counterexample endpoint, public prior-art anchors and a low-cost exact-search path. Dynamic matching is the fallback. CERT/SQLite and Oxide were rejected before execution for endpoint and dependency reasons. The [candidate ledger](novel_cs_opportunity_pool_20261015.json) records these boundaries.
+- **Paper 4 boundary:** Three actions were frozen with explicit cost/information-gain assumptions and simple baselines. The ranking is prospective planning only; no planner superiority or expected-utility calibration is claimed. The previous QAOA action-selection failure remains negative historical evidence.
+- **Authorization gate:** No EDCS experiment ran. The proposed bounded study is exactly one process, no network, Python 3.12, <=120 CPU seconds and <=1024 MiB; it would enumerate n<=6 cases and deletion sequences <=6, extending to n<=8 only if the first gate passes. The task is blocked in the canonical queue until explicit renewed local experiment authorization. Lifetime experiment counters were not reset or incremented.
+- **Novelty boundary:** A finite search finding would be a counterexample only after minimization and independent recomputation; survival would not prove the invariant. A source-level novelty check is not a novelty claim.
+
+The separate [Paper 3 Target B protocol](../research/paper3_target_b_protocol_v1.json) is frozen for future evidence-growth evaluation. The original direct-resolution cohorts and their no-score status are unchanged; missing follow-up evidence is not relabeled as negative progress.
+
 ## DP158 numerical reproduction and corrected negative lead
 
 - **Source-matched scalar Figure 12 simulation (exploratory, not a new breakthrough):** Using the paper's explicit small-`q` budget formula at `q=0.1`, an independent million-path-per-arm implementation obtained P/Q halt rates **0.988712 / 0.987891** versus the published **0.9886 / 0.9880**; mean active steps **113.136 / 113.149** versus **113.1**. PLRV moments and empirical Gaussian-CDF discrepancies are recorded in `results/dp158_filter_source_matched_q01/independent_analysis.json`. The first exact-KL preregistration was withdrawn after source review; this run is explicitly exploratory. It does not verify a theorem, establish a new privacy bound, or audit deployed code.

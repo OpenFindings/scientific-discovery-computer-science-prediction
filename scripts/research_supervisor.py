@@ -361,8 +361,21 @@ def update_scientific_checkpoint(root: Path, state: dict[str, Any], task: dict[s
         "result": str(summary.get("observed_result_or_blocker"))[:1000],
     }
     results = state.setdefault("actual_experiment_results", [])
-    results[:] = [row for row in results if row.get("artifact") != task.get("artifact")]
-    results.append(actual)
+    existing = next((row for row in results if row.get("artifact") == task.get("artifact")), None)
+    if existing is None:
+        results.append(actual)
+    else:
+        # Reconciliation runs on every bounded activation.  Keep a richer
+        # structured result written by an independent experiment reconciler;
+        # replacing it with artifact_summary() would silently erase exact
+        # rows, gates and uncertainty while leaving the artifact on disk.
+        existing.update({
+            "evidence_level": actual["evidence_level"],
+            "experiment_id": actual["experiment_id"],
+            "limitation": actual["limitation"],
+        })
+        if not isinstance(existing.get("result"), dict) or not isinstance(actual.get("result"), str):
+            existing["result"] = actual["result"]
     state["latest_scientific_increment"] = {
         "kind": "supervisor_validated_worker_checkpoint",
         "task_id": task.get("task_id"),

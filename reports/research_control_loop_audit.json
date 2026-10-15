@@ -2,7 +2,7 @@
   "audit_id": "research_control_loop_2026-10-15",
   "scope": "supervisor_events, scientific completion gates, bounded worker continuation, quota recovery, launchd",
   "historical_event_audit": {
-    "event_rows_at_audit": 73,
+    "event_rows_at_audit": 83,
     "worker_result_rows": 19,
     "historical_false_quota_rows": [
       {
@@ -86,7 +86,7 @@
     "forecasting_successor_status": "completed_stop_gate_fired",
     "experiments_successor_generation": "QAOA A1 larger-n robustness completed; Avocado and null-type endpoint audits recorded conditional no-go results",
     "current_worker_budget": "per-activation allowance renewed 19 times; lifetime worker count 19 remains append-only; configured experiment-start cap exhausted at 8",
-    "next_state": "waiting_for_eligible_task",
+    "next_state": "waiting_for_experiment_authorization",
     "scientific_claim": "control loop distinguishes scheduling, artifact completion, independent reconciliation, and validated scientific completion; no Paper 3 predictive score or general breakthrough claim is made"
   },
   "idle_continuation_observation": {
@@ -108,5 +108,24 @@
     "lifetime_counter_reset": false,
     "service_quota_bypassed": false,
     "decision": "bounded renewal consumed exactly by independent replication and fair shot-cost comparison"
+  },
+  "novel_cs_cycle_audit": {
+    "planning_checkpoints_reconciled": [
+      "PAPER3-TARGET-B-PROTOCOL-FREEZE-001",
+      "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+      "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
+      "PAPER4-QAOA-CLOSURE-001"
+    ],
+    "selected_experiment": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+    "selected_experiment_status": "blocked_pending_explicit_authorization",
+    "new_experiment_started": 0,
+    "lifetime_experiment_counter_changed": false,
+    "authorization_request": {
+      "cpu_seconds": 120,
+      "memory_mib": 1024,
+      "processes": 1,
+      "network": false
+    },
+    "interpretation": "The candidate pool and Paper 4 action ranking are source-audited planning evidence only. The finite EDCS search is not a result, and the supervisor must not start it until explicit renewed local experiment authorization is present."
   }
 }

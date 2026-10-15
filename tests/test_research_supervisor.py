@@ -6,7 +6,9 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.research_supervisor import classify_failure, effective_experiment_cap, scientific_validation, proposed_continuations
+from scripts.research_supervisor import (classify_failure, effective_experiment_cap,
+                                          scientific_validation, proposed_continuations,
+                                          update_scientific_checkpoint)
 
 ROOT = Path(__file__).resolve().parents[1]
 SUPERVISOR = ROOT / "scripts/research_supervisor.py"
@@ -268,6 +270,26 @@ class ResearchSupervisorTests(unittest.TestCase):
         ok, validation = scientific_validation(task, artifact)
         self.assertTrue(ok)
         self.assertTrue(validation["scientific_success"])
+
+    def test_reconciliation_preserves_structured_experiment_result(self):
+        state = {
+            "actual_experiment_results": [{
+                "artifact": "results/T1.json",
+                "experiment_id": "EXP-T1",
+                "result": {"rows": [{"graph": 1, "delta": 0.25}], "mean": 0.25},
+                "limitation": "full raw result",
+            }]
+        }
+        task = {"task_id": "T1", "artifact": "results/T1.json"}
+        artifact = {
+            "evidence_tier": "tier_4",
+            "observed_result_or_blocker": {"mean": 0.25},
+            "next_falsifiable_action": "independent check",
+        }
+        update_scientific_checkpoint(self.root, state, task, artifact, True,
+                                     {"missing_or_failed": [], "scientific_success": True})
+        self.assertEqual(state["actual_experiment_results"][0]["result"],
+                         {"rows": [{"graph": 1, "delta": 0.25}], "mean": 0.25})
 
     def test_experiment_result_requires_objective_fields(self):
         task = {"task_id": "EXP-LOCAL", "scientific_completion": "experiment_result"}

@@ -983,7 +983,9 @@
       "scientific_completion": "experiment_result",
       "scientific_status": "scientifically_completed",
       "scientific_validation": {
-        "missing_or_failed": [],
+        "missing_or_failed": [
+          "sources_and_data"
+        ],
         "mode": "experiment_result",
         "reason": "scientific criteria satisfied",
         "scientific_success": true
@@ -997,6 +999,135 @@
         "conditional quality separated from end-to-end efficacy"
       ],
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/novel_cs_opportunity_pool_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.25,
+      "dependencies": [],
+      "expected_information_gain": 0.86,
+      "failure_handling": "A bounded source audit is a valid rejection when the endpoint, dependency or novelty gate fails; do not promote a literature lead to a discovery.",
+      "max_attempts": 1,
+      "objective": "Audit fresh CS candidates outside the exhausted QAOA, Badger, CAM, SERENIoT and DP158 directions, and reject candidates lacking a source-level novelty boundary or executable objective endpoint.",
+      "priority": 94,
+      "research_key": "novel_cs_candidate_source_audit",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "source_level_opportunity_audit",
+        "reason": "Four candidates were bounded; two were rejected and EDCS was selected conditionally",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "at least three fresh candidate questions source-audited",
+        "objective endpoint and feasibility gate recorded for each",
+        "known prior art and unresolved boundary separated",
+        "one candidate selected without hindsight from later outcomes"
+      ],
+      "task_id": "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/paper4_novel_action_plan_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.18,
+      "dependencies": [
+        "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001"
+      ],
+      "expected_information_gain": 0.78,
+      "failure_handling": "Planning scores remain assumptions until observed evidence change is measured; infeasible actions are not treated as scientific failures.",
+      "max_attempts": 1,
+      "objective": "Freeze a Paper 4 comparison across genuinely feasible research actions, declare score assumptions and baselines, and execute no action until the local experiment authorization gate is satisfied.",
+      "priority": 92,
+      "research_key": "paper4_novel_action_comparison",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "planning_protocol",
+        "reason": "Three actions were compared; EDCS was selected only conditionally and remains unexecuted",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "at least three candidate actions or an explicit feasibility rejection",
+        "cost and information-gain assumptions are declared",
+        "simple ranking baselines are recorded",
+        "planner superiority is not claimed from assumed scores"
+      ],
+      "task_id": "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "reports/qaoa_closure_conclusion_20261015.json",
+      "attempts": 0,
+      "cost_estimate": 0.12,
+      "dependencies": [
+        "PAPER4-QAOA-FAIR-SHOT-COST-001"
+      ],
+      "expected_information_gain": 0.76,
+      "failure_handling": "Do not repeat QAOA parameter sweeps without a substantively new hypothesis and explicit renewed budget.",
+      "max_attempts": 1,
+      "objective": "Close the authorized QAOA investigation with separate conditional state-quality, complete-procedure, shot-budget and novelty conclusions.",
+      "priority": 91,
+      "research_key": "paper4_qaoa_direction_closure",
+      "scientific_status": "scientifically_completed",
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "negative_result_closure",
+        "reason": "The conditional effect and negative complete-procedure cost result are separately documented",
+        "scientific_success": true
+      },
+      "status": "completed",
+      "success_criteria": [
+        "independent conditional replication retained",
+        "negative fair-cost result retained",
+        "graph-family and simulation limitations stated",
+        "no quantum advantage or novelty claim made"
+      ],
+      "task_id": "PAPER4-QAOA-CLOSURE-001",
+      "track": "experiments"
+    },
+    {
+      "artifact": "results/edcs_lazy_repair_counterexample_20261015/result.json",
+      "attempts": 0,
+      "cost_estimate": 0.3,
+      "counts_as_experiment": true,
+      "dependencies": [
+        "NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001",
+        "PAPER4-NOVEL-ACTION-PLAN-FREEZE-001"
+      ],
+      "execution_requirements": [
+        "explicit renewed local experiment authorization",
+        "Python 3.12 and existing standard-library tooling only",
+        "one process, no network, <=120 CPU seconds, <=1024 MiB",
+        "n<=6 exact enumeration plus deletion sequences of length <=6; bounded n<=8 extension only if the first gate passes"
+      ],
+      "expected_information_gain": 0.8,
+      "failure_handling": "A finite search that finds no counterexample narrows the question but does not prove the invariant; implementation or runtime failure is recorded separately.",
+      "failure_note": "blocked_pending_explicit_experiment_authorization",
+      "max_attempts": 1,
+      "objective": "Test whether the frozen lazy edge-deletion/local-repair implementation preserves the EDCS endpoint inequalities and matching-quality guarantee on bounded simple graphs and deletion sequences.",
+      "priority": 99,
+      "research_key": "edcs_lazy_repair_invariant_counterexample",
+      "scientific_status": "blocked_pending_explicit_authorization",
+      "scientific_validation": {
+        "missing_or_failed": [
+          "explicit_local_experiment_authorization"
+        ],
+        "mode": "authorization_gate",
+        "reason": "The candidate is frozen but cannot execute after the configured lifetime experiment authorization was exhausted",
+        "scientific_success": false
+      },
+      "status": "blocked",
+      "success_criteria": [
+        "exact enumeration or bounded deletion search completes under the declared limit",
+        "all candidate traces and implementation parameters are retained",
+        "any counterexample is minimized and independently recomputed",
+        "survival is reported only as finite evidence, never as a proof"
+      ],
+      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
       "track": "experiments"
     }
   ],

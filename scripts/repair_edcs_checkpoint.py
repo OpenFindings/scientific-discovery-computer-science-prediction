@@ -19,6 +19,7 @@ REPORT = "reports/edcs_experiment_result_20261015.json"
 RAW = "results/edcs_lazy_repair_counterexample_20261015/result.json"
 VALIDATION = "results/edcs_lazy_repair_counterexample_20261015/independent_validation.json"
 EVENT = "artifact_only_misclassification_repaired"
+PROOF_REVIEW = "reports/edcs_adversarial_proof_review_20261015.json"
 
 
 def repair_task(task: dict, report: dict) -> None:
@@ -62,26 +63,32 @@ def main() -> int:
     state["artifact_only_tasks"] = [x for x in state.get("artifact_only_tasks", []) if x != TASK_ID]
     state["pending_tasks"] = [task["task_id"] for task in queues[0]["tasks"] if task.get("status") in {"pending", "failed"}]
     state["campaign_status"] = "waiting_for_eligible_task"
-    state["idle_reason"] = "single_authorized_edcs_experiment_consumed_no_further_experiment_execution"
-    state["next_action"] = "Stop experimental execution for this authorization cycle; preserve the EDCS mathematical generalization and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization."
+    state["idle_reason"] = "EDCS_closed_after_adversarial_review_next_action_is_nonexperimental_zero_extension_source_audit"
+    state["current_phase"] = "edcs_proof_review_zero_extension_candidate_audit"
+    state["next_action"] = "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state and do not renew experimental budgets."
     state["current_best_opportunities"] = [
         {
-            "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
-            "status": "variant_falsified_mathematical_generalization_pending_authorization",
-            "reason": "one-flip variant has a proved parameterized failure family for beta_minus=beta-1; original EDCS remains untested",
+            "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+            "status": "source_audited_candidate_not_executed",
+            "reason": "2018 primary source leaves the dependence of exact Zero Extension metric-sparsifier size on label parameter s as a formal question; definitions and forward citations still need audit",
         },
         {
             "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
             "status": "frozen_no_score_until_labels",
             "reason": "Target B protocol is frozen, but no valid historical forecast labels are available",
         },
+        {
+            "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+            "status": "closed_educational_engineering_no_publishable_novelty",
+            "reason": "corrected one-toggle theorem is restricted; cascading EDCS repairs are known prior art and no general dynamic lower bound was established",
+        },
     ]
     state["opportunity_ranking"] = [
         {
             "rank": 1,
-            "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
-            "status": "mathematical_generalization_pending_authorization",
-            "basis": "proved failure family for the stated one-toggle model; no new execution authorized",
+            "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+            "status": "source_audited_candidate_not_executed",
+            "basis": "2018 source-authenticated formal open question; no experiment or novelty claim yet",
             "score": None,
         },
         {
@@ -91,20 +98,28 @@ def main() -> int:
             "basis": "protocol frozen; direct historical outcomes remain unavailable",
             "score": None,
         },
+        {
+            "rank": 3,
+            "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+            "status": "closed_educational_engineering_no_publishable_novelty",
+            "basis": "restricted one-toggle result corrected and independently reviewed; no general dynamic EDCS lower bound",
+            "score": None,
+        },
     ]
     state["latest_scientific_increment"] = {
-        "kind": "mathematical_generalization_of_finite_variant_counterexample",
+        "kind": "adversarial_mathematical_proof_review_and_novelty_closure",
         "task_id": TASK_ID,
         "scientific_success": True,
-        "evidence_level": "tier_4_independently_reproduced_finite_counterexample_plus_proved_variant_family",
-        "decision": "one_flip_local_repair_impossibility_for_stated_class",
-        "observed_result": "The four-edge witness extends to every integer beta>=3 with beta_minus=beta-1; a P2-required insertion and a newly created P1 violation require at least two single-edge H toggles.",
-        "next_falsifiable_action": state["next_action"],
+        "evidence_level": "tier_4_independently_reviewed_restricted_mathematical_result",
+        "decision": "close_edcs_as_educational_engineering_result; broad_repair_lemma_corrected",
+        "observed_result": "The parameterized one-toggle impossibility survives under explicit assumptions, while the broad claim that every deficient edge must be inserted is disproved by a beta=4,beta_minus=2 alternate-edge repair.",
+        "next_falsifiable_action": "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state.",
     }
     audits = state.setdefault("scientific_artifact_audits", [])
     audits[:] = [row for row in audits if row.get("artifact") not in {
         "reports/edcs_mathematical_research_note_20261015.md",
         "reports/edcs_provenance_audit_20261015.json",
+        PROOF_REVIEW,
     }]
     audits.append({
         "artifact": "reports/edcs_mathematical_research_note_20261015.md",
@@ -126,6 +141,29 @@ def main() -> int:
         "next_falsifiable_action": state["next_action"],
         "timestamp": now(),
     })
+    audits.append({
+        "artifact": PROOF_REVIEW,
+        "task_id": TASK_ID,
+        "evidence_level": "tier_4_independently_reviewed_restricted_mathematical_result",
+        "scientific_success": True,
+        "scientific_validation": {
+            "mode": "adversarial_proof_review",
+            "scientific_success": True,
+            "missing_or_failed": [],
+            "reason": "overbroad lemma disproved, restricted lemma stated with proof obligations, and novelty boundary corrected",
+        },
+        "observed_result_or_blocker": "The broad deficient-edge insertion claim fails for beta=4,beta_minus=2; the beta_minus=beta-1 one-toggle star obstruction survives.",
+        "uncertainty": [
+            "No general dynamic EDCS maintenance lower bound was proved.",
+            "The Zero Extension lead remains a source-audited candidate and has not been independently verified as novel.",
+        ],
+        "next_falsifiable_action": state["next_action"],
+        "timestamp": now(),
+    })
+    for row in state.get("actual_experiment_results", []):
+        if row.get("artifact") == REPORT:
+            row["experiment_id"] = "EXP-EDCS-LAZY-REPAIR-INVARIANT-20261015"
+            row["limitation"] = "Finite independently reproduced counterexample and restricted mathematical generalization only; no original-EDCS refutation, general maintenance lower bound, or Paper 3/4 validation."
     audits.append({
         "artifact": "reports/edcs_provenance_audit_20261015.json",
         "task_id": TASK_ID,

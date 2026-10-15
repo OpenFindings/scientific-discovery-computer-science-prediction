@@ -60,19 +60,54 @@ one-toggle model, not about the original EDCS maintenance algorithm. It also
 does not cover arbitrary `beta_minus`; when `beta_minus < beta-1`, the empty-
 state star-growth argument no longer forces all `b-1` star edges into H.
 
-### Repair lower bound
+The boundary case `b=3` is not exceptional: the star has two edges, the
+cross-edge sum before repair is `1<2`, and adding it changes the old edge sum
+from `2+1=3` to `2+2=4>3`. All one-toggle outcomes are covered. Deleting any
+currently used edge leaves the cross-edge degree sum at most 1 and therefore
+leaves P2 false. Adding the cross edge fixes P2 but violates the old edge's
+P1. Adding any other unused edge was already P2-valid before the external
+update, so its endpoint sum after insertion is at least
+`(b-1)+2=b+1`, violating P1; an edge incident to `x` other than the cross edge
+does not exist. Thus the obstruction is not a FIFO artifact in this state.
 
-More generally, suppose a valid state has an inserted edge `e=(x,v)` that is
-the only G-edge incident to degree-zero `x`, and `e` is P2-deficient. Suppose
-adding `e` makes at least one already-used edge incident to `v` P1-violating.
-Any valid post-update state must toggle `e` into H (otherwise P2 remains false)
-and must toggle at least one old used edge out of H (otherwise P1 remains
-false). Hence at least two single-edge H toggles are necessary. The four-edge
-witness instantiates this lemma with `e=(1,0)` and old edge `(0,0)`.
+### Adversarial proof review: correction to the repair lemma
 
-This lower bound is fully proved under its stated assumptions. It does not
-establish a lower bound for compound swaps, arbitrary repair primitives, or
-the Bernstein–Stein algorithm.
+The earlier informal version of the repair lemma was too broad. A P2-deficient
+unused edge does **not** generally have to be inserted into `H`: a repair may
+increase the `H`-degree at one of its endpoints by inserting a different edge.
+For example, let `beta=4` and `beta_minus=2`. Before an external insertion,
+use `H={(x',a),(v,b)}` and leave `f=(x',v)` unused. Then
+`d_H(x')=d_H(v)=1`, so `f` has sum 2 and is P2-valid. Let `x` have degree zero
+and no other incident `G`-edge, and insert `e=(x,v)`. It is deficient with
+sum 1. Inserting `f`, rather than `e`, changes both endpoint degrees to 2;
+then `e` has unused sum 2 and `f` has used sum 4. P1/P2 are valid, so the
+overbroad claim that `e` must be inserted is false.
+
+The defensible lemma is narrower:
+
+> **Single-toggle impossibility lemma.** Let `beta_minus=beta-1`. Immediately
+> after inserting `e=(x,v)`, suppose `d_H(x)=0`, `e` is the only `G`-edge
+> incident to `x`, and `e` is P2-deficient. Assume the pre-update state was
+> valid and that inserting `e` would make an already-used edge P1-violating.
+> In a repair model allowing exactly one insertion or deletion of one `H`
+> edge, no valid post-update state exists.
+
+Proof: deleting an `H` edge cannot increase the degree sum of `e`, so it cannot
+repair P2. Consider inserting a different unused edge `f`. Since the state
+before the external update was valid and `f` was unused, its pre-update sum
+was at least `beta-1`; inserting it increases that sum by 2, making it at
+least `beta+1` and violating P1. Thus the only possible one-toggle insertion
+is `e`. By assumption that insertion creates a P1 violation, so it also fails.
+The proof is deliberately about one toggle and does not say that every valid
+multi-toggle repair must insert `e`.
+
+For the parameterized star witness, the conclusion is stronger in a local
+minimum sense: adding the cross edge and then deleting the old full edge is a
+valid two-toggle repair, while the lemma rules out every one-toggle repair.
+This establishes a two-toggle minimum for that explicitly defined sparse
+state, not a general dynamic-maintenance lower bound. It does not establish a
+lower bound for compound swaps, arbitrary repair primitives, or the
+Bernstein–Stein algorithm.
 
 ## Prior-art and novelty classification
 
@@ -86,12 +121,17 @@ the Bernstein–Stein algorithm.
 | EDCS used as verification/repair in later dynamic maximal matching | known prior art in Bernstein et al. 2025 and subsequent work |
 | A new theorem about original EDCS or a new dynamic-matching lower bound | unverified; no claim made |
 | Refutation of original EDCS theory or matching theorems | disproved as an interpretation: the witness does not target them |
+| Broad claim that every P2-deficient edge must be inserted | disproved; an alternate unused edge can raise its endpoint degree |
+| Single-toggle impossibility under the restricted lemma above | fully proved for the explicitly stated model |
 
 Bernstein–Stein explicitly describe alternating repairs, show a bounded path
 length, and derive an `O(beta)` update ratio; this is precisely the cascading
 repair phenomenon absent from the tested one-toggle variant. Later work uses
 EDCS/HEDCS in different roles and does not turn this variant witness into a
-new theorem.
+new theorem. The novelty verdict is therefore **close as an independently
+verified educational/engineering result**: the finite witness and restricted
+model theorem are sound after correction, but no publishable theorem about
+general dynamic EDCS maintenance survives the prior-art audit.
 
 ## Next experiment — not executed
 

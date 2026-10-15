@@ -8,6 +8,13 @@
 - **Provenance caveat:** The protocol Git commit predates execution, but the internal `frozen_at` field is later than the observed execution and validation files. Strict temporal preregistration is therefore chronology-uncertain. A later supervisor artifact-only misclassification is preserved and repaired by pointing the task to the structured report.
 - **Next step:** A parameter/repair-budget/queue-policy comparison is specified but not executed; it requires a new explicit authorization.
 
+## 2026-10-15: adversarial EDCS proof review corrected the repair claim
+
+- **Correction:** The broad statement that a P2-deficient unused edge must be inserted into `H` is false. With `beta=4, beta_minus=2`, inserting a different unused edge can raise the deficient edge's endpoint degree and restore P2 without inserting it.
+- **Surviving theorem:** Under `beta_minus=beta-1`, a degree-zero private endpoint, and exactly one H-edge insertion/deletion per update, every one-toggle outcome fails for the parameterized star-plus-cross-edge state; `beta=3` satisfies the same arithmetic. This is a restricted impossibility result, not a general repair lower bound.
+- **Novelty decision:** Bernstein–Stein's alternating full/deficient repairs and bounded repair work are known prior art. EDCS is therefore closed as an independently verified educational/engineering result; no original-EDCS refutation or publishable dynamic-maintenance lower bound is claimed.
+- **Next candidate:** The source-audited exact Zero Extension metric-sparsifier question asks whether the 2018 `k^(s+1)` upper-bound exponent must grow with the label parameter `s`. It remains a literature/theorem-definition lead only; no experiment or novelty claim was made.
+
 ## 2026-10-15: frozen Paper 4 action produced an explicit setup infeasibility
 
 - **Experiment:** The pre-frozen A2 action tested a 3-independent-set postselection condition in an exact n=8 state-vector simulation on 20 seeded simple 3-regular graphs.

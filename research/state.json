@@ -180,7 +180,7 @@
         "rule": "A state with used-edge degree sum > beta falsifies the frozen lazy-variant invariant.",
         "status": "variant_P1_counterexample_verified"
       },
-      "limitation": "No asymptotic or production update-time conclusion.; The matching-ratio endpoint was not falsified in the minimal witness.; The compressed raw trace is lossless; the uncompressed local trace is intentionally ignored by Git due to its size.",
+      "limitation": "Finite independently reproduced counterexample and restricted mathematical generalization only; no original-EDCS refutation, general maintenance lower bound, or Paper 3/4 validation.",
       "result": {
         "degree_left": 3,
         "degree_right": 2,
@@ -279,7 +279,7 @@
   ],
   "blocked_tasks": [],
   "budget_consumption": {
-    "activations_started": 28,
+    "activations_started": 52,
     "completed_experiments": 9,
     "configured_max_artifact_mib": 50,
     "configured_max_experiments": 8,
@@ -308,7 +308,7 @@
   },
   "campaign_id": "cs-discovery-long-horizon-2026-10",
   "campaign_status": "waiting_for_eligible_task",
-  "checkpoint_time": "2026-10-15T06:59:24Z",
+  "checkpoint_time": "2026-10-15T13:05:50Z",
   "completed_tasks": [
     "RECOVERY-001",
     "LEADS-001",
@@ -353,17 +353,22 @@
   ],
   "current_best_opportunities": [
     {
-      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
-      "reason": "one-flip variant has a proved parameterized failure family for beta_minus=beta-1; original EDCS remains untested",
-      "status": "variant_falsified_mathematical_generalization_pending_authorization"
+      "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+      "reason": "2018 primary source leaves the dependence of exact Zero Extension metric-sparsifier size on label parameter s as a formal question; definitions and forward citations still need audit",
+      "status": "source_audited_candidate_not_executed"
     },
     {
       "id": "PAPER3-TARGET-B-EVIDENCE-GROWTH",
       "reason": "Target B protocol is frozen, but no valid historical forecast labels are available",
       "status": "frozen_no_score_until_labels"
+    },
+    {
+      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+      "reason": "corrected one-toggle theorem is restricted; cascading EDCS repairs are known prior art and no general dynamic lower bound was established",
+      "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
-  "current_phase": "novel-edcs-lazy-repair-experiment-001",
+  "current_phase": "edcs_proof_review_zero_extension_candidate_audit",
   "current_research_round": 30,
   "data_coverage": {
     "arxiv_cs_metadata_records": 937531,
@@ -419,20 +424,20 @@
     "old_future_primary_fulltexts_checked": 4
   },
   "historical_validation_status": "Original 20-paper blind cohort unchanged: 13 eligible and 7 ineligible; all 13 direct labels remain unadjudicated. Bottleneck audit: 4 future primary full texts checked, 9 weaker retrieval states. Separate 16-paper cohort is now fully source-screened under the frozen eight-dimension rubric: 12 eligible and 4 ineligible; all 12 eligible rows have bounded future checks, direct resolution 0, premise refutation 0, partial progress 5, independent strengthening 1, contradiction 0, scope narrowing 3, continued explicit uncertainty 0. These are descriptive trajectory dimensions, not Paper 3 labels. The patch-explanation pilot is artifact-only: blinding/material checks pass, but no Java/Defects4J runtime exists and no human outcome was measured. Paper 3 CS forecast and Paper 4 action utility remain unvalidated.",
-  "idle_reason": "single_authorized_edcs_experiment_consumed_no_further_experiment_execution",
-  "last_activation_id": "2026-10-15T06:55:51Z-pid65963",
+  "idle_reason": "EDCS_closed_after_adversarial_review_next_action_is_nonexperimental_zero_extension_source_audit",
+  "last_activation_id": "2026-10-15T12:56:04Z-pid76724",
   "last_successful_commit": "5cebeeb",
   "latest_scientific_increment": {
-    "decision": "one_flip_local_repair_impossibility_for_stated_class",
-    "evidence_level": "tier_4_independently_reproduced_finite_counterexample_plus_proved_variant_family",
-    "kind": "mathematical_generalization_of_finite_variant_counterexample",
-    "next_falsifiable_action": "Stop experimental execution for this authorization cycle; preserve the EDCS mathematical generalization and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
-    "observed_result": "The four-edge witness extends to every integer beta>=3 with beta_minus=beta-1; a P2-required insertion and a newly created P1 violation require at least two single-edge H toggles.",
+    "decision": "close_edcs_as_educational_engineering_result; broad_repair_lemma_corrected",
+    "evidence_level": "tier_4_independently_reviewed_restricted_mathematical_result",
+    "kind": "adversarial_mathematical_proof_review_and_novelty_closure",
+    "next_falsifiable_action": "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state.",
+    "observed_result": "The parameterized one-toggle impossibility survives under explicit assumptions, while the broad claim that every deficient edge must be inserted is disproved by a beta=4,beta_minus=2 alternate-edge repair.",
     "scientific_success": true,
     "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001"
   },
   "mission": "Find credible, falsifiable CS research opportunities by combining point-in-time Paper 3 forecasting with Paper 4 evidence planning; optimize for defensible insight per unit effort.",
-  "next_action": "Stop experimental execution for this authorization cycle; preserve the EDCS mathematical generalization and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
+  "next_action": "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state and do not renew experimental budgets.",
   "operational_limits": {
     "cooling_off_seconds": 300,
     "max_active_workers": 1,
@@ -444,11 +449,11 @@
   },
   "opportunity_ranking": [
     {
-      "basis": "proved failure family for the stated one-toggle model; no new execution authorized",
-      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+      "basis": "2018 source-authenticated formal open question; no experiment or novelty claim yet",
+      "id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
       "rank": 1,
       "score": null,
-      "status": "mathematical_generalization_pending_authorization"
+      "status": "source_audited_candidate_not_executed"
     },
     {
       "basis": "protocol frozen; direct historical outcomes remain unavailable",
@@ -456,6 +461,13 @@
       "rank": 2,
       "score": null,
       "status": "frozen_no_score_until_labels"
+    },
+    {
+      "basis": "restricted one-toggle result corrected and independently reviewed; no general dynamic EDCS lower bound",
+      "id": "EDCS-LAZY-REPAIR-INVARIANT-001",
+      "rank": 3,
+      "score": null,
+      "status": "closed_educational_engineering_no_publishable_novelty"
     }
   ],
   "pending_tasks": [],
@@ -463,26 +475,6 @@
   "resume_instructions": "Read AGENTS.md, RESEARCH_STATUS.md, task_queue.json, recovery audit and linked artifacts. Run research_check.py and research_status.py, then dry-run supervisor. Execute only with explicit --start and within configured budgets.",
   "schema_version": 1,
   "scientific_artifact_audits": [
-    {
-      "artifact": "reports/edcs_experiment_result_20261015.json",
-      "evidence_level": "tier_4_independently_verified_finite_variant_counterexample",
-      "next_falsifiable_action": "Stop experimental execution for this authorization cycle; preserve the EDCS variant counterexample and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
-      "observed_result_or_blocker": "The frozen one-flip lazy rule inserts (1,0) to repair a P2 deficiency but leaves used edge (0,0) at degree sum 5>4. The exact matching ratio remains 1.0, so this is an invariant-maintenance failure rather than a matching-ratio failure.",
-      "scientific_success": true,
-      "scientific_validation": {
-        "missing_or_failed": [],
-        "mode": "experiment_result",
-        "reason": "finite variant counterexample independently reproduced and minimized",
-        "scientific_success": true
-      },
-      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T06:09:27Z",
-      "uncertainty": [
-        "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
-        "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
-        "The source-level novelty audit found no claim that this finite variant counterexample is a new theorem or general dynamic-matching result."
-      ]
-    },
     {
       "artifact": "reports/uncertainty_robust_direct_test_feasibility.json",
       "evidence_level": "tier_3_source_and_feasibility_audit; no_direct_outcome",
@@ -515,7 +507,7 @@
         "scientific_success": true
       },
       "task_id": "UNCERTAINTY-ROBUST-DIRECT-TEST-FEAS-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The paper-level mathematical objectives and headline settings are inspectable, but implementation details needed for exact reproduction are not pinned.",
         "The meaning of AE status during generation and the training-label policy for generated samples would require an explicit new protocol.",
@@ -550,7 +542,7 @@
         "scientific_success": true
       },
       "task_id": "SERENIOT-CROSS-DEVICE-FEAS-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The follow-up is a public dissertation with a dated mailing-list attachment, not an independently verified replication of SERENIoT.",
         "MFAF captures allowed observed traffic and cannot identify malicious traffic accepted by an allowlist.",
@@ -642,7 +634,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-ROUND3-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The frame is a bounded hash-priority title-filtered selection, not a population-random sample.",
         "Follow-up searching was bounded and cannot distinguish true absence from retrieval failure for the two rows without authenticated matched primary full text.",
@@ -681,7 +673,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-ACTION-OUTCOME-AUDIT-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "Filesystem mtimes are not authoritative provenance timestamps; several planner artifacts have null internal timestamp fields.",
         "A feasibility no-go is an observed action outcome, but it is not evidence that the underlying scientific hypothesis is false.",
@@ -703,7 +695,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-POSTSELECTION-PILOT-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "Independent unit is the generated graph; only 16/20 graphs admitted the source-style distance-3 pair and 0/20 admitted the proposed distance-4 pair.",
         "No confidence interval or population claim is warranted for this small, hash-seeded pilot.",
@@ -736,7 +728,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-INDEPENDENT-RETRIEVAL-ROUND4-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "Bounded citation-tracing/full-text audit, not exhaustive review.",
         "Index, publisher-access and author-upload coverage can differ by row; inaccessible or mismatched evidence remains missing.",
@@ -761,7 +753,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-PILOT-INDEPENDENT-REVIEW-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": null
     },
     {
@@ -799,7 +791,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBJECTIVE-OUTCOME-COHORT-ROUND5-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The six-row cohort is a deterministic hash-priority sample from a lexically filtered arXiv-derived frame, not a representative CS population.",
         "Source screening reviewed targeted sections of exact cutoff-version primary full texts; it is not exhaustive page-by-page annotation.",
@@ -850,7 +842,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-VALID-SET-SENSITIVITY-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The graph-level sample SD/SE quantify dispersion among the retained paired contributions only; they do not account for graph-generator uncertainty, model uncertainty, or a broader graph population.",
         "The 20-row value is a coding sensitivity/lower-bound-style summary, not a valid all-20 conditional QAOA estimand because four postselection outcomes do not exist.",
@@ -879,7 +871,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-OBSERVABILITY-CAUSE-DIAGNOSIS-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "These are deterministic, bounded cohorts rather than representative CS population samples.",
         "Round 4 is an independent retrieval audit but not an independent question cohort.",
@@ -961,7 +953,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-AVOCADO-CONSTRAINT-COMPARISON-FEAS-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The public follow-up establishes implementation partial progress, but not the frozen matched outcome.",
         "Avocado's randomized generator makes small generator-only smoke counts seed-dependent; those counts are not compared as scientific effects.",
@@ -998,7 +990,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER3-DIRECT-ENDPOINT-COHORT-ROUND6-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The deterministic frame and hash-priority strata are bounded and not a representative sample of computer science.",
         "Primary follow-up coverage is a receipt of this bounded search, not an estimate of all later literature; one eligible row had no authenticated primary follow-up record.",
@@ -1035,7 +1027,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-NULLTYPE-MUTATION-FEAS-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The archive is pinned by URL, byte count, and SHA-256, but it does not provide a modern VCS commit identifier for every bundled project/tool component.",
         "The paper and package report dynamic subsumption, whose accuracy depends on the available test suite; this audit did not recompute it.",
@@ -1060,7 +1052,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-LARGER-N-ROBUSTNESS-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "The sample SD and standard error are descriptive graph-level uncertainty over these 20 seeded graph units only; they do not provide a population or asymptotic confidence claim.",
         "The graph generator, seed, source parameter convention, alternating assignment, and greedy pair rule are fixed; no optimization or tuning after observing outcomes was performed.",
@@ -1081,7 +1073,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-A1-INDEPENDENT-REPLICATION-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "Graph-level sample SD/SE are descriptive over these 20 new seeded units only.",
         "The 0.25 conditioning probability is a state-vector probability, not an end-to-end sampling throughput estimate.",
@@ -1103,7 +1095,7 @@
         "scientific_success": true
       },
       "task_id": "PAPER4-QAOA-FAIR-SHOT-COST-001",
-      "timestamp": "2026-10-15T06:55:51Z",
+      "timestamp": "2026-10-15T12:56:04Z",
       "uncertainty": [
         "All procedures use the same exact state convention and graph sample, but postselection uses fewer retained samples by design.",
         "C is a declared matched-preparation reference with approximately 400 accepted-shot-equivalent preparations, not a separate quantum algorithm.",
@@ -1111,9 +1103,29 @@
       ]
     },
     {
+      "artifact": "reports/edcs_experiment_result_20261015.json",
+      "evidence_level": "tier_4_independently_verified_finite_variant_counterexample",
+      "next_falsifiable_action": "Stop experimental execution for this authorization cycle. Any revised repair rule requires a new protocol, prior-art audit and separate explicit experiment authorization.",
+      "observed_result_or_blocker": "The frozen one-flip lazy rule inserts (1,0) to repair a P2 deficiency but leaves used edge (0,0) at degree sum 5>4. The exact matching ratio remains 1.0, so this is an invariant-maintenance failure rather than a matching-ratio failure.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "experiment_result",
+        "reason": "scientific criteria satisfied",
+        "scientific_success": true
+      },
+      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+      "timestamp": "2026-10-15T12:56:04Z",
+      "uncertainty": [
+        "The result is finite and applies only to the exact deterministic variant, beta values and update semantics frozen here.",
+        "The counterexample does not refute Bernstein-Stein EDCS existence, matching theorems or their alternating-path/orientation/bucket maintenance algorithm.",
+        "The source-level novelty audit found no claim that this finite variant counterexample is a new theorem or general dynamic-matching result."
+      ]
+    },
+    {
       "artifact": "reports/edcs_mathematical_research_note_20261015.md",
       "evidence_level": "tier_4_independently_reproduced_finite_counterexample_plus_proved_variant_family",
-      "next_falsifiable_action": "Stop experimental execution for this authorization cycle; preserve the EDCS mathematical generalization and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
+      "next_falsifiable_action": "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state and do not renew experimental budgets.",
       "observed_result_or_blocker": "For beta=b>=3 and beta_minus=b-1, the star-plus-cross-edge family requires at least two single-edge H toggles after the cross insertion.",
       "scientific_success": true,
       "scientific_validation": {
@@ -1123,7 +1135,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T06:59:24Z",
+      "timestamp": "2026-10-15T13:05:50Z",
       "uncertainty": [
         "The proof is for the explicitly stated one-toggle repair class and does not cover compound swaps.",
         "It does not refute Bernstein-Stein EDCS theory or algorithm.",
@@ -1131,9 +1143,28 @@
       ]
     },
     {
+      "artifact": "reports/edcs_adversarial_proof_review_20261015.json",
+      "evidence_level": "tier_4_independently_reviewed_restricted_mathematical_result",
+      "next_falsifiable_action": "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state and do not renew experimental budgets.",
+      "observed_result_or_blocker": "The broad deficient-edge insertion claim fails for beta=4,beta_minus=2; the beta_minus=beta-1 one-toggle star obstruction survives.",
+      "scientific_success": true,
+      "scientific_validation": {
+        "missing_or_failed": [],
+        "mode": "adversarial_proof_review",
+        "reason": "overbroad lemma disproved, restricted lemma stated with proof obligations, and novelty boundary corrected",
+        "scientific_success": true
+      },
+      "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
+      "timestamp": "2026-10-15T13:05:50Z",
+      "uncertainty": [
+        "No general dynamic EDCS maintenance lower bound was proved.",
+        "The Zero Extension lead remains a source-audited candidate and has not been independently verified as novel."
+      ]
+    },
+    {
       "artifact": "reports/edcs_provenance_audit_20261015.json",
       "evidence_level": "tier_3_provenance_audit",
-      "next_falsifiable_action": "Stop experimental execution for this authorization cycle; preserve the EDCS mathematical generalization and Paper 3 no-score state. Any revised repair rule requires a new protocol and explicit authorization.",
+      "next_falsifiable_action": "Audit the exact Zero Extension sparsifier question and forward citations without executing an experiment; preserve Paper 3 Target A/B no-score state and do not renew experimental budgets.",
       "observed_result_or_blocker": "Protocol commit d54db55 precedes observed result/validation files, while frozen_at=06:15Z follows them.",
       "scientific_success": true,
       "scientific_validation": {
@@ -1145,7 +1176,7 @@
         "scientific_success": true
       },
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
-      "timestamp": "2026-10-15T06:59:24Z",
+      "timestamp": "2026-10-15T13:05:50Z",
       "uncertainty": [
         "Filesystem mtimes are non-authoritative; runner stores only monotonic start time."
       ]

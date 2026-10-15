@@ -1,0 +1,37 @@
+{
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "status": "source_audited_candidate_not_executed",
+  "source": {
+    "earliest_relevant_work": "Reidl and Wahlström, Parameterized Algorithms for Zero Extension and Metric Labelling Problems, arXiv:1802.06026v1 (2018-02-16)",
+    "url": "https://arxiv.org/abs/1802.06026",
+    "verified_source_claim": "The abstract states a polynomial exact metric sparsifier of size O(k^(|D|+1)); the source-screen ledger records an explicit question about improving the exponent and whether dependence on |D| is necessary.",
+    "source_cutoff": "2018-12-31T23:59:59Z"
+  },
+  "precise_falsifiable_question": "For the source's exact metric-sparsifier definition for Zero Extension, is a worst-case sparsifier-size exponent growing with the label count s necessary, or can an upper bound k^O(1) with exponent independent of s be proved?",
+  "what_remains_uncertain": [
+    "Whether a matching k^Omega(s) lower bound exists under exactly the source definition.",
+    "Whether later work resolves the question using a different sparsifier notion, a restricted metric, or approximation.",
+    "Whether a small-instance construction can distinguish a lower-bound mechanism from an artifact of the source's proof."
+  ],
+  "competing_hypotheses": {
+    "H1": "The s-dependent exponent reflects a genuine worst-case lower-bound phenomenon.",
+    "H2": "The source upper bound is not tight and an exponent independent of s is possible under the same exact definition.",
+    "H3": "The apparent gap disappears because later results change the definition or parameter regime rather than resolving the exact question."
+  },
+  "minimal_nonexperimental_audit": "Forward-citation and theorem-definition audit; compare only exact metric-sparsifier statements with the same k, s/|D|, and preservation guarantee.",
+  "minimal_executable_followup": "A bounded exact enumeration of tiny terminal/label instances after formalizing the definition, used only to generate or reject candidate lower-bound gadgets; enumeration cannot prove an asymptotic theorem.",
+  "objective_endpoints": [
+    "A source-matched k^Omega(s) lower-bound theorem or independently checkable proof obligation supports H1.",
+    "A source-matched k^O(1) upper-bound theorem independent of s supports H2.",
+    "Only definition-mismatched later results supports H3 and closes the apparent gap without a claim."
+  ],
+  "readiness": {
+    "public_evidence": "primary source available",
+    "local_dependencies": "Python-only symbolic checks are feasible; asymptotic proof requires mathematical work",
+    "network": "not required for the bounded local proof-audit artifact",
+    "estimated_local_runtime": "seconds for definition checks and tiny-instance enumeration; proof work is human/mathematical rather than CPU-bound"
+  },
+  "expected_uncertainty_reduction": "High if a later exact-definition theorem is found; otherwise moderate because a clean definition mismatch can prevent wasted experiments.",
+  "independent_validation": "A second implementation of the exact objective/terminal-preservation definition plus citation-level comparison by an independently checked primary source.",
+  "novelty_boundary": "This is a candidate question, not evidence of an open problem or a new result. No experiment or forecast score was produced."
+}

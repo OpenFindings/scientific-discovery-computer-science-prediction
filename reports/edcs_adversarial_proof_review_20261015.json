@@ -1,0 +1,67 @@
+{
+  "review_id": "EDCS-ADVERSARIAL-PROOF-REVIEW-20261015",
+  "review_type": "independent mathematical and prior-art review",
+  "experiment_execution": "not executed",
+  "scope": "Four-update one-toggle EDCS variant witness, parameterized star construction, repair lower-bound claims, and original-EDCS novelty boundary.",
+  "corrected_overbroad_claim": {
+    "claim": "Every P2-deficient unused edge must be inserted into H.",
+    "status": "disproved",
+    "counterexample": {
+      "beta": 4,
+      "beta_minus": 2,
+      "pre_update_H": [["x'", "a"], ["v", "b"]],
+      "unused_edges": ["(x',v)=(f)", "(x,v)=(e)"],
+      "post_update": "insert e; d_H(x)=0, d_H(v)=1 and e is P2-deficient",
+      "alternate_repair": "insert f instead of e",
+      "post_repair_degrees": {"x'": 2, "v": 2, "x": 0, "a": 1, "b": 1},
+      "checks": ["e has unused sum 2", "f has used sum 4", "all old used sums are <=4"]
+    },
+    "missing_assumption": "A statement forcing e itself requires a restricted one-toggle model plus beta_minus=beta-1 and the stated degree-zero/private-endpoint conditions; it is not true for arbitrary beta_minus or arbitrary multi-toggle repairs."
+  },
+  "corrected_single_toggle_lemma": {
+    "status": "fully proved for the explicitly stated model",
+    "assumptions": [
+      "beta_minus=beta-1",
+      "pre-update state satisfies P1/P2",
+      "after inserting e=(x,v), d_H(x)=0",
+      "e is the only G-edge incident to x",
+      "e is P2-deficient",
+      "adding e creates an existing used-edge P1 violation",
+      "repair may perform exactly one insertion or deletion of one H edge"
+    ],
+    "conclusion": "No one-toggle post-update state can satisfy both P1 and P2.",
+    "proof_obligation": "Deletion cannot increase e's degree sum; a different inserted edge was P2-valid before the external update and receives a +2 sum, hence violates P1; inserting e is assumed to create P1 violation."
+  },
+  "parameterized_star": {
+    "status": "fully proved for every integer beta>=3 with beta_minus=beta-1",
+    "boundary_checked": "beta=3",
+    "construction": "A star of beta-1 edges at a followed by (x,v1).",
+    "first_deficient_sum": "1 < beta-1",
+    "old_edge_after_addition": "(beta-1)+2=beta+1>beta",
+    "all_single_toggle_outcomes": {
+      "delete_used_edge": "P2 remains false for the cross edge",
+      "insert_cross_edge": "P1 fails on (a,v1)",
+      "insert_other_unused_edge": "its pre-update P2 sum was >= beta-1 and becomes >= beta+1, so P1 fails",
+      "insert_edge_at_x": "impossible because x has no other incident G-edge"
+    },
+    "interpretation": "Minimum two single-edge toggles for this sparse witness; not a general dynamic-maintenance complexity lower bound."
+  },
+  "claim_classification": [
+    {"claim": "four-update witness", "classification": "independently reproduced; finite counterexample only"},
+    {"claim": "parameterized star family", "classification": "fully proved for restricted one-toggle model"},
+    {"claim": "two-toggle minimum in the stated family", "classification": "fully proved conditional repair lower bound"},
+    {"claim": "alternating EDCS repairs and bounded repair work", "classification": "known prior art"},
+    {"claim": "general dynamic EDCS maintenance lower bound", "classification": "not established"},
+    {"claim": "refutation of original EDCS theory", "classification": "disproved as an interpretation"}
+  ],
+  "novelty_verdict": "close_as_independently_verified_educational_engineering_result",
+  "prior_art_boundary": "Bernstein-Stein already use alternating full/deficient repair paths and bound repair work; later HEDCS and dynamic-matching papers use related maintenance/verification ideas. No original-EDCS theorem or general lower bound is claimed.",
+  "paper3_boundary": "Target A direct resolution and Target B evidence growth remain separate and unscored; missing outcomes are not negative labels.",
+  "paper4_boundary": "The EDCS action reduced uncertainty about the tested variant, but one action cannot validate planner superiority.",
+  "next_experiment": {
+    "status": "specified_not_executed",
+    "question": "Does the obstruction depend on beta_minus=beta-1, the one-toggle budget, or queue policy?",
+    "protocol": "Compare beta_minus gaps, one-toggle versus two-toggle repairs, and new-edge-first versus FIFO priority on the same formal state family.",
+    "authorization": "requires separate explicit resource authorization"
+  }
+}

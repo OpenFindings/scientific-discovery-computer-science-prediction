@@ -49,9 +49,11 @@
   "novelty_conclusion": {
     "finite_variant_counterexample": "independently reproduced",
     "parameterized_one_toggle_family": "fully proved for the explicitly stated model, subject to independent peer review",
+    "broad_deficient_edge_must_be_inserted_lemma": "disproved; an alternate unused edge can repair P2 when the parameter gap permits it",
+    "restricted_single_toggle_impossibility": "fully proved under beta_minus=beta-1, degree-zero/private-endpoint, and one-toggle assumptions",
     "original_edcs_theory_or_matching_theorem": "not refuted",
     "new_dynamic_matching_lower_bound": "not established",
     "new_algorithm": "none",
-    "overall_claim": "No publication-level novelty claim is supported. The defensible contribution is a clearly delimited mathematical diagnosis of why the tested one-toggle variant cannot maintain P1/P2 on a parameterized family."
+    "overall_claim": "No publication-level novelty claim is supported. The defensible contribution is a corrected, clearly delimited mathematical diagnosis of why the tested one-toggle variant cannot maintain P1/P2 on a parameterized family. Close this direction as an independently verified educational/engineering result."
   }
 }

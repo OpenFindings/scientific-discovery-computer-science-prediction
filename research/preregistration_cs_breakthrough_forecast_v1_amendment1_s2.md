@@ -83,3 +83,14 @@ These thresholds are conventional κ bands, chosen before data, not tuned.
 3. Complete the OpenAlex fetch; run the primary analysis as preregistered.
 4. Run the S2 fetch, then S1–S3 once. Report all results, including nulls, without revising
    thresholds.
+
+## Addendum (2026-10-15, before any outcome computation)
+
+Order change, recorded rather than silent: the S2 *fetch* (step 4) is run early, while the
+OpenAlex fetch waits for its daily budget reset. The fetch only caches raw responses; it computes
+and prints no citation counts. Outcome computation and S1–S3 remain gated behind the primary
+analysis: `scripts/analyze_cs_label_cross_source.py` refuses to run until
+`results/cs_forecast_v1/primary.json` exists, and reads the S2 cache with network access disabled.
+Code committed before the full fetch: `src/cs_forecast/cross_source.py`,
+`scripts/fetch_s2_frame.py`, `scripts/analyze_cs_label_cross_source.py`,
+`tests/test_cs_cross_source.py`. A 3-paper smoke fetch (matching/completeness only) preceded it.

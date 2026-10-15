@@ -1,0 +1,45 @@
+{
+  "ledger_id": "ZERO-EXTENSION-PROOF-OBLIGATIONS-V1",
+  "candidate_id": "ZERO-EXTENSION-EXACT-SPARSIFIER-005",
+  "created_at": "2026-10-15T17:26:03Z",
+  "experiment_authorization_consumed": false,
+  "scope": "Exact k-bounded metric sparsifiers for the Reidl-Wahlstrom Zero Extension definition; adjacent flow, cut, approximate, and Steiner-node results are boundary evidence only.",
+  "novelty_verdict": {
+    "status": "unresolved_in_audited_forward_chain",
+    "through": "2026-10-15",
+    "direct_matching_theorem_authenticated": false,
+    "direct_matching_lower_bound_authenticated": false,
+    "global_absence_claim": false,
+    "reason": "The 2018 source leaves the question open; the later apparent 0-Extension metric-sparsifier extension was retracted in the final version; adjacent results use different objectives or guarantees."
+  },
+  "source_chain": [
+    {"year": 2018, "work": "Reidl-Wahlstrom", "kind": "exact_metric_sparsifier", "direct_match": true, "result": "O(k^(s+1)) for fixed constant s; explicit open lower-bound/uniform-degree question", "url": "https://arxiv.org/abs/1802.06026"},
+    {"year": 2020, "work": "Wahlstrom", "kind": "exact_multicut_mimicking", "direct_match": false, "result": "Valid multicut results; final version retracts preliminary 0-Extension metric-sparsifier claims", "url": "https://arxiv.org/abs/2002.08825"},
+    {"year": 2023, "work": "Krauthgamer-Mosenzon", "kind": "exact_flow_sparsifier", "direct_match": false, "result": "Unbounded exact flow sparsifier size for k>=6", "url": "https://arxiv.org/abs/2207.07363"},
+    {"year": 2024, "work": "Chen-Tan", "kind": "approximate_flow_sparsifier", "direct_match": false, "result": "5-terminal/6-terminal separation for contraction-based (1+epsilon)-flow sparsifiers", "url": "https://arxiv.org/abs/2310.07857"},
+    {"year": 2024, "work": "Chen-Tan", "kind": "steiner_node_zero_extension", "direct_match": false, "result": "Superconstant integrality gap despite many Steiner nodes", "url": "https://arxiv.org/abs/2401.09585"},
+    {"year": 2024, "work": "Das-Kumar-Vaz", "kind": "exact_flow_and_cut", "direct_match": false, "result": "Quasi-bipartite bounds for flow/cut sparsifiers", "url": "https://arxiv.org/abs/2407.09433"},
+    {"year": 2025, "work": "Chen-Tan", "kind": "exact_and_approximate_cut_vertex_sparsifier", "direct_match": false, "result": "Planar and quasi-bipartite cut-sparsifier bounds", "url": "https://arxiv.org/abs/2407.10852"}
+  ],
+  "proof_obligations": [
+    {"id": "O1", "claim": "The target definition is exact restricted-cost equality for all metrics with at most s labels and all injective terminal labelings, subject to crossing budget k.", "classification": "fully_proved_at_source_level", "status": "established", "verification": "Reidl-Wahlstrom kernel definition and theorem"},
+    {"id": "O2", "claim": "The source proof can cap the terminal-boundary contribution and use the pushing reduction before representative selection.", "classification": "known_prior_art", "status": "source_established_not_reproved", "verification": "Reidl-Wahlstrom pushing/kernel proof"},
+    {"id": "O3", "claim": "The source exponent s+1 comes from s gammoid copies plus one uniform-matroid copy in Y(e), followed by a representative-set bound.", "classification": "fully_proved_at_source_level", "status": "established", "verification": "Reidl-Wahlstrom kernel proof"},
+    {"id": "O4", "claim": "Later exact flow/cut, approximate, or Steiner-node results directly settle the target.", "classification": "disproved_as_transfer", "status": "rejected", "verification": "Preservation objects and parameter regimes do not match"},
+    {"id": "O5", "claim": "A sparse terminal cut bounds the number of internal crossing edges in the needed 0-Extension solution.", "classification": "failed_lemma_in_prior_attempt", "status": "forbidden", "verification": "Wahlstrom final-version correction retracts the 0-Extension claim"},
+    {"id": "O6", "claim": "Trees or cacti admit an exact k-bounded metric sparsifier of O(k^c) size with c independent of s.", "classification": "plausible_but_unproved_conjecture", "status": "open", "proof_obligations": ["define a complete boundary signature", "prove exact two-sided preservation for arbitrary metrics", "prove universal exponent with no hidden s-dependent factor", "find a counterexample on a small tree/cactus if the signature closure fails"]},
+    {"id": "O7", "claim": "A contraction-only family can force a superconstant-in-s representative family through pairwise distinguishable metric-cost signatures.", "classification": "plausible_but_unproved_conjecture", "status": "open", "proof_obligations": ["construct G_(s,k)", "give separating metrics and terminal labelings", "prove contraction changes the exact restricted optimum", "quantify the forced family size"]},
+    {"id": "O8", "claim": "A contraction-only lower bound transfers to all terminal-preserving exact sparsifiers.", "classification": "open_harder_obligation", "status": "not_started", "proof_obligations": ["prove a simulation/information lower bound for arbitrary G' or explicitly show why transfer fails"]},
+    {"id": "O9", "claim": "A finite small-instance gadget establishes an asymptotic lower bound.", "classification": "disproved_methodologically", "status": "not_allowed", "reason": "Finite evidence can generate a candidate but cannot prove an asymptotic theorem."}
+  ],
+  "next_task": {
+    "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
+    "priority": 98,
+    "track": "theory",
+    "status": "pending",
+    "objective": "Attempt O6 on trees and cacti: define and adversarially test a label-independent boundary signature for exact k-bounded metric-sparsifier preservation; prove the narrowest valid lemma or record the smallest source-matched obstruction, then proceed to O7 only if O6 fails.",
+    "success_criteria": ["source definitions and all assumptions are restated", "at least one two-sided proof obligation is discharged or a concrete counterexample is documented", "hidden s-dependence is audited", "no asymptotic theorem is claimed from finite evidence", "Paper 3 Target A/B state is unchanged"],
+    "execution_requirements": ["mathematical/source audit only", "no experiment or network-dependent search", "do not start supervisor or renew experiment authorization", "preserve raw reasoning and negative results"],
+    "failure_handling": "If the restricted lemma is false or prior art resolves it, preserve the obstruction and down-rank the candidate; do not substitute a mismatched cut/flow theorem."
+  }
+}

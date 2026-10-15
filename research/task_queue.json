@@ -1597,7 +1597,7 @@
       "scientific_validation": {
         "missing_or_failed": [],
         "mode": "experiment_result",
-        "reason": "structured scientific report and independent validation satisfy the experiment gate",
+        "reason": "scientific criteria satisfied",
         "scientific_success": true
       },
       "status": "completed",
@@ -1609,6 +1609,42 @@
       ],
       "task_id": "NOVEL-EDCS-LAZY-REPAIR-EXPERIMENT-001",
       "track": "experiments"
+    },
+    {
+      "artifact": "reports/zero_extension_theorem_and_novelty_audit_20261015.md",
+      "attempts": 0,
+      "cost_estimate": 0.1,
+      "counts_as_experiment": false,
+      "dependencies": ["NOVEL-CS-OPPORTUNITY-SOURCE-AUDIT-001"],
+      "execution_requirements": [
+        "mathematical and source audit only",
+        "no new experiment, network-dependent search, or supervisor start",
+        "preserve exact definitions, proof gaps, counterexamples and negative findings",
+        "Paper 3 Target A and Target B remain unchanged"
+      ],
+      "expected_information_gain": 0.9,
+      "failure_handling": "If the tree/cactus signature lemma fails or is already implied by prior art, preserve the obstruction and down-rank the candidate; do not replace the target with a mismatched cut/flow theorem.",
+      "max_attempts": 1,
+      "objective": "Attempt the first nontrivial proof obligation for ZERO-EXTENSION-EXACT-SPARSIFIER-005: define and adversarially check a label-independent boundary signature for exact k-bounded metric-sparsifier preservation on trees and cacti. Prove the narrowest valid two-sided lemma or record a concrete source-matched obstruction, then use the contraction-only lower-bound obstruction as fallback.",
+      "priority": 98,
+      "research_key": "zero_extension_boundary_signature_proof_obligation",
+      "scientific_completion": "proof_obligation_audit",
+      "scientific_status": "pending",
+      "scientific_validation": {
+        "mode": "mathematical_proof_audit",
+        "reason": "No result may be called a theorem until exact preservation and hidden label dependence are checked.",
+        "scientific_success": false
+      },
+      "status": "pending",
+      "success_criteria": [
+        "source definitions and quantifiers are restated",
+        "at least one two-sided proof obligation is discharged or a concrete counterexample is documented",
+        "hidden s-dependence is audited",
+        "finite evidence is not promoted to an asymptotic theorem",
+        "Paper 3 state is unchanged"
+      ],
+      "task_id": "THEORY-ZEROEXT-BOUNDARY-SIGNATURE-001",
+      "track": "theory"
     }
   ]
 }

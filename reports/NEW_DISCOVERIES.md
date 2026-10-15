@@ -1,5 +1,13 @@
 # New discoveries and evidence-backed findings
 
+## 2026-10-15: Zero Extension theorem audit isolates a real proof gap, not a result
+
+- **Source-matched finding:** Reidl--Wahlström's exact \(k\)-bounded metric-sparsifier theorem is \(O(k^{s+1})\) for fixed constant \(s\). The exponent arises because each edge receives an \(s+1\)-element certificate (one per gammoid layer plus the uniform layer) before representative-set compression.
+- **Forward-citation correction:** The final Wahlström multicut paper retracts its preliminary 0-Extension metric-sparsifier claims because a sparse-cut argument assumed an unsupported bound on internal crossing edges. Later exact flow/cut, approximate sparsifier, and Steiner-node 0-Extension results use different preservation objects or guarantees and do not answer this question.
+- **Scientific status:** No label-independent polynomial exponent has been proved or ruled out in the audited source chain through 2026-10-15. This is not a global absence claim and is not a novelty claim.
+- **New proof program:** The strongest next obligation is a two-sided, label-independent boundary-signature lemma for trees/cacti. A contraction-only distinguishable-signature lower-bound construction is the fallback. Both are conjectural and must be adversarially checked.
+- **Authorization boundary:** No experiment ran, no experiment budget changed, and Paper 3 Target A/B remain untouched. See [`zero_extension_theorem_and_novelty_audit_20261015.md`](zero_extension_theorem_and_novelty_audit_20261015.md) and [`proof ledger`](../research/zero_extension_proof_obligation_ledger_v1.json).
+
 ## 2026-10-15: EDCS one-flip failure generalizes mathematically, without refuting EDCS
 
 - **Independent derivation:** A separate fixed-witness checker reproduced the queue behavior and degree arithmetic. On the fourth insertion, P2 forces `(1,0)` into `H`; this raises the old used edge `(0,0)` to degree sum `3+2=5>beta=4`.

@@ -8,6 +8,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 STATE, QUEUE = Path("research/state.json"), Path("research/task_queue.json")
 EVENTS = Path("research/supervisor_events.jsonl")
+TASK_CANDIDATES = Path("research/task_candidates.json")
 
 def now() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -45,6 +46,52 @@ def eligible_tasks(queue: dict[str, Any], completed: set[str], at: float | None 
         out.append(task)
     return sorted(out, key=lambda t: (-(t.get("priority", 0) * t.get("expected_information_gain", 0) /
                                         max(t.get("cost_estimate", 1), 0.01)), t["task_id"]))
+
+def proposed_continuations(root: Path, queue: dict[str, Any]) -> list[dict[str, Any]]:
+    """Only evidence-gated, nonduplicate, informative tasks may enter the queue."""
+    path = root / TASK_CANDIDATES
+    if not path.is_file(): return []
+    entries = read_json(path).get("candidates", [])
+    ids = {t["task_id"] for t in queue["tasks"]}
+    keys = {t.get("research_key") for t in queue["tasks"] if t.get("research_key")}
+    objectives = {" ".join(t["objective"].lower().split()) for t in queue["tasks"]}
+    artifacts = {t.get("artifact") for t in queue["tasks"]}
+    proposed = []
+    for entry in entries:
+        task = entry["task"]
+        key = task.get("research_key")
+        objective = " ".join(task["objective"].lower().split())
+        if not key or task["task_id"] in ids or key in keys or objective in objectives: continue
+        if task.get("status") != "pending" or not set(task.get("dependencies", [])).issubset(ids): continue
+        if task.get("expected_information_gain", 0) / max(task.get("cost_estimate", 1), .01) < .5: continue
+        artifact = Path(task.get("artifact", ""))
+        if artifact.is_absolute() or ".." in artifact.parts or (root / artifact).exists() or str(artifact) in artifacts: continue
+        gates = entry.get("evidence_artifacts", [])
+        if not gates or any(Path(g).is_absolute() or ".." in Path(g).parts or not (root / g).is_file() for g in gates): continue
+        condition = entry.get("gate_json_equals")
+        if condition:
+            gate_path = Path(condition["path"])
+            if gate_path.is_absolute() or ".." in gate_path.parts or not (root / gate_path).is_file(): continue
+            try: gate_value = read_json(root / gate_path).get(condition["field"])
+            except (OSError, ValueError): continue
+            if gate_value != condition["value"]: continue
+        proposed.append(task)
+        ids.add(task["task_id"]); keys.add(key); objectives.add(objective); artifacts.add(str(artifact))
+    return proposed
+
+def enqueue_continuations(root: Path, state: dict[str, Any], queue: dict[str, Any]) -> int:
+    # Generate before the last ready task is consumed, without starting a worker here.
+    active = sum(t.get("status") in {"pending", "failed", "running"} for t in queue["tasks"])
+    if active > 3: return 0
+    proposed = proposed_continuations(root, queue)
+    if not proposed: return 0
+    queue["tasks"].extend(proposed)
+    state.setdefault("pending_tasks", []).extend(t["task_id"] for t in proposed)
+    for task in proposed:
+        append_jsonl(root / EVENTS, {"event": "evidence_gated_task_enqueued", "task_id": task["task_id"], "timestamp": now(),
+                                      "research_key": task["research_key"]})
+    atomic_json(root / QUEUE, queue); atomic_json(root / STATE, state)
+    return len(proposed)
 
 def git_snapshot(root: Path) -> dict[str, str]:
     p = subprocess.run(["git", "status", "--porcelain", "-z", "--untracked-files=all"], cwd=root,
@@ -89,6 +136,7 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     raw, stderr, final = worker_dir / "events.jsonl", worker_dir / "stderr.txt", worker_dir / "final.txt"
     command = [codex, "exec", "--json", "--sandbox", "workspace-write", "--ask-for-approval", "never", "-C", str(root), "-o", str(final), "-"]
     before = git_snapshot(root); started = time.monotonic(); timed_out = False
+    prior_artifact_hash = hashlib.sha256(artifact.read_bytes()).hexdigest() if artifact.is_file() else None
     child_env = os.environ.copy()
     secret_markers = ("TOKEN", "SECRET", "PASSWORD", "CREDENTIAL", "API_KEY", "ACCESS_KEY", "PRIVATE_KEY")
     for name in list(child_env):
@@ -108,6 +156,8 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
     supervisor_paths = {str(p.relative_to(root)) for p in worker_dir.iterdir()}
     unexpected = sorted(changed - {output_rel} - supervisor_paths)
     artifact_ok = artifact.is_file() and artifact.stat().st_size <= artifact_limit
+    if artifact_ok and prior_artifact_hash == hashlib.sha256(artifact.read_bytes()).hexdigest():
+        artifact_ok = False
     if artifact_ok:
         try:
             json.loads(artifact.read_text(encoding="utf-8"))
@@ -115,7 +165,7 @@ def run_worker(root: Path, task: dict[str, Any], attempt: int, timeout: int, art
             artifact_ok = False
     if unexpected: error = "worker changed paths outside declared artifact: " + ", ".join(unexpected[:20])
     elif sum(sizes.values()) > artifact_limit: error = "worker logs exceeded size limit"
-    elif not artifact_ok and proc.returncode == 0: error = "worker exited zero but did not produce bounded artifact"
+    elif not artifact_ok and proc.returncode == 0: error = "worker exited zero but did not produce a new or changed bounded artifact"
     else: error = None
     combined = raw.read_text(errors="replace") + stderr.read_text(errors="replace")[-2000:] + (final.read_text(errors="replace") if final.exists() else "")
     signal_text = combined.lower()
@@ -141,7 +191,8 @@ def main() -> int:
     ready = eligible_tasks(queue, done)
     if args.dry_run:
         print(json.dumps({"mode": "dry-run", "campaign_status": state.get("campaign_status"), "next_task": ready[0] if ready else None,
-                          "scheduled_count": len(ready), "worker_invocations": 0}, ensure_ascii=False, indent=2)); return 0
+                          "scheduled_count": len(ready), "proposed_continuations": [t["task_id"] for t in proposed_continuations(root, queue)],
+                          "worker_invocations": 0}, ensure_ascii=False, indent=2)); return 0
     limits = state.get("budget_consumption", {})
     rounds = args.max_rounds or limits.get("configured_max_rounds", 1)
     max_workers = limits.get("configured_max_worker_invocations", 1)
@@ -182,8 +233,11 @@ def main() -> int:
             state["campaign_status"] = "active"
             state["checkpoint_time"] = now()
             atomic_json(qp, queue); atomic_json(sp, state)
+        enqueue_continuations(root, state, queue)
         started, invocations = time.monotonic(), 0
         for _ in range(rounds):
+            state, queue = read_json(sp), read_json(qp)
+            enqueue_continuations(root, state, queue)
             state, queue = read_json(sp), read_json(qp)
             done = set(state.get("completed_tasks", [])) | {t["task_id"] for t in queue["tasks"] if t.get("status") == "completed"}
             ready = eligible_tasks(queue, done)

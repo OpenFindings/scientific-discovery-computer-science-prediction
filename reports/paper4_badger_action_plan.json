@@ -1,0 +1,41 @@
+{
+  "status": "offline_planning_only_not_validated",
+  "method_baseline": "docs/paper4_methodology.md; reports/paper4_action_plan.json remains the earlier DBMS baseline",
+  "question": "Does Badger's hybrid symbolic/fuzzing architecture improve worst-case Java input discovery over cost-guided fuzzing at matched CPU and time?",
+  "typed_evidence_graph": {
+    "nodes": [
+      {"id": "Q1", "type": "question", "source": "reports/historical_observable_source_screen_round1.json"},
+      {"id": "H1", "type": "hypothesis", "claim": "Hybrid cooperation improves maximum discovered resource cost under matched resources."},
+      {"id": "H0", "type": "hypothesis", "claim": "The source's observed gain is mainly resource imbalance, subject selection or noise."},
+      {"id": "E1", "type": "primary_paper_observation", "source": "https://arxiv.org/pdf/1806.03283v1", "locator": "PDF p. 9 section 4.9", "claim": "Authors acknowledge two-process hybrid versus single-core component comparison and propose a fairer parallel comparison."},
+      {"id": "E2", "type": "independent_primary_paper", "source": "https://www.ndss-symposium.org/wp-content/uploads/2020/02/24415-paper.pdf", "locator": "PDF pp. 11-13, Table II", "claim": "HotFuzz independently finds Java algorithmic-complexity witnesses, but does not compare Badger and KelinciWCA."},
+      {"id": "G1", "type": "evidence_gap", "claim": "Pinned builds, fair CPU measurement, held-out subjects and direct paired maximum-cost outcomes are missing."}
+    ],
+    "edges": [
+      {"from": "E1", "relation": "motivates", "to": "H0"},
+      {"from": "E2", "relation": "supports_broad_domain_premise_not_architecture_advantage", "to": "Q1"},
+      {"from": "G1", "relation": "blocks_adjudication_of", "to": "H1"},
+      {"from": "G1", "relation": "blocks_adjudication_of", "to": "H0"}
+    ]
+  },
+  "explicit_scenario_assumptions_not_empirical_estimates": {
+    "prior_probability_H1": 0.5,
+    "hypothetical_matched_cpu_test_sensitivity": 0.8,
+    "hypothetical_matched_cpu_test_specificity": 0.8,
+    "hypothetical_valid_build_and_metric_probability": 0.6,
+    "binary_entropy_before_bits": 1.0,
+    "binary_entropy_after_valid_test_bits": 0.721928,
+    "information_gain_if_valid_bits": 0.278072,
+    "information_gain_before_feasibility_audit_upper_scenario_bits": 0.166843,
+    "warning": "The sensitivity, specificity and feasibility values are declared illustrative assumptions, not measured probabilities. Change them in sensitivity analysis before using any action ranking as empirical evidence."
+  },
+  "candidate_actions": [
+    {"id": "A1", "action": "Pin and build Badger plus standalone KelinciWCA; inspect cost metric, process topology, benchmarks and CPU telemetry. Stop if irreproducible.", "cost_assumption": "2-6 person-hours, no external paid compute", "direct_information_gain_about_H1": "near zero until a build or metric failure changes feasibility", "role": "feasibility_gate"},
+    {"id": "A2", "action": "If A1 passes, preregister a paired independent-program matched-CPU comparison with randomized arm order and repeat seeds.", "cost_assumption": "at least 12 person-hours plus local CPU; exact budget to freeze after A1", "information_gain_scenario_bits_if_valid": 0.278072, "role": "decisive_experiment"},
+    {"id": "A3", "action": "Repeat broad keyword search on the old 13 questions without citation/definition tracing.", "cost_assumption": "2 person-hours", "information_gain": "not estimable from available evidence; first pass had zero direct labels and 9/13 weak retrieval states", "role": "low_priority_baseline"}
+  ],
+  "selected_next_action": "A1, followed by A2 only if reproducibility and a fair measured cost metric are established",
+  "baseline_comparison": "A1 is the lowest-commitment prerequisite; A2 has the largest hypothetical direct entropy reduction but is gated by A1. A3 is a simple repeat-search baseline with no calibrated likelihood model. This is not observed planner utility.",
+  "observed_action_outcome": null,
+  "paper4_validation_status": "not yet validated against realized evidence change"
+}

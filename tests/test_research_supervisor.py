@@ -36,6 +36,7 @@ class ResearchSupervisorTests(unittest.TestCase):
                         "mode=os.environ.get('FAKE_CODEX_MODE','success')\n"
                         "if mode=='limit': print('usage limit reached',file=sys.stderr); raise SystemExit(1)\n"
                         "if mode=='fail': raise SystemExit(9)\n"
+                        "if mode=='unchanged': raise SystemExit(0)\n"
                         "prompt=sys.stdin.read(); rel=[x.removeprefix('Write only: ') for x in prompt.splitlines() if x.startswith('Write only: ')][0]\n"
                         "p=Path(rel); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps({'result':'negative','evidence_tier':4}))\n"
                         "raise SystemExit(0)\n")
@@ -100,6 +101,53 @@ class ResearchSupervisorTests(unittest.TestCase):
         rows = [json.loads(x) for x in (self.root / "research/supervisor_events.jsonl").read_text().splitlines()]
         self.assertTrue(any(r.get("event") == "recovered_interrupted_worker" for r in rows))
         self.assertEqual(self.queue()["tasks"][0]["status"], "completed")
+
+    def test_evidence_gated_continuation_is_generated_before_queue_exhaustion(self):
+        evidence = self.root / "reports/evidence.json"
+        evidence.parent.mkdir()
+        evidence.write_text(json.dumps({"decision": "go"}))
+        next_task = {"task_id": "T2", "research_key": "next_test", "objective": "new independent test",
+                     "dependencies": ["T1"], "expected_information_gain": 0.8, "cost_estimate": 0.4,
+                     "priority": 1, "status": "pending", "max_attempts": 1,
+                     "artifact": "results/T2.json", "success_criteria": ["artifact exists"]}
+        candidates = {"candidates": [{"evidence_artifacts": ["reports/evidence.json"],
+                                       "gate_json_equals": {"path": "reports/evidence.json", "field": "decision", "value": "go"},
+                                       "task": next_task}]}
+        (self.root / "research/task_candidates.json").write_text(json.dumps(candidates))
+        preview = self.invoke(args=("--dry-run",))
+        self.assertIn('"proposed_continuations": [\n    "T2"', preview.stdout)
+        self.assertEqual(len(self.queue()["tasks"]), 1)
+        run = self.invoke(args=("--start", "--max-rounds", "2"))
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual([t["status"] for t in self.queue()["tasks"]], ["completed", "completed"])
+        self.assertEqual(self.state()["completed_tasks"], ["T1", "T2"])
+        events = [json.loads(x) for x in (self.root / "research/supervisor_events.jsonl").read_text().splitlines()]
+        self.assertEqual(sum(x.get("event") == "evidence_gated_task_enqueued" for x in events), 1)
+
+    def test_candidate_gate_and_duplicate_or_low_information_rejected(self):
+        evidence = self.root / "reports/evidence.json"
+        evidence.parent.mkdir()
+        evidence.write_text(json.dumps({"decision": "no_go"}))
+        base = {"task_id": "T2", "research_key": "new_key", "objective": "new task",
+                "dependencies": ["T1"], "expected_information_gain": 0.8, "cost_estimate": 0.4,
+                "priority": 1, "status": "pending", "artifact": "results/T2.json"}
+        entries = [
+            {"evidence_artifacts": ["reports/evidence.json"], "gate_json_equals": {"path": "reports/evidence.json", "field": "decision", "value": "go"}, "task": base},
+            {"evidence_artifacts": ["reports/evidence.json"], "task": dict(base, task_id="T3", research_key="different_key", objective="test task", artifact="results/T3.json")},
+            {"evidence_artifacts": ["reports/evidence.json"], "task": dict(base, task_id="T4", research_key="low_info", objective="low information task", expected_information_gain=.01, cost_estimate=1, artifact="results/T4.json")}
+        ]
+        (self.root / "research/task_candidates.json").write_text(json.dumps({"candidates": entries}))
+        preview = self.invoke(args=("--dry-run",))
+        self.assertIn('"proposed_continuations": []', preview.stdout)
+
+    def test_unchanged_existing_artifact_cannot_count_as_worker_success(self):
+        artifact = self.root / "results/T1.json"
+        artifact.parent.mkdir()
+        artifact.write_text(json.dumps({"old": True}))
+        run = self.invoke(mode="unchanged")
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertEqual(self.queue()["tasks"][0]["status"], "failed")
+        self.assertNotIn("T1", self.state()["completed_tasks"])
 
     def test_lock_blocks_second_supervisor(self):
         with (self.root / "research/.supervisor.lock").open("a+") as lock:

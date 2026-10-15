@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "purpose": "Evidence-gated future scientific subtasks for the existing supervisor. Candidates are not automatically executed without explicit --start and finite local limits.",
+  "candidates": [
+    {
+      "evidence_artifacts": ["reports/badger_matched_cpu_feasibility.json", "reports/historical_evidence_trajectory_round1.json"],
+      "gate_json_equals": {"path": "reports/badger_matched_cpu_feasibility.json", "field": "decision", "value": "go"},
+      "task": {
+        "task_id": "BADGER-FAIR-CPU-EXPERIMENT-001",
+        "research_key": "badger_resource_fair_paired_experiment",
+        "objective": "Only if feasibility audit supports it, preregister and run a bounded paired, matched-CPU Badger versus KelinciWCA comparison on independent Java programs; preserve null results and all raw logs.",
+        "dependencies": ["BADGER-FAIR-CPU-FEAS-001"],
+        "expected_information_gain": 0.8,
+        "cost_estimate": 0.8,
+        "execution_requirements": ["passed feasibility audit", "frozen experiment preregistration", "pinned source/build", "CPU and cost counters"],
+        "priority": 80,
+        "status": "pending",
+        "max_attempts": 1,
+        "counts_as_experiment": true,
+        "failure_handling": "A failed feasibility audit is a no-go, not an invitation to run an invalid benchmark.",
+        "success_criteria": ["independent paired units", "exact resource accounting", "result and uncertainty retained"],
+        "artifact": "results/badger_fair_cpu/summary.json"
+      }
+    },
+    {
+      "evidence_artifacts": ["reports/historical_observable_cohort_audit.json"],
+      "task": {
+        "task_id": "PAPER3-TRAJECTORY-READINESS-001",
+        "research_key": "paper3_trajectory_label_power_and_temporal_readiness",
+        "objective": "Quantify per-dimension class counts, missingness and temporal test feasibility for the separate observable cohort; evaluate Paper 3 only if the prespecified class and grouped time-split gates pass.",
+        "dependencies": ["HISTORICAL-TRAJECTORY-001"],
+        "expected_information_gain": 0.7,
+        "cost_estimate": 0.35,
+        "execution_requirements": ["immutable source-only features", "audited dimensional labels", "grouped temporal holdout"],
+        "priority": 85,
+        "status": "pending",
+        "max_attempts": 1,
+        "failure_handling": "If class counts are sparse, report power and missingness without AUC or probabilities.",
+        "success_criteria": ["separate outcome counts", "uncertainty and split audit", "valid score or explicit no-score decision"],
+        "artifact": "reports/paper3_trajectory_readiness.json"
+      }
+    }
+  ]
+}

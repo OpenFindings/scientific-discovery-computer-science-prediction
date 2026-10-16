@@ -37,6 +37,15 @@ def test_future_references_and_citations_never_enter_features():
     assert outcome(p) == 13  # 2015-2017 only
 
 
+def test_author_without_openalex_id_is_missing_not_zero():
+    p = _paper(2014, {}, [])
+    p["author_prior_works"] = {"a": 3, "null": 0}
+    f = paper_features(p, {}, {})
+    assert abs(f["base_author_prior_mean_log"] - np.log1p(3)) < 1e-12
+    p["author_prior_works"] = {"null": 0}
+    assert np.isnan(paper_features(p, {}, {})["base_author_prior_max_log"])
+
+
 def test_retrieval_uses_only_earlier_years():
     texts = ["graph algorithm"] * 6 + ["graph algorithm", "graph algorithm"]
     years = [2010] * 6 + [2010, 2011]

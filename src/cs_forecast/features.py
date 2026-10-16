@@ -158,7 +158,9 @@ def paper_features(p: dict, topic_years: dict, pair_counts: dict) -> dict:
     f["base_cites_year0_log"] = math.log1p(cby.get(str(y), 0))
     f["base_months_to_cutoff"] = 12 - int(p["published"][5:7]) + 1
     f["base_n_authors"] = p.get("n_authors", np.nan)
-    apc = [c for c in p.get("author_prior_works", {}).values() if c is not None]
+    # an authorship without an OpenAlex author id ("null" key) has no known count: missing, not 0
+    apc = [c for a, c in p.get("author_prior_works", {}).items()
+           if c is not None and a not in (None, "null")]
     f["base_author_prior_max_log"] = math.log1p(max(apc)) if apc else np.nan
     f["base_author_prior_mean_log"] = math.log1p(float(np.mean(apc))) if apc else np.nan
     return f

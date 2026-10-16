@@ -99,3 +99,12 @@ frame year×topic cells (seed 20261014); paired differences use the same replica
 
 Papers without an OpenAlex match are excluded and counted. Budget: ≤ 15,000 OpenAlex
 requests, no paid model calls. Null and negative results are reported as is.
+
+## Implementation corrections (append-only)
+
+- 2026-10-16, before `scripts/run_cs_forecast.py` was first run on real data and before any
+  outcome was computed: 164/929 matched papers have an OpenAlex authorship with no author id.
+  The fetch issued `author.id:None` (HTTP 400, the run's only error) and the feature code counted
+  that authorship as an author with 0 prior works, lowering `base_author_prior_mean_log` (a
+  publication-count baseline input; not a Paper 3 feature). Corrected to treat it as missing,
+  consistent with "authors' prior publication counts". No outcome, threshold or gate changed.

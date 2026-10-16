@@ -39,7 +39,13 @@ def main() -> None:
     manifest = json.loads((s2.OUT / "fetch_manifest.json").read_text())
     df = fc.build_frame()
 
-    ids = df.paper_id.tolist()
+    # rebuild the fetch's exact batches (all unique frame ids, in frame order) so they hit the cache
+    ids, seen = [], set()
+    for line in open(ROOT / "data/historical_cs_year_topic_frame.jsonl"):
+        a = json.loads(line)["arxiv_id"]
+        if a not in seen:
+            seen.add(a)
+            ids.append(a)
     found = {}
     for i in range(0, len(ids), 500):
         chunk = ids[i:i + 500]

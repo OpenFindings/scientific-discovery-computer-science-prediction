@@ -1,0 +1,20 @@
+{
+  "agent_memory_coordination": 0.5,
+  "agent_reliability_security": 0.7013888888888888,
+  "ai_generated_code": 0.9047619047619048,
+  "algorithms_complexity": 0.4444444444444445,
+  "compilers_programming_languages": 0.6023391812865497,
+  "continual_multimodal_learning": 0.6538461538461539,
+  "databases": 0.5089285714285714,
+  "distributed_cloud_systems": 0.6257861635220126,
+  "energy_efficient_computing": 0.5490909090909091,
+  "foundation_models": 0.5476190476190477,
+  "model_efficiency": 0.8988095238095237,
+  "optimization_causal_science": 0.7086834733893558,
+  "program_repair_verification": 0.6779661016949152,
+  "reasoning_and_agents": 0.44512195121951226,
+  "robotics_embodied_ai": 0.528,
+  "security_privacy": 0.6848484848484848,
+  "software_supply_chain": 0.9565217391304348,
+  "software_testing": 0.8596491228070176
+}

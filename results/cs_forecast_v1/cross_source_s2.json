@@ -1,0 +1,311 @@
+{
+  "amendment": "research/preregistration_cs_breakthrough_forecast_v1_amendment1_s2.md",
+  "s2_fetch": {
+    "started_utc": "2026-10-15T02:17:50.750503+00:00",
+    "finished_utc": "2026-10-15T02:59:38.464479+00:00",
+    "s2_matched": 1000,
+    "citations_complete": 1000,
+    "requests": 1509,
+    "errors": 0
+  },
+  "n_openalex_frame": 929,
+  "n_joint": 925,
+  "coverage_of_openalex_matched": 0.9956942949407965,
+  "coverage_below_90pct": false,
+  "excluded": {
+    "not_in_s2": 4,
+    "citations_incomplete": 0
+  },
+  "citing_null_year_total": 781,
+  "S1_S2_agreement": {
+    "n": 925,
+    "positives_a": 104,
+    "positives_b": 100,
+    "kappa": 0.713519952352591,
+    "raw_agreement": 0.9437837837837838,
+    "share_a_positives_also_b": 0.7307692307692307,
+    "spearman_log_cites": 0.8695724569474906
+  },
+  "S1_S2_bootstrap": {
+    "reps": 2000,
+    "seed": 20261014,
+    "kappa_ci95": [
+      0.6307253560681042,
+      0.7832616514694831
+    ],
+    "spearman_ci95": [
+      0.8412596728704259,
+      0.8946055656305003
+    ]
+  },
+  "G4": "robust",
+  "S3_forecast_under_s2_label": {
+    "label": "s2_label",
+    "target": "y_breakthrough_s2",
+    "metrics": {
+      "random": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.5,
+        "auprc": 0.10611510791366907,
+        "brier": 0.25,
+        "ece": 0.39388489208633093,
+        "precision_at_10pct": 0.10714285714285714
+      },
+      "text_similarity_knn": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.6619718309859155,
+        "auprc": 0.1954402588584533,
+        "brier": 0.09963118945323862,
+        "ece": 0.0720224195952182,
+        "precision_at_10pct": 0.25,
+        "spearman_log_cites": 0.17122458133809804
+      },
+      "paper3_cs_logistic": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.6286532755857177,
+        "auprc": 0.22847418086855922,
+        "brier": 0.11744830059074872,
+        "ece": 0.09834844122364819,
+        "precision_at_10pct": 0.2857142857142857,
+        "spearman_log_cites": 0.3010278475238285
+      },
+      "paper3_cs_gbm": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.6797394536711796,
+        "auprc": 0.2596820126085433,
+        "brier": 0.11083907951660467,
+        "ece": 0.09809221344720909,
+        "precision_at_10pct": 0.30357142857142855,
+        "spearman_log_cites": 0.3014218856011578
+      },
+      "combined_logistic": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.7282679125601065,
+        "auprc": 0.29856335830853725,
+        "brier": 0.10573999292921502,
+        "ece": 0.08854302868010674,
+        "precision_at_10pct": 0.35714285714285715,
+        "spearman_log_cites": 0.4351059759942013
+      },
+      "publication_count": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.3854653343791563,
+        "auprc": 0.09297314384543062,
+        "brier": 0.09822374961398006,
+        "ece": 0.0623500505709873,
+        "precision_at_10pct": 0.10714285714285714,
+        "spearman_log_cites": -0.011508756517933398
+      },
+      "citation_trend": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.7779047164341983,
+        "auprc": 0.39670339307131114,
+        "brier": 0.08125502974821147,
+        "ece": 0.03664349728696088,
+        "precision_at_10pct": 0.48214285714285715,
+        "spearman_log_cites": 0.4942658119408831
+      },
+      "research_trend": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.6819731951028203,
+        "auprc": 0.1960708085852944,
+        "brier": 0.09748511307405563,
+        "ece": 0.028594754057458694,
+        "precision_at_10pct": 0.23214285714285715,
+        "spearman_log_cites": 0.25597647713777927
+      },
+      "simple_statistical": {
+        "n": 556,
+        "positives": 59,
+        "auroc": 0.6470347508781502,
+        "auprc": 0.17150061824335386,
+        "brier": 0.10522390737358518,
+        "ece": 0.05247184834510926,
+        "precision_at_10pct": 0.16071428571428573,
+        "spearman_log_cites": 0.35944303298206903
+      }
+    },
+    "best_baseline": "citation_trend",
+    "bootstrap": {
+      "auroc_ci95": {
+        "random": [
+          0.5,
+          0.5
+        ],
+        "text_similarity_knn": [
+          0.5818374182302135,
+          0.7392767362553517
+        ],
+        "paper3_cs_logistic": [
+          0.5474722179562496,
+          0.6997780228337336
+        ],
+        "paper3_cs_gbm": [
+          0.5943086089023071,
+          0.7547182555479515
+        ],
+        "combined_logistic": [
+          0.6530884793848784,
+          0.7958162882238865
+        ],
+        "publication_count": [
+          0.30940938923860056,
+          0.47088948896465427
+        ],
+        "citation_trend": [
+          0.6989898681466854,
+          0.8433467229707579
+        ],
+        "research_trend": [
+          0.6081374581817466,
+          0.7498309081769692
+        ],
+        "simple_statistical": [
+          0.5787104464836159,
+          0.7107589267778073
+        ]
+      },
+      "delta_vs": "citation_trend",
+      "delta_auroc_ci95": {
+        "random": [
+          -0.34334672297075786,
+          -0.19898986814668548
+        ],
+        "text_similarity_knn": [
+          -0.2192872998849495,
+          -0.008085052266198961
+        ],
+        "paper3_cs_logistic": [
+          -0.25074940480427843,
+          -0.04713491228956086
+        ],
+        "paper3_cs_gbm": [
+          -0.20972477985339966,
+          0.006496400328753945
+        ],
+        "combined_logistic": [
+          -0.12753173463375636,
+          0.02359754474044755
+        ],
+        "publication_count": [
+          -0.5119312420015316,
+          -0.2624472652148684
+        ],
+        "research_trend": [
+          -0.1683683950670316,
+          -0.02557255239204786
+        ],
+        "simple_statistical": [
+          -0.22160520991166027,
+          -0.03638722669735329
+        ]
+      },
+      "delta_auroc_mean": {
+        "random": -0.277939932928541,
+        "text_similarity_knn": -0.11521691440371021,
+        "paper3_cs_logistic": -0.1515525225228969,
+        "paper3_cs_gbm": -0.09881978814296573,
+        "combined_logistic": -0.05084206694675571,
+        "publication_count": -0.39239384556751544,
+        "research_trend": -0.09615545424801004,
+        "simple_statistical": -0.13170049402681233
+      }
+    },
+    "per_test_year_auroc": {
+      "2016": {
+        "random": 0.5,
+        "text_similarity_knn": 0.6009070294784581,
+        "paper3_cs_logistic": 0.655328798185941,
+        "paper3_cs_gbm": 0.6417233560090703,
+        "combined_logistic": 0.6689342403628118,
+        "publication_count": 0.41043083900226757,
+        "citation_trend": 0.8616780045351473,
+        "research_trend": 0.7653061224489796,
+        "simple_statistical": 0.562358276643991
+      },
+      "2017": {
+        "random": 0.5,
+        "text_similarity_knn": 0.6015625,
+        "paper3_cs_logistic": 0.72265625,
+        "paper3_cs_gbm": 0.705078125,
+        "combined_logistic": 0.75390625,
+        "publication_count": 0.486328125,
+        "citation_trend": 0.84765625,
+        "research_trend": 0.83203125,
+        "simple_statistical": 0.69921875
+      },
+      "2018": {
+        "random": 0.5,
+        "text_similarity_knn": 0.6527777777777778,
+        "paper3_cs_logistic": 0.6450617283950617,
+        "paper3_cs_gbm": 0.6635802469135803,
+        "combined_logistic": 0.7700617283950617,
+        "publication_count": 0.32407407407407407,
+        "citation_trend": 0.8117283950617283,
+        "research_trend": 0.54320987654321,
+        "simple_statistical": 0.7253086419753088
+      },
+      "2019": {
+        "random": 0.5,
+        "text_similarity_knn": 0.6820652173913043,
+        "paper3_cs_logistic": 0.6340579710144927,
+        "paper3_cs_gbm": 0.6721014492753623,
+        "combined_logistic": 0.8260869565217391,
+        "publication_count": 0.2663043478260869,
+        "citation_trend": 0.8695652173913044,
+        "research_trend": 0.6766304347826088,
+        "simple_statistical": 0.7699275362318841
+      },
+      "2020": {
+        "random": 0.5,
+        "text_similarity_knn": 0.8474074074074074,
+        "paper3_cs_logistic": 0.522962962962963,
+        "paper3_cs_gbm": 0.7022222222222222,
+        "combined_logistic": 0.6133333333333332,
+        "publication_count": 0.4133333333333333,
+        "citation_trend": 0.7259259259259259,
+        "research_trend": 0.6251851851851852,
+        "simple_statistical": 0.642962962962963
+      },
+      "2021": {
+        "random": 0.5,
+        "text_similarity_knn": 0.6538461538461537,
+        "paper3_cs_logistic": 0.6709401709401709,
+        "paper3_cs_gbm": 0.6709401709401709,
+        "combined_logistic": 0.8361823361823362,
+        "publication_count": 0.28347578347578345,
+        "citation_trend": 0.8425925925925926,
+        "research_trend": 0.7649572649572649,
+        "simple_statistical": 0.688034188034188
+      },
+      "2022": {
+        "random": 0.5,
+        "text_similarity_knn": 0.6140350877192982,
+        "paper3_cs_logistic": 0.6578947368421053,
+        "paper3_cs_gbm": 0.7178362573099415,
+        "combined_logistic": 0.719298245614035,
+        "publication_count": 0.5058479532163742,
+        "citation_trend": 0.6271929824561403,
+        "research_trend": 0.6732456140350876,
+        "simple_statistical": 0.5102339181286549
+      }
+    },
+    "gates": {
+      "G1_signal_paper3_auroc_lower_gt_0.5": true,
+      "G2_combined_minus_best_baseline_lower_gt_0": false
+    }
+  },
+  "primary_gates_openalex_label": {
+    "G1_signal_paper3_auroc_lower_gt_0.5": true,
+    "G2_combined_minus_best_baseline_lower_gt_0": false
+  },
+  "gates_source_sensitive": false
+}

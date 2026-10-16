@@ -1,0 +1,105 @@
+{
+  "label": "title_only",
+  "target": "y_breakthrough",
+  "metrics": {
+    "paper3_cs_logistic": {
+      "n": 557,
+      "positives": 60,
+      "auroc": 0.6675050301810865,
+      "auprc": 0.2587977600497238,
+      "brier": 0.12049113908346647,
+      "ece": 0.10965317470036758,
+      "precision_at_10pct": 0.30357142857142855,
+      "spearman_log_cites": 0.2993073719901624
+    },
+    "citation_trend": {
+      "n": 557,
+      "positives": 60,
+      "auroc": 0.8387156270959087,
+      "auprc": 0.49153988258116693,
+      "brier": 0.07684181473776819,
+      "ece": 0.044356623822389904,
+      "precision_at_10pct": 0.5178571428571429,
+      "spearman_log_cites": 0.4973846543409291
+    },
+    "text_similarity_knn": {
+      "n": 557,
+      "positives": 60,
+      "auroc": 0.677699530516432,
+      "auprc": 0.20869082192511496,
+      "brier": 0.09880739404969886,
+      "ece": 0.06094563835219538,
+      "precision_at_10pct": 0.2857142857142857,
+      "spearman_log_cites": 0.16255878048153405
+    }
+  },
+  "best_baseline": "citation_trend",
+  "bootstrap": {
+    "auroc_ci95": {
+      "paper3_cs_logistic": [
+        0.5935002948641893,
+        0.7371805310982296
+      ],
+      "citation_trend": [
+        0.778265840821166,
+        0.8940502220828839
+      ],
+      "text_similarity_knn": [
+        0.6018431275426036,
+        0.7446789571062831
+      ]
+    },
+    "delta_vs": "citation_trend",
+    "delta_auroc_ci95": {
+      "paper3_cs_logistic": [
+        -0.2601094827087917,
+        -0.0900149556002455
+      ],
+      "text_similarity_knn": [
+        -0.26006057584821285,
+        -0.06464365424408648
+      ]
+    },
+    "delta_auroc_mean": {
+      "paper3_cs_logistic": -0.17304339433325464,
+      "text_similarity_knn": -0.16257933765709162
+    }
+  },
+  "per_test_year_auroc": {
+    "2016": {
+      "paper3_cs_logistic": 0.6051587301587301,
+      "citation_trend": 0.8234126984126984,
+      "text_similarity_knn": 0.6468253968253969
+    },
+    "2017": {
+      "paper3_cs_logistic": 0.76171875,
+      "citation_trend": 0.8515625,
+      "text_similarity_knn": 0.619140625
+    },
+    "2018": {
+      "paper3_cs_logistic": 0.6126543209876543,
+      "citation_trend": 0.9367283950617283,
+      "text_similarity_knn": 0.6188271604938271
+    },
+    "2019": {
+      "paper3_cs_logistic": 0.661231884057971,
+      "citation_trend": 0.8097826086956522,
+      "text_similarity_knn": 0.7101449275362319
+    },
+    "2020": {
+      "paper3_cs_logistic": 0.6903703703703704,
+      "citation_trend": 0.9037037037037037,
+      "text_similarity_knn": 0.8059259259259259
+    },
+    "2021": {
+      "paper3_cs_logistic": 0.7094017094017093,
+      "citation_trend": 0.9002849002849003,
+      "text_similarity_knn": 0.7357549857549858
+    },
+    "2022": {
+      "paper3_cs_logistic": 0.706140350877193,
+      "citation_trend": 0.7097953216374269,
+      "text_similarity_knn": 0.6359649122807017
+    }
+  }
+}

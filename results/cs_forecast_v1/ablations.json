@@ -1,0 +1,14 @@
+{
+  "without_text": 0.6895036887994634,
+  "only_text": 0.5258215962441314,
+  "without_evidence": 0.5691817572099261,
+  "only_evidence": 0.7517102615694164,
+  "without_novelty": 0.6736083165660631,
+  "only_novelty": 0.5318242790073776,
+  "without_falsifiability": 0.6575117370892019,
+  "only_falsifiability": 0.5570925553319919,
+  "without_tractability": 0.6828638497652583,
+  "only_tractability": 0.5059691482226694,
+  "without_environment": 0.6424882629107982,
+  "only_environment": 0.6681254191817572
+}

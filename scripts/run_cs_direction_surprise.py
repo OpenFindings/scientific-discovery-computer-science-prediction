@@ -69,7 +69,8 @@ def main() -> None:
     if gates["S1_ridge_resid_all_lower_gt_0.5"]:
         tr = df[(df.origin <= 2020) & df.G.notna()].copy()
         te = df[df.origin == 2025].copy()
-        tr["S"], _, _ = residualize(tr, tr.iloc[:0].assign(G=[]))
+        lm = LinearRegression().fit(tr[["g3"]], tr.G)  # addendum: residualize training set only
+        tr["S"] = tr.G - lm.predict(tr[["g3"]])
         te["surprise_score"] = d.model("ridge").fit(tr[d.FEATS], tr.S).predict(te[d.FEATS])
         te["rank_surprise"] = te.surprise_score.rank(ascending=False, method="min").astype(int)
         cols = ["topic", "name", "subfield", "P_o", "g3", "accel", "diffusion", "d_diffusion3",

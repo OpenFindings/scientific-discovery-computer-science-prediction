@@ -39,3 +39,7 @@ Any opinion by the assistant about likely breakthrough areas is reported separat
 unvalidated judgement. It never enters a model and is not presented as a forecast of this system.
 
 Code sha256 at freeze: `382b17ac6eb7d43a182a56a4c771bb29f92e5bef2ae3165c865b25c06ac00dec`.
+
+## Addendum 1 (2026-10-17)
+
+The first run crashed in the registration step after the backtest gates had been computed but not printed: an empty frame was passed to the residualizer. Only that line was changed, so the training set is residualized directly. The backtest code is unchanged. New code sha256: `d8704fa66ae717c0945682275c5a4bdaba3692225a21e1d4c123983cb99b9f0c`.

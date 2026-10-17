@@ -1,0 +1,36 @@
+{
+  "purpose": "Retrospective Paper 4 belief update and planner calibration for the CS breakthrough forecast. Each executed check is coded with the outcome its frozen verdict implies for its target hypothesis, so the planner's own binary-outcome likelihood model can update beliefs and its predicted information gain can be compared with what was realized.",
+  "status": "Written 2026-10-17, after every outcome was known. This is retrospective bookkeeping, not a blinded test: the codes follow mechanically from each check's frozen gate or verdict, and the justifications are given so they can be audited. H1-H4 are treated as mutually exclusive and exhaustive, as the planner requires, although H2 and H3 could both hold in reality.",
+  "outcome_rule": "favor = the check's frozen verdict supports its target hypothesis; against = it contradicts it; null = inconclusive, a reference-only rater, or no bearing on the target. Null leaves beliefs unchanged.",
+  "steps": [
+    {"order": 1, "check": "A1_openalex_snapshot", "action_type": "search_archive", "target": "H4", "code": "null",
+     "basis": "Data retrieval only; it says nothing about out-of-time signal."},
+    {"order": 2, "check": "A2_rolling_backtest", "action_type": "rerun_analysis", "target": "H1", "code": "favor",
+     "basis": "G1 passed: Paper 3 AUROC 0.654, CI 0.575-0.725."},
+    {"order": 3, "check": "A4_permutation_null", "action_type": "run_simulation", "target": "H4", "code": "against",
+     "basis": "Permutation p = 0.005, so there is out-of-time signal."},
+    {"order": 4, "check": "A3_momentum_head_to_head", "action_type": "compare_datasets", "target": "H2", "code": "favor",
+     "basis": "G2 failed: the combined model fell below the citation-trend baseline (delta CI -0.128 to -0.009)."},
+    {"order": 5, "check": "A6_survey_exclusion", "action_type": "rerun_analysis", "target": "H3", "code": "against",
+     "basis": "The signal survives excluding survey and review papers (AUROC 0.627, CI 0.543-0.703)."},
+    {"order": 6, "check": "A7_group_ablation", "action_type": "rerun_analysis", "target": "H1", "code": "null",
+     "basis": "Exploratory with no frozen gate. The evidence group alone beat the full model, which does not decide H1."},
+    {"order": 7, "check": "A8_leave_topic_out", "action_type": "compare_datasets", "target": "H1", "code": "favor",
+     "basis": "Median leave-one-topic-out AUROC 0.654 matches the primary result. Labelled sensitivity-only in the protocol."},
+    {"order": 8, "check": "A9_title_only_text", "action_type": "rerun_analysis", "target": "H1", "code": "favor",
+     "basis": "Title-only AUROC 0.668, CI 0.594-0.737, so the signal is not abstract-version leakage."},
+    {"order": 9, "check": "G4_cross_source_label", "action_type": "compare_datasets", "target": "H3", "code": "against",
+     "basis": "Amendment 1 verdict 'robust' (kappa 0.714, CI 0.631-0.783), so the label is not a single-database artifact."},
+    {"order": 10, "check": "A5_blind_human_labels", "action_type": "collect_observation", "target": "H3", "code": "null",
+     "basis": "G3a verdict 'inconclusive' (delta 0.01, CI -0.27 to 0.29)."},
+    {"order": 11, "check": "LLM_reference_raters", "action_type": "collect_observation", "target": "H3", "code": "null",
+     "basis": "Amendments 3-4 declared these reference-only and unable to change any verdict. Claude's ratings were dominated by recognition."},
+    {"order": 12, "check": "Value_markers_v1", "action_type": "search_archive", "target": "H3", "code": "null",
+     "basis": "Amendment 5 B1 verdict 'inconclusive'."},
+    {"order": 13, "check": "Value_markers_v2", "action_type": "search_archive", "target": "H3", "code": "against",
+     "basis": "Amendment 6 C1 verdict 'citation_label_agrees_with_documentary_value' (RD 0.095, CI 0.033-0.163)."}
+  ],
+  "not_coded": [
+    {"check": "Value_markers_v2_C2_C3", "reason": "Tests whether structure features find value that citations miss. That is not H1 as defined (attention beyond baselines), so it is reported, not coded."}
+  ]
+}

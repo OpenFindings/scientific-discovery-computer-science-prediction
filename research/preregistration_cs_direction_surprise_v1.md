@@ -43,3 +43,12 @@ Code sha256 at freeze: `382b17ac6eb7d43a182a56a4c771bb29f92e5bef2ae3165c865b25c0
 ## Addendum 1 (2026-10-17)
 
 The first run crashed in the registration step after the backtest gates had been computed but not printed: an empty frame was passed to the residualizer. Only that line was changed, so the training set is residualized directly. The backtest code is unchanged. New code sha256: `d8704fa66ae717c0945682275c5a4bdaba3692225a21e1d4c123983cb99b9f0c`.
+
+## Exploratory check (not preregistered, run after the frozen result)
+
+Concern: small, volatile directions swing more, so the top-decile raw residual may favour them
+mechanically. The residual was rescaled by a size-dependent expected spread fitted on training
+origins (`log|S| ~ log_p`), and the ridge model was refit. Pooled AUROC fell from 0.674 to 0.618.
+By origin, the AUROC fell from 0.66–0.76 (2011–2014) to 0.51–0.53 (2017–2019). Only nonlinear momentum
+stayed strong (g3 0.727). Read the S1/S2 pass as mostly reflecting variance and momentum, not as
+a forecast of breakthroughs. The registered surprise list should be read with that caveat.

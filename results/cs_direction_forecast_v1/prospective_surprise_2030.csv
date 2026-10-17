@@ -1,0 +1,271 @@
+topic,name,subfield,P_o,g3,accel,diffusion,d_diffusion3,volatility,surprise_score,rank_surprise
+T13898,Diverse Interdisciplinary Research Studies,Artificial Intelligence,220,0.39077083,0.3617058,0.6425648,0.0624431,0.35957068,0.46463536,1
+T12216,Network Time Synchronization Technologies,Computer Networks and Communications,904,-0.03773641,-0.13958938,0.80836002,0.39944681,0.09259265,0.37302445,2
+T13034,Information Systems Education and Curriculum Development,Information Systems,1060,-2.07145103,-3.61833624,0.5101736,0.25806358,1.26129078,0.36122407,3
+T14381,"Psychiatry, Mental Health, Neuroscience",Artificial Intelligence,1692,1.27476454,1.15061693,0.44035184,0.06728152,0.50852121,0.35596145,4
+T13874,Information Architecture and Usability,Information Systems,166,-0.54902255,-0.08503255,0.36089494,-0.04005405,0.25384065,0.32539149,5
+T14067,Cloud Computing and Remote Desktop Technologies,Hardware and Architecture,191,-1.00108838,-1.18644357,0.14780836,0.0627199,0.42549549,0.30355108,6
+T14455,Technology and Education Systems,Computer Networks and Communications,661,-2.00228677,-2.99667289,0.12493947,0.08340873,1.03076095,0.27956929,7
+T12923,Digital Image Processing Techniques,Computer Vision and Pattern Recognition,216,-0.67346307,-0.25684178,0.24427481,0.00185057,0.12223785,0.26797128,8
+T13062,Cognitive Computing and Networks,Artificial Intelligence,583,0.18978885,0.27201907,0.37468983,-0.00447081,0.25945324,0.24766669,9
+T14353,Wireless Sensor Networks for Data Analysis,Computer Networks and Communications,148,-0.31286762,-0.0036699,0.53071121,0.06533379,0.04836083,0.24321445,10
+T13935,Mathematical Control Systems and Analysis,Artificial Intelligence,141,-0.22283653,-0.01032807,0.1965812,0.0066219,0.26875074,0.23809047,11
+T12879,Distributed Sensor Networks and Detection Algorithms,Computer Networks and Communications,175,-0.60416303,-0.20656074,0.40407855,0.05202671,0.0998789,0.23513096,12
+T12805,Cognitive Science and Mapping,Artificial Intelligence,192,-0.57617643,-0.26664495,0.44341373,0.02726466,0.05031039,0.21927116,13
+T13976,Web visibility and informetrics,Information Systems,354,-0.55930877,-0.2488199,0.81533563,-0.00227097,0.2708513,0.20850626,14
+T14042,Technology and Security Systems,Information Systems,187,-0.18007133,0.25721096,0.53888381,-0.0120144,0.17351376,0.20819373,15
+T13182,Quantum-Dot Cellular Automata,Computational Theory and Mathematics,298,-0.64252757,-0.59618489,0.43404255,0.06328923,0.11386659,0.20766198,16
+T13647,AI and Big Data Applications,Information Systems,115,-1.10423434,-2.47620851,0.64478114,0.07109315,0.37287298,0.20288415,17
+T11896,Opportunistic and Delay-Tolerant Networks,Computer Networks and Communications,216,-0.71134639,0.01275277,0.33182113,0.07197861,0.13086749,0.19731982,18
+T12203,Mobile Agent-Based Network Management,Computer Networks and Communications,246,-0.29541173,0.11164666,0.1223671,0.02896051,0.1068251,0.19694136,19
+T14098,Energy Efficiency in Computing,Hardware and Architecture,506,0.59031508,0.95608927,0.22220887,0.08030149,0.10137823,0.19027555,20
+T13274,Expert finding and Q&A systems,Information Systems,189,-0.59184254,-0.16223182,0.35182482,0.02128088,0.16798868,0.18734352,21
+T11447,Blind Source Separation Techniques,Signal Processing,208,-0.54326984,-0.04772343,0.46801872,-0.00221029,0.1235452,0.1851944,22
+T13286,Modeling and Simulation Systems,Computational Theory and Mathematics,477,-0.4204914,-0.03228932,0.75713213,0.01555412,0.12833132,0.18237332,23
+T12016,Web Data Mining and Analysis,Information Systems,752,-0.22683718,-0.00754868,0.1760218,0.02123696,0.13045725,0.17487854,24
+T13999,Digital Rights Management and Security,Information Systems,124,-0.1680283,0.10163858,0.3099631,-0.01497695,0.08086512,0.17427576,25
+T14319,Currency Recognition and Detection,Computer Vision and Pattern Recognition,215,0.02671578,0.00870059,0.14423077,0.01923077,0.15796708,0.17266022,26
+T12162,Cellular Automata and Applications,Computational Theory and Mathematics,505,-0.21016695,-0.09071115,0.35138462,0.02400366,0.0755815,0.16589534,27
+T11596,Constraint Satisfaction and Optimization,Computer Networks and Communications,539,-0.15560578,0.20009544,0.30073126,0.0174292,0.15373917,0.16387019,28
+T12002,"Computability, Logic, AI Algorithms",Computational Theory and Mathematics,936,-0.00647848,0.08902166,0.28482871,0.02601103,0.18907882,0.16002876,29
+T10742,Peer-to-Peer Network Technologies,Computer Networks and Communications,191,-0.49131042,0.15729481,0.05799151,-0.02280319,0.09980503,0.15659097,30
+T12801,Bluetooth and Wireless Communication Technologies,Computer Networks and Communications,279,-0.35480421,0.10792877,0.4481203,-0.0109992,0.06611159,0.15541641,31
+T10679,Service-Oriented Architecture and Web Services,Information Systems,646,-0.7087978,-0.3205149,0.17852523,0.00401779,0.14838634,0.14690868,32
+T10829,Interconnection Networks and Systems,Computer Networks and Communications,910,-0.38148981,-0.08598955,0.32284339,0.04453245,0.08398834,0.13750966,33
+T13734,Advanced Computational Techniques and Applications,Artificial Intelligence,128,-0.51191728,0.07550912,0.41899441,0.040645,0.18497079,0.13470843,34
+T14114,Digital Media and Philosophy,Computer Science Applications,1099,0.20025781,0.46764106,0.73976109,0.05512413,0.14014663,0.12954785,35
+T12469,"Chaos, Complexity, and Education",Computational Theory and Mathematics,761,-0.4631737,-0.4650378,0.72343371,0.10137489,0.06767849,0.12503067,36
+T13623,Linguistic Studies and Language Acquisition,Artificial Intelligence,416,-0.44486035,-0.18470829,0.8349277,0.01995946,0.13547898,0.1217558,37
+T12326,Network Packet Processing and Optimization,Hardware and Architecture,560,-0.7006003,-0.88421714,0.01498169,-0.00922723,0.32180326,0.11892931,38
+T13629,Text Readability and Simplification,Artificial Intelligence,754,0.02539215,-0.2509775,0.43677043,0.05935996,0.05786525,0.11360241,39
+T14345,Scientific Research and Philosophical Inquiry,Information Systems,590,-0.07314104,0.06188641,0.63429257,0.01860108,0.06907142,0.1071764,40
+T12288,Optimization and Search Problems,Computer Networks and Communications,578,-0.36374089,-0.30216864,0.56200618,0.00782292,0.08796543,0.10158608,41
+T13650,Computational Physics and Python Applications,Artificial Intelligence,847,-0.56709633,-0.92620983,0.42256944,0.10091625,0.20637015,0.09959176,42
+T14074,Persona Design and Applications,Human-Computer Interaction,181,0.11235447,0.44797932,0.19014085,-0.01968058,0.31440762,0.09800052,43
+T10933,Real-Time Systems Scheduling,Hardware and Architecture,1016,-0.35184188,0.03181297,0.17947838,0.00820766,0.05780619,0.09795063,44
+T12761,Data Stream Mining Techniques,Artificial Intelligence,714,0.028378,0.1634998,0.10651499,0.0285627,0.09821249,0.09791307,45
+T12676,Machine Learning and ELM,Artificial Intelligence,385,-0.71239559,-0.39483367,0.32221819,0.00172723,0.11177059,0.09415967,46
+T11106,Data Management and Algorithms,Signal Processing,847,-0.54374896,-0.12129824,0.32251417,0.03344487,0.03896318,0.09405935,47
+T14307,Bioethics and Human Rights Issues,Information Systems,332,-0.3582708,-0.01788839,0.85990529,0.00618826,0.12923859,0.09302336,48
+T11697,Numerical Methods and Algorithms,Computational Theory and Mathematics,721,-0.12711332,0.04583959,0.30453479,-0.01940887,0.13613574,0.09087026,49
+T10796,Cooperative Communication and Network Coding,Computer Networks and Communications,269,-0.90937758,-0.16215295,0.44890511,0.00259101,0.17631291,0.08699618,50
+T14215,Chemical and Environmental Engineering Research,Information Systems,317,-0.24790973,0.51591234,0.78581081,-0.0112552,0.13189772,0.08652665,51
+T13523,"Mathematics, Computing, and Information Processing",Computational Theory and Mathematics,196,0.02449743,-0.15052151,0.15984405,-0.13561049,0.09077737,0.08602458,52
+T10715,Distributed and Parallel Computing Systems,Computer Networks and Communications,1079,-0.21867838,0.22810091,0.10631424,0.00752249,0.07372574,0.08496373,53
+T12100,Advanced Mathematical Modeling in Engineering,Computational Theory and Mathematics,637,-0.51670372,-0.31742964,0.71534348,0.00615776,0.09249109,0.08116108,54
+T11181,Advanced Data Storage Technologies,Computer Networks and Communications,1382,-0.66392012,-0.55677217,0.09617876,0.0215695,0.19773679,0.07708124,55
+T10996,Computational Geometry and Mesh Generation,Computer Graphics and Computer-Aided Design,966,-0.39655776,-0.19670041,0.42143906,0.01392959,0.04928855,0.07601814,56
+T11675,Open Source Software Innovations,Computer Science Applications,816,-0.46292622,-0.16456117,0.3146323,-0.0018234,0.04376927,0.07390718,57
+T14339,Image Processing and 3D Reconstruction,Computer Vision and Pattern Recognition,480,0.0662068,-0.08013957,0.71737811,-0.12753552,0.27209407,0.06832744,58
+T12797,History of Computing Technologies,Computer Science Applications,872,-0.61316927,-0.48978401,0.39380724,0.02453039,0.1091925,0.06754159,59
+T12536,Topological and Geometric Data Analysis,Computational Theory and Mathematics,1329,0.15971026,0.14747543,0.40588388,0.00962131,0.11998087,0.06675392,60
+T12601,Web Applications and Data Management,Information Systems,254,-0.78126893,-0.26398175,0.06299213,-0.01294127,0.08681252,0.06555667,61
+T11158,Wireless Networks and Protocols,Computer Networks and Communications,1050,-0.40492607,0.11909199,0.26132613,0.01012709,0.06450511,0.06516026,62
+T11901,Bayesian Methods and Mixture Models,Artificial Intelligence,826,-0.42381864,-0.20654072,0.40455396,0.01268117,0.08822866,0.06467911,63
+T11704,Mobile Crowdsensing and Crowdsourcing,Computer Science Applications,710,-0.77254322,-0.32671029,0.46323529,0.05394055,0.10678443,0.05762316,64
+T10772,Distributed systems and fault tolerance,Computer Networks and Communications,1661,-0.13087791,0.31414792,0.05388363,-0.00675275,0.10410944,0.05598413,65
+T10575,Wireless Communication Networks Research,Computer Networks and Communications,240,-0.87536661,-0.49361471,0.68245125,0.01392758,0.18993844,0.0540196,66
+T13197,Spreadsheets and End-User Computing,Software,324,-0.20164491,0.39619541,0.21201814,0.02371572,0.19106168,0.05387145,67
+T10057,Face and Expression Recognition,Computer Vision and Pattern Recognition,859,-0.89108544,-0.51943364,0.30918158,0.03323259,0.10677617,0.04970069,68
+T12171,Open Education and E-Learning,Computer Science Applications,1275,-0.15629128,1.34120796,0.26797165,0.01808361,0.332262,0.04953804,69
+T11567,semigroups and automata theory,Computational Theory and Mathematics,1329,-0.43048895,-0.18028741,0.18807811,0.00445307,0.0735595,0.0475858,70
+T11032,VLSI and Analog Circuit Testing,Hardware and Architecture,782,-0.3226046,0.01392523,0.37792329,-0.00686544,0.05245866,0.04660702,71
+T12814,Gaussian Processes and Bayesian Inference,Artificial Intelligence,1090,-0.23983487,-0.13429122,0.55714578,0.03698678,0.09031804,0.04640302,72
+T11975,Evolutionary Algorithms and Applications,Artificial Intelligence,939,-0.30480501,-0.20274884,0.14637002,0.0111113,0.01905707,0.04550797,73
+T11125,Petri Nets in System Modeling,Computational Theory and Mathematics,608,-0.61120896,-0.30983913,0.34147795,0.03454153,0.11659114,0.04527711,74
+T11439,Video Analysis and Summarization,Computer Vision and Pattern Recognition,668,-0.26362531,-0.00343717,0.02642683,-0.02786065,0.07215817,0.04461824,75
+T14519,Innovations in Education and Learning Technologies,Information Systems,844,-0.32386817,-0.41783225,0.40967742,-0.00343328,0.06218407,0.04179898,76
+T11435,Polynomial and algebraic computation,Computational Theory and Mathematics,834,-0.2321301,-0.03987678,0.51638773,-0.00074623,0.06633335,0.03859969,77
+T10246,Mobile Ad Hoc Networks,Computer Networks and Communications,1384,-0.54239578,-0.07373673,0.32089411,0.02453798,0.05194448,0.03840216,78
+T13016,Innovative Educational Technologies,Information Systems,1142,-0.1668611,-0.30357215,0.3467354,0.02359915,0.13151255,0.03758102,79
+T14029,Thoreau and American Literature,Information Systems,537,-0.10307664,0.26114882,0.49030837,-0.05476791,0.09397392,0.03416948,80
+T12034,Digital and Cyber Forensics,Information Systems,1645,-0.20844519,-0.22889446,0.13788969,0.03621458,0.11413662,0.027379,81
+T11478,Caching and Content Delivery,Computer Networks and Communications,832,-0.71847471,-0.2551327,0.05758638,0.00016153,0.0770451,0.02647379,82
+T11321,Error Correcting Code Techniques,Computer Networks and Communications,1213,-0.49982184,-0.22462839,0.22962258,0.00364765,0.08529061,0.02411585,83
+T10639,Advanced Software Engineering Methodologies,Artificial Intelligence,1159,-0.49997471,-0.10681375,0.16569312,-0.00862756,0.09699568,0.02313546,84
+T11498,Security in Wireless Sensor Networks,Computer Networks and Communications,1002,-0.39482088,-0.20976009,0.1397691,0.00656588,0.06031012,0.02293419,85
+T11693,Cryptography and Residue Arithmetic,Information Systems,1176,-0.13876446,0.03801943,0.0831944,0.00980966,0.06709121,0.01943573,86
+T10579,Cognitive Radio Networks and Spectrum Sensing,Computer Networks and Communications,1374,-0.4692546,0.06870924,0.28486226,0.03117918,0.06335328,0.01925695,87
+T13807,Cultural Insights and Digital Impacts,Computer Networks and Communications,817,-0.11402899,0.1703146,0.60735672,-0.03137396,0.07097525,0.01886967,88
+T12549,Image and Object Detection Techniques,Computer Vision and Pattern Recognition,418,-0.57675864,-0.34297005,0.29411765,-0.03560558,0.10917277,0.01516004,89
+T11727,Advanced Algebra and Logic,Computational Theory and Mathematics,1810,-0.36386831,-0.23224669,0.34775993,-0.00119437,0.08013022,0.01403351,90
+T10741,Video Coding and Compression Technologies,Signal Processing,1343,-0.4477422,-0.2376263,0.07207735,0.02070865,0.10674156,0.01337942,91
+T10538,Data Mining Algorithms and Applications,Information Systems,1147,-0.6346265,-0.28270156,0.15678419,0.00535138,0.07528974,0.01325044,92
+T11063,Rough Sets and Fuzzy Logic,Computational Theory and Mathematics,835,-0.60308834,-0.59982613,0.46743787,0.01433142,0.13507012,0.01077188,93
+T12943,COVID-19 Digital Contact Tracing,Information Systems,235,-2.12610519,-5.97942847,0.66743383,0.23764186,0.21583842,0.00645242,94
+T10906,AI-based Problem Solving and Planning,Artificial Intelligence,1725,0.39599884,0.66389612,0.14528201,-0.0128029,0.22695446,0.00593869,95
+T12423,Software Reliability and Analysis Research,Software,157,-0.88925845,-0.61002212,0.53832828,0.02770003,0.27493255,0.00588617,96
+T13270,QR Code Applications and Technologies,Information Systems,781,-0.1243932,0.00081614,0.23816156,-0.01417489,0.09442037,0.00582031,97
+T10789,Interactive and Immersive Displays,Human-Computer Interaction,1315,-0.44026753,-0.01909471,0.21856097,0.00247679,0.0382646,0.00305545,98
+T11574,Artificial Intelligence in Games,Artificial Intelligence,2081,-0.15524548,-0.11933571,0.28133881,0.03587265,0.15440703,0.00126358,99
+T14025,Educational Technology and Assessment,Information Systems,1126,-0.24800275,0.02507129,0.34831461,-0.03901891,0.09137698,0.00038608,100
+T10901,Advanced Data Compression Techniques,Computer Vision and Pattern Recognition,1711,-0.13868851,0.07492505,0.11010363,0.01144892,0.04591324,-0.00018655,101
+T12072,Machine Learning and Algorithms,Artificial Intelligence,1018,-0.52935384,-0.54357756,0.13202726,0.01852044,0.11076302,-0.00061262,102
+T11269,Algorithms and Data Compression,Artificial Intelligence,1402,-0.28894783,0.07543097,0.14665354,-0.00762285,0.04035402,-0.00155883,103
+T10317,Advanced Database Systems and Queries,Computer Networks and Communications,3279,-0.24242659,0.02043654,0.08995943,0.01147146,0.0860406,-0.00234116,104
+T10456,Multi-Agent Systems and Negotiation,Artificial Intelligence,1797,0.17788149,0.55655942,0.33584635,-0.04975616,0.13393561,-0.00441098,105
+T10824,Image Retrieval and Classification Techniques,Computer Vision and Pattern Recognition,1183,-0.69158226,-0.17175983,0.18665851,-0.02564382,0.05414703,-0.00564747,106
+T14330,Library Science and Information Systems,Information Systems,1352,-0.22957516,0.47269489,0.29806598,0.01833972,0.27392102,-0.0079808,107
+T11303,Bayesian Modeling and Causal Inference,Artificial Intelligence,1462,-0.28831446,-0.24352875,0.44158076,0.00952064,0.03855839,-0.00840961,108
+T10904,Embedded Systems Design Techniques,Hardware and Architecture,2818,-0.16867844,0.02106882,0.2190405,0.01673958,0.06384678,-0.01193231,109
+T13553,Age of Information Optimization,Computer Networks and Communications,592,-0.35356123,-1.04927928,0.54642704,0.01504629,0.1935773,-0.01248957,110
+T11034,Digital Filter Design and Implementation,Signal Processing,766,-0.54240028,-0.21791271,0.48544521,-0.03290148,0.08371152,-0.01277028,111
+T12541,Graph Labeling and Dimension Problems,Computational Theory and Mathematics,1050,-0.29480392,-0.15684073,0.24691003,-0.03103559,0.05853367,-0.01756195,112
+T11450,Model-Driven Software Engineering Techniques,Software,957,-0.51617124,-0.13453828,0.23209328,0.02169425,0.10582517,-0.01826657,113
+T10215,Semantic Web and Ontologies,Artificial Intelligence,3054,-0.476697,-0.16110597,0.2448605,0.02369146,0.07617704,-0.01844013,114
+T12794,Adaptive Dynamic Programming Control,Computational Theory and Mathematics,1009,-0.07560175,-0.3818019,0.27278943,0.00164605,0.11358397,-0.01878866,115
+T12380,Authorship Attribution and Profiling,Artificial Intelligence,1244,0.27425078,0.57216088,0.27842143,-0.04679831,0.08840075,-0.02041291,116
+T11605,Visual Attention and Saliency Detection,Computer Vision and Pattern Recognition,1091,-0.34983249,-0.37850876,0.26807163,0.00764285,0.09951105,-0.02161215,117
+T12122,Physical Unclonable Functions (PUFs) and Hardware Security,Hardware and Architecture,1517,-0.24040683,-0.22576948,0.15461538,-0.02230489,0.06796546,-0.02465329,118
+T13386,Educational Methods and Teacher Development,Information Systems,1726,-0.19073703,-1.30736451,0.62000306,-0.01400336,0.30794541,-0.02593483,119
+T12479,Web Application Security Vulnerabilities,Information Systems,2443,0.20400705,0.14647431,0.01919664,-0.00452891,0.05302938,-0.02602085,120
+T12127,Software System Performance and Reliability,Computer Networks and Communications,4322,0.49678881,0.31194664,0.04984402,0.00957661,0.11330814,-0.02680204,121
+T10138,Network Traffic and Congestion Control,Computer Networks and Communications,2339,-0.29505413,0.19890567,0.19465039,0.00091451,0.04107683,-0.0279641,122
+T11800,User Authentication and Security Systems,Information Systems,2354,-0.08723828,0.21807096,0.11931938,-0.00073779,0.05856392,-0.0283521,123
+T12292,Graph Theory and Algorithms,Computer Vision and Pattern Recognition,1295,-0.27647048,-0.12831956,0.27425228,-0.03264489,0.06215041,-0.02882623,124
+T13615,Transportation Systems and Safety,Computer Graphics and Computer-Aided Design,963,-0.14311234,-0.29360441,0.67266918,-0.01041014,0.07808626,-0.03035571,125
+T11614,Cloud Data Security Solutions,Information Systems,2190,-0.29103234,-0.02924395,0.03734091,0.00130096,0.04187661,-0.03148732,126
+T11187,Nonlinear Dynamics and Pattern Formation,Computer Networks and Communications,1471,-0.2922319,-0.05045022,0.60039722,-0.0123374,0.04799765,-0.03208995,127
+T11010,"Logic, Reasoning, and Knowledge",Artificial Intelligence,2877,-0.06697818,0.22903374,0.25982774,-0.04185801,0.11702139,-0.03349258,128
+T13983,Cybersecurity and Information Systems,Computer Networks and Communications,1592,-0.17674378,-0.2804355,0.13257778,0.00042497,0.08001207,-0.03548885,129
+T11130,Coding theory and cryptography,Artificial Intelligence,2220,-0.36998751,-0.18394665,0.09187837,-0.00649498,0.05874874,-0.03613175,130
+T13155,Digital Communication and Language,Human-Computer Interaction,2538,0.21209439,0.37373052,0.44594595,-0.02504493,0.09646664,-0.03687648,131
+T11424,Security and Verification in Computing,Artificial Intelligence,2705,-0.06977794,0.15575243,0.02901157,-0.00388667,0.05022977,-0.03733565,132
+T13674,Computer Science and Engineering,Artificial Intelligence,488,-0.55607376,-0.49271321,0.06531882,-0.01874622,0.12502369,-0.03764185,133
+T10627,Advanced Image and Video Retrieval Techniques,Computer Vision and Pattern Recognition,1996,-0.31591191,-0.16135094,0.15546407,0.0079891,0.06062488,-0.04036746,134
+T13913,Blockchain Technology in Education and Learning,Information Systems,730,-0.08832753,-0.57881854,0.02705948,-0.00554216,0.10109069,-0.04153738,135
+T11598,Internet Traffic Analysis and Secure E-voting,Artificial Intelligence,1662,-0.15596275,-0.21363831,0.08293384,-0.03576619,0.04046846,-0.04186172,136
+T14335,Educational Robotics and Engineering,Artificial Intelligence,1515,0.02157565,0.47439431,0.27497143,-0.00119937,0.13599888,-0.04691609,137
+T12809,Contact Mechanics and Variational Inequalities,Computational Theory and Mathematics,506,-0.52760283,-0.45431376,0.61078867,0.00636606,0.17547233,-0.0474041,138
+T10142,Formal Methods in Verification,Computational Theory and Mathematics,2458,-0.26409402,-0.07646003,0.12670018,0.01562953,0.08234541,-0.05073739,139
+T10820,Fuzzy Logic and Control Systems,Artificial Intelligence,1352,-0.43164887,-0.1037726,0.55459415,-0.00764876,0.05793811,-0.0524343,140
+T13083,Advanced Text Analysis Techniques,Artificial Intelligence,803,-0.66549813,-0.52726401,0.16322029,-0.01524578,0.13337122,-0.054088,141
+T11504,Advanced Authentication Protocols Security,Computer Networks and Communications,2067,-0.32153402,-0.20652198,0.12468031,-0.00842723,0.03675781,-0.05419277,142
+T10531,Advanced Vision and Imaging,Computer Vision and Pattern Recognition,3118,-0.2460878,-0.20843296,0.49101114,0.07481621,0.08864094,-0.05524232,143
+T11813,Library Collection Development and Digital Resources,Information Systems,953,-0.33290294,1.8145312,0.36738854,0.02222616,0.53295774,-0.05693907,144
+T11165,Image and Video Quality Assessment,Computer Vision and Pattern Recognition,1554,-0.3566418,-0.16942436,0.1167484,-0.01179562,0.08783441,-0.05770861,145
+T10828,Biometric Identification and Security,Signal Processing,3148,-0.28279191,-0.07884395,0.14913094,0.00923911,0.05553874,-0.05866351,146
+T11612,Stochastic Gradient Optimization Techniques,Artificial Intelligence,2278,-0.18681613,-0.18470039,0.10907874,-0.02066545,0.07360294,-0.06044516,147
+T11550,Text and Document Classification Technologies,Artificial Intelligence,1792,-0.45496646,-0.34850274,0.11716843,-0.00591081,0.069895,-0.06326378,148
+T10126,"Logic, programming, and type systems",Artificial Intelligence,3436,-0.28904965,-0.0454996,0.06363347,0.00409355,0.06174928,-0.06412131,149
+T12564,Sensor Technology and Measurement Systems,Computer Networks and Communications,1314,-0.26383764,0.07779274,0.77028517,-0.00642903,0.12978353,-0.06424997,150
+T12535,Machine Learning and Data Classification,Artificial Intelligence,2190,-0.11095042,-0.29346044,0.1170527,0.02422474,0.09200662,-0.06560676,151
+T13194,ICT in Developing Communities,Information Systems,1811,0.20659826,0.37424353,0.64524332,0.00749212,0.06722225,-0.06643146,152
+T11370,Mobile Learning in Education,Information Systems,2059,-0.45084418,0.02319358,0.32252252,0.0195988,0.06709688,-0.0686585,153
+T10286,Information Retrieval and Search Behavior,Information Systems,3290,0.03351872,0.37176538,0.12310315,-0.00859405,0.06817542,-0.0693117,154
+T13867,Economic Growth and Development,Information Systems,871,0.1088392,-0.03672292,0.88186293,-0.01213293,0.07268632,-0.06935944,155
+T12131,Wireless Signal Modulation Classification,Artificial Intelligence,1662,0.09873864,-0.2711337,0.37712665,-0.03256987,0.09062742,-0.07006301,156
+T14216,Multimedia Learning Systems,Information Systems,4264,-0.34491852,-0.45250324,0.42726821,0.10899269,0.12173588,-0.07098655,157
+T11347,Neural Networks Stability and Synchronization,Computer Networks and Communications,1110,-0.47744955,-0.54434665,0.32965661,-0.04770585,0.12138413,-0.07140346,158
+T12031,Speech and dialogue systems,Artificial Intelligence,3270,0.01561891,-0.05799529,0.19977707,0.02549043,0.07251693,-0.07183116,159
+T10711,Target Tracking and Data Fusion in Sensor Networks,Artificial Intelligence,2285,-0.24127316,-0.07189779,0.57664871,0.00137585,0.05526886,-0.07298745,160
+T12874,Digital Imaging for Blood Diseases,Computer Vision and Pattern Recognition,1404,0.07922727,-0.32855412,0.30611741,-0.04319765,0.06531424,-0.07460931,161
+T10388,Advanced Steganography and Watermarking Techniques,Computer Vision and Pattern Recognition,3490,-0.20031594,0.01309849,0.01099074,-0.00034071,0.03507629,-0.07557346,162
+T10720,Complexity and Algorithms in Graphs,Computational Theory and Mathematics,3071,-0.27273756,-0.05241576,0.2423756,-0.02248686,0.0572938,-0.07573264,163
+T10848,Advanced Multi-Objective Optimization Algorithms,Computational Theory and Mathematics,2704,-0.11173935,-0.23083911,0.47101686,0.02868459,0.06303037,-0.07670752,164
+T10799,Data Visualization and Analytics,Computer Vision and Pattern Recognition,3553,-0.31195729,-0.07086746,0.29665721,0.02586673,0.05361923,-0.07746949,165
+T13565,Education and Learning Interventions,Information Systems,249,-0.27338881,-0.88924101,0.25384327,-0.10236384,0.19420699,-0.08277599,166
+T10374,Advanced Graph Theory Research,Computational Theory and Mathematics,3598,-0.26739702,-0.19717866,0.28246084,-0.00247828,0.04956728,-0.08443426,167
+T11707,Gaze Tracking and Assistive Technology,Human-Computer Interaction,1976,-0.08038828,0.1602967,0.52567657,-0.01392,0.03886343,-0.08512029,168
+T10080,Energy Efficient Wireless Sensor Networks,Computer Networks and Communications,3061,-0.59237681,-0.26589777,0.29316252,0.01958709,0.06845072,-0.08627837,169
+T13166,Information Science and Libraries,Information Systems,1476,-0.35649957,0.09723967,0.62745554,0.01757332,0.10114072,-0.08679688,170
+T11448,Face recognition and analysis,Computer Vision and Pattern Recognition,3593,-0.50705004,-0.66522648,0.35859847,0.06073428,0.14291206,-0.08734734,171
+T11652,Imbalanced Data Classification Techniques,Artificial Intelligence,4163,0.33993736,-0.09413094,0.37090875,0.04174498,0.03857511,-0.08750513,172
+T11309,Music and Audio Processing,Signal Processing,3563,-0.07963856,-0.19834235,0.18929468,0.01024112,0.07596162,-0.08758541,173
+T13018,Seismology and Earthquake Studies,Artificial Intelligence,1359,0.16477421,0.25340076,0.6822815,-0.06313669,0.06683294,-0.08795769,174
+T12357,Digital Media Forensic Detection,Computer Vision and Pattern Recognition,3937,0.4753645,-0.08299038,0.05185851,0.01993363,0.07858972,-0.08872297,175
+T11017,Chaos-based Image/Signal Encryption,Computer Vision and Pattern Recognition,2276,-0.33533009,-0.52642178,0.11855758,-0.00372449,0.11909434,-0.0898367,176
+T13702,Machine Learning in Healthcare,Artificial Intelligence,3772,0.26432117,-0.11940407,0.677839,0.0302254,0.04711551,-0.09027844,177
+T10951,Cryptographic Implementations and Security,Artificial Intelligence,3504,-0.17214093,-0.0260205,0.01962369,-0.00577154,0.0370457,-0.09360769,178
+T10714,Software-Defined Networks and 5G,Computer Networks and Communications,4661,-0.3277608,-0.13417673,0.19734703,0.03356065,0.04376909,-0.09361117,179
+T12157,Geochemistry and Geologic Mapping,Artificial Intelligence,1904,-0.10591708,0.05592958,0.72610442,-0.03028979,0.11356352,-0.09375071,180
+T10931,Direction-of-Arrival Estimation Techniques,Signal Processing,2094,-0.28701865,-0.11820998,0.50416425,-0.01010776,0.0862045,-0.09442184,181
+T12205,Time Series Analysis and Forecasting,Signal Processing,3337,0.28422553,0.12376331,0.53743337,0.01558506,0.03053287,-0.09481112,182
+T13398,Data Analysis with R,Artificial Intelligence,1134,-0.28434183,0.41924846,0.40133911,-0.01841398,0.48717681,-0.09485079,183
+T10320,Neural Networks and Applications,Artificial Intelligence,3747,-0.28486223,-0.15311675,0.49306325,0.03511414,0.05365416,-0.09537497,184
+T12611,Neural Networks and Reservoir Computing,Artificial Intelligence,1894,0.12190393,-0.44622289,0.52810158,-0.02017811,0.11182882,-0.10134182,185
+T10545,Optimization and Variational Analysis,Computational Theory and Mathematics,2374,-0.38718731,-0.36967397,0.50077567,-0.00231347,0.0795181,-0.10491765,186
+T10803,Innovative Human-Technology Interaction,Human-Computer Interaction,3279,-0.14463692,0.09566945,0.47010595,-0.00568168,0.04707303,-0.10570495,187
+T13081,Digital Education and Society,Information Systems,2008,0.07447207,-0.12674612,0.34748557,-0.11704145,0.09345637,-0.10632126,188
+T10743,Software Testing and Debugging Techniques,Software,5054,-0.13319404,-0.14666764,0.0433995,-0.00592508,0.06019906,-0.10873723,189
+T10637,Advanced Clustering Algorithms Research,Artificial Intelligence,3113,-0.34755986,-0.16253533,0.21419027,-0.01126371,0.04390689,-0.10934816,190
+T11902,Intelligent Tutoring Systems and Adaptive Learning,Artificial Intelligence,4121,0.59772262,0.59123493,0.11950526,-0.08288568,0.15897677,-0.11270137,191
+T10601,Handwritten Text Recognition Techniques,Computer Vision and Pattern Recognition,4304,-0.17298438,-0.17539167,0.12979936,0.0210998,0.09711644,-0.1165952,192
+T11241,Advanced Malware Detection Techniques,Signal Processing,3588,0.06986311,-0.01514821,0.01295972,-0.00724544,0.04589657,-0.11734756,193
+T13038,Internet of Things and AI,Information Systems,2709,-0.17913896,-0.57217019,0.40586069,0.04826453,0.16161977,-0.11957709,194
+T11349,Music Technology and Sound Studies,Computer Vision and Pattern Recognition,3737,-0.06340072,0.24659298,0.46476657,-0.01825428,0.04843542,-0.12093432,195
+T10792,Matrix Theory and Algorithms,Computational Theory and Mathematics,2918,-0.34437809,-0.22403709,0.48583849,-0.01242984,0.05038826,-0.12172981,196
+T10481,Computer Graphics and Visualization Techniques,Computer Graphics and Computer-Aided Design,2897,-0.19751414,0.06150999,0.42774291,0.04562819,0.10730123,-0.12324403,197
+T14498,Educational Technology in Learning,Information Systems,2071,-0.1991509,0.19585111,0.38191509,-0.03978942,0.08134055,-0.12904542,198
+T10444,Context-Aware Activity Recognition Systems,Computer Vision and Pattern Recognition,4200,-0.24538795,-0.18430241,0.43565496,0.02197455,0.04271145,-0.12982794,199
+T11398,Hand Gesture Recognition Systems,Human-Computer Interaction,4367,0.03308907,-0.22354652,0.17136127,0.00726549,0.06787386,-0.13028715,200
+T13559,Edcuational Technology Systems,Artificial Intelligence,1020,-0.378137,-0.23462603,0.31987524,-0.07684607,0.12745309,-0.13730494,201
+T11512,Anomaly Detection Techniques and Applications,Artificial Intelligence,4433,0.18095104,-0.16645672,0.26586621,-0.0033948,0.03251691,-0.13976026,202
+T10688,Image and Signal Denoising Methods,Computer Vision and Pattern Recognition,3103,-0.288893,-0.23280022,0.36167839,-0.00962863,0.08676512,-0.14096228,203
+T12799,Mobile and Web Applications,Information Systems,6486,-0.03991188,0.31580766,0.15695803,7.669e-05,0.10581807,-0.14553527,204
+T12863,Web and Library Services,Information Systems,1511,-0.19999284,1.19916582,0.34442777,-0.03201343,0.40241172,-0.14826777,205
+T10860,Speech and Audio Processing,Signal Processing,3326,-0.2087501,-0.0687857,0.22099079,0.01109194,0.10900709,-0.14829557,206
+T10638,Optical measurement and interference techniques,Computer Vision and Pattern Recognition,2855,-0.35496557,-0.16700676,0.60871659,-0.01283795,0.09209672,-0.14843682,207
+T10101,Cloud Computing and Resource Management,Information Systems,9469,-0.29092165,-0.30828854,0.10608368,0.02087395,0.17272051,-0.14954808,208
+T12262,Hate Speech and Cyberbullying Detection,Artificial Intelligence,3389,0.17444355,-0.36678373,0.26674544,-0.02227989,0.11311239,-0.15367985,209
+T10237,Cryptography and Data Security,Artificial Intelligence,6940,0.03899187,0.16534016,0.03363996,-0.00094929,0.04909022,-0.15497865,210
+T11105,Advanced Image Processing Techniques,Computer Vision and Pattern Recognition,3733,-0.06240655,-0.31301451,0.13174415,0.00650144,0.09520618,-0.1591205,211
+T10260,Software Engineering Research,Information Systems,7990,0.19448968,0.05612823,0.04818254,0.00601139,0.03503732,-0.16011192,212
+T10331,Video Surveillance and Tracking Methods,Computer Vision and Pattern Recognition,5604,-0.32996474,-0.3156321,0.13916796,0.00996975,0.0921926,-0.16060789,213
+T14430,Higher Education and Teaching Methods,Information Systems,1723,0.14793514,0.54382083,0.68035796,0.05020115,0.22313369,-0.1614037,214
+T10054,Parallel Computing and Optimization Techniques,Hardware and Architecture,7178,-0.07823983,0.19110954,0.12782857,-0.01274484,0.05685524,-0.1626137,215
+T10430,Software Engineering Techniques and Practices,Information Systems,6558,-0.1857674,0.0401543,0.17296497,-0.00357842,0.03443749,-0.16394823,216
+T14103,Educational Management and Quality,Information Systems,3576,0.17586431,0.32906506,0.52133353,0.00471849,0.0903376,-0.16936278,217
+T11644,Spam and Phishing Detection,Information Systems,4388,0.39756402,0.31690267,0.26264122,-0.04241152,0.07022674,-0.17112533,218
+T12519,Cybercrime and Law Enforcement Studies,Information Systems,4499,0.12460428,0.13069649,0.3591749,-0.0266111,0.0497065,-0.17192059,219
+T11122,Online Learning and Analytics,Computer Science Applications,6327,-0.05911463,0.03328398,0.24069118,-0.01218464,0.01269332,-0.17421632,220
+T13745,Media and Digital Communication,Computer Networks and Communications,5491,-0.27120143,0.04422052,0.71547367,0.02055651,0.084863,-0.17580838,221
+T11019,Image Enhancement Techniques,Computer Vision and Pattern Recognition,4282,-0.0373502,-0.31463025,0.16598033,-0.00895114,0.08781262,-0.18131939,222
+T14254,Digital Media and Visual Art,Computer Graphics and Computer-Aided Design,5673,0.11151456,0.36164909,0.49046976,0.01582918,0.08663311,-0.18471268,223
+T10249,Distributed Control Multi-Agent Systems,Computer Networks and Communications,5702,-0.1655509,-0.26491173,0.30306318,0.00164682,0.07119909,-0.18625417,224
+T10201,Speech Recognition and Synthesis,Artificial Intelligence,6690,-0.14630583,-0.34088911,0.17919003,0.02323601,0.07554452,-0.18677325,225
+T12026,Explainable Artificial Intelligence (XAI),Artificial Intelligence,8498,0.43984342,-0.39240877,0.34312002,0.05282209,0.1137076,-0.1874164,226
+T11276,Solar Radiation and Photovoltaics,Artificial Intelligence,4654,0.03418182,0.01871998,0.51838719,-0.03170211,0.03536881,-0.19519426,227
+T13673,Library Science and Information,Information Systems,6412,-0.15706172,0.51828921,0.50904289,-0.00250241,0.12050641,-0.19990178,228
+T10470,Usability and User Interface Design,Human-Computer Interaction,5800,-0.00741954,0.13500162,0.331242,-0.00795954,0.0681955,-0.20102811,229
+T11273,Advanced Graph Neural Networks,Artificial Intelligence,5357,0.02675077,-0.67656842,0.21106383,0.01931355,0.12886537,-0.2055418,230
+T12408,Educational Innovations and Challenges,Information Systems,3567,-0.05917389,-0.28964774,0.32096141,-0.08110324,0.03368542,-0.20649821,231
+T10586,Robotic Path Planning Algorithms,Computer Vision and Pattern Recognition,6237,0.07141395,-0.14978964,0.3243718,-0.02795575,0.06393341,-0.2138471,232
+T10462,Reinforcement Learning in Robotics,Artificial Intelligence,9997,0.12335022,-0.2131187,0.34919745,0.03676268,0.06637843,-0.21621662,233
+T13373,Data Mining and Machine Learning Applications,Information Systems,5503,-0.19641869,-0.35003476,0.52724479,0.06217712,0.13446409,-0.21990843,234
+T10273,IoT and Edge/Fog Computing,Computer Networks and Communications,9635,-0.17864925,-0.35186149,0.20663355,0.01806373,0.064447,-0.2213803,235
+T10888,Augmented Reality Applications,Computer Vision and Pattern Recognition,7645,-0.01796484,-0.05257968,0.26510733,0.01983012,0.05330044,-0.22204681,236
+T10181,Natural Language Processing Techniques,Artificial Intelligence,8304,-0.00104111,0.13605383,0.15005003,9.944e-05,0.04522012,-0.2237865,237
+T10203,Recommender Systems and Techniques,Information Systems,10965,0.00334965,-0.14279962,0.12820373,0.02041488,0.05370689,-0.22632142,238
+T10812,Human Pose and Action Recognition,Computer Vision and Pattern Recognition,5277,-0.10611079,-0.61289358,0.12706197,0.00230611,0.14109284,-0.22694086,239
+T10100,Metaheuristic Optimization Algorithms Research,Artificial Intelligence,7235,-0.34700063,-0.42896606,0.39973571,0.00288787,0.08315983,-0.23612607,240
+T10682,Quantum Computing Algorithms and Architecture,Artificial Intelligence,11396,0.43029894,-0.08154388,0.14044345,-0.00337331,0.07538961,-0.23800427,241
+T10734,Information and Cyber Security,Information Systems,10612,0.03793818,0.04359931,0.22076246,-0.02234846,0.08960981,-0.24080623,242
+T11689,Adversarial Robustness in Machine Learning,Artificial Intelligence,9849,0.44703045,-0.28681821,0.07124573,0.01116278,0.05683737,-0.24618041,243
+T14496,Educational Technology and E-Learning,Information Systems,6285,-0.26704516,-0.25548406,0.47491454,-0.0079044,0.0515037,-0.24669522,244
+T10648,Virtual Reality Applications and Impacts,Human-Computer Interaction,8068,0.04691785,-0.04941653,0.43453501,0.01290256,0.06119046,-0.25577421,245
+T10533,Teaching and Learning Programming,Computer Science Applications,8701,-0.09049251,0.14567716,0.19239387,0.00138059,0.07750176,-0.25616452,246
+T13602,Educational Methods and Media Use,Information Systems,5847,0.33465116,-0.24740656,0.50359515,-0.02914659,0.16297972,-0.26108838,247
+T13681,Engineering and Information Technology,Software,9416,-0.09265885,0.03182229,0.31310473,0.01161233,0.07316433,-0.26125479,248
+T10775,Generative Adversarial Networks and Image Synthesis,Computer Vision and Pattern Recognition,10883,0.57408516,0.12769637,0.15777409,0.03029565,0.09209802,-0.26810436,249
+T10020,Quantum Information and Cryptography,Artificial Intelligence,9703,0.05502652,0.06035044,0.29434178,-0.05989874,0.07802943,-0.27027636,250
+T11937,Research Data Management Practices,Information Systems,7347,-0.02030363,0.2214803,0.57791804,-0.03493528,0.17388327,-0.27462764,251
+T12338,Digital literacy in education,Information Systems,9128,0.27461485,-0.04780122,0.32763105,-0.03990272,0.06914549,-0.27550387,252
+T11307,Domain Adaptation and Few-Shot Learning,Artificial Intelligence,8097,0.00360717,-0.78963624,0.10744412,0.01234125,0.16350916,-0.28293658,253
+T10862,AI in cancer detection,Artificial Intelligence,12344,0.14553215,-0.53560522,0.52223807,0.03040446,0.11875289,-0.29148806,254
+T10664,Sentiment Analysis and Opinion Mining,Artificial Intelligence,12192,0.04889359,-0.23889972,0.26598121,0.02088177,0.05799232,-0.29287969,255
+T12128,AI in Service Interactions,Artificial Intelligence,8055,1.01383338,0.72577981,0.43066718,-0.05164958,0.14248218,-0.29959862,256
+T10052,Medical Image Segmentation Techniques,Computer Vision and Pattern Recognition,10570,-0.01405892,-0.09403103,0.43049131,-0.02353393,0.04239724,-0.3013874,257
+T11714,Multimodal Machine Learning Applications,Computer Vision and Pattern Recognition,14484,1.11601705,0.46466423,0.12990053,0.05543839,0.11737983,-0.30374924,258
+T12260,Educational Technology and Pedagogy,Artificial Intelligence,2916,-0.43757759,-1.87817398,0.16855706,-0.09374448,0.28211866,-0.31046705,259
+T14516,English Language Learning and Teaching,Information Systems,8829,-0.12814044,-0.43487497,0.59668576,-0.03102677,0.09571305,-0.32039229,260
+T13904,Artificial Intelligence Applications,Artificial Intelligence,11613,1.08983971,0.85046734,0.48100999,0.05094371,0.19919436,-0.32283081,261
+T10400,Network Security and Intrusion Detection,Computer Networks and Communications,18910,0.41256627,0.08363222,0.0626762,-0.01052725,0.02220218,-0.32793912,262
+T13851,"Law, AI, and Intellectual Property",Artificial Intelligence,2482,1.39376439,1.23572056,0.68061382,-0.17580166,0.27919988,-0.33510662,263
+T10270,Blockchain Technology Applications and Security,Information Systems,22221,-0.05689722,-0.36658371,0.28516535,0.06031808,0.09252547,-0.33572378,264
+T10764,Privacy-Preserving Technologies in Data,Artificial Intelligence,14665,0.38993348,-0.36037019,0.11226809,-0.02627137,0.07132865,-0.35645166,265
+T10211,Computational Drug Discovery Methods,Computational Theory and Mathematics,16926,-0.01785413,-0.53780375,0.49702987,0.00383994,0.04203878,-0.3671524,266
+T10028,Topic Modeling,Artificial Intelligence,25119,0.65622677,0.28506042,0.12925896,0.03629027,0.09469953,-0.41029396,267
+T12395,Educational Innovations and Technology,Information Systems,3250,-0.38812541,-1.23925544,0.44010822,-0.2546929,0.16610456,-0.45414279,268
+T10036,Advanced Neural Network Applications,Computer Vision and Pattern Recognition,31968,0.14768911,-0.37329906,0.39287415,0.04867338,0.09527235,-0.49376539,269
+T14414,Artificial Intelligence in Education,Information Systems,38747,2.76782924,1.82436606,0.2158692,0.04438737,0.46490619,-0.68835492,270

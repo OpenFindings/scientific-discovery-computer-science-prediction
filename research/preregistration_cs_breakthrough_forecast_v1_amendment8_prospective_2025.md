@@ -73,3 +73,30 @@ A rerun with the same inputs must reproduce the file hash.
 OpenAlex requests ≤ 9,000 (free key), arXiv API ≤ 15 requests. No paid calls.
 
 Code sha256 at freeze: `scripts/prospective_2025_register.py` `2e4086b5a46b31137ad937ad058e7e2236086d139c7300e2be383c6390d0d663`; `scripts/prospective_2025_evaluate.py` `948fd21cdc2d8aad6e7f64ce9b1b6de4e9c8f8174e2c84412e685a7726203550`.
+
+## Addendum 1 (2026-10-17, after the feature fetch, before any model is trained or prediction made)
+
+**Blocker found:** OpenAlex has no references for any of the 700 cohort papers. Every record has
+`referenced_works` empty; for example `W4417264343` has `referenced_works_count` 0. The historical
+training frame has references for 791 of 929 papers. Predicting with empty reference features
+would remove the strongest Paper 3 group (the evidence-context group, 0.752 alone) and the
+reference count used by the simple-statistical baseline, and the test would be meaningless.
+
+**Change (fixed now, before any prediction):** reference lists for **both** the 929 training
+papers and the 700 cohort papers come from Semantic Scholar
+(`/graph/v1/paper/arXiv:<id>?fields=references.title,references.year,references.externalIds`;
+key `S2_API_KEY`; at most 1 request per second; raw responses cached and git-ignored). Training
+and prediction therefore use one reference source.
+
+- **Reference fields:** year and title from S2. Topic and field come from OpenAlex, looked up by
+  DOI in batches of 50; arXiv references use DOI `10.48550/arxiv.<id>`. An unmatched reference
+  has topic and field null. Only references with year ≤ cutoff year count, as before.
+- A paper with no S2 references gets an empty list, the same as historical papers without
+  OpenAlex references.
+- **Every model is retrained** on the S2-reference version of the 929 training papers. All other
+  features are unchanged.
+- **Descriptive comparability check, not a gate:** on the 929 historical papers, report the
+  correlation of `ev_n_refs` between the OpenAlex and S2 sources, and the rolling-origin backtest
+  AUROC of `paper3_cs_logistic` with S2 references next to the primary 0.654.
+- The registered predictions use only the S2-reference models. The OpenAlex-reference primary
+  results (G1–G4) are unchanged.

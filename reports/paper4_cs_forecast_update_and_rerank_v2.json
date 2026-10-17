@@ -1,0 +1,326 @@
+{
+  "planner_repo": "https://github.com/OpenFindings/scientific-evidence-planner",
+  "planner_commit": "d3b61480a390a224bff9d688322f26270734c0a4",
+  "outcome_coding": "research/paper4_retrospective_outcome_coding_v2.json",
+  "prior": {
+    "H1": 0.3,
+    "H2": 0.3,
+    "H3": 0.2,
+    "H4": 0.2
+  },
+  "posterior": {
+    "H1": 0.2694162647596874,
+    "H2": 0.6735406618992184,
+    "H3": 0.027939464493597202,
+    "H4": 0.029103608847497093
+  },
+  "steps": [
+    {
+      "order": 1,
+      "check": "A1_openalex_snapshot",
+      "target": "H4",
+      "code": "null",
+      "predicted_ig_bits": 0.01863692676738693,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.3,
+        "H2": 0.3,
+        "H3": 0.2,
+        "H4": 0.2
+      }
+    },
+    {
+      "order": 2,
+      "check": "A2_rolling_backtest (G1 pass)",
+      "target": "H1",
+      "code": "multi",
+      "predicted_ig_bits": 0.15967246999553564,
+      "realized_entropy_reduction_bits": 0.13852722363236714,
+      "posterior": {
+        "H1": 0.3461538461538461,
+        "H2": 0.3461538461538461,
+        "H3": 0.23076923076923078,
+        "H4": 0.07692307692307693
+      }
+    },
+    {
+      "order": 3,
+      "check": "A4_permutation_null",
+      "target": "H4",
+      "code": "null",
+      "predicted_ig_bits": 0.03982110347068235,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.3461538461538461,
+        "H2": 0.3461538461538461,
+        "H3": 0.23076923076923078,
+        "H4": 0.07692307692307693
+      }
+    },
+    {
+      "order": 4,
+      "check": "A3_momentum_head_to_head (G2 fail)",
+      "target": "H2",
+      "code": "multi",
+      "predicted_ig_bits": 0.12429916280864428,
+      "realized_entropy_reduction_bits": 0.04006841476194656,
+      "posterior": {
+        "H1": 0.19148936170212766,
+        "H2": 0.4787234042553191,
+        "H3": 0.22340425531914898,
+        "H4": 0.10638297872340428
+      }
+    },
+    {
+      "order": 5,
+      "check": "A6_survey_exclusion",
+      "target": "H3",
+      "code": "multi",
+      "predicted_ig_bits": 0.13280889382464656,
+      "realized_entropy_reduction_bits": 0.33641332228986376,
+      "posterior": {
+        "H1": 0.24545454545454548,
+        "H2": 0.6136363636363636,
+        "H3": 0.09545454545454547,
+        "H4": 0.04545454545454546
+      }
+    },
+    {
+      "order": 6,
+      "check": "A7_group_ablation",
+      "target": "H1",
+      "code": "null",
+      "predicted_ig_bits": 0.14146504627429834,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.24545454545454548,
+        "H2": 0.6136363636363636,
+        "H3": 0.09545454545454547,
+        "H4": 0.04545454545454546
+      }
+    },
+    {
+      "order": 7,
+      "check": "A8_leave_topic_out",
+      "target": "H1",
+      "code": "null",
+      "predicted_ig_bits": 0.1022631430229286,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.24545454545454548,
+        "H2": 0.6136363636363636,
+        "H3": 0.09545454545454547,
+        "H4": 0.04545454545454546
+      }
+    },
+    {
+      "order": 8,
+      "check": "A9_title_only_text",
+      "target": "H1",
+      "code": "null",
+      "predicted_ig_bits": 0.14146504627429834,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.24545454545454548,
+        "H2": 0.6136363636363636,
+        "H3": 0.09545454545454547,
+        "H4": 0.04545454545454546
+      }
+    },
+    {
+      "order": 9,
+      "check": "G4_cross_source_label",
+      "target": "H3",
+      "code": "multi",
+      "predicted_ig_bits": 0.04831866175492139,
+      "realized_entropy_reduction_bits": 0.19740641957630078,
+      "posterior": {
+        "H1": 0.264187866927593,
+        "H2": 0.6604696673189824,
+        "H3": 0.0410958904109589,
+        "H4": 0.03424657534246576
+      }
+    },
+    {
+      "order": 10,
+      "check": "A5_blind_human_labels",
+      "target": "H3",
+      "code": "null",
+      "predicted_ig_bits": 0.04665319696191972,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.264187866927593,
+        "H2": 0.6604696673189824,
+        "H3": 0.0410958904109589,
+        "H4": 0.03424657534246576
+      }
+    },
+    {
+      "order": 11,
+      "check": "LLM_reference_raters",
+      "target": "H3",
+      "code": "null",
+      "predicted_ig_bits": 0.04665319696191972,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.264187866927593,
+        "H2": 0.6604696673189824,
+        "H3": 0.0410958904109589,
+        "H4": 0.03424657534246576
+      }
+    },
+    {
+      "order": 12,
+      "check": "Value_markers_v1",
+      "target": "H3",
+      "code": "null",
+      "predicted_ig_bits": 0.00460531954237875,
+      "realized_entropy_reduction_bits": 0.0,
+      "posterior": {
+        "H1": 0.264187866927593,
+        "H2": 0.6604696673189824,
+        "H3": 0.0410958904109589,
+        "H4": 0.03424657534246576
+      }
+    },
+    {
+      "order": 13,
+      "check": "Value_markers_v2 (C1 agree)",
+      "target": "H3",
+      "code": "multi",
+      "predicted_ig_bits": 0.00460531954237875,
+      "realized_entropy_reduction_bits": 0.0720303266040554,
+      "posterior": {
+        "H1": 0.2694162647596874,
+        "H2": 0.6735406618992184,
+        "H3": 0.027939464493597202,
+        "H4": 0.029103608847497093
+      }
+    }
+  ],
+  "calibration": {
+    "spearman_predicted_ig_vs_abs_realized": 0.27207177554585543,
+    "note": "Realized = entropy reduction under the planner's own likelihood model given the coded outcome; null-coded checks realize 0 by construction.",
+    "original_plan_rank_of_most_decisive": [
+      {
+        "check": "A6_survey_exclusion",
+        "realized_bits": 0.33641332228986376,
+        "original_rank": 3
+      },
+      {
+        "check": "G4_cross_source_label",
+        "realized_bits": 0.19740641957630078,
+        "original_rank": null
+      },
+      {
+        "check": "A2_rolling_backtest (G1 pass)",
+        "realized_bits": 0.13852722363236714,
+        "original_rank": null
+      },
+      {
+        "check": "Value_markers_v2 (C1 agree)",
+        "realized_bits": 0.0720303266040554,
+        "original_rank": null
+      }
+    ]
+  },
+  "next_action_ranking": [
+    {
+      "rank": 1,
+      "action_id": "B7_prospective_registration",
+      "target": "H1",
+      "utility": {
+        "information_gain": 0.22211600237626372,
+        "novelty": 1.0,
+        "tractability": 0.0,
+        "cost": 0.3,
+        "total": 2.9211600237626376
+      },
+      "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.222 bits, novelty 1.00, tractability 0.00, cost 0.30. Primary driver: novelty."
+    },
+    {
+      "rank": 2,
+      "action_id": "B5_structure_vs_value_markers",
+      "target": "H1",
+      "utility": {
+        "information_gain": 0.1500213437011666,
+        "novelty": 0.6000000000000001,
+        "tractability": 0.9,
+        "cost": 0.1,
+        "total": 2.900213437011666
+      },
+      "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.150 bits, novelty 0.60, tractability 0.90, cost 0.10. Primary driver: tractability."
+    },
+    {
+      "rank": 3,
+      "action_id": "B1_zero_citation_cutoff",
+      "target": "H2",
+      "utility": {
+        "information_gain": 0.1668871346518841,
+        "novelty": 0.6000000000000001,
+        "tractability": 0.7,
+        "cost": 0.25,
+        "total": 2.718871346518841
+      },
+      "reasoning": "Targets hypothesis H2 (Any signal is reducible to early-citation / topic momentum). Expected information gain 0.167 bits, novelty 0.60, tractability 0.70, cost 0.25. Primary driver: tractability."
+    },
+    {
+      "rank": 4,
+      "action_id": "B3_independent_reimplementation",
+      "target": "H2",
+      "utility": {
+        "information_gain": 0.1668871346518841,
+        "novelty": 0.6000000000000001,
+        "tractability": 0.6,
+        "cost": 0.3,
+        "total": 2.5688713465188413
+      },
+      "reasoning": "Targets hypothesis H2 (Any signal is reducible to early-citation / topic momentum). Expected information gain 0.167 bits, novelty 0.60, tractability 0.60, cost 0.30. Primary driver: novelty."
+    },
+    {
+      "rank": 5,
+      "action_id": "B2_fresh_frame_replication",
+      "target": "H1",
+      "utility": {
+        "information_gain": 0.10851517291173285,
+        "novelty": 1.0,
+        "tractability": 0.4,
+        "cost": 0.5,
+        "total": 1.9851517291173284
+      },
+      "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.109 bits, novelty 1.00, tractability 0.40, cost 0.50. Primary driver: novelty."
+    },
+    {
+      "rank": 6,
+      "action_id": "B6_cross_domain_transfer",
+      "target": "H1",
+      "utility": {
+        "information_gain": 0.10851517291173285,
+        "novelty": 1.0,
+        "tractability": 0.30000000000000004,
+        "cost": 0.6,
+        "total": 1.7851517291173287
+      },
+      "reasoning": "Targets hypothesis H1 (Paper 3 structure features forecast top-decile CS attention beyond baselines). Expected information gain 0.109 bits, novelty 1.00, tractability 0.30, cost 0.60. Primary driver: novelty."
+    },
+    {
+      "rank": 7,
+      "action_id": "B4_second_human_labeler",
+      "target": "H3",
+      "utility": {
+        "information_gain": 0.032285796084786655,
+        "novelty": 1.0,
+        "tractability": 0.15000000000000002,
+        "cost": 0.6,
+        "total": 0.8728579608478665
+      },
+      "reasoning": "Targets hypothesis H3 (Top-decile citation attention is a visibility artifact, not breakthrough). Expected information gain 0.032 bits, novelty 1.00, tractability 0.15, cost 0.60. Primary driver: novelty."
+    }
+  ],
+  "available_resources": [
+    "compute",
+    "openalex",
+    "web_agents"
+  ],
+  "status": "planning estimate; outcome codes are retrospective; costs, times and discriminative powers are declared assumptions, not measurements"
+}

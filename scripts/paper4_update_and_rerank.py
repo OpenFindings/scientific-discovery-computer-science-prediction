@@ -47,6 +47,7 @@ AVAILABLE = {"compute", "openalex", "web_agents"}  # no human labeler (owner's d
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--planner-src", required=True, type=Path)
+    ap.add_argument("--coding", default="v2", choices=["v1", "v2"])
     args = ap.parse_args()
     sys.path.insert(0, str(args.planner_src / "src"))
     from planner import (  # noqa: E402
@@ -69,7 +70,13 @@ def main() -> None:
     plan = json.loads((ROOT / "reports/paper4_cs_forecast_check_plan.json").read_text())
     if commit != plan["planner_commit"]:
         sys.exit(f"planner commit {commit} != pinned {plan['planner_commit']}")
-    coding = json.loads((ROOT / "research/paper4_retrospective_outcome_coding_v1.json").read_text())
+    v1 = json.loads((ROOT / "research/paper4_retrospective_outcome_coding_v1.json").read_text())
+    coding = json.loads((ROOT / f"research/paper4_retrospective_outcome_coding_{args.coding}.json").read_text())
+    planned = {x["order"]: (x["target"], x["action_type"]) for x in v1["steps"]}
+    for st in coding["steps"]:  # v2 steps keep the planned target for the predicted-IG column
+        st.setdefault("target", planned[st["order"]][0])
+        if "predicts" in st:
+            st["code"] = "multi"
 
     hyps = [Hypothesis(h, d, prior=p) for h, d, p in orig.HYPOTHESES]
     ids = [h.hypothesis_id for h in hyps]
@@ -80,7 +87,12 @@ def main() -> None:
         act = CandidateAction(s["check"], atype, s["basis"], 0.0, 0.0, [], s["target"])
         predicted = ig_est.estimate(act, hyps, None)
         before = [h.prior for h in hyps]
-        if s["code"] != "null":
+        if s["code"] == "multi":
+            r = DEFAULT_DISCRIMINATIVE_POWER[atype]
+            lik = {h: (r / (r + 1) if h in s["predicts"] else 1 / (r + 1) if h in s["opposes"]
+                       else 0.5) for h in ids}
+            hyps = updater.update(hyps, NewEvidence(s["check"], s["basis"], lik))
+        elif s["code"] != "null":
             r = DEFAULT_DISCRIMINATIVE_POWER[atype]
             hit, miss = r / (r + 1), 1 / (r + 1)
             fav = s["code"] == "favor"
@@ -100,7 +112,6 @@ def main() -> None:
     decisive = sorted(steps, key=lambda x: -abs(x["realized_entropy_reduction_bits"]))
 
     # re-rank next actions with updated beliefs and the executed checks as new evidence
-    graph = orig.EvidenceGraph() if hasattr(orig, "EvidenceGraph") else None
     from planner import EvidenceGraph  # noqa: E402
     graph = EvidenceGraph()
     for h, d, _ in orig.HYPOTHESES:
@@ -116,12 +127,17 @@ def main() -> None:
     for s in coding["steps"]:
         if s["code"] == "null":
             continue
-        nid = f"res_{s['check']}"
+        nid = f"res_{s['order']}"
         graph.add_node(EvidenceNode(nid, NodeType("claim"), s["basis"]))
         graph.add_edge(EvidenceEdge(nid, "cs_forecast_v1", EdgeType.DERIVED_FROM))
-        graph.add_edge(EvidenceEdge(nid, s["target"],
-                                    EdgeType("supports" if s["code"] == "favor" else "contradicts"),
-                                    confidence=0.7))
+        if s["code"] == "multi":
+            for h in s["predicts"]:
+                graph.add_edge(EvidenceEdge(nid, h, EdgeType("supports"), confidence=0.7))
+            for h in s["opposes"]:
+                graph.add_edge(EvidenceEdge(nid, h, EdgeType("contradicts"), confidence=0.7))
+        else:
+            graph.add_edge(EvidenceEdge(nid, s["target"], EdgeType(
+                "supports" if s["code"] == "favor" else "contradicts"), confidence=0.7))
     actions = [CandidateAction(a, ActionType(t), d, c, tm, list(res), tg)
                for a, t, tg, c, tm, res, d in NEXT_CANDIDATES]
     est = UtilityEstimator(config=load_utility_config(args.planner_src / "configs/default.yaml"),
@@ -130,7 +146,7 @@ def main() -> None:
 
     out = {
         "planner_repo": plan["planner_repo"], "planner_commit": commit,
-        "outcome_coding": "research/paper4_retrospective_outcome_coding_v1.json",
+        "outcome_coding": f"research/paper4_retrospective_outcome_coding_{args.coding}.json",
         "prior": {h: p for h, _, p in orig.HYPOTHESES},
         "posterior": {h.hypothesis_id: h.prior for h in hyps},
         "steps": steps,
@@ -149,7 +165,7 @@ def main() -> None:
         "status": "planning estimate; outcome codes are retrospective; costs, times and "
                   "discriminative powers are declared assumptions, not measurements",
     }
-    path = ROOT / "reports/paper4_cs_forecast_update_and_rerank.json"
+    path = ROOT / f"reports/paper4_cs_forecast_update_and_rerank_{args.coding}.json"
     path.write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps({k: out[k] for k in ("prior", "posterior")}, indent=1))
     for x in steps:

@@ -1,0 +1,12 @@
+{
+ "registered_utc": "2026-10-17T22:42:28.245238+00:00",
+ "sha256": "538dd2c81b4f5259638e1a6668273d75cdac65b0a5cb01d06452d2587f73b33f",
+ "origins": [
+  2025
+ ],
+ "cs_2025_over_2024": 1.2631870499169078,
+ "n_topics": 270,
+ "target": "CS-relative log growth of primary-topic works, origin -> origin+5",
+ "evaluate_not_before": "2031-06-01",
+ "caveat": "ranking of existing directions by forecast relative growth; not breakthroughs"
+}

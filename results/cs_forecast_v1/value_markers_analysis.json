@@ -1,0 +1,1167 @@
+{
+  "amendment": "research/preregistration_cs_breakthrough_forecast_v1_amendment5_value_markers.md",
+  "n_papers": 120,
+  "verification_status": {
+    "fetch_failed": 1,
+    "verified": 19
+  },
+  "verified_types_by_stratum": {
+    "T": {
+      "M4": 12,
+      "M3": 2,
+      "M2": 2
+    },
+    "R": {
+      "M4": 1,
+      "M2": 1
+    },
+    "M": {
+      "M2": 1
+    }
+  },
+  "B1_T_vs_R_V": {
+    "n_a": 40,
+    "n_b": 40,
+    "rate_a": 0.1,
+    "rate_b": 0.025,
+    "risk_difference": 0.07500000000000001,
+    "rd_ci95": [
+      -0.025,
+      0.17500000000000002
+    ],
+    "fisher_p": 0.3588689791221436
+  },
+  "B1_verdict": "inconclusive",
+  "B2_M_vs_R_V": {
+    "n_a": 40,
+    "n_b": 40,
+    "rate_a": 0.025,
+    "rate_b": 0.025,
+    "risk_difference": 0.0,
+    "rd_ci95": [
+      -0.075,
+      0.075
+    ],
+    "fisher_p": 1.0
+  },
+  "B2_verdict": "no_evidence",
+  "B3_rater_scores_by_V": {
+    "human": {
+      "n_a": 2,
+      "n_b": 80,
+      "mean_a": 1.5,
+      "mean_b": 1.8375,
+      "cliffs_delta": -0.24375000000000002,
+      "cliffs_delta_ci95": [
+        -0.7125,
+        0.2625
+      ],
+      "mannwhitney_p": 0.5356527256864011,
+      "share_ge2_a": 0.5,
+      "share_ge2_b": 0.65,
+      "fisher_p_ge2": 1.0,
+      "share_eq3_a": 0.0,
+      "share_eq3_b": 0.1875,
+      "fisher_p_eq3": 1.0
+    },
+    "gpt": {
+      "n_a": 6,
+      "n_b": 109,
+      "mean_a": 1.6666666666666667,
+      "mean_b": 1.6055045871559632,
+      "cliffs_delta": 0.06727828746177372,
+      "cliffs_delta_ci95": [
+        -0.327217125382263,
+        0.42201834862385323
+      ],
+      "mannwhitney_p": 0.7537079181160334,
+      "share_ge2_a": 0.6666666666666666,
+      "share_ge2_b": 0.5871559633027523,
+      "fisher_p_ge2": 1.0,
+      "share_eq3_a": 0.0,
+      "share_eq3_b": 0.01834862385321101,
+      "fisher_p_eq3": 1.0
+    },
+    "claude": {
+      "n_a": 6,
+      "n_b": 114,
+      "mean_a": 2.0,
+      "mean_b": 1.368421052631579,
+      "cliffs_delta": 0.5263157894736842,
+      "cliffs_delta_ci95": [
+        0.152046783625731,
+        0.8011695906432749
+      ],
+      "mannwhitney_p": 0.010257508240054504,
+      "share_ge2_a": 0.8333333333333334,
+      "share_ge2_b": 0.34210526315789475,
+      "fisher_p_ge2": 0.024528306442683258,
+      "share_eq3_a": 0.16666666666666666,
+      "share_eq3_b": 0.02631578947368421,
+      "fisher_p_eq3": 0.18767799166602758
+    }
+  },
+  "B4": {
+    "T_vs_R_V4": {
+      "n_a": 40,
+      "n_b": 40,
+      "rate_a": 0.375,
+      "rate_b": 0.05,
+      "risk_difference": 0.325,
+      "rd_ci95": [
+        0.175,
+        0.5
+      ],
+      "fisher_p": 0.0006695962432570006
+    },
+    "M_vs_R_V4": {
+      "n_a": 40,
+      "n_b": 40,
+      "rate_a": 0.025,
+      "rate_b": 0.05,
+      "risk_difference": -0.025,
+      "rd_ci95": [
+        -0.1,
+        0.05
+      ],
+      "fisher_p": 1.0
+    },
+    "T_vs_R_K": {
+      "n_a": 40,
+      "n_b": 40,
+      "mean_a": 0.1,
+      "mean_b": 0.025,
+      "cliffs_delta": 0.07500000000000001,
+      "cliffs_delta_ci95": [
+        -0.025,
+        0.17500000000000002
+      ],
+      "mannwhitney_p": 0.1721026907926836,
+      "share_ge2_a": 0.0,
+      "share_ge2_b": 0.0,
+      "fisher_p_ge2": 1.0,
+      "share_eq3_a": 0.0,
+      "share_eq3_b": 0.0,
+      "fisher_p_eq3": 1.0
+    },
+    "M_vs_R_K": {
+      "n_a": 40,
+      "n_b": 40,
+      "mean_a": 0.025,
+      "mean_b": 0.025,
+      "cliffs_delta": 0.0,
+      "cliffs_delta_ci95": [
+        -0.075,
+        0.075
+      ],
+      "mannwhitney_p": 1.0,
+      "share_ge2_a": 0.0,
+      "share_ge2_b": 0.0,
+      "fisher_p_ge2": 1.0,
+      "share_eq3_a": 0.0,
+      "share_eq3_b": 0.0,
+      "fisher_p_eq3": 1.0
+    }
+  },
+  "rows": [
+    {
+      "paper_id": "1604.03410",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1005.5581",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1512.03859",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1005.0169",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1901.11373",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1405.3410",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1307.0571",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1107.3350",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1302.4983",
+      "stratum": "T",
+      "types": [
+        "M3"
+      ],
+      "V": 1,
+      "V4": 1,
+      "K": 1
+    },
+    {
+      "paper_id": "1703.04221",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1811.04770",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1910.03620",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1112.5745",
+      "stratum": "R",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1909.02583",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2004.09392",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1803.00444",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2102.10780",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1305.1922",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1911.08554",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1608.03677",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2107.13723",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1104.1159",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1906.06603",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1811.07214",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1703.08219",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2103.03809",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1712.09666",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2101.11149",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1703.06992",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1206.6820",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1204.0939",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1609.09718",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1002.3195",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1007.0066",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1908.04436",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1112.1217",
+      "stratum": "T",
+      "types": [
+        "M2"
+      ],
+      "V": 1,
+      "V4": 1,
+      "K": 1
+    },
+    {
+      "paper_id": "1006.1179",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1601.06043",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1905.02597",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1608.08365",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2007.14075",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1512.05832",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2005.04167",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1905.08087",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1007.3700",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2002.07520",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1611.06928",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1803.05900",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1711.05852",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1707.09038",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1505.06811",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2106.00714",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1901.10258",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1408.2103",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2110.01686",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1503.05296",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1612.05568",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2107.05537",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2210.11190",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2110.04461",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1106.1516",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2212.09248",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2205.09987",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1607.03354",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2010.05708",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1809.00821",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1704.03084",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "2011.01608",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2107.14608",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1203.6405",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1605.03631",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1605.08222",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1701.04763",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1004.5010",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1601.03998",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1401.3794",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1003.2871",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2005.01159",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "2103.13009",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2103.00352",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1204.6416",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1605.02882",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1512.03498",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2210.02987",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1501.02598",
+      "stratum": "T",
+      "types": [
+        "M2"
+      ],
+      "V": 1,
+      "V4": 1,
+      "K": 1
+    },
+    {
+      "paper_id": "1912.04472",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1605.03261",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1610.01784",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1701.01487",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2101.05436",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1904.04404",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1911.09983",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1806.08083",
+      "stratum": "M",
+      "types": [
+        "M2"
+      ],
+      "V": 1,
+      "V4": 1,
+      "K": 1
+    },
+    {
+      "paper_id": "1805.07047",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2007.07595",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1202.4741",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1812.09111",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "2108.09576",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1804.03903",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1801.02381",
+      "stratum": "R",
+      "types": [
+        "M2"
+      ],
+      "V": 1,
+      "V4": 1,
+      "K": 1
+    },
+    {
+      "paper_id": "1305.3797",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2008.09930",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2106.09701",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1607.00122",
+      "stratum": "T",
+      "types": [
+        "M3",
+        "M4"
+      ],
+      "V": 1,
+      "V4": 1,
+      "K": 1
+    },
+    {
+      "paper_id": "1705.02395",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1512.04719",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1805.10352",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2011.12349",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1909.04934",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2108.03613",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2210.11648",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1903.10654",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1806.04057",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1909.03951",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "2012.08387",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1302.4519",
+      "stratum": "T",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1901.10609",
+      "stratum": "R",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1307.0414",
+      "stratum": "T",
+      "types": [
+        "M4"
+      ],
+      "V": 0,
+      "V4": 1,
+      "K": 0
+    },
+    {
+      "paper_id": "1805.09692",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    },
+    {
+      "paper_id": "1706.00439",
+      "stratum": "M",
+      "types": [],
+      "V": 0,
+      "V4": 0,
+      "K": 0
+    }
+  ],
+  "seed": 20261017,
+  "reps": 10000
+}

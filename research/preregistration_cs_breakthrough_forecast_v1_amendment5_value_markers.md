@@ -83,3 +83,13 @@ outside the sample: arXiv 1312.6114 and 1604.03410) was run before freezing to t
 and the verifier; it is not part of the results.
 
 Code sha256 at freeze: `scripts/run_cs_value_markers.py` `2a71c90d298fa514386e905a2d65690a60efcb83b672bbbccbaf4ea56aa58ff8`; `src/cs_forecast/evidence_verify.py` `48eefe6374bc6be853ce95270b0848b75cdea58bad8b94b8be703206fcf28f58`.
+
+## Addendum 1 (2026-10-17, after all six searches, before any verification or analysis)
+
+The searchers' own notes flagged 12 items as "Not searched in depth" (items 23, 24, 86–89, 93–95,
+97–99). Treating them as "no marker found" would understate V for reasons unrelated to the papers.
+The list was taken mechanically from the notes; the item order is the labeling page's seeded
+shuffle, so the list carries no stratum information. These 12 items are re-searched once by one
+fresh subagent (batch 7, same instructions, same isolation audit). Its result replaces the
+original entry for each of those items. No other item is re-searched. The "Not searched in depth"
+phrase in the original entries is retained in the raw log.

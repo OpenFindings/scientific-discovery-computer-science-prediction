@@ -68,8 +68,14 @@ def items() -> list[dict]:
     return gpt.load_items()
 
 
+# addendum 1: items the original searchers flagged "not searched in depth" (fixed before verification)
+SUPPLEMENT = [23, 24, 86, 87, 88, 89, 93, 94, 95, 97, 98, 99]
+
+
 def batch_items(b: int) -> list[tuple[int, dict]]:
     its = items()
+    if b == 7:  # supplementary search batch; later records override earlier ones for these items
+        return [(n, its[n - 1]) for n in SUPPLEMENT]
     return [(i + 1, its[i]) for i in range((b - 1) * BATCH, b * BATCH)]
 
 

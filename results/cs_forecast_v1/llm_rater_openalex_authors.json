@@ -1,0 +1,759 @@
+{
+ "1604.03410": [
+  "Tim Besard",
+  "Verstraete, Pieter",
+  "Bjorn De Sutter"
+ ],
+ "1005.5581": [
+  "Wei Wang",
+  "Zhi\u2010Hua Zhou"
+ ],
+ "1512.03859": [
+  "Alexei Lisitsa",
+  "Andrei P. Nemytykh"
+ ],
+ "1005.0169": [
+  "Kanj Sobh",
+  "Deyvisson Oliveira",
+  "Liu, Bing",
+  "Max Mayantz",
+  "Zhang, Yu Ming",
+  "Ali Alhazmi",
+  "Robin de Bled",
+  "Abdulrahman Al-Sharawi"
+ ],
+ "1901.11373": [
+  "Dani Yogatama",
+  "Cyprien de Masson d\u2019Autume",
+  "Jerome T. Connor",
+  "Tom\u00e1\u0161 Ko\u010disk\u00fd",
+  "Mike Chrzanowski",
+  "Lingpeng Kong",
+  "Angeliki Lazaridou",
+  "Ling Wang",
+  "Lei Yu",
+  "Chris Dyer",
+  "Phil Blunsom"
+ ],
+ "1405.3410": [
+  "Tieming Chen",
+  "Xu Zhang",
+  "Shichao Jin",
+  "Okhee Kim"
+ ],
+ "1307.0571": [
+  "Marius Nicolae",
+  "Sanguthevar Rajasekaran"
+ ],
+ "1107.3350": [
+  "Yang D. Li",
+  "Zhenjie Zhang",
+  "Marianne Winslett",
+  "Yin Yang"
+ ],
+ "1302.4983": [
+  "Peter Spirtes",
+  "Christopher Meek",
+  "Richardson, Thomas S."
+ ],
+ "1703.04221": [
+  "Ning Liu",
+  "Zhe Li",
+  "Jielong Xu",
+  "Zhiyuan Xu",
+  "Sheng Lin",
+  "Qinru Qiu",
+  "Jian Tang",
+  "Yanzhi Wang"
+ ],
+ "1811.04770": [
+  "H. T. Kung",
+  "Bradley McDanel",
+  "Sai Qian Zhang"
+ ],
+ "1910.03620": [
+  "Schultheis, Matthias",
+  "Boris Belousov",
+  "Hany Abdulsamad",
+  "Jan Peters"
+ ],
+ "1112.5745": [
+  "Neil Houlsby",
+  "Ferenc Husz\u00e1r",
+  "Zoubin Ghahramani",
+  "M\u00e1t\u00e9 Lengyel"
+ ],
+ "1909.02583": [
+  "Xian Yeow Lee",
+  "Sambit Ghadai",
+  "Kai Liang Tan",
+  "Chinmay Hegde",
+  "Soumik Sarkar"
+ ],
+ "2004.09392": [
+  "Kun Wang",
+  "WaiChing Sun",
+  "Qiang Du"
+ ],
+ "1803.00444": [
+  "Adrian \u0160o\u0161i\u0107",
+  "Elmar Rueckert",
+  "Jan Peters",
+  "Abdelhak M. Zoubir",
+  "Heinz Koeppl"
+ ],
+ "2102.10780": [
+  "Shaoxiong Feng",
+  "Xuancheng Ren",
+  "Kan Li",
+  "Xu Sun"
+ ],
+ "1305.1922": [
+  "Yin Tat Lee",
+  "Aaron Sidford"
+ ],
+ "1911.08554": [
+  "Sam Shleifer",
+  "Manish Chablani",
+  "Anitha Kannan",
+  "Namit Katariya",
+  "Xavier Amatriain"
+ ],
+ "1608.03677": [
+  "Paul Cuff",
+  "Lanqing Yu"
+ ],
+ "2107.13723": [
+  "Roland Croft",
+  "Yongzheng Xie",
+  "Mansooreh Zahedi",
+  "Muhammad Ali Babar",
+  "Christoph Treude"
+ ],
+ "1104.1159": [
+  "Xu Chu Ding",
+  "STEPHEN L. J. SMITH",
+  "L. Smith",
+  "Calin A. Belta",
+  "Daniela L. Rus"
+ ],
+ "1906.06603": [
+  "Bing Li",
+  "Bonan Yan",
+  "Hai Li"
+ ],
+ "1811.07214": [
+  "Meha Kaushik",
+  "S Phaniteja",
+  "K. Madhava Krishna"
+ ],
+ "1703.08219": [
+  "Gr\u00e9gory M. Essertel",
+  "Ruby Y. Tahboub",
+  "Decker, James M.",
+  "Kevin J. Brown",
+  "Kunle Olukotun",
+  "Tiark Rompf"
+ ],
+ "2103.03809": [
+  "Xuezixiang Li",
+  "Yu Qu",
+  "Heng Yin"
+ ],
+ "1712.09666": [
+  "Anoosheh Heidarzadeh",
+  "Alex Sprintson",
+  "Chanan Singh"
+ ],
+ "2101.11149": [
+  "Frank F. Xu",
+  "Bogdan Vasilescu",
+  "Graham Neubig"
+ ],
+ "1703.06992": [
+  "AbdelRahman Abdou",
+  "Paul C. van Oorschot",
+  "Wan, Tao"
+ ],
+ "1206.6820": [
+  "Ruggiero Cavallo",
+  "David C. Parkes",
+  "Satinder Pal Singh"
+ ],
+ "1204.0939": [
+  "Guillaume Aupy",
+  "Anne Beno\u00eet",
+  "Fanny Dufoss\u00e9",
+  "Yves L. Robert"
+ ],
+ "1609.09718": [
+  "Alexey Bandura",
+  "Nikita Kurilenko",
+  "Manuel Mazzara",
+  "V\u00edctor Rivera",
+  "Larisa Safina",
+  "Alexander Dmitrievich Tchitchigin"
+ ],
+ "1002.3195": [
+  "Mahmud Shahriar Hossain",
+  "Michael A. Narayan",
+  "Naren Ramakrishnan"
+ ],
+ "1007.0066": [
+  "Anton Beloglazov",
+  "Rajkumar Buyya",
+  "Young Choon Lee",
+  "Albert Y. Zomaya"
+ ],
+ "1908.04436": [
+  "Philip Bontrager",
+  "Ahmed Khalifa",
+  "Damien Anderson",
+  "Matthew Stephenson",
+  "Christoph Salge",
+  "Julian Togelius"
+ ],
+ "1112.1217": [
+  "Philipp Hennig",
+  "Christian J. Schuler"
+ ],
+ "1006.1179": [
+  "Marimuthu. C. N",
+  "P. Thangaraj",
+  "Aswathy Ramesan"
+ ],
+ "1601.06043": [
+  "Sana Habib",
+  "Junaid Qadir",
+  "Anwaar Ali",
+  "Durdana Habib",
+  "Ming Li",
+  "Arjuna Sathiaseelan"
+ ],
+ "1905.02597": [
+  "Martin Monperrus"
+ ],
+ "1608.08365": [
+  "Hatem Ibn Khedher",
+  "Makhlouf Hadji",
+  "Emad Abd-Elrahman",
+  "Hossam Afifi",
+  "Ahmed E. Kamal"
+ ],
+ "2007.14075": [
+  "Jacques Basald\u00faa"
+ ],
+ "1512.05832": [
+  "Owain Evans",
+  "Andreas Stuhlm\u00fcller",
+  "Noah D. Goodman"
+ ],
+ "2005.04167": [
+  "Ruthvik Vaila",
+  "John Chiasson",
+  "Vishal Saxena"
+ ],
+ "1905.08087": [
+  "Zheng Tian",
+  "Ying Wen",
+  "Zhichen Gong",
+  "Faiz Punakkath",
+  "Shihao Zou",
+  "Yi-Xiang Wang"
+ ],
+ "1007.3700": [
+  "C. BARAL",
+  "G. GELFOND",
+  "E. PONTELLI",
+  "Tran Cao Son"
+ ],
+ "2002.07520": [
+  "Milad Alizadeh",
+  "Arash Behboodi",
+  "Mart van Baalen",
+  "Christos Louizos",
+  "Tijmen Blankevoort",
+  "Max Welling"
+ ],
+ "1611.06928": [
+  "Christoph Dann",
+  "Katja Hofmann",
+  "Sebastian Nowozin"
+ ],
+ "1803.05900": [
+  "Stylianos I. Venieris",
+  "Alexandros Kouris",
+  "Christos-Savvas Bouganis"
+ ],
+ "1711.05852": [
+  "Mishra, Asit",
+  "Debbie Marr"
+ ],
+ "1707.09038": [
+  "Mario Linares\u2010V\u00e1squez",
+  "Gabriele Bavota",
+  "Michele Tufano",
+  "Kevin Moran",
+  "Massimiliano Di Penta",
+  "Christopher Vendome",
+  "Carlos Bernal-C\u00e1rdenas",
+  "Denys Poshyvanyk"
+ ],
+ "1505.06811": [
+  "Huacheng Yu"
+ ],
+ "2106.00714": [
+  "Samir Datta",
+  "Kishlaya Jaiswal"
+ ],
+ "1901.10258": [
+  "Faiq Khalid",
+  "Hassan Mohamed Ali",
+  "Muhammad Abdullah Hanif",
+  "Semeen Rehman",
+  "Rehan Ahmed",
+  "Muhammad Shafique"
+ ],
+ "1408.2103": [
+  "Martin Monperrus"
+ ],
+ "2110.01686": [
+  "Beatriz Soret",
+  "Lam Duc Nguyen",
+  "Jan Seeger",
+  "Arne Br\u00f6ring",
+  "Chaouki Ben Issaid",
+  "Sumudu Samarakoon",
+  "Anis Elgabli",
+  "Vivek Kulkarni",
+  "Mehdi Bennis",
+  "Petar Popovski"
+ ],
+ "1503.05296": [
+  "Omar Y. Al-Jarrah",
+  "Paul D. Yoo",
+  "Sami Muhaidat",
+  "George K. Karagiannidis",
+  "Kamal Taha"
+ ],
+ "1612.05568": [
+  "Naoise Holohan",
+  "Douglas J. Leith",
+  "Oliver Mason"
+ ],
+ "2107.05537": [
+  "Bolong Zheng",
+  "Xi Zhao",
+  "Lianggui Weng",
+  "Quoc Viet Hung Nguyen",
+  "Hang Liu",
+  "Christian S. Jensen"
+ ],
+ "2210.11190": [
+  "Mattias Nilsson",
+  "Olov Schel\u00e9n",
+  "Anders Lindgren",
+  "Ulf Bodin",
+  "Cristina Paniagua",
+  "Jerker Delsing",
+  "Fredrik Sandin"
+ ],
+ "2110.04461": [
+  "Patrick Redmond",
+  "Gan Shen",
+  "Lindsey Kuper"
+ ],
+ "1106.1516": [
+  "Francesco De Pellegrini",
+  "Karina Gomez",
+  "Daniele Miorandi",
+  "Imrich Chlamtac"
+ ],
+ "2212.09248": [
+  "Pengcheng Yin",
+  "Wen-Ding Li",
+  "Kefan Xiao",
+  "Rao, Abhishek",
+  "Yeming Wen",
+  "Kensen Shi",
+  "Howland, Joshua",
+  "Paige Bailey",
+  "Michele Catasta",
+  "Henryk Michalewski",
+  "Alex Polozov",
+  "Charles A. Sutton"
+ ],
+ "2205.09987": [
+  "Jiaming Qi",
+  "Peng Zhou",
+  "Guangtao Ran",
+  "Han Gao",
+  "Pengyu Wang",
+  "Dongyu Li",
+  "Yufeng Gao",
+  "David Navarro-Alarc\u00f3n"
+ ],
+ "1607.03354": [
+  "Benjamin Aminof",
+  "Vadim Malvone",
+  "Aniello Murano",
+  "Sasha Rubin"
+ ],
+ "2010.05708": [
+  "Ant\u00f3nio Cerone",
+  "Markus Roggenbach",
+  "James H. Davenport",
+  "Casey Denner",
+  "Marie Farrell",
+  "Magne Haveraaen",
+  "Faron Moller",
+  "Philipp K\u00f6rner",
+  "Sebastian Krings",
+  "Peter Csaba \u00d6lveczky",
+  "Bernd\u2013Holger Schlingloff",
+  "\u0428\u0438\u043b\u043e\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\u0439 \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447",
+  "Rustam Zhumagambetov"
+ ],
+ "1809.00821": [
+  "Roberto Bagnara A",
+  "Abramo Bagnara",
+  "Patricia M. Hill"
+ ],
+ "1704.03084": [
+  "Baolin Peng",
+  "Xiujun Li",
+  "Lihong Li",
+  "Jianfeng Gao",
+  "Asl\u0131 \u00c7eliky\u0131lmaz",
+  "Sungjin Lee",
+  "Kam\u2010Fai Wong"
+ ],
+ "2011.01608": [
+  "Sabah Al\u2010Fedaghi"
+ ],
+ "2107.14608": [
+  "Cristian Rusu"
+ ],
+ "1203.6405": [
+  "Goetz Graefe",
+  "Felix Halim",
+  "Stratos Idreos",
+  "Harumi Kuno",
+  "Stefan Manegold"
+ ],
+ "1605.03631": [
+  "Bo Tang",
+  "Steven Kay",
+  "Haibo He",
+  "Paul M. Baggenstoss"
+ ],
+ "1605.08222": [
+  "Vi Ngoc-Nha Tran",
+  "Phuong Hoai Ha"
+ ],
+ "1701.04763": [
+  "Eugenio Gianniti",
+  "Danilo Ardagna",
+  "Michele Ciavotta",
+  "Mauro Passacantando"
+ ],
+ "1004.5010": [
+  "Marek Cygan",
+  "Marcin Pilipczuk",
+  "Micha\u0142 Pilipczuk",
+  "Jakub Onufry Wojtaszczyk"
+ ],
+ "1601.03998": [
+  "Stefan Zander",
+  "Georg Heppner",
+  "Georg Neugschwandtner",
+  "Ramez Awad",
+  "Marc Essinger",
+  "Nadia Ahmed"
+ ],
+ "1401.3794": [
+  "Thibaut Vidal",
+  "Nelson Maculan",
+  "Luiz Satoru Ochi",
+  "Puca Huachi Vaz Penna"
+ ],
+ "1003.2871": [
+  "Julien Forget",
+  "Fr\u00e9d\u00e9ric Boniol",
+  "David Lesens",
+  "Claire Pagetti"
+ ],
+ "2005.01159": [
+  "Luyang Huang",
+  "Lingfei Wu",
+  "Lu Wang"
+ ],
+ "2103.13009": [
+  "Nicholas Lourie",
+  "Ronan Joseph Le Bras",
+  "Chandra Bhagavatula",
+  "Yejin Choi"
+ ],
+ "2103.00352": [
+  "Kaylea Champion",
+  "Benjamin Mako Hill"
+ ],
+ "1204.6416": [
+  "Rajdeep Borgohain"
+ ],
+ "1605.02882": [
+  "Nikhil Bansal",
+  "Daniel Dadush",
+  "Garg, Shashwat"
+ ],
+ "1512.03498": [
+  "Youssef Gahi",
+  "Mouhcine Guennoun",
+  "Khalil El\u2010Khatib"
+ ],
+ "2210.02987": [
+  "Sharif Jacobino",
+  "Johan A. Pouwelse"
+ ],
+ "1501.02598": [
+  "Angeliki Lazaridou",
+  "Nghia The Pham",
+  "Marco Baroni"
+ ],
+ "1912.04472": [
+  "Daniel S. Brown",
+  "Scott Niekum"
+ ],
+ "1605.03261": [
+  "Junpei Zhong",
+  "Martin Peniak",
+  "Jun Tani",
+  "Tetsuya Ogata",
+  "Angelo Cangelosi"
+ ],
+ "1610.01784": [
+  "Xinxin Mei",
+  "Qiang Wang",
+  "Xiaowen Chu"
+ ],
+ "1701.01487": [
+  "Mark Muraven"
+ ],
+ "2101.05436": [
+  "Zengyi Qin",
+  "Kaiqing Zhang",
+  "Yuxiao Chen",
+  "Jingkai Chen",
+  "Chuchu Fan"
+ ],
+ "1904.04404": [
+  "Jianwei Yang",
+  "Zhile Ren",
+  "Mingze Xu",
+  "Xinlei Chen",
+  "David Crandall",
+  "Devi Parikh",
+  "Dhruv Batra"
+ ],
+ "1911.09983": [
+  "Zeyu Sun",
+  "Qihao Zhu",
+  "Yingfei Xiong",
+  "Yican Sun",
+  "Lili Mou",
+  "Lu Zhang"
+ ],
+ "1806.08083": [
+  "Martin Biehl",
+  "Christian Guckelsberger B",
+  "Christoph Salge",
+  "Sim\u00f3n C. Smith",
+  "Daniel Polani"
+ ],
+ "1805.07047": [
+  "Wyatt Meldman-Floch"
+ ],
+ "2007.07595": [
+  "Jonas Dann",
+  "Daniel Ritter",
+  "Holger Fr\u00f6ning"
+ ],
+ "1202.4741": [
+  "Katrina Ligett",
+  "Aaron Roth"
+ ],
+ "1812.09111": [
+  "Garcia Ortiz, M.",
+  "Lesort, T.",
+  "Caselles-Dupr\u00e9, H.",
+  "Goudou, J-F.",
+  "David Filliat"
+ ],
+ "2108.09576": [
+  "Berkay Kaplan",
+  "Jingyu Qian"
+ ],
+ "1804.03903": [
+  "Gokhan Sagirlar",
+  "Barbara Carminati",
+  "Elena Ferrari",
+  "John D. Sheehan",
+  "Emanuele Ragnoli"
+ ],
+ "1801.02381": [
+  "Erik van der Kouwe",
+  "Dennis Andriesse",
+  "Herbert Bos",
+  "Cristiano Giuffrida",
+  "Gernot Heiser"
+ ],
+ "1305.3797": [
+  "Ameer K. Mulla",
+  "Rachel Kalpana Kalaimani",
+  "Debraj Chakraborty",
+  "Madhu N. Belur"
+ ],
+ "2008.09930": [
+  "Guanjin Qu",
+  "Huaming Wu",
+  "Ruidong Li",
+  "Pengfei Jiao"
+ ],
+ "2106.09701": [
+  "James Smith",
+  "Yen-Chang Hsu",
+  "Jonathan Balloch",
+  "Yilin Shen",
+  "Hongxia Jin",
+  "Zsolt Kira"
+ ],
+ "1607.00122": [
+  "Heechul Jung",
+  "Jeongwoo Ju",
+  "Minju Jung",
+  "Junmo Kim"
+ ],
+ "1705.02395": [
+  "Markus Borg",
+  "Iben Lennerstad",
+  "Rasmus Ros",
+  "Elizabeth Bjarnason"
+ ],
+ "1512.04719": [
+  "Carsten Fischer",
+  "Heiko R\u00f6glin"
+ ],
+ "1805.10352": [
+  "Jiahao Su",
+  "Jingling Li",
+  "Bobby Bhattacharjee",
+  "Furong Huang"
+ ],
+ "2011.12349": [
+  "Batuhan Bardak",
+  "Mehmet Tan"
+ ],
+ "1909.04934": [
+  "James Kempf",
+  "Nayak, Sambit",
+  "Remi Robert",
+  "Jim Feng",
+  "Kunal Rajan Deshmukh",
+  "Anshu Shukla",
+  "Aleksandra Obeso Duque",
+  "Nanjangud C. Narendra",
+  "Johan Sj\u00f6berg"
+ ],
+ "2108.03613": [
+  "Shipeng Yan",
+  "Jiale Zhou",
+  "Jiangwei Xie",
+  "Songyang Zhang",
+  "Xuming He"
+ ],
+ "2210.11648": [
+  "Yiding Feng",
+  "Rad Niazadeh",
+  "Amin Saberi"
+ ],
+ "1903.10654": [
+  "Akifumi Wachi"
+ ],
+ "1806.04057": [
+  "Jianbing Ni",
+  "Kuan Zhang",
+  "Qi Xia",
+  "Xiaodong Lin",
+  "Xuemin Shen"
+ ],
+ "1909.03951": [
+  "Gautam Kamath",
+  "Or Sheffet",
+  "Vikrant Singhal",
+  "Jonathan Ullman"
+ ],
+ "2012.08387": [
+  "Cynthia C. S. Liem",
+  "Annibale Panichella"
+ ],
+ "1302.4519": [
+  "Nguyen Quang-Hung",
+  "Pham Dac Nien",
+  "Nguy\u1ec5n Ho\u00e0i Nam",
+  "Nguyen Huynh Tuong",
+  "Nam Thoai"
+ ],
+ "1901.10609": [
+  "Di Feng",
+  "Wei Xiao",
+  "Lars Rosenbaum",
+  "Atsuto Maki",
+  "Klaus Dietmayer"
+ ],
+ "1307.0414": [
+  "Ian Goodfellow",
+  "Dumitru Erhan",
+  "Carrier, Pierre Luc",
+  "Aaron C. Courville",
+  "Mehdi Mirza",
+  "Ben Hamner",
+  "Will Cukierski",
+  "Yichuan Tang",
+  "Thaler, David",
+  "Dong\u2010Hyun Lee",
+  "Yingbo Zhou",
+  "Chetan Ramaiah",
+  "Fangxiang Feng",
+  "Ruifan Li",
+  "Xiaojie Wang",
+  "Dimitris Athanasakis",
+  "John S. Shawe-Taylor",
+  "Maxim Milakov",
+  "Park, John",
+  "Radu Tudor Ionescu",
+  "Marius Popescu",
+  "Cristian Grozea",
+  "James Bergstra",
+  "Jingjing Xie",
+  "\u0141ukasz Romaszko",
+  "Bing Hao Xu",
+  "Chuang Zhang",
+  "Yoshua Bengio"
+ ],
+ "1805.09692": [
+  "Samuel Ritter",
+  "Jane X. Wang",
+  "Zeb L. Kurth-Nelson",
+  "Siddhant M. Jayakumar",
+  "Charles Blundell",
+  "Razvan Pascanu",
+  "Matthew Botvinick"
+ ],
+ "1706.00439": [
+  "Jean Kossaifi",
+  "Aran Khanna",
+  "Zachary C. Lipton",
+  "Tommaso Furlanello",
+  "Animashree Anandkumar"
+ ]
+}

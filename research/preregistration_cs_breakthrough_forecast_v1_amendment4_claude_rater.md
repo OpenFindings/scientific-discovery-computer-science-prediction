@@ -75,3 +75,14 @@ paper. No temperature control. The model family's training data postdate all pap
 orchestrator could in principle bias parsing; replies are stored verbatim to allow audit.
 
 Script sha256 at freeze: `a9bc27ab3d5fde4e841e98b5ad0bb5418ac08985a779ac0676fbd6ca7f0f8c49`.
+
+## Addendum (2026-10-17, after rating, before analysis)
+
+Each subagent's reported tool-use count was **2**, not 1. Extracting only tool names and file
+names from the six subagent transcripts showed the same two calls in every one: one `Read` of
+its own assigned prompt file (`prompt_r<run>_b<batch>.txt`), then the `SubagentHandback` call
+that returns the reply. No other file was read, no command was run and no web access was made.
+The hand-back is how a subagent's reply is delivered, so the frozen ">1 tool call → discard"
+rule did not anticipate it. Batches are ingested with the non-hand-back count (1). The JSON
+ingested is the hand-back text taken from each transcript. It was compared to the orchestrator's
+transcription and was identical for all six batches.

@@ -81,3 +81,12 @@ over *t → t+5* better than simple momentum baselines?
 At most 1,000 OpenAlex requests (free key). No paid calls.
 
 Code sha256 at freeze: `scripts/run_cs_direction_forecast.py` `19dfde26079fd65b99fe787a869d26955c747454b772b6348a09b5191ce7eef5`.
+
+## Addendum 1 (2026-10-17, after the fetch, before any backtest result)
+
+Code bug fixed: the panel required 8 prior years (`o − 8 ≥ 2000`), but the deepest lag any
+feature uses is 6 years (`P[o−6]`, for acceleration). With 8 years the first training origin
+became 2008, contrary to the frozen 2006, and the 2011 test origin had no training data, so the
+run crashed before producing results. The check is now `o − 6 ≥ 2000`, as frozen. Nothing else
+changed. New code sha256: `1a5916b5ea38d7d2130f0c358548c4631c55ef57d5588f42b5c2f703eeee1156`. Data note: CS totals are 714,868 in 2024 and 903,012 in 2025
+(ratio 1.26 ≥ 0.9), so the 2024 fallback origin does not apply.

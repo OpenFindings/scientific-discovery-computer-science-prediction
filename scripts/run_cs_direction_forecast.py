@@ -84,7 +84,7 @@ def panel() -> pd.DataFrame:
         rel = lambda y, k: (np.log((P[y] + 1) / (P[y - k] + 1))  # noqa: E731
                             - np.log(cs[y] / cs[y - k]))
         for o in range(FIRST_TRAIN, 2026):
-            if o - 8 < 2000:
+            if o - 6 < 2000:  # deepest lag used is P[o-6] (accel); see addendum
                 continue
             yearly = [rel(y, 1) for y in range(o - 4, o + 1)]
             row = {"topic": tid, "name": t["name"], "subfield": t["subfield"], "origin": o,

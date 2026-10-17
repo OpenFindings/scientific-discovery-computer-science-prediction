@@ -54,3 +54,22 @@ At most 14 searcher subagents, plus one supplementary searcher and one re-run pe
 No paid API.
 
 Frozen hashes: `scripts/run_cs_value_markers_v2.py` `8b5f16f385a0c1ca9fc52d2e3fc8c9e54b04fe7ddd47097c9022cb42ab399f03`; `results/cs_forecast_v1/value_sample_v2.json` `01ab3310c452cfc5b87c0894213aa56f08fb1fdb43942d1dff5f8f48e80dbcb0`.
+
+## Addendum 1 (2026-10-17, after batches 2–7 returned, before any verification or analysis)
+
+The seven concurrent searchers shared a 200-call web-search budget per orchestrator turn. Searchers
+in batches 3, 5 and 7 left most items unsearched, and most batch-4 items got only one search.
+Batch 1 stopped on a usage limit before handing back and was asked to hand back its answer
+unchanged. Changes, all stratum-blind:
+
+- **Re-search list:** 58 items whose note mentions "not searched", "not assessed", "budget",
+  "limit ran out" or "unverified", or whose reported searches is 0. The list is taken mechanically
+  from batches 2–7 and recorded in `SUPPLEMENT` in the script. These items are re-searched in
+  supplementary batches 101–103, same instructions.
+- **Merging:** for re-searched items, claims from both searches are pooled (union) before
+  verification. Some items found evidence before the budget ran out, and replacing their entries
+  would discard verified evidence.
+- **Concurrency:** at most 2 searchers run at a time from here on (batches 8–14 and 101–103).
+  Batches 8–14 are screened against the same rule after they return.
+- **Budget:** amendment 6 allowed 14 searchers plus one supplementary searcher. It is extended to
+  14 + 3 supplementary searchers + up to 2 more if batches 8–14 trigger the rule.

@@ -100,3 +100,4 @@ and prediction therefore use one reference source.
   AUROC of `paper3_cs_logistic` with S2 references next to the primary 0.654.
 - The registered predictions use only the S2-reference models. The OpenAlex-reference primary
   results (G1–G4) are unchanged.
+- Code updated for addendum 1 before any prediction: `scripts/prospective_2025_register.py` sha256 `21801200448b2b4a2740d6d1a3915d0382552bc847976a394160e7810c563175`; new `scripts/prospective_2025_s2_refs.py`.

@@ -186,11 +186,37 @@ def posting(df: pd.DataFrame, topic_years: dict, recs: dict) -> pd.DataFrame:
 
 
 def predict() -> None:
+    # addendum 1: references for BOTH training and cohort come from Semantic Scholar
+    import shutil
+    import tempfile
+    refs_s2 = json.loads((DATA / "refs_s2.json").read_text())
     fc = load("run_cs_forecast")
+    tmp = Path(tempfile.mkdtemp())
+    hrecs = {}
+    with open(tmp / "snapshot_v1.jsonl", "w") as fh:
+        for line in open(ROOT / "data/cs_forecast/snapshot_v1.jsonl"):
+            p = json.loads(line)
+            p["refs"] = refs_s2.get(p["paper_id"], [])
+            hrecs[p["paper_id"]] = p
+            fh.write(json.dumps(p) + "\n")
+    for f in ("topic_years.json", "topic_pairs.json"):
+        shutil.copy(ROOT / "data/cs_forecast" / f, tmp / f)
+    orig_data, fc.DATA = fc.DATA, tmp
     hist = fc.build_frame()
-    hrecs = {json.loads(l)["paper_id"]: json.loads(l)
-             for l in open(ROOT / "data/cs_forecast/snapshot_v1.jsonl")}
+    fc.DATA = orig_data
+    hist_oa = fc.build_frame()
+    _, bt = fc.score(hist, fc.TARGET, {"paper3_cs_logistic": ev.predictors(hist)["paper3_cs_logistic"]},
+                     "s2_refs_backtest")
+    comparability = {
+        "ev_n_refs_corr_openalex_vs_s2": float(np.corrcoef(hist_oa.ev_n_refs, hist.ev_n_refs)[0, 1]),
+        "mean_ev_n_refs_openalex": float(hist_oa.ev_n_refs.mean()),
+        "mean_ev_n_refs_s2": float(hist.ev_n_refs.mean()),
+        "backtest_paper3_auroc_s2_refs": bt["metrics"]["paper3_cs_logistic"]["auroc"],
+        "backtest_paper3_auroc_ci95_s2_refs": bt["bootstrap"]["auroc_ci95"]["paper3_cs_logistic"],
+        "backtest_paper3_auroc_primary_openalex_refs": 0.6539570757880617}
     prec_list = [json.loads(l) for l in open(DATA / "snapshot.jsonl")]
+    for p in prec_list:
+        p["refs"] = refs_s2.get(p["paper_id"], [])
     precs = {p["paper_id"]: p for p in prec_list}
     pty = json.loads((DATA / "topic_years.json").read_text())
     pro = frame(prec_list, pty, json.loads((DATA / "topic_pairs.json").read_text()))
@@ -232,9 +258,12 @@ def predict() -> None:
                                           "ineligible")},
         "fetch": json.loads((DATA / "fetch_manifest.json").read_text()),
         "training_papers": int(len(hist)), "evaluate_not_before": "2029-04-01",
+        "reference_source": "Semantic Scholar for training and cohort (addendum 1)",
+        "s2_reference_comparability": comparability,
+        "cohort_papers_with_refs": int(sum(bool(p["refs"]) for p in prec_list)),
         "outcome": "citations dated 2026-2028 to any exact-title version; top decile within cohort",
     }, indent=1) + "\n")
-    print(json.dumps({"n": len(out), "sha256": sha}))
+    print(json.dumps({"n": len(out), "sha256": sha, "comparability": comparability}, default=float))
 
 
 if __name__ == "__main__":

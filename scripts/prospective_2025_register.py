@@ -205,8 +205,10 @@ def predict() -> None:
     hist = fc.build_frame()
     fc.DATA = orig_data
     hist_oa = fc.build_frame()
-    _, bt = fc.score(hist, fc.TARGET, {"paper3_cs_logistic": ev.predictors(hist)["paper3_cs_logistic"]},
-                     "s2_refs_backtest")
+    btp = ev.rolling_origin(hist, fc.TARGET,
+                            {"paper3_cs_logistic": ev.predictors(hist)["paper3_cs_logistic"]})
+    bt = {"metrics": {"paper3_cs_logistic": ev.metrics(btp[fc.TARGET], btp["paper3_cs_logistic"])},
+          "bootstrap": ev.cluster_bootstrap(btp, fc.TARGET, ["paper3_cs_logistic"])}
     comparability = {
         "ev_n_refs_corr_openalex_vs_s2": float(np.corrcoef(hist_oa.ev_n_refs, hist.ev_n_refs)[0, 1]),
         "mean_ev_n_refs_openalex": float(hist_oa.ev_n_refs.mean()),

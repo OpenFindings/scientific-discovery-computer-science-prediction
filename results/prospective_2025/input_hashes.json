@@ -1,0 +1,9 @@
+{
+ "data/prospective_2025/cohort.json": "7469bf8ec67ed122bf9bcfcb889b5cb17e1831b339098390d8245f3b9604d426",
+ "data/prospective_2025/snapshot.jsonl": "d0c17e5cad564667647742fce1e2314f40ea6b5893d87eddfc1ba1a0a149d805",
+ "data/prospective_2025/topic_years.json": "5c820fb2ff9ec394702762dc5d442ef5678f7ecb5dc672eec4a1e8fda8146496",
+ "data/prospective_2025/topic_pairs.json": "2920997a00a2aa10aaab42454a084dc3bcb76c1908fdd083b116af4ed6c20c48",
+ "data/prospective_2025/refs_s2.json": "11a6a1d5b95d7077ad382ad56fb4c3d4f3544aaa9422e7eb77ca3c6224488d28",
+ "results/prospective_2025/predictions.csv": "03ed99164ac8c9cbf6c352ed4185eecc0d83314d408aca918c441c97071a80c9",
+ "note": "refs_s2.json holds S2-derived reference titles; kept out of git (S2 licence) and reproducible with scripts/prospective_2025_s2_refs.py"
+}

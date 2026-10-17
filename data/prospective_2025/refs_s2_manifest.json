@@ -1,0 +1,50 @@
+{
+ "papers_requested": 1629,
+ "papers_ok": 1621,
+ "failed": [
+  {
+   "paper_id": "1012.2496",
+   "status": 404
+  },
+  {
+   "paper_id": "1210.1653",
+   "status": 404
+  },
+  {
+   "paper_id": "1705.06629",
+   "status": 404
+  },
+  {
+   "paper_id": "1611.10031",
+   "status": 404
+  },
+  {
+   "paper_id": "1607.01835",
+   "status": 404
+  },
+  {
+   "paper_id": "1507.01715",
+   "status": 404
+  },
+  {
+   "paper_id": "2511.04973",
+   "status": 404
+  },
+  {
+   "paper_id": "2506.07149",
+   "status": 404
+  }
+ ],
+ "references": 60080,
+ "references_with_openalex_topic": 44073,
+ "s2": {
+  "requests": 1447,
+  "cache_hits": 467,
+  "errors": 5
+ },
+ "openalex": {
+  "requests": 952,
+  "cache_hits": 0,
+  "errors": 0
+ }
+}

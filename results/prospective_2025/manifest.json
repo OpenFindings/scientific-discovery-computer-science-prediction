@@ -1,0 +1,41 @@
+{
+ "amendment": "research/preregistration_cs_breakthrough_forecast_v1_amendment8_prospective_2025.md",
+ "registered_utc": "2026-10-17T22:11:53.646749+00:00",
+ "predictions_sha256": "03ed99164ac8c9cbf6c352ed4185eecc0d83314d408aca918c441c97071a80c9",
+ "n_papers": 700,
+ "cohort": {
+  "retrieved_utc": "2026-10-17T20:48:32.036751+00:00",
+  "filter": "publication_year:2025,primary_location.source.id:S4306400194,primary_topic.field.id:fields/17",
+  "seed": 20261017,
+  "candidates": 1000,
+  "ineligible": {
+   "no_arxiv_doi": 72,
+   "not_in_arxiv_api": 0,
+   "first_version_not_2025": 0,
+   "revised_after_cutoff": 162
+  }
+ },
+ "fetch": {
+  "finished_utc": "2026-10-17T21:12:02.083406+00:00",
+  "papers": 700,
+  "requests": 4339,
+  "cache_hits": 0,
+  "errors": 0
+ },
+ "training_papers": 929,
+ "evaluate_not_before": "2029-04-01",
+ "reference_source": "Semantic Scholar for training and cohort (addendum 1)",
+ "s2_reference_comparability": {
+  "ev_n_refs_corr_openalex_vs_s2": 0.5662755060396726,
+  "mean_ev_n_refs_openalex": 20.47362755651238,
+  "mean_ev_n_refs_s2": 33.58127018299246,
+  "backtest_paper3_auroc_s2_refs": 0.5961435278336686,
+  "backtest_paper3_auroc_ci95_s2_refs": [
+   0.5126816582095098,
+   0.6743180470929961
+  ],
+  "backtest_paper3_auroc_primary_openalex_refs": 0.6539570757880617
+ },
+ "cohort_papers_with_refs": 631,
+ "outcome": "citations dated 2026-2028 to any exact-title version; top decile within cohort"
+}

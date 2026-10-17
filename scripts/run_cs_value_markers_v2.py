@@ -80,12 +80,13 @@ def items() -> list[dict]:
 # addendum 1: items whose first search was cut short by the shared web-search budget
 SUPPLEMENT = [41, 42, 46, 47, 50, 51, 52, 53, 54, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 69, 70,
               71, 74, 75, 76, 77, 78, 79, 80, 81, 83, 84, 85, 86, 87, 88, 89, 91, 93, 94, 95, 121,
-              123, 125, 126, 127, 128, 129, 130, 131, 132, 135, 136, 137, 138, 139, 140]
+              123, 125, 126, 127, 128, 129, 130, 131, 132, 135, 136, 137, 138, 139, 140,
+              4, 11, 15, 20]  # last 4: batch 1, screened after its late hand-back
 
 
 def batch_items(b: int) -> list[tuple[int, dict]]:
     its = items()
-    if b >= 101:  # supplementary batches 101, 102, 103 (20, 20, 18 items)
+    if b >= 101:  # supplementary batches 101-104 (20, 20, 20, 2 items)
         chunk = SUPPLEMENT[(b - 101) * BATCH:(b - 100) * BATCH]
         return [(n, its[n - 1]) for n in chunk]
     lo = (b - 1) * BATCH

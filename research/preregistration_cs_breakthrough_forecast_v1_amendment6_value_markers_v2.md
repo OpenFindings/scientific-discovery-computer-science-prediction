@@ -73,3 +73,6 @@ unchanged. Changes, all stratum-blind:
   Batches 8–14 are screened against the same rule after they return.
 - **Budget:** amendment 6 allowed 14 searchers plus one supplementary searcher. It is extended to
   14 + 3 supplementary searchers + up to 2 more if batches 8–14 trigger the rule.
+- Screening of batches 1 and 8–14 with the same rule flagged 4 more items, all from batch 1:
+  4, 11, 15 and 20. Batches 8–14, run 2 at a time, flagged none. The 4 items are appended to the
+  re-search list. Supplementary batches are now 101–104, with 20, 20, 20 and 2 items.

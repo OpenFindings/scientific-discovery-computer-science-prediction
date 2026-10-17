@@ -1,0 +1,3823 @@
+{
+  "amendment": "research/preregistration_cs_breakthrough_forecast_v1_amendment6_value_markers_v2.md",
+  "n_by_stratum_wave": {
+    "R_w1": 40,
+    "T_w1": 40,
+    "M_w1": 40,
+    "R_w2": 160,
+    "M_w2": 54,
+    "T_w2": 64
+  },
+  "verification_status_wave2": {
+    "verified": 41,
+    "quote_not_found": 1,
+    "excluded_source": 4
+  },
+  "verified_types_by_stratum": {
+    "T": {
+      "M2": 9,
+      "M4": 25,
+      "M3": 3
+    },
+    "R": {
+      "M2": 4,
+      "M4": 7
+    },
+    "M": {
+      "M2": 1,
+      "M4": 5,
+      "M3": 1
+    }
+  },
+  "C1_T_vs_R_V_pooled": {
+    "n_a": 104,
+    "n_b": 200,
+    "rate_a": 0.11538461538461539,
+    "rate_b": 0.02,
+    "risk_difference": 0.09538461538461539,
+    "rd_ci95": [
+      0.03307692307692308,
+      0.1626923076923077
+    ],
+    "fisher_p": 0.0007612739301548677
+  },
+  "C1_verdict": "citation_label_agrees_with_documentary_value",
+  "C2_M_vs_R_V_pooled": {
+    "n_a": 94,
+    "n_b": 200,
+    "rate_a": 0.02127659574468085,
+    "rate_b": 0.02,
+    "risk_difference": 0.0012765957446808501,
+    "rd_ci95": [
+      -0.03,
+      0.03819148936170213
+    ],
+    "fisher_p": 1.0
+  },
+  "C2_verdict": "no_evidence",
+  "C3_model_score_auroc_for_V_among_negatives": {
+    "n": 208,
+    "positives": 3,
+    "auroc": 0.5382113821138211,
+    "auroc_ci95": [
+      0.10731707317073169,
+      0.8405797101449276
+    ],
+    "verdict": "no_evidence"
+  },
+  "C4": {
+    "T_vs_R_V4_pooled": {
+      "n_a": 104,
+      "n_b": 200,
+      "rate_a": 0.33653846153846156,
+      "rate_b": 0.055,
+      "risk_difference": 0.28153846153846157,
+      "rd_ci95": [
+        0.18615384615384614,
+        0.3784615384615384
+      ],
+      "fisher_p": 3.0966988682778707e-10
+    },
+    "M_vs_R_V4_pooled": {
+      "n_a": 94,
+      "n_b": 200,
+      "rate_a": 0.07446808510638298,
+      "rate_b": 0.055,
+      "risk_difference": 0.019468085106382975,
+      "rd_ci95": [
+        -0.03808510638297873,
+        0.08329787234042554
+      ],
+      "fisher_p": 0.6029069907502166
+    },
+    "T_vs_R_V_wave2_only": {
+      "n_a": 64,
+      "n_b": 160,
+      "rate_a": 0.125,
+      "rate_b": 0.01875,
+      "risk_difference": 0.10625,
+      "rd_ci95": [
+        0.028125,
+        0.196875
+      ],
+      "fisher_p": 0.002402019059524134
+    },
+    "M_vs_R_V_wave2_only": {
+      "n_a": 54,
+      "n_b": 160,
+      "rate_a": 0.018518518518518517,
+      "rate_b": 0.01875,
+      "risk_difference": -0.00023148148148148182,
+      "rd_ci95": [
+        -0.0375,
+        0.049305555555555554
+      ],
+      "fisher_p": 1.0
+    }
+  },
+  "C5_reported_searches_wave2": {
+    "T": {
+      "mean": 2.3125
+    },
+    "R": {
+      "mean": 2.05625
+    },
+    "M": {
+      "mean": 2.1296296296296298
+    }
+  },
+  "rows": [
+    {
+      "paper_id": "2107.13723",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1104.1159",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1906.06603",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1811.07214",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1703.08219",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2103.03809",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1712.09666",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2101.11149",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1703.06992",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1206.6820",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1204.0939",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1609.09718",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1002.3195",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1007.0066",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1908.04436",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1112.1217",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M2"
+      ],
+      "searches": null,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1006.1179",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1601.06043",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1905.02597",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1608.08365",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1106.1516",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2212.09248",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2205.09987",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1607.03354",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2010.05708",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1809.00821",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1704.03084",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2011.01608",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2107.14608",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1203.6405",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1605.03631",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1605.08222",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1701.04763",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1004.5010",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1601.03998",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1401.3794",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1003.2871",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2005.01159",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2103.13009",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2103.00352",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2007.14075",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1512.05832",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2005.04167",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1905.08087",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1007.3700",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2002.07520",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1611.06928",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1803.05900",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1711.05852",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1707.09038",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1505.06811",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2106.00714",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1901.10258",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1408.2103",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2110.01686",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1503.05296",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1612.05568",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2107.05537",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2210.11190",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2110.04461",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1305.3797",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2008.09930",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2106.09701",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1607.00122",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M3",
+        "M4"
+      ],
+      "searches": null,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1705.02395",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1512.04719",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1805.10352",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2011.12349",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.04934",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2108.03613",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2210.11648",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1903.10654",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1806.04057",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.03951",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2012.08387",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1302.4519",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1901.10609",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1307.0414",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1805.09692",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1706.00439",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1204.6416",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1605.02882",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1512.03498",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2210.02987",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1501.02598",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M2"
+      ],
+      "searches": null,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1912.04472",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1605.03261",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1610.01784",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1701.01487",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2101.05436",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1904.04404",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1911.09983",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1806.08083",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [
+        "M2"
+      ],
+      "searches": null,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1805.07047",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2007.07595",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1202.4741",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1812.09111",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2108.09576",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1804.03903",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1801.02381",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [
+        "M2"
+      ],
+      "searches": null,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1604.03410",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1005.5581",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1512.03859",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1005.0169",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1901.11373",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1405.3410",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1307.0571",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1107.3350",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1302.4983",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M3"
+      ],
+      "searches": null,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1703.04221",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1811.04770",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1910.03620",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1112.5745",
+      "stratum": "random_citation_negative",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1909.02583",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2004.09392",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1803.00444",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2102.10780",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1305.1922",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [
+        "M4"
+      ],
+      "searches": null,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1911.08554",
+      "stratum": "model_high_citation_negative",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1608.03677",
+      "stratum": "citation_top_decile",
+      "wave": 1,
+      "types": [],
+      "searches": null,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1503.03176",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1811.10861",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1211.5739",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1912.10135",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2001.08399",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1202.2736",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2108.11601",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1802.06480",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1102.3165",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1003.1168",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1707.06658",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1604.07939",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1011.5064",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2111.10912",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1205.3534",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2208.06711",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1109.2135",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1203.1314",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1111.5640",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1502.07451",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1604.05577",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2105.04027",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1806.05768",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.10705",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1707.01220",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 1,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1812.01647",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1310.3939",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2012.02745",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2202.05218",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2012.00508",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1607.04033",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1503.08715",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1402.5742",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1403.7257",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1411.2539",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2",
+        "M4"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1301.3888",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1207.4262",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 4,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1703.00768",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1805.00998",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2103.12983",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2103.07811",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1601.07358",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1502.03343",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2104.00634",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1111.1022",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1407.4106",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1810.02720",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1811.06837",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1311.3414",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 4,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2203.08893",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1510.02437",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1803.08604",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "2006.10518",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 4,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1311.3130",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1708.09072",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1508.02153",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1511.06253",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1404.5643",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1206.6866",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1802.09810",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2101.09057",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.01066",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2011.05425",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1805.03241",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2110.04861",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1606.02355",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2003.06108",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1807.02554",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1803.08101",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2112.03462",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1408.5696",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1303.4808",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2006.11097",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1312.2378",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1310.6301",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2005.03210",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1506.04416",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1304.5159",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1111.4742",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1505.05868",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1709.06030",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 3,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1506.00842",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2011.05605",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1805.12238",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2110.08956",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1802.07923",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1503.07220",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2203.04806",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2009.14448",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2111.01243",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2212.14621",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1204.4564",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1908.05256",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2006.08820",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1607.05539",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1702.08495",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1906.08689",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1906.04604",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1903.05387",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2007.09390",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1306.4898",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 3,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1509.05875",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1802.04799",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2010.08580",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2103.03317",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1610.04091",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1709.09634",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1610.09650",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1306.3882",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1502.06733",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1407.3269",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1707.07872",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1903.02647",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2212.11140",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1404.6605",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2208.10091",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1303.2682",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2104.01697",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2108.01883",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1910.06562",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2104.01337",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.13315",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2204.07932",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1206.3235",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1708.06183",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1109.2015",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1411.1108",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2001.11959",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1710.11054",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2107.02689",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1708.09013",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1806.06928",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "2111.15098",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1710.04936",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2202.02931",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1404.2842",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2005.07952",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1901.10923",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1912.02206",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1102.5497",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "2001.08016",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1703.00837",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1906.09874",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2102.04830",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 1,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1711.09883",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1510.01270",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2108.05023",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1905.12989",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2206.14606",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1106.6336",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1902.01554",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 1,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1202.2284",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1010.5567",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1611.04035",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1510.07095",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2203.09993",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1405.5345",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2012.14464",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1907.08251",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1604.03758",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1706.10117",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1009.2902",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1011.3407",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1710.00944",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1708.00606",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2202.07206",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1601.06466",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2208.07658",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1107.0063",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1708.02072",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1309.1973",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1010.0155",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2005.03320",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1704.07234",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1208.0225",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1811.10561",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1206.1687",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1704.03329",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2208.04505",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.07405",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1809.08211",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2111.04436",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2004.11573",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1906.12066",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2010.15980",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 3,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1105.1633",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1702.01601",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2112.05251",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2002.04671",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1501.05396",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1210.8440",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1503.04169",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2106.08457",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1105.2584",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1310.2547",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1408.6328",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2011.12355",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2107.07498",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [
+        "M3"
+      ],
+      "searches": 4,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1805.08462",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1404.7760",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1410.4414",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1711.08002",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1102.0603",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2104.06824",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1605.06853",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1802.08250",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1611.10031",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1808.07913",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1907.03141",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M3"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1812.03624",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1404.1602",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1912.05481",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1807.03777",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1804.03826",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2206.04114",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1004.1208",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2211.11526",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1812.03318",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1606.02903",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1408.3843",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2105.01262",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2009.10331",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2003.12671",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1909.04368",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1211.2032",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2209.05421",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 3,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2002.00141",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1402.2583",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1901.00246",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1805.05324",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1311.5599",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1206.3234",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2207.08279",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2112.12792",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1812.07297",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2004.08131",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 2,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1606.07991",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1911.04477",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2102.06271",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1205.4124",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1512.02215",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2010.04839",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1810.03414",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2110.01202",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1805.08975",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [
+        "M4"
+      ],
+      "searches": 2,
+      "V": 0,
+      "V4": 1
+    },
+    {
+      "paper_id": "1703.04361",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1801.09802",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1605.06402",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 4,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1309.3949",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1803.08668",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2105.03868",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2210.04633",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1707.04294",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1001.3485",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1908.03627",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2108.03213",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1712.00676",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1207.0559",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1406.2963",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1408.2657",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1810.12823",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2111.00933",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2004.05686",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1603.08042",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1802.02254",
+      "stratum": "model_high_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1410.4147",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2002.10198",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2207.12256",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1202.5826",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1703.08732",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1210.4838",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "2208.04003",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1208.0079",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1312.2628",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1902.03383",
+      "stratum": "citation_top_decile",
+      "wave": 2,
+      "types": [
+        "M2"
+      ],
+      "searches": 3,
+      "V": 1,
+      "V4": 1
+    },
+    {
+      "paper_id": "1306.3375",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1911.02679",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    },
+    {
+      "paper_id": "1205.6465",
+      "stratum": "random_citation_negative",
+      "wave": 2,
+      "types": [],
+      "searches": 2,
+      "V": 0,
+      "V4": 0
+    }
+  ],
+  "seed": 20261017,
+  "reps": 10000
+}

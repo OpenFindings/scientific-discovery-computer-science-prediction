@@ -1,0 +1,1709 @@
+{
+ "verified_at": "2026-10-17T08:28:48.986760+00:00",
+ "papers": {
+  "1503.03176": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper itself (arXiv, ACM HotSoS) and unrelated Gottman 'Science of Trust' results. No award, course, adoption or survey evidence."
+  },
+  "1811.10861": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the BigSDM 2018 workshop paper and a related GitLink repo, possibly the authors' own. No independent adoption, survey or award found."
+  },
+  "1211.5739": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper's own listings (HAL, Scientific.net, arXiv) and related Klimchik papers by the same group."
+  },
+  "1912.10135": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper's listings (DeepAI, KU ScholarWorks). No implementation, survey or course coverage found."
+  },
+  "2001.08399": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found MPDroid's own listings. No survey naming it as representative, and no award or adoption found."
+  },
+  "1202.2736": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the arXiv preprint and aggregators. No course, textbook or library adoption references the benchmark."
+  },
+  "2108.11601": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2402.19473",
+     "quote": "Query-based RAG is prevalent for code summary generation. REDCODER [40], ASAP [171], and SCCLLM [233] all form prompts with retrieved contents for summarization.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Survey by other authors (RAG for AI-Generated Content). Reference [40] is Parvez et al., 'Retrieval augmented code generation and summarization', EMNLP Findings 2021. Listed as an example of query-based RAG for code summarization."
+  },
+  "1802.06480": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper and aggregator pages (one was Papers with Code, which is excluded). No safe-RL survey quote naming APDO was confirmed."
+  },
+  "1102.3165": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the Carleton technical report and the DCG 2013 journal version. No survey, textbook or award evidence."
+  },
+  "1003.1168": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the DawningCloud authors' own related papers. No independent survey or adoption."
+  },
+  "1707.06658": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the AAMAS 2018 short paper and aggregators. No survey naming RAIL as representative was confirmed."
+  },
+  "1604.07939": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper and the authors' own journal extension. No survey or adoption found."
+  },
+  "1011.5064": {
+   "markers": [],
+   "searches": 3,
+   "notes": "VM placement surveys exist (e.g. Talebian et al. 2020) but are closed access; could not confirm they cite this paper."
+  },
+  "2111.10912": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found ECCC and arXiv listings. Follow-up work by overlapping authors uses JCH variants. No award or course notes found."
+  },
+  "1205.3534": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Oded Goldreich's 'my choices' commentary page discusses it, but that is not an award, course or survey. No qualifying evidence."
+  },
+  "2208.06711": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the arXiv and SBRLARS listings and related platforms (SIGVerse, Jubileo). No adoption or survey."
+  },
+  "1109.2135": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/1709.08071",
+     "quote": "RMM is the precursor of the Interactive POMDP (I-POMDP) (Gmytrasiewicz and Doshi, 2005).",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Albrecht & Stone survey (Artificial Intelligence 2018) covers I-POMDP in Section 4.5, 'Recursive Reasoning'. Its references list Gmytrasiewicz & Doshi 2005, 'A framework for sequential planning in multiagent settings'. Quote taken from PDF text extraction. No Wikipedia article found."
+  },
+  "1203.1314": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper's own listings (arXiv, Academia.edu). No qualifying evidence."
+  },
+  "1111.5640": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only found the paper's own listings (arXiv, Ajman, earticle). No review naming it found."
+  },
+  "1502.07451": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the DATE HIS 2015 workshop paper and an hgpu.org listing. No survey, adoption or award found."
+  },
+  "1604.05577": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared per-turn web search limit (200 calls across all agents) ran out before this item. Unverified, not confirmed absent. || Only arXiv, Papers with Code, Emergent Mind and the author's institutional page turned up. No award, course, library adoption or survey recognition found."
+  },
+  "2105.04027": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || IJCAI 2021 paper (ALMA-Learning). Only proceedings and repository listings found. No award, survey, course or library adoption found."
+  },
+  "1806.05768": {
+   "markers": [],
+   "searches": 2,
+   "notes": "A Trojan-attack survey (arXiv 2408.08920) describes the Clements and Lao method but cites only the ISCAS 2019 'Hardware Trojan Design on Neural Networks' version, so it does not name this paper. No qualifying evidence found."
+  },
+  "1909.10705": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No award, survey or course evidence found. The CS224N 2021 NLG slides checked do not cite it."
+  },
+  "1707.01220": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2006.05525",
+     "quote": "Table 2 A summary of relation-based knowledge Methods FSP (Yim et al., 2017) You et al. (2017) Zhang and Peng (2018) DarkRank (Chen et al., 2018c)",
+     "status": "verified"
+    }
+   ],
+   "searches": 1,
+   "notes": "The Gou et al. 'Knowledge Distillation: A Survey' lists DarkRank as a relation-based knowledge method. Its references name 'Darkrank: Accelerating deep metric learning via cross sample...'. Quote is from PDF text extraction."
+  },
+  "1812.01647": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2005.02979",
+     "quote": "Another approach is to use previous versions of the system that are far less safe (Uesato et al., 2019). Known as a continuation approach, this technique is well suited to black-boxes that have learned behavior.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Searches were refused because the shared web search limit ran out. Unverified. || Corso et al., JAIR 2021 black-box safety validation survey (different authors). It presents the paper in Section 7.3 Classification Methods and cites it by title in its references. No award found for the ICLR 2019 paper."
+  },
+  "1310.3939": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Only the authors' own follow-ups (AMW 2016, a 2021 journal version) and repository pages found. A WIREs 2022 overview may share authors, so it was not used."
+  },
+  "2012.02745": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only ACSAC/HAL/talk listings found. The Wikipedia SAE and WPA pages checked do not cite it. No qualifying marker."
+  },
+  "2202.05218": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2504.20357",
+     "quote": "Lukasczyk et al. provides a solution to this problem through their development of Pynguin which is an \"automated test generation framework\" similar to Randoop and Evosuite but for the \"dynamic\" programming language Python.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Different authors (Wang, Suleiman, Alibasa) in a systematic literature review on unit test generation. Reference [31] names 'Pynguin: Automated unit test generation for python' (2022). No award found."
+  },
+  "2012.00508": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Only arXiv, ar5iv and Papers with Code listings found. Later work cites it, but no survey, course, award or adoption evidence."
+  },
+  "1607.04033": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || This is a workshop proceedings volume (EPTCS 219), not a single method. Only CFPs, DBLP and arXiv listings found."
+  },
+  "1503.08715": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Only arXiv and the CTU DSpace record found. No later recognition."
+  },
+  "1402.5742": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Journal version is in DKE 2017. Only the authors' own follow-up and repository records found."
+  },
+  "1403.7257": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || A Radboud slide deck on SlideShare mentions ASDSpec, but it is not verifiable as a course page that names the paper. No library adoption, award or survey found."
+  },
+  "1411.2539": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2105.07391",
+     "quote": "Unifying visual-semantic embeddings (UVS) [2], proposed by Kiros et al., uses a CNN trained on ImageNet (AlexNet [3]) for image feature extraction and LSTM for text feature extraction.",
+     "status": "verified"
+    },
+    {
+     "type": "M2",
+     "url": "https://www.cs.toronto.edu/~madras/presentations/David-Madras-kiros-presentation-CSC2539.pdf",
+     "quote": "Kiros et al. take approach inspired by translation: images and text are different \u201dlanguages\u201d that can express the same concept",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Ueki survey of VSE methods presents it as an early key method. The M2 source is a student's slides for University of Toronto course CSC2539 (2017), whose course page lists the paper; this is borderline lecture material."
+  },
+  "1301.3888": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/1709.08071",
+     "quote": "A related method is based on probabilistic state-dependent grammars which allow the plan production rules to depend on state information (Pynadath and Wellman, 2000).",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Albrecht & Stone's survey on agents modelling other agents (AIJ) discusses PSDG in its plan recognition section, lists it in Table 5 of plan recognition methods, and cites it by title. Not found in the Wikipedia Plan recognition article."
+  },
+  "1207.4262": {
+   "markers": [],
+   "searches": 4,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Nozari et al. discuss it as prior work, but theirs is a research paper, not a survey. The CDC 2016 tutorial shares authors (Mitra, Dullerud). The full text of the 2024 Neurocomputing review could not be accessed."
+  },
+  "1703.00768": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || ICSE 2017 paper. A later paper (NCChecker) treats it as related work, but no survey or award evidence found."
+  },
+  "1805.00998": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || Only the authors' journal extension and repository copies found."
+  },
+  "2103.12983": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search limit ran out. Unverified. || A graph counterfactual survey (Prado-Romero et al.) covers MACDA, but its references cite the TCBB version under a different title. That does not meet the title/arXiv-id rule, so it was excluded."
+  },
+  "2103.07811": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Only the paper, VTT record and mirrors found. Second search not run: shared web-search budget exhausted. || Searches turned up DRL offloading surveys, but no verifiable mention of this paper (the vehicular review cites a different Ale paper). The Springer book may be by overlapping authors."
+  },
+  "1601.07358": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors found. Wikipedia Quantum machine learning article checked by direct fetch; it does not cite this paper. Search budget exhausted. || The projective simulation review is by overlapping authors (Clausen, Briegel). Not in the Wikipedia Projective simulation article."
+  },
+  "1502.03343": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, Springer chapter and a related author paper found. Second search not run: search budget exhausted. || QFCS/AGREE work is cited only by the same group's papers. No course, award or independent survey found."
+  },
+  "2104.00634": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and CPS-VO bibliography entries found. Search budget exhausted before a second search. || Only the author's own follow-ups and mirror listings found."
+  },
+  "1111.1022": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and unrelated \u00c1ncora documents found. Search budget exhausted before a second search. || Only arXiv listings and unrelated \u00c1ncora material found."
+  },
+  "1407.4106": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors and a CSDMS reference-wiki entry found (CSDMS is the authors' project). Search budget exhausted. || Only the CSDMS wiki (an author organisation) and later CSDMS-authored papers found."
+  },
+  "1810.02720": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2202.04847",
+     "quote": "TranX Yin and Neubig (2018) uses Abstract Syntax Trees as an intermediary representation (interlingua) to generate a programming language snippet from a natural language statement.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Survey 'A Survey on Artificial Intelligence for Source Code: A Dialogue Systems Perspective' covers TranX under 'LSTM-based Seq2Seq with Abstract Syntax Trees'. Survey 2105.03317 mainly discusses the 2017 work, so not used."
+  },
+  "1811.06837": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2002.05442",
+     "quote": "proposed a grammar-based structural CNN with attention mechanisms to replace RNN in the decoder for generating code from natural language description.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Le, Chen, Babar survey 'Deep Learning for Source Code Modeling and Generation' describes it and cites the title. Borderline M4: no explicit category label."
+  },
+  "1311.3414": {
+   "markers": [],
+   "searches": 4,
+   "notes": "Found only Monperrus's bibliography survey (Monperrus is a co-author, so excluded) and theses. Search budget exhausted. || Searched the title, APR surveys and Wikipedia's Automatic bug fixing article (it does not cite this paper). I found only author-related pages, a thesis and individual citing papers, none of which counts as a marker."
+  },
+  "2203.08893": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors and the authors' lab page found. Search budget exhausted before a second search. || REMAP. I found only the authors' lab page, institutional records and aggregator pages. No award, reference-work, adoption or survey evidence turned up."
+  },
+  "1510.02437": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors and the supervisor's homepage found. Search budget exhausted before a second search. || Papamakarios's MSc thesis on distillation. Search found no survey, course or library naming it."
+  },
+  "1803.08604": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://www.cc.gatech.edu/~jarulraj/courses/8803-f18/slides/19_optimization_1.pdf",
+     "quote": "Contribution #1: Generate a model that determine a subquery\u2019s cardinality",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Georgia Tech CS 8803 (Fall 2018) Lecture 19 is devoted to this paper and names its title. DRL-for-data-processing survey 2108.04526: grep of its text found no mention."
+  },
+  "2006.10518": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2505.05530",
+     "quote": "HAWQ-V3 [78], AdaQuant [79], OMPQ [80], BRECQ [81], and LIMPQ [82] calculate bit precision by solving ILP problems, balancing the disturbance of the model with other constraints.",
+     "status": "verified"
+    }
+   ],
+   "searches": 4,
+   "notes": "Survey references list cites the exact title. AMD Quark AdaQuant docs link a different paper (1712.01048), so they are not counted as M3."
+  },
+  "1311.3130": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors and unrelated indentation pages found. Search budget exhausted before a second search. || IJPLA 2013 paper on indentation styles. I found only mirrors of the paper, and no survey or course treating it as key."
+  },
+  "1708.09072": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors and the author's thesis found. Search budget exhausted before a second search. || Only arXiv, aggregator pages and the author's own PhD thesis turned up."
+  },
+  "1508.02153": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, journal and thesis records found. Search budget exhausted before a second search. || MoDroid (STTT journal version). Only repository records turned up. No survey was shown to discuss it."
+  },
+  "1511.06253": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors and a TerraSwarm project page found. Search budget exhausted before a second search. || Koufogiannis and Pappas, distance-based privacy. Only the authors' own lab pages turned up, and no survey naming it was found."
+  },
+  "1404.5643": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the ICAPS proceedings page and mirrors found; no award shown. Search budget exhausted. || ICSAPS 2016 version found. No best paper award or survey recognition found."
+  },
+  "1206.6866": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the authors' own follow-up papers (JAIR 2008, MLJ 2012) found; no independent survey. Search budget exhausted. || UAI 2006 paper by Wiegerinck, van den Broek and Kappen. I found only related works by the same group, and no survey, course or award page."
+  },
+  "1802.09810": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only mirrors found. Search budget exhausted before a second search. || I found only the authors' own follow-up work. There was no survey, award or adoption evidence."
+  },
+  "2101.09057": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the shared web search budget (200 per turn) ran out before this item. Absence of markers is unverified. || I checked the full text of the survey arXiv 2310.14230 on deep active learning in medical imaging. It does not mention DSAL."
+  },
+  "1909.01066": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2310.16570v2",
+     "quote": "Datasets for general knowledge probing are used to quantify generic factual knowledge in PLMs with the most prominent being LAMA Petroni et al. (2019).",
+     "status": "verified"
+    },
+    {
+     "type": "M3",
+     "url": "https://huggingface.co/datasets/facebook/lama",
+     "quote": "LAMA is a dataset used to probe and analyze the factual and commonsense knowledge contained in pretrained language models.",
+     "status": "quote_not_found"
+    }
+   ],
+   "searches": 2,
+   "notes": "The survey (Youssef et al.) cites the title in its references. The HF dataset sits in the facebook namespace (the authors' org), so the M3 marker is borderline. The TFDS catalog page now returns 404. Wikipedia's Cloze test article only cites the paper."
+  },
+  "2011.05425": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || A UCL news item mentions a student award, but that is not a venue award. No survey or adoption evidence turned up."
+  },
+  "1805.03241": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || Duckietown pages list the paper as research using their platform, which is not adoption of its method. I found no survey that names it."
+  },
+  "2110.04861": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || CCIS 2021 FPGA accelerator paper. I found only aggregator listings."
+  },
+  "1606.02355": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || I checked the full texts of the Parisi review, the De Lange survey and the Wang survey (2302.00487). None mentions A-LTM or Furlanello."
+  },
+  "2003.06108": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || ICSSP 2020 paper. I found only university repository and conference listing pages, with no award or survey evidence."
+  },
+  "1807.02554": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || Ukrainian journal paper. I found only library records."
+  },
+  "1803.08101": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Not searched: the web search budget ran out. Unverified. || Boeing's DBSCAN tutorial is popular, but every page I found was the author's own blog or a mirror. I found no qualifying course, library or survey page."
+  },
+  "2112.03462": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the authors' own follow-ups (errata, a family paper) and their repo. No third-party library, survey, course or award found."
+  },
+  "1408.5696": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || FSE 2013 paper on C&C views. Only the authors' group pages and talks turned up, and no third-party survey or award."
+  },
+  "1303.4808": {
+   "markers": [],
+   "searches": 2,
+   "notes": "RAppArmor is the author's own CRAN package. No third-party adoption, task view, course or survey found."
+  },
+  "2006.11097": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || MDPI AI 2020 paper. I found only repository and publisher pages."
+  },
+  "1312.2378": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not searched: the web search budget ran out. Unverified. || Only mirrors of the paper itself. The method is derivative of Kao et al. (TKDE 2010, Voronoi plus R-tree for UK-means). No qualifying independent evidence found."
+  },
+  "1310.6301": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Searches were attempted but refused because the budget ran out. Unverified. || Only the authors' BU pages, slides and technical reports. No award, survey, course or third-party adoption found."
+  },
+  "2005.03210": {
+   "markers": [],
+   "searches": 2,
+   "notes": "RSS 2020 paper. No award, survey, course or library evidence found."
+  },
+  "1506.04416": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Found only follow-up research papers and a lab seminar slide deck (not a course). A textbook mention by Murphy would be by an author, so it does not count. No qualifying survey found."
+  },
+  "1304.5159": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://ar5iv.labs.arxiv.org/html/1709.08071",
+     "quote": "value iteration (Doshi and Perez 2008), policy iteration (Sonu and Doshi 2015), and structural problem reduction (Hoang and Low 2013).",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Albrecht & Stone's survey lists it among approximate I-POMDP solution methods and in its recursive-reasoning table, with the title in the references. Borderline as 'representative'. Published at IJCAI 2013. No award found."
+  },
+  "1111.4742": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The authors also wrote the case itself. No TTC 2011 award page found, and the TTC 2011 site could not be resolved."
+  },
+  "1505.05868": {
+   "markers": [],
+   "searches": 3,
+   "notes": "A Poznan course card lists 'synthesis through unification (STUN)' only as a topic, with no explanation. EUSolver is by the same authors. No qualifying survey or award found."
+  },
+  "1709.06030": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://dvl.in.tum.de/slides/automl-ss21/N2N.pdf",
+     "quote": "Two step reinforcement learning procedure",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "TUM 'Recent trends in Automated Machine Learning' (SS21) seminar slides explain N2N (layer removal, then layer shrinkage) and cite it by full title. This is a student seminar deck, so the evidence is moderate. No award or survey evidence found."
+  },
+  "1506.00842": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Found only mirrors and the authors' own pages and repo (ML-autotuning). No independent survey, course, library or award evidence."
+  },
+  "2011.05605": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the preprint and its mirrors. No surveys, awards or adoption found."
+  },
+  "1805.12238": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the preprint, mirrors and the authors' related DSS paper. No independent evidence."
+  },
+  "2110.08956": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found an ICML 2021 workshop version and aggregators. No award, survey, course or library evidence."
+  },
+  "1802.07923": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the IEEE Access record and the institutional listing only."
+  },
+  "1503.07220": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the ICAPS 2015 proceedings page and mirrors. No award or survey recognition found."
+  },
+  "2203.04806": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the AAMAS 2023 extended abstract and Microsoft pages (the authors' own). No independent evidence."
+  },
+  "2009.14448": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the preprint and aggregators. No survey or library adoption found."
+  },
+  "2111.01243": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The paper is itself a survey (ACM Computing Surveys 2024). No course page, Wikipedia explanation or award found."
+  },
+  "2212.14621": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the preprint and aggregators. The 'Weakly Supervised Anomaly Detection: A Survey' turned up, but I did not confirm it cites LEIAD."
+  },
+  "1204.4564": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://en.wikipedia.org/wiki/Local_complementation",
+     "quote": "Determining the minimum degree that can be reached by means of local complementation is NP-complete and APX-hard",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Wikipedia's Local complementation article states the paper's complexity result and cites it by full title with arXiv 1204.4564."
+  },
+  "1908.05256": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper, mirrors and the authors' repository. The interactive imitation learning surveys I found share authors, so they do not count."
+  },
+  "2006.08820": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper, the authors' dataset and the authors' follow-up work."
+  },
+  "1607.05539": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the preprint, the IET journal version and the same group's related papers."
+  },
+  "1702.08495": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the arXiv paper and the author's LessWrong crosspost. No Wikipedia or course coverage."
+  },
+  "1906.08689": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the IEEE Access version and the same group's related works. No independent evidence."
+  },
+  "1906.04604": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Found the NeurIPS 2019 proceedings and MIT pages. No award, course page or survey quote verified."
+  },
+  "1903.05387": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The Avocado CIT plugin docs cite the paper by title as 'a practical use case of this software'. I excluded this because co-authors Pahim and Rosa are Avocado developers, so the docs are effectively the authors' own."
+  },
+  "2007.09390": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The 'D'ya like DAGs?' survey covers CAREFL but cites arXiv 2011.02268 (Causal Autoregressive Flows), not this paper's title or id, so it does not qualify."
+  },
+  "1306.4898": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://en.wikipedia.org/wiki/Instruction_selection",
+     "quote": "For a comprehensive survey on instruction selection, see.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "The Wikipedia body sends readers to this survey (ref [1] names title and arXiv:1306.4898). It does not explain a method, so this M2 is borderline. Only one search ran; the shared search budget then ran out. || The Wikipedia article 'Instruction selection' cites it only as 'For a comprehensive survey on instruction selection, see.' That is a pointer, not an explanation, so it is excluded. The survey was later published as a Springer book."
+  },
+  "1509.05875": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper and unrelated CloudSimSDN-NFV pages. No award, survey, course or adoption evidence."
+  },
+  "1802.04799": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://ar5iv.labs.arxiv.org/html/2002.03794",
+     "quote": "several popular DL compilers have been proposed such as TVM (Chen et al. 2018b), Tensor Comprehension (Vasilache et al. 2018), Glow (Rotem et al. 2018), nGraph (Cyphers et al. 2018) and XLA",
+     "status": "verified"
+    },
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2002.03794",
+     "quote": "Rapidly, several popular DL compilers have been proposed such as TVM [17], Tensor Comprehension [91], Glow [79], nGraph [21] and XLA [53], from both industry and academia.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Survey by Li et al., not the TVM authors, with the TVM title in its references. ONNX Runtime and Wikipedia pages on TVM do not name the paper title, so no M3. Search budget ran out. || The quote is from Li et al., 'The Deep Learning Compiler: A Comprehensive Survey', whose references list the TVM paper. Apache TVM is widely used, but no third-party documentation naming the paper was verified. No award found."
+  },
+  "2010.08580": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2407.03993",
+     "quote": "(2) Syntactic editing. These methods Li et al. (2020a); Zhu et al. (2023); Longpre et al. (2021); Geva et al. (2022) leverage existing language parsers to decompose a sentence into several syntactic spans",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Counterfactual-generation survey by Wang et al. Its references give the LIT title and its taxonomy table lists LIT."
+  },
+  "2103.03317": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the shared search budget ran out before any search returned. Absence of markers is unverified. || The ICSE 2021 paper page and awards page show no award for it. Follow-ups (an npm replication, a Python EMSE study) are partly by the same authors. No qualifying survey found."
+  },
+  "1610.04091": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the paper itself and repository copies (IEEE TAES 2018). No qualifying evidence found."
+  },
+  "1709.09634": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only mirrors and aggregators. No qualifying evidence found."
+  },
+  "1610.09650": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://ar5iv.labs.arxiv.org/html/2006.05525",
+     "quote": "several alternative methods have been proposed to simulate multiple teachers by adding different types of noise to a given teacher (Sau and Balasubramanian 2016) or by using stochastic blocks and skip connections (Lee et al. 2019c)",
+     "status": "verified"
+    },
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2006.05525",
+     "quote": "several alternative methods have been proposed to simulate multiple teachers by adding different types of noise to a given teacher (Sau and Balasubramanian, 2016)",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Gou et al.'s knowledge distillation survey, multi-teacher distillation section. Its references name the title. Only one search ran before the budget ran out. || Gou et al., 'Knowledge Distillation: A Survey', places it in the multi-teacher distillation category. A text-compression survey (arXiv 2008.05221) also describes the noisy-teacher logits method."
+  },
+  "1306.3882": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the ICTSS 2013 paper, its STTT journal follow-up by the same authors, and repository pages. No qualifying evidence found."
+  },
+  "1502.06733": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the paper itself and mirrors. No qualifying evidence found."
+  },
+  "1407.3269": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the paper itself (Information Sciences 2014) and repository pages. No survey or course coverage found."
+  },
+  "1707.07872": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Search budget ran out. The Wikipedia Row polymorphism page was fetched directly and does not cite the paper. || A short extended abstract. Only the paper itself and the author's related work found."
+  },
+  "1903.02647": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2506.21899",
+     "quote": "CRL using world models to generate past experiences for rehearsal-based learning has been carried out by Ketz et al., (2019) in a task-agnostic manner.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "A 2025 continual RL review gives it as an example of rehearsal-based methods and names the title in its references. This is a moderately strong M4. Not found in Khetarpal et al. or in Wang et al.'s continual learning survey."
+  },
+  "2212.11140": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Found no official page confirming a DATE 2023 best paper award. The TODAES award went to the separate VeriGen paper. The LLM-Verilog survey (arXiv 2512.00020) cites it only as a dataset/benchmark example, which is weak, so not claimed."
+  },
+  "1404.6605": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the paper itself and GrammaTech (the authors' employer) material. No third-party adoption or survey found."
+  },
+  "2208.10091": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || The paper reports adoption on Alibaba BizCook, but that is the authors' own claim. No qualifying independent evidence found."
+  },
+  "1303.2682": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the paper itself, the NECSI page (the authors' institute) and loosely related blogs. No qualifying evidence found."
+  },
+  "2104.01697": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || NAACL 2021 paper. Only listings and mirrors found, no event-coreference survey naming it."
+  },
+  "2108.01883": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Not assessed: the search budget ran out. Absence is unverified. || Only the paper itself and listings. No qualifying evidence found."
+  },
+  "1910.06562": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2302.00487",
+     "quote": "the network architecture can be dynamically expanded if its capacity is not sufficient to learn a new task well, such as DEN [492], CPG [175] and DGMa/DGMw [322].",
+     "status": "verified"
+    },
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2302.00487",
+     "quote": "the network architecture can be dynamically expanded if its capacity is not sufficient to learn a new task well, such as DEN [492], CPG [175] and DGMa/DGMw [322].",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Wang et al.'s continual learning survey, architecture-based (dynamic architecture) category. Reference [175] names the title. Only one search ran before the budget ran out. || The quote is from Wang et al., 'A Comprehensive Survey of Continual Learning', in its architecture-based (parameter allocation) category. Reference [175] is the CPG paper."
+  },
+  "2104.01337": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper itself, aggregator pages and general green-testing blogs. No award, reference-work, adoption or survey evidence."
+  },
+  "1909.13315": {
+   "markers": [],
+   "searches": 2,
+   "notes": "A 2024 neural topic model survey (arXiv 2401.15351) covers lifelong NTMs but cites the authors' ICML 2020 paper, not this one. No other evidence found."
+  },
+  "2204.07932": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2305.10091",
+     "quote": "The authors propose MARLSafe, a comprehensive testing framework that considers state, action, and reward robustness to address this.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "A survey by Zhou, Liu and Tang (different authors) puts MARLSafe under adversarial attacks in its MARL robustness section. Its reference [41] names the paper."
+  },
+  "1206.3235": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper, UAI/PMLR proceedings and author pages. A third search was blocked because the shared web search budget ran out. || Only the UAI 2008 proceedings, mirrors and the authors' related papers. No qualifying evidence found."
+  },
+  "1708.06183": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Found no ICDCN 2018 best paper evidence and no survey or course coverage. Only the paper, HAL and aggregator copies."
+  },
+  "1109.2015": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The ProB documentation describes constraint-based deadlock checking, but ProB is the co-author Leuschel's own tool, so it does not count. No other evidence found."
+  },
+  "1411.1108": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only DFKI listings and the authors' later Autonomous Robots paper. No survey, course or award evidence."
+  },
+  "2001.11959": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found no ISSAC 2020 award evidence. Only the authors' own talk slides and HAL listings turned up, and those do not count."
+  },
+  "1710.11054": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2301.03270",
+     "quote": "Besides, Devlin et al. [38] encode the AST with a sequential bidirectional LSTM by enumerating a depth-first traversal of the nodes.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Zhang et al.'s learning-based APR survey (TOSEM) gives it as an example of tree-based encoders in its tree-based generation category. Its reference [38] names the paper. The Stanford course page only hosts the PDF."
+  },
+  "2107.02689": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found the ML-Quadrat paper, a comparison paper and an MDE4ML literature review, but could not confirm that the review discusses this paper. No adoption by a third-party library."
+  },
+  "1708.09013": {
+   "markers": [],
+   "searches": 2,
+   "notes": "An RS3 Best Paper Award 2016/2017 is shown only on the co-author Finkbeiner's group page, which does not count. A search for an official RS3 page was blocked by the web search budget. || An 'RS3 Best Paper Award 2016/2017' is shown only on the authors' group and publication pages. I could not confirm it on an official RS3 organiser page, so it is excluded."
+  },
+  "1806.06928": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2004.05439",
+     "quote": "Various meta-representations can be learned to improve continual learning performance, such as weight priors [138], gradient descent preconditioning matrices [107], or RNN learned optimizers [174], or feature representations [259].",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Hospedales et al.'s meta-learning survey files it under Optimizer/Gradient in its taxonomy table and uses it as the example of RNN learned optimizers for continual learning. Reference [174] names it."
+  },
+  "2111.15098": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the technical report itself and unrelated edge-programming or macroprogramming papers."
+  },
+  "1710.04936": {
+   "markers": [],
+   "searches": 3,
+   "notes": "A BENEVOL 2024 overview calls it a 'seminal article', but it is by Mens and Decan (co-authors), so it does not count. Found no award or independent survey."
+  },
+  "2202.02931": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2302.00487",
+     "quote": "TRGP [260] defines the \u201ctrust region\u201d through the norm of gradient projection onto the subspace of previous inputs, so as to selectively reuse the frozen weights of old tasks.",
+     "status": "verified"
+    },
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/html/2302.00487v3",
+     "quote": "TRGP [260] defines the \u201ctrust region\u201d through the norm of gradient projection onto the subspace of previous inputs, so as to selectively reuse the frozen weights of old tasks.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Wang et al.'s continual learning survey lists TRGP among its gradient-projection methods, so this marker is borderline. I ran only one search because the web search budget ran out. || Wang et al., 'A Comprehensive Survey of Continual Learning', names TRGP among the gradient projection methods. Its reference [260] gives TRGP's title. I found no award (it was an ICLR 2022 spotlight), no library adoption and no textbook coverage."
+  },
+  "1404.2842": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper and copies of it. VM interference and consolidation surveys exist, but none was confirmed to cite it."
+  },
+  "2005.07952": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper and its medRxiv/MDPI versions. A 2023 arXiv paper cites it in passing, which is not survey recognition."
+  },
+  "1901.10923": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the AAMAS paper, the Secondmind lab page and aggregators. No award or survey evidence."
+  },
+  "1912.02206": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only ar5iv and aggregator pages. No survey, adoption or award evidence."
+  },
+  "1102.5497": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://en.wikipedia.org/wiki/Ciao_(programming_language)",
+     "quote": "Ciao is built on a kernel with an extensible modular design which allows both restricting and extending the language \u2014 it can be seen as a language building language.",
+     "status": "verified"
+    },
+    {
+     "type": "M2",
+     "url": "https://en.wikipedia.org/wiki/Ciao_(programming_language)",
+     "quote": "Ciao is built on a kernel with an extensible modular design which allows both restricting and extending the language \u2014 it can be seen as a language building language.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "The Wikipedia article body explains the modular, extensible design the paper describes, and lists the paper (arXiv 1102.5497) under Further reading. I ran one search plus a direct fetch of the article before the budget ran out. || The Wikipedia Ciao article describes the modular design and assertion system and cites arXiv 1102.5497 by id and title. I read it as raw wikitext via curl. I found no award, survey or course evidence."
+  },
+  "2001.08016": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper itself and catalogue listings found; no award, reference-work, adoption or survey evidence."
+  },
+  "1703.00837": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://en.wikipedia.org/wiki/Meta-learning_(computer_science)",
+     "quote": "Meta Networks (MetaNet) learns a meta-level knowledge across tasks and shifts its inductive biases via fast parameterization for rapid generalization.",
+     "status": "verified"
+    },
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/abs/2008.06365",
+     "quote": "Meta Networks [12] as the name suggests is a form of Model-based Meta-Learning Approach.",
+     "status": "excluded_source"
+    }
+   ],
+   "searches": 2,
+   "notes": "Wikipedia's Meta-learning article has a 'Meta Networks' subsection under model-based methods and cites arXiv 1703.00837. The survey 'An Overview of Deep Learning Architectures in Few-Shot Learning Domain' is by different authors."
+  },
+  "1906.09874": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Bachelor's thesis; only aggregator pages and the thesis itself found."
+  },
+  "2102.04830": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/abs/2305.07611",
+     "quote": "This section evaluates five state-of-the-art multimodal sentiment analysis models: DFF-ATMF, MAG-BERT, TIMF, Self-MM, and DISRFN.",
+     "status": "excluded_source"
+    }
+   ],
+   "searches": 1,
+   "notes": "Survey by Lai, Xu, Hu et al. (different authors) has a subsection '4.0.9 Self-MM [57]'. The MMSA toolkit was not counted because it comes from the authors' own lab."
+  },
+  "1711.09883": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/abs/2205.10330",
+     "quote": "In some safe RL benchmarks, such as AI Safety Gridworlds [181], Safety Gym [259], Safe MAMuJoCo [118],",
+     "status": "excluded_source"
+    }
+   ],
+   "searches": 3,
+   "notes": "The 'A Review of Safe Reinforcement Learning' survey has a section 6.1.1 on AI Safety Gridworlds as a safe RL benchmark. Wikipedia's MARL article only cites it, so M2 was not claimed."
+  },
+  "1510.01270": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and repository records found."
+  },
+  "2108.05023": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and aggregator pages found."
+  },
+  "1905.12989": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the same authors' follow-up work found."
+  },
+  "2206.14606": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Talk and conference pages are by the author or Guix itself; no independent evidence found."
+  },
+  "1106.6336": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and related primary work found."
+  },
+  "1902.01554": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/abs/2203.08975",
+     "quote": "Global Control In this category, a globally shared communication policy is learned, providing more complete control over the communication links between agents. SchedNet [43] employs a global scheduler that limits the number",
+     "status": "excluded_source"
+    }
+   ],
+   "searches": 1,
+   "notes": "Survey of communication-based MADRL by Zhu, Dastani and Wang places SchedNet in the 'Global Control' and 'Limited Bandwidth' categories. A review of cooperative MADRL (1908.03963) also describes it."
+  },
+  "1202.2284": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the authors' Launchpad project found."
+  },
+  "1010.5567": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper found."
+  },
+  "1611.04035": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Only follow-up papers (e.g., Compton et al.) found; no qualifying survey, course or library documentation verified."
+  },
+  "1510.07095": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the same group's related work found."
+  },
+  "2203.09993": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The PLDI 2022 track page lists WebRobot without a Distinguished Paper label."
+  },
+  "1405.5345": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the same group's follow-ups found; no qualifying survey verified."
+  },
+  "2012.14464": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Workshop paper; only later research papers mention DQRM."
+  },
+  "1907.08251": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the authors' own versions, the dissertation and a follow-up found."
+  },
+  "1604.03758": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Claimed P != NP proof; the only independent mention is a refutation (arXiv 2103.15246), which is not a marker of value."
+  },
+  "1706.10117": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, its companion Fast RCI paper and aggregator mirrors turned up. No awards, course use, library adoption or survey recognition."
+  },
+  "1009.2902": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only arXiv mirrors and the related Bergstra-Middelburg CCL paper turned up. No independent recognition."
+  },
+  "1011.3407": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Pest language: only author slides, the author tech report and repository records turned up. A 'Pest in the classroom' record is the authors' own work."
+  },
+  "1710.00944": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only arXiv mirrors and the author's GitHub implementation turned up."
+  },
+  "1708.00606": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the arXiv/IEEE Access versions and the authors' follow-ups turned up. No survey naming it as representative."
+  },
+  "2202.07206": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Found the EMNLP Findings 2022 version and a UCI news item. No qualifying survey, textbook, award or library page was verified."
+  },
+  "1601.06466": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Lewowski & Madeyski (FCDS 2019) mention the framework in related work, but that is a research paper, not a survey. Nothing else qualifies."
+  },
+  "2208.07658": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, the authors' pages and the author keynote slides turned up. No independent recognition."
+  },
+  "1107.0063": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and author talks/colloquia turned up. No course page or survey verified."
+  },
+  "1708.02072": {
+   "markers": [],
+   "searches": 3,
+   "notes": "De Lange et al.'s survey mentions it only in related work (compares three methods), not as a key method of a category. Parisi review shares author Kemker. No library adoption found."
+  },
+  "1309.1973": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only AAAI 2014 proceedings and repository listings turned up."
+  },
+  "1010.0155": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and same-group DTU follow-ups turned up."
+  },
+  "2005.03320": {
+   "markers": [],
+   "searches": 2,
+   "notes": "IDL is used in RESTest, which is the authors' own tool. No third-party adoption or survey verified."
+  },
+  "1704.07234": {
+   "markers": [],
+   "searches": 3,
+   "notes": "RELEASE improvements reportedly merged into Erlang/OTP, but the sources are author or REF case pages. No independent qualifying page."
+  },
+  "1208.0225": {
+   "markers": [],
+   "searches": 2,
+   "notes": "PowerDrill paper: found only the Google research page, index pages and an author talk. No course notes explaining it were verified."
+  },
+  "1811.10561": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only dataset hosting and the authors' CLEAR2 follow-up turned up. No leaderboard or survey verified."
+  },
+  "1206.1687": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Turned up related works such as Multiparty Session Actors, but none was verified as presenting this paper as a key method."
+  },
+  "1704.03329": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, a LAMMPS abstract listing and the authors' follow-up turned up."
+  },
+  "2208.04505": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and unrelated same-acronym EAFL works turned up."
+  },
+  "1909.07405": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Only the ACL Anthology entry and mirrors turned up. No survey verified naming it as representative."
+  },
+  "1809.08211": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the paper's own listings and the published Sensors version. No award, course, library or survey evidence."
+  },
+  "2111.04436": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only bibliographic listings and the EOFP-QNN predecessor. No qualifying evidence."
+  },
+  "2004.11573": {
+   "markers": [],
+   "searches": 2,
+   "notes": "ICSE 2020 technical paper. No award listing or survey treatment found."
+  },
+  "1906.12066": {
+   "markers": [],
+   "searches": 2,
+   "notes": "JXPerf (ESEC/FSE 2019). An author's award mentions refer to other papers (PPoPP'19, ICSE'19). No qualifying evidence for this paper."
+  },
+  "2010.15980": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2107.13586",
+     "quote": "Built upon this method, Shin et al. (2020) automatically search for template tokens using downstream application training samples and demonstrates strong performance in prompting scenarios.",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "Liu et al.'s prompting survey lists AutoPrompt under 'D3: Gradient-based Search' (discrete prompts) and in its tables, with a reference entry. No course or library evidence verified."
+  },
+  "1105.1633": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the authors' own follow-up work. No survey, course or award evidence."
+  },
+  "1702.01601": {
+   "markers": [],
+   "searches": 2,
+   "notes": "AAMAS 2017 paper. No qualifying evidence found."
+  },
+  "2112.05251": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The MoMaRT datasets appear in robomimic, but robomimic shares authors (Mandlekar, Mart\u00edn-Mart\u00edn), so it is excluded. No other qualifying evidence."
+  },
+  "2002.04671": {
+   "markers": [],
+   "searches": 2,
+   "notes": "ICRA 2020 user study. A 2024 scoping review on robot social mediation exists but was not verified to feature it."
+  },
+  "1501.05396": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The checked audio-visual survey (arXiv 2001.04758) does not name it. No qualifying evidence found."
+  },
+  "1210.8440": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only Google's own blog and publication pages (author-affiliated). No textbook mention verified."
+  },
+  "1503.04169": {
+   "markers": [],
+   "searches": 2,
+   "notes": "GRADES 2015 workshop paper. No survey, course or award evidence found."
+  },
+  "2106.08457": {
+   "markers": [],
+   "searches": 2,
+   "notes": "EPIA 2021 paper. No qualifying evidence."
+  },
+  "1105.2584": {
+   "markers": [],
+   "searches": 2,
+   "notes": "CloudMonitor, by the same authors. No independent evidence."
+  },
+  "1310.2547": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://www.ce.cit.tum.de/fileadmin/w00cgn/cm/iop_2019/benedikt.pdf",
+     "quote": "Exploiting the returned information of relative distance by using virtual Anchor Points",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Weak: student presentation slides from the TUM Master-Seminar 'Internet of People', which explain the attack method. The quote crosses a line break in the PDF text."
+  },
+  "1408.6328": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Kwapi was integrated with OpenStack Ceilometer, but no third-party documentation found names the paper by title or arXiv id. Kwapi's own docs are by the authors."
+  },
+  "2011.12355": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Later test-time poisoning papers exist. No survey treating it as representative was found."
+  },
+  "2107.07498": {
+   "markers": [
+    {
+     "type": "M3",
+     "url": "https://raw.githubusercontent.com/open-compass/opencompass/main/dataset-index.yml",
+     "quote": "configpath: opencompass/configs/datasets/FewCLUE_chid/FewCLUE_chid_gen.py",
+     "status": "verified"
+    }
+   ],
+   "searches": 4,
+   "notes": "OpenCompass's dataset index lists 'FewCLUE / CHID' and 'FewCLUE / CLUEWSC' with paper https://arxiv.org/pdf/2107.07498. PaddleNLP also ships FewCLUE loaders, but that page does not name the paper."
+  },
+  "1805.08462": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No qualifying evidence found."
+  },
+  "1404.7760": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the authors' own follow-up work. No qualifying evidence."
+  },
+  "1410.4414": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, its repository copies and a follow-up by the same group turned up. No award, course, library or survey treatment found."
+  },
+  "1711.08002": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2103.14244v1",
+     "quote": "Moghimi et al. [139] designed a cache attack in the SGX platform, which is based on the false dependency of memory read-after-write (i.e., 4K Aliasing).",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Lou et al. 2021 microarchitectural side-channel survey (different authors) lists MemJam with Bank contention as the 'Cache bank' attack vector category in Table 1. Reference [139] names the paper."
+  },
+  "1102.0603": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only repository and author pages found. No qualifying survey, course or award evidence."
+  },
+  "2104.06824": {
+   "markers": [],
+   "searches": 2,
+   "notes": "xMK-CKKS gets reused in later papers and in a student thesis repo integrating it with Flower. Not a widely used library, and no survey naming it as representative was found."
+  },
+  "1605.06853": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and CMU/AAAI listings found."
+  },
+  "1802.08250": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No survey found that discusses SeNA-CNN. Only the paper, repository records and an authors' follow-up."
+  },
+  "1611.10031": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The active deep learning survey arXiv 2101.09933 describes it as a representativeness-based method, but the survey's first author Peng Liu appears to be the paper's first author, so it is excluded as not independent."
+  },
+  "1808.07913": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Shi et al. survey (arXiv 1812.02303) lists it only as a row in a 'comprehensive list' table of 2018 seq2seq models. Too weak to count as key-method recognition."
+  },
+  "1907.03141": {
+   "markers": [
+    {
+     "type": "M3",
+     "url": "https://nni.readthedocs.io/en/v2.4/Compression/Pruner.html",
+     "quote": "A Pytorch implementation of AutoCompress pruning algorithm.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Microsoft NNI ships an AutoCompressPruner and cites the paper title in its docs."
+  },
+  "1812.03624": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only author pages, journal records and a seminar talk by the author found."
+  },
+  "1404.1602": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only workshop slides and an authors' follow-up found."
+  },
+  "1912.05481": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only repository and KAUST group pages found."
+  },
+  "1807.03777": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No award or third-party adoption found. Only the paper, institutional listings and author pages."
+  },
+  "1804.03826": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Mentioned in a PredNet critical review, but only as related work. No qualifying marker."
+  },
+  "2206.04114": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Director is cited and compared against in later hierarchical world-model papers, but none are surveys. Three world-model surveys checked contained no mention."
+  },
+  "1004.1208": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No lecture notes or surveys covering this derandomization found."
+  },
+  "2211.11526": {
+   "markers": [],
+   "searches": 2,
+   "notes": "VarDT: only the paper and its TOSEM listing found."
+  },
+  "1812.03318": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and unrelated Timsort verification work found."
+  },
+  "1606.02903": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, GI library records and related work by the same group found."
+  },
+  "1408.3843": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the authors' own ePrint, poster and follow-up papers found."
+  },
+  "2105.01262": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper itself and repository mirrors (arXiv, DeepAI, CNR IRIS) were found. No award, course, library or survey recognition."
+  },
+  "2009.10331": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Preprint survey; arXiv v2 withdrawn and superseded by the authors' later survey (arXiv 2102.13027). No independent recognition found."
+  },
+  "2003.12671": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and related works on similar problems were found. No survey naming it as representative."
+  },
+  "1909.04368": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Cited in EvolvingBehavior (2209.01020) as related work and in a behavior-tree survey bibliography. Neither counts as qualifying recognition."
+  },
+  "1211.2032": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Journal paper (IJCIS 2011) mirrored on arXiv. No qualifying evidence."
+  },
+  "2209.05421": {
+   "markers": [],
+   "searches": 3,
+   "notes": "Published at OOPSLA 2022. Searches showed no distinguished paper award for it. Could not fetch the splashcon awards page to confirm."
+  },
+  "2002.00141": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and its IEEE version were found. No survey or adoption evidence."
+  },
+  "1402.2583": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Journal version in Automatica 2015. No award, textbook or survey recognition found."
+  },
+  "1901.00246": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and follow-ups by the same Diveplane/Howso group were found. Those are the authors' own work."
+  },
+  "1805.05324": {
+   "markers": [],
+   "searches": 2,
+   "notes": "ICASSP 2018 paper. No qualifying evidence found."
+  },
+  "1311.5599": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and abstract mirrors were found."
+  },
+  "1206.3234": {
+   "markers": [],
+   "searches": 2,
+   "notes": "UAI 2008 paper and its JMLR extension by the same authors. No course or survey evidence found."
+  },
+  "2207.08279": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and a university portal listing were found."
+  },
+  "2112.12792": {
+   "markers": [],
+   "searches": 2,
+   "notes": "MUROAN paper. Only mirrors and related works were found; no survey naming it as representative."
+  },
+  "1812.07297": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The agent won first place among learning agents at NeurIPS 2018 Pommerman, a competition result rather than a paper award. No survey recognition found."
+  },
+  "2004.08131": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://en.wikipedia.org/wiki/CloudSim",
+     "quote": "extends CloudSim toolkit by incorporating thermal characteristics, and uses Deep learning-based temperature predictor for cloud nodes.",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Wikipedia's CloudSim article describes ThermoSim, and its references give the full paper title and arXiv 2004.08131. Checked via the raw wikitext; quote taken from text following the ThermoSim citation."
+  },
+  "1606.07991": {
+   "markers": [],
+   "searches": 2,
+   "notes": "IRJET paper. No qualifying evidence found."
+  },
+  "1911.04477": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the authors' GitHub repository were found. No third-party adoption or survey recognition."
+  },
+  "2102.06271": {
+   "markers": [],
+   "searches": 2,
+   "notes": "ACM HEALTH 2023 journal version. No survey presenting it as key was found."
+  },
+  "1205.4124": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the arXiv preprint was found. MIT 6.890 lecture notes on planar counting were checked and do not cite it."
+  },
+  "1512.02215": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Workshop proceedings volume (EPTCS 199). No awards, reference-work, adoption or survey recognition found."
+  },
+  "2010.04839": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the authors' own follow-up work (Savery dissertation, NSF slides) found; nothing qualifying."
+  },
+  "1810.03414": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No surveys, courses or libraries naming DMF were found."
+  },
+  "2110.01202": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only related HPC-fingerprinting papers; no qualifying survey or award."
+  },
+  "1805.08975": {
+   "markers": [
+    {
+     "type": "M4",
+     "url": "https://arxiv.org/pdf/2302.09639",
+     "quote": "We first present the implementation detail of the particle filter network (PFNet), a differentiable particle filter proposed in [48].",
+     "status": "verified"
+    }
+   ],
+   "searches": 2,
+   "notes": "Survey by Chen and Li (Surrey), different authors, gives PFNet pseudocode as one of two representative differentiable particle filter frameworks and cites it as ref [48] by its full title."
+  },
+  "1703.04361": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The only later discussion is in Goertzel's own works (author pages, excluded)."
+  },
+  "1801.09802": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Casper project pages and the dissertation are by the authors; no third-party course or survey found."
+  },
+  "1605.06402": {
+   "markers": [],
+   "searches": 4,
+   "notes": "Surveys (Liang 2021, Gholami 2021) discuss Ristretto but cite the 2018 TNNLS 'Ristretto: A Framework for Empirical Study...' or arXiv 1604.03168, not this title or id, so they do not count."
+  },
+  "1309.3949": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No qualifying evidence found."
+  },
+  "1803.08668": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Joint MARS/VPT 2018 proceedings volume (EPTCS 268); no markers found."
+  },
+  "2105.03868": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No surveys or libraries naming NRGCN were found."
+  },
+  "2210.04633": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Later papers (INSPECT, structure-aware fine-tuning) are not surveys presenting it as a representative method of a category."
+  },
+  "1707.04294": {
+   "markers": [],
+   "searches": 2,
+   "notes": "A 2026 ergodic control review exists but did not show this paper as a key method; not verified."
+  },
+  "1001.3485": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No qualifying evidence found."
+  },
+  "1908.03627": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No surveys, courses or libraries found; only mirrors and the authors' follow-up."
+  },
+  "2108.03213": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Found only the NeurIPS 2021 listing; no award, survey or course found."
+  },
+  "1712.00676": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Covered only in press news and blog commentary; nothing qualifying."
+  },
+  "1207.0559": {
+   "markers": [],
+   "searches": 2,
+   "notes": "QAPL 2012 proceedings volume (EPTCS 85); no markers found."
+  },
+  "1406.2963": {
+   "markers": [],
+   "searches": 2,
+   "notes": "PaleoDeepDive news coverage and the PLoS ONE version found; no qualifying Wikipedia, course, survey or adoption page verified."
+  },
+  "1408.2657": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Cray/CUG materials discuss PMDB but did not verifiably cite this paper."
+  },
+  "1810.12823": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, aggregator pages and a follow-up by the same authors were found. No award, course, library or survey evidence."
+  },
+  "2111.00933": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, the authors' own follow-ups and a dissertation were found. No third-party recognition."
+  },
+  "2004.05686": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The released Hugging Face checkpoints come from Microsoft, the authors' own organisation, so they do not count. No survey was confirmed to discuss it."
+  },
+  "1603.08042": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, Google pages and a patent were found. No survey, course or library naming it."
+  },
+  "1802.02254": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper, a KDD talk video and later research papers were found. No survey presenting it as a key method."
+  },
+  "1410.4147": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and its repository record were found. The related surveys found do not show it as a key method."
+  },
+  "2002.10198": {
+   "markers": [],
+   "searches": 2,
+   "notes": "No survey, course or tool evidence found beyond aggregator pages."
+  },
+  "2207.12256": {
+   "markers": [],
+   "searches": 2,
+   "notes": "This is a PhD dissertation. The related TMLR survey is by the same authors, so it does not count."
+  },
+  "1202.5826": {
+   "markers": [],
+   "searches": 2,
+   "notes": "This is a workshop proceedings volume. No awards or reference-work evidence found."
+  },
+  "1703.08732": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the arXiv paper was found. No adoption or survey evidence."
+  },
+  "1210.4838": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the authors' own follow-ups were found. Laszka et al.'s survey is not confirmed to feature it."
+  },
+  "2208.04003": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The JSS 2022 paper was found. No award, survey or course recognition."
+  },
+  "1208.0079": {
+   "markers": [],
+   "searches": 2,
+   "notes": "The Wikipedia probabilistic database article does not mention MarkoViews. A ProvSQL note mentions it but is not documented adoption."
+  },
+  "1312.2628": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and repository records were found."
+  },
+  "1902.03383": {
+   "markers": [
+    {
+     "type": "M2",
+     "url": "https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/lectures/Cloud--Serverless.pdf",
+     "quote": "(Source: E. Jonas et al. Cloud programming simplified. A Berkeley view on serverless computing. 2019.)",
+     "status": "verified"
+    }
+   ],
+   "searches": 3,
+   "notes": "The Grenoble lecture slides adapt the paper's figures and tables. Wikipedia lists the paper only under further reading, which is not counted."
+  },
+  "1306.3375": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and repository records were found."
+  },
+  "1911.02679": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the paper and the authors' dissertation were found."
+  },
+  "1205.6465": {
+   "markers": [],
+   "searches": 2,
+   "notes": "Only the technical report and related work by other DTU authors were found."
+  }
+ }
+}

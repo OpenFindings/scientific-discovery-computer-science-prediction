@@ -32,3 +32,4 @@ data/research_candidates_uncapped.jsonl
 data/research_candidates_uncapped.jsonl.gz
 data/prospective_2025/cache/
 data/prospective_2025/outcome_cache/
+data/prospective_2025/s2_cache/

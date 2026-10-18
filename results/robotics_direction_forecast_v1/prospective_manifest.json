@@ -1,0 +1,10 @@
+{
+ "registered_utc": "2026-10-18T00:51:48.582060+00:00",
+ "sha256": "1667c730a75b9c9e0e7eff7b0c4cb41cb61184e69b0b2be2b0348b302e3dd7e0",
+ "origin": 2025,
+ "n_topics": 15,
+ "primary_ranking": "ridge_transfer_cs",
+ "target": "CS-normalised log growth of primary-topic works, 2025 -> 2030 (Spearman)",
+ "evaluate_not_before": "2031-06-01",
+ "caveat": "ranking of existing robotics directions by forecast growth; not breakthroughs"
+}

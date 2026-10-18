@@ -1,0 +1,6 @@
+raw M0 0.66 [np.float64(0.655), np.float64(0.578), np.float64(0.671), np.float64(0.735)]
+raw M1 0.646 [np.float64(0.705), np.float64(0.591), np.float64(0.631), np.float64(0.658)]
+rank M0 0.668 [np.float64(0.672), np.float64(0.596), np.float64(0.671), np.float64(0.732)]
+rank M1 0.668 [np.float64(0.683), np.float64(0.6), np.float64(0.653), np.float64(0.735)]
+2006 2010 {'g1': np.float64(0.037), 'g3': np.float64(0.175), 'g5': np.float64(0.021), 'accel': np.float64(0.026), 'share_ml': np.float64(-0.003), 'd3share_ml': np.float64(-0.001), 'share_dl': np.float64(0.036), 'd3share_dl': np.float64(-0.021), 'd3share_company': np.float64(0.024), 'share_arxiv': np.float64(-0.015), 'd3share_arxiv': np.float64(0.006), 'share_us': np.float64(0.02), 'd3share_us': np.float64(0.045), 'd3share_conf': np.float64(-0.032)}
+2011 2014 {'g1': np.float64(0.065), 'g3': np.float64(0.221), 'g5': np.float64(0.023), 'accel': np.float64(0.036), 'share_ml': np.float64(0.058), 'd3share_ml': np.float64(0.001), 'share_dl': np.float64(0.117), 'd3share_dl': np.float64(-0.041), 'd3share_company': np.float64(0.041), 'share_arxiv': np.float64(-0.016), 'd3share_arxiv': np.float64(0.028), 'share_us': np.float64(0.053), 'd3share_us': np.float64(0.019), 'd3share_conf': np.float64(-0.003)}

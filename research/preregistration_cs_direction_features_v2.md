@@ -93,3 +93,19 @@ At most 3,000 OpenAlex requests (about 2,416 expected; free key, $1/day). No pai
 
 Code sha256 at freeze: `scripts/run_cs_direction_features_v2.py`
 `b3aab110fd970d45ca577c2ce3c919bd916bdecd23959ed38a1ebb019b9987d0`.
+
+## Result note (2026-10-18, after the frozen run)
+
+- **Discovery:** 10 of 14 candidates were selected.
+- **Confirmation:** C1 and C2 **fail**. `M1 − M0` gives ΔSpearman CI −0.060 to +0.029 and ΔAUROC
+  CI −0.056 to +0.001. C3 replicates for 8 of 10 selected features (all except `share_arxiv` and
+  `share_us`).
+- **Per the frozen rule, no new model is registered.** The 2025 feature table is descriptive only.
+
+**Exploratory diagnostic (not preregistered;** `scripts/exploratory/cs_direction_features_v2_drift.py`):
+- Ridge weights on ML/DL shares are about 0 when trained on 2006–2010 origins and grow when trained
+  on 2011–2014.
+- Per-origin rank-normalising all features gives `M1` = `M0` = 0.668.
+
+Reading: the features carry a real, replicated cross-sectional signal beyond momentum, but the
+signal does not turn into better out-of-time forecasts with this model class.
